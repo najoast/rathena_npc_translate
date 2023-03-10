@@ -1,0 +1,186 @@
+//============================================================
+//= rAthenaCN [雅基马头饰制作]汉化脚本 [ www.rAthenaCN.com ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== Hercules Script ======================================
+//= Quests: Bird Nest, Lion Mask, Skeleton Manteau,
+//=         Fashion Hip Sack & Sales Banner
+//===== By: ==================================================
+//= Lupus
+//===== Current Version: =====================================
+//= 1.01
+//===== Description: =========================================
+//= Custom quest for some RO mobile game bonus items 
+//===== Additional Comments: =================================
+//= 1 May, 2006
+//= 1.01 translated the rest of dialogues
+//============================================================
+
+gonryun,187,140,4	script	雅基马	4_F_EINWOMAN,{
+	mes "[雅基马]";
+	mes callfunc("F_Hi");
+	mes "我能够为你制作某些物品.";
+	mes "它们如今都是些相当罕见的玩意..";
+	specialeffect 417;
+	next;
+	menu "- 鸟巢帽",-,"- 狮子面具",M_2,"- 骸骨披风",M_3,"- 时尚背包",M_4,"- 销售旗帜",M_5,"- 离开",M_Exit;
+
+	mes "[雅基马]";
+	mes "哇, 这对于任何怪物猎人来说都是极好的物件.";
+	emotion ET_ROCK;
+	next;
+	mes "[雅基马]";
+	mes "为了制作帽子我需要:";
+	mes "1个   墨西哥宽边帽, ";
+	mes "920根 鸟的羽毛和";
+	mes "310个 鸟喙.";
+	next;
+	mes "[雅基马]";
+	mes "所有的物品都准备好了吗?";
+	next;
+	menu "- 是的.",-,"- 还没.",M_Exit;
+
+	if(countitem(5067) < 1 || countitem(916) < 920 || countitem(925) < 310) goto L_NOITEM;//Items: Sombrero, Feather_of_Birds, Bill_of_Birds,
+	delitem 5067,1;//Items: Sombrero,
+	delitem 916,920;//Items: Feather_of_Birds,
+	delitem 925,310;//Items: Bill_of_Birds,
+	getitem 5129,1;//Items: Bird_Nest,
+	mes "[雅基马]";
+	mes "十分感谢!";
+	mes callfunc("F_Bye");
+	close;
+
+M_2:
+	mes "[雅基马]";
+	mes "答对了! 很多人都对狮子有种莫名的恐惧..因为它的不怒自威..";
+	emotion ET_SEXY;
+	next;
+	mes "[雅基马]";
+	mes "为了制作帽子我需要:";
+	mes "1个   老虎面具, ";
+	mes "10个  虎掌,";
+	mes "30个  虎皮";
+	mes "300个 老虎内裤.";
+	next;
+	mes "[雅基马]";
+	mes "所有的物品都准备好了吗?";
+	next;
+	menu "- 是的.",-,"- 还没.",M_Exit;
+
+	if(countitem(5098) < 1 || countitem(1030) < 10 || countitem(1029) < 30 || countitem(7267) < 300) goto L_NOITEM;//Items: Tiger_Mask, Tiger_Skin, Tiger's_Footskin, Tiger_Panty,
+	delitem 5098,1;//Items: Tiger_Mask,
+	delitem 1030,10;//Items: Tiger's_Footskin,
+	delitem 1029,30;//Items: Tiger_Skin,
+	delitem 7267,300;//Items: Tiger_Panty,
+	getitem 5130,1;//Items: Lion_Mask,
+	mes "[雅基马]";
+	mes "十分感谢!";
+	mes callfunc("F_Bye");
+	close;
+
+M_3:
+	mes "[雅基马]";
+	mes "我真希望能够尽快把这邪恶的披风卖出..";
+	mes "事实上它并没有看起来那么的平整..嗯..";
+	emotion ET_KEK;
+	next;
+	mes "[雅基马]";
+	mes "我几乎可以免费把它给你, 只需要:";
+	mes "10件 老旧披风, ";
+	mes "3个  骷髅戒指, ";
+	mes "2件  1洞披风和";
+	mes "1件  褴褛披风.";
+	next;
+	mes "[雅基马]";
+	mes "所有的物品都准备好了吗?";
+	next;
+	menu "- 是的.",-,"- 还没.",M_Exit;
+
+	if(countitem(2508) < 1 || countitem(2506) < 2 || countitem(2609) < 3 || countitem(7207) < 10) goto L_NOITEM;//Items: Ragamuffin_Manteau, Manteau_, Skull_Ring, Old_Manteau,
+	delitem 2508,1;//Items: Ragamuffin_Manteau,
+	delitem 2506,2;//Items: Manteau_,
+	delitem 2609,3;//Items: Skull_Ring,
+	delitem 7207,10;//Items: Old_Manteau,
+	getitem 2511,1;//Items: Skeleton_Manteau,
+	mes "[雅基马]";
+	mes "十分感谢!";
+	mes callfunc("F_Bye");
+	close;
+
+M_4:
+	mes "[雅基马]";
+	mes "这是最新款! 配饰和包包二合一! 你会感觉到力量+2..萨比巢跟它完全不是一个档次的!";
+	mes "它只适合商人装备.";
+	emotion ET_SMILE;
+	next;
+	mes "[雅基马]";
+	mes "现在我的仓库里都是那种背包..所以只要给我三种关于花的物品和一种粗糙的衣物我就可以把它给你.";
+	mes "3朵 浪漫(蔷薇)花, ";
+	mes "3朵 鲜花";
+	mes "2枚 花朵戒指和";
+	mes "3个 海盗头巾.";
+	next;
+	mes "[雅基马]";
+	mes "所有的物品都准备好了吗?";
+	next;
+	menu "- 是的.",-,"- 还没.",M_Exit;
+
+	if(countitem(2269) < 3 || countitem(2207) < 3 || countitem(2612) < 2 || countitem(2287)<3 ) goto L_NOITEM;//Items: Romantic_Flower, Fancy_Flower, Flower_Ring,
+	delitem 2269,3;//Items: Romantic_Flower,
+	delitem 2207,3;//Items: Fancy_Flower,
+	delitem 2612,2;//Items: Flower_Ring,
+	delitem 2287,3;//Items: Pirate_Bandana
+	getitem 2641,1;//Items: Fashion_Hip_Sack,
+	mes "[雅基马]";
+	mes "十分感谢!";
+	mes callfunc("F_Bye");
+	close;
+
+M_5:
+	mes "[雅基马]";
+	mes "很好, 很好, 很好, 这种指示牌在某种程度上来说适用于所有人.";
+	mes "你的竞争对手会被弄得头晕目眩!";
+	emotion ET_BEST;
+	next;
+	mes "[雅基马]";
+	mes "那么, 我们需要以下的日常物品来制作它.";
+	mes "1个   红色染料";
+	mes "1个   橙色染料, ";
+	mes "2个   停止标识牌, ";
+	mes "3个   小丑鼻子, ";
+	mes "180片 无花果叶子和";
+	mes "20个  坚硬的桃子";
+	next;
+	mes "[雅基马]";
+	mes "所有的物品都准备好了吗?";
+	next;
+	menu "- 是的.",-,"- 还没.",M_Exit;
+
+	if(countitem(975) < 1 || countitem(980) < 1 || countitem(2272) < 2 || countitem(2262) < 3 || countitem(7298) < 180 || countitem(7164) < 20) goto L_NOITEM;//Items: Scarlet_Dyestuff, Orange_Dyestuff, Stop_Post, Clown_Nose, Fig_Leaf, Solid_Peach,
+	delitem 975,1;//Items: Scarlet_Dyestuff,
+	delitem 980,1;//Items: Orange_Dyestuff,
+	delitem 2272,2;//Items: Stop_Post,
+	delitem 2262,3;//Items: Clown_Nose,
+	delitem 7298,180;//Items: Fig_Leaf,
+	delitem 7164,20;//Items: Solid_Peach,
+	getitem 5100,1;//Items: Sales_Banner,
+	mes "[雅基马]";
+	mes "十分感谢!";
+	mes callfunc("F_Bye");
+	close;
+
+L_NOITEM:
+	mes "[雅基马]";
+	mes "你没有准备好所有物品.请准备好再来.";
+	emotion ET_SORRY;
+	close;
+
+M_Exit:
+	mes "[雅基马]";
+	mes callfunc("F_Bye");
+	close;
+}

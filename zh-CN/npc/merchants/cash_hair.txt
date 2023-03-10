@@ -1,0 +1,145 @@
+//===== rAthena Script ======================================= 
+//= Cash Hair Stylist
+//===== By: ================================================== 
+//= Kisuka
+//===== Current Version: ===================================== 
+//= 1.0
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Exchange cash item, New_Style_Coupon, for new hair styles.
+//===== Additional Comments: ================================= 
+//= 1.0 First Version. [Kisuka]
+//============================================================
+
+itemmall,19,74,5	script	美发设计师#cash	91,{
+	mes "[美发设计师]";
+	mes "你好吗，我是流浪美发设计师，";
+	mes "叫做史维妮，这次我想用";
+	mes "帅气、美艳又新式的发型来";
+	mes "诏告天下，并创造流型和风潮，";
+	mes "因此才跑到这里来";
+	next;
+	mes "[史维妮]";
+	mes "只要有^FF0000美发礼卷^000000的话，";
+	mes "我就能为您服务了，";
+	mes "可以体验男女各2种";
+	mes "不同的发型喔";
+	next;
+	mes "[史维妮]";
+	mes "你可以先去欣赏一下";
+	mes "那些发型，一定会";
+	mes "找到你中意的发型";
+	next;
+	if (Sex == SEX_MALE) {
+		mes "[史维妮]";
+		mes "你是帅哥... 有紧急治疗烫发和";
+		mes "灵气剑俏发两种发型";
+		next;
+		cutin "hair_m_24",4;
+		mes "[史维妮]";
+		mes "首先是紧急治疗烫发...";
+		next;
+		mes "[史维妮]";
+		mes "怎麽样，这是叫做紧急治疗";
+		mes "烫发的新式";
+		mes "发型，下一种是...";
+		next;
+		cutin "hair_m_24",255;
+		cutin "hair_m_25",4;
+		mes "[史维妮]";
+		mes "还有灵气剑俏发";
+		mes "发型";
+		next;
+		mes "[史维妮]";
+		mes "你觉得如何，两种";
+		mes "都是很赞的发型吧?";
+		next;
+		cutin "hair_m_25",255;
+	}
+	else {
+		mes "[史维妮]";
+		mes "你是美女... 有圣母之祈福烫发和";
+		mes "心神互换俏发两种发型";
+		next;
+		cutin "hair_f_24",4;
+		mes "[史维妮]";
+		mes "首先是圣母之祈福烫发...";
+		next;
+		mes "[史维妮]";
+		mes "怎麽样，这是叫做圣母之祈福";
+		mes "烫发的新式";
+		mes "发型，下一种是...";
+		next;
+		cutin "hair_f_24",255;
+		cutin "hair_f_25",4;
+		mes "[史维妮]";
+		mes "还有心神互换俏发";
+		mes "发型";
+		next;
+		mes "[史维妮]";
+		mes "你觉得如何，两种";
+		mes "都是很赞的发型吧?";
+		next;
+		cutin "hair_f_25",255;
+	}
+	mes "[史维妮]";
+	mes "你若有中意的";
+	mes "发型的话...";
+	next;
+	mes "[史维妮]";
+	mes "请问你要不要";
+	mes "换一下发型呢?";
+	next;
+	if (select("换发型:不换发型")==2) {
+		mes "[史维妮]";
+		mes "好可惜喔，下次";
+		mes "改变心意的话，";
+		mes "再来找我吧";
+		close;
+	}
+	else {
+		if(countitem(7622)) {
+			mes "[史维妮]";
+			mes "你有美发礼卷..";
+			mes "那你希望换成哪一种";
+			mes "发型呢?";
+			next;
+			if(Sex) {
+				if(select("紧急治疗烫发:灵气剑俏发")==1) {
+					delitem 7622,1;
+					setlook 1,24;
+				}
+				else {
+					delitem 7622,1;
+					setlook 1,25;
+				}
+			}
+			else {
+				if (select("圣母之祈福烫发:心神互换俏发")==1) {
+					delitem 7622,1;
+					setlook 1,24;
+				}
+				else {
+					delitem 7622,1;
+					setlook 1,25;
+				}
+			}
+			mes "[史维妮]";
+			mes "那麽欢迎下次再来，";
+			mes "谢谢光临";
+			close;
+		}
+		else {
+			mes "[史维妮]";
+			mes "好可惜喔，因客官身上";
+			mes "没有美发礼卷的关系，";
+			mes "我就不能为您服务罗";
+			next;
+			mes "[史维妮]";
+			mes "请你带着美发礼卷，";
+			mes "再来找我吧";
+			close;
+		}
+	}
+}

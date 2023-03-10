@@ -1,0 +1,130 @@
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== rAthena Script =======================================  
+//= Pile Bunker Quest
+//===== By: ================================================== 
+//= JayPee Mateo
+//===== Current Version: ===================================== 
+//= 2.2
+//===== Compatible With: ===================================== 
+//= rAthena SVN
+//===== Description: ========================================= 
+//= 1.0 A Pile Bunker quest based on iRO WiKi. [JayPee Mateo]
+//= 2.0 Rewrited the Script a little so it looks a bit better. [Masao]
+//= 2.1 Switched to official script, coded by Gennosuke Kouga. [Euphy]
+//= 2.2 Updated to match the official script. [Euphy]
+//============================================================ 
+
+yuno,179,174,4	script	高梅尔	4_M_REPAIR,{
+	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 1000) {
+		mes "[高梅尔]";
+		mes "你带的东西太多了, 请整理背包后来来.";
+		close;
+	}
+	if (countitem(1549)) {
+		mes "[高梅尔]";
+		mes "你的冲击锥用下来感觉如何?";
+		close;
+	}
+	if (Class != Job_Mechanic && Class != Job_Mechanic_T && Class != Job_Baby_Mechanic) {
+		mes "[高梅尔]";
+		mes "我是一个退休的技工, 我不认为我和你会有任何的业务.";
+		close;
+	}
+	mes "[高梅尔]";
+	mes "然后? 怎么感觉你看上去像个魔导机械?";
+	mes "这件事情, 不允许那些没有去寻求自己的道路的人去做.";
+	next;
+	mes "[高梅尔]";
+	mes "我? 我退休很久了. 因为我碰到了一个意外...以致元气大伤, 将无法再骑车. 我非常痛苦.";
+	next;
+	mes "[高梅尔]";
+	mes "所以我决定留在这儿为魔导机械锻造齿轮.";
+	mes "嗯? 我不是说我对这项工作有任何意见.";
+	next;
+	mes "[高梅尔]";
+	mes "被迫做你不喜欢的东西, 没有什么比这更悲惨.";
+	next;
+	mes "[高梅尔]";
+	mes "有些人很高兴, 把人们作为他们的工具, 你知道的, 这就是有靠山的好处.";
+	next;
+	mes "[高梅尔]";
+	mes "我正在为一个新的魔导机械制作齿轮. 我需要一些帮助, 你有没兴趣?";
+	next;
+	switch(select("- 我不感兴趣.:- 你打算做什么?:- 你在哪里得到的材料?:- 我带来的材料.")) {
+	case 1:
+		mes "[高梅尔]";
+		mes "对此我也无能为力";
+		mes "再见!";
+		mes "一路顺风!";
+		close;
+	case 2:
+		mes "[高梅尔]";
+		mes "嗯, 一个巨大的金属棍, 可以粉碎对手一击!";
+		next;
+		mes "[高梅尔]";
+		mes "它看起来并不花哨, 但我设计了一个弹簧加载的设备, 凭借强大的实力攻击.";
+		next;
+		mes "[高梅尔]";
+		mes "你很容易把它藏匿起来, 因此, 当你看准机会, 可以把对手一击致命!";
+		mes "我等不及想要看到它出世了!";
+		next;
+		mes "[高梅尔]";
+		mes "这种武器可能比你想象的更好, 我会把它变成现实.";
+		next;
+		mes "[高梅尔]";
+		mes "给我 200 个钢铁, 30 个软管, 和 1 个魔力之矛. 我可以通过这些材料把它做出来.";
+		close;
+	case 3:
+		mes "[高梅尔]";
+		mes "你可以从狗头人这里获得材料钢铁.";
+		next;
+		mes "[高梅尔]";
+		mes "柔性管的比较少见, 艾音布罗克附近可能会有一些.";
+		next;
+		mes "[高梅尔]";
+		mes "最后, 找到一把坚硬的魔力之矛, 但你应该能够做一些事情. 哈哈, 想办法搞到它!";
+		close;
+	case 4:
+		if (countitem(999) < 200 || countitem(7325) < 30 || countitem(1415) < 1) {
+			mes "[高梅尔]";
+			mes "你还没有把我所说的所有材料都带来.";
+			next;
+			mes "[高梅尔]";
+			mes "我习惯放弃一些事情, 这样可以让我有更多的时间思考, 从而会获得更多的灵感.";
+			mes "你需要快点了!";
+			close;
+		} else {
+			mes "[高梅尔]";
+			mes "哦, 我一直在等你. 你很不守时, 我甚至觉得你可能忘记我们的约定了. 也请你在这里等一会吧.";
+			specialeffect EF_REPAIRWEAPON;
+			next;
+			mes "[高梅尔]";
+			mes "完成了. 你是怎么想的? 不赖, 呃? 虽然是我自己做的, 我不得不说这做的非常好.";
+			next;
+			mes "[高梅尔]";
+			mes "重量, 体积, 看看它的颜色和光泽. 它征服了我的心!";
+			next;
+			mes "[高梅尔]";
+			mes "...........";
+			next;
+			mes "[高梅尔]";
+			mes "嗯, 没有明显的瑕疵, 它可以被大量生产并交付. 我相信, 我可以制作很多这样的武器, 只要有足够的材料.";
+			next;
+			mes "[高梅尔]";
+			mes "噢, 事实证明, 钢材的需求量可能没有我想象的呢么大. 所以, 这些多余的钢材你留着以后用吧.";
+			delitem 999,50; //Steel
+			delitem 7325,30; //Tube
+			delitem 1415,1; //Skewer
+			getitem 1549,1; //Pilebuncker
+			getitem 1360,1; //Two_Handed_Axe
+			close;
+		}
+	}
+}

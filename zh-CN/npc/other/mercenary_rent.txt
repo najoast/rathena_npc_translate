@@ -1,0 +1,327 @@
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== rAthena Script =======================================  
+//= Mercenary related NPCs
+//===== By: ================================================== 
+//= L0ne_W0lf
+//===== Current Version: ===================================== 
+//= 1.5
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Sells Lancer, Sword, and Archer mercenaries,
+//= along with related mercenary items.
+//===== Additional Comments: ================================= 
+//= 1.0 First version. [L0ne_W0lf]
+//= 1.1 Optimization. [Zephyrus]
+//= 1.2 Removed redundent input. [L0ne_W0lf]
+//= 1.3 Duplicates now spawned from floating NPCs. [L0ne_W0lf]
+//= 1.4 Optimized and fixed wrong item id. [Joseph]
+//= 1.5 Added Mercenary Guild Switch & fixed a bug
+//=		in izlude duplicate. [Capuche]
+//= 1.5a Change to F_GM_NPC function in Mercenary Guild Switch
+//============================================================ 
+
+-	script	Mercenary Manager#main	-1,{
+	setarray .@name$, 	"枪佣兵", 			"剑佣兵", 			"弓佣兵";
+	setarray .@faith$, 	"SPEAR_MERC_GUILD",	"SWORD_MERC_GUILD",	"ARCH_MERC_GUILD";
+	setarray .@item, 	12182,				12172,				12162;
+	.@npc$ = strnpcinfo(2);
+	for (.@size = getarraysize(.@name$); .@type < .@size; .@type++)
+		if( compare( .@npc$,.@name$[.@type] ) ) break;
+	.@faith_merc = mercenary_get_faith(getd(.@faith$[.@type]));
+	mes "[佣兵管理员]";
+	mes "欢迎来到";
+	mes .@name$[.@type] + " 佣兵工会.";
+	mes "我能为你做什么?";
+	next;
+	switch(select("- 雇佣佣兵:- 佣兵信息:- 取消:- 10级佣兵")) {
+		case 1:
+			mes "[佣兵管理员]";
+			mes "你想雇佣";
+			mes .@name$[.@type] + " 佣兵吗?";
+			mes "你想聘用";
+			mes "多少级的佣兵?";
+			next;
+			for (.@i = 1; .@i <= 9; .@i++)
+				.@menu$ = .@menu$ + callfunc("F_GetNumSuffix",.@i) + " Grade " + .@name$[.@type] + " Mercenary:";
+			.@Grade = select(.@menu$);
+			.@BaseLevel = 5 + (.@Grade * 10);
+			.@BaseLevel = (.@val > 90)? 90 : .@BaseLevel;
+			.@ZenyCost = 7 * .@Grade;
+			setarray .@FaithCost[7], 50,100,300;
+			.@FaithCost = .@FaithCost[.@Grade];
+			mes "[佣兵管理员]";
+			mes "So you want to hire a " + callfunc("F_GetNumSuffix",.@Grade);
+			mes "级 " + .@name$[.@type] + " 佣兵?";
+			mes "你需要达到";
+			mes "基本等级 " + .@BaseLevel + " , 并且";
+			mes "你需要付 " + .@ZenyCost + ",000 zeny .";
+			next;
+			if(select("是:否") == 2) {
+				mes "[佣兵管理员]";
+				mes "呵呵, 你确定吗? 那好吧";
+				mes "也许时间不合适.";
+				mes "你再考虑一下,";
+				mes "如果你改变主意";
+				mes "我们欢迎你随时回来";
+				mes "再见！";
+			}
+			else if(.@FaithCost && .@faith_merc < .@FaithCost) {
+				mes "[佣兵管理员]";
+				mes "唔... 雇佣失败";
+				mes "这个 " + .@name$[.@type] + " 佣兵";
+				mes "所需要忠诚度不足,";
+				mes "不能雇佣这个佣兵. 亲";
+				mes "欢迎再来，你还需要";
+				mes "" + .@FaithCost + " 的忠诚度.";
+				mes "忠诚度需要为完成佣兵工会任务获得.";
+			}
+			else if (BaseLevel < .@BaseLevel) {
+				mes "[佣兵管理员]";
+				mes "对不起, ";
+				mes "基本等级不足";
+				mes "不能雇佣这个佣兵.";
+				mes "当你达到 " + .@BaseLevel + ".";
+				mes "欢迎再来";
+			}
+			else if (Zeny < .@ZenyCost * 1000) {
+				mes "[佣兵管理员]";
+				mes "对不起, ";
+				mes "金钱不足";
+				mes "不能雇佣这个佣兵.";
+				mes "雇佣的费用为 " + .@ZenyCost + ",000 zeny.";
+			}
+			else {
+				mes "[佣兵管理员]";
+				mes "好! ";
+				mes "我们的佣兵非常忠诚";
+				mes "能够保护主人.";
+				mes "召唤佣兵时";
+				mes "您将会有30分钟使用时间";
+				mes "现在你需要小心了.";
+				Zeny = Zeny - (.@ZenyCost * 1000);
+				getitem .@item[.@type] - 10 + .@Grade, 1;
+			}
+			close;
+		case 2:
+			mes "[佣兵管理员]";
+			mes "佣兵是能够与您";
+			mes "在战场上并肩作战的战友";
+			mes "但是，有些基本原则";
+			mes "遵守原则才能雇佣";
+			mes "强大而忠诚的佣兵.";
+			next;
+			mes "[佣兵管理员]";
+			mes "你必须达到一定级别";
+			mes "并且支付足够的zeny";
+			mes "才能雇佣佣兵.";
+			mes "高等级佣兵";
+			mes "同时会要求你";
+			mes "与我们建立忠诚度评价.";
+			next;
+			mes "[佣兵管理员]";
+			mes "佣兵召唤书不能";
+			mes "转交给其他任何人,";
+			mes "并且我只允许与佣兵之间有5级差异";
+			mes "所以你不能雇佣比你等级高太多的佣兵.";
+			next;
+			mes "[佣兵管理员]";
+			mes "那么, 当你签署雇佣";
+			mes "协议之后你会发现";
+			mes "你收到一个佣兵召唤书";
+			mes "使用佣兵召唤书";
+			mes "能够召唤出佣兵";
+			next;
+			mes "[佣兵管理员]";
+			mes "你不能把佣兵召唤书";
+			mes "给其他任何人，并且";
+			mes "在你召唤佣兵之后";
+			mes "佣兵只能伴随你30分钟时间";
+			mes "别忘了使用时间";
+			close;
+		case 3:
+			mes "[佣兵管理员]";
+			mes "你不需要任何帮助吗";
+			mes "欢迎下次再来";
+			mes "如果有任何问题";
+			mes "可以随时向我询问.";
+			close;
+		case 4:
+			mes "[佣兵管理员]";
+			mes "10级佣兵是";
+			mes "我们所能提供最好的佣兵,";
+			mes "对于我们的顾客";
+			mes "我们有不同的雇佣标准.";
+			mes "不需要钱";
+			mes "但是需要 500 忠诚度.";
+			next;
+			mes "[佣兵管理员]";
+			mes "一旦你雇佣了";
+			mes "一个10级的佣兵,";
+			mes "你的忠诚度 等级 将会";
+			mes "减少 400.换句话说";
+			mes "你必须支付 400 忠诚度";
+			mes "才能够雇佣10级别佣兵.";
+			next;
+			mes "[佣兵管理员]";
+			mes "你也必须在";
+			mes "基本等级 90 以上才能";
+			mes "雇佣10级佣兵.";
+			mes "你还想继续了解嘛";
+			next;
+			if (select("- 是:- 否") == 2) {
+				mes "[佣兵管理员]";
+				mes "我明白了... ";
+				mes "需要付出劳动";
+				mes "才能达到雇佣10级佣兵";
+				mes "的要求";
+				mes "你要雇佣一个低一点佣兵吗";
+			}
+			else if (.@faith_merc < 500) {
+				mes "[佣兵管理员]";
+				mes "对不起..";
+				mes "你的 忠诚度 太低";
+				mes "不能雇佣10级佣兵";
+				mes "你必须有";
+				mes "500 或者更多 忠诚度";
+				mes "才能雇佣佣兵.";
+			}
+			else if (BaseLevel < 90) {
+				mes "[佣兵管理员]";
+				mes "对不起...";
+				mes "基本等级必须 90 以上";
+				mes "才能雇佣10级佣兵";
+			}
+			else {
+				mes "[佣兵管理员]";
+				mes "恭喜你! ";
+				mes "你看起来要做一些";
+				mes "危险工作.";
+				mes "所以才雇佣10级佣兵的吧";
+				mes "我祝你好运";
+				mercenary_set_faith getd(.@faith$[.@type]),-400;
+				getitem .@item[.@type],1;
+			}
+			close;
+	}
+}
+prontera,41,337,5	duplicate(Mercenary Manager#main)	佣兵管理员#枪佣兵	8W_SOLDIER
+pay_arche,99,167,4	duplicate(Mercenary Manager#main)	佣兵管理员#弓佣兵	4_M_JOB_HUNTER
+
+// Mercenary Merchant NPCs
+//============================================================
+-	script	Mercenary Merchant#dummy::MercMerchant	-1,{
+	mes "[佣兵药剂管理员]";
+	mes "你好, 我在卖佣兵";
+	mes "使用的药水.";
+	mes "有什么你想要的吗";
+	next;
+	setarray .@item, 12184,	12185,	12241,	12242,	12243;
+	setarray .@cost, 1750,	3000,	560,	1050,	2100;
+	for (.@size = getarraysize(.@item); .@i < .@size; .@i++)
+		.@menu$ = .@menu$ + getitemname(.@item[.@i]) + ":";
+	.@m = select(.@menu$)-1;
+	.@str$ = .@cost[.@m] + "";
+	.@len = getstrlen(.@str$);
+	.@str_cost$ = (.@len <= 3)? .@str$ : insertchar(.@str$,",",.@len-3);
+	mes "[佣兵药剂管理员]";
+	mes getitemname(.@item[.@m]);
+	mes "需要 " + .@str_cost$ + " zeny.";
+	mes "你想要多少?";
+	next;
+	input .@input;
+	if (!.@input) {
+		mes "[佣兵药剂管理员]";
+		mes "你改变注意了吗";
+		mes "好吧, 欢迎下次再来";
+		close;
+	}
+	else if (.@input < 0 || .@input > 10000) {
+		mes "[佣兵药剂管理员]";
+		mes "对不起, ";
+		mes "最多一次性购买";
+		mes "10,000 瓶";
+		mes "请输入 1 到 10,000";
+		mes "之间的数字.";
+		close;
+	}
+	else if (set(.@total_po, .@input * .@cost[.@m]) > Zeny) {
+		mes "[佣兵药剂管理员]";
+		mes "对不起,";
+		mes "你的金钱不足";
+		mes "我会在这里等你再来";
+		close;
+	}
+	else if (!checkweight(.@item[.@m], .@input)) {
+		mes "[佣兵药剂管理员]";
+		mes "负重不够";
+		mes "就算我给了你药水";
+		mes "你也带不走.";
+		mes "去减轻负重";
+		mes "然后再来";
+		close;
+	}
+	mes "[佣兵药剂管理员]";
+	if (.@input == 1) 
+		mes "给你" + getitemname(.@item[.@m]) + ".";
+	else {
+		mes "给你, 总共";
+		mes callfunc("F_InsertPlural",.@input,getitemname(.@item[.@m])) + ".";
+	}
+	mes "谢谢, ";
+	mes "如果有需要的时候";
+	mes "欢迎再来";
+	Zeny = Zeny - .@total_po;
+	getitem .@item[.@m], .@input;
+	close;
+}
+prontera,30,337,4	duplicate(MercMerchant)	佣兵商人#Spear	8_F_GIRL
+pay_arche,102,167,5	duplicate(MercMerchant)	佣兵商人#Bow	4_F_CAPEGIRL
+
+// Mercenary Switch NPCs
+//============================================================
+-	script	Mercenary_Switch	-1,{
+
+	setarray .@name$, "Spear","Sword","Bow";
+	.@npc$ = strnpcinfo(2);
+	for (.@size = getarraysize(.@name$); .@type < .@size; .@type++)
+		if (.@npc$ == .@name$[.@type]) break;
+
+	mes "[Checker]";
+	mes "Please input a password.";
+	next;
+	.@i = callfunc("F_GM_NPC",1854,0,0,10000);
+	mes "[Checker]";
+	if (.@i == -2)
+		mes "Error.";
+	else if (.@i == 0)
+		mes "Wrong number";
+	else if (.@i == 1) {
+		mes "Please select.";
+		next;
+		switch( select( "Turn off Mercenary NPC","Turn on Mercenary NPC" ) ) {
+		case 1:
+			mes "NPCs are turned off.";
+			disablenpc "Mercenary Manager#" + .@name$[.@type];
+			disablenpc "Mercenary Merchant#" + .@name$[.@type];
+			break;
+		case 2:
+			mes "NPCs are turned on.";
+			enablenpc "Mercenary Manager#" + .@name$[.@type];
+			enablenpc "Mercenary Merchant#" + .@name$[.@type];
+			break;
+		}
+	}
+	close;
+}
+prontera,299,379,5	duplicate(Mercenary_Switch)	Mercenary Switch#Spear	8W_SOLDIER
+pay_arche,170,185,5	duplicate(Mercenary_Switch)	Mercenary Switch#Bow	4_F_CAPEGIRL
+izlude,245,250,4	duplicate(Mercenary_Switch)	Mercenary Switch#Sword	4_F_HUWOMAN

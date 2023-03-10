@@ -1,0 +1,111 @@
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== rAthena Script ======================================= 
+//= Eden Group Quests - Mission [86 - 90]
+//===== By: ==================================================
+//= Chilly
+//===== Current Version: =====================================
+//= 1.2
+//===== Compatible With: =====================================
+//= rAthena SVN
+//===== Description: =========================================
+//= Repetable Quests for Players between Baselevel 86 - 90.
+//===== Additional Comments: =================================
+//= 1.0 First Version. [Chilly]
+//= 1.1 Some little improvements here and there. [Masao]
+//= 1.2 Optimized. [Euphy]
+//============================================================
+
+moc_para01,48,175,3	script	任务 [86 - 90]	857,{
+	if (countitem(6219) < 1) {
+		mes "- 只有成为伊甸园的成员后， -";
+		mes "- 才能阅读这块布告栏。 -";
+		close;
+	}
+	if (BaseLevel < 86) {
+		mes "- 这些任务只适合更高级别的冒险者。 -";
+		mes "- 还是先去其他布告栏中找找合适我的任务吧！ -";
+		close;
+	}
+	if (BaseLevel > 90) {
+		setarray .@Exp[0],76000,82000,82000,72000,76000,72000,117000,82000,120000,72000,72000,72000,86000,80000;
+		setarray .@Mob$[0],"刺尾蜻蜓","弹簧兔","单眼虫","巫婆","钟怪","芭芭亚卡","妖君","武士火枪兵","拉链熊","毕帝特地龙","草精","毒液魔","矿工魔","黄诺博斯";
+		for(set .@i,0; .@i<14; set .@i,.@i+1)
+			if (checkquest(4167+.@i,HUNTING) == 2) {
+				mes "你已经狩猎完30只"+.@Mob$[.@i]+"了。";
+				mes "非常感谢！";
+				next;
+				mes "这是给你的小小礼物。";
+				mes "尽管不多，但是希望能对你有所帮助。";
+				next;
+				erasequest 4167+.@i;
+				getexp .@Exp[.@i],0;
+				mes "哇哦~";
+				mes "祝你好运~！";
+				close;
+			}
+		mes "- 这些任务只适合对应级别的冒险家。 -";
+		mes "- 我应该去其他的布告栏上看看有没有我能做的任务。 -";
+		close;
+	}
+	mes "- 布告栏上现有的狩猎任务： -";
+	next;
+	switch(select("龟岛地区:钟塔地区:本地区域:其它区域")) {
+	case 1:
+		switch(select("刺尾蜻蜓:弹簧兔:单眼虫")) {
+			case 1: callsub L_Quest,4167,"刺尾蜻蜓",76000;
+			case 2: callsub L_Quest,4168,"弹簧兔",82000;
+			case 3: callsub L_Quest,4169,"单眼虫",82000;
+		}
+	case 2:
+		switch(select("巫婆:钟怪")) {
+			case 1: callsub L_Quest,4170,"巫婆",72000;
+			case 2: callsub L_Quest,4171,"钟怪",76000;
+		}
+	case 3:
+		switch(select("芭芭亚卡:妖君:武士火枪兵:拉链熊")) {
+			case 1: callsub L_Quest,4172,"芭芭亚卡",72000;
+			case 2: callsub L_Quest,4173,"妖君",117000;
+			case 3: callsub L_Quest,4174,"武士火枪兵",82000;
+			case 4: callsub L_Quest,4175,"拉链熊",120000;
+		}
+	case 4:
+		switch(select("毕帝特地龙:草精:毒液魔:矿工魔:黄诺博斯")) {
+			case 1: callsub L_Quest,4176,"毕帝特地龙",72000;
+			case 2: callsub L_Quest,4177,"草精",72000;
+			case 3: callsub L_Quest,4178,"毒液魔",72000;
+			case 4: callsub L_Quest,4179,"矿工魔",86000;
+			case 5: callsub L_Quest,4180,"黄诺博斯",80000;
+		}
+	}
+	end;
+L_Quest:
+	if (checkquest(getarg(0),HUNTING) == 2) {
+		mes "你已经狩猎完30只"+getarg(1)+"了";
+		mes "非常感谢！";
+		next;
+		mes "这是给你的小小礼物。";
+		mes "尽管不多，但是希望能对你有所帮助。";
+		next;
+		erasequest getarg(0);
+		getexp getarg(2),0;
+		mes "哇哦~";
+		mes "祝你好运~！";
+		close;
+	}
+	if (checkquest(getarg(0)) == -1) {
+		setquest getarg(0);
+		mes "请狩猎完30只"+getarg(1)+"后再返回这里。";
+		close;
+	}
+	mes "俄。。你还没有完成呢。。";
+	mes "需要狩猎30只"+getarg(1)+"哦~";
+	mes "要不你再检查一下看看？";
+	close;
+}

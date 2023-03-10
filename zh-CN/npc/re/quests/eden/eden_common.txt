@@ -1,0 +1,416 @@
+//============================================================
+//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== rAthena Script =======================================  
+//= Eden Group Quests - Common NPCs
+//===== By: ================================================== 
+//= L0ne_W0lf
+//===== Current Version: ===================================== 
+//= 1.8
+//===== Compatible With: ===================================== 
+//= rAthena SVN
+//===== Description: ========================================= 
+//= Eden Group Headquarter NPC's.
+//===== Additional Comments: ================================= 
+//= 1.0 First Version.
+//= 1.1 Removed showevent use, and use of duplicates.
+//=     Commented out warps that should not be active.
+//= 1.2 Reduced 300+ copy-paste lines to 1 duplicated NPC. [Brian]
+//= 1.3 Some little optimization here and there. [Masao]
+//= 1.4 Updated to match the new Izlude Map. [Masao]
+//= 1.5 Added some missing Eden Group Teleport Officers. [Masao]
+//= 1.6 Added Izlude RE coordinates. [Euphy]
+//= 1.7 Added Malaya teleporter. [Euphy]
+//= 1.8 Updated to match the latest official script. [Euphy]
+//============================================================
+
+moc_para01,27,35,5	script	秘书莱美埃文诺	952,{
+	if (checkweight(1201,1) == 0 || (MaxWeight - Weight) < 2000) {
+		mes "- 等一下!! -";
+		mes "- 你身上带了太多的物品了. -";
+		mes "- 等你减轻一下负重再来尝试一下吧! -";
+		mes "- 请整理背包后 -";
+		mes "- 再来尝试. -";
+		close;
+	}
+	mes "[莱美 埃文诺]";
+	mes "喜欢追求冒险和浪漫的人请听我说. 我们这里是如同极乐世界一般的伊甸园团体. 你再也找不到其他像这样的地方了.";
+	mes "你好, 需要什么帮助么?";
+	next;
+	while (1) {
+		switch (select("- 什么是伊甸园?:- 加入伊甸园.:- 委托任务.:- 搜索任务.:- 取消.")) {
+		case 1:
+			mes "[莱美 埃文诺]";
+			mes "伊甸园团体是一个帮助卢恩·米德加兹王国人民远离困扰的组织.";
+			next;
+			mes "[莱美 埃文诺]";
+			mes "如果有人需要帮助, 我们会将委托张贴在布告栏中, 介绍给那些乐意助人的团员们.";
+			next;
+			mes "[莱美 埃文诺]";
+			mes "伊甸园的成员们可以查看布告栏并帮助那些发布任务的委托人.";
+			mes "团员们完成任务后会获得相应的报酬.";
+			next;
+			mes "[莱美 埃文诺]";
+			mes "如果你对这个世界还相当陌生, 加入我们是一个不错的探索世界的选择.";
+			mes "当然啦, 如果你已经足够强大, 你也可以作任务的同时周游世界, 结交新的朋友. 你的大名也会在世界各地传播开来~ ";
+			next;
+			break;
+		case 2:
+			if (countitem(6219) < 1) {
+				mes "[莱美 埃文诺]";
+				mes "很简单的, 你只要在我这里注册了, 就能成为伊甸园的一员.";
+				mes "你想要加入伊甸园么?";
+				next;
+				switch (select("- 是的,我要加入!:- 不,我还不想加入.")) {
+				case 1:
+					mes "[莱美 埃文诺]";
+					mes "噢！太好了，请在这儿写下你的名字。";
+					input .@input$;
+					next;
+					mes "[莱美 埃文诺]";
+					mes "已经写好了吗?";
+					mes "让我来看看.";
+					next;
+					mes "[莱美 埃文诺]";
+					mes "你的名字是^3131FFBo"+.@input$+"Ba^000000..? 对么？";
+					mes "呃...不是这个??";
+					next;
+					emotion ET_SWEAT;
+					mes "[莱美 埃文诺]";
+					mes "唔.. 这不是你写的?";
+					mes "呃.. 这名字念起来真奇怪..";
+					next;
+					mes "[莱美 埃文诺]";
+					mes "好了, 请再次写下你的名字吧! 这回要写得^3131FF清清楚楚^000000哦~";
+					input .@input$;
+					next;
+					mes "[莱美 埃文诺]";
+					mes "啊哈! 你叫^3131FF"+strcharinfo(0)+"^000000呀!";
+					mes "这回没错了.";
+					next;
+					emotion ET_BEST;
+					mes "[莱美 埃文诺]";
+					mes "我已经把你的名字登记入列表了!";
+					mes "欢迎成为伊甸园团体的一员!";
+					next;
+					mes "[莱美 埃文诺]";
+					mes "成为伊甸园的一员后希望你能有所成就!";
+					getitem 6219,1; //Para_Team_Mark
+					next;
+					break;
+				case 2:
+					mes "[莱美 埃文诺]";
+					mes "对于伊甸园团体你还有什么疑问吗?";
+					next;
+					break;
+				}
+			} else {
+				mes "[莱美 埃文诺]";
+				mes "你已经是伊甸园的成员了.";
+				next;
+			}
+			break;
+		case 3:
+			mes "[莱美 埃文诺]";
+			mes "你想在我们这发布一些任务希望我们帮你完成?";
+			next;
+			if(select("- 是的, 我想注册.:- 不, 我不需要.") == 1) {
+				mes "[莱美 埃文诺]";
+				mes "好的. 请先输入您的名字.";
+				input .@input$;
+				next;
+				mes "[莱美 埃文诺]";
+				mes "^3131FF"+strcharinfo(0)+"^000000.. 是你的名字?";
+				mes "嗯, 你的笔迹不清晰. 我看不太清.";
+				next;
+				mes "[莱美 埃文诺]";
+				mes "^3131FF"+strcharinfo(0)+"^000000, 告诉我你想登记什么事情.";
+				mes "想让我们去哪个地图做事?";
+				input .@input$;
+				next;
+				mes "[莱美 埃文诺]";
+				mes "^3131FF任务地图: "+.@inputstr$+"^000000";
+				mes "嗯, 我会记录好这信息.";
+				next;
+				mes "[莱美 埃文诺]";
+				mes "请告诉我们, 你正想发布声明类型的任务.";
+				mes "比如类似 '击杀10个波利.'";
+				input .@input$;
+				next;
+				mes "[莱美 埃文诺]";
+				mes "好了吗?";
+				mes "让我看看.";
+				next;
+				mes "[莱美 埃文诺]";
+				mes "呼...........";
+				next;
+				mes "[莱美 埃文诺]";
+				mes "唔.. 呼??..................";
+				next;
+				emotion ET_THINK;
+				mes "[莱美 埃文诺]";
+				mes "在你发布新任务前, 我想你应该先完成我们给你的任务.";
+				next;
+				emotion ET_HNG;
+				mes "[莱美 埃文诺]";
+				mes "^3131FF发布者: 莱美 埃文诺^000000";
+				mes "^3131FF任务: 练习你的书法一个月.^000000";
+				mes "你的字写的真糟!";
+				next;
+				mes "[莱美 埃文诺]";
+				mes "^3131FF任务:"+.@input$+"^000000";
+				mes "无论如何, 您已经注册完成了一个新的任务.";
+				next;
+				mes "[莱美 埃文诺]";
+				mes "任务爆满. 你必须等待清理任务流程.";
+				mes "在轮到你之前请耐心等待.";
+				next;
+			}
+			break;
+		case 4:
+			if (countitem(6219) > 0) {
+				mes "[莱美 埃文诺]";
+				mes "你想尝试一下完成这儿的任务吗？";
+				next;
+				mes "[莱美 埃文诺]";
+				mes "去看看右边的布告栏吧, 那里有各式各样的任务等着你去选择. ";
+				mes "请仔细阅读看板并选择合适你的任务吧!";
+				next;
+			}
+			else {
+				mes "[莱美 埃文诺]";
+				mes "你必须先加入伊甸园才能接受这里的任务.";
+				close;
+			}
+			break;
+		case 5:
+			mes "[莱美 埃文诺]";
+			mes "如果你还有问题, 请返回并再次查看.";
+			close;
+		}
+	}
+	close;
+}
+
+-	script	伊甸园官方传送官#0::eto	-1,{
+	mes "[伊甸园官方传送官]";
+	mes "那些毫无目标彷徨在这个陌生世界的人们, 请过来听我说。!";
+	mes "伊甸园团体会在这里等着你, 向你展现美好的未来.";
+	next;
+	mes "[伊甸园官方传送官]";
+	mes "你现在无所事事, 只是在浪费你的时间?";
+	mes "你想做些有意义的事情却无从下手?";
+	mes "你想成为一个对别人有帮助的人?";
+	mes "来伊甸园吧! 我们会帮助你得到你想要的.";
+	next;
+	switch (select("- 前往伊甸园.:- 结束对话.")) {
+	case 1:
+		mes "[伊甸园官方传送官]";
+		mes "来, 进入我们的秘密基地吧!";
+		set nak_warp,strnpcinfo(2);
+		close2;
+		warp "moc_para01",31,14;
+		end;
+	case 2:
+		mes "[伊甸园官方传送官]";
+		mes "如果面对未来你觉得迷茫的时候, 不要犹豫, 请告诉我. 仅仅需要告诉我! Ok?";
+		close;
+	}
+}
+prontera,124,76,3	duplicate(eto)	伊甸园官方传送官#1	729
+moc_ruins,68,164,3	duplicate(eto)	伊甸园官方传送官#2	729
+geffen,132,66,3	duplicate(eto)	伊甸园官方传送官#3	729
+alberta,124,67,3	duplicate(eto)	伊甸园官方传送官#4	729
+aldebaran,133,119,5	duplicate(eto)	伊甸园官方传送官#5	729
+izlude_in,68,162,1	duplicate(eto)	伊甸园官方传送官#6	729
+prt_church,103,78,3	duplicate(eto)	伊甸园官方传送官#7	729
+geffen_in,160,104,5	duplicate(eto)	伊甸园官方传送官#8	729
+moc_prydb1,53,126,3	duplicate(eto)	伊甸园官方传送官#9	729
+alberta_in,75,39,3	duplicate(eto)	伊甸园官方传送官#10	729
+payon_in02,58,58,1	duplicate(eto)	伊甸园官方传送官#11	729
+payon,177,111,3	duplicate(eto)	伊甸园官方传送官#12	729
+que_ng,33,73,3	duplicate(eto)	伊甸园官方传送官#13	729
+que_ng,144,161,5	duplicate(eto)	伊甸园官方传送官#14	729
+yuno,144,189,5	duplicate(eto)	伊甸园官方传送官#15	729
+rachel,125,144,3	duplicate(eto)	伊甸园官方传送官#16	729
+comodo,202,151,4	duplicate(eto)	伊甸园官方传送官#17	729
+hugel,93,153,4	duplicate(eto)	伊甸园官方传送官#18	729
+veins,220,109,4	duplicate(eto)	伊甸园官方传送官#19	729
+einbroch,250,211,4	duplicate(eto)	伊甸园官方传送官#20	729
+lighthalzen,164,86,4	duplicate(eto)	伊甸园官方传送官#21	729
+amatsu,100,145,5	duplicate(eto)	伊甸园官方传送官#22	729
+ayothaya,221,191,3	duplicate(eto)	伊甸园官方传送官#23	729
+louyang,224,107,3	duplicate(eto)	伊甸园官方传送官#24	729
+gonryun,162,122,5	duplicate(eto)	伊甸园官方传送官#25	729
+moscovia,209,197,5	duplicate(eto)	伊甸园官方传送官#26	729
+brasilis,191,224,3	duplicate(eto)	伊甸园官方传送官#27	729
+dewata,192,193,5	duplicate(eto)	伊甸园官方传送官#28	729
+morocc,161,97,5	duplicate(eto)	伊甸园官方传送官#29	729
+izlude,131,148,4	duplicate(eto)	伊甸园官方传送官#30	729
+izlude_a,131,148,4	duplicate(eto)	伊甸园官方传送官#30::eto_iz_a	729
+izlude_b,131,148,4	duplicate(eto)	伊甸园官方传送官#30::eto_iz_b	729
+izlude_c,131,148,4	duplicate(eto)	伊甸园官方传送官#30::eto_iz_c	729
+izlude_d,131,148,4	duplicate(eto)	伊甸园官方传送官#30::eto_iz_d	729
+umbala,105,158,3	duplicate(eto)	伊甸园官方传送官#31	729
+malaya,238,206,6	duplicate(eto)	伊甸园官方传送官#32	729
+
+moc_para01,30,10,0	script	#eden_out	45,1,1,{
+OnTouch:
+	switch (nak_warp) {
+		case 1: warp "prontera",116,72; end;
+		case 2: warp "moc_ruins",64,161; end;
+		case 3: warp "geffen",120,39; end;
+		case 4: warp "alberta",117,56; end;
+		case 5: warp "aldebaran",168,112; end;
+		case 6: warp "izlude_in",73,165; end;
+		case 7: warp "prt_church",99,78; end;
+		case 8: warp "geffen_in",162,99; end;
+		case 9: warp "moc_prydb1",51,118; end;
+		case 10: warp "alberta_in",73,43; end;
+		case 11: warp "payon_in02",64,60; end;
+		case 12: warp "payon",161,58; end;
+		case 13: warp "que_ng",33,63; end;
+		case 14: warp "que_ng",144,166; end;
+		case 15: warp "yuno",158,125; end;
+		case 16: warp "rachel",115,125; end;
+		case 17: warp "comodo",192,145; end;
+		case 18: warp "hugel",88,148; end;
+		case 19: warp "veins",216,104; end;
+		case 20: warp "einbroch",246,204; end;
+		case 21: warp "lighthalzen",159,95; end;
+		case 22: warp "amatsu",110,150; end;
+		case 23: warp "ayothaya",217,178; end;
+		case 24: warp "louyang",217,103; end;
+		case 25: warp "gonryun",155,120; end;
+		case 26: warp "moscovia",218,198; end;
+		case 27: warp "brasilis",190,220; end;
+		case 28: warp "dewata",192,182; end;
+		case 29: warp "morocc",161,97; end;
+		case 30: warp "izlude",134,118; end;	// Old coordinates: (127,142)
+		case 31: warp "umbala",94,154; end;
+		case 32: warp "malaya",234,199; end;
+		default: warp "prontera",116,72; end;
+	}
+	end;
+}
+
+moc_para01,47,39,3	script	#warp_2_pass	111,{
+	if (countitem(6219) > 0) {
+		mes "[莱美 埃文诺]";
+		mes "噢, 那里是属于伊甸园成员的一个特别地方.";
+		mes "如果你是会员, 你可以随时进来!";
+		next;
+		switch (select("- 进入.:- 不去.")) {
+		case 1:
+			mes "这门有着精美的装饰, 但似乎有点太沉重.";
+			close2;
+			warp "moc_para01",106,14;
+			end;
+		case 2:
+			mes "[莱美 埃文诺]";
+			mes "好的, 如果你没兴趣的话.";
+			close;
+		}
+	}
+	mes "[莱美 埃文诺]";
+	mes "噢, 那里是属于伊甸园成员的一个特别地方.";
+	mes "如果你想进入的话, 你必须加入我们伊甸园.";
+	close;
+}
+
+moc_para01,16,22,7	script	老冒险家#eden	900,{
+	mes "[老冒险家]";
+	mes "我仍然老当益壮! 这家伙叫什么? 莱美 埃文诺? 他总是忽视我, 把我当成一个老不死的.";
+	next;
+	mes "[老冒险家]";
+	mes "我来这里参加伊甸园! 我不配!";
+	mes "你们是否也觉得我已经老的不行了?";
+	close;
+}
+
+moc_para01,182,48,3	script	伊甸园集团首席大厨#eden	886,{
+	set .@eggf,rand(1,118);
+	set .@eggf_1,.@eggf + 1;
+	set .@eggf_2,.@eggf + 2;
+	set .@eggf_6,.@eggf + 6;
+	mes "[Eden's Chief]";
+	mes ""+.@eggf+".. "+.@eggf_1+"... "+.@eggf_2+".... "+.@eggf_6+"..?";
+	next;
+	emotion ET_CRY;
+	mes "[伊甸园集团首席大厨]";
+	mes "喔, 攻击! 我数了几个了?";
+	mes "啊呀!!! 我彻底忘记了! 我得重数一次!";
+	next;
+	emotion ET_CRY;
+	mes "[伊甸园集团首席大厨]";
+	mes "你为什么要问我做这件事呢? 是什么样的使命?";
+	next;
+	emotion ET_CRY;
+	mes "[伊甸园集团首席大厨]";
+	mes "你有什么与这些鸡蛋有关的想法吗? 我相信你不会是想要吃掉它们. 你只是想来扰乱我计算的吧, 是吗?";
+	close;
+}
+
+moc_para01,172,28,5	script	伊甸园的实习生#eden	883,{
+	mes "[伊甸园的实习生]";
+	mes "其实, 我意识到.";
+	next;
+	mes "[伊甸园的实习生]";
+	mes "我们必须非常非常非常的努力去做, 除非你想失败.";
+	next;
+	mes "[伊甸园的实习生]";
+	mes "但是, 我从来没有学习制药.";
+	next;
+	mes "[伊甸园的实习生]";
+	mes "我要失败了. 我做不好这事情.";
+	close;
+}
+
+moc_para01,20,35,5	script	办公室助理内德	814,{
+	mes "[内德]";
+	mes "数年前我加入了伊甸园, 但感觉就好象是昨天发生的事一样.";
+	mes "我一直忙于工作, 因此我都忽略了我到底浪费了多少时间在这里.";
+	next;
+	mes "[内德]";
+	mes "这让我想起这里每天就像一场战争.";
+	next;
+	mes "[内德]";
+	mes "首席长官 ^3131FF在右侧的餐厅^000000";
+	mes "他每次做饭都使用了太多调料, 导致大堂内的气味很重. 我们必须定期打开的窗口, 因为我们都受不了这味道!";
+	next;
+	mes "[内德]";
+	mes "还有, 你有没看到 ^3131FF健身房^000000 在 ^3131FF大堂北侧^000000 的拐角处? 训练时他们总是大喊大叫, 在这里就能够听到!";
+	next;
+	emotion ET_ANGER;
+	mes "[内德]";
+	mes "^3131FF二楼^000000 那奇怪的女孩 整天哭哭啼啼. 她的哭声快要把我逼疯了.";
+	next;
+	mes "[内德]";
+	mes "啊, 怪异的女孩实际上是我们的老板...";
+	next;
+	mes "[内德]";
+	mes "我不知道她在做什么. 但是无时无刻都能听到她的哭喊声. 噢, 有时我听到 '嘭!', 巨大的声响... 我不知道它是从哪里来的.";
+	next;
+	emotion ET_HUK;
+	mes "[内德]";
+	mes "等等!";
+	mes "嘘! 这是一个秘密, 你不能告诉任何人!";
+	next;
+	mes "[内德]";
+	emotion ET_OHNO;
+	mes "我可不相信埃文诺. 她从来不表露真实意图... 她肯定会给老板打小报告的.";
+	next;
+	emotion ET_HNG, getnpcid(0, "莱美 埃文诺");
+	mes "[莱美 埃文诺]";
+	mes "我不是那种人.";
+	next;
+	emotion ET_KEK;
+	mes "[内德]";
+	mes "呃? 你听到什么了? 天哪~!";
+	close;
+}

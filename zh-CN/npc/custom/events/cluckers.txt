@@ -1,0 +1,122 @@
+//============================================================
+//= rAthenaCN [克拉克斯]汉化脚本 [ www.rAthenaCN.com ]
+//============================================================
+//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
+//============================================================
+//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//============================================================
+
+//===== Hercules Script =======================================
+//= Cluck! Cluck! Boom!
+//===== By: ==================================================
+//= Keale
+//===== Current Version: =====================================
+//= 1.2a
+//===== Description: =========================================
+//= Click the chicken and try retrieve the item at a low 
+//= chance. If you fail he will nuke, freeze, stone, 
+//= stun, or make you fall asleep.
+//= The prize is configurable and triggered by the NPC.
+//===== Additional Comments: =================================
+//= 1.0 First release.
+//= 1.1 Using 'switch rand' instead.
+//= 1.2 Cleaned and standardized. [Euphy]
+//= 1.2a Switched 'atcommand' to 'unitskilluseid'.
+//============================================================
+
+prontera,156,219,4	script	克拉克斯	4_NFCOCK,{
+
+	set .@GMAccess,80;	// GM level required to access NPC
+
+if (.startcluck) {
+specialeffect2 2;
+switch(rand(15)) {
+			case 0: npctalk "克拉拉拉拉克!!!"; unitskilluseid getcharid(3),"NPC_SELFDESTRUCTION",1; emotion 23; break;
+			case 1: npctalk "克拉拉拉拉拉拉拉拉克!~"; break;
+			case 2: unitskilluseid getcharid(3),"NPC_SELFDESTRUCTION",1; break;
+			case 3: sc_start SC_FREEZE,10000,0; break;
+			case 4: npctalk "克拉拉拉拉拉拉拉拉克!!!"; unitskilluseid getcharid(3),"NPC_SELFDESTRUCTION",1; emotion 23; break;
+			case 5: sc_start SC_SLEEP,10000,0; break;
+			case 6: sc_start SC_STONE,10000,0; emotion 29; break;
+			case 7: npctalk "克拉拉拉拉拉拉拉拉克!!!"; unitskilluseid getcharid(3),"NPC_SELFDESTRUCTION",1; emotion 23; break;
+			case 8: npctalk "克拉克! 克拉拉克!!"; unitskilluseid getcharid(3),"NPC_SELFDESTRUCTION",1; emotion 23; break;
+			case 9: sc_start SC_STUN,10000,0; break;
+			case 10: sc_start SC_SLEEP,10000,0; emotion 29; break;
+			case 11: npctalk "克拉克! 克拉克!"; break;
+			case 12: sc_start SC_STUN,10000,0; break;
+			case 13: unitskilluseid getcharid(3),"NPC_SELFDESTRUCTION",1; break;
+			default:
+				if (rand(50) < 4) {
+					npctalk "伍夫!...........";
+					specialeffect2 72;
+					announce "[克拉克! 克拉克! 啊啊啊啊(欢呼)!] " + strcharinfo(0) + " 挤出这个奖品! 干得好!",0;
+					getitem $cluck_item_id,$cluck_item_amount;
+					set .startcluck,0;
+				} else {
+					npctalk "克拉克! 克拉拉拉克!!";
+					unitskilluseid getcharid(3),"NPC_SELFDESTRUCTION",1;
+				}
+				break;
+		}
+		end;
+	}
+	mes "[克拉克斯]";
+	if (getgmlevel() >= .@GMAccess) {
+		mes "克拉克 克拉克! 克拉拉拉拉克? ^FF0000~Hi GM " + strcharinfo(0) + ", 想要今天比赛么?~^000000";
+		mes "克拉克 克拉克... 克拉克! ^FF0000~告诉我该做什么!~^000000";
+		next;
+		while(1) switch(select("- 开始活动:- 奖励查询:- 设置奖励:- 不是今天克拉克斯")) {
+			case 1:
+				mes "[克拉克斯]";
+				mes "克拉克! ^FF0000~当然!~^000000";
+				emotion 33;
+				close2;
+				announce "[克拉克! 克拉克! 啊啊啊啊(欢呼)!] 即将在普隆德拉开始!",bc_blue;
+				initnpctimer;
+				end;
+			case 2:
+				mes "[克拉克斯]";
+				mes "克拉克, 克拉克 克拉克... 克拉克! ^FF0000~这次的奖励是^000000 ^008000"+ $cluck_item_amount +" "+ getitemname($cluck_item_id) +".^000000";
+				next;
+				break;
+			case 3:
+				mes "[克拉克斯]";
+				mes "克拉克 克拉克? 克拉拉克??? ^FF0000~应该获得的奖品是? 请输入名称 ID.~^000000";
+				input $cluck_item_id;
+				next;
+				mes "[克拉克斯]";
+				mes "克拉克? 克拉克? ^FF0000~我该放弃几个项目?~^000000";
+				input $cluck_item_amount;
+				next;
+				mes "[克拉克斯]";
+				mes "克拉克 克拉克..? 克拉克. ^FF0000~所以,奖品是^000000 ^008000"+ $cluck_item_amount +" "+ getitemname($cluck_item_id) +"^000000? ^FF0000很好.~^000000";
+				emotion 33;
+				next;
+				break;
+			case 4:
+				mes "[克拉克斯]";
+				mes "克拉克 克拉克 克拉克...";
+				close;
+		}
+	}
+	mes "克拉克 克拉克! 克拉拉拉拉克?";
+	mes "克拉克....";
+	close;
+
+OnTimer10000:
+	announce "如果你想参加请点击喷泉背后的小鸡!",bc_blue;
+	end;
+OnTimer20000:
+	announce "克拉克斯把它吃了! 我怕别人看见它!",bc_blue;
+	end;
+OnTimer30000:
+	announce "疯狂的点击小鸡! 如果你幸运的话就会获得奖品! 祝你好运! 你会点出来的!!",bc_blue;
+	end;
+OnTimer40000:
+	announce "开始吧! 疯狂的点击小鸡吧!",bc_blue;
+	stopnpctimer;
+	if (!$cluck_item_id) set $cluck_item_id,512;
+	if (!$cluck_item_amount) set $cluck_item_amount,1;
+	set .startcluck,1;
+	end;
+}
