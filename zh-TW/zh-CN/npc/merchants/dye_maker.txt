@@ -1,0 +1,206 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+//===== rAthena Script =======================================
+//= Dye Maker
+//===== By: ================================================== 
+//= rAthena Dev Team
+//===== Current Version: ===================================== 
+//= 1.4
+//===== Compatible With: ===================================== 
+//= rAthena SVN
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Quests to create the eight colored Dyestuffs.
+//===== Additional Comments: ================================= 
+//= 1.0 Fully working [kobra_k88]
+//= 1.1 Spell Checked [Nexon] 
+//= 1.2 Rescripted to Aegis 10.3 standard. [L0ne_W0lf]
+//= 1.2b Fixed typos in variable names [ultramage]
+//= 1.3 Made the checks more dynamic [ultramage]
+//= 1.3b Fixed incorrect checking loop structure [ultramage]
+//= 1.4 Added a checkweight. [L0ne_W0lf]
+//============================================================ 
+
+morocc_in,146,99,3	script	傑瓦杜拉罕	58,{
+	if ((MaxWeight-Weight) < 200 || checkweight(1201,1) == 0) {
+		mes "- 等下! -";
+		mes "- 當前你攜帶了太多東西. -";
+		mes "- 在你把一些物品放進卡普拉 -";
+		mes "- 倉庫後, 再回來吧. -";
+		mes "- 我會在次等候. -";
+		close;
+	}
+	mes "[染料製作師 傑瓦杜拉罕]";
+	mes "哇喔...";
+	mes "多棒的一天啊. 這天可是製作染料的完美時刻.";
+	next;
+	switch(select("談話:製作染料:取消")) {
+	case 1:
+		mes "[染料製作師 傑瓦杜拉罕]";
+		mes "呃, 我還真沒有什麼可說的. 不過, 如果你希望我給你講講我的生活, 倒是可以. 很長很無聊, 你願意聽聽嗎?";
+		next;
+		if (select("聽:不聽") == 1) {
+			mes "[染料製作師 傑瓦杜拉罕]";
+			mes "從我記事起, 我父親就已經開始製作染料. 他通常要花去數小時來製造不同的顏色的染料. 即使當我母親去世的時候, 他都不曾停止.";
+			next;
+			mes "[染料製作師 傑瓦杜拉罕]";
+			mes "在我人生的某段時間, 我變得叛逆並且離家出走. 我不想被我家庭的事業牽制住而想要嘗試其它事物.";
+			next;
+			mes "[染料製作師 傑瓦杜拉罕]";
+			mes "無論如何...";
+			mes "我最後還是回到家中繼承了家庭的傳統, 已經製造染料15 年了.我猜它是在我的血液流淌著的. ";
+			next;
+			mes "[染料製作師 傑瓦杜拉罕]";
+			mes "我終於意識到一些事情, 這讓我真正地能夠了解我的父親. 為什麼我的父親捨棄所有東西來製造染料...";
+			next;
+			mes "[染料製作師 傑瓦杜拉罕]";
+			mes "在那些沉悶和辛苦的工作當中, 他或許感覺到人們的彩色的夢的魔力.";
+			next;
+			mes "[染料製作師 傑瓦杜拉罕]";
+			mes "也許他是為了那些夢而嘗試努力為他的客人製造染料...";
+			next;
+			mes "[染料製作師 傑瓦杜拉罕]";
+			mes "呵... 我怎麼能真正了解到呢? 好吧, 我現在也許明白了. 幾年了, 我感覺我能夠聽到染料在說話...";
+			next;
+			mes "[染料製作師 傑瓦杜拉罕]";
+			mes "這樣看來. 總有一天, 我將成功的製造出我父親想要的染料, 但是總得不到一個製作的機會.";
+			close;
+		}
+		mes "[染料製作師 傑瓦杜拉罕]";
+		mes "哈哈哈哈哈...";
+		mes "好吧, 我猜想誰還會想呆在這裡去聽一個年邁的染料製作師的生活故事呢. 哈哈哈哈哈....";
+		close;
+
+	case 2:
+		mes "[染料製作師 傑瓦杜拉罕]";
+		mes "很好! 如果你真的想要, 我就為你製作. 我保證我能製作出你想要的染料. 但你要什麼染料呢? 這費用可是取決於染料的.";
+		next;
+		mes "[染料製作師 傑瓦杜拉罕]";
+		mes "為什麼, 你問問? 要知道染料是很容易製作的, 只需要努力和工作. 但請不要認為費用會很貴.";
+		next;
+		mes "[染料製作師 傑瓦杜拉罕]";
+		mes "染料的顏色是很特別的, 我會用真心和實意去製作.";
+		next;
+		switch(select("深紅色染料:檸檬色染料:天藍色染料:墨綠色染料:橘黃色染料:紫羅蘭色染料:白色染料:黑色染料:取消")) {
+		case 1: callsub S_MakeDye,1,1; break;
+		case 2: callsub S_MakeDye,2,1; break;
+		case 3: callsub S_MakeDye,3,2; break;
+		case 4: callsub S_MakeDye,4,3; break;
+		case 5: callsub S_MakeDye,5,4; break;
+		case 6: callsub S_MakeDye,6,4; break;
+		case 7: callsub S_MakeDye,7,4; break;
+		case 8: callsub S_MakeDye,8,4; break;
+		case 9:
+			mes "[染料製作師 傑瓦杜拉罕]";
+			mes "呃!! 怎麼了? 你現在改變心意了嗎!? 真掃興...";
+			close;
+		}
+
+	case 3:
+		mes "[染料製作師 傑瓦杜拉罕]";
+		mes "我不是自誇啊. 我擁有很高超的製作染料的技術. 如果你需要染料, 請來找我. 我會以很合理的價格為你製造染料的.";
+		close;
+	}
+
+S_MakeDye:
+	mes "[染料製作師 傑瓦杜拉罕]";
+	switch(getarg(0)) {
+	case 1:
+		mes "恩... 我需要30片紅色藥草, 1瓶中和劑, 和1個空瓶來製作紅色染料. 只需3000Zeny的費用就可以製作.";
+		setarray .@item[0], 507, 973, 713;
+		setarray .@count[0], 30,   1,   1;
+		set .@cost,3000;
+		set .@dyestuff,975;
+		break;
+	case 2:
+		mes "恩... 我需要30片黃色藥草, 1瓶中和劑, 和1個空瓶來製作檸檬色染料. 只需3000Zeny的費用就可以製作.";
+		setarray .@item[0], 508, 973, 713;
+		setarray .@count[0], 30,   1,   1;
+		set .@cost,3000;
+		set .@dyestuff,976;
+		break;
+	case 3:
+		mes "恩... 我需要20片藍色藥草, 1瓶中和劑, 和1個空瓶來製作天藍色染料. 運用藍色草藥很複雜, 所以費用為3500Zeny.";
+		setarray .@item[0], 510, 973, 713;
+		setarray .@count[0], 20,   1,   1;
+		set .@cost,3500;
+		set .@dyestuff,978;
+		break;
+	case 4:
+		mes "恩... 我需要5片藍色藥草, 20片綠色草藥, 20片黃色藥草, 1瓶中和劑, 1瓶混合劑, 和1個空瓶來製作墨綠色染料. 別弄混需要的材料. 費用僅為5000z.";
+		setarray .@item[0], 510, 511, 508, 974, 973, 713;
+		setarray .@count[0],  5,  20,  20,   1,   1,   1;
+		set .@cost,5000;
+		set .@dyestuff,979;
+		break;
+	case 5:
+		mes "恩... 我需要20片紅色藥草, 20片黃色藥草, 1瓶中和劑, 1瓶混合劑, 和1個空瓶來製作橘黃色染料. 費用為5000Zeny.";
+		setarray .@item[0], 507, 508, 974, 973, 713;
+		setarray .@count[0], 20,  20,   1,   1,   1;
+		set .@cost,5000;
+		set .@dyestuff,980;
+		break;
+	case 6:
+		mes "恩... 我需要10片藍色藥草, 30片紅色藥草, 1瓶中和劑, 1瓶混合劑, 和1個空瓶來製作紫羅蘭色染料. 費用為5000Zeny.";
+		setarray .@item[0], 510, 507, 974, 973, 713;
+		setarray .@count[0], 10,  30,   1,   1,   1;
+		set .@cost,5000;
+		set .@dyestuff,981;
+		break;
+	case 7:
+		mes "恩... 我需要30片白色藥草, 1瓶中和劑, 和1個空瓶來製作白色染料. 費用為3000Zeny.";
+		setarray .@item[0], 509, 973, 713;
+		setarray .@count[0], 30,   1,   1; 
+		set .@cost,3000;
+		set .@dyestuff,982;
+		break;
+	case 8:
+		mes "恩... 我需要紅色藥草, 黃色藥草, 綠色草藥各30 片, 5片藍色藥草, 1瓶中和劑, 1瓶混合劑, 和1個空瓶. 這個將比其它需要更多時間和更多的努力, 所以費用為7000 Zeny.";
+		setarray .@item[0], 507, 508, 511, 510, 974, 973, 713;
+		setarray .@count[0], 30,  30,  30,   5,   1,   1,   1;
+		set .@cost,7000;
+		set .@dyestuff,983;
+		break;
+	}
+	next;
+	mes "[染料製作師 傑瓦杜拉罕]";
+	switch(getarg(1)) {
+	case 1: mes "啊! 我想你已經準備好所有的東西了. 你要我開始工作嗎?"; break;
+	case 2: mes "很好! 我相信你已經準備好所有的東西了. 你要我開始工作嗎?"; break;
+	case 3: mes "很好! 我相信已經準備好所有的東西了. 我可以開始工作了嗎?"; break;
+	case 4: mes "很好! 我相信已經準備了所有的東西了. 你要我開始工作嗎?"; break;
+	}
+	next;
+	if (select("製作染料:取消") == 1) {
+		set .@size, getarraysize(.@item);
+		// 檢查材料
+		for( set .@i,0 ; .@i < .@size ; set .@i,.@i+1 )
+			if( countitem(.@item[.@i]) < .@count[.@i] )
+				break;
+		if( .@i < .@size || Zeny < .@cost ) {
+			mes "[染料製作師 傑瓦杜拉罕]";
+			mes "嗯. 不夠啊...";
+			mes "我想我不能用你帶來的材料製造你想要的染料. 你為何不多拿點材料來...?";
+			close;
+		}
+		// 刪除物品
+		for (set .@i, 0; .@i < .@size ; set .@i, .@i+1)
+			delitem .@item[.@i], .@count[.@i];
+		set zeny,zeny-.@cost;
+		// 得到染料
+		getitem .@dyestuff,1;
+		
+		mes "[染料製作師 傑瓦杜拉罕]";
+		mes "嗯... 做的不錯哦. 一個非常棒的顏色. 當然我還會嘗試製作更迷人的染料...";
+		next;
+		mes "[染料製作師 傑瓦杜拉罕]";
+		mes "好的, 不錯. 當你需要更多染料時, 就來找我.";
+		close;
+	}
+	mes "[染料製作師 傑瓦杜拉罕]";
+	mes "呃!! 怎麼了? 你現在改變心意";
+	mes "了嗎!? 真掃興...";
+	return;
+}

@@ -1,0 +1,464 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+//===== rAthena Script =======================================
+//= Buwaya Cave
+//===== By: ================================================== 
+//= Euphy
+//===== Current Version: ===================================== 
+//= 1.0
+//===== Compatible With: ===================================== 
+//= rAthena SVN
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Defeat Buwaya in his cave.
+//= Part of the "Secret in the Woods" quest.
+//===== Additional Comments: ================================= 
+//= 1.0 First version. [Euphy]
+//============================================================ 
+
+ma_fild02,312,317,5	script	衛兵#buwaya_cave	570,{
+	if (BaseLevel < 130) {
+		mes "[衛兵]";
+		mes "基本等級低於 ^ff0000130級^000000";
+		mes "是無法進入這個地方的.";
+		mes "這裡很危險. 請回吧.";
+		close;
+	}
+
+	set .@party_id,getcharid(1);
+	set .@md_name$,"Buwaya Cave";
+
+	if (!.@party_id) {
+		mes "[衛兵]";
+		mes "寶箱鱷魚非常危險.";
+		mes "等你組織一支隊伍後再回到這裡";
+		mes "進行探險吧.";
+		close;
+	}
+	if (getcharid(0) == getpartyleader(.@party_id,2)) {
+		mes "[衛兵]";
+		mes "這裡很危險. 請回吧.";
+		mes "如果你在附近沒有其他的事情, 還是快點離開吧.";
+		next;
+		while(1) {
+			switch(select("- 為什麼說這裡很危險?:- 我是來獵殺寶箱鱷魚的.:- 結束對話.")) {
+			case 1:
+				mes "[衛兵]";
+				mes "最近一直接到附近有村民失蹤的報告. ";
+				mes "經過我們調查我們發現了這裡, ";
+				mes "並且發現了這條巨型鱷魚. ";
+				mes "我們有充分理由相信,";
+				mes "村民的失蹤原因就是它.";
+				next;
+				mes "[衛兵]";
+				mes "已經派遣了士兵們追殺這條鱷魚, ";
+				mes "不過迄今為止還沒有收到任何消息.";
+				mes "我們只能耐心的等待.";
+				next;
+				mes "[衛兵]";
+				mes "這條鱷魚近期還在危害附近的村民";
+				mes "冒險家, 召集一批英雄們,";
+				mes "一起來消滅它把.";
+				next;
+				break;
+			case 2:
+				set .@playtime, checkquest(4229,PLAYTIME);
+				if (.@playtime == -1) {
+					// fall through
+				} else if (.@playtime == 0 || .@playtime == 1) {
+					mes "[衛兵]";
+					mes "寶箱鱷魚還藏匿在深處.";
+					mes "就算你現在進去也不會碰到它. ";
+					mes "還是晚點再來吧.";
+					close;
+				} else {
+					erasequest 4229;
+					// fall through
+				}
+				if (instance_create(.@md_name$) < 0) {
+					mes "[衛兵]";
+					mes "隊伍名稱為... "+getpartyname(.@party_id)+".";;
+					mes "隊長是... "+strcharinfo(0);
+					mes "^0000ff"+.@md_name$+"^000000 現在不能被打開.";
+					mes "請稍等.";
+					close;
+				}
+				mes "[衛兵]";
+				mes "我將打開通往 ^0000ff"+.@md_name$+"^000000 的傳送.";
+				mes "祝你們好運.";
+				close;
+			case 3:
+				mes "[衛兵]";
+				mes "這裡很危險. 你不能進去.";
+				close;
+			}
+		}
+	} else {
+		mes "[衛兵]";
+		mes "讓我和隊長談談.";
+		mes "請聯繫下你們的隊長.";
+		close;
+	}
+}
+
+ma_fild02,315,323,0	script	洞穴入口#buwaya	45,2,2,{
+	end;
+OnTouch:
+	if (BaseLevel < 130) {
+		mes "[衛兵]";
+		mes "基本等級低於 ^130級^000000";
+		mes "是禁止進入這個區域的.";
+		mes "這裡很危險. 請回吧.";
+		close;
+	}
+	set .@playtime, checkquest(4229,PLAYTIME);
+	if (.@playtime == -1) {
+		// fall through
+	} else if (.@playtime == 0 || .@playtime == 1) {
+		mes "[衛兵]";
+		mes "寶箱鱷魚還藏匿在深處.";
+		mes "就算你現在進去也不會碰到它. ";
+		mes "還是晚點再來吧.";
+		close;
+	} else {
+		erasequest 4229;
+		// fall through
+	}
+	switch(select("- 進入.:- 返回.")) {
+	case 1:
+		switch(instance_enter("Buwaya Cave")) {
+		case 3:
+			mes "[衛兵]";
+			mes "噢, 現在可不是好時機.";
+			mes "請稍候再試.";
+			close;
+		case 2:
+		case 1:
+			mes "[衛兵]";
+			mes "這裡非常危險, 請不要進入.";
+			close;
+		case 0:
+			mapannounce "ma_fild02",getpartyname(getcharid(1))+" 隊伍成員 "+strcharinfo(0)+" 進入寶箱鱷魚之巢, 並開始追捕寶箱鱷魚.",bc_map,"0x00ff99"; //FW_NORMAL 12 0 0
+			setquest 4229;
+			//warp "1@ma_c",35,57;
+			end;
+		default:
+			mes "- 未知的力量阻擋你進入. -";
+			close;
+		}
+	case 2:
+		mes "[衛兵]";
+		mes "你必須珍惜你的生命.";
+		mes "行動之前請先仔細的規劃.";
+		close;
+	}
+}
+
+1@ma_c,33,112,0	script	#damage	139,7,7,{
+	end;
+OnInstanceInit:
+	initnpctimer;
+	disablenpc instance_npcname("#damage");
+	end;
+OnTimer1000:
+	enablenpc instance_npcname("#damage");
+	specialeffect EF_POISONHIT;
+	end;
+OnTimer2000:
+	stopnpctimer;
+	initnpctimer;
+	disablenpc instance_npcname("#damage");
+	end;
+OnTouch:
+	percentheal -10,-10;
+	sc_start SC_BLEEDING,60000,0;
+	sc_start SC_POISON,60000,0;
+	end;
+}
+
+1@ma_c,29,110,5	script	被綁架的人#1	575,{
+	mes "[被綁架的村民]";
+	mes "寶箱鱷魚四處活動,";
+	mes "並不斷的捕捉新的村民.";
+	mes "我們被它的關在這裡, 感覺慢慢在被融化.";
+	next;
+	switch(select("- 讓我離開這裡!!:- 呃...無法逃脫?")) {
+	case 1:
+		mes "[被綁架的村民]";
+		mes "我們的力量無法逃離這裡, 不過鱷魚有個弱點.";
+		mes "看那邊牆上.";
+		mes "如果你狠砸, 鱷魚會吃疼, 然後可能把你吐出去.";
+		donpcevent instance_npcname("#box_mob_call")+"::OnEnable";
+		close2;
+		disablenpc instance_npcname("被綁架的人#1");
+		end;
+	case 2:
+		mes "[被綁架的人]";
+		mes "不對勁...";
+		mes "在這之前, 你有沒類似經歷?";
+		close;
+	}
+	end;
+OnInstanceInit:
+	disablenpc instance_npcname("被綁架的人#1");
+	end;
+OnEnable:
+	enablenpc instance_npcname("被綁架的人#1");
+	donpcevent instance_npcname("#box_mob_call")+"::OnDisable";
+	end;
+}
+
+1@ma_c,36,110,5	script	被綁架的人#2	574,{
+	mes "[被綁架的村民]";
+	mes "啊啊! 我希望我的力氣能更大點...";
+	mes "我知道它的弱點...";
+	next;
+	switch(select("- 告訴我.:- 你真知道?")) {
+	case 1:
+		mes "[被綁架的村民]";
+		mes "你確定你能做到...?";
+		mes "好吧, 仔細聽好了,";
+		mes "它的弱點就是...";
+		next;
+		mes "[被綁架的村民]";
+		mes "...在我們身後的牆壁上.";
+		sc_start SC_ATKPOTION,60000,45;
+		sc_start SC_MATKPOTION,60000,45;
+		disablenpc instance_npcname("被綁架的人#2");
+		close;
+	case 2:
+		mes "[被綁架的村民]";
+		mes "什麼?!";
+		mes "你無視我";
+		mes "是因為我也被困在這裡的原因?";
+		close;
+	}
+	end;
+OnInstanceInit:
+	disablenpc instance_npcname("被綁架的人#2");
+	end;
+OnEnable:
+	enablenpc instance_npcname("被綁架的人#2");
+	end;
+}
+
+1@ma_c,3,3,0	script	#box_mob_call	139,1,1,{
+	end;
+OnInstanceInit:
+	setcell instance_mapname("1@ma_c"),30,118,35,118,cell_shootable,1; //custom
+	disablenpc instance_npcname("#box_mob_call");
+	end;
+OnEnable:
+	enablenpc instance_npcname("#box_mob_call");
+	set .@label$, instance_npcname("#box_mob_call")+"::OnMyMobDead";
+	set .@map$, instance_mapname("1@ma_c");
+	monster .@map$,30,118,"鱷魚的弱點",2333,1,.@label$;
+	monster .@map$,35,118,"鱷魚的弱點",2333,1,.@label$;
+	end;
+OnDisable:
+	killmonster instance_mapname("1@ma_c"),instance_npcname("#box_mob_call")+"::OnMyMobDead";
+	disablenpc instance_npcname("#box_mob_call");
+	end;
+OnMyMobDead:
+	if (mobcount(instance_mapname("1@ma_c"),instance_npcname("#box_mob_call")+"::OnMyMobDead") < 1)
+		donpcevent instance_npcname("#box_out")+"::OnEnable";
+	end;
+}
+
+1@ma_c,38,118,0	script	#box_out	45,2,2,{
+OnInstanceInit:
+OnDisable:
+	disablenpc instance_npcname("#box_out");
+	end;
+OnEnable:
+	enablenpc instance_npcname("#box_out");
+	end;
+OnTouch:
+	set .@x, rand(1,20) + 97;
+	set .@y, rand(1,20) + 74;
+	warp instance_mapname("1@ma_c"),.@x,.@y;
+	end;
+}
+
+1@ma_c,97,74,0	script	#box_call	139,50,50,{
+	end;
+OnInstanceInit:
+	disablenpc instance_npcname("#box_call");
+	initnpctimer;
+	end;
+OnTimer30000:
+	mapannounce instance_mapname("1@ma_c"),"寶箱鱷魚 : 我將把你關進我的寶盒!",bc_map,"0x00ff99"; //FW_NORMAL 12 0 0
+	// Should execute OnTimer33000, but client doesn't render the effect fast enough.
+	for(set .@i,1; .@i<=9; set .@i,.@i+1)
+		donpcevent instance_npcname("#yunobi"+.@i)+"::OnEnable";
+	end;
+OnTimer33000:
+	donpcevent instance_npcname("#box_out")+"::OnDisable";
+	donpcevent instance_npcname("#box_mob_call")+"::OnDisable";
+	donpcevent instance_npcname("被綁架的人#1")+"::OnEnable";
+	donpcevent instance_npcname("被綁架的人#2")+"::OnEnable";
+	end;
+OnTimer34000:
+	enablenpc instance_npcname("#box_call");
+	end;
+OnTimer35000:
+	stopnpctimer;
+	initnpctimer;
+	disablenpc instance_npcname("#box_call");
+	end;
+OnTouch:
+	specialeffect2 EF_GUIDEDATTACK;
+	warp instance_mapname("1@ma_c"),33,112;
+	end;
+OnDisable:
+	stopnpctimer;
+	disablenpc instance_npcname("#box_call");
+	end;
+}
+
+1@ma_c,97,74,0	script	#yunobi1	139,{
+	end;
+OnInstanceInit:
+	hideonnpc instance_npcname(strnpcinfo(0));
+	end;
+OnEnable:
+	specialeffect EF_MAPPILLAR2;
+	end;
+}
+1@ma_c,97,94,0	duplicate(#yunobi1)	#yunobi2	139
+1@ma_c,117,94,0	duplicate(#yunobi1)	#yunobi3	139
+1@ma_c,117,74,0	duplicate(#yunobi1)	#yunobi4	139
+1@ma_c,117,54,0	duplicate(#yunobi1)	#yunobi5	139
+1@ma_c,97,54,0	duplicate(#yunobi1)	#yunobi6	139
+1@ma_c,77,54,0	duplicate(#yunobi1)	#yunobi7	139
+1@ma_c,77,74,0	duplicate(#yunobi1)	#yunobi8	139
+1@ma_c,77,94,0	duplicate(#yunobi1)	#yunobi9	139
+
+1@ma_c,1,1,0	script	#bunshin	139,{
+	end;
+OnInstanceInit:
+	initnpctimer;
+	end;
+OnTimer58000:
+	mapannounce instance_mapname("1@ma_c"),"寶箱鱷魚 : 我受夠了, 讓我們走著瞧!",bc_map,"0x00ff99"; //FW_NORMAL 12 0 0
+	end;
+OnTimer61000:
+	mapannounce instance_mapname("1@ma_c"),"寶箱鱷魚 : 這是!",bc_map,"0x00ff99"; //FW_NORMAL 12 0 0
+	end;
+OnTimer62000:
+	mapannounce instance_mapname("1@ma_c"),"寶箱鱷魚 : 這是...我的!",bc_map,"0x00ff99"; //FW_NORMAL 12 0 0
+	end;
+OnTimer63000:
+	mapannounce instance_mapname("1@ma_c"),"寶箱鱷魚 : 這是...我的...致命弱點!",bc_map,"0x00ff99"; //FW_NORMAL 12 0 0
+	end;
+OnTimer64000:
+	mapannounce instance_mapname("1@ma_c"),"寶箱鱷魚 : 這是...我的...致命弱點... 攻擊!",bc_map,"0x00ff99"; //FW_NORMAL 12 0 0
+	end;
+OnTimer65000:
+	set .@label$, instance_npcname("#bunshin")+"::OnMyMobDead";
+	set .@map$, instance_mapname("1@ma_c");
+	areamonster .@map$,112,89,122,99,"寶箱鱷魚",2332,1,.@label$;
+	areamonster .@map$,112,49,122,59,"寶箱鱷魚",2332,1,.@label$;
+	areamonster .@map$,72,49,82,59,"寶箱鱷魚",2332,1,.@label$;
+	areamonster .@map$,72,89,82,99,"寶箱鱷魚",2332,1,.@label$;
+	end;
+OnTimer66000:
+	mapannounce instance_mapname("1@ma_c"),"寶箱鱷魚 : 你怕了嗎?",bc_map,"0x00ff99"; //FW_NORMAL 12 0 0
+	end;
+OnTimer105000:
+	killmonster instance_mapname("1@ma_c"),instance_npcname("#bunshin")+"::OnMyMobDead";
+	stopnpctimer;
+	initnpctimer;
+	end;
+OnMyMobDead:
+	if (mobcount(instance_mapname("1@ma_c"),instance_npcname("#bunshin")+"::OnMyMobDead") < 1) {
+		stopnpctimer;
+		initnpctimer;
+	}
+	end;
+OnDisable:
+	stopnpctimer;
+	killmonster instance_mapname("1@ma_c"),instance_npcname("#bunshin")+"::OnMyMobDead";
+	disablenpc instance_npcname("#bunshin");
+	end;
+}
+
+1@ma_c,2,2,0	script	#buwaya_con	139,{
+	end;
+OnInstanceInit:
+	areamonster instance_mapname("1@ma_c"),90,67,104,81,"寶箱巨鱷",2319,1,instance_npcname("#buwaya_con")+"::OnMyMobDead";
+	end;
+OnMyMobDead:
+	set .@map$, instance_mapname("1@ma_c");
+	if (mobcount(.@map$,instance_npcname("#buwaya_con")+"::OnMyMobDead") < 1) {
+		donpcevent instance_npcname("#box_call")+"::OnDisable";
+		donpcevent instance_npcname("#bunshin")+"::OnDisable";
+		donpcevent instance_npcname("#exit_mob")+"::OnDisable";
+		donpcevent instance_npcname("#cave_out")+"::OnEnable";
+		mapannounce .@map$,"衛兵 : 你幹的太出色了. 請抓緊時間逃離這裡!",bc_map,"0x00ff99"; //FW_NORMAL 12 0 0
+	}
+	end;
+}
+
+1@ma_c,3,3,0	script	#exit_mob	139,{
+	end;
+OnInstanceInit:
+	initnpctimer;
+	end;
+OnTimer60000:
+	set .@label$, instance_npcname("#exit_mob")+"::OnMyMobDead";
+	set .@map$, instance_mapname("1@ma_c");
+	if (mobcount(.@map$,.@label$) < 30)
+		set .@amount,10;
+	else
+		set .@amount,1;
+	areamonster .@map$,43,58,47,60,"水草",2331,.@amount,.@label$;
+	areamonster .@map$,43,58,47,60,"蛋",2329,.@amount,.@label$;
+	stopnpctimer;
+	initnpctimer;
+	end;
+OnDisable:
+	stopnpctimer;
+	killmonster instance_mapname("1@ma_c"),instance_npcname("#exit_mob")+"::OnMyMobDead";
+	disablenpc instance_npcname("#exit_mob");
+	end;
+OnMyMobDead:
+	end;
+}
+
+1@ma_c,28,57,0	script	#cave_out	45,2,2,{
+OnInstanceInit:
+	disablenpc instance_npcname("#cave_out");
+	end;
+OnEnable:
+	enablenpc instance_npcname("#cave_out");
+	end;
+OnTouch:
+	mes "你是不是要出去?";
+	next;
+	if(select("- 是!:- 不, 我留在這裡.") == 1)
+		warp "ma_fild02",315,315;
+	close;
+}
+
+1@ma_c,1,1,0	script	#buwaya_spawn_mobs	-1,{
+OnInstanceInit:
+	set .@map$, instance_mapname("1@ma_c");
+	areamonster .@map$,73,81,93,101,"海草",2331,18;
+	areamonster .@map$,110,97,116,103,"海草",2331,8;
+	areamonster .@map$,59,63,63,67,"海草",2331,8;
+	areamonster .@map$,73,55,77,59,"海草",2331,4;
+	areamonster .@map$,103,69,107,73,"海草",2331,4;
+	areamonster .@map$,108,45,122,63,"海草",2331,15;
+	areamonster .@map$,73,81,93,101,"鱷魚蛋",2329,10;
+	areamonster .@map$,110,97,116,103,"鱷魚蛋",2329,8;
+	areamonster .@map$,59,63,63,67,"鱷魚蛋",2329,4;
+	areamonster .@map$,73,55,77,59,"鱷魚蛋",2329,3;
+	areamonster .@map$,103,69,107,73,"鱷魚蛋",2329,3;
+	areamonster .@map$,108,45,122,63,"鱷魚蛋",2329,15;
+	monster .@map$,0,0,"海草",2331,5;
+	monster .@map$,0,0,"寶箱幼鱷",2330,5;
+	end;
+}

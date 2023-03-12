@@ -1,0 +1,55 @@
+//============================================================
+//= rAthenaCN [頭巾大盜]漢化腳本 
+//============================================================
+
+
+//===== Hercules Script ======================================
+//= Sphinx Mask Quest (custom)
+//===== By: ==================================================
+//= sabernet09
+//===== Current Version: =====================================
+//= 1.3
+//===== Description: =========================================
+//= This quest is related to Umbalian Chief.
+//= 1.1 Removed it from official Umbala quests [Lupus]
+//= 1.2 Added a missing variable (sphmask_q) [erKURITA]
+//= 1.3 Optimized, and coordinates moved. [Euphy]
+//============================================================
+
+morocc,208,90,6	script	頭巾大盜	1_M_MERCHANT,{
+	mes "[頭巾大盜]";
+	if(event_umbala < 2) {
+		mes "還想從我這裡得到什麼? 去去!";
+		close; }
+	if(sphmask_q) {
+		mes "你和我沒有更多的生意來往, 走開!";
+		close; }
+	mes "你好, 我的朋友, 你對這種罕見的面具感興趣? 它的價值, 我向你保證你值得擁有. 獅身人面具";
+	next;
+	callsub L_Menu,1,"1,000,000",1000000;
+	callsub L_Menu,2,"750,000",750000;
+	callsub L_Menu,3,"500,000",500000;
+	next;
+	mes "[頭巾大盜]";
+	mes "啊哈! 算了吧! 我可以在別處賣的更好!!";
+	set sphmask_q,1;
+	close;
+
+L_Menu:
+	mes "[頭巾大盜]";
+	switch(getarg(0)) {
+		case 1: mes "哇? 喔喔喔, 你知道那是我從別人那裡偷來的? 我可不會還回去. 但可以開個價錢, 怎麼樣?"; break;
+		case 2: mes "啊哈 你是個生意人,好吧 那麼..."; break;
+		case 3: mes "額... 你真會砍價, 好吧... 我最終報價..."; break; }
+	next;
+	if(select("- 支付"+getarg(1)+"z:- 不買")==2) return;
+	mes "[頭巾大盜]";
+	if (Zeny < getarg(2)) {
+		mes "你在拿我開玩笑?你沒有足夠的錢!";
+		close; }
+	set Zeny, Zeny-getarg(2);
+	mes "喔喔, 成交!";
+	getitem 7114,1;
+	set sphmask_q,1;
+	close;
+}

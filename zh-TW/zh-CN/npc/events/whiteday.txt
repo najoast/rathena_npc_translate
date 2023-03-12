@@ -1,0 +1,133 @@
+//============================================================
+//= rAthenaCN [點心商人]漢化腳本 
+//============================================================
+
+
+//===== rAthena Script =======================================
+//= White Day Event Script
+//===== By: ==================================================
+//= 1.0a Muad_Dib (Prometheus Project)
+//===== Current Version: =====================================
+//= 1.0a
+//===== Compatible With: =====================================
+//= Any Athena Version; RO Episode 6+
+//===== Description: =========================================
+//= Sells candy, candy cane and well baked cookie.
+//===== Additional Comments: =================================
+//= 07/06/05 : Added 1st Version. [Muad_Dib]
+//= Converted to rAthena format by Dr.Evil
+//============================================================
+
+
+alberta,188,64,4	script	點心商人	91,{
+	set @maplenum,0;
+	set @mapleItemID,0;
+	set @maplePrice,0;
+	set @maplePriceT,0;
+	mes "[美寶露　舒卡]";
+	mes "歡迎光臨!";
+	mes "你需要一些美味的點心嗎?";
+	mes "老師...他是...";
+	mes "艾爾貝塔的點心師傅";
+	mes "他非常努力製作點心";
+	next;
+	mes "[美寶露　舒卡]";
+	mes "從愛人那裡得到了回禮";
+	mes "整個心也是甜的...";
+	mes "需要一些點心嗎～?";
+	next;
+	menu "請你給我一些點心!",-,"我不需要。",M_END,"老師?",M_L1;
+
+	mes "[美寶露　舒卡]";
+	mes "是!";
+	mes "這邊有菜單～";
+	mes "因為限定了購買的數量";
+	mes "總購入是^ff0000  5 ^000000個";
+	mes "請交給我做吧";
+	next;
+	menu "糖果",-,"棒棒糖",L0_2,"燒烤過的曲奇",L0_3;
+
+	set @maplePrice,3000;
+	set @mapleItemID,529;
+	mes "[美寶露　舒卡]";
+	mes "糖果啊～";
+	mes "價值為3000Zeny～";
+	mes "你要買多少個呢?";
+	next;
+	goto L_INPUT;
+L0_2:
+	set @maplePrice,4000;
+	set @mapleItemID,530;
+	mes "[美寶露　舒卡]";
+	mes "柺杖糖糖果啊～";
+	mes "價值為4000Zeny～";
+	mes "你要買多少個呢?";
+	next;
+	goto L_INPUT;
+L0_3:
+	set @maplePrice,2000;
+	set @mapleItemID,538; 
+	mes "[美寶露　舒卡]";
+	mes "薑餅糖果啊～";
+	mes "價值為2000Zeny～";
+	mes "你要買多少個呢?";
+	next;
+
+L_INPUT:
+	input @maplenum;
+	if (@maplenum > 5) goto L_ERROR;
+	if (@maplenum == 0) goto M_END;
+	set @maplePriceT,@maplePrice*@maplenum;
+	if (Zeny < @maplePriceT) goto L_ERROR2;
+	set Zeny,Zeny- @maplePriceT;
+	getitem @mapleItemID,@maplenum;
+	mes "[美寶露　舒卡]";
+	mes "真的謝謝你～";
+	mes "這些點心，真的很美味啊～";
+	mes "老師做的點心真是世界第一啊!";
+	mes "雖然自己也覺得很好吃";
+	mes "但是，不要吃太多，不然會引致肥胖的";
+	mes "請注意一下吧";
+	close;
+
+M_L1:
+	mes "[美寶露　舒卡]";
+	mes "是啊!!";
+	mes "我的點心老師";
+	mes "是古巴路先生和基路斯先生";
+	mes "承蒙兩位老師讓我在這裡作點心的修行～";
+	next;
+	mes "[美寶露　舒卡]";
+	mes "在這個時期~";
+	mes "老師們好像在做移動販賣...";
+	mes "現在會去那裡也不知道";
+	mes "說不定日後會在那裡碰面呢～";
+	close;
+
+L_ERROR:
+	mes "[美寶露　舒卡]";
+	mes "呀?";
+	mes "你要多少個呢?";
+	mes "剛剛我聽漏了";
+	mes "會否介意再說多一次嗎?";
+	mes "同時間只能購買五個";
+	mes "^ff0000 5 ^000000個～";
+	next;
+	goto L_INPUT;
+
+L_ERROR2:
+	mes "[美寶露　舒卡]";
+	mes "咦...?";
+	mes "客人，你金錢不足啊～";
+	mes "請再一次確認你擁有的款項";
+	mes "拜託你再看一次那個說明～";
+	close;
+
+M_END:
+	mes "[美寶露　舒卡]";
+	mes "是這樣嘛...真是遺憾";
+	mes "暫且在這邊銷售吧";
+	mes "如果真的想要我幫忙銷售的話，";
+	mes "請通知我吧!";
+	close;
+}

@@ -1,0 +1,379 @@
+//============================================================
+//= rAthenaCN [戰場]漢化腳本 
+//============================================================
+
+//===== rAthena Script =======================================
+//= BattleGround System - Tierra Gorge Entrance NPCs
+//===== By: ================================================== 
+//= L0ne_W0lf
+//===== Current Version: ===================================== 
+//= 1.0
+//===== Compatible With: ===================================== 
+//= rAthena 1.0
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Tierra Gorge Battleground Entrance NPCs
+//===== Additional Comments: ================================= 
+//= 1.0 First Version.
+//= 1.1 Fixed silly copy paste errors. (bugreport:4401)
+//============================================================
+
+// First Tierra Gorge Officers - Guillaume
+//============================================================
+bat_room,124,178,5	script	威廉王子第一集團軍#01a	418,{
+	if (checkweight(1201,1) == 0) {
+		mes "- 等一下! ! -";
+		mes "- 目前你攜帶 -";
+		mes "- 太多的物品。 -";
+		mes "- 請再試一次 -";
+		mes "- after you loose some weight. -";
+		close;
+	}
+	mes "[威廉王子第一集團軍]";
+	mes "尊敬的冒險家，您是否願意加入我們？";
+	next;
+	switch(select("我想加入你的軍隊!:結束談話")) {
+	case 1:
+		if ((Class == Job_Novice) || (BaseClass == Job_Supernovice)) {
+			mes "[威廉王子第一集團軍]";
+			mes "我很高興，你想和我們一起戰鬥，但我很抱歉: 我不能讓你這樣的新手死在殘酷的戰場.";
+		}
+		else {
+			if (BaseLevel < 80) {
+				mes "[威廉王子第一集團軍]";
+				mes "我很高興，你想和我們一起戰鬥，但很抱歉: 我不能讓你這樣的新手死在殘酷的戰場.";
+			}
+			else {
+				set .@chk_urtime,checkquest(2069,PLAYTIME);
+				if ((.@chk_urtime == 0)|| (.@chk_urtime == 1)) {
+					mes "[威廉王子第一集團軍]";
+					mes "你似乎剛剛從戰場上歸來.";
+					mes "目前暫時不能進入。去休息吧，讓其他的士兵去戰鬥！";
+				}
+				else {
+					if (.@chk_urtime == 2)
+						erasequest 2069;
+					set .@mapcount,getmapusers("bat_a01");
+					if (.@mapcount > 0) {
+						mes "[威廉王子第一集團軍]";
+						mes "我收到一份通知說一個精銳部隊已被派往戰場的戰鬥.";
+						mes "你為什麼不去等待一段時間？我建議你休息一會在來.";
+					}
+					else {
+						if ($@TierraBG1) {
+							mes "[威廉王子第一集團軍]";
+							mes "一個精英已經被派往戰場.";
+							mes "你為什麼不去等待一段時間？我建議你休息一會在來.";
+						}
+						else {
+							mes "[威廉王子第一集團軍]";
+							mes "你準備好戰鬥了嗎！";
+							mes "讓敵人看看我們的實力！";
+							mes "今天，讓我們的鮮血揮灑在戰場上！";
+							close2;
+							warp "bat_room",57,223;
+							end;
+						}
+					}
+				}
+			}
+		}
+		break;
+	case 2:
+		mes "[威廉王子第一集團軍]";
+		mes "今天，我們一定會勝利！";
+		break;
+	}
+	close;
+}
+
+bat_room,140,178,5	script	威廉王子第三集團軍#02a	418,{
+	if (checkweight(1201,1) == 0) {
+		mes "- 等一下! ! -";
+		mes "- 目前你攜帶 -";
+		mes "- 太多的物品。 -";
+		mes "- 請再試一次 -";
+		mes "- after you loose some weight. -";
+		close;
+	}
+	mes "[威廉王子第三集團軍]";
+	mes "尊敬的冒險家，您是否願意加入我們？";
+	next;
+	switch(select("我想加入你的軍隊!:結束談話")) {
+	case 1:
+		if ((Class == Job_Novice) || (BaseClass == Job_Supernovice)) {
+			mes "[威廉王子第三集團軍]";
+			mes "我很高興，你想和我們一起戰鬥，但我很抱歉: 我不能讓你這樣的新手死在殘酷的戰場.";
+		}
+		else {
+			if (BaseLevel < 80) {
+				mes "[威廉王子第三集團軍]";
+				mes "我很高興，你想和我們一起戰鬥，但很抱歉: 我不能讓你這樣的新手死在殘酷的戰場.";
+			}
+			else {
+				set .@chk_urtime,checkquest(2069,PLAYTIME);
+				if (.@chk_urtime == 1) {
+					mes "[威廉王子第三集團軍]";
+					mes "你似乎剛剛從戰場上歸來.";
+					mes "目前暫時不能進入。去休息吧，讓其他的士兵去戰鬥！";
+				}
+				else {
+					if (.@chk_urtime == 2)
+						erasequest 2069;
+					set .@mapcount,getmapusers("bat_a02");
+					if (.@mapcount > 0) {
+						mes "[威廉王子第三集團軍]";
+						mes "我收到一份通知說一個精銳部隊已被派往戰場的戰鬥.";
+						mes "你為什麼不去等待一段時間？我建議你休息一會在來.";
+					}
+					else {
+						if ($@TierraBG2) {
+							mes "[威廉王子第三集團軍]";
+							mes "一個精英已經被派往戰場.";
+							mes "你為什麼不去等待一段時間？我建議你休息一會在來.";
+						}
+						else {
+							mes "[威廉王子第三集團軍]";
+							mes "你準備好戰鬥了嗎！";
+							mes "讓敵人看看我們的實力！";
+							mes "今天，讓我們的鮮血揮灑在戰場上！";
+							close2;
+							warp "bat_room",114,223;
+							end;
+						}
+					}
+				}
+			}
+		}
+		break;
+	case 2:
+		mes "[威廉王子第三集團軍]";
+		mes "今天，我們一定會勝利！";
+		break;
+	}
+	close;
+}
+
+bat_room,127,178,5	script	威廉王子皇家衛隊#1	417,{
+	mes "[威廉王子皇家衛隊]";
+	mes "大戰的目標，摧毀敵人的晶體。";
+	next;
+	mes "[威廉王子皇家衛隊]";
+	mes "晶體受特殊的路障，不能被直接攻擊摧毀。";
+	next;
+	mes "[威廉王子皇家衛隊]";
+	mes "但可以摧毀敵人的其他軍事設施。";
+	next;
+	mes "[威廉王子皇家衛隊]";
+	mes "晶體是免疫的每一種技能；你的物理攻擊就是摧毀敵人晶體的唯一方式。";
+	next;
+	mes "[威廉王子皇家衛隊]";
+	mes "請記住：當你加入戰鬥，你將收到一個令牌，指示所設定的時間，你不能參加其他戰鬥的同類型。";
+	mes "你可以通過按下Alt + U鍵檢查時間。";
+	next;
+	mes "[威廉王子皇家衛隊]";
+	mes "你準備好戰鬥了嗎？在我旁邊報名即刻參戰！";
+	close;
+}
+
+bat_room,143,178,5	script	威廉王子皇家衛隊#2	417,{
+	mes "[威廉王子皇家衛隊]";
+	mes "大戰的目標，摧毀敵人的晶體。";
+	next;
+	mes "[威廉王子皇家衛隊]";
+	mes "晶體受特殊的路障，不能被直接攻擊摧毀。";
+	next;
+	mes "[威廉王子皇家衛隊]";
+	mes "但可以摧毀敵人的其他軍事設施。";
+	next;
+	mes "[威廉王子皇家衛隊]";
+	mes "晶體是免疫的每一種技能；你的物理攻擊就是摧毀敵人晶體的唯一方式。";
+	next;
+	mes "[威廉王子皇家衛隊]";
+	mes "請記住：當你加入戰鬥，你將收到一個令牌，指示所設定的時間，你不能參加其他戰鬥的同類型。";
+	mes "你可以通過按下Alt + U鍵檢查時間。";
+	next;
+	mes "[威廉王子皇家衛隊]";
+	mes "你準備好戰鬥了嗎？在我旁邊報名即刻參戰！";
+	close;
+}
+
+bat_room,127,121,1	script	愷撒王子神職親衛#1	413,{
+	mes "[愷撒王子神職親衛]";
+	mes "大戰的目標，摧毀敵人的晶體。";
+	next;
+	mes "[愷撒王子神職親衛]";
+	mes "晶體受特殊的路障，不能被直接攻擊摧毀。";
+	next;
+	mes "[愷撒王子神職親衛]";
+	mes "但可以摧毀敵人的其他軍事設施。";
+	next;
+	mes "[愷撒王子神職親衛]";
+	mes "晶體是免疫的每一種技能；你的物理攻擊就是摧毀敵人晶體的唯一方式。";
+	next;
+	mes "[愷撒王子神職親衛]";
+	mes "請記住：當你加入戰鬥，你將收到一個令牌，指示所設定的時間，你不能參加其他戰鬥的同類型。";
+	mes "你可以通過按下Alt + U鍵檢查時間。";
+	next;
+	mes "[愷撒王子神職親衛]";
+	mes "你準備好戰鬥了嗎？在我旁邊報名即刻參戰！";
+	close;
+}
+
+bat_room,143,121,1	script	愷撒王子神職親衛#2	413,{
+	mes "[愷撒王子神職親衛]";
+	mes "大戰的目標，摧毀敵人的晶體。";
+	next;
+	mes "[愷撒王子神職親衛]";
+	mes "晶體受特殊的路障，不能被直接攻擊摧毀。";
+	next;
+	mes "[愷撒王子神職親衛]";
+	mes "但可以摧毀敵人的其他軍事設施。";
+	next;
+	mes "[愷撒王子神職親衛]";
+	mes "晶體是免疫的每一種技能；你的物理攻擊就是摧毀敵人晶體的唯一方式。";
+	next;
+	mes "[愷撒王子神職親衛]";
+	mes "請記住：當你加入戰鬥，你將收到一個令牌，指示所設定的時間，你不能參加其他戰鬥的同類型。";
+	mes "你可以通過按下Alt + U鍵檢查時間。";
+	next;
+	mes "[愷撒王子神職親衛]";
+	mes "你準備好戰鬥了嗎？在我旁邊報名即刻參戰！";
+	close;
+}
+
+// Second Tierra Gorge Officers - Croix
+//============================================================
+bat_room,125,121,1	script	愷撒王子第一集團軍#01b	414,{
+	if (checkweight(1201,1) == 0) {
+		mes "- 等一下! ! -";
+		mes "- 目前你攜帶 -";
+		mes "- 太多的物品。 -";
+		mes "- 請再試一次 -";
+		mes "- after you loose some weight. -";
+		close;
+	}
+	mes "[愷撒王子第一集團軍]";
+	mes "尊敬的冒險家，您是否願意加入我們？";
+	next;
+	switch(select("我想加入你的軍隊!:結束談話")) {
+	case 1:
+		if ((Class == Job_Novice) || (BaseClass == Job_Supernovice)) {
+			mes "[愷撒王子第一集團軍]";
+			mes "我很高興，你想和我們一起戰鬥，但我很抱歉: 我不能讓你這樣的新手死在殘酷的戰場.";
+		}
+		else {
+			if (BaseLevel < 80) {
+				mes "[愷撒王子第一集團軍]";
+				mes "我很高興，你想和我們一起戰鬥，但很抱歉: 我不能讓你這樣的新手死在殘酷的戰場.";
+			}
+			else {
+				set .@chk_urtime,checkquest(2069,PLAYTIME);
+				if ((.@chk_urtime == 0)|| (.@chk_urtime == 1)) {
+					mes "[愷撒王子第一集團軍]";
+					mes "你似乎剛剛從戰場上歸來.";
+					mes "目前暫時不能進入。去休息吧，讓其他的士兵去戰鬥！";
+				}
+				else {
+					if (.@chk_urtime == 2)
+						erasequest 2069;
+					set .@mapcount,getmapusers("bat_a02");
+					if (.@mapcount > 0) {
+						mes "[愷撒王子第一集團軍]";
+						mes "我收到一份通知說一個精銳部隊已被派往戰場的戰鬥.";
+						mes "你為什麼不去等待一段時間？我建議你休息一會在來.";
+					}
+					else {
+						if ($@TierraBG1) {
+							mes "[愷撒王子第一集團軍]";
+							mes "一個精英已經被派往戰場.";
+							mes "你為什麼不去等待一段時間？我建議你休息一會在來.";
+						}
+						else {
+							mes "[愷撒王子第一集團軍]";
+							mes "你準備好戰鬥了嗎！";
+							mes "讓敵人看看我們的實力！";
+							mes "今天，讓我們的鮮血揮灑在戰場上！";
+							close2;
+							warp "bat_room",57,207;
+							end;
+						}
+					}
+				}
+			}
+		}
+		break;
+	case 2:
+		mes "[愷撒王子第一集團軍]";
+		mes "今天，我們一定會勝利！";
+		break;
+	}
+	close;
+}
+
+bat_room,140,121,1	script	愷撒王子第三集團軍#02b	414,{
+	if (checkweight(1201,1) == 0) {
+		mes "- 等一下! ! -";
+		mes "- 目前你攜帶 -";
+		mes "- 太多的物品。 -";
+		mes "- 請再試一次 -";
+		mes "- after you loose some weight. -";
+		close;
+	}
+	mes "[愷撒王子第四集團軍]";
+	mes "尊敬的冒險家，您是否願意加入我們？";
+	next;
+	switch(select("我想加入你的軍隊!:結束談話")) {
+	case 1:
+		if ((Class == Job_Novice) || (BaseClass == Job_Supernovice)) {
+			mes "[愷撒王子第四集團軍]";
+			mes "我很高興，你想和我們一起戰鬥，但我很抱歉: 我不能讓你這樣的新手死在殘酷的戰場.";
+		}
+		else {
+			if (BaseLevel < 80) {
+				mes "[愷撒王子第四集團軍]";
+				mes "我很高興，你想和我們一起戰鬥，但很抱歉: 我不能讓你這樣的新手死在殘酷的戰場.";
+			}
+			else {
+				set .@chk_urtime,checkquest(2069,PLAYTIME);
+				if (.@chk_urtime == 1) {
+					mes "[愷撒王子第四集團軍]";
+					mes "你似乎剛剛從戰場上歸來.";
+					mes "目前暫時不能進入。去休息吧，讓其他的士兵去戰鬥！";
+				}
+				else {
+					if (.@chk_urtime == 2)
+						erasequest 2069;
+					set .@mapcount,getmapusers("bat_a02");
+					if (.@mapcount > 0) {
+						mes "[愷撒王子第四集團軍]";
+						mes "我收到一份通知說一個精銳部隊已被派往戰場的戰鬥.";
+						mes "你為什麼不去等待一段時間？我建議你休息一會在來.";
+					}
+					else {
+						if ($@TierraBG2) {
+							mes "[愷撒王子第四集團軍]";
+							mes "一個精英已經被派往戰場.";
+							mes "你為什麼不去等待一段時間？我建議你休息一會在來.";
+						}
+						else {
+							mes "[愷撒王子第四集團軍]";
+							mes "你準備好戰鬥了嗎！";
+							mes "讓敵人看看我們的實力！";
+							mes "今天，讓我們的鮮血揮灑在戰場上！";
+							close2;
+							warp "bat_room",114,207;
+							end;
+						}
+					}
+				}
+			}
+		}
+		break;
+	case 2:
+		mes "[愷撒王子第四集團軍]";
+		mes "今天，我們一定會勝利！";
+		break;
+	}
+	close;
+}

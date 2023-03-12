@@ -1,0 +1,4902 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+//===== rAthena Script ======================================= 
+//= Moscovia Quests
+//===== By: ================================================== 
+//= Kisuka
+//===== Current Version: ===================================== 
+//= 2.3
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Quests for Moscovia.
+//= The Moving Island, Help Mikhail, Acorn Exchange,
+//= Banish Winter, Shafka Hat, Koshei the Immortal.
+//===== Additional Comments: ================================= 
+//= 1.0 First version. [Kisuka]
+//= 1.1 Small fixes on The Moving Island. [Kisuka]
+//= 1.2 Fixed a "player not attached" error. [brianluau]
+//= 1.3 Replaced occurrences of PcName. [brianluau]
+//= 1.4 Added 'Koshei the Immortal' quest. [Kisuka]
+//= 1.5 Fixes to 'Koshei the Immortal' quest. [Kisuka]
+//= 1.6 Added 'tides' to Ibanoff & Fixed time check for Marozka. [Kisuka]
+//= 1.7 Fixes on donpcevents and fixed some left over aegis stuff. [Kisuka]
+//= 1.8 Fixed some condition checks. [Gepard]
+//= 1.9 Corrected NPC counting mobs for the wrong NPC. (bugreport:4736) [L0ne_W0lf]
+//= 2.0 Optimized. [Joseph]
+//= 2.0a Bug fixes. [Euphy]
+//= 2.0b Bug fixes. [Lemongrass]
+//= 2.1 Fixed incorrect use of 'close'. [Joseph]
+//= 2.2 Updated RE/Pre-RE EXP. [Euphy]
+//= 2.3 Added GM management NPC. [Euphy]
+//============================================================ 
+
+// The Moving Island :: mos_whale_edq
+//============================================================
+
+//----------------------------------------------------------------------------
+// Berbayeff - Starting Point
+//----------------------------------------------------------------------------
+moscovia,171,71,3	script	貝勒巴葉夫#npc	4_M_RUSMAN2,{
+	if (!mos_whale_edq) {
+		emotion ET_FRET;
+		mes "[貝勒巴葉夫]";
+		mes "這個...額....";
+		mes "所有人...都不相信.";
+		mes "說我在吹牛.";
+		next;
+		select("你有什麼問題嗎?");
+			mes "[貝勒巴葉夫]";
+			mes "我好像沒見過你啊.";
+			mes "你是來旅遊的嗎?";
+			mes "如果是的話";
+			mes "那你在這附近一定見到了";
+			mes "很多不可思議的事物吧!.";
+			next;
+			mes "[貝勒巴葉夫]";
+			mes "我覺得你可能會對";
+			mes "我的故事感興趣的.";
+			mes "村民們都是傻瓜,";
+			mes "所以他們也把我當傻瓜看待.";
+			next;
+			if(select("我對故事沒興趣.:和我說說吧.") == 1) {
+				mes "[貝勒巴葉夫]";
+				mes "沒興趣嗎...";
+				mes "好吧.";
+				next;
+				mes "[貝勒巴葉夫]";
+				mes "如果你改變主意了,";
+				mes "可以隨時來找我.";
+				close;
+			}
+			emotion ET_BEST;
+			mes "[貝勒巴葉夫]";
+			mes "好的";
+			mes "讓我從頭告訴你吧.";
+			next;
+			mes "[貝勒巴葉夫]";
+			mes "你似乎";
+			mes "才到這不久吧.";
+			mes "你有聽說過";
+			mes "會移動的島嶼嗎?";
+			next;
+			mes "[貝勒巴葉夫]";
+			mes "在莫斯科,";
+			mes "有各種各樣的故事和傳奇, ";
+			mes "都是從古時候流傳下來的.";
+			next;
+			mes "[貝勒巴葉夫]";
+			mes "據說...";
+			mes "在不遠的海上";
+			mes "有一座會移動的島嶼";
+			next;
+			mes "[貝勒巴葉夫]";
+			mes "但是";
+			mes "沒有人見過這個島嶼.";
+			mes "所以..";
+			mes "沒什麼人相信這個傳說.";
+			next;
+			mes "[貝勒巴葉夫]";
+			mes "其實, 我覺得";
+			mes "這應該只是";
+			mes "一個不靠譜的傳說吧.";
+			mes "但是, 某天, 我看到了....";
+			next;
+			mes "[貝勒巴葉夫]";
+			mes "其實, 我覺得";
+			mes "這可能只是";
+			mes "一個不靠譜的傳說吧.";
+			mes "但是, 某天, 我看到了....";
+			mes "移動的島嶼!!!";
+			next;
+			mes "[貝勒巴葉夫]";
+			mes "驚訝嗎? 是的...";
+			mes "我當時驚呆了.";
+			mes "坦白說";
+			mes "我以前從不相信什麼傳說.";
+			next;
+			mes "[貝勒巴葉夫]";
+			mes "我在村子的";
+			mes "南邊海岸";
+			mes "看到了那個島.";
+			next;
+			mes "[貝勒巴葉夫]";
+			mes "當開始我還以為是我眼花了.";
+			mes "即使我在這生活了一輩子";
+			mes "我還從來沒聽說過";
+			mes "這個島真的存在!";
+			next;
+			mes "[貝勒巴葉夫]";
+			mes "我想爬到高處";
+			mes "好更清楚的觀察他";
+			mes "可是....";
+			mes "它漸漸的...";
+			mes "回到了海中...";
+			mes "然後消失了.";
+			next;
+			select("這個島再沒出現過了?");
+				mes "[貝勒巴葉夫]";
+				mes "沒有,";
+				mes "只有那麼一次";
+				mes "別人都說";
+				mes "我是看到ghost了.";
+				next;
+				mes "[貝勒巴葉夫]";
+				mes "但是幾天以後...";
+				mes "這島又出現在";
+				mes "我面前!,";
+				mes "當時我正在駕船回家.";
+				next;
+				mes "[貝勒巴葉夫]";
+				mes "那時";
+				mes "我試著靠近那島,";
+				mes "但是, 慢慢的...";
+				mes "那島又消失了.";
+				next;
+				mes "[貝勒巴葉夫]";
+				mes "然後";
+				mes "我徹底的相信了";
+				mes "移動的島嶼";
+				mes "是真實存在的!";
+				next;
+				mes "[貝勒巴葉夫]";
+				mes "怎麼樣?";
+				mes "這是一個偉大的發現吧!";
+				mes "你不覺得嗎??";
+				mes "你難道不想";
+				mes "去島上探險嗎?";
+				next;
+				mes "[貝勒巴葉夫]";
+				mes "我還沒有放棄呢!";
+				mes "這個島嶼一定會";
+				mes "再次出現在我們面前的!";
+				next;
+				mes "[貝勒巴葉夫]";
+				mes "等到那天,";
+				mes "我一定會親自上去";
+				mes "看看上面有什麼!";
+				set mos_whale_edq,1;
+				close;
+	}
+	else if (mos_whale_edq == 1) {
+		set .@speak,rand(1,5);
+		if (.@speak > 0 || .@speak < 3) {
+			mes "[貝勒巴葉夫]";
+			mes "當然了, 我想給所有人證明";
+			mes "那個島是存在的...";
+			next;
+			mes "[貝勒巴葉夫]";
+			mes "如果它再出現";
+			mes "我會證明的.";
+			mes "你想試試嗎?";
+			close;
+		}
+		else if (.@speak > 2 || .@speak < 6) {
+			mes "[貝勒巴葉夫]";
+			mes "尋找島嶼最好的方法";
+			mes "自然是";
+			mes "直接開船去海中.";
+			next;
+			mes "[貝勒巴葉夫]";
+			mes "我?";
+			mes "我當然有船了.";
+			mes "我畢竟是打漁的...";
+			next;
+			mes "[貝勒巴葉夫]";
+			mes "啊, 你需要...";
+			mes "一艘船?那可不行, .";
+			mes "我不能把船借給你...";
+			next;
+			mes "[貝勒巴葉夫]";
+			mes "可能伊霸諾布";
+			mes "肯借船給你";
+			mes "他像我一樣, ";
+			mes "喜歡到處探險.";
+			mes "他似乎是喜歡年輕的感覺...";
+			next;
+			mes "[貝勒巴葉夫]";
+			mes "伊霸諾布 和你一樣";
+			mes "旅遊探險過全世界";
+			mes "所以, ";
+			mes "他應該會理解你的.";
+			next;
+			mes "[貝勒巴葉夫]";
+			mes "如果你想開船去找小島";
+			mes "去找 伊霸諾布";
+			mes "請他幫忙吧.";
+			close;
+		}
+		else {
+			mes "嗯...天氣真好啊?";
+			mes "哈哈哈哈哈哈...";
+			close;
+		}
+	}
+	else if (mos_whale_edq > 12 && mos_whale_edq < 42) {
+		emotion ET_HUK;
+		mes "[貝勒巴葉夫]";
+		mes "你是認真的嗎?";
+		mes "你要尋找移動的島嶼?";
+		next;
+		emotion ET_BEST;
+		mes "[貝勒巴葉夫]";
+		mes "傳說是真的!!";
+		mes "我是對的, 不是嗎?";
+		mes "你一定會稱為偉大的探險者的.";
+		close;
+	}else{
+		mes "[貝勒巴葉夫]";
+		mes "歡飲來到莫斯科.";
+		mes "感覺在呢麼樣?";
+		mes "這裡很美吧, 哈?";
+		next;
+		mes "[貝勒巴葉夫]";
+		mes "大多數冒險家";
+		mes "都喜歡我們的村子的.";
+		mes "你再多轉轉";
+		mes "你一定會愛上這裡的.";
+		close;
+	}
+}
+
+//----------------------------------------------------------------------------
+// Bulletin Board - List Tide Times
+//----------------------------------------------------------------------------
+moscovia,135,52,0	script	布告欄#npc	837,{
+	mes "[提示]";
+	mes "注意, 根據潮汐的變化";
+	mes "船舶只有在以下時間";
+	mes "才可以離開";
+	next;
+	mes "[提示]";
+	mes "在以下時間";
+	mes "船舶可以出發:";
+	mes "^0000FF12:00am PST^000000 to ^0000FF3:00am PST";
+	mes "^0000FF6:00am PST^000000 to ^0000FF9:00am PST";
+	mes "^0000FF12:00pm PST^000000 to ^0000FF3:00pm PST";
+	mes "^0000FF6:00pm PST^000000 to ^0000FF9:00pm PST";
+	close;
+}
+
+//----------------------------------------------------------------------------
+// 伊霸諾布 - Docks
+//----------------------------------------------------------------------------
+moscovia,135,49,5	script	伊霸諾布#npc	964,{
+	if (mos_whale_edq == 1 || mos_whale_edq == 2) {
+		mes "["+strcharinfo(0)+"]";
+		mes "你好, 你是 伊霸諾布嗎?";
+		next;
+		mes "[伊霸諾布]";
+		mes "我是伊霸諾布.";
+		mes "怎麼了?";
+		next;
+		if(select("和我講講你探險的故事吧.:把你的船借給我吧.") == 1) {
+			mes "[伊霸諾布]";
+			mes "你是個探險者, 對吧?";
+			mes "來自陌生的大陸?";
+			mes "嗯嗯嗯...";
+			mes "歡迎你.";
+			next;
+			mes "[伊霸諾布]";
+			mes "當我在盧恩米德賈魯斯探險時";
+			mes "也許就是這個名字吧...";
+			mes "那時你還沒出生呢.";
+			mes "唉.懷念當時的日子啊...";
+			next;
+			mes "[伊霸諾布]";
+			mes "現在我的身體和心";
+			mes "都已經很累了.";
+			mes "當時看到海的時候";
+			mes "就想起以前的那些日子...";
+			next;
+			mes "[伊霸諾布]";
+			mes "嗯.那些故事...";
+			mes "先說什麼呢?";
+			mes "好吧, 那我就和你說說";
+			mes "那次我和一大群波利戰鬥的故事...";
+			next;
+			mes "["+strcharinfo(0)+"]";
+			mes "哈哈哈...";
+			next;
+			mes "[伊霸諾布]";
+			mes "你聽了故事";
+			mes "一定會很高興的.";
+			mes "嗯嗯嗯...";
+			mes "當我24歲時...";
+			mes "我的同伴和我經過";
+			mes "斐揚旁邊的一個樹林時...";
+			next;
+			mes "然後...";
+			next;
+			mes "然後....";
+			next;
+			mes "然後.....";
+			next;
+			mes "最後......";
+			next;
+			mes "[伊霸諾布]";
+			mes "那場戰鬥中";
+			mes "我表現的很出色";
+			mes "所以我和我的同伴";
+			mes "才能安全的返回.";
+			next;
+			mes "[伊霸諾布]";
+			mes "你覺得怎麼樣呢?";
+			mes "下面, 再和你說說...";
+			mes "獵殺哥布靈的故事...!";
+			next;
+			if(select("下次再聽吧...:真有趣, 繼續說.") == 1) {
+				mes "[伊霸諾布]";
+				mes "要不是...Ooo, 我就";
+				mes "走啊走...";
+				mes "不想聽了?呵呵.";
+				mes "那就下次再和你說吧.";
+				close;
+			}
+			mes "[伊霸諾布]";
+			mes "嗷嗷嗷... 我的朋友,";
+			mes "你喜歡我的故事我真高興...!";
+			next;
+			mes "[伊霸諾布]";
+			mes "好, 這次和你說說";
+			mes "血戰哥布靈...";
+			
+			next;
+			mes "你知道的...";
+			next;
+			mes "然後....";
+			next;
+			mes "然後.....";
+			next;
+			mes "最後......";
+			next;
+			mes "[伊霸諾布]";
+			mes "然後, 那場血戰";
+			mes "就那樣結束了...";
+			mes "Ohwee...";
+			next;
+			mes "[伊霸諾布]";
+			mes "哈哈";
+			mes "你是第一個";
+			mes "能聽我講這麼長時間故事的人.";
+			mes "感覺真棒...";
+			next;
+			mes "[伊霸諾布]";
+			mes "你完全擁有稱為偉大探險者,";
+			mes "的潛質啊.";
+			mes "我們一定會成為好朋友的.";
+			next;
+			mes "[伊霸諾布]";
+			mes "下次, 我們再談談..";
+			mes "你的探險故事... eh? ~";
+			mes "如果你需要什麼,";
+			mes "儘管來找我, 哈哈哈!";
+			set mos_whale_edq,2;
+			close;
+		}
+		if (mos_whale_edq == 2) {
+			mes "[伊霸諾布]";
+			mes "啊!忠實的聽眾";
+			mes "你借我的船";
+			mes "要去幹什麼呢?";
+			next;
+			mes "["+strcharinfo(0)+"]";
+			mes "我要去海上探險";
+			mes "去找那座";
+			mes "傳說中的";
+			mes "會移動的島嶼.";
+			next;
+			mes "[伊霸諾布]";
+			mes "移動的島嶼?";
+			mes "其實我還真沒見過呢...";
+			mes "但是你還年輕, 哈哈!";
+			next;
+			mes "[伊霸諾布]";
+			mes "我希望你可以";
+			mes "成功找到那座島嶼,";
+			mes "然後把好消息";
+			mes "帶給我們!";
+			next;
+			mes "[伊霸諾布]";
+			mes "好吧!";
+			mes "首先";
+			mes "我要檢查一下船的狀態...";
+			mes "如果你想幫我的話,";
+			mes "你得做點什麼.";
+			next;
+			mes "[伊霸諾布]";
+			mes "我的船";
+			mes "很久沒出海了";
+			mes "所以我們得檢查下";
+			mes "看看有什麼地方要修理的";
+			mes "然後才可以出海.";
+			next;
+			mes "[伊霸諾布]";
+			mes "如果你可以修好的話";
+			mes "在這裡修船...";
+			mes "要花好幾天的時間.";
+			next;
+			mes "[伊霸諾布]";
+			mes "需要這些材料:";
+			mes "^0000FF魔幻拉鏈*10, 生鏽的螺絲*10, 軟管*5, 朱畢雷*10^000000.";
+			next;
+			mes "[伊霸諾布]";
+			mes "如果你收集好了";
+			mes "將材料交給我";
+			mes "我就可以把船修好.";
+			set mos_whale_edq,3;
+			close;
+		}else{
+			emotion ET_ANGER;
+			mes "[伊霸諾布]";
+			mes "你想借我的船?";
+			
+			mes "我根本都不認識你!!";
+			mes "你比看起來粗魯的多了.";
+			next;
+			mes "[伊霸諾布]";
+			mes "我不知道你是怎麼得知";
+			mes "我有一艘船的...";
+			mes "無論如何, 我是不會把船";
+			mes "借給陌生人的.";
+			close;
+		}
+	}
+	else if (mos_whale_edq == 3) {
+		mes "[伊霸諾布]";
+		mes "材料都帶來了嗎?";
+		mes "如果好了,";
+		mes "我們可以開始修理了!";
+		next;
+		if (countitem(7167) > 9 && countitem(7317) > 9 && countitem(7325) > 4 && countitem(7312) > 9) {
+			mes "[伊霸諾布]";
+			mes "哦, 材料都齊了.";
+			
+			next;
+			delitem 7167,10; //Mystery_Iron_Bit
+			delitem 7317,10; //Screw
+			delitem 7325,5; //Tube
+			delitem 7312,10; //Jubilee
+			set mos_whale_edq,4;
+			mes "[伊霸諾布]";
+			mes "我們準備好了.";
+			mes "你準備什麼時候出發?";
+			mes "我得告訴你...";
+			mes "日落以後";
+			mes "這船就開不成了.";
+			next;
+			mes "[伊霸諾布]";
+			mes "這附近的海水裡,";
+			mes "有很多大浪.";
+			mes "日落以後";
+			mes "出海會變的很難行駛";
+			mes "專業的水手都不行.";
+			next;
+			mes "[伊霸諾布]";
+			mes "記住";
+			mes "這船在經過海浪時";
+			mes "也是很艱難的";
+			
+			next;
+			mes "[伊霸諾布]";
+			mes "如果你準備好出發了";
+			mes "日落前告訴我.";
+			close;
+		}else{
+			mes "[伊霸諾布]";
+			mes "材料不夠.";
+			mes "你是不是忘了什麼?";
+			next;
+			mes "[伊霸諾布]";
+			mes "需要的材料:";
+			mes "^0000FF魔幻拉鏈*10, 生鏽的螺絲*10, 軟管*5, 朱畢雷*10^000000.";
+			close;
+		}
+	}
+	else if (mos_whale_edq == 4) {
+		mes "[伊霸諾布]";
+		mes "哦, 你要出發了嗎?";
+		mes "好, 我們看看...";
+		next;
+		if (gettime(3) >= 0 && gettime(3) < 3) {
+			mes "[伊霸諾布]";
+			mes "嗯, 時間還早.";
+			mes "動作快點.";
+			mes "趁潮汐還低著.";
+			mes "船在碼頭準備好了";
+			mes "我們立刻出發!";
+			
+			close2;
+			warp "mosk_ship",94,110;
+			end;
+		}
+		else if (gettime(3) >= 6 && gettime(3) < 9) {
+			mes "嗯, 時間還早.";
+			mes "動作快點.";
+			mes "趁潮汐還低著.";
+			mes "船在碼頭準備好了";
+			mes "我們立刻出發!";
+			close2;
+			warp "mosk_ship",94,110;
+			end;
+		}
+		else if (gettime(3) >= 12 && gettime(3) < 15) {
+			mes "嗯, 時間還早.";
+			mes "動作快點.";
+			mes "趁潮汐還低著.";
+			mes "船在碼頭準備好了";
+			mes "我們立刻出發!";
+			close2;
+			warp "mosk_ship",94,110;
+			end;
+		}
+		else if (gettime(3) >= 18 && gettime(3) < 21) {	
+			mes "嗯, 時間還早.";
+			mes "動作快點.";
+			mes "趁潮汐還低著.";
+			mes "船在碼頭準備好了";
+			mes "我們立刻出發!";
+			close2;
+			warp "mosk_ship",94,110;
+			end;
+		}
+		else {
+			mes "[伊霸諾布]";
+			mes "天, 潮汐太高了.";
+			mes "現在出發太危險了";
+			
+			next;
+			mes "[伊霸諾布]";
+			mes "我們現在不能走,";
+			mes "等潮汐退一點了";
+			mes "你再來吧.";
+			close;
+		}
+	}
+	else if (mos_whale_edq > 4 && mos_whale_edq < 15) {
+		mes "[伊霸諾布]";
+		mes "組後一次航行穿過了...";
+		mes "但是所有的探險...";
+		mes "都像那樣...";
+		mes "哈哈哈!";
+		next;
+		mes "[伊霸諾布]";
+		mes "如果你想再次出發";
+		mes "日落前告訴我";
+
+		next;
+		mes "[伊霸諾布]";
+		mes "要出發嗎?";
+		next;
+		if(select("我還沒準備好.:出發吧.") == 1) {
+			mes "[伊霸諾布]";
+			mes "如果你準備好了, 就告訴我.";
+			close;
+		}
+		if (gettime(3) >= 0 && gettime(3) < 3) {
+			mes "嗯, 時間還早.";
+			mes "動作快點.";
+			mes "趁潮汐還低著.";
+			mes "船在碼頭準備好了";
+			mes "我們立刻出發!";
+			close2;
+			warp "mosk_ship",94,110;
+			end;
+		}
+		else if (gettime(3) >= 6 && gettime(3) < 9) {
+			mes "嗯, 時間還早.";
+			mes "動作快點.";
+			mes "趁潮汐還低著.";
+			mes "船在碼頭準備好了";
+			mes "我們立刻出發!";
+			close2;
+			warp "mosk_ship",94,110;
+			end;
+		}
+		else if (gettime(3) >= 12 && gettime(3) < 15) {
+			mes "嗯, 時間還早.";
+			mes "動作快點.";
+			mes "趁潮汐還低著.";
+			mes "船在碼頭準備好了";
+			mes "我們立刻出發!";
+			close2;
+			warp "mosk_ship",94,110;
+			end;
+		}
+		else if (gettime(3) >= 18 && gettime(3) < 21) {	
+			mes "嗯, 時間還早.";
+			mes "動作快點.";
+			mes "趁潮汐還低著.";
+			mes "船在碼頭準備好了";
+			mes "我們立刻出發!";
+			close2;
+			warp "mosk_ship",94,110;
+			end;
+		}
+		else {
+			mes "[伊霸諾布]";
+			mes "天, 潮汐太高了.";
+			mes "現在出發太危險了";
+			
+			next;
+			mes "[伊霸諾布]";
+			mes "我們現在不能走,";
+			mes "等潮汐低一點了";
+			mes "你再來吧.";
+			close;
+		}
+	}
+	else if (mos_whale_edq == 15) {
+		mes "[伊霸諾布]";
+		mes "你..你還活著!";
+		mes "當你乘船遠去時";
+		mes "我還以為再也見不到你了!";
+		
+		next;
+		mes "[伊霸諾布]";
+		mes "這段時間你都在哪裡?";
+		next;
+		select("和他解釋一下.");
+			mes "[伊霸諾布]";
+			mes "真不可思議.";
+			mes "我從未相信...";
+			mes "這島真的存在...?";
+			next;
+			mes "[伊霸諾布]";
+			mes "還有呢...";
+			mes "這島不是一個島?!?";
+			mes "是一隻鯨魚???";
+			next;
+			mes "[伊霸諾布]";
+			mes "鯨魚的背上";
+			mes "還有樹木和小溪???";
+			
+			next;
+			mes "[伊霸諾布]";
+			mes "真是不可思議!";
+			mes "這是我這輩子";
+			mes "聽到的最不可思議的故事了!";
+			next;
+			mes "[伊霸諾布]";
+			mes "同時";
+			mes "我對鯨魚背上的那個老人也很驚奇!";
+			
+			next;
+			mes "[伊霸諾布]";
+			mes "那個人";
+			mes "一定非常的強大...";
+			
+			next;
+			mes "[伊霸諾布]";
+			mes "看來鯨魚島的故事是真的了";
+			mes "但是你為什麼不把你的發現";
+			
+			mes "告訴 國王";
+			mes "然後獲得發現島嶼的獎勵?";
+			
+			next;
+			mes "[伊霸諾布]";
+			mes "國王非常喜歡聽有價值的故事";
+			mes "如果他聽了你的故事";
+			mes "他應該會給你";
+			mes "一些獎賞";
+			
+			next;
+			mes "[伊霸諾布]";
+			mes "如果你還想再回到島上";
+			mes "我想和你一起去";
+			mes "哈哈哈!";
+			set mos_whale_edq,16;
+			close;
+	}
+	else if (mos_whale_edq > 15 && mos_whale_edq < 18) {
+		mes "[伊霸諾布]";
+		mes "如果 國王 聽了這個故事";
+		mes "他會很開心的.";
+		
+		next;
+		mes "[伊霸諾布]";
+		mes "甚至給你一些獎賞...";
+		close;
+	}
+	else if (mos_whale_edq == 18) {
+		mes "[伊霸諾布]";
+		mes "嗯, 國王 ";
+		mes "問你要鯨魚島的證據?...";
+		next;
+		mes "[伊霸諾布]";
+		mes "這有點";
+		mes "困難...";
+		next;
+		mes "[伊霸諾布]";
+		mes "你能保證";
+		mes "再次找到鯨魚島嗎?";
+		next;
+		mes "[伊霸諾布]";
+		mes "我知道你不會放棄的.";
+		mes "要麼我們再去一次?";
+		mes "我會幫你找到鯨魚島的";
+		
+		next;
+		if(select("再次出發.:放棄.") == 1) {
+			mes "[伊霸諾布]";
+			mes "這就對了!";
+			mes "我知道你不會放棄的!";
+			next;
+			mes "[伊霸諾布]";
+			mes "讓我們準備好船, 日落前出發!";
+			set mos_whale_edq,19;
+			close;
+		}
+		mes "[伊霸諾布]";
+		mes "知道了...";
+		mes "即使你喜歡探險,";
+		mes "要找到鯨魚島";
+		mes "也是不可能的...";
+		next;
+		mes "[伊霸諾布]";
+		mes "如果你改變主意了,";
+		mes "隨時來找我.";
+		mes "我很想見到你證明給全村人";
+		mes "鯨魚島是存在的.";
+		close;
+	}
+	else if (mos_whale_edq == 19) {
+		mes "[伊霸諾布]";
+		mes "準備好出發了嗎?";
+		next;
+		if(select("I'm not ready.:Let's go.") == 1) {
+			mes "[伊霸諾布]";
+			mes "如果準備好了就告訴我.";
+			close;
+		}
+		if (gettime(3) >= 0 && gettime(3) < 3) {
+			mes "嗯, 時間還早.";
+			mes "動作快點.";
+			mes "趁潮汐還低著.";
+			mes "船在碼頭準備好了";
+			mes "我們立刻出發!";
+			close2;
+			warp "mosk_ship",94,110;
+			end;
+		}
+		else if (gettime(3) >= 6 && gettime(3) < 9) {
+			mes "嗯, 時間還早.";
+			mes "動作快點.";
+			mes "趁潮汐還低著.";
+			mes "船在碼頭準備好了";
+			mes "我們立刻出發!";
+			close2;
+			warp "mosk_ship",94,110;
+			end;
+		}
+		else if (gettime(3) >= 12 && gettime(3) < 15) {
+			mes "嗯, 時間還早.";
+			mes "動作快點.";
+			mes "趁潮汐還低著.";
+			mes "船在碼頭準備好了";
+			mes "我們立刻出發!";
+			close2;
+			warp "mosk_ship",94,110;
+			end;
+		}
+		else if (gettime(3) >= 18 && gettime(3) < 21) {	
+			mes "嗯, 時間還早.";
+			mes "動作快點.";
+			mes "趁潮汐還低著.";
+			mes "船在碼頭準備好了";
+			mes "我們立刻出發!";
+			close2;
+			warp "mosk_ship",94,110;
+			end;
+		}
+		else {
+			mes "[伊霸諾布]";
+			mes "[伊霸諾布]";
+			mes "天, 潮汐太高了.";
+			mes "現在出發太危險了";
+			next;
+			mes "[伊霸諾布]";
+			mes "我們現在不能走,";
+			mes "等潮汐低一點了";
+			mes "你再來吧.";
+			close;
+		}
+	}
+	else if (mos_whale_edq > 19 && mos_whale_edq < 32) {
+		mes "[伊霸諾布]";
+		mes "真是個驚喜!!";
+		mes "你哪去了??";
+		mes "我還在擔心";
+		mes "你是不是永遠消失了!";
+		next;
+		mes "[伊霸諾布]";
+		mes "我不管你去哪了";
+		mes "能再見到你真高興";
+		
+		set mos_whale_edq,19;
+		next;
+		mes "[伊霸諾布]";
+		mes "我想, 你一定";
+		mes "想再去鯨魚島...";
+		next;
+		if (gettime(3) >= 0 && gettime(3) < 3) {
+			mes "[伊霸諾布]";
+			mes "嗯, 時間還早.";
+			mes "動作快點.";
+			mes "趁潮汐還低著.";
+			mes "船在碼頭準備好了";
+			mes "我們立刻出發!";
+			close2;
+			warp "mosk_ship",94,110;
+			end;
+		}
+		else if (gettime(3) >= 6 && gettime(3) < 9) {
+			mes "嗯, 時間還早.";
+			mes "動作快點.";
+			mes "趁潮汐還低著.";
+			mes "船在碼頭準備好了";
+			mes "我們立刻出發!";
+			close2;
+			warp "mosk_ship",94,110;
+			end;
+		}
+		else if (gettime(3) >= 12 && gettime(3) < 15) {
+			mes "嗯, 時間還早.";
+			mes "動作快點.";
+			mes "趁潮汐還低著.";
+			mes "船在碼頭準備好了";
+			mes "我們立刻出發!";
+			close2;
+			warp "mosk_ship",94,110;
+			end;
+		}
+		else if (gettime(3) >= 18 && gettime(3) < 21) {	
+			mes "嗯, 時間還早.";
+			mes "動作快點.";
+			mes "趁潮汐還低著.";
+			mes "船在碼頭準備好了";
+			mes "我們立刻出發!";
+			close2;
+			warp "mosk_ship",94,110;
+			end;
+		}
+		else {
+			mes "[伊霸諾布]";
+			mes "[伊霸諾布]";
+			mes "天, 潮汐太高了.";
+			mes "現在出發太危險了";
+			next;
+			mes "[伊霸諾布]";
+			mes "我們現在不能走,";
+			mes "等潮汐低一點了";
+			mes "你再來吧.";
+			close;
+		}
+	}
+	else if (mos_whale_edq == 32) {
+		mes "[伊霸諾布]";
+		mes "你回來了!";
+		mes "怎麼樣?";
+		next;
+		mes "[伊霸諾布]";
+		mes "你是說...";
+		mes "如果你收集到了材料";
+		mes "那個老人就會給你開證明...";
+		next;
+		mes "[伊霸諾布]";
+		mes "而且他承諾他不會移動島嶼";
+		mes "直到你再次回去?";
+		next;
+		mes "[伊霸諾布]";
+		mes "我知道了, 我記得準備的地址";
+		mes "我們儘快出發!";
+		
+		set mos_whale_edq,33;
+		close;
+	}
+	else if (mos_whale_edq > 32 && mos_whale_edq < 39) {
+		mes "[伊霸諾布]";
+		mes "材料齊了嗎?";
+		
+		next;
+		mes "[伊霸諾布]";
+		mes "那現在出發嗎?";
+		next;
+		if(select("等等.:出發.") == 1) {
+			mes "[伊霸諾布]";
+			mes "好吧, 再等等.";
+			close;
+		}
+		mes "[伊霸諾布]";
+		mes "走咯!";
+		close2;
+		warp "mosk_fild01",93,94;
+		end;
+	}
+	else if (mos_whale_edq > 38 && mos_whale_edq < 41) {
+		mes "[伊霸諾布]";
+		mes "終於結束了.";
+		mes "讓我在我們的探險史上";
+		mes "再加上一頁吧!";
+		next;
+		mes "[伊霸諾布]";
+		mes "我希望有一天";
+		mes "能和你這樣的人";
+		mes "再次探險!";
+		close;
+	}
+	else if (mos_whale_edq == 41) {
+		mes "[伊霸諾布]";
+		mes "我聽說了你發現鯨魚島的";
+		mes "傳奇事跡.";
+		mes "你一定是個天才!";
+		
+		next;
+		mes "[伊霸諾布]";
+		mes "終於結束了.";
+		mes "讓我在我們的探險史上";
+		mes "再加上一頁吧!";
+		next;
+		mes "[伊霸諾布]";
+		mes "我希望有一天";
+		mes "能和你這樣的人";
+		mes "再次探險!";
+		close;
+	}
+	else if (mos_whale_edq > 90 && mos_whale_edq < 100) {
+		mes "[伊霸諾布]";
+		mes "怎麼了?";
+		mes "你需要一艘船?我們現在出發!.";
+		set mos_whale_edq,4;
+		close;
+	}
+	else if (mos_whale_edq > 200 && mos_whale_edq < 300) {
+		mes "[伊霸諾布]";
+		mes "怎麼了?";
+		mes "你需要一艘船?我們現在出發!.";
+		set mos_whale_edq,19;
+		close;
+	}
+	else{
+		mes "[伊霸諾布]";
+		mes "你我都是偉大的探險家.";
+		next;
+		mes "[伊霸諾布]";
+		mes "我只想再年輕個20歲, 就可以像你一樣到處探險了.時間是把殺豬刀, 哈哈哈!";
+		close;
+	}
+}
+
+//----------------------------------------------------------------------------
+// 伊霸諾布 - Ship
+//----------------------------------------------------------------------------
+mosk_ship,98,110,3	script	伊霸諾布#npc2	964,{
+	if (mos_whale_edq == 4) {
+		mes "[伊霸諾布]";
+		mes "航海的好天氣!";
+		mes "海風吹的真涼爽.";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "這麼危險的地方";
+		mes "你不用陪我去...";
+		next;
+		mes "[伊霸諾布]";
+		mes "海上的知識我比你懂得的多";
+		mes "這船是我一生的朋友";
+		mes "我是不會丟下我的朋友的";
+		mes "你覺得呢?";
+		next;
+		mes "[伊霸諾布]";
+		mes "我觀察海面";
+		mes "告訴你朝哪走.";
+		next;
+		mes "[伊霸諾布]";
+		mes "你只管聽我的指令";
+		mes "改變舵的方向.";
+		next;
+		mes "[伊霸諾布]";
+		mes "首先, 直走";
+		mes "向東.";
+		set mos_whale_edq,5;
+		close;
+	}
+	else if (mos_whale_edq == 5) {
+		mes "[伊霸諾布]";
+		mes "保持向東";
+		close;
+	}
+	else if (mos_whale_edq == 6) {
+		set .@ship1,rand(1,4);
+		if (.@ship1 == 3) {
+			mes "[伊霸諾布]";
+			mes "水流改變了.";
+			mes "調整航向向北.";
+			set mos_whale_edq,7;
+			close;
+		}else{
+			mes "[伊霸諾布]";
+			mes "什麼都沒變";
+			mes "根據水流...";
+			mes "什麼都沒變...";
+			next;
+			mes "[伊霸諾布]";
+			mes "我們最好保持航向";
+			close;
+		}
+	}
+	else if ($@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "我們首先得擊敗";
+		mes "怪物!";
+		close;
+	}
+	else if (mos_whale_edq == 7 && $@mos1_edq == 0) {
+		mes "[伊霸諾布]";
+		mes "嘿!";
+		mes "你沒聽到嗎?";
+		mes "調整航向向北";
+		close;
+	}
+	else if (mos_whale_edq == 8 && $@mos1_edq == 0) {
+		set .@ship1,rand(1,3);
+		if (.@ship1 == 3) {
+			set .@ship2,rand(1,4);
+			if (.@ship2 == 1) {
+				mes "[伊霸諾布]";
+				mes "水流變化了.";
+				mes "調整航向向東";
+				set mos_whale_edq,91;
+				close;
+			}
+			else if (.@ship2 == 2) {
+				mes "[伊霸諾布]";
+				mes "水流變化了.";
+				mes "調整航向向西";
+				set mos_whale_edq,92;
+				close;
+			}
+			else if (.@ship2 == 3) {
+				mes "[伊霸諾布]";
+				mes "水流變化了.";
+				mes "調整航向向南";
+				set mos_whale_edq,93;
+				close;
+			}
+			else if (.@ship2 == 4) {
+				mes "[伊霸諾布]";
+				mes "水流變化了.";
+				mes "調整航向向北";
+				set mos_whale_edq,94;
+				close;
+			}
+		}else{
+			mes "[伊霸諾布]";
+			mes "什麼都沒變";
+			mes "根據水流...";
+			mes "什麼都沒變...";
+			next;
+			mes "[伊霸諾布]";
+			mes "我們最好保持航向";
+			close;
+		}
+	}
+	else if (mos_whale_edq == 91 && $@mos1_edq == 0) {
+		mes "[伊霸諾布]";
+		mes "嘿!";
+		mes "你沒聽到嗎?";
+		mes "調整航向向東";
+		close;
+	}
+	else if (mos_whale_edq == 92 && $@mos1_edq == 0) {
+		mes "[伊霸諾布]";
+		mes "嘿!";
+		mes "你沒聽到嗎?";
+		mes "調整航向向西";
+		close;
+	}
+	else if (mos_whale_edq == 93 && $@mos1_edq == 0) {
+		mes "[伊霸諾布]";
+		mes "嘿!";
+		mes "你沒聽到嗎?";
+		mes "調整航向向南";
+		close;
+	}
+	else if (mos_whale_edq == 94 && $@mos1_edq == 0) {
+		mes "[伊霸諾布]";
+		mes "嘿!";
+		mes "你沒聽到嗎?";
+		mes "調整航向向北";
+		close;
+	}
+	else if (mos_whale_edq == 10 && $@mos1_edq == 0) {
+		set .@ship1,rand(1,3);
+		if (.@ship1 == 2) {
+			set .@ship2,rand(1,4);
+			if (.@ship2 == 1) {
+				mes "[伊霸諾布]";
+				mes "水流變化了.";
+				mes "調整航向向東";
+				set mos_whale_edq,91;
+				close;
+			}
+			else if (.@ship2 == 2) {
+				mes "[伊霸諾布]";
+				mes "水流變化了.";
+				mes "調整航向向西";
+				set mos_whale_edq,92;
+				close;
+			}
+			else if (.@ship2 == 3) {
+				mes "[伊霸諾布]";
+				mes "水流變化了.";
+				mes "調整航向向南";
+				set mos_whale_edq,93;
+				close;
+			}
+			else if (.@ship2 == 4) {
+				mes "[伊霸諾布]";
+				mes "水流變化了.";
+				mes "調整航向向北";
+				set mos_whale_edq,94;
+				close;
+			}
+		}else{
+			mes "[伊霸諾布]";
+			mes "什麼都沒變";
+			mes "根據水流...";
+			mes "什麼都沒變...";
+			next;
+			mes "[伊霸諾布]";
+			mes "我們最好保持航向";
+			close;
+		}
+	}
+	else if (mos_whale_edq == 10 && $@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "我們得先消滅";
+		mes "怪物!";
+		close;
+	}
+	else if (mos_whale_edq == 11) {
+		mes "[伊霸諾布]";
+		mes "看海面上!";
+		mes "是不是有什麼東西在移動?";
+		
+		next;
+		mes "[伊霸諾布]";
+		mes "呵呵...";
+		mes "嘿!你!";
+		mes "去甲板上";
+		mes "看仔細點, 快去!";
+		set mos_whale_edq,12;
+		donpcevent "#findship::OnEnable";
+		close;
+	}
+	else if (mos_whale_edq == 12) {
+		mes "[伊霸諾布]";
+		mes "去甲板上";
+		mes "看仔細點, 快去!";
+		donpcevent "#findship::OnEnable";
+		close;
+		return;
+	}
+	else if (mos_whale_edq == 19) {
+		mes "[伊霸諾布]";
+		mes "我希望這次能找到鯨魚島";
+		mes "別再發生小插曲了";
+		next;
+		mes "[伊霸諾布]";
+		mes "還是用以前的方法.";
+		next;
+		mes "[伊霸諾布]";
+		mes "我觀察海面";
+		mes "給你指揮方向.";
+		next;
+		mes "[伊霸諾布]";
+		mes "首先, 直走";
+		mes "向東.";
+		set mos_whale_edq,20;
+		close;
+	}
+	else if (mos_whale_edq == 20) {
+		if (@mos_whale_edq == 24) {
+		set .@ship1,rand(1,4);
+		set #CASHPOINTS,@nankai2;
+		if (.@ship1 == 3) {
+			set .@ship2,rand(1,4);
+			if (.@ship2 == 1) {
+			mes "[伊霸諾布]";
+			mes "水流變化了.";
+			mes "調整航向向東";
+			set mos_whale_edq,241;
+			close;
+			}
+		}
+			}
+		mes "[伊霸諾布]";
+		mes "保持向東";
+		close;
+	}
+	else if (mos_whale_edq == 21) {
+		set .@ship1,rand(1,3);
+		if (.@ship1 == 2) {
+			mes "[伊霸諾布]";
+			mes "水流改變了.";
+			mes "調整航向向北.";
+			set mos_whale_edq,22;
+			close;
+		}else{
+			mes "[伊霸諾布]";
+			mes "什麼都沒變";
+			mes "根據水流...";
+			mes "什麼都沒變...";
+			next;
+			mes "[伊霸諾布]";
+			mes "我們最好保持航向";
+			close;
+		}
+	}
+	else if ($@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "我們首先得擊敗";
+		mes "怪物!";
+		close;
+	}
+	else if (mos_whale_edq == 22 && $@mos1_edq == 0) {
+		mes "[伊霸諾布]";
+		mes "嘿!";
+		mes "你沒聽到嗎?";
+		mes "調整航向向北";
+		close;
+	}
+	else if (mos_whale_edq == 23 && $@mos1_edq == 0) {
+		set .@ship1,rand(1,5);
+		if (.@ship1 == 3) {
+			set .@ship2,rand(1,4);
+			if (.@ship2 == 1) {
+				mes "[伊霸諾布]";
+				
+				mes "水流變化了.";
+				mes "調整航向向東";
+				set mos_whale_edq,241;
+				close;
+			}
+			else if (.@ship2 == 2) {
+				mes "[伊霸諾布]";
+				mes "水流變化了.";
+				mes "調整航向向西";
+				set mos_whale_edq,242;
+				close;
+			}
+			else if (.@ship2 == 3) {
+				mes "[伊霸諾布]";
+				mes "水流變化了.";
+				mes "調整航向向南";
+				set mos_whale_edq,243;
+				close;
+			}
+			else if (.@ship2 == 4) {
+				mes "[伊霸諾布]";
+				mes "水流變化了.";
+				mes "調整航向向北";
+				set mos_whale_edq,244;
+				close;
+			}
+		}else{
+			mes "[伊霸諾布]";
+			mes "什麼都沒變";
+			mes "根據水流...";
+			mes "什麼都沒變...";
+			next;
+			mes "[伊霸諾布]";
+			mes "我們最好保持航向";
+			close;
+		}
+	}
+	else if (mos_whale_edq == 241 && $@mos1_edq == 0) {
+		mes "[伊霸諾布]";
+		mes "嘿!";
+		mes "你沒聽到嗎?";
+		mes "調整航向向東";
+		close;
+	}
+	
+	else if (mos_whale_edq == 242 && $@mos1_edq == 0) {
+		mes "[伊霸諾布]";
+		mes "嘿!";
+		mes "你沒聽到嗎?";
+		mes "調整航向向西";
+		close;
+	}
+	else if (mos_whale_edq == 243 && $@mos1_edq == 0) {
+		mes "[伊霸諾布]";
+		mes "嘿!";
+		mes "你沒聽到嗎?";
+		mes "調整航向向南";
+		close;
+	}
+	else if (mos_whale_edq == 244 && $@mos1_edq == 0) {
+		mes "[伊霸諾布]";
+		mes "嘿!";
+		mes "你沒聽到嗎?";
+		mes "調整航向向北";
+		close;
+	}
+	else if (mos_whale_edq == 25 && $@mos1_edq == 0) {
+		set .@ship1,rand(1,4);
+		if (.@ship1 == 3) {
+			set .@ship2,rand(1,4);
+			if (.@ship2 == 1) {
+				mes "[伊霸諾布]";
+				mes "水流變化了.";
+				mes "調整航向向東";
+				set mos_whale_edq,241;
+				close;
+			}
+			else if (.@ship2 == 2) {
+				mes "[伊霸諾布]";
+				mes "水流變化了.";
+				mes "調整航向向西";
+				set mos_whale_edq,242;
+				close;
+			}
+			else if (.@ship2 == 3) {
+				mes "[伊霸諾布]";
+				mes "水流變化了.";
+				mes "調整航向向南";
+				set mos_whale_edq,243;
+				close;
+			}
+			else if (.@ship2 == 4) {
+				mes "[伊霸諾布]";
+				mes "水流變化了.";
+				mes "調整航向向北";
+				set mos_whale_edq,244;
+				close;
+			}
+		}else{
+			mes "[伊霸諾布]";
+			mes "什麼都沒變";
+			mes "根據水流...";
+			mes "什麼都沒變...";
+			next;
+			mes "[伊霸諾布]";
+			mes "我們最好保持航向";
+			close;
+		}
+	}
+	else if (mos_whale_edq == 26) {
+		mes "[伊霸諾布]";
+		mes "看!";
+		mes "移動的島嶼!";
+		mes "我們找到了!";
+		next;
+		mes "[伊霸諾布]";
+		mes "我的天...";
+		mes "真是這...";
+		mes "無法置信!";
+		mes "這也太...";
+		next;
+		mes "[伊霸諾布]";
+		mes "我覺得和你去哪都可以到達!";
+		mes "即使是不可能的事情!";
+		mes "哈哈, 你能帶來幸運.";
+		
+		next;
+		mes "[伊霸諾布]";
+		mes "好了, 你上島去吧.";
+		mes "我得回去了.";
+		next;
+		mes "[伊霸諾布]";
+		mes "再來一個海浪";
+		mes "我的小船就要散架了!";
+		
+		next;
+		mes "[伊霸諾布]";
+		mes "好運!";
+		mes "希望你回去的時候別出意外.";
+		mes "我會為你祈禱的.";
+		mes "下次見.";
+		set mos_whale_edq,30;
+		close2;
+		warp "mosk_fild01",93,94;
+		end;
+	}
+	else if (mos_whale_edq == 7 && $@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "我們首先得擊敗";
+		mes "怪物!";
+		close;
+	}
+	else if (mos_whale_edq == 8 && $@mos1_edq == 0) {
+		mes "[伊霸諾布]";
+		mes "不用調整航向了.";
+		mes "聽我的指揮就好.";
+		close;
+	}
+	else if (mos_whale_edq == 8 && $@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "我們首先得擊敗";
+		mes "怪物!";
+		close;
+	}
+	else if (mos_whale_edq == 7 && $@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "我們首先得擊敗";
+		mes "怪物!";
+		close;
+	}
+	else if (mos_whale_edq == 8 && $@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "我們首先得擊敗";
+		mes "怪物!";
+		close;
+	}
+	else if (mos_whale_edq == 10 && $@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "我們首先得擊敗";
+		mes "怪物!";
+		close;
+	}
+	else if (mos_whale_edq > 89 && mos_whale_edq < 100 && $@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "我們首先得擊敗";
+		mes "怪物!";
+		close;
+	}
+	else if (mos_whale_edq == 22 && $@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "我們首先得擊敗";
+		mes "怪物!";
+		close;
+	}
+	else if (mos_whale_edq == 23 && $@mos1_edq == 0) {
+		mes "[伊霸諾布]";
+		mes "不用調整航向了.";
+		mes "聽我的指揮就好.";
+		close;
+	}
+	else if (mos_whale_edq == 23 && $@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "我們首先得擊敗";
+		mes "怪物!";
+		close;
+	}
+	else if (mos_whale_edq == 25 && $@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "我們首先得擊敗";
+		mes "怪物!";
+		close;
+	}
+	else if (mos_whale_edq > 239 && mos_whale_edq < 250 && $@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "我們首先得擊敗";
+		mes "怪物!";
+		close;
+	}
+	else{
+		mes "[伊霸諾布]";
+		mes "嗯?";
+		mes "你怎麼上來的?.";
+		mes "這次就饒了你.";
+		mes "滾回去.";
+		close2;
+		warp "moscovia",163,55;
+		end;
+	}
+}
+
+//----------------------------------------------------------------------------
+// Rudder
+//----------------------------------------------------------------------------
+mosk_ship,101,111,4	script	rudder#ship	HIDDEN_NPC,{
+	if (mos_whale_edq == 5) {
+		mes "哪個方向?";
+		next;
+		switch(select("東:西:南:北")) {
+		case 1:
+			mes "[伊霸諾布]";
+			mes "好的";
+			mes "首先向東";
+			mes "等我給你命令時,";
+			mes "再調整航向.";
+			set mos_whale_edq,6;
+			close;
+			break;
+		case 2:
+			mes "[伊霸諾布]";
+			mes "我說的朝東!";
+			mes "朝著我說的方向走!";
+		
+			close;
+			break;
+		case 3:
+			mes "[伊霸諾布]";
+			mes "我說的朝東!";
+			mes "朝著我說的方向走!";
+			close;
+			break;
+		case 4:
+			mes "[伊霸諾布]";
+			mes "我說的朝東!";
+			mes "朝著我說的方向走!";
+		}
+	}
+	else if (mos_whale_edq == 4) {
+		mes "[伊霸諾布]";
+		mes "現在不同調整航向了.";
+		mes "等我的命令.";
+		close;
+	}
+	else if (mos_whale_edq == 6) {
+		mes "[伊霸諾布]";
+		mes "現在不用調整航向了.";
+		mes "等我的命令.";
+		close;
+	}
+	else if (mos_whale_edq == 7 && $@mos1_edq == 0) {
+		mes "哪個方向?";
+		next;
+		switch(select("東:西:南:北")) {
+		case 1:
+			set .@ship_mon1,rand(1,5);
+			if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,5);
+			}
+			else if (.@ship_mon1 == 4) {
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+			break;
+		case 2:
+			set .@ship_mon1,rand(1,5);
+			if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,5);
+			}
+			else if (.@ship_mon1 == 4) {
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+			break;
+		case 3:
+			set .@ship_mon1,rand(1,5);
+			if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,5);
+			}
+			else if (.@ship_mon1 == 4) {
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+			break;
+		case 4:
+			mes "[伊霸諾布]";
+			mes "好的";
+			mes "首先向北";
+			mes "等我給你命令時,";
+			mes "再調整航向.";
+			set mos_whale_edq,8;
+			close;
+		}
+	}
+	else if (mos_whale_edq == 7 && $@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "殺光所有怪物";
+		
+		close;
+	}
+	else if (mos_whale_edq == 8 && $@mos1_edq == 0) {
+		mes "[伊霸諾布]";
+		mes "現在不用調整航向了.";
+		mes "等我的命令.";
+		close;
+	}
+	else if (mos_whale_edq == 8 && $@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "殺光所有怪物";
+		close;
+	}
+	else if (mos_whale_edq == 91 && $@mos1_edq == 0) {
+		mes "哪個方向?";
+		next;
+		switch(select("東:西:南:北")) {
+		case 1:
+			set .@ship_mon2,rand(1,4);
+			if (.@ship_mon2 == 3) {
+				mes "[伊霸諾布]";
+				mes "好的";
+				mes "首先向東";
+				mes "等我給你命令時,";
+				mes "再調整航向.";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				set mos_whale_edq,11;
+				donpcevent "Baehideun3#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "好的";
+				mes "首先向東";
+				mes "等我給你命令時,";
+				mes "再調整航向.";
+				set mos_whale_edq,10;
+				close;
+			}
+			break;
+		case 2:
+			set .@ship_mon1,rand(1,4);
+			if (.@ship_mon1 == 1) {
+				mes "[伊霸諾布]";
+				mes "我說的朝東!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝東!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝東!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+			break;
+		case 3:
+			set .@ship_mon1,rand(1,4);
+			if (.@sship_mon1 == 1) {
+				mes "[伊霸諾布]";
+				mes "我說的朝東!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝東!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝東!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+			break;
+		case 4:
+			set .@ship_mon1,rand(1,4);
+			if (.@ship_mon1 == 1) {
+				mes "[伊霸諾布]";
+				mes "我說的朝東!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝東!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝東!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+		}
+	}
+	else if (mos_whale_edq == 92 && $@mos1_edq == 0) {
+		mes "哪個方向?";
+		next;
+		switch(select("東:西:南:北")) {
+		case 1:
+			set .@ship_mon1,rand(1,4);
+			if (.@ship_mon1 == 1) {
+				mes "[伊霸諾布]";
+				mes "我說的朝西!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝西!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝西!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+			break;
+		case 2:
+			set .@ship_mon2,rand(1,4);
+			if (.@ship_mon2 == 3) {
+				mes "[伊霸諾布]";
+				mes "好的";
+				mes "首先向西";
+				mes "等我給你命令時,";
+				mes "再調整航向.";
+				next;
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				set mos_whale_edq,11;
+				donpcevent "Baehideun3#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "好的";
+				mes "首先向西";
+				mes "等我給你命令時,";
+				mes "再調整航向.";
+				set mos_whale_edq,10;
+				close;
+			}
+			break;
+		case 3:
+			set .@ship_mon1,rand(1,4);
+			if (.@ship_mon1 == 1) {
+				mes "[伊霸諾布]";
+				mes "我說的朝西!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝西!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝西!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+			break;
+		case 4:
+			set .@ship_mon1,rand(1,4);
+			if (.@ship_mon1 == 1) {
+				mes "[伊霸諾布]";
+				mes "我說的朝西!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝西!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝西!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+		}
+	}
+	else if (mos_whale_edq == 93 && $@mos1_edq == 0) {
+		mes "哪個方向?";
+		next;
+		switch(select("東:西:南:北")) {
+		case 1:
+			set .@ship_mon1,rand(1,4);
+			if (.@ship_mon1 == 1) {
+				mes "[伊霸諾布]";
+				mes "我說的朝南!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝南!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝南!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+			break;
+		case 2:
+			set .@ship_mon1,rand(1,4);
+			if (.@ship_mon1 == 1) {
+				mes "[伊霸諾布]";
+				mes "我說的朝南!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝南!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝南!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+			break;
+		case 3:
+			set .@ship_mon2,rand(1,4);
+			if (.@ship_mon2 == 3) {
+				mes "[伊霸諾布]";
+				mes "我說的朝南!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				set mos_whale_edq,11;
+				donpcevent "Baehideun3#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝南!";
+				mes "朝著我說的方向走!";
+				set mos_whale_edq,10;
+				close;
+			}
+			break;
+		case 4:
+			set .@ship_mon1,rand(1,4);
+			if (.@ship_mon1 == 1) {
+				mes "[伊霸諾布]";
+				mes "我說的朝南!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝南!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝南!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+		}
+	}
+	else if (mos_whale_edq == 94 && $@mos1_edq == 0) {
+		mes "哪個方向?";
+		next;
+		switch(select("東:西:南:北")) {
+		case 1:
+			set .@ship_mon1,rand(1,4);
+			if (.@ship_mon1 == 1) {
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+			break;
+		case 2:
+			set .@ship_mon1,rand(1,4);
+			if (.@ship_mon1 == 1) {
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+			break;
+		case 3:
+			set .@ship_mon1,rand(1,4);
+			if (.@ship_mon1 == 1) {
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+			break;
+		case 4:
+			set .@ship_mon2,rand(1,4);
+			if (.@ship_mon2 == 3) {
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				set mos_whale_edq,11;
+				donpcevent "Baehideun3#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				set mos_whale_edq,10;
+				close;
+			}
+		}
+	}
+	else if (mos_whale_edq == 7 && $@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "殺光所有怪物";
+		close;
+	}
+	else if (mos_whale_edq == 8 && $@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "殺光所有怪物";
+		close;
+	}
+	else if (mos_whale_edq == 10 && $@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "殺光所有怪物";
+		close;
+	}
+	else if (mos_whale_edq == 11 && $@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "殺光所有怪物";
+		close;
+	}
+	else if (mos_whale_edq > 10 && mos_whale_edq < 13) {
+		mes "[伊霸諾布]";
+		mes "看海面上!";
+		mes "是不是有什麼東西在移動?";
+		next;
+		mes "[伊霸諾布]";
+		mes "呵呵...";
+		mes "嘿!你!";
+		mes "去甲板上";
+		mes "看仔細點, 快去!";
+		close;
+	}
+	else if (mos_whale_edq > 89 && mos_whale_edq < 100 && $@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "殺光所有怪物";
+		close;
+	}
+	else if (mos_whale_edq == 20) {
+		mes "哪個方向?";
+		next;
+		switch(select("東:西:南:北")) {
+		case 1:
+			mes "[伊霸諾布]";
+			mes "好的";
+			mes "首先向東";
+			mes "等我給你命令時,";
+			mes "再調整航向.";
+			set mos_whale_edq,21;
+			close;
+			break;
+		case 2:
+			mes "[伊霸諾布]";
+			mes "我說的朝東!";
+			mes "朝著我說的方向走!";
+			close;
+			break;
+		case 3:
+			mes "[伊霸諾布]";
+			mes "我說的朝東!";
+			mes "朝著我說的方向走!";
+			close;
+			break;
+		case 4:
+			mes "[伊霸諾布]";
+			mes "我說的朝東!";
+			mes "朝著我說的方向走!";
+			close;
+		}
+	}
+	else if (mos_whale_edq == 21) {
+		mes "[伊霸諾布]";
+		mes "現在不用調整航向了.";
+		mes "等我的命令.";
+
+		close;
+	}
+	else if (mos_whale_edq == 22 && $@mos1_edq == 0) {
+		mes "哪個方向?";
+		next;
+		switch(select("東:西:南:北")) {
+		case 1:
+			set .@ship_mon1,rand(1,4);
+			if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 4) {
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+			break;
+		case 2:
+			set .@ship_mon1,rand(1,4);
+			if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 4) {
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+			break;
+		case 3:
+			set .@ship_mon1,rand(1,4);
+			if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 4) {
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+			break;
+		case 4:
+			mes "[伊霸諾布]";
+			mes "好的";
+			mes "首先向北";
+			mes "等我給你命令時,";
+			mes "再調整航向.";
+			set mos_whale_edq,23;
+			close;
+		}
+	}
+	else if (mos_whale_edq == 22 && $@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "殺光所有怪物";
+		close;
+	}
+	else if (mos_whale_edq == 23 && $@mos1_edq == 0) {
+		mes "[伊霸諾布]";
+		
+		mes "現在不用調整航向了.";
+		mes "等我的命令.";
+		close;
+	}
+	else if (mos_whale_edq == 23 && $@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "殺光所有怪物";
+		close;
+	}
+	else if (mos_whale_edq == 241 && $@mos1_edq == 0) {
+		mes "哪個方向?";
+		next;
+		switch(select("東:西:南:北")) {
+		case 1:
+			set .@ship_mon2,rand(1,5);
+			if (.@ship_mon2 == 3) {
+				mes "[伊霸諾布]";
+				mes "我說的朝東!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				set mos_whale_edq,26;
+				donpcevent "Baehideun4#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "好的";
+				mes "首先向東";
+				mes "等我給你命令時,";
+				mes "再調整航向.";
+				set mos_whale_edq,25;
+				close;
+			}
+			break;
+		case 2:
+			set .@ship_mon1,rand(1,4);
+			if (.@ship_mon1 == 1) {
+				mes "[伊霸諾布]";
+				mes "我說的朝東!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝東!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝東!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+			break;
+		case 3:
+			set .@ship_mon1,rand(1,4);
+			if (.@ship_mon1 == 1) {
+				mes "[伊霸諾布]";
+				mes "我說的朝東!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝東!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝東!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+			break;
+		case 4:
+			set .@ship_mon1,rand(1,4);
+			if (.@ship_mon1 == 1) {
+				mes "[伊霸諾布]";
+				mes "我說的朝東!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝東!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝東!";
+				mes "朝著我說的方向走!";
+				
+			
+				close;
+			}
+		}
+	}
+	else if (mos_whale_edq == 242 && $@mos1_edq == 0) {
+		mes "哪個方向?";
+		next;
+		switch(select("東:西:南:北")) {
+		case 1:
+			set .@ship_mon1,rand(1,4);
+			if (.@ship_mon1 == 1) {
+				mes "[伊霸諾布]";
+				mes "我說的朝西!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝西!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝西!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+			break;
+		case 2:
+			set .@ship_mon2,rand(1,5);
+			if (.@ship_mon2 == 3) {
+				mes "[伊霸諾布]";
+				mes "我說的朝西!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				set mos_whale_edq,26;
+				donpcevent "Baehideun4#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "好的";
+				mes "首先向西";
+				mes "等我給你命令時,";
+				mes "再調整航向.";
+				set mos_whale_edq,25;
+				close;
+			}
+			break;
+		case 3:
+			set .@ship_mon1,rand(1,4);
+			if (.@ship_mon1 == 1) {
+				mes "[伊霸諾布]";
+				mes "我說的朝西!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝西!";
+				mes "朝著我說的方向走!";
+				
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝西!";
+				mes "朝著我說的方向走!";
+			
+				close;
+			}
+			break;
+		case 4:
+			set .@ship_mon1,rand(1,4);
+			if (.@ship_mon1 == 1) {
+				mes "[伊霸諾布]";
+				mes "我說的朝西!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝西!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝西!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+		}
+	}
+	else if (mos_whale_edq == 243 && $@mos1_edq == 0) {
+		mes "哪個方向?";
+		next;
+		switch(select("東:西:南:北")) {
+		case 1:
+			set .@ship_mon1,rand(1,4);
+			if (.@ship_mon1 == 1) {
+				mes "[伊霸諾布]";
+				mes "我說的朝南!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝南!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "I said tHat we should go South!";
+				mes "You should sail in the right";
+				mes "direction! To the south!";
+				close;
+			}
+			break;
+		case 2:
+			set .@ship_mon1,rand(1,4);
+			if (.@ship_mon1 == 1) {
+				mes "[伊霸諾布]";
+				mes "我說的朝南!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝南!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝南!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+			break;
+		case 3:
+			set .@ship_mon2,rand(1,5);
+			if (.@ship_mon2 == 3) {
+				mes "[伊霸諾布]";
+				mes "我說的朝南!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				set mos_whale_edq,26;
+				donpcevent "Baehideun4#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝南!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+			break;
+		case 4:
+			set .@ship_mon1,rand(1,4);
+			if (.@ship_mon1 == 1) {
+				mes "[伊霸諾布]";
+				mes "我說的朝南!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝南!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝南!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+		}
+	}
+	else if (mos_whale_edq == 244 && $@mos1_edq == 0) {
+		mes "哪個方向?";
+		next;
+		switch(select("東:西:南:北")) {
+		case 1:
+			set .@ship_mon1,rand(1,4);
+			if (.@ship_mon1 == 1) {
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+			break;
+		case 2:
+			set .@ship_mon1,rand(1,4);
+			if (.@ship_mon1 == 1) {
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+			break;
+		case 3:
+			set .@ship_mon1,rand(1,4);
+			if (.@ship_mon1 == 1) {
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun1#ship::OnEnable";
+				close;
+				set .@ship_mon1,rand(1,4);
+			}
+			else if (.@ship_mon1 == 2) {
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				donpcevent "Baehideun2#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				close;
+			}
+			break;
+		case 4:
+			set .@ship_mon2,rand(1,5);
+			if (.@ship_mon2 == 3) {
+				mes "[伊霸諾布]";
+				mes "我說的朝北!";
+				mes "朝著我說的方向走!";
+				next;
+				mes "[伊霸諾布]";
+				mes "哦不!怪物出現了.";
+				mes "我們先消滅怪物!";
+				set $@mos1_edq,$@mos1_edq+1;
+				set mos_whale_edq,26;
+				donpcevent "Baehideun4#ship::OnEnable";
+				close;
+			}else{
+				mes "[伊霸諾布]";
+				mes "好的";
+				mes "首先向北";
+				mes "等我給你命令時,";
+				mes "再調整航向.";
+				set mos_whale_edq,25;
+				close;
+			}
+		}
+	}
+	else if ($@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "殺光所有怪物";
+		close;
+	}
+	else if (mos_whale_edq == 22 && $@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "殺光所有怪物";
+		close;
+	}
+	else if (mos_whale_edq == 23 && $@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "殺光所有怪物";
+		close;
+	}
+	else if (mos_whale_edq == 25 && $@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "殺光所有怪物";
+		close;
+	}
+	else if (mos_whale_edq == 25 && $@mos1_edq == 0) {
+		mes "[伊霸諾布]";
+		mes "聽我的指令";
+		mes "調整航向.";
+		close;
+	}
+	else if (mos_whale_edq > 239 && mos_whale_edq < 250 && $@mos1_edq > 0) {
+		mes "[伊霸諾布]";
+		mes "殺光所有怪物";
+		close;
+	}
+	else if (mos_whale_edq == 26) {
+		mes "[伊霸諾布]";
+		mes "嘿聽我說.";
+		mes "沒我的允許誰讓你來的?";
+		next;
+	}
+	else{
+		mes "[伊霸諾布]";
+		mes "嗯?";
+		mes "你怎麼上來的?.";
+		mes "這次就饒了你.";
+		mes "滾回去.";
+		close2;
+		//set mos_whale_edq,4; lol, why is this here?
+		warp "moscovia",162,56;
+		end;
+	}
+}
+
+//----------------------------------------------------------------------------
+// 奇異的老人 - WHale Island
+//----------------------------------------------------------------------------
+mosk_fild01,86,104,3	script	奇異的老人#npc	963,{
+	if (checkweight(1201,1) == 0 ) {
+		mes "[奇異的老人]";
+		mes "你身上帶的東西太多了.";
+		mes "去卡普拉存點東西再來吧.";
+		close;
+	}
+	if ((MaxWeight-Weight) < 2000) {
+		mes "[奇異的老人]";
+		mes "你身上帶的東西太多了.";
+		mes "去卡普拉存點東西再來吧.";
+		close;
+	}
+	if (mos_whale_edq == 13) {
+		mes "[奇異的老人]";
+		mes "你醒了.";
+		mes "感覺怎麼樣??";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "啊 我在哪?";
+		mes "發生了什麼...?";
+		next;
+		mes "[奇異的老人]";
+		mes "別驚訝!";
+		mes "我很久沒有";
+		mes "和陸地上的人交談過了.";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "我在哪?";
+		mes "老頭你是誰?";
+		next;
+		mes "[奇異的老人]";
+		mes "這...";
+		mes "我怎麼說呢...";
+		mes "這被人們稱作";
+		mes "會移動的島嶼.";
+		next;
+		mes "[奇異的老人]";
+		mes "這島上就我1個人.";
+		next;
+		mes "[奇異的老人]";
+		mes "我叫它...";
+		mes "鯨魚島.";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "這島很有名";
+		mes " ";
+		mes "但是... ...";
+		next;
+		mes "[奇異的老人]";
+		mes "哈哈!";
+		mes "你看到了?是的!";
+		mes "我們站在鯨魚的背上!";
+		mes "所以我叫它鯨魚島!";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "這怎麼可能?";
+		mes "鯨魚背上";
+		mes "有小溪和樹木?";
+		
+		next;
+		mes "[奇異的老人]";
+		mes "呵呵, 這個島是個傳奇.";
+		mes " ";
+		mes "哈哈哈!";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "你是人嗎?";
+		next;
+		mes "[奇異的老人]";
+		mes "像你看到的,";
+		mes "我只是個老頭.";
+		mes "一個人住這";
+		mes "無牽無掛";
+		mes " ";
+		next;
+		mes "[奇異的老人]";
+		mes "好了";
+		mes "我把你送回去吧";
+		mes "不然你的朋友會擔心你的";
+		mes " ";
+		next;
+		soundeffect "mos_gusli1.wav",0;
+		mes "老頭開始演奏一種陌生的樂器";
+		mes "-島嶼緩緩移動-";
+		mes " ";
+		next;
+		mes "[奇異的老人]";
+		mes "放鬆";
+		mes "幾分鐘後.";
+		mes "你就會回到原來的地方了.";
+		next;
+		mes "-老頭閉上眼睛繼續演奏";
+		mes "再也不理你了.";
+		mes "好像進入了另一個世界...";
+		mes " ";
+		mes " ";
+		set mos_whale_edq,14;
+		close2;
+		sleep2 20000;
+		set mos_whale_edq,15;
+		end;
+	}
+	else if (mos_whale_edq == 14) {
+		soundeffect "mos_gusli1.wav",0;
+		mes "-老頭閉上眼睛繼續演奏";
+		mes "再也不理你了.";
+		mes "好像進入了另一個世界...";
+		set mos_whale_edq,15;
+		close;
+	}
+	else if (mos_whale_edq == 15) {
+		mes "[奇異的老人]";
+		mes "啊.快到了...";
+		mes "年輕人, 你馬上就可以";
+		mes "回到那裡了, 小心點.";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "老頭, 我怎麼樣";
+		mes "才能再來這裡?";
+		next;
+		mes "[奇異的老人]";
+		mes "你居然還想來?";
+		mes "你真是可笑...";
+		next;
+		mes "[奇異的老人]";
+		mes "如果我們有緣的話,";
+		mes "就會再次相見的,";
+		mes "哈哈哈...";
+		next;
+		mes "[奇異的老人]";
+		mes "好了該回去了,";
+		mes "如果你以後還想來見我";
+		mes "就來同一個海域吧";
+		mes "我不會再阻止了你";
+		mes "呵呵.";
+		close2;
+		warp "moscovia",163,54;
+		end;
+	}
+	else if (mos_whale_edq == 30) {
+		mes "[奇異的老人]";
+		mes "哈哈, 沒想到還能再見到你.";
+		mes "你怎麼來的?";
+		next;
+		select("解釋來龍去脈.");
+			mes "[奇異的老人]";
+			mes "這樣啊?";
+			mes "沒有來過這裡的人";
+			mes "希望你再來這";
+			mes "嗯....";
+			next;
+			mes "[奇異的老人]";
+			mes "我只想在這度過餘生";
+			mes "我對外面的世界感興趣";
+			mes "不過我已經融入不進去了";
+			next;
+			mes "[奇異的老人]";
+			mes "不用擔心我.";
+			mes "你上次回去時我都沒讓你保密";
+			next;
+			mes "[奇異的老人]";
+			mes "如果我真想躲起來";
+			mes "沒人找得到我";
+			mes "你不用擔心那些";
+			next;
+			mes "[奇異的老人]";
+			mes "總之?";
+			mes "你準備怎麼做?";
+			next;
+			if(select("再想想.:你有什麼方法不?") == 1) {
+				mes "[奇異的老人]";
+				mes "多想想";
+				mes "總會有辦法的...";
+				mes "Hoohoohoo!";
+				close;
+			}
+			mes "[奇異的老人]";
+			mes "把 國王 帶到這來, 叫他自己看?";
+			mes "有點難...";
+			next;
+			mes "[奇異的老人]";
+			mes "小島存在的證據...";
+			mes "這就是你要的嗎...";
+			next;
+			soundeffect "mos_gusli1.wav",0;
+			mes "-老頭閉開始演奏樂器";
+			mes "陷入沉思.-";
+			next;
+			mes "["+strcharinfo(0)+"]";
+			mes "老頭";
+			mes "要麼你給我做一個樂器?";
+			mes "這樂器我只在這裡見過";
+			next;
+			mes "[奇異的老人]";
+			mes "啊..好注意.";
+			mes "在莫斯科";
+			mes "是沒有這種樂器的...";
+			next;
+			mes "[奇異的老人]";
+			mes "如果你幫我的忙";
+			mes "我就給你樂器.";
+			next;
+			mes "["+strcharinfo(0)+"]";
+			mes "你要什麼?";
+			next;
+			mes "[奇異的老人]";
+			mes "我的樂器已經用了50年了";
+			mes "所以快散架了";
+			next;
+			mes "[奇異的老人]";
+			mes "他的弦只能在這個島上取得";
+			mes "但是其他的材料可以";
+			mes "在大陸上取得";
+			next;
+			mes "[奇異的老人]";
+			mes "如果你能找齊材料";
+			mes "我就能給你做個新的.";
+			next;
+			mes "[奇異的老人]";
+			mes "材料如下： ^0000FF木塊*30, 強韌木藤條*20, 魔羌之角*20, 海懶皮革*10^000000.";
+			next;
+			mes "[奇異的老人]";
+			mes "我不會移動島嶼";
+			mes "等你找齊材料後就來吧.";
+		 
+			next;
+			mes "[奇異的老人]";
+			mes "等你好了就告訴我";
+			mes "我把你送回去";
+			set mos_whale_edq,31;
+			close;
+	}
+	else if (mos_whale_edq == 31) {
+		mes "[奇異的老人]";
+		mes "準備回去了嗎?";
+		next;
+		if(select("材料是什麼?:回去.") == 1) {
+			mes "[奇異的老人]";
+			mes "帶來這些材料:";
+			next;
+			mes "[奇異的老人]";
+			mes "帶來這些材料:";
+			mes "^0000FF木塊*30, 強韌木藤條*20, 魔羌之角*20, 海懶皮革*10^000000.";
+			close;
+		}
+		mes "[奇異的老人]";
+		mes "那就出發吧.";
+		next;
+		mes "-老頭閉上眼睛開始演奏";
+		mes "再也不理你了.";
+		mes "好像進入了另一個世界...";
+		set mos_whale_edq,32;
+		close2;
+		warp "moscovia",162,56;
+		end;
+	}
+	else if (mos_whale_edq == 33) {
+		mes "[奇異的老人]";
+		mes "材料都收集齊了嗎";
+		next;
+		if (countitem(7201) > 29 && countitem(7197) > 19 && countitem(7106) > 19 && countitem(7065) > 9) {
+			mes "[奇異的老人]";
+			mes "材料沒錯.";
+			mes "我開始製作樂器";
+		 
+			next;
+			delitem 7201,30; //Log
+			delitem 7197,20; //Tough_Vines
+			delitem 7106,20; //Goat's_Horn
+			delitem 7065,10; //Sea_Otter_Leather
+			set mos_whale_edq,34;
+			mes "[奇異的老人]";
+			mes "稍等片刻";
+			close;
+		}else{
+			mes "[奇異的老人]";
+			mes "需要更多的材料...";
+			mes "We need ^0000FF木塊*30, 強韌木藤條*20, 魔羌之角*20, 海懶皮革*10^000000.";
+			next;
+			mes "[奇異的老人]";
+			mes "回去收集材料嗎";
+			next;
+			if(select("材料是哪些?:回去.") == 1) {
+				mes "[奇異的老人]";
+				mes "帶來:";
+				next;
+				mes "[奇異的老人]";
+				mes "帶來以下材料:";
+				mes "^0000FF木塊*30, 強韌木藤條*20, 魔羌之角*20, 海懶皮革*1010^000000.";
+				close;
+			}
+			mes "[奇異的老人]";
+			mes "出發.";
+			next;
+			soundeffect "mos_gusli1.wav",0;
+			mes "-老頭閉上眼睛開始演奏";
+			mes "再也不理你了.";
+			mes "好像進入了另一個世界...";
+			close2;
+			warp "moscovia",162,56;
+			end;
+		}
+	}
+	else if (mos_whale_edq == 34) {
+		set .@comple,rand(1,3);
+		if (.@comple == 2) {
+			mes "[奇異的老人]";
+			mes "樂器做好了!";
+			mes "給你, 是你的了.";
+			mes "這樂器叫做 貝斯.";
+			mes "這是遙遠大陸的傳統樂器";
+			getitem GUSLI, 1;
+			set mos_whale_edq,35;
+			next;
+			mes "[奇異的老人]";
+			mes "現在這世界上";
+			mes "只有我一個人會做了.";
+			next;
+			mes "[奇異的老人]";
+			mes "所以";
+			mes "這是一件很特殊的物品";
+		 
+			next;
+			mes "[奇異的老人]";
+			mes "如果你把樂器給 國王看,";
+			mes "他一定會相信你的!";
+			 
+			next;
+			mes "現在幹什麼呢?";
+			next;
+			switch(select("我怎麼再回來?:我想學習 Gusli.:回陸地.")) {
+			case 1:
+				mes "[奇異的老人]";
+				mes "你是我的朋友了,";
+				mes "樂器你也有了.";
+				mes "當你想回來時";
+				mes "在莫斯科的岸邊";
+				mes "演奏這個樂器就好了.";
+				next;
+				mes "[奇異的老人]";
+				mes "就算你不會演奏";
+				mes "也沒關係";
+				mes "隨便發出點聲音就好了.";
+				next;
+				mes "[奇異的老人]";
+				mes "這鯨魚不管在多遠";
+				mes "都可以聽到的";
+				next;
+				mes "[奇異的老人]";
+				mes "如果你演奏了,";
+				mes "不管你在哪, 我都會找到你.";
+				mes "誰叫你是朋友呢 呵呵";
+				close;
+				break;
+			case 2:
+				mes "[奇異的老人]";
+				mes "你真的...";
+				mes "想學習演奏這個樂器嗎...";
+				mes "確定嗎?";
+				mes "嗯..很難學的";
+				mes "而且在這麼短的時間...";
+				next;
+				mes "[奇異的老人]";
+				mes "如果你要是能演奏就好了";
+				next;
+				mes "[奇異的老人]";
+				mes "我可以教你";
+				mes "但我沒把握能教會你.";
+				mes "因為以前從來沒教過別人";
+				next;
+				mes "[奇異的老人]";
+				mes "如果你準備好了";
+				mes "就告訴我.";
+				set mos_whale_edq,36;
+				close;
+				break;
+			case 3:
+				mes "[奇異的老人]";
+				mes "好了 出發吧.";
+				next;
+				mes "[奇異的老人]";
+				mes "當心想回來時";
+				mes "就演奏這個樂器";
+				next;
+				mes "[奇異的老人]";
+				mes "隨便發出點聲音就好";
+				next;
+				mes "[奇異的老人]";
+				mes "這鯨魚不管在多遠";
+				mes "都可以聽到的";
+				next;
+				mes "[奇異的老人]";
+				mes "如果你演奏了,";
+				mes "不管你在哪, 我都會找到你.";
+				mes "誰叫你是朋友呢 呵呵";
+				next;
+				soundeffect "mos_gusli1.wav",0;
+				mes "-老頭閉上眼睛開始演奏";
+				mes "再也不理你了.";
+				mes "好像進入了另一個世界...";
+				close2;
+				warp "moscovia",162,56;
+				end;
+			}
+		}else{
+			mes "[奇異的老人]";
+			mes "還沒完成呢, 再等一會.";
+			close;
+		}
+	}
+	else if (mos_whale_edq == 35) {
+		mes "[奇異的老人]";
+		mes "現在幹什麼呢?";
+			next;
+			switch(select("我怎麼再回來?:我想學習 Gusli.:回陸地.")) {
+			case 1:
+				mes "[奇異的老人]";
+				mes "你是我的朋友了,";
+				mes "樂器你也有了.";
+				mes "當你想再來時";
+				mes "在莫斯科的岸邊";
+				mes "演奏這個樂器就好了.";
+				next;
+				mes "[奇異的老人]";
+				mes "就算你不會演奏";
+				mes "也沒關係";
+				mes "隨便發出點聲音就好了.";
+				next;
+				mes "[奇異的老人]";
+				mes "這鯨魚不管在多遠";
+				mes "都可以聽到的";
+			 
+				next;
+				mes "[奇異的老人]";
+				mes "如果你演奏了,";
+				mes "不管你在哪, 我都會找到你.";
+				mes "誰叫你是我的朋友呢 呵呵";
+				close;
+				break;
+			case 2:
+				mes "[奇異的老人]";
+				mes "你真的...";
+				mes "想學習演奏這個樂器嗎...";
+				mes "確定嗎?";
+				mes "嗯..很難學的";
+				mes "而且在這麼短的時間...";
+				next;
+				mes "[奇異的老人]";
+				mes "如果你要是能演奏就好了";
+				next;
+				mes "[奇異的老人]";
+				mes "我可以教你";
+				mes "但我沒把握能教會你.";
+				mes "因為以前從來沒教過別人";
+				next;
+				mes "[奇異的老人]";
+				mes "如果你準備好了";
+				mes "就告訴我.";
+				set mos_whale_edq,36;
+				close;
+				break;
+			case 3:
+				mes "[奇異的老人]";
+				mes "好了 出發吧.";
+				next;
+				mes "[奇異的老人]";
+				mes "當心想回來時";
+				mes "就演奏這個樂器";
+				next;
+				mes "[奇異的老人]";
+				mes "隨便發出點聲音就好";
+				next;
+				mes "[奇異的老人]";
+				mes "這鯨魚不管在多遠";
+				mes "都可以聽到的";
+				next;
+				mes "[奇異的老人]";
+				mes "如果你演奏了,";
+				mes "不管你在哪, 我都會找到你.";
+				mes "誰叫你是朋友呢 呵呵";
+				next;
+				soundeffect "mos_gusli1.wav",0;
+				mes "-老頭閉上眼睛開始演奏";
+				mes "再也不理你了.";
+				mes "好像進入了另一個世界...";
+				close2;
+				warp "moscovia",162,56;
+				end;
+		}
+	}
+	else if (mos_whale_edq == 36) {
+		mes "[奇異的老人]";
+		mes "準備好學習了嗎 ?";
+		mes "請先裝備樂器.";
+		next;
+		if (getequipid(EQI_ACC_L) == GUSLI || getequipid(EQI_ACC_R) == GUSLI) {
+			mes "[奇異的老人]";
+			mes "好.";
+			mes "你先看我如何演奏,";
+			mes "你再慢慢演奏.";
+			next;
+			soundeffect "mos_gusli1.wav",0;
+			mes "[奇異的老人]";
+			mes "別急,";
+			mes "慢點來, 更我學,";
+			next;
+			if (Class == Job_Bard || Class == Job_Clown) {
+				mes "[奇異的老人]";
+				mes "你的手真棒, 你有成為音樂家的天賦!";
+				next;
+				mes "[奇異的老人]";
+				mes "我聽說有些探險者喜歡玩樂器和唱歌, 你一定是其中之一...";
+				next;
+				mes "[奇異的老人]";
+				mes "這比我預計的好多了.";
+				next;
+				mes "[奇異的老人]";
+				mes "好了, 該你演奏了.";
+				next;
+				set .@music_bard,rand(1,3);
+				if (.@music_bard == 2) {
+					soundeffect "mos_gusli1.wav",0;
+					emotion ET_BEST;
+					specialeffect2 EF_EXIT;
+					mes "[奇異的老人]";
+					mes "哇, 這麼短的時間";
+					mes "就能演奏的這麼好, 你太棒了!";
+					next;
+					mes "[奇異的老人]";
+					mes "你已經演奏的很好了";
+					mes "我沒有什麼可教的了";
+					mes "自己多練習吧.";
+					next;
+					mes "[奇異的老人]";
+					mes "現在回陸地";
+					mes "然後給國王演奏吧.";
+					next;
+					mes "[奇異的老人]";
+					mes "根據你的演奏能力";
+					mes "你會獲得應得的獎賞的.";
+					set mos_whale_edq,38;
+					close;
+				}else{
+					mes "[奇異的老人]";
+					mes "啊, 有點生疏...";
+					mes "不要那樣.";
+					mes "演奏的時候專心點";
+					next;
+					mes "[奇異的老人]";
+					mes "自己多練習吧.";
+					mes "如果多加練習, 你會演奏的不錯的!";
+					set mos_whale_edq,37;
+					close;
+				}
+			}else{
+				mes "[奇異的老人]";
+				mes "好了該你演奏了";
+				next;
+				set .@music_etc,rand(1,6);
+				if (.@music_etc == 3) {
+					soundeffect "mos_gusli1.wav",0;
+					emotion ET_BEST;
+					specialeffect2 EF_EXIT;
+					mes "[奇異的老人]";
+					mes "哇, 這麼短的時間";
+					mes "就能演奏的這麼好, 你太棒了!";
+					next;
+					mes "[奇異的老人]";
+					mes "你已經演奏的很好了";
+					mes "我沒有什麼可教的了";
+					mes "自己多練習吧.";
+					next;
+					mes "[奇異的老人]";
+					mes "現在回陸地";
+					mes "然後給國王演奏吧.";
+					next;
+					mes "[奇異的老人]";
+					mes "根據你的演奏能力";
+					mes "你會獲得應得的獎賞的.";
+					set mos_whale_edq,38;
+					close;
+				}else{
+					soundeffect "mos_gusli2.wav",0;
+					mes "[奇異的老人]";
+					mes "啊, 有點生疏...";
+					mes "不要那樣.";
+					mes "演奏的時候專心點";
+					next;
+					mes "[奇異的老人]";
+					mes "自己多練習吧.";
+					mes "如果多加練習, 你會演奏的不錯的!";
+					mes "at it in no time.";
+					set mos_whale_edq,37;
+					close;
+				}
+			}
+		}else{
+			mes "[奇異的老人]";
+			mes "你耐心不好";
+			mes "拿樂器的姿勢也不對";
+			mes "把樂器裝備好再試試吧";
+			next;
+			mes "[奇異的老人]";
+			mes "裝備好了以後再和我說聲";
+			close;
+		}
+	}
+	else if (mos_whale_edq == 37) {
+		mes "[奇異的老人]";
+		mes "準備好學習了嗎?";
+		next;
+		if(getequipid(EQI_ACC_L) || getequipid(EQI_ACC_R) == 2707) {
+			mes "[奇異的老人]";
+			mes "嗯 不錯.";
+			next;
+			if (Class == Job_Bard || Class == Job_Clown) {
+				mes "[奇異的老人]";
+				mes "據你的能力";
+				mes "你會演奏的不錯的.";
+				mes "加油.";
+				next;
+				mes "[奇異的老人]";
+				mes "好, 讓我們再演奏一遍剛才曲子";
+				next;
+				set .@music_bard,rand(1,3);
+				if (.@music_bard == 2) {
+					soundeffect "mos_gusli1.wav",0;
+					emotion ET_BEST;
+					specialeffect2 EF_EXIT;
+					mes "[奇異的老人]";
+					mes "哇, 這麼短的時間";
+					mes "就能演奏的這麼好, 你太棒了!";
+					next;
+					mes "[奇異的老人]";
+					mes "你已經演奏的很好了";
+					mes "我沒有什麼可教的了";
+					mes "自己多練習吧.";
+					next;
+					mes "[奇異的老人]";
+					mes "現在回陸地";
+					mes "然後給國王演奏吧.";
+					next;
+					mes "[奇異的老人]";
+					mes "根據你的演奏能力";
+					mes "你會獲得應得的獎賞的.";
+					set mos_whale_edq,38;
+					close;
+				}else{
+					mes "[奇異的老人]";
+					mes "啊, 有點生疏...";
+					mes "不要那樣.";
+					mes "演奏的時候專心點";
+					next;
+					mes "[奇異的老人]";
+					mes "自己多練習吧.";
+					mes "如果多加練習, 你會演奏的不錯的!";
+					set mos_whale_edq,37;
+					close;
+				}
+			}else{
+				mes "[奇異的老人]";
+				mes "好的, 再來演奏一遍";
+				next;
+				set .@music_etc,rand(1,6);
+				if (.@music_etc == 3) {
+					soundeffect "mos_gusli1.wav",0;
+					emotion ET_BEST;
+					specialeffect2 EF_EXIT;
+					mes "[奇異的老人]";
+					mes "哇, 這麼短的時間";
+					mes "就能演奏的這麼好, 你太棒了!";
+					next;
+					mes "[奇異的老人]";
+					mes "你已經演奏的很好了";
+					mes "我沒有什麼可教的了";
+					mes "自己多練習吧.";
+					next;
+					mes "[奇異的老人]";
+					mes "現在回陸地";
+					mes "然後給國王演奏吧.";
+					next;
+					mes "[奇異的老人]";
+					mes "根據你的演奏能力";
+					mes "你會獲得應得的獎賞的.";
+					set mos_whale_edq,38;
+					close;
+				}else{
+					mes "[奇異的老人]";
+					mes "啊, 有點生疏...";
+					mes "不要那樣.";
+					mes "演奏的時候專心點";
+					next;
+					mes "[奇異的老人]";
+					mes "自己多練習吧.";
+				 
+					mes "如果多加練習, 你會演奏的不錯的!";
+					set mos_whale_edq,37;
+					close;
+				}
+			}
+		}else{
+			mes "[奇異的老人]";
+			mes "你耐心不好";
+			mes "拿樂器的姿勢也不對";
+			mes "把樂器裝備好再試試吧";
+			next;
+			mes "[奇異的老人]";
+			mes "裝備好了以後再和我說聲";
+			close;
+		}
+	}
+	else if (mos_whale_edq == 38) {
+		mes "[奇異的老人]";
+		mes "現在幹什麼呢?";
+		next;
+		if(select("我再怎麼回來?:回大陸.") == 1) {
+			mes "[奇異的老人]";
+			mes "你是我的朋友了,";
+				mes "樂器你也有了.";
+				mes "當你想回來時";
+				mes "在莫斯科的岸邊";
+				mes "演奏這個樂器就好了.";
+				next;
+				mes "[奇異的老人]";
+				mes "就算你不會演奏";
+				mes "也沒關係";
+				mes "隨便發出點聲音就好了.";
+				next;
+				mes "[奇異的老人]";
+				mes "這鯨魚不管在多遠";
+				mes "都可以聽到的";
+				next;
+				mes "[奇異的老人]";
+				mes "如果你演奏了,";
+				mes "不管你在哪, 我都會找到你.";
+				mes "誰叫你是朋友呢 呵呵";
+			close;
+		}
+		mes "[奇異的老人]";
+		mes "好了 出發吧.";
+		next;
+		mes "[奇異的老人]";
+		mes "當心想回來時";
+		mes "就演奏這個樂器";
+		next;
+		mes "[奇異的老人]";
+		mes "隨便發出點聲音就好";
+		next;
+		mes "[奇異的老人]";
+		mes "這鯨魚不管在多遠";
+		mes "都可以聽到的";
+		next;
+		mes "[奇異的老人]";
+		mes "如果你演奏了,";
+		mes "不管你在哪, 我都會找到你.";
+		mes "誰叫你是朋友呢 呵呵";
+		next;
+		soundeffect "mos_gusli1.wav",0;
+		mes "-老頭閉上眼睛開始演奏";
+		mes "再也不理你了.";
+		mes "好像進入了另一個世界...";
+		close2;
+		warp "moscovia",162,56;
+		end;
+	}
+	else if (mos_whale_edq > 38) {
+		mes "[奇異的老人]";
+		mes "這是鯨魚島.";
+		mes "不知道你怎麼上來的.";
+		next;
+		mes "[奇異的老人]";
+		mes "如果你願意, 我送你回去";
+		mes "你覺得呢?";
+		next;
+		switch(select("先轉轉.:回陸地.:去冒險.")) {
+		case 1:
+			mes "[奇異的老人]";
+			mes "好吧.";
+			mes "我休息會.";
+			close;
+			break;
+		case 2:
+			mes "[奇異的老人]";
+			mes "好的, 出發了.";
+			next;
+			soundeffect "mos_gusli1.wav",0;
+			mes "-老頭閉上眼睛開始演奏";
+			mes "不再理你.";
+			mes "好像進入了另一個世界...-";
+			close2;
+			warp "moscovia",162,56;
+			end;
+			break;
+		case 3:
+			mes "[奇異的老人]";
+			mes "如果你想探險的話";
+			mes "我有個好地方告訴你.";
+			next;
+			mes "[奇異的老人]";
+			mes "莫斯科周圍";
+			mes "有許多神秘的地方...";
+			next;
+			mes "[奇異的老人]";
+			mes "如果你想去, 我把你送過去?";
+			next;
+			if(select("讓我想想.:好, 送我去吧.") == 1) {
+				mes "[奇異的老人]";
+				mes "好吧.";
+				mes "我休息一會.";
+				close;
+			}
+			mes "[奇異的老人]";
+			mes "好的出發了.";
+			next;
+			soundeffect "mos_gusli1.wav",0;
+			mes "-老頭閉上眼睛開始演奏";
+			mes "不再理你.";
+			mes "好像進入了另一個世界...-";
+			close2;
+			warp "mosk_fild02",204,54;
+			end;
+		}
+	}else{
+		mes "[奇異的老人]";
+		mes "好久沒見!";
+		mes "你喜歡這個島吧?";
+		mes "休息下吧.";
+		next;
+		mes "[奇異的老人]";
+		mes "如果你願意, 我可以把你送回陸地";
+		next;
+		if(select("再轉轉.:回陸地.") == 1) {
+			mes "[奇異的老人]";
+			mes "好吧.";
+				mes "我休息一會.";
+			close;
+		}
+		mes "[奇異的老人]";
+		mes "好的";
+		mes "出發了.";
+		next;
+		soundeffect "mos_gusli1.wav",0;
+		mes "-老頭閉上眼睛開始演奏";
+		mes "再也不理你了.";
+		mes "好像進入了另一個世界...";
+		close2;
+		warp "moscovia",162,56;
+		end;
+	}
+}
+
+//----------------------------------------------------------------------------
+// 國王 亞歷斯意 三世 - Moscovia Palace
+//----------------------------------------------------------------------------
+mosk_in,131,92,3	script	國王 亞歷斯意 三世#npc	965,{
+	if (checkweight(1201,1) == 0 ) {
+		mes "[國王 亞歷斯意 三世]";
+		mes "你身上東西太多了.";
+		mes "去卡普拉存點吧.";
+		close;
+	}
+	if ((MaxWeight-Weight) < 2000) {
+		mes "[國王 亞歷斯意 三世]";
+		mes "你身上東西太多了.";
+		mes "去卡普拉存點吧.";
+		close;
+	}
+	if (mos_nowinter == 12) {
+		mes "[國王 亞歷斯意 三世]";
+		mes "你!!!";
+		mes "許多人看到你";
+		mes "去見 芭芭 亞拉!";
+		next;
+		mes "[國王 亞歷斯意 三世]";
+		mes "秘密會見女巫你不覺得內疚嗎!";
+		next;
+		mes "[國王 亞歷斯意 三世]";
+		mes "我們本來不需要審判就可以";
+		mes "判你死刑的!";
+		next;
+		mes "[國王 亞歷斯意 三世]";
+		mes "但是你這個大陸的強者";
+		mes "所以我要給你特殊的懲罰.";
+		next;
+		mes "[國王 亞歷斯意 三世]";
+		mes "如果你有什麼要說的...";
+		mes "就快點.";
+		next;
+		select("解釋.");
+		mes "-告訴他發生了什麼-";
+		next;
+		mes "[國王 亞歷斯意 三世]";
+		mes "哈哈, 真是個尷尬的故事...";
+		mes "但是如果你告訴我真相";
+		mes "我的人民會很高興的.";
+		next;
+		mes "[國王 亞歷斯意 三世]";
+		mes "好吧";
+		mes "給我一點證據吧.";
+		next;
+		mes "[國王 亞歷斯意 三世]";
+		mes "你殺了 芭芭 亞拉!!";
+		mes "如果是真的";
+		mes "給我帶來亞拉的杵棒.";
+		mes "我保證沒人再來阻撓你";
+		next;
+		if (countitem(7762) > 39) {
+			if(select("展示亞拉的杵棒.:什麼也不做.") == 1) {
+				mes "[" + strcharinfo(0) + "]";
+				mes "你來了.";
+				next;
+				mes "-上繳亞拉的杵棒.-";
+				delitem 7762,40;
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "果然.";
+				mes "那麼那段時間你都在獵殺亞拉了";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "但是最好不要做什麼可疑的事";
+				mes "不然我的人會做出什麼事我可不知道";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "如果你做了, 我會立即逮捕你!";
+				mes "注意點吧.";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "而且,當你能夠";
+				mes "成功的驅逐嚴冬的魔法時,";
+				mes "請立即告訴我.";
+				set mos_nowinter,14;
+				close;
+			}
+			mes "[國王 亞歷斯意 三世]";
+			mes "我叫你帶來";
+			mes "40個亞拉的杵棒";
+			set mos_nowinter,13;
+			close;
+		}else{
+			mes "[國王 亞歷斯意 三世]";
+			mes "我叫你帶來";
+			mes "40個亞拉的杵棒";
+			set mos_nowinter,13;
+			close;
+		}
+	}
+	else if (mos_nowinter == 13) {
+		mes "[國王 亞歷斯意 三世]";
+		mes "你找來證據";
+		mes "來清除你的嫌疑了嗎?";
+		next;
+		if(select("是的.:還沒.") == 1) {
+			if (countitem(7762) > 39) {
+				delitem 7762,40;
+				mes "[國王 亞歷斯意 三世]";
+				mes "好,";
+				mes "我不會再懷疑你了.";
+				mes "你自由了.";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "我不喜歡和亞拉交涉.";
+				mes "但是如果你殺了他們後";
+				mes "我的人會高興,";
+				mes "那麼我也高興.";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "果然.";
+				mes "那麼那段時間你都在獵殺亞拉了";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "但是最好不要做什麼可疑的事";
+				mes "不然我的人會做出什麼事我可不知道";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "如果你做了, 我會立即逮捕你!";
+				mes "注意點吧.";
+				set mos_nowinter,14;
+				close;
+			}else{
+				mes "[國王 亞歷斯意 三世]";
+				mes "你的亞拉的杵棒不夠40個啊";
+				mes "是你忘了數字還是在騙我?";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "我會把這當成玩笑!";
+				mes "你現在給我拿些真正的證據出來";
+				close;
+			}
+		}
+		mes "[國王 亞歷斯意 三世]";
+		mes "我叫你帶來";
+		mes "40個亞拉的杵棒";
+		next;
+		mes "[國王 亞歷斯意 三世]";
+		mes "你來逗我玩的嗎?";
+		close;
+	}
+	else if (mos_nowinter == 14) {
+		mes "[國王 亞歷斯意 三世]";
+		mes "為了我和我的人民";
+		mes "我不想見  芭芭 亞拉";
+		next;
+		mes "[國王 亞歷斯意 三世]";
+		mes "所以我想請你幫我做件事 ";
+		next;
+		mes "[國王 亞歷斯意 三世]";
+		mes "請幫助 芭芭 亞拉";
+		mes "留住夏天.";
+		close;
+	}
+	else if (mos_nowinter == 20) {
+		mes "[國王 亞歷斯意 三世]";
+		mes "你來這...";
+		next;
+		mes "[國王 亞歷斯意 三世]";
+		mes "我從使臣那裡聽到天氣了";
+		next;
+		mes "[國王 亞歷斯意 三世]";
+		mes "實際上";
+		mes "在廣場中央施法";
+		mes "讓我有點不爽";
+		next;
+		mes "[國王 亞歷斯意 三世]";
+		mes "但是我承認那不錯.";
+		next;
+		mes "[國王 亞歷斯意 三世]";
+		mes "所有人都討厭寒冷的冬天.";
+		mes "現在冬天再也不回來了, ";
+		mes "我很高興.";
+		next;
+		mes "[國王 亞歷斯意 三世]";
+		mes "對了.";
+		mes "我以人民的名義給你一些東西";
+		next;
+		mes "[國王 亞歷斯意 三世]";
+		mes "收好吧.";
+		mes "這是使我人民高興的補償";
+		set mos_nowinter,21;
+		getitem 603,1;
+		next;
+		mes "[國王 亞歷斯意 三世]";
+		mes "你在這想待多久都行, 盡情享受吧.";
+		close;
+	}
+	else{
+		if (mos_whale_edq < 16) {
+			mes "[國王 亞歷斯意 三世]";
+			mes "歡迎來到莫斯科!";
+			mes "我是莫斯科的老大, 國王 Aleksay III.";
+			next;
+			mes "[國王 亞歷斯意 三世]";
+			mes "回到你家鄉的時候, 告訴他們莫斯科多美麗吧, 告訴他們這有個偉大的國王!";
+			close;
+		}
+		else if (mos_whale_edq == 16) {
+			mes "[國王 亞歷斯意 三世]";
+			mes "外國旅行者...?";
+			mes " 你有什麼要告訴我的嗎?";
+			next;
+			mes "[國王 亞歷斯意 三世]";
+			mes "如果不是很重要,";
+			mes "先找使臣談談.";
+			close;
+		}
+		else if (mos_whale_edq == 17) {
+			mes "[國王 亞歷斯意 三世]";
+			mes "哦你就是那個告訴我探險故事的探險者啊...";
+			next;
+			mes "[國王 亞歷斯意 三世]";
+			mes "就是你發現了移動的島嶼, 快和我說說細節.";
+			next;
+			mes "[國王 亞歷斯意 三世]";
+			mes "我們聽聽...";
+			mes "快點說.";
+			mes "我很像知道移動島嶼的真相...";
+			next;
+			select("講故事.");
+				mes "...";
+				next;
+				mes "... ...";
+				next;
+				mes "... ... ...";
+				next;
+				mes "... ... ... ...";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "故事是很有趣, 但是好像不太真實, 首相, 你覺得呢?";
+				next;
+				mes "[總理大臣 德密特立]";
+				mes "不像是謊言,";
+				mes "但是..鯨魚背上..";
+				mes "很難讓人相信啊...";
+				next;
+				mes "[總理大臣 德密特立]";
+				mes "上面還有人住著...";
+				mes "有小溪...";
+				mes "有樹木...!!!";
+				mes "Hmm...";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "我同意, 我聽過很多故事, 但是從沒聽過這麼荒謬的!";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "更別說這是發生在我的國家附近了, 荒謬!";
+				next;
+				mes "[總理大臣 德密特立]";
+				mes "但是國王... 我記得,";
+				mes "我好像聽說過";
+				mes "傳說移動的島嶼上有個老頭演奏樂器";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "真的嗎, 和我說說細節.";
+				next;
+				mes "[總理大臣 德密特立]";
+				mes "是的, 我聽說島上有個老頭住在那的";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "嗯, 通常情況下我會給你一大筆獎勵, 但是這有很多疑點.";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "給我帶回點證據";
+				 
+				mes "我就會給你一大筆獎賞.";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "但是如果你不能證明,";
+				mes "我會懲罰你的!把老頭的樂器帶回來.";
+				next;
+				mes "[總理大臣 德密特立]";
+				mes "國王... 這是個外國人...";
+				mes "無意冒犯.";
+				mes "但是是不是太嚴厲了點?.";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "如果其他旅行者都像他一樣騙我, 我不是很沒面子?";
+				next;
+				mes "[總理大臣 德密特立]";
+				mes "......";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "你聽到了?";
+				mes "你有很大的責任去給我帶回證據.";
+				mes "現在就去.";
+				set mos_whale_edq,18;
+				close;
+		}
+		else if (mos_whale_edq > 17 && mos_whale_edq < 35) {
+			mes "[國王 亞歷斯意 三世]";
+			mes "我有點累, 要休息下, 你閃開.";
+			next;
+			mes "[國王 亞歷斯意 三世]";
+			mes "多想想怎麼去鯨魚島吧...";
+			close;
+		}
+		else if (mos_whale_edq == 35) {
+			mes "[國王 亞歷斯意 三世]";
+			mes "你回來了...";
+			mes "從鯨魚島帶回什麼了嗎";
+			next;
+			mes "[國王 亞歷斯意 三世]";
+			mes "拿到樂器了嗎?";
+			mes "A Gooselri? 只有島上才有的?";
+			mes "給我看看.";
+			next;
+		if (countitem(GUSLI) > 0) {
+				mes "[國王 亞歷斯意 三世]";
+				mes "Oh... 這就是那樂器嗎... a Gooselri?";
+				next;
+				mes "[總理大臣 德密特立]";
+				mes "是的, 國王, 我相信是的";
+				mes "叫做Gusli.";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "首相, 如果這就是那樂器";
+				mes "那麼?";
+				next;
+				mes "[總理大臣 德密特立]";
+				mes "我不確定";
+				mes "不過我們大陸上從沒見過這種樂器";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "我也是第一次見到這種樂器";
+				mes "真神秘啊...";
+				mes "嘿, 你!";
+				mes "你會演奏嗎?";
+				next;
+				if(select("我會.:我不會.") == 1) {
+					mes "[國王 亞歷斯意 三世]";
+					mes "你會演奏!";
+					mes "太好了現在演奏給我聽!";
+					next;
+					soundeffect "mos_gusli2.wav",0;
+					emotion ET_ANGER, getnpcid(0, "國王 亞歷斯意 三世#npc");
+					emotion ET_ANGER, getnpcid(0, "總理大臣 德密特立#m");
+					mes "[國王 亞歷斯意 三世]";
+					mes "嗯?這什麼, 你在耍我?";
+					mes "你真無理...你...!";
+					next;
+					mes "[總理大臣 德密特立]";
+					mes "國王... 冷靜.";
+					mes "如果你對個下人生氣";
+					mes "有損你的威嚴";
+					next;
+					mes "[國王 亞歷斯意 三世]";
+					mes "嗯, 也是.";
+					mes "你給他點適當的獎賞, 然後叫他滾";
+					next;
+					mes "[總理大臣 德密特立]";
+					mes "我怎麼能獎勵給...?";
+					next;
+					emotion ET_HNG;
+					mes "[國王 亞歷斯意 三世]";
+					mes "我命令你叫這人立刻";
+					mes "從我面前消失!";
+					next;
+					mes "[總理大臣 德密特立]";
+					mes "旅人";
+					mes "你應該謝謝國王的賞賜.";
+					next;
+					mes "[總理大臣 德密特立]";
+					mes "這是你的獎賞, 快滾.";
+					getitem 12702,1;
+					getexp 500000,0;
+					set mos_whale_edq,39;
+					close;
+				}
+				mes "[國王 亞歷斯意 三世]";
+				mes "Um... 不錯.";
+				mes "我相信了...";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "謝謝你的努力.";
+				mes "Hey,首相,";
+				mes "給他賞賜.";
+				next;
+				mes "[總理大臣 德密特立]";
+				mes "獎勵什麼?";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "交給你了 你看著辦;";
+				mes "我要休息下";
+				 
+				next;
+				mes "[總理大臣 德密特立]";
+				mes "他的故事沒想像的精彩";
+				 
+				next;
+				mes "[總理大臣 德密特立]";
+				mes "這是你的賞賜, 拿上吧.";
+				getitem 12702,1;
+				getexp 700000,0;
+				set mos_whale_edq,40;
+				close;
+			}else{
+				mes "[國王 亞歷斯意 三世]";
+				mes "你在幹什麼";
+				mes "沒有裝備樂器怎麼演奏???";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "別糊弄我!";
+				close;
+			}
+		}
+		else if (mos_whale_edq == 38) {
+			mes "[國王 亞歷斯意 三世]";
+			mes "你來了";
+			mes "你在鯨魚島有找到能讓我高興的東西嗎";
+			next;
+		if (countitem(GUSLI) > 0) {
+				mes "[國王 亞歷斯意 三世]";
+				mes "這就是樂器 Gooselri?";
+				next;
+				mes "[總理大臣 德密特立]";
+				mes "是的 國王, 我確定就是 Gusli.";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "首相, 這就是傳說中的樂器嗎?";
+				next;
+				mes "[總理大臣 德密特立]";
+				mes "我不能肯定, 但是這個大陸上沒有這種樂器.";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "嗯我也是第一次見到";
+				mes "真神秘";
+			 
+				mes "嘿!你會演奏嗎?";
+				next;
+				mes "["+strcharinfo(0)+"]";
+				mes "是的, 我在鯨魚島上學習了怎麼演奏.";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "哇, 你能演奏!";
+				mes "我現在就要聽.";
+				next;
+				soundeffect "mos_gusli1.wav",0;
+				mes "-音樂響起, 所有人都沉醉其中.-";
+				next;
+				emotion ET_CRY, getnpcid(0, "國王 亞歷斯意 三世#npc");
+				emotion ET_CRY, getnpcid(0, "總理大臣 德密特立#m");
+				mes "[國王 亞歷斯意 三世]";
+				mes "Oh! 我都快哭了.";
+				mes "好悲傷的音樂.";
+				next;
+				mes "[總理大臣 德密特立]";
+				mes "是的, 國王.";
+				mes "我從未聽過這麼悲傷的音樂.";
+				mes "Kh-huk. Sniff.";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "你給他一大筆獎勵!";
+				next;
+				mes "[總理大臣 德密特立]";
+				mes "Hukhuk... Sniff. 該獎勵什麼呢?";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "交給你了, 給他適當的獎勵.";
+				next;
+				mes "[總理大臣 德密特立]";
+				mes "對你表示謝意.";
+				mes "以這裡人民的名義給你賞賜.";
+				getitem 617,1;
+				getexp 1200000,0;
+				set mos_whale_edq,41;
+				close;
+			}else{
+				mes "[國王 亞歷斯意 三世]";
+				mes "樂器在哪呢?";
+				next;
+				mes "[國王 亞歷斯意 三世]";
+				mes "你不裝備樂器 怎麼演奏呢???";
+				next;
+				mes "["+strcharinfo(0)+"]";
+				mes "對不起, 剛才沒準備好.";
+				close;
+			}
+		}
+		else if (mos_whale_edq == 39) {
+			mes "[國王 亞歷斯意 三世]";
+			mes "沒事請出去.";
+			close;
+		}		
+		else if (mos_whale_edq == 40) {
+			mes "[國王 亞歷斯意 三世]";
+			mes "你個外國佬.";
+			mes "如果沒什麼事別打擾我休息.";
+			close;
+		}
+		else if (mos_whale_edq == 41) {
+			mes "[國王 亞歷斯意 三世]";
+			mes "又是你... ~";
+			mes "很高興再次見到你.";
+			mes "希望你能偶爾給我演奏音樂. ~";
+			close;
+		}
+		else{
+			mes "[國王 亞歷斯意 三世]";
+			mes "歡迎來到莫斯科,";
+			mes "我是國王 Alexsay 三世.";
+			next;
+			mes "[國王 亞歷斯意 三世]";
+			mes "回到你的家鄉宣揚我們偉大的莫斯科吧!";
+			close;
+		}
+	}
+}
+
+//----------------------------------------------------------------------------
+// 總理大臣 德密特立 - Moscovia Palace
+//----------------------------------------------------------------------------
+mosk_in,127,89,3	script	總理大臣 德密特立#m	967,{
+	if (mos_nowinter > 11 && mos_nowinter < 14) {
+		mes "[總理大臣 德密特立]";
+		mes "如果你敢密謀反對國王";
+		mes "你的麻煩就大了";
+		mes "所以請你當心點,";
+		mes "如果你想清除你的嫌疑";
+		mes "就做點什麼吧";
+		close;
+	}
+	else if (mos_nowinter == 14) {
+		mes "[總理大臣 德密特立]";
+		mes "你已經清除掉了你的嫌疑,";
+		mes "但是我們不能完全信任你.";
+		next;
+		mes "[總理大臣 德密特立]";
+		mes "但是.";
+		mes "你如果成功留住夏天, 我就可以信任你";
+		close;
+	}
+	else if (mos_nowinter == 20) {
+		mes "[總理大臣 德密特立]";
+		mes "我知道你是好意的.";
+		mes "但是我們不能完全信任你,";
+		mes "我們會注意你的行蹤的.";
+		next;
+		mes "[總理大臣 德密特立]";
+		mes "我知道你在廣場中央";
+		mes "施法術了...";
+		mes "所以我安排了學者";
+		mes "去調查天氣.";
+		next;
+		mes "[總理大臣 德密特立]";
+		mes "觀察的結果";
+		mes "氣溫變化的少了";
+		mes "最高氣溫基本穩定了";
+		next;
+		mes "[總理大臣 德密特立]";
+		mes "我不知道這意味著什麼, ";
+		mes "但是我決定接受這個事實.";
+	 
+		next;
+		mes "[總理大臣 德密特立]";
+		mes "而且我們的國王已經知道了.";
+		mes "你去通知他吧.";
+		close;
+	}
+	else{
+		if (mos_whale_edq < 16) {
+			mes "[總理大臣 德密特立]";
+			mes "外鄉人, 這是莫斯科, 禮貌對人不是壞習慣.";
+			close;
+		}
+		else if (mos_whale_edq == 16) {
+			mes "[總理大臣 德密特立]";
+			mes "旅人, 你到國王的房間幹什麼?";
+			next;
+			if(select("只是轉轉.:見國王.") == 1) {
+				mes "[總理大臣 德密特立]";
+				mes "小心點, 別打擾到國王了.";
+				next;
+				mes "[總理大臣 德密特立]";
+				mes "謀私刻歡迎每個旅人!";
+				next;
+				mes "[總理大臣 德密特立]";
+				mes "我們國王喜歡聽故事.";
+				close;
+			}
+			mes "[總理大臣 德密特立]";
+			mes "告訴我你見國王幹什麼.";
+			next;
+			if(select("我來問好.:我來講故事.") == 1) {
+				mes "[總理大臣 德密特立]";
+				mes "我會告訴他你的目的的.";
+				close;
+			}
+			mes "[總理大臣 德密特立]";
+			mes "我在想你發生了什麼故事, 國王很想聽你的故事.";
+			next;
+			mes "[總理大臣 德密特立]";
+			mes "如果國王聽了故事高興了, 會給你獎賞的.";
+			set mos_whale_edq,17;
+			close;
+		}
+		else if (mos_whale_edq == 17) {
+			mes "[總理大臣 德密特立]";
+			mes "我和他說過了,";
+			mes "你直接去找國王吧.";
+			close;
+		}
+		else if (mos_whale_edq > 17 && mos_whale_edq < 35) {
+			mes "[總理大臣 德密特立]";
+			mes "國王在休息.";
+			mes "你抓緊時間去鯨魚島吧.";
+			close;
+		}
+		else if (mos_whale_edq == 35) {
+			mes "[總理大臣 德密特立]";
+			mes "你回來了!.";
+			mes "我帶你去見國王.";
+			close;
+		}
+		else if (mos_whale_edq == 38) {
+			mes "[總理大臣 德密特立]";
+			mes "你回來了!.";
+			mes "我帶你去見國王.";
+			close;
+		}
+		else if (mos_whale_edq == 39) {
+			mes "[總理大臣 德密特立]";
+			mes "我不想再聽你的表演了, 閃開. ";
+			close;
+		}
+		else if (mos_whale_edq == 40) {
+			mes "[總理大臣 德密特立]";
+			mes "怎麼啦?國王在休息.";
+			mes "沒什麼事的話, 出去.";
+			close;
+		}
+		else if (mos_whale_edq == 41) {
+			mes "[總理大臣 德密特立]";
+			mes "你的樂器表演真感人.";
+			mes "你來了就再演奏一次吧!.";
+			close;
+		}else{
+			mes "[總理大臣 德密特立]";
+			mes "外國佬這裡是皇宮";
+			mes "國王住在裡面.";
+			mes "注意你的舉止.";
+			close;
+		}
+	}
+}
+
+//----------------------------------------------------------------------------
+// Island Trigger - Docks
+//----------------------------------------------------------------------------
+moscovia,136,46,4	script	Find#ship	CLEAR_NPC,4,4,{
+	end;
+	
+OnTouch:
+	if (mos_whale_edq > 34) {
+		mes "-站在碼頭看海,";
+		mes "突然使你想起了鯨魚島-";
+	 
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "去鯨魚島?";
+		next;
+		if(select("去鯨魚島.:不去.") == 1) {
+		if (getequipid(EQI_ACC_L) == GUSLI || getequipid(EQI_ACC_R) == GUSLI) {
+				soundeffect "mos_gusli2.wav",0;
+				mes "-你的手緩緩摸上樂器";
+				mes "讓你回憶起了老頭演奏的樂曲...-";
+				next;
+				mes "[村民]";
+				mes "看...有時從海上升起!!!";
+				next;
+				mes "[村民]";
+				mes "什麼..那是什麼...??";
+				next;
+				mes "[伊霸諾布]";
+				mes "Ohohoh!... 是鯨魚島";
+				mes "哈哈哈.";
+				next;
+				warp "mosk_fild01",95,93;
+			}else{
+				mes "["+strcharinfo(0)+"]";
+				mes "思緒飛過";
+				mes "忘裝備樂器了.";
+				next;
+				mes "["+strcharinfo(0)+"]";
+				mes "那老人說當我想去鯨魚島的時候";
+				mes "在碼頭演奏樂器就好了.";
+				close;
+			}
+		}
+		mes "["+strcharinfo(0)+"]";
+		mes "下次再去吧.";
+		mes "還有其他事要做呢.";
+		close;
+	}else{
+		end;
+	}
+}
+
+//----------------------------------------------------------------------------
+// Triggers
+//----------------------------------------------------------------------------
+
+mosk_ship,1,1,4	script	Baehideun#ship	-1,{
+OnInit:
+	set $@mos1_edq,0;
+	end;
+}
+
+mosk_ship,81,110,0	script	#findship	844,5,5,{
+OnInit:
+	disablenpc "#findship";
+	stopnpctimer;
+	end;
+
+OnEnable:
+	enablenpc "#findship";
+	initnpctimer;
+	end;
+
+OnDisable:
+	disablenpc "#findship";
+	set $@mos1_edq,0;
+	end;
+
+OnTouch:
+	if (mos_whale_edq == 12) {
+		mes "seeewaaaaaaaaaaa";
+		next;
+		mes "[伊霸諾布]";
+		mes "Hey "+strcharinfo(0)+"! 快看!";
+		mes "危險!快躲起來!";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "那是...";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "什麼東西升起來了...";
+		next;
+		mes "[伊霸諾布]";
+		mes "當心! "+strcharinfo(0)+"!";
+		mes "啊..那是.....";
+		set mos_whale_edq,13;
+		close2;
+		warp "mosk_fild01",95,93;
+		end;
+	}else{
+		end;
+	}
+	end;
+
+OnTimer300000:
+	donpcevent "#findship::OnDisable";
+	end;
+}
+
+mosk_ship,2,2,4	script	Baehideun1#ship	-1,{
+OnInit:
+	disablenpc "Baehideun1#ship";
+	stopnpctimer;
+	end;
+	
+OnEnable:
+	enablenpc "Baehideun1#ship";
+	monster "mosk_ship",89,112,"海怪",1425,1,"Baehideun1#ship::OnMyMobDead";
+	monster "mosk_ship",85,110,"海怪",1425,1,"Baehideun1#ship::OnMyMobDead";
+	initnpctimer;
+	end;
+
+OnDisable:
+	set $@mos1_edq,0;
+	stopnpctimer;
+	disablenpc "Baehideun1#ship";
+	end;
+
+OnMyMobDead:
+	if (mobcount("mosk_ship","Baehideun1#ship::OnMyMobDead") < 1) {
+		set $@mos1_edq,0;
+		mes "[伊霸諾布]";
+		mes "所有的怪物都趕走了,";
+		mes "我們可以繼續航行了";
+		donpcevent "Baehideun1#ship::OnDisable";
+		close;
+	}
+	end;
+
+OnTimer300000:
+	killmonster "mosk_ship","Baehideun1#ship::OnMyMobDead";
+	set $@mos1_edq,0;
+	donpcevent "Baehideun1#ship::OnDisable";
+	end;
+}
+
+mosk_ship,3,3,4	script	Baehideun2#ship	-1,{
+OnInit:
+	disablenpc "Baehideun2#ship";
+	stopnpctimer;
+	end;
+
+OnEnable:
+	enablenpc "Baehideun2#ship";
+	monster "mosk_ship",89,112,"海怪",1425,1,"Baehideun2#ship::OnMyMobDead";
+	monster "mosk_ship",80,110,"海怪",1426,1,"Baehideun2#ship::OnMyMobDead";
+	monster "mosk_ship",83,114,"海怪",1426,1,"Baehideun2#ship::OnMyMobDead";
+	monster "mosk_ship",85,110,"海怪",1425,1,"Baehideun2#ship::OnMyMobDead";
+	initnpctimer;
+	end;
+
+OnDisable:
+	set $@mos1_edq,0;
+	stopnpctimer;
+	disablenpc "Baehideun2#ship";
+	end;
+
+OnMyMobDead:
+	if (mobcount("mosk_ship","Baehideun2#ship::OnMyMobDead") < 1) {
+		set $@mos1_edq,0;
+		mes "[伊霸諾布]";
+		mes "所有的怪物都趕走了,";
+		mes "我們可以繼續航行了";
+		donpcevent "Baehideun2#ship::OnDisable";
+		close;
+	}
+	end;
+
+OnTimer300000:
+	killmonster "mosk_ship","Baehideun2#ship::OnMyMobDead";
+	set $@mos1_edq,0;
+	donpcevent "Baehideun2#ship::OnDisable";
+	end;
+}
+
+mosk_ship,5,5,4	script	Baehideun3#ship	-1,{
+OnInit:
+	disablenpc "Baehideun3#ship";
+	stopnpctimer;
+	end;
+
+OnEnable:
+	enablenpc "Baehideun3#ship";
+	monster "mosk_ship",85,111,"海怪",1451,1,"Baehideun3#ship::OnMyMobDead";
+	monster "mosk_ship",89,112,"海怪",1543,1,"Baehideun3#ship::OnMyMobDead";
+	monster "mosk_ship",90,106,"海怪",1543,1,"Baehideun3#ship::OnMyMobDead";
+	initnpctimer;
+	end;
+
+OnDisable:
+	set $@mos1_edq,0;
+	stopnpctimer;
+	disablenpc "Baehideun3#ship";
+	end;
+
+OnMyMobDead:
+	if (mobcount("mosk_ship","Baehideun3#ship::OnMyMobDead") < 1) {
+		set $@mos1_edq,0;
+		mes "[伊霸諾布]";
+		mes "所有的怪物都趕走了,";
+		mes "我們可以繼續航行了";
+		set mos_whale_edq,11;
+		donpcevent "Baehideun3#ship::OnDisable";
+		close;
+	}
+	end;
+
+OnTimer300000:
+	killmonster "mosk_ship","Baehideun3#ship::OnMyMobDead";
+	set $@mos1_edq,0;
+	donpcevent "Baehideun3#ship::OnDisable";
+	end;
+}
+
+mosk_ship,15,15,4	script	Baehideun4#ship	-1,{
+OnInit:
+	disablenpc "Baehideun4#ship";
+	stopnpctimer;
+	end;
+
+OnEnable:
+	enablenpc "Baehideun4#ship";
+	monster "mosk_ship",85,111,"海怪",1451,1,"Baehideun4#ship::OnMyMobDead";
+	monster "mosk_ship",89,112,"海怪",1543,1,"Baehideun4#ship::OnMyMobDead";
+	monster "mosk_ship",90,106,"海怪",1543,1,"Baehideun4#ship::OnMyMobDead";
+	initnpctimer;
+	end;
+
+OnDisable:
+	set $@mos1_edq,0;
+	stopnpctimer;
+	disablenpc "Baehideun4#ship";
+	end;
+
+OnMyMobDead:
+	if (mobcount("mosk_ship","Baehideun4#ship::OnMyMobDead") < 1) {
+		set $@mos1_edq,0;
+		mes "[伊霸諾布]";
+		mes "所有的怪物都趕走了,";
+		mes "我們可以繼續航行了";
+		set mos_whale_edq,26;
+		donpcevent "Baehideun4#ship::OnDisable";
+		close;
+	}
+	end;
+
+OnTimer300000:
+	killmonster "mosk_ship","Baehideun4#ship::OnMyMobDead";
+	set $@mos1_edq,0;
+	donpcevent "Baehideun4#ship::OnDisable";
+	end;
+}
+
+//============================================================================
+// Help Mikhail
+//============================================================================
+
+//----------------------------------------------------------------------------
+// 凱莉娜 - Starting Point
+//----------------------------------------------------------------------------
+mosk_in,144,279,5	script	凱莉娜#mos	959,{
+	if (mos_swan == 0) {
+		mes "[凱莉娜]";
+		mes "他跑哪去了?";
+		mes "我要給他點教訓.";
+		mes "他就像爸爸一樣膽小.";
+		next;
+		mes "[安娜]";
+		mes "MikHail, 是個膽小鬼, 是個愛哭鬼.";
+		mes "MikHail, 是個膽小鬼, 是個愛哭鬼.";
+		next;
+		mes "[凱莉娜]";
+		mes "因為你不照看弟弟. 所以你把房子打掃了, 安娜?";
+		next;
+		emotion ET_CRY, getnpcid(0, "安娜#mos");
+		mes "[安娜]";
+		mes "Oh, 我的天................";
+		next;
+		if(select("和她談話.:無視她") == 1) {
+			mes "["+strcharinfo(0)+"]";
+			mes "你好?";
+			next;
+			mes "[凱莉娜]";
+			mes "Oh, God!";
+			mes "我剛沒看到你, 對不起!";
+			mes "你要買熱蛋糕嗎?";
+			mes "對不起我們還沒開業..";
+			next;
+			mes "["+strcharinfo(0)+"]";
+			mes "沒關係.";
+			mes "怎麼了?有什麼需要我幫忙的嗎?";
+			next;
+			mes "[凱莉娜]";
+			mes "Oh, well...";
+			mes "我兒子 米海億 在我出去的時候打破了 Matrushka .";
+			mes "他害怕我懲罰他就跑出去了.";
+			next;
+			mes "[凱莉娜]";
+			mes "真是太膽小了!";
+			mes "我懷疑他將來能不能稱為大將軍";
+			next;
+			mes "[凱莉娜]";
+			mes "以往這個時間他已經回家了.";
+			mes "我擔心發生了什麼事.";
+			next;
+			mes "["+strcharinfo(0)+"]";
+			mes "你看起來很焦急, 我幫你把兒子找回來吧.";
+			next;
+			mes "[凱莉娜]";
+			 
+			mes "我擔心他不能回家了.";
+			mes "...我會好好收拾他的.";
+			next;
+			mes "[凱莉娜]";
+			mes "如果拒絕你是不好的";
+			mes "你真的願意幫我找米海億 回家嗎?";
+			next;
+			if(select("我不是認真的.:好的我會的!") == 1) {
+				mes "[凱莉娜]";
+				mes "你真刻薄我沒時間開玩笑.";
+				close;
+			}
+			mes "[凱莉娜]";
+			mes "你真好";
+			mes "米海億 是個膽小的孩子, 我估計他沒出村子.";
+			mes "請幫我找回他~";
+			set mos_swan,1;
+			close;
+		}
+		mes "[凱莉娜]";
+		mes "我擔心他出事了...";
+		close;
+	}
+	else if (mos_swan == 1) {
+		mes "[凱莉娜]";
+		mes "米海億, 我兒子一定還在村子裡.";
+		mes "他和他父親一樣害羞.";
+		close;
+	}
+	else if (mos_swan > 1 && mos_swan < 25) {
+		mes "["+strcharinfo(0)+"]";
+		mes "米海億還沒回來?";
+		next;
+		mes "[凱莉娜]";
+		mes "沒有, 他到底在哪呢?";
+		close;
+	}
+	else if (mos_swan == 25) {
+		mes "[凱莉娜]";
+		mes "他回來把 俄羅斯套娃 粘起來然後又走了...";
+		next;
+		mes "[凱莉娜]";
+		mes "我對他太嚴了.";
+		mes "他對我卻很好.";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "你會是個好媽媽的哈哈.";
+		next;
+		mes "[凱莉娜]";
+		mes "我會的..";
+		mes "安娜, 我女兒犯的錯, 推到弟弟身上, 我也會懲罰她的.";
+		next;
+		mes "[凱莉娜]";
+		mes "多謝你去危險的地方把我兒子找了回來.";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "經常這樣呵呵.";
+		next;
+		mes "[凱莉娜]";
+		mes "我無以為報, 只能教你做熱蛋糕了!";
+		next;
+		mes "[凱莉娜]";
+		mes "我現在有點事不過 拉麗紗 會教你的..她是我們的女僕";
+		mes "她是很棒的廚師.";
+		next;
+		mes "[凱莉娜]";
+		mes "莫斯科的熱蛋糕真美味!";
+		mes "我打賭你吃了一次就會愛上它的.";
+		next;
+		mes "[凱莉娜]";
+		mes "我得去工作了!";
+		mes "你下次來我會給你做熱蛋糕的";
+		set mos_swan,100;
+		getexp 1000000,0;
+		close;
+	}else{
+		mes "[凱莉娜]";

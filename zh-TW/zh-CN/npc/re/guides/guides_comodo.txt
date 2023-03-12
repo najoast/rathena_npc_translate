@@ -1,0 +1,184 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+//===== rAthena Script =======================================
+//= Comodo Guides
+//===== By: ================================================== 
+//= L0ne_W0lf
+//===== Current Version: ===================================== 
+//= 1.1
+//===== Compatible With: ===================================== 
+//= rAthena SVN
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Guides for the city of Comodo.
+//===== Additional Comments: ================================= 
+//= 1.0 First version, Renewal guide.
+//= 1.1 Fixed and optimized. [Euphy]
+//============================================================
+
+comodo,322,178,4	script	克魔島導遊#01comodo::GuideComodo	700,{
+	mes "[克魔島導遊]";
+	mes "歡迎光臨 海岸之都^8B4513克魔島^000000";
+	mes "需要為您介紹嗎?";
+	next;
+	while (1) {
+		switch(select("[ 主要設施 ]:[ 商店 & 小幫手 ]:刪除小地圖的標記:結束對話:有關^8B4513克魔島^000000")) {
+		case 1:
+			set .@loop,1;
+			while (.@loop) {
+				switch(select("[ 酒店 ]:[ 賭場 ]:[ 武器 & 防具店 ]:[ 道具店 ]:[ 露營場 ]:[ 蛤蜊商店 ]:[ 東邊洞窟馬吾 ]:[ 西邊洞窟加露 ]:[ 北邊洞窟盧安達 ]:[ 草裙舞舞臺 ]:[ 卡普拉西區分部 ]:返回上一選單")) {
+				case 1:
+					callsub L_Mark,"^FF0000酒店";
+					viewpoint 1,166,298,0,0xFF0000;
+					next;
+					break;
+				case 2:
+					callsub L_Mark,"^FFA500賭場";
+					viewpoint 1,140,98,1,0xFFA500;
+					next;
+					break;
+				case 3:
+					callsub L_Mark,"^FF4500武器 & 防具店";
+					viewpoint 1,266,70,2,0xFF4500;
+					next;
+					break;
+				case 4:
+					callsub L_Mark,"^B8860B道具店";
+					viewpoint 1,86,128,3,0xB8860B;
+					next;
+					break;
+				case 5:
+					callsub L_Mark,"^32CD32露營場";
+					viewpoint 1,210,308,4,0x32CD32;
+					next;
+					break;
+				case 6:
+					callsub L_Mark,"^6B8E23蛤蜊商店";
+					viewpoint 1,298,124,5,0x6B8E23;
+					next;
+					break;
+				case 7:
+					callsub L_Mark,"^008B8B東邊洞窟馬吾",1;
+					viewpoint 1,333,175,6,0x008B8B;
+					next;
+					break;
+				case 8:
+					callsub L_Mark,"^1E90FF西邊洞窟加露",1;
+					viewpoint 1,24,214,7,0x1E90FF;
+					next;
+					break;
+				case 9:
+					callsub L_Mark,"^0000CD 北邊洞窟盧安達",1;
+					viewpoint 1,176,358,8,0x0000CD;
+					next;
+					break;
+				case 10:
+					callsub L_Mark,"^C71585草裙舞舞臺";
+					viewpoint 1,188,168,9,0xC71585;
+					next;
+					break;
+				case 11:
+					callsub L_Mark,"^DB7093卡普拉西區分部";
+					viewpoint 1,136,202,10,0xDB7093;
+					next;
+					break;
+				case 12:
+					set .@loop,0;
+					break;
+				}
+			}
+			break;
+		case 2:
+			set .@loop,1;
+			while (.@loop) {
+				switch(select("[ 村長 ]:[ 柏勒羅本 ]:[ 卡普拉職員 ]:[ 流浪詩人巴德 ]:返回上一選單")) {
+				case 1:
+					callsub L_Mark,"^6495ED村長";
+					viewpoint 1,114,294,11,0x6495ED;
+					next;
+					break;
+				case 2:
+					mes "[克魔島導遊]";
+					mes "^228B22柏勒羅本^000000是";
+					mes "負責^228B22舞娘^000000的";
+					mes "轉職工作,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,193,151,12,0x228B22;
+					next;
+					break;
+				case 3:
+					callsub L_Mark,"^1E90FF卡普拉職員";
+					viewpoint 1,195,149,13,0x1E90FF;
+					next;
+					break;
+				case 4:
+					mes "[克魔島導遊]";
+					mes "^DB7093流浪詩人巴德^000000是";
+					mes "負責^DB7093吟遊詩人^000000的";
+					mes "轉職工作,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,211,155,14,0xDB7093;
+					next;
+					break;
+				case 5:
+					set .@loop,0;
+					break;
+				}
+			}
+			break;
+		case 3:
+			mes "[克魔島導遊]";
+			mes "標記已刪除,";
+			mes "還需要其它服務嗎?";
+			viewpoint 2,166,298,0,0xFFFFFF;
+			viewpoint 2,140,98,1,0xFFFFFF;
+			viewpoint 2,266,70,2,0xFFFFFF;
+			viewpoint 2,86,128,3,0xFFFFFF;
+			viewpoint 2,210,308,4,0xFFFFFF;
+			viewpoint 2,298,124,5,0xFFFFFF;
+			viewpoint 2,333,175,6,0xFFFFFF;
+			viewpoint 2,24,214,7,0xFFFFFF;
+			viewpoint 2,176,358,8,0xFFFFFF;
+			viewpoint 2,188,168,9,0xFFFFFF;
+			viewpoint 2,136,202,10,0xFFFFFF;
+			viewpoint 2,114,294,11,0xFFFFFF;
+			viewpoint 2,193,151,12,0xFFFFFF;
+			viewpoint 2,195,149,13,0xFFFFFF;
+			viewpoint 2,211,155,14,0xFFFFFF;
+			next;
+			break;
+		case 4:
+			mes "[克魔島導遊]";
+			mes "祝你旅途愉快!";
+			close;
+		case 5:
+			mes "[克魔島導遊]";
+			mes "^8B4513克魔島^000000是";
+			mes "位於洞窟內,";
+			mes "幾乎找不到陽光.";
+			next;
+			mes "[克魔島導遊]";
+			mes "^8B4513克魔島^000000的居民";
+			mes "利用這種大自然的特色,";
+			mes "開發成觀光商品販賣";
+			mes "用來維持生活家計";
+			mes "還需要其它服務嗎?";
+			next;
+			break;
+		}
+	}
+	end;
+L_Mark:
+	mes "[克魔島導遊]";
+	mes "讓我在你的小地圖上標記一下";
+	mes getarg(0)+"^000000";
+	mes "的位置.";
+	mes "你還需要確認其他建築物的位置嗎?";
+	return;
+}
+
+comodo,181,347,4	duplicate(GuideComodo)	克魔島導遊#02comodo	700
+comodo,197,149,3	duplicate(GuideComodo)	克魔島導遊#03comodo	700
+comodo,37,219,4	duplicate(GuideComodo)	克魔島導遊#04comodo	700

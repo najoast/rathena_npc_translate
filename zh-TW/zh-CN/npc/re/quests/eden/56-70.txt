@@ -1,0 +1,1319 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+//===== rAthena Script =======================================
+//= Eden Group Quests - Mission [56 - 70]
+//===== By: ==================================================
+//= L0ne_W0lf
+//===== Current Version: =====================================
+//= 1.5
+//===== Compatible With: =====================================
+//= rAthena SVN
+//===== Description: =========================================
+//= Repetable Quests for Players between Baselevel 56 - 70.
+//===== Additional Comments: =================================
+//= 1.0 First Version.
+//= 1.1 Some little optimization here and there. [Masao]
+//= 1.2 Added checkquest confirmation for -1. [Euphy]
+//= 1.3 Fixed Puppet Master's Agony Quest (12217 -> 3259). [Joseph]
+//= 1.4 Fixed invalid check (Magic Wand Quest). [Joseph]
+//= 1.5 Optimized, based on code by Zopokx. [Euphy]
+//============================================================
+
+moc_para01,42,38,3	script	任務 [56 - 70]	857,{
+	if (checkquest(12217) > -1) erasequest 12217;
+	if (countitem(6219)) {
+		mes "這裡有為等級55-70之間的冒險家準備的不同冒險任務。";
+		next;
+		mes "這兒的任務有多種，包括狩獵任務，配送任務以及尋人任務。";
+		next;
+		switch (select("任務No.1~5:任務No.6~10:任務No.11~15")) {
+		case 1:
+			switch (select("這繃帶是做什麼用的?:危險的鱷魚。:那不是我的小美人魚。。:我的祖國在召喚我!")) {
+			case 1:
+				if (checkquest(3250) <= 0) {
+					mes "這個任務是裡希塔樂鎮的雷根貝勒企業所委託的。詳細內容如下。";
+					next;
+					mes "雷根貝勒企業正在籌劃一項新的項目'綠色醫療中心'，為此，我們需要準備一些繃帶。";
+					next;
+					mes "為了這個項目，我們需要研究怪物被腐爛繃帶包裹後的反應。";
+					next;
+					mes "如果你有興趣，請幫助我們狩獵30隻木乃伊並帶回30個腐爛繃帶。你能在夢羅克西面的金字塔中找到它們的蹤跡。";
+					next;
+					mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+					next;
+					mes "- 雷根貝勒企業執行長 '朱利 艾 德爾斐' -";
+					mes "你願意接受這個任務麼?";
+					next;
+					switch (select("接受任務:不接受")) {
+					case 1:
+						if ((BaseLevel > 54) && (BaseLevel < 71)) {
+							setquest 3250;
+							mes "我已經接受了任務。我必須完成任務後再回來確認。";
+							next;
+							mes "這個任務沒有時間限制。";
+							close;
+						}
+						mes "這個任務不適合我。我應該再看看其他任務。";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if (checkquest(3250,HUNTING) == 1) {
+					mes "你有一個正在進行中的任務，你要查看具體情況麼？";
+					next;
+					switch (select("查看具體細節:取消")) {
+					case 1:
+						mes "這個任務是裡希塔樂鎮的雷根貝勒企業所委託的。詳細內容如下。";
+						next;
+						mes "雷根貝勒企業正在籌劃一項新的項目'綠色醫療中心'，為此，我們需要準備一些繃帶。";
+						next;
+						mes "為了這個項目，我們需要研究怪物被腐爛繃帶包裹後的反應。";
+						next;
+						mes "如果你有興趣，請幫助我們狩獵30隻木乃伊並帶回30個腐爛繃帶。你能在夢羅克西面的金字塔中找到它們的蹤跡。";
+						next;
+						mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+						next;
+						mes "- 雷根貝勒企業執行長 '朱利 艾 德爾斐' -";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if ((checkquest(3250,HUNTING) == 2) && (countitem(930) > 19)) {
+					mes "我已經出色完成了任務，現在需要提交任務嗎？";
+					next;
+					switch (select("提交任務:稍後再提交")) {
+					case 1:
+						delitem 930,20; //Rotten_Bandage
+						getexp 15000,5000;
+						erasequest 3250;
+						mes "你完成了任務，這是你應得的獎勵！";
+						close;
+					case 2:
+						close;
+					}
+				}
+			case 2:
+				if (checkquest(3251) <= 0) {
+					mes "這個任務是克魔島合作社所委託的。詳細內容如下。";
+					next;
+					mes "鱷魚人最近越來越野性難馴，它們變得開始攻擊海灘邊休閒度假的男女了。";
+					next;
+					mes "作為盧恩·米德加茲王國的度假勝地，這情況讓我們非常得困擾。";
+					next;
+					mes "如果你能幫助我們狩獵30隻鱷魚人來改善目前的狀況，我們會非常感激你的。";
+					next;
+					mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+					mes "你願意接受這個任務麼?";
+					next;
+					switch (select("接受任務:不接受")) {
+					case 1:
+						if ((BaseLevel > 54) && (BaseLevel < 71)) {
+							setquest 3251;
+							mes "我已經接受了任務。我必須完成任務後再回來確認。";
+							next;
+							mes "這個任務沒有時間限制。";
+							close;
+						}
+						mes "這個任務不適合我。我應該再看看其他任務。";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if (checkquest(3251,HUNTING) == 1) {
+					mes "你有一個正在進行中的任務，你要查看具體情況麼？";
+					next;
+					switch (select("查看具體細節:取消")) {
+					case 1:
+						mes "這個任務是克魔島合作社所委託的。詳細內容如下。";
+						next;
+						mes "鱷魚人最近越來越野性難馴，它們變得開始攻擊海灘邊休閒度假的男女了。";
+						next;
+						mes "作為盧恩·米德加茲王國的度假勝地，這情況讓我們非常得困擾。";
+						next;
+						mes "如果你能幫助我們狩獵30隻鱷魚人來改善目前的狀況，我們會非常感激你的。";
+						next;
+						mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if (checkquest(3251,HUNTING) == 2) {
+					mes "我已經出色完成了任務，現在需要提交任務嗎？";
+					next;
+					switch (select("提交任務:稍後再提交")) {
+					case 1:
+						getexp 16000,6000;
+						erasequest 3251;
+						mes "你完成了任務，這是你應得的獎勵！";
+						close;
+					case 2:
+						close;
+					}
+				}
+			case 3:
+				if (checkquest(3252) <= 0) {
+					mes "這個任務是依斯魯德島的匿名者所委託的。";
+					next;
+					mes "我對依斯魯德島的海灘嚮往已久。";
+					next;
+					mes "小的時候，我在依斯魯德的海底洞窟中發現了一種我從未見過的神秘生物。。。";
+					next;
+					mes "我立刻就覺得，那是一條美人魚！！我太震驚太嚮往了，所以一直以來，都致力于美人魚的研究。";
+					next;
+					mes "但是，當我研究得越深入，就越來越覺得這種生物並不是美人魚。。它不像其他美人魚那樣漂亮。。";
+					next;
+					mes "最終，我不得不承認，它們不是美人魚，而是人魚士兵。。T-T。。";
+					next;
+					mes "人魚士兵。。！！**%%oo##我居然浪費了那麼久的生命來研究這麼一種怪物！！！T-T。。請幫我狩獵30隻人魚士兵來撫慰我受傷的心靈吧！";
+					next;
+					mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+					next;
+					mes "-- 依斯魯德 '美人魚夢的破碎' --";
+					mes "你願意接受這個任務麼?";
+					next;
+					switch (select("接受任務:不接受")) {
+					case 1:
+						if ((BaseLevel > 54) && (BaseLevel < 71)) {
+							setquest 3252;
+							mes "我已經接受了任務。我必須完成任務後再回來確認。";
+							next;
+							mes "這個任務沒有時間限制。";
+							close;
+						}
+						mes "這個任務不適合我。我應該再看看其他任務。";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if (checkquest(3252,HUNTING) == 1) {
+					mes "你有一個正在進行中的任務，你要查看具體情況麼？";
+					next;
+					switch (select("查看具體細節:取消")) {
+					case 1:
+						mes "這個任務是依斯魯德島的匿名者所委託的。";
+						next;
+						mes "我對依斯魯德島的海灘嚮往已久。";
+						next;
+						mes "在小的時候，我在依斯魯德的海底洞窟中發現了一種我從未見過的神秘的生物。。。";
+						next;
+						mes "我立刻就覺得，那是一條美人魚！！我太震驚太嚮往了，所以一直以來，都致力于美人魚的研究。";
+						next;
+						mes "但是，當我研究得越深入，就越來越覺得這種生物並不是美人魚。。它不像其他美人魚那樣漂亮。。";
+						next;
+						mes "最終，我不得不承認，它們不是美人魚，而是人魚士兵。。T-T。。";
+						next;
+						mes "人魚士兵。。！！**%%oo##我居然浪費了那麼久的生命來研究這麼一種怪物！！！T-T。。請幫我狩獵30隻人魚士兵來撫慰我受傷的心靈吧！";
+						next;
+						mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+						next;
+						mes "-- 依斯魯德 '美人魚夢的破碎' --";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if (checkquest(3252,HUNTING) == 2) {
+					mes "我已經出色完成了任務，現在需要提交任務嗎？";
+					next;
+					switch (select("提交任務:稍後再提交")) {
+					case 1:
+						getexp 17000,8000;
+						erasequest 3252;
+						mes "你完成了任務，這是你應得的獎勵！";
+						close;
+					case 2:
+						close;
+					}
+				}
+			case 4:
+				if (checkquest(3254) <= 0) {
+					mes "這個任務是盧恩·米德加茲王國的政府官員所委託的。";
+					next;
+					mes "為了保護普隆德拉不受洪水的侵害，我們決定造一座大壩來調節水流量。";
+					next;
+					mes "但是我們缺少物資，需要大量優質的沙土。";
+					next;
+					mes "所以，我們需要幫助！請帶回10個黃晶沙和30個黃玉碎片來協助我們建造大壩吧。";
+					next;
+					mes "你可以從泥人那裡獲得這些材料。祝你好運！";
+					next;
+					mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+					next;
+					mes "-- 盧恩·米德加茲王國的政府官員：杜弗雷·肯特 --";
+					mes "你願意接受這個任務麼?";
+					next;
+					switch (select("接受任務:不接受")) {
+					case 1:
+						if ((BaseLevel > 54) && (BaseLevel < 71)) {
+							setquest 3254;
+							mes "我已經接受了任務。我必須完成任務後再回來確認。";
+							next;
+							mes "這個任務沒有時間限制。";
+							close;
+						}
+						mes "這個任務不適合我。我應該再看看其他任務。";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if ((checkquest(3254) == 1) && (countitem(7043) < 10) && (countitem(1056) < 30)) {
+					mes "你有一個正在進行中的任務，你要查看具體情況麼？";
+					next;
+					switch (select("查看具體細節:取消")) {
+					case 1:
+						mes "這個任務是盧恩·米德加茲王國的政府官員所委託的。";
+						next;
+						mes "為了保護普隆德拉不受洪水的侵害，我們決定造一座大壩來調節水流量。";
+						next;
+						mes "但是我們缺少物資，需要大量優質的沙土。";
+						next;
+						mes "所以，我們需要幫助！請帶回10個黃晶沙和30個黃玉碎片來協助我們建造大壩吧。";
+						next;
+						mes "你可以從泥人那裡獲得這些材料。祝你好運！";
+						next;
+						mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+						next;
+						mes "-- 盧恩·米德加茲王國的政府官員：杜弗雷·肯特 --";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if ((checkquest(3254) == 1) && (countitem(7043) > 9) && (countitem(1056) > 29)) {
+					mes "我已經出色完成了任務，現在需要提交任務嗎？";
+					next;
+					switch (select("提交任務:稍後再提交")) {
+					case 1:
+						delitem 7043,10; //Fine_Sand
+						delitem 1056,30; //Grit
+						getexp 18000,8000;
+						erasequest 3254;
+						mes "你完成了任務，這是你應得的獎勵！";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if (checkquest(3254) == 2) {
+					mes "這個任務是盧恩·米德加茲王國的政府官員所委託的。";
+					next;
+					mes "為了保護普隆德拉不受洪水的侵害，我們決定造一座大壩來調節水流量。";
+					next;
+					mes "但是我們缺少物資，需要大量優質的沙土。";
+					next;
+					mes "所以，我們需要幫助！請帶回10個黃晶沙和30個黃玉碎片來協助我們建造大壩吧。";
+					next;
+					mes "你可以從泥人那裡獲得這些材料。祝你好運！";
+					next;
+					mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+					next;
+					mes "-- 盧恩·米德加茲王國的政府官員：杜弗雷·肯特 --";
+					mes "你願意接受這個任務麼?";
+					next;
+					switch (select("接受任務:不接受")) {
+					case 1:
+						if ((BaseLevel > 54) && (BaseLevel < 71)) {
+							setquest 3254;
+							mes "我已經接受了任務。我必須完成任務後再回來確認。";
+							next;
+							mes "這個任務沒有時間限制。";
+							close;
+						}
+						mes "這個任務不適合我。我應該再看看其他任務。";
+						close;
+					case 2:
+						close;
+					}
+				}
+				close;
+			}
+		case 2:
+			switch (select("狩獵野豬:為夏天做準備:女人的怨恨:特殊的藥劑成分:傀儡師的煩惱")) {
+			case 1:
+				if (checkquest(3255) <= 0) {
+					mes "這是來自斐揚市政廳的委託任務。";
+					next;
+					mes "野生動物一直是農場主們的煩惱。";
+					next;
+					mes "它們襲擊我們的農場，毀壞我們所有的作物！我們已經忍無可忍了！";
+					next;
+					mes "所以我們想向你們這些勇敢的冒險者尋求幫助。";
+					next;
+					mes "請狩獵30隻野豬來幫助我們保衛農作物吧！";
+					next;
+					mes "我們城鎮周邊很容易找到它們的蹤跡。";
+					next;
+					mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+					next;
+					mes "-- 斐揚市政廳官員 --";
+					mes "你願意接受這個任務麼?";
+					next;
+					switch (select("接受任務:不接受")) {
+					case 1:
+						if ((BaseLevel > 54) && (BaseLevel < 71)) {
+							setquest 3255;
+							mes "我已經接受了任務。我必須完成任務後再回來確認。";
+							next;
+							mes "這個任務沒有時間限制。";
+							close;
+						}
+						mes "這個任務不適合我。我應該再看看其他任務。";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if (checkquest(3255,HUNTING) == 1) {
+					mes "你有一個正在進行中的任務，你要查看具體情況麼？";
+					next;
+					switch (select("查看具體細節:取消")) {
+					case 1:
+						mes "這是來自斐揚市政廳的委託任務。";
+						next;
+						mes "野生動物一直是農場主們的煩惱。";
+						next;
+						mes "它們襲擊我們的農場，毀壞我們所有的作物！我們已經忍無可忍了！";
+						next;
+						mes "所以我們想向你們這些勇敢的冒險者尋求幫助。";
+						next;
+						mes "請狩獵30隻野豬來幫助我們保衛農作物吧！";
+						next;
+						mes "我們城鎮周邊很容易找到它們的蹤跡。";
+						next;
+						mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+						next;
+						mes "-- 斐揚市政廳官員 --";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if (checkquest(3255,HUNTING) == 2) {
+					mes "我已經出色完成了任務，現在需要提交任務嗎？";
+					next;
+					switch (select("提交任務:稍後再提交")) {
+					case 1:
+						getexp 16000,7000;
+						erasequest 3255;
+						mes "你完成了任務，這是你應得的獎勵！";
+						close;
+					case 2:
+						close;
+					}
+				}
+			case 2:
+				if (checkquest(3256) <= 0) {
+					mes "這是一份來自夢羅克鐵匠亞拉甘的委託任務。";
+					next;
+					mes "你好啊~冒險家~我是亞拉甘，夢羅克最炙手可熱的鐵匠！";
+					next;
+					mes "言歸正傳，我有個兒子叫朱利爾·亞拉甘，是個很可愛的傢伙，呵呵。";
+					next;
+					mes "他想在這個夏天參加夏令營，可是他不會遊泳。。";
+					next;
+					mes "我想教他，但是你也知道我是個鐵匠，和遊泳這事沾不上邊兒。";
+					next;
+					mes "不過，我琢磨著如果能做個幫助遊泳的腳蹼，就能幫助他增加自信。";
+					next;
+					mes "要做腳蹼，我需要30個羅達蛙掉落的粘糊的蹼，你能幫我弄些回來麼？";
+					next;
+					mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+					next;
+					mes "PS，不要總拿我與忽克連，安東尼奧比較！！！！";
+					next;
+					mes "-- 最炙手可熱的鐵匠：來自夢羅克的亞拉甘 --";
+					mes "你願意接受這個任務麼?";
+					next;
+					switch (select("接受任務:不接受")) {
+					case 1:
+						if ((BaseLevel > 54) && (BaseLevel < 71)) {
+							setquest 3256;
+							mes "我已經接受了任務。我必須完成任務後再回來確認。";
+							next;
+							mes "這個任務沒有時間限制。";
+							close;
+						}
+						mes "這個任務不適合我。我應該再看看其他任務。";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if ((checkquest(3256) == 1) && (countitem(918) < 30)) {
+					mes "你有一個正在進行中的任務，你要查看具體情況麼？";
+					next;
+					switch (select("查看具體細節:取消")) {
+					case 1:
+						mes "這是一份來自夢羅克鐵匠亞拉甘的委託任務。";
+						next;
+						mes "你好啊~冒險家~我是亞拉甘，夢羅克最炙手可熱的鐵匠！";
+						next;
+						mes "言歸正傳，我有個兒子叫朱利爾·亞拉甘，是個很可愛的傢伙，呵呵。";
+						next;
+						mes "他想在這個夏天參加夏令營，可是他不會遊泳。。";
+						next;
+						mes "我想教他，但是你也知道我是個鐵匠，和遊泳這事沾不上邊兒。";
+						next;
+						mes "不過，我琢磨著如果能做個幫助遊泳的腳蹼，就能幫助他增加自信。";
+						next;
+						mes "要做腳蹼，我需要30個羅達蛙掉落的粘糊的蹼，你能幫我弄些回來麼？";
+						next;
+						mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+						next;
+						mes "PS，不要總拿我與忽克連，安東尼奧比較！！！！";
+						next;
+						mes "-- 最炙手可熱的鐵匠：來自夢羅克的亞拉甘 --";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if ((checkquest(3256) == 1) && (countitem(918) > 29)) {
+					mes "我已經出色完成了任務，現在需要提交任務嗎？";
+					next;
+					switch (select("提交任務:稍後再提交")) {
+					case 1:
+						delitem 918,30; //Sticky_Webfoot
+						getexp 15000,5000;
+						erasequest 3256;
+						mes "你完成了任務，這是你應得的獎勵！";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if (checkquest(3256) == 2) {
+					mes "這是一份來自夢羅克鐵匠亞拉甘的委託任務。";
+					next;
+					mes "你好啊~冒險家~我是亞拉甘，夢羅克最炙手可熱的鐵匠！";
+					next;
+					mes "言歸正傳，我有個兒子叫朱利爾·亞拉甘，是個很可愛的傢伙，呵呵。";
+					next;
+					mes "他想在這個夏天參加夏令營，可是他不會遊泳。。";
+					next;
+					mes "我想教他，但是你也知道我是個鐵匠，和遊泳這事沾不上邊兒。";
+					next;
+					mes "不過，我琢磨著如果能做個幫助遊泳的腳蹼，就能幫助他增加自信。";
+					next;
+					mes "要做腳蹼，我需要30個羅達蛙掉落的粘糊的蹼，你能幫我弄些回來麼？";
+					next;
+					mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+					next;
+					mes "PS，不要總拿我與忽克連，安東尼奧比較！！！！";
+					next;
+					mes "-- 最炙手可熱的鐵匠：來自夢羅克的亞拉甘 --";
+					mes "你願意接受這個任務麼?";
+					next;
+					switch (select("接受任務:不接受")) {
+					case 1:
+						if ((BaseLevel > 54) && (BaseLevel < 71)) {
+							setquest 3256;
+							mes "我已經接受了任務。我必須完成任務後再回來確認。";
+							next;
+							mes "這個任務沒有時間限制。";
+							close;
+						}
+						mes "這個任務不適合我。我應該再看看其他任務。";
+						close;
+					case 2:
+						close;
+					}
+				}
+				close;
+			case 3:
+				if (checkquest(3257) <= 0) {
+					mes "這是來自依斯魯德的研究者杜裡安的委託任務。";
+					next;
+					mes "你有沒有聽說過，靈魂中帶有怨恨的女人會給自然帶來災害。";
+					next;
+					mes "所以夥計們，要注意那些敏感的女人！小心不要讓她們將怨恨附在你的身上哦。";
+					next;
+					mes "帶有怨恨的女人身上會發生奇怪的現象。";
+					next;
+					mes "我很好奇，也很想證明這傳說可能是真的。";
+					next;
+					mes "所以我想讓這些女人不安！呵呵，我知道這是個殘忍的主意，不是麼~？";
+					next;
+					mes "不過，我是很認真地，這是為了研究！所以請幫我狩獵30隻靈魂受傷的鬼女回來吧。";
+					next;
+					mes "這樣我就能好好觀察她們了。";
+					next;
+					mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+					next;
+					mes "-- 高貴的研究者：杜裡安 --";
+					mes "你願意接受這個任務麼?";
+					next;
+					switch (select("接受任務:不接受")) {
+					case 1:
+						if ((BaseLevel > 54) && (BaseLevel < 71)) {
+							setquest 3257;
+							mes "我已經接受了任務。我必須完成任務後再回來確認。";
+							next;
+							mes "這個任務沒有時間限制。";
+							close;
+						}
+						mes "這個任務不適合我。我應該再看看其他任務。";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if (checkquest(3257,HUNTING) == 1) {
+					mes "你有一個正在進行中的任務，你要查看具體情況麼？";
+					next;
+					switch (select("查看具體細節:取消")) {
+					case 1:
+						mes "這是來自依斯魯德的研究者杜裡安的委託任務。";
+						next;
+						mes "你有沒有聽說過，靈魂中帶有怨恨的女人會給自然帶來災害。";
+						next;
+						mes "所以夥計們，要注意那些敏感的女人！小心不要讓她們將怨恨附在你的身上。";
+						next;
+						mes "帶有怨恨的女人身上會發生奇怪的現象。";
+						next;
+						mes "我很好奇，也很想證明這傳說可能是真的。";
+						next;
+						mes "所以我想讓這些女人不安！呵呵，我知道這是個殘忍的主意，不是麼~？";
+						next;
+						mes "不過，我是很認真地，這是為了研究！所以請幫我狩獵30隻靈魂受傷的鬼女回來吧。";
+						next;
+						mes "這樣我就能好好觀察她們了。";
+						next;
+						mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+						next;
+						mes "-- 高貴的研究者：杜裡安 --";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if (checkquest(3257,HUNTING) == 2) {
+					mes "我已經出色完成了任務，現在需要提交任務嗎？";
+					next;
+					switch (select("提交任務:稍後再提交")) {
+					case 1:
+						getexp 17000,8000;
+						erasequest 3257;
+						mes "你完成了任務，這是你應得的獎勵！";
+						close;
+					case 2:
+						close;
+					}
+				}
+			case 4:
+				if (checkquest(3258) <= 0) {
+					mes "這個任務是斐揚的沃拉所委託的。";
+					next;
+					mes "你好啊，冒險者~你最近怎麼樣啊，身體如何？";
+					next;
+					mes "我是一名藥劑師，最近我需要一種特殊的藥劑成分。";
+					next;
+					mes "我只是一個敏感的小女孩，你讓我怎麼搞到這些特殊的藥劑成分呢。。。";
+					next;
+					mes "請幫幫我吧！幫我帶回40片巨大葉子，這些足夠讓我來做藥劑啦！";
+					next;
+					mes "希望你能儘快，人們需要這些藥劑！";
+					next;
+					mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+					next;
+					mes "-- 沃拉 --";
+					mes "你願意接受這個任務麼?";
+					next;
+					switch (select("接受任務:不接受")) {
+					case 1:
+						if ((BaseLevel > 54) && (BaseLevel < 71)) {
+							setquest 3258;
+							mes "我已經接受了任務。我必須完成任務後再回來確認。";
+							next;
+							mes "這個任務沒有時間限制。";
+							close;
+						}
+						mes "這個任務不適合我。我應該再看看其他任務。";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if ((checkquest(3258) == 1) && (countitem(7198) < 40)) {
+					mes "你有一個正在進行中的任務，你要查看具體情況麼？";
+					next;
+					switch (select("查看具體細節:取消")) {
+					case 1:
+						mes "這個任務是斐揚的沃拉所委託的。";
+						next;
+						mes "你好啊，冒險者~你最近怎麼樣啊，身體如何？";
+						next;
+						mes "我是一名藥劑師，最近我需要一種特殊的藥劑成分。";
+						next;
+						mes "我只是一個敏感的小女孩，你讓我怎麼搞到這些特殊的藥劑成分呢。。。";
+						next;
+						mes "請幫幫我吧！幫我帶回40片巨大葉子，這些足夠讓我來做藥劑啦！";
+						next;
+						mes "希望你能儘快，人們需要這些藥劑！";
+						next;
+						mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+						next;
+						mes "-- 沃拉 --";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if ((checkquest(3258) == 1) && (countitem(7198) > 39)) {
+					mes "我已經出色完成了任務，現在需要提交任務嗎？";
+					next;
+					switch (select("提交任務:稍後再提交")) {
+					case 1:
+						delitem 7198,40; //Great_Leaf
+						getexp 16000,7000;
+						erasequest 3258;
+						mes "你完成了任務，這是你應得的獎勵！";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if (checkquest(3258) == 2) {
+					mes "這個任務是斐揚的沃拉所委託的。";
+					next;
+					mes "你好啊，冒險者~你最近怎麼樣啊，身體如何？";
+					next;
+					mes "我是一名藥劑師，最近我需要一種特殊的藥劑成分。";
+					next;
+					mes "我只是一個敏感的小女孩，你讓我怎麼搞到這些特殊的藥劑成分呢。。。";
+					next;
+					mes "請幫幫我吧！幫我帶回40片巨大葉子，這些足夠讓我來做藥劑啦！";
+					next;
+					mes "希望你能儘快，人們需要這些藥劑！";
+					next;
+					mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+					next;
+					mes "-- 沃拉 --";
+					mes "你願意接受這個任務麼?";
+					next;
+					switch (select("接受任務:不接受")) {
+					case 1:
+						if ((BaseLevel > 54) && (BaseLevel < 71)) {
+							setquest 3258;
+							mes "我已經接受了任務。我必須完成任務後再回來確認。";
+							next;
+							mes "這個任務沒有時間限制。";
+							close;
+						}
+						mes "這個任務不適合我。我應該再看看其他任務。";
+						close;
+					case 2:
+						close;
+					}
+				}
+				close;
+			case 5:
+				if (checkquest(3259) <= 0) {
+					mes "這是來自吉芬的傀儡師沃奈特的委託任務。";
+					next;
+					mes "你也知道，作為一名傀儡師，要取悅人們是相當困難的。";
+					next;
+					mes "最近人們用他們的雙眼親眼見識了不少新鮮的事物。";
+					next;
+					mes "他們的期望值越來越高，我很難再滿足他們的要求了。。";
+					next;
+					mes "如果我能做一些新的玩具娃娃，比如具有生命力的，這將是史無前例的。";
+					next;
+					mes "我聽說這種具有生命力的娃娃叫做傀儡娃娃，你能幫我捕捉30隻回來麼？並且給我帶回30個金色頭髮，它們是做娃娃的好材料。";
+					next;
+					mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+					next;
+					mes "-- 傀儡師沃奈特 --";
+					mes "你願意接受這個任務麼?";
+					next;
+					switch (select("接受任務:不接受")) {
+					case 1:
+						if ((BaseLevel > 54) && (BaseLevel < 71)) {
+							setquest 3259;
+							mes "我已經接受了任務。我必須完成任務後再回來確認。";
+							next;
+							mes "這個任務沒有時間限制。";
+							close;
+						}
+						mes "這個任務不適合我。我應該再看看其他任務。";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if ((checkquest(3259,HUNTING) == 1) && (countitem(1060) < 30)) {
+					mes "你有一個正在進行中的任務，你要查看具體情況麼？";
+					next;
+					switch (select("查看具體細節:取消")) {
+					case 1:
+						mes "這是來自吉芬的傀儡師沃奈特的委託任務。";
+						next;
+						mes "你也知道，作為一名傀儡師，要取悅人們是相當困難的。";
+						next;
+						mes "最近人們用他們的雙眼親眼見識了不少新鮮的事物。";
+						next;
+						mes "他們的期望值越來越高，我很難再滿足他們的要求了。。";
+						next;
+						mes "如果我能做一些新的玩具娃娃，比如具有生命力的，這將是史無前例的。";
+						next;
+						mes "我聽說這種具有生命力的娃娃叫做傀儡娃娃，你能幫我捕捉30隻回來麼？並且給我帶回30個金色頭髮，它們是做娃娃的好材料。";
+						next;
+						mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+						next;
+						mes "-- 傀儡師沃奈特 --";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if ((checkquest(3259,HUNTING) == 2) && (countitem(1060) > 29)) {
+					mes "我已經出色完成了任務，現在需要提交任務嗎？";
+					next;
+					switch (select("提交任務:稍後再提交")) {
+					case 1:
+						delitem 1060,30; //Golden_Hair
+						getexp 17000,7000;
+						erasequest 3259;
+						mes "你完成了任務，這是你應得的獎勵！";
+						close;
+					case 2:
+						close;
+					}
+				}
+			}
+		case 3:
+			switch (select("煩人的蟲子:危險的殭屍:讓世界充滿綠色:魔法杖")) {
+			case 1:
+				if (checkquest(3260) <= 0) {
+					mes "這是由普隆德拉的滅蟲組織所委託的任務。";
+					next;
+					mes "由於天氣越來越熱，蟲子的繁殖速度已經失去了控制，它們的數量越來越多。";
+					next;
+					mes "普隆德拉的居民晚上難以入睡，不堪其擾。";
+					next;
+					mes "請幫助我們消滅30隻赤蒼蠅吧，這樣它們的數量才能得到控制。";
+					next;
+					mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+					next;
+					mes "-- 普隆德拉滅蟲者 --";
+					mes "你願意接受這個任務麼?";
+					next;
+					switch (select("接受任務:不接受")) {
+					case 1:
+						if ((BaseLevel > 54) && (BaseLevel < 71)) {
+							setquest 3260;
+							mes "我已經接受了任務。我必須完成任務後再回來確認。";
+							next;
+							mes "這個任務沒有時間限制。";
+							close;
+						}
+							mes "這個任務不適合我。我應該再看看其他任務。";
+							close;
+					case 2:
+						close;
+					}
+				}
+				if (checkquest(3260,HUNTING) == 1) {
+					mes "你有一個正在進行中的任務，你要查看具體情況麼？";
+					next;
+					switch (select("查看具體細節:取消")) {
+					case 1:
+						mes "這是由普隆德拉的滅蟲組織所委託的任務。";
+						next;
+						mes "由於天氣越來越熱，蟲子的繁殖速度已經失去了控制，它們的數量越來越多。";
+						next;
+						mes "普隆德拉的居民晚上難以入睡，不堪其擾。";
+						next;
+						mes "請幫助我們消滅30隻赤蒼蠅吧，這樣它們的數量才能得到控制。";
+						next;
+						mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+						next;
+						mes "-- 普隆德拉滅蟲者 --";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if (checkquest(3260,HUNTING) == 2) {
+					mes "我已經出色完成了任務，現在需要提交任務嗎？";
+					next;
+					switch (select("提交任務:稍後再提交")) {
+					case 1:
+						getexp 16000,6000;
+						erasequest 3260;
+						mes "你完成了任務，這是你應得的獎勵！";
+						close;
+					case 2:
+						close;
+					}
+				}
+			case 2:
+				if (checkquest(3261) <= 0) {
+					mes "這是來自斐揚的冬亞所委託的任務。";
+					next;
+					mes "你聽說過殭屍麼？";
+					next;
+					mes "這種醜陋怪物的存在威脅到生活在斐揚的人們。";
+					next;
+					mes "所以我們需要像你這樣勇敢的冒險家！";
+					next;
+					mes "請消滅30隻殭屍來維持斐揚的安定把。";
+					next;
+					mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+					next;
+					mes "- 來自斐揚的冬亞 -";
+					mes "你願意接受這個任務麼?";
+					next;
+					switch (select("接受任務:不接受")) {
+					case 1:
+						if ((BaseLevel > 54) && (BaseLevel < 71)) {
+							setquest 3261;
+							mes "我已經接受了任務。我必須完成任務後再回來確認。";
+							next;
+							mes "這個任務沒有時間限制。";
+							close;
+						}
+						mes "這個任務不適合我。我應該再看看其他任務。";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if (checkquest(3261,HUNTING) == 1) {
+					mes "你有一個正在進行中的任務，你要查看具體情況麼？";
+					next;
+					switch (select("查看具體細節:取消")) {
+					case 1:
+						mes "這是來自斐揚的冬亞所委託的任務。";
+						next;
+						mes "你聽說過殭屍麼？";
+						next;
+						mes "這種醜陋怪物的存在威脅到生活在斐揚的人們。";
+						next;
+						mes "所以我們需要像你這樣勇敢的冒險家！";
+						next;
+						mes "請消滅30隻殭屍來維持斐揚的安定把。";
+						next;
+						mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+						next;
+						mes "- 來自斐揚的冬亞 -";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if (checkquest(3261,HUNTING) == 2) {
+					mes "我已經出色完成了任務，現在需要提交任務嗎？";
+					next;
+					switch (select("提交任務:稍後再提交")) {
+					case 1:
+						getexp 16000,7000;
+						erasequest 3261;
+						mes "你完成了任務，這是你應得的獎勵！";
+						close;
+					case 2:
+						close;
+					}
+				}
+			case 3:
+				if (checkquest(3262) <= 0) {
+					mes "這個任務是由來自夢羅克的寶石商伊布拉翰所委託的。";
+					next;
+					mes "一朵漂亮的小花綻放在荒蕪的沙漠。。這將是一個多麼不可思議的景象！";
+					next;
+					mes "種植花草將使這個世界變得更綠更加美麗。";
+					next;
+					mes "我想培養一種能在夢羅克這樣的沙漠地帶旺盛生長的花朵來改善這裡的土壤品質。";
+					next;
+					mes "我需要噬人花所掉落的噬人樹花。我知道這種花很醜。。不過它畢竟也是一種植物。";
+					next;
+					mes "我希望你能幫助我狩獵噬人花並帶回40個噬人樹花，這樣你將是讓這個世界更加美麗的大功臣！";
+					next;
+					mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+					next;
+					mes "-- 夢羅克的伊布拉翰 --";
+					mes "你願意接受這個任務麼?";
+					next;
+					switch (select("接受任務:不接受")) {
+					case 1:
+						if ((BaseLevel > 54) && (BaseLevel < 71)) {
+							setquest 3262;
+							mes "我已經接受了任務。我必須完成任務後再回來確認。";
+							next;
+							mes "這個任務沒有時間限制。";
+							close;
+						}
+						mes "這個任務不適合我。我應該再看看其他任務。";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if ((checkquest(3262) == 1) && (countitem(1032) < 40)) {
+					mes "你有一個正在進行中的任務，你要查看具體情況麼？";
+					next;
+					switch (select("查看具體細節:取消")) {
+					case 1:
+						mes "這個任務是由來自夢羅克的寶石商伊布拉翰所委託的。";
+						next;
+						mes "一朵漂亮的小花綻放在荒蕪的沙漠。。這將是一個多麼不可思議的景象！";
+						next;
+						mes "種植花草將使這個世界變得更綠更加美麗。";
+						next;
+						mes "我想培養一種能在夢羅克這樣的沙漠地帶旺盛生長的花朵來改善這裡的土壤品質。";
+						next;
+						mes "我需要噬人花所掉落的噬人樹花。我知道這種花很醜。。不過它畢竟也是一種植物。";
+						next;
+						mes "我希望你能幫助我狩獵噬人花並帶回40個噬人樹花，這樣你將是讓這個世界更加美麗的大功臣！";
+						next;
+						mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+						next;
+						mes "-- 夢羅克的伊布拉翰 --";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if ((checkquest(3262) == 1) && (countitem(1032) > 39)) {
+					mes "我已經出色完成了任務，現在需要提交任務嗎？";
+					next;
+					switch (select("提交任務:稍後再提交")) {
+					case 1:
+						delitem 1032,40; //Blossom_Of_Maneater
+						getexp 17000,7000;
+						erasequest 3262;
+						mes "你完成了任務，這是你應得的獎勵！";
+						close;
+					case 2:
+						close;
+					}
+				}
+			case 4:
+				if (checkquest(3263) <= 0) {
+					mes "這是來自斐揚的鐵匠安東尼奧所委託的任務。";
+					next;
+					mes "魔法杖！你聽說過麼？這是一種不可思議的魔杖。";
+					next;
+					mes "如果你念起魔法咒語並揮動魔杖，你所有的願望都會實現！！！";
+					next;
+					mes "我想自己做出這種魔杖！如果成功了，我將變得富有而且具有強大的力量！哈哈哈~~~";
+					next;
+					mes "可是要做這種魔杖，我需要一些特殊的材料。";
+					next;
+					mes "你能幫我帶回30個土人之角和30個竹筒嗎？如果你能幫助我做成功了，我借你用一下這根魔法杖~怎麼樣？這個交易不錯吧~~";
+					next;
+					mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+					next;
+					mes "-- 來自斐揚的鐵匠安東尼奧 --";
+					mes "你願意接受這個任務麼?";
+					next;
+					switch (select("接受任務:不接受")) {
+					case 1:
+						if ((BaseLevel > 54) && (BaseLevel < 71)) {
+							setquest 3263;
+							mes "我已經接受了任務。我必須完成任務後再回來確認。";
+							next;
+							mes "這個任務沒有時間限制。";
+							close;
+						}
+						mes "這個任務不適合我。我應該再看看其他任務。";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if ((checkquest(3263) == 1) && ((countitem(1021) < 30) || (countitem(7150) < 30))) {
+					mes "你有一個正在進行中的任務，你要查看具體情況麼？";
+					next;
+					switch (select("查看具體細節:取消")) {
+					case 1:
+						mes "這是來自斐揚的鐵匠安東尼奧所委託的任務。";
+						next;
+						mes "魔法杖！你聽說過麼？這是一種不可思議的魔杖。";
+						next;
+						mes "如果你念起魔法咒語並揮動魔杖，你所有的願望都會實現！！！";
+						next;
+						mes "我想自己做出這種魔杖！如果成功了，我將變得富有而且具有強大的力量！哈哈哈~~~";
+						next;
+						mes "可是要做這種魔杖，我需要一些特殊的材料。";
+						next;
+						mes "你能幫我帶回30個土人之角和30個竹筒嗎？如果你能幫助我做成功了，我借你用一下這根魔法杖~怎麼樣？這個交易不錯吧~~";
+						next;
+						mes "完成任務後請與我們確認，我們會給你相應的報酬。";
+						next;
+						mes "-- 來自斐揚的鐵匠安東尼奧 --";
+						close;
+					case 2:
+						close;
+					}
+				}
+				if ((checkquest(3263) == 1) && (countitem(1021) > 29) && (countitem(7150) > 29)) {
+					mes "我已經出色完成了任務，現在需要提交任務嗎？";
+					next;
+					switch (select("提交任務:稍後再提交")) {
+					case 1:
+						delitem 1021,30; //Dokkaebi_Horn
+						delitem 7150,30; //Bamboo_Cut
+						getexp 18000,8000;
+						erasequest 3263;
+						mes "你完成了任務，這是你應得的獎勵！";
+						close;
+					case 2:
+						close;
+					}
+				}
+			}
+		}
+	}
+	if (getargcount() > 3) {
+		if (countitem(getarg(3)) < getarg(4))
+			set .@items,1; //incomplete
+		else
+			set .@items,2; //complete
+	}
+	if (checkquest(getarg(0),HUNTING) < 2 || .@items == 1) {
+		mes "You have an on-going mission. Would you like to check the details?";
+		next;
+		if(select("Check the details.:Cancel.") == 1)
+			callsub L_Details, getarg(0);
+		close;
+	} else if (checkquest(getarg(0),HUNTING) == 2) {
+		mes "I have done pretty well for the mission. Should I report it now?";
+		next;
+		if(select("Report the mission.:Do not report it yet.") == 1) {
+			if (.@items)
+				delitem getarg(3),getarg(4);
+			getexp getarg(1),getarg(2);
+			erasequest getarg(0);
+			mes "You have completed the mission. Get rewards.";
+		}
+		close;
+	}
+	end;
+
+L_Details:
+	switch(getarg(0)) {
+	case 3250:
+		mes "This mission is assigned by the Rekenber corporation from Lighthalzen. Below are the details.";
+		next;
+		mes "Rekenber corporation is about to launch a new project called 'Green Medical Center'. For the first product of the project, we are preparing well-being Bandages.";
+		next;
+		mes "Regarding the project, we need to research monster's reactions when they are wrapped with Rotten Bandages.";
+		next;
+		mes "If you are interested, please hunt 30 Mummies and bring 30 Rotten Bandages. You can find them in the Pyramid West of Morroc.";
+		next;
+		mes "Please confirm it to us after you complete the mission, then we will give you proper rewards.";
+		next;
+		mes "- Rekenber corporation chief director 'Julie E Delph' -";
+		break;
+	case 3251:
+		mes "This mission is assigned by the Comodo cooperative society. Below are the details.";
+		next;
+		mes "Alligators have gone wild these days, they attack women and drunken people who hang out near the beach.";
+		next;
+		mes "This is a very shameful situation for us, the most wonderful vacation spot in Rune-Midgard.";
+		next;
+		mes "So, it would be very helpful if you hunt 30 Alligators to clean out this situation.";
+		next;
+		mes "Please confirm it to us after you complete the mission, then we will give you proper rewards.";
+		break;
+	case 3252:
+		mes "This mission is assigned by an unknown client from Izlude.";
+		next;
+		mes "I have admired the beach of Izlude, ever since I was born.";
+		next;
+		mes "When I was young, I found a mysterious creature in the Izlude dungeon, I had never seen something like that before...";
+		next;
+		mes "I instantly thought it was a mermaid. I was so supprised, I have studied about mermaids in whole my life.";
+		next;
+		mes "But, as I studied harder, I found that the creature was not a mermaid... yes, It wasn't beautiful at all like other mermaids...";
+		next;
+		mes "I finally tracked down the fact that it was a Merman, not a Mermaid!";
+		next;
+		mes "Merman... I have wasted my life studying this monster! So please hunt 30 Mermans to make me feel better.";
+		next;
+		mes "Please confirm it to us after you complete the mission, then we will give you proper rewards.";
+		next;
+		mes "-- Izlude 'The Lost dream mermaid' --";
+		break;
+	case 3254:
+		mes "This mission is assigned by the government officer of the Rune-Midgarts Kingdom.";
+		next;
+		mes "To prevent a flood in Prontera, we decided to build a huge dam to regulate the water supply.";
+		next;
+		mes "But, we are shorthanded on supplies and we need to collect Fine Sand and Grit.";
+		next;
+		mes "So, we would like to ask for help. People, please bring us 10 Fine Sand and 30 Grit each so we can build the dam.";
+		next;
+		mes "You can get those materials from Sand Man, I wish you good luck!";
+		next;
+		mes "Please confirm it to us after you complete the mission, then we will give you proper rewards.";
+		next;
+		mes "-- Government officer of the Rune-Midgarts Kingdom, Dufre Kent --";
+		break;
+	case 3255:
+		mes "This mission is assigned by the Payon town hall.";
+		next;
+		mes "Wild animals are always annoyances to farmers.";
+		next;
+		mes "They attack our farm and ruin whole crops!! We can't stand it anymore!";
+		next;
+		mes "So, we would like to ask for the help from brave adventurers.";
+		next;
+		mes "Please, hunt 30 Savages to save our crops!";
+		next;
+		mes "You can easily find those monsters around our town and field.";
+		next;
+		mes "Please confirm it to us after you complete the mission, then we will give you proper rewards.";
+		next;
+		mes "-- Payon town hall members --";
+		break;
+	case 3256:
+		mes "This mission is assigned by the Morroc blacksmith Aragham.";
+		next;
+		mes "Hello~~~~, Adventurers! This is Aragham, the hottest blacksmith in Morroc!";
+		next;
+		mes "Anyway, I have a son named Aragam Junior, the cute one. Haha.";
+		next;
+		mes "He will be attending summer camp this summer, but he doesn't know how to swim.";
+		next;
+		mes "I want to teach him, but as you know I am a blacksmith, a far cry from swimming! Hehe.";
+		next;
+		mes "But, I figured that if I make swim fins, it will be great for his confidence~!";
+		next;
+		mes "To make it, I need 30 Sticky Webfoots from a Roda Frog. Can you bring them to me?";
+		next;
+		mes "Please confirm it to us after you complete the mission, then we will give you proper rewards.";
+		next;
+		mes "PS. Do not compare me with Hollgrehenn or Antonio!!!!";
+		next;
+		mes "-- The hottest blacksmith, Morroc blacksmith Aragham --";
+		break;
+	case 3257:
+		mes "This mission is assigned by an inventor Dorian from Izlude.";
+		next;
+		mes "Have you heard the story that if women have a grudge on their mind, it will bring natural disasters.";
+		next;
+		mes "Wow, so guys must watch out for those sensitive women! Make sure they don't have any grudges on you.";
+		next;
+		mes "Women can bring strange phenomenons with them!";
+		next;
+		mes "I am so intrigued with that story that I'm trying to prove that it can be true.";
+		next;
+		mes "So I need to make women upset! Haha, I know what a mean idea, right?";
+		next;
+		mes "But this is seriously just for studying... So please hunt 30 Sohee's who seems to be revived from victimized souls.";
+		next;
+		mes "So I can keep observing the case.";
+		next;
+		mes "Please confirm it to us after you complete the mission, then we will give you proper rewards.";
+		next;
+		mes "-- Elegance inventor Dorian --";
+		break;
+	case 3258:
+		mes "This mission is assigned by Wallah from Payon.";
+		next;
+		mes "Hello, adventurer. How are you? How is your health?";
+		next;
+		mes "I am a pharmacist and I am having a hard time getting special ingredients lately.";
+		next;
+		mes "Because I am a little sensitive girl, how can I possibly get those things by myself.";
+		next;
+		mes "So, please help me. Just bring 40 Huge Leafs to me, that will be enough to complete my special medicine!";
+		next;
+		mes "Please bring it as soon as possible, people need my medicine.";
+		next;
+		mes "Please confirm it to us after you complete the mission, then we will give you proper rewards.";
+		next;
+		mes "-- Wallah --";
+		break;
+	case 3259:
+		mes "This mission is assigned by puppet master Woonute from Geffen.";
+		next;
+		mes "You know being a puppet master is kind of a hard job to satisfy people.";
+		next;
+		mes "People can search and see so many different things on their own thesedays.";
+		next;
+		mes "Their expectations are getting high, I can't satisfy them anymore.";
+		next;
+		mes "But if I can make new toy concepts, like living toys, it will be ground breaking.";
+		next;
+		mes "I heard that there are live dolls called Marionettes. Can you hunt 30 Marionettes for me? And also bring 30 Golden Hair, those will be great materials for the new toys.";
+		next;
+		mes "Please confirm it to us after you complete the mission, then we will give you proper rewards.";
+		next;
+		mes "-- Puppet Master Woonute --";
+		break;
+	case 3260:
+		mes "This mission is assigned by an exterminator from Prontera.";
+		next;
+		mes "As the weather gets warmer, insects multiply more and more. It is already out of control.";
+		next;
+		mes "People in Prontera cannot sleep because of all the bugs in their house.";
+		next;
+		mes "So, please help us, hunt 30 Hunter Flies. Then the flies can be reduced slowly.";
+		next;
+		mes "Please confirm it to us after you complete the mission, then we will give you proper rewards.";
+		next;
+		mes "-- The Prontera exterminator --";
+		break;
+	case 3261:
+		mes "This mission is assigned by Cheese Dongja from Payon.";
+		next;
+		mes "Have you heard about Munak?";
+		next;
+		mes "The ugly monster Munak is threatening people in Payon.";
+		next;
+		mes "So we need brave adventurers like you!";
+		next;
+		mes "Please hunt 30 Munaks then Payon will be in peace.";
+		next;
+		mes "Please confirm it to us after you complete the mission, then we will give you proper rewards.";
+		next;
+		mes "- Payon Cheese Dongja -";
+		break;
+	case 3262:
+		mes "This mission is assigned by a gem dealer, Ibraham from Morroc.";
+		next;
+		mes "A small beautiful flower in the barren desert... What an incredible scene it would be!";
+		next;
+		mes "Planting flowers can make the world green and it will be so pretty everywhere.";
+		next;
+		mes "I plan to plant strong flowers in the Morroc desert so the soil gets better.";
+		next;
+		mes "I need 40 Maneater Blossom from Flora, I know Maneater Blossom is an ugly flower, but still it is a plant.";
+		next;
+		mes "I hope you can hunt Flora and get me 40 Maneater Blossoms. You are making the world green! Be proud!";
+		next;
+		mes "Please confirm it to us after you complete the mission, then we will give you proper rewards.";
+		next;
+		mes "-- Morroc Ibraham --";
+		break;
+	case 3263:
+		mes "This mission is assigned by the Payon blacksmith Antonio.";
+		next;
+		mes "Magic wand! Have you heard about it? It is an incredible wand!";
+		next;
+		mes "If you say the magic words and swing the wand, it will make your wishes come true.";
+		next;
+		mes "So, I decided to make it by myself. Then I will be rich and powerful~! Haha!!";
+		next;
+		mes "To make the wand, I need some special materials.";
+		next;
+		mes "Please bring me 30 Dokebi Horns and 30 Bamboo Cut. If you do so, I will lend you my magic wand once. Haha, good deal?";
+		next;
+		mes "Please confirm it to us after you complete the mission, then we will give you proper rewards.";
+		next;
+		mes "-- Payon blacksmith Antonio --";
+		break;
+	}
+	return;
+}

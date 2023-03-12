@@ -1,0 +1,65 @@
+//============================================================
+//= rAthenaCN [尋找寶物箱子]漢化腳本 
+//============================================================
+
+
+//===== Hercules Script ======================================
+//= Find the Mushroom
+//===== By: ==================================================
+//= Mysterious
+//===== Current Version: =====================================
+//= 3.6a
+//===== Description: =========================================
+//= Find the Mushroom - random amount of Mushrooms spawns in random maps.
+//= Players need to find these mushrooms and kill them to gain prizes!
+//===== Additional Comments: =================================
+//= 3.0 Fully Functional with Rewritten script. [Mysterious]
+//= 3.6a Slightly edited. [Euphy]
+//============================================================
+
+prontera,142,228,6	script	尋找寶物箱子	1084,{
+	mes "[ 尋找寶物箱子 ]";
+	if (!.Status)
+		mes "現在沒有任何活動!";
+	else {
+		mes "有 "+.Spawn+" 寶物箱子存在 "+.Map$+"!";
+		mes "找到寶物箱子並殺死獲得的"+getitemname(.Prize)+"!";
+	}
+	if (.Status || getgmlevel() < .GM) close;
+	mes "準備開始?";
+	next;
+	if(select("- 不:- 是") == 1) close;
+	donpcevent strnpcinfo(0)+"::OnMinute10";
+	mes "[ 尋找寶物箱子 ]";
+	mes "開始!";
+	close;
+
+OnInit:
+	set .Prize,12339;	// Reward item ID
+	set .Amount,1;	// Reward item amount
+	set .GM,60;	// GM level required to access NPC
+	setarray .Maps$[0],"izlude","geffen","morocc","prontera"; // Possible maps
+	end;
+
+OnMinute10:	// Start time (every hour)
+	if (.Status) end;
+	set .Status,1;
+	set .Spawn,rand(1,10);	// How many Mushrooms should spawn?
+	set .Map$,.Maps$[rand(getarraysize(.Maps$))];
+	killmonster .Map$,"全部";
+	monster .Map$,0,0,"請不要碰我!",1324,.Spawn,strnpcinfo(0)+"::OnMobKilled";
+	announce "尋找寶物箱子: 總共 "+.Spawn+" 個寶物箱子刷新在 "+.Map$+"!",0;
+	sleep 2500;
+	announce "尋找寶物箱子: 你每抓住一個寶物箱子都會給你"+.Amount+"個"+getitemname(.Prize)+"!",0;
+	end;
+
+OnMobKilled:
+	set .Spawn, .Spawn - 1;
+	getitem .Prize, .Amount;
+	if (.Spawn) announce "[ "+strcharinfo(0)+" ] 殺死了寶物箱子. 現在還剩 "+.Spawn+" 寶物箱子.",bc_map;
+	else {
+		announce "尋找寶物箱子活動已經結束. 所有的寶物箱子已被殺死.",0;
+		set .Status,0;
+	}
+	end;
+}

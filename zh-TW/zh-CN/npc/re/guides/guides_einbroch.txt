@@ -1,0 +1,272 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+//===== rAthena Script =======================================
+//= Einbroch and Einbech Guides
+//===== By: ================================================== 
+//= L0ne_W0lf
+//===== Current Version: ===================================== 
+//= 1.0
+//===== Compatible With: ===================================== 
+//= rAthena SVN
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Guides for the cities of Einbroch and Einbech.
+//===== Additional Comments: ================================= 
+//= 1.0 First version, Renewal guides.
+//============================================================ 
+
+einbroch,72,202,4	script	艾音布羅克導遊#ein01::GuideEinbroch	852,{
+	cutin "ein_soldier",2;
+	mes "[艾音布羅克導遊]";
+	mes "歡迎光臨 鋼鐵之都^8B4513艾音布羅克^000000";
+	mes "需要為您介紹嗎?";
+	next;
+	while (1) {
+		switch(select("[ 主要設施 ]:[ 商店 & 小幫手 ]:刪除小地圖的標記:結束對話")) {
+		case 1:
+			set .@loop,1;
+			while (.@loop) {
+				switch(select("[ 機場 ]:[ 工廠 ]:[ 廣場 ]:[ 大飯店 ]:[ 火車站 ]:[ 武器店 ]:[ 研究所 ]:[ 紀念塔 ]:[ 鐵匠工會 ]:[ 神槍手工會 ]:返回上一選單")) {
+				case 1:
+					mes "[艾音布羅克導遊]";
+					mes "^FF0000機場^000000的";
+					mes "位置已經標記在";
+					mes "小地圖上了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,64,204,0,0xFF0000;
+					next;
+					break;
+				case 2:
+					mes "[艾音布羅克導遊]";
+					mes "^008080工廠^000000的";
+					mes "位置已經標記在";
+					mes "小地圖上了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,129,79,1,0xFF4500;
+					next;
+					break;
+				case 3:
+					mes "[艾音布羅克導遊]";
+					mes "^008080廣場^000000的";
+					mes "位置已經標記在";
+					mes "小地圖上了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,254,199,2,0xDAA520;
+					next;
+					break;
+				case 4:
+					mes "[艾音布羅克導遊]";
+					mes "^008080大飯店^000000的";
+					mes "位置已經標記在";
+					mes "小地圖上了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,254,199,3,0x008000;
+					next;
+					break;
+				case 5:
+					mes "[艾音布羅克導遊]";
+					mes "^008080火車站^000000的";
+					mes "位置已經標記在";
+					mes "小地圖上了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,232,272,4,0x0000FF;
+					next;
+					break;
+				case 6:
+					mes "[艾音布羅克導遊]";
+					mes "^008080武器店^000000的";
+					mes "位置已經標記在";
+					mes "小地圖上了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,216,211,5,0x000080;
+					next;
+					break;
+				case 7:
+					mes "[艾音布羅克導遊]";
+					mes "^008080研究所^000000的";
+					mes "位置已經標記在";
+					mes "小地圖上了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,55,52,6,0x800080;
+					next;
+					break;
+				case 8:
+					mes "[艾音布羅克導遊]";
+					mes "^808080紀念塔^000000的";
+					mes "位置已經標記在";
+					mes "小地圖上了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,178,173,7,0x808080;
+					next;
+					break;
+				case 9:
+					mes "[艾音布羅克導遊]";
+					mes "^008080鐵匠工會^000000的";
+					mes "位置已經標記在";
+					mes "小地圖上了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,255,110,8,0x556B2F;
+					next;
+					break;
+				case 10:
+					mes "[艾音布羅克導遊]";
+					mes "^008080神槍手工會^000000的";
+					mes "位置已經標記在";
+					mes "小地圖上了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,130,197,9,0x008080;
+					next;
+					break;
+				case 11:
+					set .@loop,0;
+					break;
+				}
+			}
+			break;
+		case 2:
+			set .@loop,1;
+			while (.@loop) {
+				switch(select("[ 精鍊師 ]:[ 卡普拉職員 ]:[ 伊甸園傳送師 ]:返回上一選單")) {
+				case 1:
+					mes "[艾音布羅克導遊]";
+					mes "^FF1493精鍊師^000000的話";
+					mes "到鐵匠工會的1樓";
+					mes "去找^FF1493曼斯塔滿^000000就可以了.";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,255,110,10,0xFF1493;
+					next;
+					break;
+				case 2:
+					mes "[艾音布羅克導遊]";
+					mes "^DA70D6卡普拉職員^000000的";
+					mes "位置請點擊小地圖上的箱形圖示就可以了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,242,205,11,0xDA70D6;
+					viewpoint 1,59,203,12,0xDA70D6;
+					next;
+					break;
+				case 3:
+					mes "[艾音布羅克導遊]";
+					mes "^CD1039伊甸園傳送師^000000的話";
+					mes "到神槍手工會1樓";
+					mes "去找就可以了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,130,197,13,0xCD1039;
+					next;
+					break;
+				case 4:
+					set .@loop,0;
+					break;
+				}
+			}
+			break;
+		case 3:
+			mes "[艾音布羅克導遊]";
+			mes "標記已刪除,";
+			mes "還需要其它服務嗎?";
+			viewpoint 2,64,204,0,0xFFFFFF;
+			viewpoint 2,129,79,1,0xFFFFFF;
+			viewpoint 2,254,199,2,0xFFFFFF;
+			viewpoint 2,254,199,3,0xFFFFFF;
+			viewpoint 2,232,272,4,0xFFFFFF;
+			viewpoint 2,216,211,5,0xFFFFFF;
+			viewpoint 2,55,52,6,0xFFFFFF;
+			viewpoint 2,178,173,7,0xFFFFFF;
+			viewpoint 2,255,110,8,0xFFFFFF;
+			viewpoint 2,130,197,9,0xFFFFFF;
+			viewpoint 2,255,110,10,0xFFFFFF;
+			viewpoint 2,242,205,11,0xFFFFFF;
+			viewpoint 2,59,203,12,0xFFFFFF;
+			viewpoint 2,130,197,13,0xDA70D6;
+			next;
+			break;
+		case 4:
+			mes "[艾音布羅克導遊]";
+			mes "祝你旅途愉快!";
+			close2;
+			cutin "ein_soldier",255;
+			end;
+		}
+	}
+}
+
+einbroch,155,43,4	duplicate(GuideEinbroch)	艾音布羅克導遊#ein02	852
+einbroch,162,317,4	duplicate(GuideEinbroch)	艾音布羅克導遊#ein03	852
+einbroch,252,320,3	duplicate(GuideEinbroch)	艾音布羅克導遊#ein04	852
+
+einbech,67,37,4	script	艾音貝赫導遊#einbech01::GuideEinbech	852,{
+	cutin "ein_soldier",2;
+	mes "[艾音貝赫導遊]";
+	mes "歡迎光臨 礦山之都^8B4513艾音貝赫^000000,";
+	mes "需要為您介紹嗎?";
+	next;
+	while (1) {
+		switch(select("[ 酒店 ]:[ 道具店 ]:[ 火車站 ]:[ 礦山洞穴 ]:[ 卡普拉職員 ]:刪除小地圖的標記:結束對話")) {
+		case 1:
+			mes "[艾音貝赫導遊]";
+			mes "^FF1493酒店^000000的";
+			mes "位置已經標記在";
+			mes "小地圖上了,";
+			mes "還需要其它服務嗎?";
+			viewpoint 1,157,106,0,0x497649;
+			next;
+			break;
+		case 2:
+			mes "[艾音貝赫導遊]";
+			mes "^FF1493道具店^000000的";
+			mes "位置已經標記在";
+			mes "小地圖上了,";
+			mes "還需要其它服務嗎?";
+			viewpoint 1,177,133,1,0xFA8072;
+			next;
+			break;
+		case 3:
+			mes "[艾音貝赫導遊]";
+			mes "^FF1493火車站^000000的";
+			mes "位置已經標記在";
+			mes "小地圖上了,";
+			mes "還需要其它服務嗎?";
+			viewpoint 1,39,215,2,0xCD1039;
+			next;
+			break;
+		case 4:
+			mes "[艾音貝赫導遊]";
+			mes "^FF1493礦山洞穴^000000的";
+			mes "位置已經標記在";
+			mes "小地圖上了,";
+			mes "還需要其它服務嗎?";
+			viewpoint 1,137,248,3,0xDA70D6;
+			next;
+			break;
+		case 5:
+			mes "[艾音貝赫導遊]";
+			mes "^FF1493卡普拉職員^000000的";
+			mes "位置請點擊小地圖上的箱形圖示就可以了,";
+			mes "還需要其它服務嗎?";
+			viewpoint 1,181,132,4,0xFF1493;
+			next;
+			break;
+		case 6:
+			mes "[艾音貝赫導遊]";
+			mes "標記已刪除,";
+			mes "還需要其它服務嗎?";
+			viewpoint 2,157,106,0,0xFFFFFF;
+			viewpoint 2,177,133,1,0xFFFFFF;
+			viewpoint 2,39,215,2,0xFFFFFF;
+			viewpoint 2,137,248,3,0xFFFFFF;
+			viewpoint 2,181,132,4,0xFFFFFF;
+			next;
+			break;
+		case 7:
+			mes "[艾音貝赫導遊]";
+			mes "祝你旅途愉快!";
+			close2;
+			cutin "ein_soldier",255;
+			end;
+		}
+	}
+}
+
+einbech,48,214,4	duplicate(GuideEinbech)	艾音貝赫導遊#einbech02	852

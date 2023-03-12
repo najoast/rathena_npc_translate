@@ -1,0 +1,524 @@
+//============================================================
+//= rAthenaCN [傳送員]漢化腳本 
+//============================================================
+
+//===== rAthena Script =======================================
+//= Warper
+//===== By: ================================================== 
+//= Euphy
+//===== Current Version: =====================================
+//= 1.4b
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: ========================================= 
+//= A complete - but very condensed - warper script.
+//= Some coordinates written by Tekno-Kanix and ToastOfDoom.
+//===== Additional Comments: =================================
+//= 1.0 Initial script.
+//= 1.1 Added missing duplicates and fixed coordinates.
+//= 1.2 Added new episodes and simplified functions.
+//= 1.3 Added Renewal checks and Instances menu.
+//=     Aligned coordinates with @go.
+//= 1.4 Added new Guild Dungeons.
+//= 1.4a Slight edits.
+//= 1.4b Added Wolfchev's Laboratory warp.
+//============================================================
+
+-	script	Warper	-1,{
+function Go; function Disp; function Pick; function Restrict;
+
+// --------------------------------------------------
+//	Main Menu:
+// --------------------------------------------------
+
+menu	"- 最後一次傳送點 ^777777["+lastwarp$+"]^000000",-,
+    	"- 城鎮",Towns,
+    	"- 野外",Fields,
+    	"- 洞穴",Dungeons,
+    	"- 公會城堡",Castles,
+    	"- 地下工會密穴",Guild_Dungeons,
+    	"- 副本",Instances,
+    	"- 特殊地區",Special;
+
+	if (lastwarp$ == "")
+		message strcharinfo(0),"You haven't warped anywhere yet.";
+	else
+		warp lastwarp$,lastwarpx,lastwarpy;
+	end;
+
+// ------------------- Functions -------------------
+// * Go("<map>",<x>,<y>);
+//	~ Warps directly to a map.
+//
+// * Disp("<Menu Option>",<first option>,<last option>);
+// * Pick("<map_prefix>"{,<index offset>});
+//	~ Dynamic menu and map selection (auto-numbered).
+//
+// * Disp("<Option 1>:<Option 2>:<etc.>");
+// * Pick("","<map1>","<map2>","<etc.>");
+//	~ Manual menu and map selection (listed).
+//
+// * Restrict("<RE | Pre-RE>"{,<menu option numbers>});
+//	~ Only allows map for Renewal or Pre-Renewal modes.
+//     If menu option numbers are given, only those maps
+//     will be restricted (i.e. not for "Go").
+//
+// Other notes:
+//   ~ Array @c[] holds all (x,y) coordinates.
+//   ~ Use @c[2] EXCEPT when maps begin dynamically
+//	  at 0: use @c[0] and Pick() offset 1.
+// --------------------------------------------------
+
+function Go {
+	set lastwarp$, getarg(0);
+	set lastwarpx, getarg(1,0);
+	set lastwarpy, getarg(2,0);
+	warp getarg(0),getarg(1,0),getarg(2,0);
+	end;
+}
+function Disp {
+	if (getargcount() < 3)
+		set @menu$, getarg(0);
+	else {
+		set @menu$,"";
+		for (set .@i,getarg(1); .@i<=getarg(2); set .@i,.@i+1)
+			set @menu$, @menu$+getarg(0)+" "+.@i+":";
+	}
+	return;
+}
+function Pick {
+	set .@warp_block,@warp_block;
+	set @warp_block,0;
+	set .@select, select(@menu$);
+	if (getarg(0) == "") {
+		set .@i, .@select;
+		set .@map$, getarg(.@i);
+	} else {
+		set .@i, .@select-getarg(1,0);
+		set .@map$, getarg(0)+((.@i<10)?"0":"")+.@i;
+	}
+	if (.@warp_block & (1<<.@select)) {
+		message strcharinfo(0),"This map is not enabled in "+((checkre(0))?"":"Pre-")+"Renewal.";
+		end;
+	}
+	set .@x, @c[.@i*2];
+	set .@y, @c[.@i*2+1];
+	deletearray @c[0],getarraysize(@c);
+	Go(.@map$,.@x,.@y);
+}
+function Restrict {
+	if ((getarg(0) == "RE" && !checkre(0)) || (getarg(0) == "Pre-RE" && checkre(0))) {
+		if (getarg(1,0)) {
+			set @warp_block,0;
+			for (set .@i,1; .@i<getargcount(); set .@i,.@i+1)
+				set @warp_block, @warp_block | (1<<getarg(.@i));
+		} else {
+			message strcharinfo(0),"This map is not enabled in "+((checkre(0))?"":"Pre-")+"Renewal.";
+			end;
+		}
+	}
+	return;
+}
+
+// --------------------------------------------------
+	Towns:
+// --------------------------------------------------
+menu	"普隆德拉",T1, "艾爾貝塔",T2, "艾爾帕蘭",T3, "天津",T4, "哎喲泰雅",T5,
+    	"巴西裡斯",T6, "克魔島",T7, "德瓦他",T8, "艾喀拉蚩",T9, "艾因貝赫",T10, 
+    	"艾因布羅克",T11, "埃迪斯特斯",T12, "吉芬",T13, "崑崙",T14, "毀葛",T15,
+    	"依斯魯得",T16, "爪哇咿",T17, "裡希塔樂鎮",T18, "洛陽",T19, "薑餅城",T20,
+    	"綿綿島",T21, "馬來港",T22, "馬努克",T23, "米德加爾特聯合駐地",T24,
+    	"穆拉",T25, "夢羅克",T26, "莫斯科比亞",T27, "無名島",T28,
+    	"尼芙菲姆",T29, "斐揚",T30, "拉赫",T31, "輝煌領域",T32, "託爾火山",T33,
+    	"汶巴拉",T34, "伯仁斯",T35, "朱諾",T36;
+
+T1: Go("prontera",155,183);
+T2: Go("alberta",28,234);
+T3: Go("aldebaran",140,131);
+T4: Go("amatsu",198,84);
+T5: Go("ayothaya",208,166);
+T6: Restrict("RE");
+	Go("brasilis",196,217);
+T7: Go("comodo",209,143);
+T8: Restrict("RE");
+	Go("dewata",200,180);
+T9: Restrict("RE");
+	Go("ecl_in01",48,53);
+T10: Go("einbech",63,35);
+T11: Go("einbroch",64,200);
+T12: Restrict("RE");
+	 Go("dicastes01",198,187);
+T13: Go("geffen",119,59);
+T14: Go("gonryun",160,120);
+T15: Go("hugel",96,145);
+T16: Go("izlude",128,(checkre(3)?146:114));
+T17: Go("jawaii",251,132);
+T18: Go("lighthalzen",158,92);
+T19: Go("louyang",217,100);
+T20: Go("xmas",147,134);
+T21: Restrict("RE");
+	 Go("malangdo",140,114);
+T22: Restrict("RE");
+	 Go("malaya",231,200);
+T23: Go("manuk",282,138);
+T24: Go("mid_camp",210,288);
+T25: Restrict("RE");
+	 Go("mora",55,146);
+T26: Go("morocc",156,93);
+T27: Go("moscovia",223,184);
+T28: Go("nameless_n",256,215);
+T29: Go("niflheim",202,174);
+T30: Go("payon",179,100);
+T31: Go("rachel",130,110);
+T32: Go("splendide",201,147);
+T33: Go("thor_camp",246,68);
+T34: Go("umbala",97,153);
+T35: Go("veins",216,123);
+T36: Go("yuno",157,51);
+
+// --------------------------------------------------
+	Fields:
+// --------------------------------------------------
+menu	"天津 原野",F1, "哎喲泰雅 原野",F2, "彩虹橋 領域", F3,
+    	"巴西平原",F4, "克魔島 森林/海邊 區域",F5, "德瓦他 原野",F6,
+    	"艾喀拉蚩 平原",F7, "艾音布羅克 原野",F8, "埃迪斯特斯 區域",F9,
+    	"吉芬 區域",F10, "崑崙原野",F11, "毀葛 原野",F12,
+    	"裡希塔樂鎮 原野",F13, "洛陽 原野",F14, "薑餅城 原野",F15,
+    	"馬來亞 森林",F16, "馬努克曠野",F17, "妙勒尼 山脈 區域",F18,
+    	"莫斯科比亞草原",F19, "尼芙菲姆 區域",F20, "斐揚 樹林",F21,
+    	"普隆德拉 區域",F22, "拉赫 原野",F23, "蘇克拉特 沙漠 區域",F24,
+    	"輝煌領域曠野",F25, "汶巴拉 森林區域",F26, "伯仁斯 曠野",F27,
+    	"朱諾 原野",F28;
+
+F1: setarray @c[2],190,197;
+	Disp("天津 原野",1,1); Pick("ama_fild");
+F2: setarray @c[2],173,134,212,150;
+	Disp("哎喲泰雅 原野",1,2); Pick("ayo_fild");
+F3: Restrict("RE");
+	setarray @c[2],193,220,220,187;
+	Disp("彩虹橋 領域",1,2); Pick("bif_fild");
+F4: Restrict("RE");
+	setarray @c[2],74,32;
+	Disp("巴西平原",1,1); Pick("bra_fild");
+F5: Restrict("Pre-RE",5);
+	setarray @c[2],180,178,231,160,191,172,228,194,224,203,190,223,234,177,194,175,172,172;
+	Disp("克魔島 森林/海邊 區域",1,9); Pick("cmd_fild");
+F6: Restrict("RE");
+	setarray @c[2],371,212;
+	Disp("德瓦他 原野",1,1); Pick("dew_fild");
+F7: Restrict("RE");
+	setarray @c[2],97,314;
+	Disp("艾喀拉蚩 平原",1,1); Pick("ecl_fild");
+F8: Restrict("Pre-RE",2,10);
+	setarray @c[2],142,225,182,141,187,228,185,173,216,173,195,148,272,220,173,214,207,174,196,200;
+	Disp("艾音布羅克 原野",1,10); Pick("ein_fild");
+F9: Restrict("RE");
+	setarray @c[2],143,132,143,217;
+	Disp("埃迪斯特斯 區域",1,2); Pick("dic_fild");
+F10: Restrict("Pre-RE",13,15);
+	 setarray @c[0],46,199,213,204,195,212,257,192,188,171,166,263,248,158,195,191,186,183,221,117,178,218,136,328,240,181,235,235,211,185;
+	 Disp("吉芬 區域",0,14); Pick("gef_fild",1);
+F11: setarray @c[2],220,227;
+	 Disp("崑崙原野",1,1); Pick("gon_fild");
+F12: Restrict("Pre-RE",3,7);
+	 setarray @c[2],268,101,222,193,232,185,252,189,196,106,216,220,227,197;
+	 Disp("毀葛 原野",1,7); Pick("hu_fild");
+F13: setarray @c[2],240,179,185,235,240,226;
+	 Disp("裡希塔樂鎮 原野",1,3); Pick("lhz_fild");
+F14: setarray @c[2],229,187;
+	 Disp("洛陽 原野",1,1); Pick("lou_fild");
+F15: setarray @c[2],115,145;
+	 Disp("薑餅城 原野",1,1); Pick("xmas_fild");
+F16: Restrict("RE");
+	 setarray @c[2],40,272,207,180;
+	 Disp("馬來亞 森林",1,2); Pick("ma_fild");
+F17: setarray @c[2],35,236,35,262,84,365;
+	 Disp("馬努克曠野",1,3); Pick("man_fild");
+F18: setarray @c[2],204,120,175,193,208,213,179,180,181,240,195,270,235,202,188,215,205,144,245,223,180,206,196,208;
+	 Disp("妙勒尼 山脈 區域",1,12); Pick("mjolnir_");
+F19: setarray @c[2],82,104,131,147;
+	 Disp("莫斯科比亞草原",1,2); Pick("mosk_fild");
+F20: setarray @c[2],215,229,167,234;
+	 Disp("尼芙菲姆 區域",1,2); Pick("nif_fild");
+F21: Restrict("Pre-RE",5,11);
+	 setarray @c[2],158,206,151,219,205,148,186,247,134,204,193,235,200,177,137,189,201,224,160,205,194,150;
+	 Disp("斐揚 樹林",1,11); Pick("pay_fild");
+F22: setarray @c[0],208,227,190,206,240,206,190,143,307,252,239,213,185,188,193,194,187,218,210,183,195,149,198,164;
+	 Disp("普隆德拉 區域",0,11); Pick("prt_fild",1);
+F23: Restrict("Pre-RE",2,7,9,10,11,13);
+	 setarray @c[2],192,162,235,166,202,206,202,208,225,202,202,214,263,196,217,201,87,121,277,181,221,185,175,200,174,197;
+	 Disp("Rachel Field",1,13); Pick("ra_fild");
+F24: setarray @c[2],219,205,177,206,194,182,224,170,198,216,156,187,185,263,206,228,208,238,209,223,85,97,207,202,31,195,38,195;
+	 Disp("蘇克拉特 沙漠 區域 1:蘇克拉特 沙漠 區域 2:蘇克拉特 沙漠 區域 3:蘇克拉特 沙漠 區域 7:蘇克拉特 沙漠 區域 11:蘇克拉特 沙漠 區域 12:蘇克拉特 沙漠 區域 13:蘇克拉特 沙漠 區域 16:蘇克拉特 沙漠 區域 17:蘇克拉特 沙漠 區域 18:蘇克拉特 沙漠 區域 19:蘇克拉特 沙漠 區域 20:蘇克拉特 沙漠 區域 21:蘇克拉特 沙漠 區域 22");
+	 Pick("","moc_fild01","moc_fild02","moc_fild03","moc_fild07","moc_fild11","moc_fild12","moc_fild13","moc_fild16","moc_fild17","moc_fild18","moc_fild19","moc_fild20","moc_fild21","moc_fild22");
+F25: setarray @c[2],175,186,236,184,188,204;
+	 Disp("輝煌領域曠野",1,3); Pick("spl_fild");
+F26: setarray @c[2],217,206,223,221,237,215,202,197;
+	 Disp("汶巴拉 森林區域",1,4); Pick("um_fild");
+F27: Restrict("Pre-RE",5);
+	 setarray @c[2],186,175,196,370,222,45,51,250,202,324,150,223,149,307;
+	 Disp("伯仁斯 曠野",1,7); Pick("ve_fild");
+F28: Restrict("Pre-RE",5,10);
+	 setarray @c[2],189,224,192,207,221,157,226,199,223,177,187,232,231,174,196,203,183,214,200,124,195,226,210,304;
+	 Disp("朱諾 原野",1,12); Pick("yuno_fild");
+
+// --------------------------------------------------
+	Dungeons:
+// --------------------------------------------------
+menu	"深淵湖水 地下洞穴",D1, "櫻花城迷宮",D2, "螞蟻地獄 密穴",D3,
+    	"古代神殿 迷宮",D4, "克魔島 海邊",D5, "彩虹橋高塔",D41,
+    	"生體試驗 研究所",D6, "巴西瀑布洞穴",D7, "海底 洞窟",D8, "艾爾帕蘭 鐘塔",D9,
+    	"妙勒尼 廢棄礦場",D10, "普隆德拉 地下水道",D11, "無名島修道院",D12, "德瓦他 火山洞穴",D13,
+    	"艾音布羅克 礦山洞穴",D14, "葛帔尼亞",D15, "吉芬塔 地下 密穴",D16,
+    	"克雷斯特漢姆古城",D17, "崑崙洞穴",D18, "迷藏森林",D19,
+    	"冰洞穴",D20, "優配擂斯 廢墟",D21, "機械娃娃工廠",D22, "洛陽 古都王陵",D23,
+    	"諾可羅德溶洞",D24, "綿綿島洞穴",D25, "莫斯科森林",D26,
+    	"尼德霍格的巢穴",D27, "奧丁神殿",D28, "獸人地下洞窟",D29,
+    	"裴揚迷宮",D30, "金字塔 迷宮",D31, "拉赫 神殿聖域",D32,
+    	"甲蟲洞穴",D33, "史芬克斯 密穴",D34, "沉沒之船",D35, "達納託斯之塔",D36,
+    	"伯仁斯 火山洞窟",D37, "玩具工廠",D38, "烏龜島",D39, "汶巴拉森林",D40;
+
+D1: setarray @c[2],261,272,275,270,116,27;
+	Disp("深淵湖水 地下洞穴",1,3); Pick("abyss_");
+D2: setarray @c[2],228,11,34,41,119,14;
+	Disp("櫻花城迷宮",1,3); Pick("ama_dun");
+D3: setarray @c[2],35,262,168,170;
+	Disp("螞蟻地獄 密穴",1,2); Pick("anthell");
+D4: setarray @c[2],275,19,24,26;
+	Disp("古代神殿 迷宮:迷宮內部"); Pick("ayo_dun");
+D5: setarray @c[2],266,67,255,244,23,260;
+	Disp("克魔島 海邊",1,3); Pick("","beach_dun","beach_dun2","beach_dun3");
+D6: Restrict("RE",4);
+	setarray @c[2],150,288,150,18,140,134,244,52;
+	Disp("生體試驗 研究所",1,4); Pick("lhz_dun");
+D7: Restrict("RE");
+	setarray @c[2],87,47,262,262;
+	Disp("巴西瀑布洞穴",1,2); Pick("bra_dun");
+D8: Restrict("RE",6);
+	setarray @c[0],168,168,253,252,236,204,32,63,26,27,141,187;
+	Disp("海底 洞窟",1,6); Pick("iz_dun",1);
+D9: setarray @c[2],199,159,148,283,65,147,56,155,297,25,127,169,277,178,268,74;
+	Disp("艾爾帕蘭 鐘塔 1層:艾爾帕蘭 鐘塔 2層:艾爾帕蘭 鐘塔 3層:艾爾帕蘭 鐘塔 4層:鐘塔地下 1層:鐘塔地下 2層:鐘塔地下 3層:鐘塔地下 4層");
+	Pick("","c_tower1","c_tower2","c_tower3","c_tower4","alde_dun01","alde_dun02","alde_dun03","alde_dun04");
+D10: setarray @c[2],52,17,381,343,302,262;
+	 Disp("妙勒尼 廢棄礦場",1,3); Pick("mjo_dun");
+D11: setarray @c[2],131,247,19,19,180,169,100,92;
+	 Disp("普隆德拉 地下水道",1,4); Pick("","prt_sewb1","prt_sewb2","prt_sewb3","prt_sewb4");
+D12: setarray @c[2],51,14,150,11,120,10;
+	 Disp("無名島修道院",1,3); Pick("abbey");
+D13: Restrict("RE");
+	 setarray @c[2],285,160,299,29;
+	 Disp("德瓦他 火山洞穴",1,2); Pick("dew_dun");
+D14: setarray @c[2],22,14,292,290;
+	 Disp("艾音布羅克 礦山洞穴",1,2); Pick("ein_dun");
+D15: setarray @c[2],40,103,203,34,266,168,130,272;
+	 Disp("葛帔尼亞",1,4); Pick("gefenia",0);
+D16: setarray @c[0],104,99,115,236,106,132,203,200;
+	 Disp("吉芬塔 地下 密穴",1,4); Pick("gef_dun",1);
+D17: setarray @c[2],370,304,199,29,104,25,150,15,157,287,147,15,258,255,108,291,171,283,68,277,156,7,12,7,133,271,224,274,14,70,150,14;
+	 Disp("古城入口:地上樓層 1層:地上樓層 2層:騎士團 1層:騎士團 2層:地下公墓:地下水道 1層:地下水道 2層:地下水道 3層:地下水道 4層:修道院:樓梯密穴:地下洞穴 1層:地下洞穴 2層:地下監獄 1層:地下監獄 2層");
+	 Pick("","glast_01","gl_cas01","gl_cas02","gl_knt01","gl_knt02","gl_chyard","gl_sew01","gl_sew02","gl_sew03","gl_sew04","gl_church","gl_step","gl_dun01","gl_dun02","gl_prison","gl_prison1");
+D18: setarray @c[2],153,53,28,113,68,16;
+	 Disp("崑崙洞穴",1,3); Pick("gon_dun");
+D19: setarray @c[2],176,7,93,20,23,8;
+	 Disp("迷藏森林",1,3); Pick("prt_maze");
+D20: setarray @c[2],157,14,151,155,149,22,33,158;
+	 Disp("冰洞穴",1,4); Pick("ice_dun");
+D21: setarray @c[2],140,51,53,247,37,63,150,285;
+	 Disp("廢墟入口:廢墟 1層:廢墟 2層:廢墟核心");
+	 Pick("","jupe_cave","juperos_01","juperos_02","jupe_core");
+D22: setarray @c[2],28,226,41,198;
+	 Disp("機械娃娃工廠",1,2); Pick("kh_dun");
+D23: setarray @c[2],218,196,282,20,165,38;
+	 Disp("古都王陵:古都王陵內部:審良宮"); Pick("lou_dun");
+D24: setarray @c[2],126,68,47,30;
+	 Disp("諾可羅德溶洞",1,2); Pick("mag_dun");
+D25: Restrict("RE");
+	 setarray @c[2],33,230;
+	 Disp("綿綿島洞穴",1,1); Pick("mal_dun");
+D26: setarray @c[2],189,48,165,30,32,135;
+	 Disp("莫斯科森林",1,3); Pick("mosk_dun");
+D27: setarray @c[2],61,239,60,271;
+	 Disp("尼德霍格的巢穴",1,2); Pick("nyd_dun");
+D28: setarray @c[2],298,167,224,149,266,280;
+	 Disp("奧丁神殿",1,3); Pick("odin_tem");
+D29: setarray @c[2],32,170,21,185;
+	 Disp("獸人地下洞窟",1,2); Pick("orcsdun");
+D30: setarray @c[0],21,183,19,33,19,63,155,159,201,204;
+	 Disp("裴揚迷宮",1,5); Pick("pay_dun",1);
+D31: Restrict("RE",7,8);
+	 setarray @c[2],192,9,10,192,100,92,181,11,94,96,192,8,94,96,192,8;
+	 Disp("金字塔 1層:金字塔 2層:金字塔 3層:金字塔 4層:金字塔地下 1層:金字塔地下 2層:金字塔地下 1層 - 夢魘:金字塔地下 2層 - 夢魘");
+	 Pick("","moc_pryd01","moc_pryd02","moc_pryd03","moc_pryd04","moc_pryd05","moc_pryd06","moc_prydn1","moc_prydn2");
+D32: setarray @c[2],140,11,32,21,8,149,204,218,150,9;
+	 Disp("拉赫 神殿聖域",1,5); Pick("ra_san");
+D33: Restrict("RE");
+	 setarray @c[2],364,44,101,141;
+	 Disp("甲蟲洞穴",1,2); Pick("dic_dun");
+D34: setarray @c[2],288,9,149,81,210,54,10,222,100,99;
+	 Disp("史芬克斯 密穴",1,5); Pick("","in_sphinx1","in_sphinx2","in_sphinx3","in_sphinx4","in_sphinx5");
+D35: setarray @c[2],69,24,102,27;
+	 Disp("沉沒之船",1,2); Pick("treasure");
+D36: setarray @c[2],150,39,150,136,220,158,59,143,62,11,89,221,35,166,93,148,29,107,159,138,19,20,130,52;
+	 Disp("達納託斯之塔",1,12); Pick("tha_t");
+D37: setarray @c[2],21,228,75,205,34,272;
+	 Disp("伯仁斯 火山洞窟",1,3); Pick("thor_v");
+D38: setarray @c[2],205,15,129,133;
+	 Disp("玩具工廠",1,2); Pick("xmas_dun");
+D39: setarray @c[2],154,49,148,261,132,189,100,192;
+	 Disp("入口:烏龜島 1層:烏龜島 2層:烏龜島 3層"); Pick("tur_dun");
+D40: Restrict("Pre-RE",1,2);
+	 setarray @c[2],42,31,48,30,204,78;
+	 Disp("樹木裡的木工所:樹木裡的異界之路:天地樹葉樹幹");
+	 Pick("","um_dun01","um_dun02","yggdrasil01");
+D41: Restrict("RE");
+	 setarray @c[2],57,13,64,88,45,14,26,23;
+	 Disp("Bifrost Tower",1,4); Pick("ecl_tdun");
+
+// --------------------------------------------------
+	Castles:
+// --------------------------------------------------
+menu	"艾爾帕蘭城堡",C1, "吉芬城堡",C2, "斐揚城堡",C3,
+    	"普隆德拉城堡",C4, "阿盧納貝茲城堡",C5, "秀髮茲發德城堡",C6;
+
+C1: setarray @c[2],48,83,95,249,142,85,239,242,264,90;
+	Disp("娜易修番斯塔引:乎汗修番佳烏:紐藍貝勒克:布勒刺布勒克:羅探布勒克");
+	Pick("","alde_gld","alde_gld","alde_gld","alde_gld","alde_gld");
+C2: setarray @c[2],214,75,308,240,143,240,193,278,305,87;
+	Disp("雷普立溫:耀布力格:易司那普:培勒格:眉撒絲達刺");
+	Pick("","gef_fild13","gef_fild13","gef_fild13","gef_fild13","gef_fild13");
+C3: setarray @c[2],121,233,295,116,317,293,140,160,204,266;
+	Disp("明亭:天壇:佛影:紅樓:竹林峴");
+	Pick("","pay_gld","pay_gld","pay_gld","pay_gld","pay_gld");
+C4: setarray @c[2],134,65,240,128,153,137,111,240,208,240;
+	Disp("克林希特:斯般希特:拉茲立克斯:司葵古:關德");
+	Pick("","prt_gld","prt_gld","prt_gld","prt_gld","prt_gld");
+C5: setarray @c[2],158,272,83,47,68,155,299,345,292,107;
+	Disp("馬勒杜:希樂:霍倫:吉本:巴拿迪斯");
+	Pick("","aru_gld","aru_gld","aru_gld","aru_gld","aru_gld");
+C6: setarray @c[2],293,100,288,252,97,196,137,90,71,315;
+	Disp("喜民:安得郎克:畢得布萊因:何料德:思凱提樂尼");
+	Pick("","sch_gld","sch_gld","sch_gld","sch_gld","sch_gld");
+
+// --------------------------------------------------
+	Guild_Dungeons:
+// --------------------------------------------------
+menu	"青林湖泊",G1, "露依納",G2, "巴基力雷恩",G3, "布哩妥利亞",G4,
+    	"發菲依雅",G5, "尼它堆",G6;
+
+G1: Restrict("RE",2,3);
+	setarray @c[2],119,93,119,93,120,130;
+	Disp("公會地下密穴 F1:公會地下密穴 F2:深淵迴廊 太古之風");
+	Pick("","gld_dun01","gld_dun01_2","gld2_pay");
+G2: Restrict("RE",2,3);
+	setarray @c[2],39,161,39,161,147,155;
+	Disp("公會地下密穴 F1:公會地下密穴 F2:深淵迴廊 英雄之淚");
+	Pick("","gld_dun02","gld_dun02_2","gld2_ald");
+G3: Restrict("RE",2,3);
+	setarray @c[2],50,44,50,44,140,132;
+	Disp("公會地下密穴 F1:公會地下密穴 F2:深淵迴廊 戰士之路");
+	Pick("","gld_dun03","gld_dun03_2","gld2_prt");
+G4: Restrict("RE",2,3);
+	setarray @c[2],116,45,116,45,152,118;
+	Disp("公會地下密穴 F1:公會地下密穴 F2:深淵迴廊 王者之丘");
+	Pick("","gld_dun04","gld_dun04_2","gld2_gef");
+G5: Go("arug_dun01",199,195);
+G6: Go("schg_dun01",200,124);
+
+// --------------------------------------------------
+	Instances:
+// --------------------------------------------------
+menu	"食月暴龍湖",I1, "噩夢醫院 2F",I2, "寶箱巨鱷 洞穴",I3,
+    	"無盡之塔",I4, "迷霧森林",I5, "綿綿島 海底洞穴",I6, "尼德霍格的巢穴",I7,
+    	"章魚洞穴",I8, "舊克雷斯特漢姆古城",I9, "獸人的回憶",I10, "封印神殿",I11,
+    	"狼騎士的實驗室",I12;
+
+I1: Restrict("RE");
+	Go("ma_scene01",172,175);
+I2: Restrict("RE");
+	Go("ma_dun01",151,8);
+I3: Restrict("RE");
+	Go("ma_fild02",316,317);
+I4: Go("e_tower",72,112);
+I5: Restrict("RE");
+	Go("bif_fild01",161,334);
+I6: Restrict("RE");
+	Go("mal_in01",164,21);
+I7: Go("nyd_dun02",95,193);
+I8: Restrict("RE");
+	Go("mal_dun01",152,230);
+I9: Restrict("RE");
+	Go("glast_01",204,268);
+I10: Go("gef_fild10",240,198);
+I11: Go("monk_test",306,143);
+I12: Restrict("RE");
+	Go("lhz_dun04",148,269);
+
+// --------------------------------------------------
+	Special:
+// --------------------------------------------------
+menu	"精煉房",S1, "戰場",S2, "賭場",S3, "樂園團總部",S4,
+    	"崑崙戰鬥場",S5, "依斯魯得戰鬥場",S6, "魔物賽跑競賽場",S7, "競速場",S8;
+
+S1: Go("auction_01",22,68);
+S2: Go("bat_room",154,150);
+S3: Go("cmd_in02",179,129);
+S4: Restrict("RE");
+	Go("moc_para01",31,14);
+S5: Go("gon_test",48,10);
+S6: Go("arena_room",100,88);
+S7: Go("p_track01",62,41);
+S8: Go("turbo_room",99,114);
+}
+
+// --------------------------------------------------
+//	Duplicates:
+// --------------------------------------------------
+alb2trea,57,70,6	duplicate(Warper)	傳送員#tre	759
+alberta,28,240,4	duplicate(Warper)	傳送員#alb	759
+aldebaran,145,118,4	duplicate(Warper)	傳送員#alde	759
+amatsu,203,87,4	duplicate(Warper)	傳送員#ama	759
+ayothaya,209,169,6	duplicate(Warper)	傳送員#ayo	759
+comodo,194,158,4	duplicate(Warper)	傳送員#com	759
+einbech,59,38,6	duplicate(Warper)	傳送員#einbe	759
+einbroch,69,202,4	duplicate(Warper)	傳送員#einbr	759
+gef_fild10,71,339,4	duplicate(Warper)	傳送員#orc	759
+geffen,124,72,4	duplicate(Warper)	傳送員#gef	759
+glast_01,372,308,4	duplicate(Warper)	傳送員#glh	759
+gonryun,162,122,4	duplicate(Warper)	傳送員#gon	759
+hugel,101,151,4	duplicate(Warper)	傳送員#hug	759
+izlu2dun,110,92,4	duplicate(Warper)	傳送員#izd	759
+izlude,134,150,4	duplicate(Warper)	傳送員#izl	759	//Pre-RE: (132,120)
+jawaii,253,138,4	duplicate(Warper)	傳送員#jaw	759
+lighthalzen,162,102,4	duplicate(Warper)	傳送員#lhz	759
+louyang,208,103,6	duplicate(Warper)	傳送員#lou	759
+manuk,274,146,6	duplicate(Warper)	傳送員#man	759
+mid_camp,216,288,4	duplicate(Warper)	傳送員#mid	759
+mjolnir_02,85,364,4	duplicate(Warper)	傳送員#mjo	759
+moc_ruins,64,164,4	duplicate(Warper)	傳送員#moc	759
+morocc,159,97,4	duplicate(Warper)	傳送員#mor	759
+moscovia,229,191,4	duplicate(Warper)	傳送員#mos	759
+nameless_n,259,213,4	duplicate(Warper)	傳送員#nam	759
+niflheim,205,179,4	duplicate(Warper)	傳送員#nif	759
+pay_arche,42,134,4	duplicate(Warper)	傳送員#arc	759
+payon,182,108,4	duplicate(Warper)	傳送員#pay	759
+prontera,159,192,4	duplicate(Warper)	傳送員#prt	759
+prt_fild05,279,223,6	duplicate(Warper)	傳送員#cul	759
+rachel,135,116,4	duplicate(Warper)	傳送員#rac	759
+splendide,205,153,4	duplicate(Warper)	傳送員#spl	759
+thor_camp,249,76,4	duplicate(Warper)	傳送員#thor	759
+umbala,106,150,3	duplicate(Warper)	傳送員#umb	759
+veins,214,123,4	duplicate(Warper)	傳送員#ve	759
+xmas,150,136,6	duplicate(Warper)	傳送員#xmas	759
+yuno,162,47,4	duplicate(Warper)	傳送員#yuno	759
+
+// --------------------------------------------------
+//	Duplicates (Renewal):
+// --------------------------------------------------
+brasilis,201,222,4	duplicate(Warper)	傳送員#bra	759
+dewata,204,186,6	duplicate(Warper)	傳送員#dew	759
+dicastes01,194,194,6	duplicate(Warper)	傳送員#dic	759
+ecl_in01,51,60,4	duplicate(Warper)	傳送員#ecl	759
+malangdo,134,117,6	duplicate(Warper)	傳送員#mal	759
+malaya,231,204,4	duplicate(Warper)	傳送員#ma	759
+mora,57,152,4	duplicate(Warper)	傳送員#mora	759

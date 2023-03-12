@@ -1,0 +1,84 @@
+//============================================================
+//= rAthenaCN [飛空艇]漢化腳本 
+//============================================================
+
+//===== rAthena Script =======================================
+//= Lighthalzen Airport Staff
+//===== By: ================================================== 
+//= L0ne_W0lf, Muad_Dib
+//===== Current Version: =====================================
+//= 1.0
+//===== Compatible With: ===================================== 
+//= rAthena SVN
+//===== Description: ========================================= 
+//= Lighthalzen Airport Staff
+//===== Additional Comments: ================================= 
+//= 1.0 First version.
+//============================================================ 
+
+lhz_airport,143,43,5	script	機場職員#lhz_air1a::lhz_airport1	90,{
+	mes "[機場職員]";
+	mes "歡迎來到裡希塔樂機場,";
+	mes "我們提供飛往艾音布羅克,毀葛和朱諾的航班.";
+	mes "我們的飛空艇將不做間斷的飛向";
+	mes "艾音布羅克,毀葛和朱諾.";
+	next;
+	if (select("搭乘飛空艇.:取消.") == 1) {
+		mes "[機場職員]";
+		mes "搭乘費用是 ";
+		mes "1,200 zeny.";
+		mes "但是如果您有飛空艇免費搭乘券的話";
+		mes "就可以取消這個費用.";
+		next;
+		if (select("搭乘飛空艇:不要") == 1) {
+			if (countitem(7311) > 0) {
+				delitem 7311,1; //Free_Flying_Ship_Ticket
+				warp "lhz_airport",148,51;
+				end;
+			}
+			if (Zeny >= 1200) {
+				set Zeny, Zeny - 1200;
+				warp "lhz_airport",148,51;
+				end;
+			}
+			mes "[飛空艇職員]";
+			mes "抱歉.";
+			mes "您身上的錢不夠支付搭乘飛空艇的 1,200 zeny";
+			close;
+		}
+	}
+	mes "[機場職員]";
+	mes "感謝您選擇了我們的服務.";
+	mes "歡迎再來.";
+	mes "祝您有個美好的一天~";
+	close;
+}
+
+lhz_airport,158,43,5	duplicate(lhz_airport1)	飛空艇職員#lhz_air1b	90
+lhz_airport,126,43,5	duplicate(lhz_airport1)	飛空艇職員#lhz_air1c	90
+
+lhz_airport,143,49,3	script	離站辦理職員#lhz_air2a::lhz_airport2	90,{
+	mes "[離站手續辦理職員]";
+	mes "歡迎來到裡希塔樂機場.";
+	mes "如果這是您航班的目的地的話,就由我來幫助您離站吧.";
+	mes "如果您是想要搭乘飛空艇的話,那麼就請搭乘飛空艇去您想去的目的地好了.";
+	next;
+	if (select("離站:取消.") == 1) {
+		mes "[離站手續辦理職員]";
+		mes "一旦您離站以後,如果還想要登機的話就要再付一次錢了.";
+		mes "只有在您要去裡希塔樂的情況下才好在這裡離站.";
+		mes "那麼,請問您堅持要在朱諾這裡離站嗎";
+		next;
+		if (select("是的:不要了") == 1) {
+			warp "lhz_airport",142,40;
+			end;
+		}
+	}
+	mes "[離站手續辦理職員]";
+	mes "謝謝您選擇了我們的服務.";
+	mes "祝您旅途愉快~";
+	close;
+}
+
+lhz_airport,126,51,3	duplicate(lhz_airport2)	離站辦理職員#lhz_air2b	90
+lhz_airport,158,50,3	duplicate(lhz_airport2)	離站辦理職員#lhz_air2c	90

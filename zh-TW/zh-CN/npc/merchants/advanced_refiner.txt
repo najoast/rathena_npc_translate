@@ -1,0 +1,185 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+
+//===== rAthena Script =======================================
+//= Advanced Refiner
+//===== By: ==================================================
+//= L0ne_W0lf
+//===== Current Version: =====================================
+//= 1.6
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= [Official Conversion]
+//= Refiner that uses Enriched ores to increase upgrade success.
+//= After a conversation with Doddler, it's been established that
+//= the advanced refiner works similar the the "Bubble Gum" item.
+//= The success percentage is not "increased" however, if it fails
+//= You get a second try. This tries twice at the same time,
+//= effectively giving you a re-roll on your attempt.
+//= - Dialog is only partly official to iRO.
+//= - Uses the iRO position for this NPC.
+//===== Additional Comments: =================================
+//= 1.0 First Version. [L0ne_W0lf]
+//= 1.1 Fixed a weird carriage return. o_o [L0ne_W0lf]
+//= 1.2 Optimizing refine method [Zephyrus]
+//= 1.3 Typo fixes [Yommy]
+//= 1.4 Removed unnecessary dialogs [Zephyrus]
+//= 1.4a Added 'disable_items' command. [Euphy]
+//= 1.4b Fixed coordinates. [Euphy]
+//= 1.5 Some official script updates. [Euphy]
+//= 1.6 Added VIP features. [Euphy]
+//============================================================
+
+payon,157,146,6	script	龍仙儒#cash	85,{
+	disable_items;
+	mes "[龍仙儒]";
+	mes "我是專門精煉武器與防具的鐵匠.";
+	mes "能為你精煉穿在身上的裝備.";
+	mes "你想精煉哪一項物品呢?";
+	next;
+
+	setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
+	for(set .@i,1; .@i<=10; set .@i,.@i+1) {
+		if (getequipisequiped(.@indices[.@i])) {
+			set .@menu$, .@menu$ + F_getpositionname(.@indices[.@i]) + " - [" + getequipname(.@indices[.@i]) + "]";
+			set .@equipped,1;
+		}
+		set .@menu$, .@menu$ + ":";
+	}
+	if (.@equipped == 0) {
+		mes "[龍仙儒]";
+		mes "你好歹倒是把裝備穿上先...";
+		close;
+	}
+	set .@part, .@indices[ select(.@menu$) ];
+
+	if (!getequipisequiped(.@part)) //custom check
+		close;
+	if (!getequipisenableref(.@part)) {
+		mes "[龍仙儒]";
+		mes "你選中的這個裝備是無法精煉的道具喔!";
+		close;
+	}
+	if (getequiprefinerycnt(.@part) >= 10) {
+		mes "[龍仙儒]";
+		mes "這件裝備已經精煉到10級了.";
+		mes "以我的能力, 已經無法再繼續鍛造了..";
+		close;
+	}
+
+	// Make sure you have the neccessary items and Zeny to refine your items
+	// Determines chance of failure and verifies that you want to continue.
+	switch(getequipweaponlv(.@part)) {
+		case 1: callsub S_RefineValidate,1,7620,50,.@part; break;
+		case 2: callsub S_RefineValidate,2,7620,200,.@part; break;
+		case 3: callsub S_RefineValidate,3,7620,5000,.@part; break;
+		case 4: callsub S_RefineValidate,4,7620,20000,.@part; break;
+		default: callsub S_RefineValidate,0,7619,2000,.@part; break;
+	}
+
+	mes "[龍仙儒]";
+	mes "鏘! 鏘! 鏘!";
+	if (getequippercentrefinery(.@part) > rand(100) || getequippercentrefinery(.@part) > rand(100)) {
+		successrefitem .@part;
+		next;
+		emotion ET_BEST;
+		mes "[龍仙儒]";
+		mes "拿去吧! 已經做好了.";
+		mes "好久沒精煉出這麼優質的裝備了,";
+		mes "武器變強了你一定也很高興吧!";
+		close;
+	}
+	failedrefitem .@part;
+	next;
+	emotion (!rand(5))?ET_MONEY:ET_HUK;
+	mes "[龍仙儒]";
+	mes "咳咳咳咳咳咳咳!!!!";
+	next;
+	mes "[龍仙儒]";
+	mes "咳...咳咳...真...丟臉.";
+	mes "武器在精煉的過程中損壞了.";
+	mes "我...我...";
+	mes "我早就告訴過你會這樣的嘛!";
+	close;
+
+S_RefineValidate:
+	.@weapon_lvl = getarg(0);
+	.@item_req = getarg(1);
+	set .@price, getarg(2);
+
+	// If the VIP system is enabled, the prices for non-VIP players are considerably higher.
+	if (VIP_SCRIPT && !vip_status(1)) {
+		switch(.@weapon_lvl){
+			case 0: set .@price, .@price * 10; break;
+			case 1: set .@price, .@price * 40; break;
+			case 2: set .@price, .@price * 50; break;
+			case 3: set .@price, .@price * 2; break;
+			case 4: set .@price, .@price * 2; break;
+		}
+	}
+
+	mes "[龍仙儒]";
+	if (.@weapon_lvl)
+		mes "這把武器的等級為 ^ff0000" + .@weapon_lvl + " ^000000級!";
+	mes "精練這個物品我需要:";
+	mes "- ^0000ff"+getitemname(.@item_req)+"^000000 x 1";
+	mes "- 精煉服務費 ^ff0000"+ .@price + "^000000 Zeny";
+	mes "你真的希望我繼續嗎?";
+	next;
+	if( select("是的:不要") == 1 ) {
+		if (getequippercentrefinery(getarg(3)) < 100) {
+			if (.@weapon_lvl) {
+				mes "[龍仙儒]";
+				mes "嗚哇!!";
+				mes "看來這武器已經精煉很多次了的樣子...";
+				mes "要是再繼續精煉的話, 可能會造成損壞喔!";
+				next;
+				mes "要是損壞的話可就不能繼續使用了!!";
+				mes "插在裡面的卡片和特徵";
+				mes "^ff0000全部都會消失了!!^000000";
+				mes "再說一次, 損壞的話裝備會消失!!";
+				mes "你確定還要繼續精煉嗎?";
+				next;
+				if(select("是:否") == 2) {
+					mes "[龍仙儒]";
+					mes "很好.";
+					mes "如果太過魯莽得精煉, 而造成裝備損壞, 我心情也會跟著變壞的.";
+					close;
+				}
+			} else {
+				mes "[龍仙儒]";
+				mes "咯咯咯~~ 噢, 你還真有膽量.";
+				mes "你這件防具已經精煉很多次了的樣子...";
+				mes "要是再繼續精煉的話, 可能會造成損壞喔!";
+				next;
+				mes "要是損壞的話可就不能繼續使用了!!";
+				mes "插在裡面的卡片和好不容易提升的精煉值";
+				mes "^ff0000全部都會消失了!!^000000";
+				mes "再說一次, 損壞的話裝備會消失!!";
+				mes "你確定還要繼續精煉嗎?";
+				next;
+				if(select("是:否") == 2) {
+					mes "[龍仙儒]";
+					mes "你這是在浪費我寶貴的時間!!";
+					mes "從我眼前消失, 膽小鬼.";
+					close;
+				}
+			}
+		}
+		if (countitem(.@item_req) > 0 && Zeny > .@price) {
+			delitem .@item_req,1;
+			set Zeny, Zeny - .@price;
+			return;
+		}
+		mes "[龍仙儒]";
+		mes "這就是你帶來的東西?";
+		mes "我很抱歉, 沒有材料以及我的酬金, 我什麼也做不了的.";
+		close;
+	}
+	mes "[龍仙儒]";
+	mes "如果你不樂意的話, 那我也沒辦法...";
+	close;
+}

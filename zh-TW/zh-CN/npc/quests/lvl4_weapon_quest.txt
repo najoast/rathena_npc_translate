@@ -1,0 +1,3528 @@
+//===== Hercules Script ======================================
+//= Grade A and Grade S weapon quests
+//===== By: ==================================================
+//= Vicious_Pucca, Reddozen & MasterOfMuppets
+//===== Current Version: =====================================
+//= 1.6
+//===== Description: =========================================
+//= [Official Conversion]
+//= Grade A and Grade S weapon quests
+//===== Additional Comments: =================================
+//= 1.0 First Version, Credits goes to Vicious_Pucca for converting [MasterOfMuppets]
+//=     the quest from aegis format to eA format. Also thanks to 
+//=     reddozen for fixing bugs.
+//= 1.1 Many fixes to spelling, grammar, and sentence order. [Silent]
+//= 1.2 A small fix, thanks to vicious_pucca [MasterOfMuppets]
+//= 1.21 Fixing MoM's typos (Citrin -> Citrine) [erKURITA]
+//= 1.3 Redirected error message for "LV_16" to "LV_16_NOGEM" (Gepard) [L0ne_W0lf]
+//= 1.4 Fixed bad NPC header data to comply with rev. 11603. [L0ne_W0lf]
+//= 1.5 Rescripted to Aegis 10.3 standards. [L0ne_W0lf]
+//= 1.6 Was using the wrong IDs for the ores needed. [L0ne_W0lf]
+//============================================================
+
+//---------------------------------------------------------------
+// 設置基本材料, 方便閱讀/修改
+//---------------------------------------------------------------
+
+-	script	lv4_weapon_init	-1,{
+OnInit:
+	set $@LV4_Citrine, 7295; // 7295,黃水晶
+	set $@LV4_Turquoise, 7294; // 7294,綠松石
+	set $@LV4_Agate, 7291; // 7291,瑪瑙
+	
+	set $@LV4_Muscovite, 7292; // 7292,白雲母
+	set $@LV4_Biotite, 7297; // 7297,黑雲母
+	set $@LV4_Pyroxene, 7296; // 7296,輝石
+	
+	set $@LV4_Phlogopite, 7290; // 7290,金雲母
+	set $@LV4_Olivine, 7289; // 7289,橄欖石
+	set $@LV4_Rose_Quartz, 7293; // 7293,玫瑰石英
+	
+	set $@LV4_Gold, 969; // 969,黃金
+	set $@LV4_Steel, 999; // 999,鋼鐵
+	set $@LV4_Emperium, 714; // 714,華麗金屬
+	set $@LV4_Hammer_Of_Blacksmith, 1005; // 1005,高級鐵砧
+	set $@LV4_Emperium_Anvil, 989; // 989,華麗金屬鐵砧
+	set $@LV4_Illusion_Flower, 710; // 710,幻想花
+	end;
+}
+
+//---------------------------------------------------------------
+// 巴佐, 製作聖劍 渾沌, 秘錘 冷月和魔錘 安魂曲
+//---------------------------------------------------------------
+
+umbala,117,285,3	script	巴佐	85,{
+	set @NowWeight, MaxWeight - Weight;
+	if (@NowWeight < 3000) {
+		mes "- 稍等下! -";
+		mes "- 當前你已經超重了. -";
+		mes "- 請減輕你的負重再來找我. -";
+		close;
+	}
+	switch (lv4_weapon) {
+	case 0:
+		mes "[巴佐]";
+		mes "你好, 你從外面的世界來的, 哈?";
+		mes "我是從你的外貌看出來的.";
+		mes "很高興見到你. 我的名字是";
+		mes "巴佐 哈布瑞奇.";
+		mes "我也來自外面的世界.";
+		next;
+		mes "[巴佐]";
+		mes "我們一定曾經見到過.";
+		mes "如果你不介意, 讓我來跟你說說";
+		mes "這個地方.";
+		mes "汶巴拉與死者國家, 尼芙菲姆相鄰.";
+		mes "實際上第一次來到這裡, 我就知";
+		mes "道了關於這個村落的一些事情.";
+		next;
+		mes "[巴佐]";
+		mes "由於地理上的特殊,";
+		mes "這個村落完全受到了來自死者國";
+		mes "家的某種邪惡力量的影響.";
+		next;
+		mes "[巴佐]";
+		mes "這裡的本地居民已經學會了製造";
+		mes "擁有邪惡力量的特製品.";
+		next;
+		mes "[巴佐]";
+		mes "在這裡停留的時間裡, 我也學會";
+		mes "了一些方法. 如果你帶給我適當";
+		mes "材料, 我會讓你看看我的能力.";
+		mes "聽起來怎麼樣?";
+		next;
+		switch( select( "聽起來不錯:不, 謝謝" ) ) {
+		case 1:
+			if(BaseLevel >= 70) {
+				mes "[巴佐]";
+				mes "非常棒! 讓我告訴你需要的材料.";
+				mes "我希望你能把他們記下來.";
+				mes "雖然數量並不是很多.";
+				next;
+				mes "[巴佐]";
+				mes "我需要10 塊黃金, 50 片鋼鐵和";
+				mes "10 塊華麗金屬作為基本材料...";
+				mes "還需要對特定物品施予特殊魔法.";
+				mes "所以, 我還需要一些稀有礦石...";
+				next;
+				mes "[巴佐]";
+				mes "請帶給我30 塊黃水晶, 或綠松";
+				mes "石或是瑪瑙.";
+				mes "你帶來的每一種礦石都會施予不";
+				mes "同的屬性, 我的製造物就會有不";
+				mes "同的特色.";
+				next;
+				mes "[巴佐]";
+				mes "祝你好運...";
+				mes "我會在這裡等你!";
+				set lv4_weapon, 1;
+				close;
+			}
+			mes "[巴佐]";
+			mes "呃... 我想你還沒有能力掌控我";
+			mes "的創造物.";
+			mes "它們蘊藏著邪惡的力量.";
+			next;
+			mes "就是說如果持有它們的人不是強";
+			mes "壯的, 且沒有足夠經歷的話, 他";
+			mes "們就會被邪惡反噬.";
+			mes "我可以不能這樣對待我的朋友.";
+			next;
+			mes "[巴佐]";
+			mes "所以, 我希望你最好先提升你的";
+			mes "等級然後再回來.";
+			mes "等你你準備好後, 期待你再來.";
+			close;
+		case 2:
+			mes "[巴佐]";
+			mes "噢, 好吧. 反正對我無所謂.";
+			mes "順便說一句, 你不想知道死者國";
+			mes "家的邪惡力量是如何的嗎?";
+			mes "要知道, 自從那城市憑藉那種力";
+			mes "量影響了很多村落後, 我才開始";
+			mes "自己製作物品的.";
+			close;
+		}
+	case 1:
+		if( countitem($@LV4_Gold) < 10 || countitem($@LV4_Steel) < 50 || countitem($@LV4_Emperium ) < 10) {
+			mes "[巴佐]";
+			mes "我需要10 塊黃金, 50 片鋼鐵和";
+			mes "10 塊華麗金屬作為基本材料...";
+			mes "還需要對特定物品施予特殊魔法.";
+			mes "所以, 我還需要一些稀有礦石...";
+			next;
+			mes "[巴佐]";
+			mes "請帶給我30 塊黃水晶, 或綠松";
+			mes "石或是瑪瑙.";
+			mes "你帶來的每一種礦石都會施予不";
+			mes "同的屬性, 我的製造物就會有不";
+			mes "同的特色.";
+			next;
+			mes "[巴佐]";
+			mes "祝你好運...";
+			mes "我會在這裡等你!";
+			close;
+		}
+		mes "[巴佐]";
+		mes "噢... 你已經帶來了所有的基本";
+		mes "材料.";
+		mes "那麼我來檢查看看你帶來哪些稀";
+		mes "有礦石...";
+		next;
+		if (countitem($@LV4_Citrine) >= 30 && countitem($@LV4_Turquoise) >= 30 && countitem($@LV4_Agate) >= 30) {
+			mes "[巴佐]";
+			mes "哈哈哈, 我叫你隨便帶一種, 可";
+			mes "你都帶來啦.";
+			mes "你只可以使用其中一種.";
+			mes "哪種你更想使用?";
+			next;
+			switch( select( "黃水晶:綠松石:瑪瑙" ) ) {
+			case 1:
+				mes "[巴佐]";
+				mes "黃水晶... 好吧. 在我們開始前,";
+				set @gem, $@LV4_Citrine;
+				set @gemstring$,"黃水晶";
+				break;
+			case 2:
+				mes "[巴佐]";
+				mes "綠松石... 好吧. 在我們開始前,";
+				set @gem, $@LV4_Turquoise;
+				set @gemstring$,"綠松石";
+				break;
+			case 3:
+				mes "[巴佐]";
+				mes "瑪瑙.... 好吧. 在我們開始前,";
+				set @gem, $@LV4_Agate;
+				set @gemstring$,"瑪瑙";
+			}
+			break;
+		}
+		else if (countitem($@LV4_Citrine) >= 30 && countitem($@LV4_Turquoise) >= 30) {
+			mes "[巴佐]";
+			mes "哈哈哈, 我叫你隨便帶一種, 可";
+			mes "你帶來了兩種.";
+			mes "你只可以使用其中一種.";
+			mes "哪種你更想使用?";
+			next;
+			switch( select( "黃水晶:綠松石" ) ) {
+			case 1:
+				mes "[巴佐]";
+				mes "黃水晶... 好吧. 在我們開始前,";
+				set @gem, $@LV4_Citrine;
+				set @gemstring$,"黃水晶";
+				break;
+			case 2:
+				mes "[巴佐]";
+				mes "綠松石... 好吧. 在我們開始前,";
+				set @gem, $@LV4_Turquoise;
+				set @gemstring$,"綠松石";
+				break;
+			}
+			break;
+		}
+		else if (countitem($@LV4_Citrine) >= 30 && countitem($@LV4_Agate) >= 30) {
+			mes "[巴佐]";
+			mes "哈哈哈, 我叫你隨便帶一種, 可";
+			mes "你帶來了兩種.";
+			mes "你只可以使用其中一種.";
+			mes "哪種你更想使用?";
+			next;
+			switch( select( "黃水晶:瑪瑙" ) ) {
+			case 1:
+				mes "[巴佐]";
+				mes "黃水晶... 好吧. 在我們開始前,";
+				set @gem, $@LV4_Citrine;
+				set @gemstring$,"黃水晶";
+				break;
+			case 2:
+				mes "[巴佐]";
+				mes "瑪瑙.... 好吧. 在我們開始前,";
+				set @gem, $@LV4_Agate;
+				set @gemstring$,"瑪瑙";
+				break;
+			}
+			break;
+		}
+		else if (countitem($@LV4_Turquoise) >= 30 && countitem($@LV4_Agate) >= 30) {
+			mes "[巴佐]";
+			mes "哈哈哈, 我叫你隨便帶一種, 可";
+			mes "你帶來了兩種.";
+			mes "你只可以使用其中一種.";
+			mes "哪種你更想使用?";
+			next;
+			switch( select( "綠松石:瑪瑙" ) ) {
+			case 1:
+				mes "[巴佐]";
+				mes "綠松石... 好吧. 在我們開始前,";
+				set @gem, $@LV4_Turquoise;
+				set @gemstring$,"綠松石";
+				break;
+			case 2:
+				mes "[巴佐]";
+				mes "瑪瑙.... 好吧. 在我們開始前,";
+				set @gem, $@LV4_Agate;
+				set @gemstring$,"瑪瑙";
+				break;
+			}
+			break;
+		}
+		else if (countitem($@LV4_Citrine) >= 30) {
+			mes "[巴佐]";
+			mes "黃水晶... 好吧. 在我們開始前,";
+			set @gem, $@LV4_Citrine;
+			set @gemstring$,"黃水晶";
+			break;
+		}
+		else if (countitem($@LV4_Turquoise) >= 30) {
+			mes "[巴佐]";
+			mes "綠松石... 好吧. 在我們開始前,";
+			set @gem, $@LV4_Turquoise;
+			set @gemstring$,"綠松石";
+			break;
+		}
+		else if (countitem($@LV4_Agate) >= 30) {
+			mes "[巴佐]";
+			mes "瑪瑙.... 好吧. 在我們開始前,";
+			set @gem, $@LV4_Agate;
+			set @gemstring$,"瑪瑙";
+			break;
+		}
+		else {
+			mes "[巴佐]";
+			mes "我記得我說過我需要你帶來30";
+			mes "塊特別的礦石, 黃水晶, ";
+			mes "或綠松石或是瑪瑙...";
+			mes "可我沒看到它們.";
+			mes "你一定是忘了. 接著去找它們吧.";
+			close;
+		}
+		mes "我們要先做一件事.";
+		mes "那就是, 測測你的運氣.";
+		mes "就像你知道的, 我可不能保證我";
+		mes "可以立刻為你製造.";
+		next;
+		mes "[巴佐]";
+		mes "如果在開始前, 你能夠提升你的";
+		mes "運氣, 我們將會成功製造.";
+		next;
+		mes "[巴佐]";
+		mes "現在你一定好奇我們要做什麼來";
+		mes "提升你的運氣.";
+		mes "很簡單, 我們要玩讀心術的遊戲.";
+		mes "我現在想我最喜歡的4 種魔物中";
+		mes "的一種, 你來猜那魔物是什麼.";
+		next;
+		mes "[巴佐]";
+		mes "你至少要在5 次中答對1 次. 這";
+		mes "不怎麼難吧.";
+		mes "如果你回答失敗了, 我們得做點";
+		mes "什麼來驅趕的壞運氣了.";
+		next;
+		mes "[巴佐]";
+		mes "我會拿走10 顆你選的特別礦石.";
+		mes "好吧, 我明白這聽起來不怎麼誘";
+		mes "人, 但這是唯一的方法.";
+		mes "這比要花費30 顆礦石卻仍然制";
+		mes "作失敗要好的多吧, 是不是?";
+		next;
+		mes "[巴佐]";
+		mes "好, 現在我需要些時間準備...";
+		mes "稍等下再來找我!";
+		if(countitem($@LV4_Gold) < 10 || countitem($@LV4_Steel) < 50 || countitem($@LV4_Emperium) < 10) goto LV4_HACK;
+		delitem $@LV4_Gold, 10;
+		delitem $@LV4_Steel, 50;
+		delitem $@LV4_Emperium, 10;
+		if(@gem == $@LV4_Citrine) set lv4_weapon, 2;
+		if(@gem == $@LV4_Turquoise) set lv4_weapon, 3;
+		if(@gem == $@LV4_Agate) set lv4_weapon, 4;
+		close;
+	case 2:
+	case 3:
+	case 4:
+		if(lv4_weapon == 2) set @gem, $@LV4_Citrine;
+		if(lv4_weapon == 3) set @gem, $@LV4_Turquoise;
+		if(lv4_weapon == 4) set @gem, $@LV4_Agate;
+		if(countitem(@gem) < 30) {
+			mes "[巴佐]";
+			mes "呃... 什麼事情感覺不對. 缺少";
+			mes "點什麼東西...";
+			mes "你要不要檢查下你帶來的東西?";
+			close;
+		}
+		mes "[巴佐]";
+		mes "很好, 看來你準備好了.";
+		mes "那我們開始吧.";
+		mes "我最喜歡的魔物是波利, 蚯蚓,";
+		mes "人魚, 和米洛斯.";
+		next;
+		set @dap, 0;
+		set @correct[0],1;
+		for( set @i, 1; @i <= 5; set @i, @i + 1 ) {
+			mes "[巴佐]";
+			if(@i == 1) mes "現在是第一次. 那麼猜猜在我心";
+			if(@i != 1) mes "那麼好吧. 現在接著猜猜在我心";
+			mes "中所想的魔物是什麼.";
+			next;
+			set @mons,rand(1,4);
+			switch( select( "波利:蚯蚓:人魚:米洛斯" ) ) {
+			case 1:
+				set @correct[@i], 1;
+				if(@mons == 1) set @dap, @dap + 1;
+				break;
+			case 2:
+				set @correct[@i], 2;
+				if(@mons == 2) set @dap, @dap + 1;
+				break;
+			case 3:
+				set @correct[@i], 3;
+				if(@mons == 3) set @dap, @dap + 1;
+				break;
+			case 4:
+				set @correct[@i], 4;
+				if(@mons == 4) set @dap, @dap + 1;
+				break;
+			}
+		}
+		mes "[巴佐]";
+		mes "好吧, 讓我告訴你問題的答案.";
+		mes "我來看看你所猜的魔物列表.";
+		next;
+		mes "[巴佐]";
+		for( set @i, 1; @i <= 5; set @i, @i + 1 ) {
+			if(@correct[@i] == 1) mes "波利";
+			if(@correct[@i] == 2) mes "蚯蚓";
+			if(@correct[@i] == 3) mes "人魚";
+			if(@correct[@i] == 4) mes "米洛斯";
+		}
+		if(@dap < 1) {
+			if(countitem(@gem) < 10) goto LV4_HACK;
+			delitem @gem, 10;
+			next;
+			mes "[巴佐]";
+			mes "呃... 我想你不擅長讀他人的思";
+			mes "想. 或者我猜你的運氣也夠壞.";
+			mes "我們不能繼續製造, 除非你能驅";
+			mes "趕你的壞運氣.";
+			mes "給我10 塊" + @gemstring$ + ", 然後繼續.";
+			next;
+			mes "[巴佐]";
+			mes "那麼... 如果你想要再進行一次";
+			mes "讀心術的遊戲, 請帶著材料再來.";
+			mes "我會在這裡等你.";
+			close;
+		}
+		next;
+		mes "[巴佐]";
+		mes "你答對了" + @dap + " 次!";
+		mes "你真了不起!";
+		mes "就像我說的, 我會為你製造";
+		mes "汶巴拉的特別產物.";
+		mes "請再給我點時間準備.";
+		mes "等一下再來找我";
+		if(countitem(@gem) < 30) goto LV4_HACK;
+		delitem @gem, 30;
+		set lv4_weapon, lv4_weapon + 3;
+		close;
+	case 5:
+	case 6:
+	case 7:
+		mes "[巴佐]";
+		mes "很好... 現在, 來製造吧!";
+		mes "祝我好運... 啊, 我忘了告訴你";
+		mes "這個.";
+		mes "我不能告訴你製造物是什麼. 因";
+		mes "為是隨機的.";
+		mes "讓我們一塊期待好東西的誕生,";
+		mes "怎麼樣?";
+		next;
+		mes "- 你感覺到未知的力量開始集 -";
+		mes "- 中在材料上. 材料似乎正在 -";
+		mes "- 吸收空氣中所有的邪惡力量 -";
+		next;
+		mes "- 隨後, 材料開始融合到一塊 -";
+		mes "- 而巴佐卻根本沒有碰到它們 -";
+		next;
+		mes "[巴佐]";
+		mes "你能感覺到嗎? 材料正在根據它";
+		mes "們的能力收集力量.";
+		mes "它們現在不受我控制. 來等待結";
+		mes "果吧.";
+		next;
+		mes "- 過了一會兒, 空氣寧靜下來 -";
+		mes "- 然後你們看到了最後的結果 -";
+		next;
+		mes "[巴佐]";
+		mes "喔喔喔喔! 完成了!";
+		mes "我們成功了! 啊, 太棒了!";
+		mes "我告訴過你這個是很稀有的嗎?";
+		mes "哈, 上帝一定聽到了我們的祈禱.";
+		mes "噢, 這件武器! 一定會對你非常";
+		mes "有用.";
+		mes "讓我們看看...";
+		next;
+		mes "[巴佐]";
+		switch( lv4_weapon ) {
+		case 5:
+			mes "是聖劍 渾沌!";
+			getitem 1141, 1; //1141,聖劍 渾沌
+			break;
+		case 6:
+			mes "是魔錘 安魂曲!";
+			getitem 1526, 1; //1526,魔錘 安魂曲
+			break;
+		case 7:
+			mes "是秘錘 冷月!";
+			getitem 1527, 1; //1527,秘錘 冷月
+			break;
+		}
+		set lv4_weapon, 0;
+		mes "這武器是你的了!";
+		mes "恭喜你, 希望你能好好利用它.";
+		next;
+		mes "[巴佐]";
+		mes "我感覺如此滿足. 如果你想製作";
+		mes "其它的東西, 有空再來找我.";
+		mes "旅行愉快!";
+		close;
+	default:
+		mes "[巴佐]";
+		mes "嗯... 我感覺到你有一些奇怪.";
+		mes "我很遺憾的告訴你我不能幫你做";
+		mes "什麼.";
+		mes "希望你旅途安全.";
+		close;
+	}
+
+// 篡改企圖
+LV4_HACK:
+	mes "[巴佐]";
+	mes "嗯. 似乎有點什麼小問題.";
+	set lv4_weapon, 0;
+	logmes "[" +strcharinfo(0) + "]企圖篡改4 級任務.";
+	close;
+}
+
+//---------------------------------------------------------------
+// 希必拉伊坦, 製作破甲短劍, 削刃短劍和斯勒特斧
+//---------------------------------------------------------------
+umbala,163,257,3	script	希必拉伊坦	785,{
+	if(event_umbala < 3) {
+		mes "[希必拉伊坦]";
+		mes "汶巴! 汶巴巴...汶汶! 巴汶巴!";
+		mes "汶汶汶巴巴巴汶汶巴巴汶巴!";
+		mes "汶巴汶巴汶巴汶巴汶哈!";
+		mes "汶汶汶汶汶巴巴巴巴巴巴!";
+		close;
+	}
+	set @NowWeight, MaxWeight - Weight;
+	if (@NowWeight < 3000) {
+		mes "- 稍等下! -";
+		mes "- 當前你已經超重了. -";
+		mes "- 請減輕你的負重再來找我. -";
+		close;
+	}
+	if(lv4_weapon == 0) goto LV4_0;
+	if(lv4_weapon == 8) goto LV4_8;
+	if(lv4_weapon == 9) goto LV4_9;
+	if(lv4_weapon == 10) goto LV4_9;
+	if(lv4_weapon == 11) goto LV4_9;
+	if(lv4_weapon == 12) goto LV4_12;
+	if(lv4_weapon == 13) goto LV4_12;
+	if(lv4_weapon == 14) goto LV4_12;
+	if(lv4_weapon < 8) goto LV4_7;
+	if(lv4_weapon > 14) goto LV4_7;
+	end;
+LV4_0:
+	mes "[希必拉伊坦]";
+	mes "哈哈, 是啊, 我就知道這一天一";
+	mes "定會來.";
+	mes "最終人們還是意識到我做為汶巴";
+	mes "拉最棒的工匠的價值了!";
+	next;
+	mes "[希必拉伊坦]";
+	mes "那麼, 咱們切入正題.";
+	mes "如果你能帶給我材料的話, 我,";
+	mes "希必拉伊坦將會展現我的手藝!";
+	mes "哈哈哈哈哈哈!";
+	next;
+	mes "[希必拉伊坦]";
+	mes "呃? 什麼? 你從沒見過我?";
+	mes "不許笑... 別把我當成傻瓜!";
+	mes "時下說實話, 人太膽怯!";
+	mes "誠實點告訴我你想還是不想.";
+	next;
+	switch( select( "... 當然.:... 抱歉, 我真不需要!" ) ) {
+	case 1:
+		if(BaseLevel >= 70) goto L4_0_1;
+		mes "[希必拉伊坦]";
+		mes "... 真可惜! 很遺憾的告訴你,";
+		mes "由於你的靈魂太脆弱而不能掌控";
+		mes "我的創造物的能量!";
+		mes "不妙啊, 一點都不妙!";
+		mes "先去鍛鍊你自己吧.";
+		mes "當你強壯的時候, 再回來!";
+		break;
+L4_0_1:
+			mes "[希必拉伊坦]";
+			mes "很好! 我喜歡你的態度! 不錯,";
+			mes "不錯!";
+			mes "我會告訴你我需要什麼.";
+			mes "不是很多, 所以可別記不住.";
+			next;
+			mes "[希必拉伊坦]";
+			mes "帶給我10 塊黃金, 50 片鋼鐵和";
+			mes "10 塊華麗金屬... 為基本材料.";
+			mes "並且我還需要一些稀有礦石來提";
+			mes "供魔力...";
+			next;
+			mes "[希必拉伊坦]";
+			mes "在白雲母, 或黑雲母或是輝石之";
+			mes "中選一種帶給我30 塊.";
+			mes "記住一定要帶來30 塊同種礦石.";
+			mes "我不確定會製造出什麼, 所以我";
+			mes "也不確定用哪一種礦石. 呵呵.";
+			next;
+			mes "[希必拉伊坦]";
+			mes "好吧, 祝你幸運!";
+			mes "我會在這裡等你的.";
+			set lv4_weapon, 8;
+			break;
+		case 2:
+			mes "[希必拉伊坦]";
+			mes "呸~ 你怕什麼呢?";
+			mes "我只是想幫你一個忙, 懂不懂?";
+			mes "好吧, 你說了算.";
+			mes "但是如果你改變了心意, 隨時回";
+			mes "來找我.";
+			break;
+	}
+	close;
+
+//--------------------------------------------------
+// 黃金, 鋼鐵, 華麗金屬檢查 + 選擇魔法石
+//--------------------------------------------------
+LV4_8:
+	if(countitem($@LV4_Gold) < 10) goto LV4_8_FAIL;
+	if(countitem($@LV4_Steel) < 50) goto LV4_8_FAIL;
+	if(countitem($@LV4_Emperium) < 10) goto LV4_8_FAIL;
+
+	mes "[希必拉伊坦]";
+	mes "噢... 你已經帶來了所有的基本";
+	mes "材料.";
+	mes "那麼我來檢查看看你帶來哪些稀";
+	mes "有礦石...";
+	next;
+	
+	if (countitem($@LV4_Muscovite) >= 30 && countitem($@LV4_Biotite) >= 30 && countitem($@LV4_Pyroxene) >= 30) goto LV4_8_MBP;
+	if (countitem($@LV4_Muscovite) >= 30 && countitem($@LV4_Biotite) >= 30) goto LV4_8_MB;
+	if (countitem($@LV4_Muscovite) >= 30 && countitem($@LV4_Pyroxene) >= 30) goto LV4_8_MP;
+	if (countitem($@LV4_Biotite) >= 30 && countitem($@LV4_Pyroxene) >= 30) goto LV4_8_BP;
+	if (countitem($@LV4_Muscovite) >= 30) goto LV4_8_M;
+	if (countitem($@LV4_Biotite) >= 30) goto LV4_8_B;
+	if (countitem($@LV4_Pyroxene) >= 30) goto LV4_8_P;
+	goto LV4_8_NOGEM;
+	end;
+
+
+LV4_8_MBP:	
+	mes "[希必拉伊坦]";
+	mes "啊, 你帶來了三種礦石?";
+	mes "哈哈哈, 不錯.";
+	mes "不過我們不能一次全用掉.";
+	mes "選一種你想使用的吧.";
+	next;
+			
+	switch( select( "白雲母:黑雲母:輝石" ) ) {
+		case 1:
+			mes "[希必拉伊坦]";
+			mes "白雲母... 好吧. 在我們開始前,";
+			set @gem, $@LV4_Muscovite;
+			set @gemstring$,"白雲母";
+			break;
+		case 2:
+			mes "[希必拉伊坦]";
+			mes "黑雲母... 好吧. 在我們開始前,";
+			set @gem, $@LV4_Biotite;
+			set @gemstring$,"黑雲母";
+			break;
+		case 3:
+			mes "[希必拉伊坦]";
+			mes "輝石.... 好吧. 在我們開始前,";
+			set @gem, $@LV4_Pyroxene;
+			set @gemstring$,"輝石";
+			break;
+	}
+	
+	goto LV4_8_PICK;
+	end;
+	
+	
+LV4_8_MB:
+	mes "[希必拉伊坦]";
+	mes "哈哈哈, 我叫你隨便帶一種, 可";
+	mes "你帶來了兩種.";
+	mes "你只可以使用其中一種.";
+	mes "哪種你更想使用?";
+	next;
+	
+	switch( select( "白雲母:黑雲母" ) ) {
+		case 1:
+			mes "[希必拉伊坦]";
+			mes "白雲母... 好吧. 在我們開始前,";
+			set @gem, $@LV4_Muscovite;
+			set @gemstring$,"白雲母";
+			break;
+		case 2:
+			mes "[希必拉伊坦]";
+			mes "黑雲母... 好吧. 在我們開始前,";
+			set @gem, $@LV4_Biotite;
+			set @gemstring$,"黑雲母";
+			break;
+	}
+	
+	goto LV4_8_PICK;
+	end;
+	
+
+LV4_8_MP:	
+	mes "[希必拉伊坦]";
+	mes "哈哈哈, 我叫你隨便帶一種, 可";
+	mes "你帶來了兩種.";
+	mes "你只可以使用其中一種.";
+	mes "哪種你更想使用?";
+	next;
+	
+	switch( select( "白雲母:輝石" ) ) {
+		case 1:
+			mes "[希必拉伊坦]";
+			mes "白雲母... 好吧. 在我們開始前,";
+			set @gem, $@LV4_Muscovite;
+			set @gemstring$,"白雲母";
+			break;
+		case 2:
+			mes "[希必拉伊坦]";
+			mes "輝石.... 好吧. 在我們開始前,";
+			set @gem, $@LV4_Pyroxene;
+			set @gemstring$,"輝石";
+			break;
+	}
+	
+	goto LV4_8_PICK;
+	end;
+	
+	
+LV4_8_BP:	
+	mes "[希必拉伊坦]";
+	mes "哈哈哈, 我叫你隨便帶一種, 可";
+	mes "你帶來了兩種.";
+	mes "你只可以使用其中一種.";
+	mes "哪種你更想使用?";
+	next;
+	
+	switch( select( "黑雲母:輝石" ) ) {
+			case 1:
+				mes "[希必拉伊坦]";
+				mes "黑雲母... 好吧. 在我們開始前,";
+				set @gem, $@LV4_Biotite;
+				set @gemstring$,"黑雲母";
+				break;
+			case 2:
+				mes "[希必拉伊坦]";
+				mes "輝石.... 好吧. 在我們開始前,";
+				set @gem, $@LV4_Pyroxene;
+				set @gemstring$,"輝石";
+				break;
+	}
+	
+	goto LV4_8_PICK;
+	end;
+	
+	
+LV4_8_M:
+	mes "[希必拉伊坦]";
+	mes "白雲母... 好吧. 在我們開始前,";
+	set @gem, $@LV4_Muscovite;
+	set @gemstring$,"白雲母";
+	goto LV4_8_PICK;
+	end;
+		
+		
+LV4_8_B:
+	mes "[希必拉伊坦]";
+	mes "黑雲母... 好吧. 在我們開始前,";
+	set @gem, $@LV4_Biotite;
+	set @gemstring$,"黑雲母";
+	goto LV4_8_PICK;
+	end;
+	
+	
+LV4_8_P:
+	mes "[希必拉伊坦]";
+	mes "輝石.... 好吧. 在我們開始前,";
+	set @gem, $@LV4_Pyroxene;
+	set @gemstring$,"輝石";
+	goto LV4_8_PICK;
+	end;
+	
+	
+LV4_8_PICK:
+	mes "我們要先做一件事.";
+	mes "那就是, 測測你的運氣.";
+	mes "就像你知道的, 我可不能保證我";
+	mes "可以立刻為你製造.";
+	next;
+	mes "[希必拉伊坦]";
+	mes "如果在開始前, 你能夠提升你的";
+	mes "運氣, 我們將會成功製造.";
+	next;
+	mes "[希必拉伊坦]";
+	mes "現在你一定好奇我們要做什麼來";
+	mes "提升你的運氣.";
+	mes "很簡單, 我們要玩讀心術的遊戲.";
+	mes "我現在想我最喜歡的4 種魔物中";
+	mes "的一種, 你來猜那魔物是什麼.";
+	next;
+	mes "[希必拉伊坦]";
+	mes "你至少要在5 次中答對1 次. 這";
+	mes "不怎麼難吧.";
+	mes "如果你回答失敗了, 我們得做點";
+	mes "什麼來驅趕的壞運氣了.";
+	next;
+	mes "[希必拉伊坦]";
+	mes "我會拿走10 塊你選的特別礦石.";
+	mes "好吧, 我明白這聽起來不怎麼誘";
+	mes "人, 但這是唯一的方法.";
+	mes "這比要花費30 塊礦石卻仍然制";
+	mes "作失敗要好的多吧, 是不是?";
+	next;
+	mes "[希必拉伊坦]";
+	mes "好, 現在我需要些時間準備...";
+	mes "稍等下再來找我!";
+	
+	if(countitem($@LV4_Gold) < 10) goto LV4_HACK;
+	if(countitem($@LV4_Steel) < 50) goto LV4_HACK;
+	if(countitem($@LV4_Emperium) < 10) goto LV4_HACK;
+	delitem $@LV4_Gold, 10;
+	delitem $@LV4_Steel, 50;
+	delitem $@LV4_Emperium, 10;
+	if(@gem == $@LV4_Muscovite) set lv4_weapon, 9;
+	if(@gem == $@LV4_Biotite) set lv4_weapon, 10;
+	if(@gem == $@LV4_Pyroxene) set lv4_weapon, 11;	
+	close;
+
+
+LV4_8_NOGEM:
+	mes "[希必拉伊坦]";
+	mes "我記得我說過我需要你帶來30";
+	mes "塊特別的礦石, 白雲母, 或黑雲";
+	mes "母或是輝石...";
+	mes "可我沒看到它們.";
+	mes "你一定是忘了. 接著去找它們吧.";
+	close;
+
+
+LV4_8_FAIL:
+	mes "[希必拉伊坦]";
+	mes "我需要10 塊黃金, 50 片鋼鐵和";
+	mes "10 塊華麗金屬作為基本材料...";
+	mes "還需要對特定物品施予特殊魔法.";
+	mes "所以, 我還需要一些稀有礦石...";
+	next;
+	mes "[希必拉伊坦]";
+	mes "請帶給我30 塊白雲母, 或黑雲";
+	mes "母或是輝石.";
+	mes "你帶來的每一種礦石都會施予不";
+	mes "同的屬性, 我的製造物就會有不";
+	mes "同的特色.";
+	next;
+	mes "[希必拉伊坦]";
+	mes "祝你好運...";
+	mes "我會在這裡等你!";
+	close;
+
+
+
+//--------------------------------------------------
+// 猜猜看遊戲
+//--------------------------------------------------
+LV4_9:
+	if(lv4_weapon == 9) set @gem, $@LV4_Muscovite;
+	if(lv4_weapon == 10) set @gem, $@LV4_Biotite;
+	if(lv4_weapon == 11) set @gem, $@LV4_Pyroxene;
+	if(countitem(@gem) < 30) goto LV4_9_NOGEM; 
+	
+	mes "[希必拉伊坦]";
+	mes "很好, 我們開始吧!";
+	mes "很簡單. 有4 種我喜歡的魔物.";
+	mes "我將從4 個之中想一個魔物, 你";
+	mes "來猜是什麼.";
+	mes "一共會進行5 次遊戲, 而你至少";
+	mes "要在5 次中答對一次. 簡單吧?";
+	next;
+	mes "[希必拉伊坦]";
+	mes "這是非常精彩的增加運氣的遊戲!";
+	mes "那麼, 你最好準備好了.";
+	next;
+	
+	set @dap, 0;
+	set @correct[0],1;
+	for( set @i, 1; @i <= 5; set @i, @i + 1 ) {
+		mes "[希必拉伊坦]";
+		
+		if(@i == 1) mes "我最喜歡艾斯恩魔女, 愛麗瑟,";
+		if(@i == 1) mes "殭屍, 和蛇女伊絲這些魔物.";
+		
+		mes "現在, 猜猜我現在想得是哪一個.";	
+		next;
+
+		set @mons, rand(1, 4);		
+
+		switch( select( "艾斯恩魔女:愛麗瑟:殭屍:蛇女伊絲" ) ) {
+				case 1:
+					set @correct[@i], 1;
+					if(@mons == 1) set @dap, @dap + 1;
+					break;
+
+				case 2:
+					set @correct[@i], 2;
+					if(@mons == 2) set @dap, @dap + 1;
+					break;
+
+				case 3:
+					set @correct[@i], 3;
+					if(@mons == 3) set @dap, @dap + 1;
+					break;
+
+				case 4:
+					set @correct[@i], 4;
+					if(@mons == 4) set @dap, @dap + 1;
+					break;
+		}
+	}
+
+	mes "[希必拉伊坦]";
+	mes "很好, 結束了! 讓我檢查下你的";
+	mes "答案. 看看你所猜的魔物...";
+	next;
+	mes "[希必拉伊坦]";
+
+	for( set @i, 1; @i <= 5; set @i, @i + 1 ) {
+		if(@correct[@i] == 1) mes "艾斯恩魔女";
+		if(@correct[@i] == 2) mes "愛麗瑟";
+		if(@correct[@i] == 3) mes "殭屍";
+		if(@correct[@i] == 4) mes "蛇女伊絲";
+	}
+
+	if(@dap < 1) goto LV4_9_FAIL;
+	
+	next;
+	mes "[希必拉伊坦]";
+	mes "哇 喔, 你是個讀心者嗎?";
+	mes "你答對了" + @dap + " 次! 哇...";
+	mes "我想你現在已經夠幸運的了, 那";
+	mes "麼就沒有任何理由不繼續進行我";
+	mes "們的製造了!";
+	mes "我需要時間準備, 稍等下再找我!";
+	
+	if(countitem(@gem) < 30) goto LV4_HACK;
+	delitem @gem, 30;
+	set lv4_weapon, lv4_weapon + 3;
+	close;
+	
+	
+LV4_9_FAIL:
+	if(countitem(@gem) < 10) goto LV4_HACK;
+	delitem @gem, 10;
+	
+	next;
+	mes "[希必拉伊坦]";
+	mes "糟糕啊, 很糟糕啊!";
+	mes "你連一個正確答案都沒有.";
+	mes "我們不能以這樣的結構開始製造.";
+	mes "那麼... 我們是一定要先趕你的";
+	mes "壞運氣的.";
+	mes "10 塊" + @gemstring$ + ", 我們接著來!";
+	next;
+	mes "[希必拉伊坦]";
+	mes "那麼, 我們還需要再玩一次.";
+	mes "如果沒有礦石, 那就去搜集一些.";
+	mes "我不會去其它地方, 所以你不用";
+	mes "太著急.";
+	mes "慢慢來!";
+	close;
+
+
+LV4_9_NOGEM:
+	mes "[希必拉伊坦]";
+	mes "哼. 你好像缺少材料了?";
+	mes "檢查一下吧.";
+	mes "是吧. 我很了解.";
+	close;
+	
+	
+	
+//--------------------------------------------------
+//Weapon Creation
+//--------------------------------------------------
+LV4_12:
+	mes "[希必拉伊坦]";
+	mes "啊, 我準備好了. 好的...";
+	mes "我將為你製造一個非常棒的物品.";
+	mes "... 但是你不能一直看著我!";
+	mes "我不想與任何人分享我的秘密!";
+	next;
+	mes "- 希必拉伊坦拿著所有的材料 -";
+	mes "- 轉過身去, 不讓你看清楚.  -";
+	mes "- 你看著他匆匆忙忙的.      -";
+	mes "- 儘管他使用的方法是多麼的 -";
+	mes "- 簡單原始, 但你還能感覺到 -";
+	mes "- 奇怪的能量聚集在他身邊.  -";
+	next;
+	mes "[希必拉伊坦]";
+	mes "嗯~ 嗯~ 嗯~";
+	mes "啊~ 啊~ 啊~";
+	mes "唷~ 唷~ 唷~";
+	mes "喔~ 喔~ 喔~";
+	mes "哦~ 哦~ 哦~";
+	next;
+	mes "[希必拉伊坦]";
+	mes " ";
+	mes " ";
+	mes "哈哈, 真是的! 唷, 有點難...";
+	mes "是不是很擔心呀? 好, 看下...";
+	next;
+	
+	mes "[希必拉伊坦]";
+	mes "一項大成功! 哈哈哈, 是的, 我";
+	mes "做到了...";
+	mes "這真是個大成功.";
+	mes "喔, 你的武器在這... 來看看,";
+	
+	switch( lv4_weapon ) {
+		case 12:
+			mes "是破甲短劍!";
+			getitem 1225, 1; // 1225,破甲短劍
+			break;
+		case 13:
+			mes "是削刃短劍!";
+			getitem 1224, 1; // 1224,削刃短劍
+			break;
+		case 14:
+			mes "是斯勒特斧!";
+			getitem 1367, 1; // 1367,斯勒特斧
+			break;
+	}
+
+	set lv4_weapon, 0;
+	mes "如此的成功得歸功於我的熟練技";
+	mes "巧, 你應該感謝我啊!";
+	next;
+	
+	mes "[希必拉伊坦]";
+	mes "但你想擁有比較不錯的東西時,";
+	mes "隨時來找我!";
+	mes "我是個很大方的天才, 知道嗎?";
+	mes "要感謝我為你製作的武器哦!";
+	mes "再見!";
+	close;
+
+
+
+//--------------------------------------------------
+// 其它任務
+//--------------------------------------------------
+LV4_7:
+	mes "[希必拉伊坦]";
+	mes "嗯... 我感覺到你有一些奇怪.";
+	mes "我很遺憾的告訴你我不能幫你做";
+	mes "什麼.";
+	mes "希望你旅途安全.";
+	close;
+	
+	
+	
+//--------------------------------------------------
+// 篡改企圖
+//--------------------------------------------------
+LV4_HACK:
+	mes "[希必拉伊坦]";
+	mes "嗯. 似乎有點什麼小問題.";
+	set lv4_weapon, 0;
+	logmes "[" +strcharinfo(0) + "]企圖篡改4 級任務.";
+	close;
+}
+
+//--------------------------------------------------
+// 鐵波茲坦, 製作魔刀 吞神, 暗靈之斧和利剪劍
+//--------------------------------------------------
+
+um_in,156,77,5	script	鐵波茲坦	788,{
+	if(event_umbala < 3) goto LumWord;
+	set @NowWeight, MaxWeight - Weight;
+	if (@NowWeight >= 3000) goto LV4_NOT_OW;
+	mes "- 稍等下! -";
+	mes "- 當前你已經超重了. -";
+	mes "- 請減輕你的負重再來找我. -";
+	close;
+
+	
+LV4_NOT_OW:
+	if(lv4_weapon == 0) goto LV4_0;
+	if(lv4_weapon == 15) goto LV4_15;
+	if(lv4_weapon == 16) goto LV4_16;
+	if(lv4_weapon == 17) goto LV4_16;
+	if(lv4_weapon == 18) goto LV4_16;
+	if(lv4_weapon == 19) goto LV4_19;
+	if(lv4_weapon == 20) goto LV4_19;
+	if(lv4_weapon == 21) goto LV4_19;
+	if(lv4_weapon < 15) goto LV4_14;
+	if(lv4_weapon > 21) goto LV4_14;	
+	end;
+	
+
+LumWord:
+		mes "[鐵波茲坦]";
+		mes "汶巴! 汶巴巴...汶汶! 巴汶巴!";
+		mes "汶汶汶巴巴巴汶汶巴巴汶巴!";
+		mes "汶巴汶巴汶巴汶巴汶哈!";
+		mes "汶汶汶汶汶巴巴巴巴巴巴!";
+	close;
+
+	
+LV4_0:
+	mes "[鐵波茲坦]";
+	mes "嗯... 你讓我覺著有點不對勁兒...";
+	mes "你是一個陌生人... 是不是?";
+	next;
+	mes "[鐵波茲坦]";
+	mes "那我介紹一下我自己.";
+	mes "我叫鐵波茲坦, 是智慧的寶庫也";
+	mes "是汶巴拉的天才...";
+	mes "哈哈哈哈.";
+	next;
+	mes "[鐵波茲坦]";
+	mes "我有兩個夥伴. 一位是有點愚蠢";
+	mes "的希必拉伊坦, 另一位是和你一";
+	mes "樣也是來自外界的聰明的巴佐.";
+	next;
+	mes "[鐵波茲坦]";
+	mes "當然他們都很有才華, 技術也純";
+	mes "熟, 不過我還是擔憂希必拉伊坦,";
+	mes "他做犯過很多愚蠢的錯誤, 可從";
+	mes "來不感到羞愧.";
+	next;
+	mes "[鐵波茲坦]";
+	mes "我教過他們如何掌握汶巴拉裡的";
+	mes "一種神秘能量, 並使用它製造一";
+	mes "些物品...";
+	mes "我聽說在外界有一種叫鍊金術的";
+	mes "類似技術. 可能是這樣叫它的.";
+	next;
+	mes "[鐵波茲坦]";
+	mes "那麼, 你想看看我的技術嗎?";
+	mes "如果你願意的話, 帶給我需要的";
+	mes "材料, 我非常樂意展示我餓才能.";
+	next;
+	
+	switch( select( "好啊.:不, 謝謝." ) ) {
+		case 1:
+			if(BaseLevel >= 70) goto L4_0_1;
+			
+			mes "[鐵波茲坦]";
+			mes "Sebelumnya saya harus menekankan ini";
+			mes "Barang spesial ini akan menjadi berbahaya jika kamu sendiri masih lemah";
+			mes "Kamu harus lebih berpengalaman lagi anak muda";
+			mes "Naikan level kamu terlebih dahulu";
+			mes "jika kamu sudah merasa kuat kembalilah kesini kembali";
+			mes "Sampai jumpa ~~";
+			break;
+L4_0_1:
+			mes "[鐵波茲坦]";
+			mes "好奇心呀... 這才能冒險家...";
+			mes "好. 讓我告訴你需要的材料.";
+			mes "我希望你能把他們記下來.";
+			mes "雖然數量並不是很多.";
+			next;
+			mes "[鐵波茲坦]";
+			mes "我需要10 塊黃金, 50 片鋼鐵和";
+			mes "10 塊華麗金屬作為基本材料...";
+			mes "還需要對特定物品施予特殊魔法.";
+			mes "所以, 我還需要一些稀有礦石...";
+			next;
+			mes "[鐵波茲坦]";
+			mes "請帶給我30 塊金雲母, 或橄欖";
+			mes "石或是玫瑰石英.";
+			mes "你帶來的每一種礦石都會施予不";
+			mes "同的屬性, 我的製造物就會有不";
+			mes "同的特色.";
+			next;
+			mes "[鐵波茲坦]";
+			mes "不過, 要知道我不確定會製造出";
+			mes "什麼物品.";
+			mes "我的知識受到鍊金術界的很多因";
+			mes "素的限制.";
+			mes "也許不是你期待的, 可你還是得";
+			mes "接受結果.";
+			next;
+			mes "[鐵波茲坦]";
+			mes "這意思就是說, 這一切全靠運氣.";
+			mes "我們遲些再談吧... 你先去準備";
+			mes "材料.";
+			mes "等你準備好的時候再回來.";
+			mes "我會在這裡等你.";
+			
+			set lv4_weapon, 15;
+			break;
+		case 2:
+			mes "[鐵波茲坦]";
+			mes "噢... 我明白了. 都聽你的.";
+			mes "但是, 聽到你這樣說我有點失望.";
+			mes "我會完全展示我的能力的.";
+			mes "當你改變心意後, 就回來找我.";
+			break;			
+	}	
+	close;
+	
+
+
+//--------------------------------------------------
+// 黃金, 鋼鐵, 華麗金屬檢查 + 選擇魔法石
+//--------------------------------------------------
+LV4_15:
+	if(countitem($@LV4_Gold) < 10) goto LV4_15_FAIL;
+	if(countitem($@LV4_Steel) < 50) goto LV4_15_FAIL;
+	if(countitem($@LV4_Emperium) < 10) goto LV4_15_FAIL;
+
+	mes "[鐵波茲坦]";
+	mes "啊~ 回來得真早.";
+	mes "讓我看看... 你準備的所有基本";
+	mes "材料... 還有我需要的其它東西,";
+	mes "對吧?";
+	mes "你都帶來了嗎?";
+	next;
+	
+	if (countitem($@LV4_Phlogopite) >= 30 && countitem($@LV4_Olivine) >= 30 && countitem($@LV4_Rose_Quartz) >= 30) goto LV4_15_POR;
+	if (countitem($@LV4_Phlogopite) >= 30 && countitem($@LV4_Olivine) >= 30) goto LV4_15_PO;
+	if (countitem($@LV4_Phlogopite) >= 30 && countitem($@LV4_Rose_Quartz) >= 30) goto LV4_15_PR;
+	if (countitem($@LV4_Olivine) >= 30 && countitem($@LV4_Rose_Quartz) >= 30) goto LV4_15_OR;
+	if (countitem($@LV4_Phlogopite) >= 30) goto LV4_15_P;
+	if (countitem($@LV4_Olivine) >= 30) goto LV4_15_O;
+	if (countitem($@LV4_Rose_Quartz) >= 30) goto LV4_15_R;
+	goto LV4_15_NOGEM;
+	end;
+
+
+LV4_15_POR:	
+	mes "[鐵波茲坦]";
+	mes "你把它們都帶來了.";
+	mes "不過, 你只能一次使用一種.";
+	mes "選一種這次你想使用的.";
+	next;
+			
+	switch( select( "金雲母:橄欖石:玫瑰石英" ) ) {
+		case 1:
+			mes "[鐵波茲坦]";
+			mes "金雲母... 好吧. 在我們開始前,";
+			set @gem, $@LV4_Phlogopite;
+			set @gemstring$,"金雲母";
+			break;
+		case 2:
+			mes "[鐵波茲坦]";
+			mes "橄欖石... 好吧. 在我們開始前,";
+			set @gem, $@LV4_Olivine;
+			set @gemstring$,"橄欖石";
+			break;
+		case 3:
+			mes "[鐵波茲坦]";
+			mes "玫瑰石英.... 好吧. 在我們開始前,";
+			set @gem, $@LV4_Rose_Quartz;
+			set @gemstring$,"玫瑰石英";
+			break;
+	}
+	
+	goto LV4_15_PICK;
+	end;
+	
+	
+LV4_15_PO:
+	mes "[鐵波茲坦]";
+	mes "哈哈哈, 我叫你隨便帶一種, 可";
+	mes "你帶來了兩種.";
+	mes "你只可以使用其中一種礦石.";
+	mes "哪種你更想使用?";
+	next;
+	
+	switch( select( "金雲母:橄欖石" ) ) {
+		case 1:
+			mes "[鐵波茲坦]";
+			mes "金雲母... 好吧. 在我們開始前,";
+			set @gem, $@LV4_Phlogopite;
+			set @gemstring$,"金雲母";
+			break;
+		case 2:
+			mes "[鐵波茲坦]";
+			mes "橄欖石... 好吧. 在我們開始前,";
+			set @gem, $@LV4_Olivine;
+			set @gemstring$,"橄欖石";
+			break;
+	}
+	
+	goto LV4_15_PICK;
+	end;
+	
+
+LV4_15_PR:	
+	mes "[鐵波茲坦]";
+	mes "哈哈哈, 我叫你隨便帶一種, 可";
+	mes "你帶來了兩種.";
+	mes "你只可以使用其中一種礦石.";
+	mes "哪種你更想使用?";
+	next;
+	
+	switch( select( "金雲母:玫瑰石英" ) ) {
+		case 1:
+			mes "[鐵波茲坦]";
+			mes "金雲母... 好吧. 在我們開始前,";
+			set @gem, $@LV4_Phlogopite;
+			set @gemstring$,"金雲母";
+			break;
+		case 2:
+			mes "[鐵波茲坦]";
+			mes "玫瑰石英.... 好吧. 在我們開始前,";
+			set @gem, $@LV4_Rose_Quartz;
+			set @gemstring$,"玫瑰石英";
+			break;
+	}
+	
+	goto LV4_15_PICK;
+	end;
+	
+	
+LV4_15_OR:	
+	mes "[鐵波茲坦]";
+	mes "哈哈哈, 我叫你隨便帶一種, 可";
+	mes "你帶來了兩種.";
+	mes "你只可以使用其中一種礦石.";
+	mes "哪種你更想使用?";
+	next;
+	
+	switch( select( "橄欖石:玫瑰石英" ) ) {
+			case 1:
+				mes "[鐵波茲坦]";
+				mes "橄欖石... 好吧. 在我們開始前,";
+				set @gem, $@LV4_Olivine;
+				set @gemstring$,"橄欖石";
+				break;
+			case 2:
+				mes "[鐵波茲坦]";
+				mes "玫瑰石英.... 好吧. 在我們開始前,";
+				set @gem, $@LV4_Rose_Quartz;
+				set @gemstring$,"玫瑰石英";
+				break;
+	}
+	
+	goto LV4_15_PICK;
+	end;
+	
+	
+LV4_15_P:
+	mes "[鐵波茲坦]";
+	mes "金雲母... 好吧. 在我們開始前,";
+	set @gem, $@LV4_Phlogopite;
+	set @gemstring$,"金雲母";
+	goto LV4_15_PICK;
+	end;
+		
+		
+LV4_15_O:
+	mes "[鐵波茲坦]";
+	mes "橄欖石... 好吧. 在我們開始前,";
+	set @gem, $@LV4_Olivine;
+	set @gemstring$,"橄欖石";
+	goto LV4_15_PICK;
+	end;
+	
+	
+LV4_15_R:
+	mes "[鐵波茲坦]";
+	mes "玫瑰石英.... 好吧. 在我們開始前,";
+	set @gem, $@LV4_Rose_Quartz;
+	set @gemstring$,"玫瑰石英";
+	goto LV4_15_PICK;
+	end;
+	
+	
+LV4_15_PICK:
+	mes "我們要先做一件事.";
+	mes "那就是, 測測你的運氣.";
+	mes "就像你知道的, 我可不能保證我";
+	mes "可以立刻為你製造.";
+	next;
+	mes "[鐵波茲坦]";
+	mes "如果在開始前, 你能夠提升你的";
+	mes "運氣, 我們將會成功製造.";
+	next;
+	mes "[鐵波茲坦]";
+	mes "現在你一定好奇我們要做什麼來";
+	mes "提升你的運氣.";
+	mes "很簡單, 我們要玩讀心術的遊戲.";
+	mes "我現在想我最喜歡的4 種魔物中";
+	mes "的一種, 你來猜那魔物是什麼.";
+	next;
+	mes "[鐵波茲坦]";
+	mes "你至少要在5 次中答對1 次. 這";
+	mes "不怎麼難吧.";
+	mes "如果你回答失敗了, 我們得做點";
+	mes "什麼來驅趕的壞運氣了.";
+	next;
+	mes "[鐵波茲坦]";
+	mes "我會拿走10 塊你選的特別礦石.";
+	mes "好吧, 我明白這聽起來不怎麼誘";
+	mes "人, 但這是唯一的方法.";
+	mes "這比要花費30 塊礦石卻仍然制";
+	mes "作失敗要好的多吧, 是不是?";
+	next;
+	mes "[鐵波茲坦]";
+	mes "好, 現在我需要些時間準備...";
+	mes "稍等下再來找我!";
+	
+	if(countitem($@LV4_Gold) < 10) goto LV4_HACK;
+	if(countitem($@LV4_Steel) < 50) goto LV4_HACK;
+	if(countitem($@LV4_Emperium) < 10) goto LV4_HACK;
+	delitem $@LV4_Gold, 10;
+	delitem $@LV4_Steel, 50;
+	delitem $@LV4_Emperium, 10;
+	if(@gem == $@LV4_Phlogopite) set lv4_weapon, 16;
+	if(@gem == $@LV4_Olivine) set lv4_weapon, 17;
+	if(@gem == $@LV4_Rose_Quartz) set lv4_weapon, 18; 
+	close;
+
+
+LV4_15_NOGEM:
+	mes "[鐵波茲坦]";
+	mes "嗯... 在你帶來的材料中, 我沒";
+	mes "有找到任何礦石...";
+	mes "請帶給我30 塊金雲母, 或橄欖";
+	mes "石或是玫瑰石英.";
+	close;
+
+
+LV4_15_FAIL:
+	mes "[鐵波茲坦]";
+	mes "我需要10 塊黃金, 50 片鋼鐵和";
+	mes "10 塊華麗金屬作為基本材料...";
+	mes "還需要對特定物品施予特殊魔法.";
+	mes "所以, 我還需要一些稀有礦石...";
+	next;
+	mes "[鐵波茲坦]";
+	mes "請帶給我30 塊金雲母, 或橄欖";
+	mes "石或是玫瑰石英.";
+	mes "你帶來的每一種礦石都會施予不";
+	mes "同的屬性, 我的製造物就會有不";
+	mes "同的特色.";
+	close;
+
+
+
+//--------------------------------------------------
+// 猜猜看遊戲
+//--------------------------------------------------
+LV4_16:
+	if(lv4_weapon == 16) set @gem, $@LV4_Phlogopite;
+	if(lv4_weapon == 17) set @gem, $@LV4_Olivine;
+	if(lv4_weapon == 18) set @gem, $@LV4_Rose_Quartz;
+	if(countitem(@gem) < 30) goto LV4_16_NOGEM; 
+	
+	mes "[鐵波茲坦]";
+	mes "很好, 我們開始吧!";
+	mes "很簡單. 有4 種我喜歡的魔物.";
+	mes "我將從4 個之中想一個魔物, 你";
+	mes "來猜是什麼.";
+	mes "一共會進行5 次遊戲, 而你至少";
+	mes "要在5 次中答對一次. 簡單吧?";
+	next;
+	mes "[鐵波茲坦]";
+	mes "這是非常精彩的增加運氣的遊戲!";
+	mes "那麼, 你最好準備好了.";
+	next;
+	
+	set @dap, 0;
+	set @correct[0],1;
+	for( set @i, 1; @i <= 5; set @i, @i + 1 ) {
+		mes "[鐵波茲坦]";
+		
+		if(@i == 1) mes "我最喜歡巴風特, 黑暗領主, ";
+		if(@i == 1) mes "血腥騎士, 和冰暴騎士這些魔物.";
+		
+		mes "現在, 猜猜我現在想得是哪一個.";
+		next;
+		set @mons, rand(1, 4);
+		switch( select( "巴風特:黑暗領主:血腥騎士:冰暴騎士" ) ) {
+				case 1:
+					set @correct[@i], 1;
+					if(@mons == 1) set @dap, @dap + 1;
+					break;
+
+				case 2:
+					set @correct[@i], 2;
+					if(@mons == 2) set @dap, @dap + 1;
+					break;
+
+				case 3:
+					set @correct[@i], 3;
+					if(@mons == 3) set @dap, @dap + 1;
+					break;
+
+				case 4:
+					set @correct[@i], 4;
+					if(@mons == 4) set @dap, @dap + 1;
+					break;
+		}
+	}
+
+	mes "[鐵波茲坦]";
+	mes "很好, 結束了! 讓我檢查下你的";
+	mes "答案. 看看你所猜的魔物...";
+	next;
+	mes "[鐵波茲坦]";
+
+	for( set @i, 1; @i <= 5; set @i, @i + 1 ) {
+		if(@correct[@i] == 1) mes "巴風特";
+		if(@correct[@i] == 2) mes "黑暗領主";
+		if(@correct[@i] == 3) mes "血腥騎士";
+		if(@correct[@i] == 4) mes "冰暴騎士";
+	}
+
+	if(@dap < 1) goto LV4_16_FAIL;
+	
+	next;
+	mes "[鐵波茲坦]";
+	mes "你答對了" + @dap + " 次.";
+	mes "你的運氣還很好嘛.";
+	mes "我需要時間準備, 稍等下再找我.";
+	
+	if(countitem(@gem) < 30) goto LV4_HACK;
+	delitem @gem, 30;
+	set lv4_weapon, lv4_weapon + 3;
+	close;
+	
+	
+LV4_16_FAIL:
+	if(countitem(@gem) < 10) goto LV4_HACK;
+	delitem @gem, 10;
+	
+	next;
+	mes "[鐵波茲坦]";
+	mes "真不幸, 你失敗了...";
+	mes "運氣壞的時候, 還是不要報太大";
+	mes "希望.";
+	mes "那麼, 我們一定要先驅趕你的壞";
+	mes "運氣.";
+	mes "10 塊" + @gemstring$ + ", 我們接著來.";
+	next;
+	mes "[鐵波茲坦]";
+	mes "別灰心.";
+	mes "要知道, 這比要花費30 塊礦石";
+	mes "卻仍然製作失敗要好的多吧.";
+	next;
+	mes "[鐵波茲坦]";
+	mes "如果要準備什麼東西, 就去吧.";
+	mes "我會在這裡等你.";
+	close;
+
+
+LV4_16_NOGEM:
+	mes "[鐵波茲坦]";
+	mes "嗯... 你缺少" + @gemstring$ + ".";
+	mes "查看它的數量, 接續去收集.";
+	close;
+	
+	
+	
+//--------------------------------------------------
+// 武器製造
+//--------------------------------------------------
+LV4_19:
+	mes "[鐵波茲坦]";
+	mes "不錯, 我也準備好了.";
+	mes "我們要開始嗎? 稍等下.";
+	mes "我需要把這些材料圍成一個魔圈.";
+	next;
+	mes "- 希必拉伊坦拿著所有的材料 -";
+	mes "- 他把那些材料圍成一個怪圈 -";
+	mes "- 並且哼唱著一種奇怪的語言 -";
+	mes "- 同時, 他周圍的空氣改變了 -";
+	mes "- 你感覺到在他和材料周圍凝 -";
+	mes "- 聚著某種強大的能量.      -";
+	next;
+	mes "[鐵波茲坦]";
+	mes "要知道這能量不是從我這產生的.";
+	mes "我只用了我的能力來把能量凝聚";
+	mes "在材料中.";
+	mes "這能量來自死者國家.";
+	next;
+	mes "[鐵波茲坦]";
+	mes "結果得聽天由命了.";
+	mes "我們一起祈禱好的結果吧.";
+	mes "嗯嗯嗯!";
+	next;
+	mes "- 過了一會... 你發現這些材 -";
+	mes "- 料凝聚在一起並結合成一件 -";
+	mes "- 新的物品.                -";
+	mes "- 這意味著是失敗還是成功?! -";
+	next;
+	mes "[鐵波茲坦]";
+	mes "?!... 上帝一定會保佑你!";
+	mes "我真不敢相信我能製造這麼稀有";
+	mes "的武器!";
+	mes "是的, 我已故的父親曾告訴我這";
+	mes "武器的名字.";
+	
+	switch( lv4_weapon ) {
+		case 19:
+			mes "它是利剪劍.";
+			getitem 1134, 1; // 1134,利剪劍
+			break;
+		case 20:
+			mes "它是魔刀 吞神.";
+			getitem 1139, 1; // 1139,魔刀 吞神
+			break;
+		case 21:
+			mes "它是暗靈之斧.";
+			getitem 1365, 1; // 1365,暗靈之斧
+			break;
+	}
+
+	set lv4_weapon, 0;
+	mes "[鐵波茲坦]";
+	mes "那麼, 這是我用你帶來的材料制";
+	mes "造的, 現在它是你的了.";
+	mes "我只能幫你製造物品, 而且我很";
+	mes "高興把它給你.";
+	next;
+	mes "[鐵波茲坦]";
+	mes "好的, 如果你還想再知道物品,";
+	mes "就來找我... 哈哈哈.";
+	mes "製造的武器都是你的.";
+	close;
+
+
+
+//--------------------------------------------------
+// 其它任務
+//--------------------------------------------------
+LV4_14:
+	mes "[鐵波茲坦]";
+	mes "嗯... 你好像沒跟我有生意來往,";
+	mes "是不是?";
+	mes "別認為我是個老笨蛋.";
+	mes "當男人變老的時候, 他就可以看";
+	mes "穿別人的心思.";
+	mes "繼續做你要做的事吧.";
+	mes "我不想打擾你.";
+	close;
+	
+	
+	
+//--------------------------------------------------
+// 修改企圖
+//--------------------------------------------------
+LV4_HACK:
+	mes "[鐵波茲坦]";
+	mes "嗯. 似乎有點什麼小問題.";
+	set lv4_weapon, 0;
+	logmes "[" +strcharinfo(0) + "]企圖篡改4 級任務.";
+	close;
+}
+
+//--------------------------------------------------
+// Bill Thayer, Gives hints for S grade weapons quests
+//--------------------------------------------------
+
+aldebaran,178,239,3	script	Bill Thayer	712,{
+	// Explain Materials
+	if(lv4_weapon == 26) goto LV4_26;
+	if(lv4_weapon == 27) goto LV4_27;
+	if(lv4_weapon == 28) goto LV4_28;
+	
+	if(lv4_weapon == 35) goto LV4_35;
+	if(lv4_weapon == 36) goto LV4_36;
+	if(lv4_weapon == 37) goto LV4_37;
+
+	if(lv4_weapon == 44) goto LV4_44;
+	if(lv4_weapon == 45) goto LV4_45;
+	if(lv4_weapon == 46) goto LV4_46;
+	
+	if(lv4_weapon == 53) goto LV4_53;
+	if(lv4_weapon == 54) goto LV4_54;
+	if(lv4_weapon == 55) goto LV4_55;
+	
+	// Guide
+	if(lv4_weapon == 22) goto LV4_22;
+	if(lv4_weapon == 23) goto LV4_23;
+		
+	if(lv4_weapon == 31) goto LV4_31;
+	if(lv4_weapon == 32) goto LV4_32;
+	
+	if(lv4_weapon == 40) goto LV4_40;
+	if(lv4_weapon == 41) goto LV4_41;
+	
+	if(lv4_weapon == 49) goto LV4_49;
+	if(lv4_weapon == 50) goto LV4_50;
+	
+	mes "[Bill Thayer]";
+	mes "...I cannot do anything now.";
+	mes "In the past, I used to be a well-known weaponsmith";
+	mes "but now I am just a lonely old man who lost all of his sons.";
+	mes "Please leave me alone.";
+	close;
+
+LV4_27:
+LV4_28:
+LV4_36:
+LV4_37:
+LV4_45:
+LV4_46:
+LV4_54:
+LV4_55:
+	if(lv4_weapon == 27)
+{
+			set @LV4_Gem1Name$, "Peridot";
+			set @LV4_Gem2Name$, "綠松石";
+			set @LV4_Gem3Name$, "瑪瑙";
+}
+	if(lv4_weapon == 28)
+{
+			set @LV4_Gem1Name$, "金雲母";
+			set @LV4_Gem2Name$, "輝石";
+			set @LV4_Gem3Name$, "玫瑰石英";
+}
+	if(lv4_weapon == 36)
+{
+			set @LV4_Gem1Name$, "白雲母";
+			set @LV4_Gem2Name$, "玫瑰石英";
+			set @LV4_Gem3Name$, "Peridot";
+}
+	if(lv4_weapon == 37)
+{
+			set @LV4_Gem1Name$, "黑雲母";
+			set @LV4_Gem2Name$, "瑪瑙";
+			set @LV4_Gem3Name$, "黃水晶";
+}
+	if(lv4_weapon == 45)
+{
+			set @LV4_Gem1Name$, "綠松石";
+			set @LV4_Gem2Name$, "黑雲母";
+			set @LV4_Gem3Name$, "玫瑰石英";
+}
+	if(lv4_weapon == 46)
+{
+			set @LV4_Gem1Name$, "黃水晶";
+			set @LV4_Gem2Name$, "輝石";
+			set @LV4_Gem3Name$, "金雲母";
+}
+	if(lv4_weapon == 54)
+{
+			set @LV4_Gem1Name$, "白雲母";
+			set @LV4_Gem2Name$, "瑪瑙";
+			set @LV4_Gem3Name$, "黃水晶";
+}
+	if(lv4_weapon == 55)
+{
+			set @LV4_Gem1Name$, "輝石";
+			set @LV4_Gem2Name$, "綠松石";
+			set @LV4_Gem3Name$, "金雲母";
+}
+
+	mes "[Bill Thayer]";
+	mes "Hmm...it seems that you need 30 of";
+	mes @LV4_Gem1Name$ + ", " + @LV4_Gem2Name$ + ", and " + @LV4_Gem3Name$;
+	mes "I am sure that those are the materials...";
+	mes "but I cannot guarantee anything about the result...";
+	next;
+	mes "[Bill Thayer]";
+	mes "My sons passed away before we finished this research...";
+	mes "Hahaha...let's not talk about it.";
+	mes "I told you what you need anyway.";
+	close;
+
+
+LV4_26:
+LV4_35:
+LV4_44:
+LV4_53:
+	mes "[Bill Thayer]";
+	if(lv4_weapon == 26) mes "What, Kayron's research?";
+	if(lv4_weapon == 35) mes "What, Reyghema's research?";
+	if(lv4_weapon == 44) mes "What? Hein's research?";
+	if(lv4_weapon == 53) mes "What? Waltboughst's research?";	
+	mes "How do you know him?";
+	mes "Were you a friend of him when he was still alive?";
+	mes "Ah....there must an act of providence.";
+	next;
+	
+	set lv4_weapon, lv4_weapon + rand(1, 2);
+	
+	switch( lv4_weapon ) {
+		case 27:
+			set @LV4_Gem1Name$, "Peridot";
+			set LV4_Gem1, $@LV4_Olivine;
+			set @LV4_Gem2Name$, "綠松石";
+			set LV4_Gem2, $@LV4_Turquoise;
+			set @LV4_Gem3Name$, "瑪瑙";
+			set LV4_Gem3, $@LV4_Agate;
+			break;
+		case 28:
+			set @LV4_Gem1Name$, "金雲母";
+			set LV4_Gem1, $@LV4_Phlogopite;
+			set @LV4_Gem2Name$, "輝石";
+			set LV4_Gem2, $@LV4_Pyroxene;
+			set @LV4_Gem3Name$, "玫瑰石英";
+			set LV4_Gem3, $@LV4_Rose_Quartz;
+			break;
+		case 36:
+			set @LV4_Gem1Name$, "白雲母";
+			set LV4_Gem1, $@LV4_Muscovite;
+			set @LV4_Gem2Name$, "玫瑰石英";
+			set LV4_Gem2, $@LV4_Rose_Quartz ;
+			set @LV4_Gem3Name$, "Peridot";
+			set LV4_Gem3, $@LV4_Olivine;
+			break;
+		case 37:
+			set @LV4_Gem1Name$, "黑雲母";
+			set LV4_Gem1, $@LV4_Biotite;
+			set @LV4_Gem2Name$, "瑪瑙";
+			set LV4_Gem2, $@LV4_Agate;
+			set @LV4_Gem3Name$, "黃水晶";
+			set LV4_Gem3, $@LV4_Citrine;
+			break;
+		case 45:
+			set @LV4_Gem1Name$, "綠松石";
+			set LV4_Gem1, $@LV4_Turquoise;
+			set @LV4_Gem2Name$, "黑雲母";
+			set LV4_Gem2, $@LV4_Biotite;
+			set @LV4_Gem3Name$, "玫瑰石英";
+			set LV4_Gem3, $@LV4_Rose_Quartz;
+			break;
+		case 46:
+			set @LV4_Gem1Name$, "黃水晶";
+			set LV4_Gem1, $@LV4_Citrine;
+			set @LV4_Gem2Name$, "輝石";
+			set LV4_Gem2, $@LV4_Pyroxene;
+			set @LV4_Gem3Name$, "金雲母";
+			set LV4_Gem3, $@LV4_Phlogopite;
+			break;
+		case 54:
+			set @LV4_Gem1Name$, "白雲母";
+			set LV4_Gem1, $@LV4_Muscovite;
+			set @LV4_Gem2Name$, "瑪瑙";
+			set LV4_Gem2, $@LV4_Agate;
+			set @LV4_Gem3Name$, "黃水晶";
+			set LV4_Gem3, $@LV4_Citrine;
+			break;
+		case 55:
+			set @LV4_Gem1Name$, "輝石";
+			set LV4_Gem1, $@LV4_Pyroxene;
+			set @LV4_Gem2Name$, "綠松石";
+			set LV4_Gem2, $@LV4_Turquoise;
+			set @LV4_Gem3Name$, "金雲母";
+			set LV4_Gem3, $@LV4_Phlogopite;
+			break;
+	}
+	
+	mes "[Bill Thayer]";
+	mes "Hmm...it seems that you need 30 of";
+	mes @LV4_Gem1Name$ + ", " + @LV4_Gem2Name$ + ", and " + @LV4_Gem3Name$;
+	mes "I am sure that those are the materials...";
+	mes "but I cannot guarantee anything about the result...";
+	next;
+	mes "[Bill Thayer]";
+	mes "My sons passed away before we finished this research...";
+	mes "Hahaha...let's not talk about it.";
+	mes "I told you what you need anyway.";
+	close;	
+
+
+LV4_22:
+LV4_23:
+	mes "[Bill Thayer]";
+	mes "Oh well, I told you already";
+	mes "that there is nothing I can do for you...";
+	mes "since my sons are all gone...why are";
+	mes "you wasting my breath? ^4D4DFFYou are helpless.^000000";
+	set lv4_weapon, 23;
+	next;
+	mes "[Bill Thayer]";
+	mes "...you just made me";
+	mes "miss my sons again...";
+	mes "Please leave me alone.";
+	close;
+	
+
+LV4_31:
+LV4_32:
+	mes "[Bill Thayer]";
+	mes "All of my sons broke my heart by dying young...";
+	mes "...youth...what is youth?";
+	mes "^4D4DFFThat means that you never regret anything!^000000";
+	set lv4_weapon, 32;
+	next;
+	mes "[Bill Thayer]";
+	mes "That was what I used to tell to my sons.";
+	mes "Please remember that,";
+	mes "never regret anything that you have done.";
+	mes "However, in order to do that, you must";
+	mes "do everything right...that's all I can tell you for now.";
+	close;
+	
+		
+LV4_40:
+LV4_41:
+	mes "[Bill Thayer]";
+	mes "...no matter how much you are willing to pay me,";
+	mes "I am not going to forge any weapons.";
+	mes "Even when I was actively forging weapons,";
+	mes "I didn't accept money from my clients.";
+	mes "You know why?";
+	next;
+	mes "[Bill Thayer]";
+	mes "It brings me bad luck ^4D4DFFto^000000";
+	mes "^4D4DFFforge a good weapon.^000000";
+	mes "Therefore I didn't receive money from them.";
+	set lv4_weapon, 41;
+	next;
+	mes "[Bill Thayer]";
+	mes "Well, I am not going to do so";
+	mes "even if you offer me something else other than money";
+	mes "...unless all of my sons come back";
+	mes "alive....";
+	close;
+
+
+LV4_49:
+LV4_50:
+		mes "[Bill Thayer]";
+		mes "...do you not have anything to do?";
+		mes "I hope you stop bothering me";
+		mes "and trying your best for your work.";
+		mes "Ah...trying best does not always";
+		mes "result in a success though.";
+		next;
+		mes "[Bill Thayer]";
+		mes "However, ^4D4DFFall the successful men^000000";
+		mes "^4D4DFFin the history tried their best!^000000";
+		mes "I hope you will remember that.";
+		mes "I used to tell this to my sons when they were alive.";
+		mes "Hahaha...";
+		set lv4_weapon, 50;
+		close;
+}
+
+//--------------------------------------------------
+// Kayron, creates Longinus' Spear, Guillotine, Great Axe and Brionac
+//--------------------------------------------------
+
+niflheim,240,193,3	script	Kayron	794,{
+	set @NowWeight, MaxWeight - Weight;
+	if (@NowWeight >= 3000) goto LV4_NOT_OW;
+	mes "- Wait a minute! -";
+	mes "- You are currently overweight. -";
+	mes "- Please lose some Weight -";
+	mes "- and try again. -";
+	close;
+
+	
+LV4_NOT_OW:
+	if(BaseLevel >= 80) goto LV4_LEVEL_PASS;
+	mes "[Kayron]";
+	mes "Bah, I cannot believe";
+	mes "that such a weak man like you even came here.";
+	mes "You have an invisible sign on your forehead";
+	mes "that indicates you are a weakling. Be strong first.";
+	close;
+	
+
+LV4_LEVEL_PASS:
+	if(lv4_weapon == 0) goto LV4_0;
+	if(lv4_weapon < 22) goto LV4_21;
+	if(lv4_weapon == 22) goto LV4_22;
+	if(lv4_weapon == 23) goto LV4_23;
+	if(lv4_weapon == 24) goto LV4_24;
+	if(lv4_weapon == 25) goto LV4_25;
+	if(lv4_weapon == 26) goto LV4_26;
+	if(lv4_weapon == 27) goto LV4_27;
+	if(lv4_weapon == 28) goto LV4_28;
+	if(lv4_weapon == 29) goto LV4_29;
+	if(lv4_weapon == 30) goto LV4_30;
+	if(lv4_weapon > 30) goto LV4_31;
+	end;
+
+
+LV4_0:
+LV4_22:
+	mes "[Kayron]";
+	mes "I used to be called Kayron when I was alive.";
+	mes "But now I am nothing but";
+	mes "a ghost wandering this place.";
+	mes "I am worthless...I cannot do anything";
+	mes "without a body...";
+	next;
+	
+	if(lv4_weapon == 0) goto LV4_0_ASK;
+	
+	mes "[Kayron]";
+	mes "Ah...I cannot remember what I was going to say...";
+	mes "Waaahhh.....I cannot remember....";
+	mes "My memory is gone...!";
+	close;
+	
+LV4_0_ASK:
+	switch( select( "Show interest.:Ignore him." ) ) {
+		case 1:
+			mes "[Kayron]";
+			mes "Ah...I cannot remember what I was going to say...";
+			mes "Waaahhh.....I cannot remember....";
+			mes "My memory is gone...!";
+			set lv4_weapon, 22;
+			close;
+			break;
+		case 2:
+			mes "- Because you decided to ignore him, -";
+			mes "- you are no longer able to hear him. -";
+			close;
+			break;
+	}
+	end;
+	
+
+LV4_21:
+LV4_31:
+	mes "[Kayron]";
+	mes "I feel something different about you.";
+	mes "Did you come here with a purpose?";
+	mes "I am envious of you...";
+	close;
+
+
+LV4_23:
+	mes "[Kayron]";
+	mes "I used to be called Kayron when I was alive.";
+	mes "But now I am nothing but";
+	mes "a ghost wandering this place.";
+	mes "I am worthless...I cannot do anything";
+	mes "without a body...";
+	next;
+	set @dap1$, "You are helpless.";
+	input @answer1$;
+	if(@answer1$ == @dap1$) goto LV4_23_CORRECT;
+	mes "[Kayron]";
+	mes "...? What did you just say?";
+	mes "I am sorry but I don't think I understood you.";
+	close;
+
+LV4_23_CORRECT:
+	mes "[Kayron]";
+	mes "Yes, You are helpless...?! Eh?";
+	mes "That was my father's favorite saying!";
+	mes "Whoa?! Ah...";
+	mes "Yes...I forgot that I am dead already.";
+	mes "Why did you make me recall something from my past?";
+	mes "It is no use now...";
+	next;
+	mes "[Kayron]";
+	mes "But I want to do something in return...";
+	mes "since you made me find a piece of my mind.";
+	mes "I used to be a weaponsmith in the past,";
+	mes "therefore I am going to forge a nice weapon for you.";
+	next;
+	mes "[Kayron]";
+	mes "But you have to gather the materials for me.";
+	mes "As you see, I do not have a body";
+	mes "that would allow me to touch other objects...";
+	mes "So you got to help me with that.";
+	next;
+	mes "[Kayron]";
+	mes "Luckily this place is filled with mysterious energy,";
+	mes "that makes my work easier!";
+	mes "Heh, even if I fail to forge one,";
+	mes "I don't have to worry about dying.";
+	mes "Because I am dead already! Muhahahaha!";
+	next;
+	mes "[Kayron]";
+	mes "I will talk to you in a while.";
+	mes "I am trying to think of the receipe...";
+	set lv4_weapon, 24;
+	close;
+	
+	
+LV4_25:
+	if(countitem($@LV4_Hammer_Of_Blacksmith) < 2) goto LV4_25_BASE_MAT;
+	if(countitem($@LV4_Emperium_Anvil) < 1) goto LV4_25_BASE_MAT;
+	if(countitem($@LV4_Illusion_Flower) < 1) goto LV4_25_BASE_MAT;
+	if(countitem($@LV4_Gold) < 20) goto LV4_25_BASE_MAT;
+	
+	mes "[Kayron]";
+	mes "Oh...you brought everything I need!";
+	mes "You are a reliable person unlike your appearance.";
+	mes "But here is the thing...";
+	mes "There are some more materials I need...";
+	mes "But I cannot think of any of them...my memory";
+	mes "is unclear...arrrrph...";
+	next;
+	mes "[Kayron]";
+	mes "I need to think about that a little longer.";
+	mes "I know that I really need those materials...awwww....";
+	mes "Do you have any idea to bring my memory back?";
+	mes "At the same time, rest assured that the materials";
+	mes "you brought will be used for my creation. So let me keep them for you.";
+	
+	if(countitem($@LV4_Hammer_Of_Blacksmith) < 2) goto LV4_HACK;
+	if(countitem($@LV4_Emperium_Anvil) < 1) goto LV4_HACK;
+	if(countitem($@LV4_Illusion_Flower) < 1) goto LV4_HACK;
+	if(countitem($@LV4_Gold) < 20) goto LV4_HACK;
+	delitem $@LV4_Hammer_Of_Blacksmith, 2;
+	delitem $@LV4_Emperium_Anvil, 1;
+	delitem $@LV4_Illusion_Flower, 1;
+	delitem $@LV4_Gold, 20;
+	set lv4_weapon, 26;
+	close;
+
+LV4_24:
+LV4_25_BASE_MAT:
+	switch( lv4_weapon ) {
+		case 24:
+			mes "[Kayron]";
+			mes "Oh, you came back at a right time.";
+			mes "I just finished my thoughts. Let me tell you one thing.";
+			mes "I cannot guarantee you which weapon will come out of this.";
+			mes "Also you must be willing to take a risk as well...";
+			mes "I guess that the result will be affected by the power";
+			mes "of Nifflheim at the time I make.";
+			next;
+			mes "[Kayron]";
+			mes "Let me give you the list of materials";
+			mes "I need. They are quite a lot,";
+			mes "so write them down if you need.";
+			break;
+		case 25:
+			mes "[Kayron]";
+			mes "I will tell you the list of materials I need again.";
+			mes "I think I need a lot of materials...so";
+			mes "write them down if you need.";
+			break;
+		}
+		next;
+		mes "[Kayron]";
+		mes "I need 2 高級鐵砧,";
+		mes "1 華麗金屬鐵砧, 1 幻想花 and 20 黃金...";
+		next;
+		mes "[Kayron]";
+		mes "Bring these to me first. I am kind of worried";
+		mes "that I forgot something...but I will try to remember";
+		mes "while waiting for you to bring these items.";
+		next;
+		mes "[Kayron]";
+		mes "Have a safe travel.";
+		set lv4_weapon, 25;
+		close;
+		
+
+LV4_27:
+LV4_28:
+	if(countitem(LV4_Gem1) < 30) goto LV4_27_NOGEM;
+	if(countitem(LV4_Gem2) < 30) goto LV4_27_NOGEM;
+	if(countitem(LV4_Gem3) < 30) goto LV4_27_NOGEM;
+	mes "[Kayron]";
+	mes "...Um? The items that you brought to me seem";
+	mes "to be good materials for my creation...";
+	mes "Give them to me, I shall try first!";
+	next;
+	mes "[Kayron]";
+	mes "Oh...I was right! How did you";
+	mes "know these are materials I need?";
+	mes "Great, give me a moment!";
+	next;
+	mes "[Kayron]";
+	mes "...wait, I must test your luck first.";
+	mes "Since I am not sure about the result,";
+	mes "we should place trust in luck for the result of my creation.";
+	mes "You must have good luck...";
+	next;
+	mes "[Kayron]";
+	mes "We are going to play 'Rock, Paper, Scissors'.";
+	mes "You must win at least 2 out of 3 times.";
+	mes "If you fail, you must throw away a large amount";
+	mes "of one of the 3 kinds of ore that you have brought.";
+	mes "It is for driving away your bad luck.";
+	next;
+	mes "[Kayron]";
+	mes "I will give you a piece of paper.";
+	mes "You will write down one among 'Rock, Paper, or Scissors'.";
+	mes "I will do the same at the same time.";
+	mes "We will compare each other's paper after.";
+	next;
+	
+	set @shobu, 0;
+	
+	for( set @i, 1; @i <= 3; set @i, @i + 1 ) {
+		if(@i == 2) mes "[Kayron]";
+		if(@i == 2) mes "Let's play the second one!";
+		if(@i == 3) mes "[Kayron]";
+		if(@i == 3) mes "This will be the last one!";
+		if(@i == 3) mes "Let's compare after this.";
+		set @npchand[@i], rand(1, 3);
+		switch( select( "Scissors:Rock:Paper" ) ) {
+			case 1:
+				set @myhand[@i], 1;
+				if(@npchand[@i] == 3) set @shobu, @shobu + 1;
+				break;
+			case 2:
+				set @myhand[@i], 2;
+				if(@npchand[@i] == 1) set @shobu, @shobu + 1;
+				break;
+			case 3:
+				set @myhand[@i], 3;
+				if(@npchand[@i] == 2) set @shobu, @shobu + 1;
+				break;
+		}
+	}
+		
+	if(countitem(LV4_Gem1) < 30) goto LV4_HACK;
+	if(countitem(LV4_Gem2) < 30) goto LV4_HACK;
+	if(countitem(LV4_Gem3) < 30) goto LV4_HACK;
+
+	if(@shobu > 1) goto LV4_27_WIN;
+
+	switch ( rand(1 ,3) ) {
+		case 1:
+			delitem LV4_Gem1, 30;
+			break;
+		case 2:
+			delitem LV4_Gem2, 30;
+			break;
+		case 3:
+			delitem LV4_Gem3, 30;
+			break;
+	}
+	goto LV4_27_RESULT;
+		
+LV4_27_WIN:
+	delitem LV4_Gem1, 30;
+	delitem LV4_Gem2, 30;
+	delitem LV4_Gem3, 30;
+	set lv4_weapon, lv4_weapon + 2;
+	goto LV4_27_RESULT;
+	
+LV4_27_RESULT:
+	mes "[Kayron]";
+	mes "Okay...I played in the order of...";
+	
+	for( set @i, 1; @i <= 3; set @i, @i + 1 ) {
+		if(@npchand[@i] == 1) mes "Scissors";
+		if(@npchand[@i] == 2) mes "Rock";
+		if(@npchand[@i] == 3) mes "Paper";
+	}
+
+	next;
+	mes "[Kayron]";
+	mes "You did in the order of...";
+
+	for( set @i, 1; @i <= 3; set @i, @i + 1 ) {
+		if(@myhand[@i] == 1) mes "Scissors";
+		if(@myhand[@i] == 2) mes "Rock";
+		if(@myhand[@i] == 3) mes "Paper";
+	}
+
+	next;
+
+	if(@shobu > 1) goto LV4_27_SAY_WIN;
+	
+	mes "[Kayron]";
+	mes "Well well well...you lost the game.";
+	mes "Ah~ you were close though...";
+	mes "We must drive away bad luck.";
+	next;
+	mes "[Kayron]";
+	mes "Okay, I will wait here,";
+	mes "go bring me the materials again...";
+	close;
+			
+LV4_27_SAY_WIN:
+	mes "[Kayron]";
+	mes "Let's see...";
+	mes "You won total " + @shobu + " times.";
+	mes "Ah~ you must be really good at game!";
+	mes "Yes, your luck is at its highest!";
+	next;
+	mes "[Kayron]";
+	mes "I am going to keep my promise.";
+	mes "But I need some time to prepare.";
+	mes "Give me the materials now and I will talk to you later.";
+	close;
+
+LV4_26:
+LV4_27_NOGEM:
+	mes "[Kayron]";
+	mes "Arph...it has not gotten into my memory yet.";
+	mes "Awww....this is a problem.";
+	mes "I used to often discuss the materials";
+	mes "with my family...now I cannot remember what they are...";
+	close;
+
+
+LV4_29:
+LV4_30:
+	mes "[Kayron]";
+	mes "Hahaha...you came back at the right time.";
+	mes "The result? Do you want to know about the result?...";
+	mes "Haha...okay...let's see...";
+	next;
+	mes "[Kayron]";
+	mes "...YES! It's a success!";
+	mes "I created the weapon that got me killed last time!";
+	mes "Look at this...haha! I died while making this!";
+	mes "... The name of the weapon is...";
+	
+	
+	switch( rand(1, 2) ) {
+		case 1:
+			if(lv4_weapon == 29) mes "Great Axe! Weee~ I made it!";
+			if(lv4_weapon == 29) getitem 1364 ,1; // 1364,Great_Axe
+			if(lv4_weapon == 30) mes "Longinus's Spear! Weee~ I made it!";
+			if(lv4_weapon == 30) getitem 1469, 1; // 1469,Longinus's_Spear
+			break;
+		case 2:
+			if(lv4_weapon == 29) mes "Guillotine! Weee~ I made it!";
+			if(lv4_weapon == 29) getitem 1369, 1; // 1369,Guillotine
+			if(lv4_weapon == 30) mes "Brionac! Weee~ I made it!";
+			if(lv4_weapon == 30) getitem 1470, 1; // 1470,Brionac
+	}
+	
+	set lv4_weapon, 0;
+	next;
+	mes "[Kayron]";
+	mes "I finally succeeded in the research...";
+	mes "I want to show this result to my father...";
+	mes "He will be really happy for this.";
+	next;
+	mes "[Kayron]";
+	mes "Ah~ I feel my memories are fading again...";
+	mes "If you see me next time...";
+	mes "please let me remember the memories again...";
+	mes "Thank you...";
+	close;
+	
+
+
+//--------------------------------------------------
+//Hack Attempt
+//--------------------------------------------------
+LV4_HACK:
+	mes "[Kayron]";
+	mes "嗯. 似乎有點什麼小問題.";
+	set lv4_weapon, 0;
+	logmes "[" +strcharinfo(0) + "]企圖篡改4 級任務.";
+	close;
+}
+
+//--------------------------------------------------
+// Reyghema, creates Berserk, Tjungkulleti, Rudra's Bow and Brocca(Skewer)
+//--------------------------------------------------
+
+niflheim,99,268,5	script	Reyghema	794,{
+	set @NowWeight, MaxWeight - Weight;
+	if (@NowWeight >= 3000) goto LV4_NOT_OW;
+	mes "- Wait a minute! -";
+	mes "- You are currently overweight. -";
+	mes "- Please lose some Weight -";
+	mes "- and try again. -";
+	close;
+
+	
+LV4_NOT_OW:
+	if(BaseLevel >= 80) goto LV4_LEVEL_PASS;
+	mes "[Reyghema]";
+	mes "Um? Do you have any business with me?";
+	mes "Sorry but I don't. I'm also not";
+	mes "speaking to a weak person like you.";
+	mes "Have a safe travel~";
+	close;
+	
+
+LV4_LEVEL_PASS:
+	if(lv4_weapon == 0) goto LV4_0;
+	if(lv4_weapon < 31) goto LV4_30;
+	if(lv4_weapon == 31) goto LV4_31;
+	if(lv4_weapon == 32) goto LV4_32;
+	if(lv4_weapon == 33) goto LV4_33;
+	if(lv4_weapon == 34) goto LV4_34;
+	if(lv4_weapon == 35) goto LV4_35;
+	if(lv4_weapon == 36) goto LV4_36;
+	if(lv4_weapon == 37) goto LV4_37;
+	if(lv4_weapon == 38) goto LV4_38;
+	if(lv4_weapon == 39) goto LV4_39;
+	if(lv4_weapon > 39) goto LV4_40;
+	end;
+
+
+LV4_0:
+LV4_31:
+	mes "[Reyghema]";
+	mes "Darn it...I didn't want to die!";
+	mes "Well...there is no living thing that wants to die but...";
+	mes "Especially me, I was too young to die!";
+	mes "Youth! ...Ah...I just remember the word.";
+	mes "Speaking of which...I think I usually said something related to that...";
+	next;
+	
+	if(lv4_weapon == 0) goto LV4_0_ASK;
+	
+	mes "[Reyghema]";
+	mes "Ah...I cannot remember what I was going to say...";
+	mes "Waaahhh.....I cannot remember....";
+	mes "My memory is gone...!";
+	close;
+	
+LV4_0_ASK:
+	switch( select( "Show interest.:Igonore him." ) ) {
+		case 1:
+			mes "[Reyghema]";
+			mes "Ah...I cannot remember what I was going to say...";
+			mes "Waaahhh.....I cannot remember....";
+			mes "My memory is gone...!";
+			set lv4_weapon, 31;
+			close;
+			break;
+		case 2:
+			mes "- Because you decided to ignore him, -";
+			mes "- you are no longer able to hear him. -";
+			close;
+			break;
+	}
+	end;
+	
+
+LV4_30:
+LV4_40:
+	mes "[Reyghema]";
+	mes "I feel something different about you.";
+	mes "Did you come here with a purpose?";
+	mes "I am envious of you...";
+	close;
+
+
+LV4_32:
+	mes "[Reyghema]";
+	mes "I used to be called Reyghema when I was alive.";
+	mes "But now I am nothing but";
+	mes "a ghost wandering this place.";
+	mes "I am worthless...I cannot do anything";
+	mes "without a body...";
+	next;
+	set @dap2$, "That means that you never regret anything!";
+	input @answer2$;
+	if(@answer2$ == @dap2$) goto LV4_32_CORRECT;
+	mes "[Reyghema]";
+	mes "What? Do you want to play a game with me or what?";
+	mes "Unfortunately I have something to do...";
+	mes "wait...what was I going to do?";
+	close;
+
+LV4_32_CORRECT:
+	mes "[Reyghema]";
+	mes "...";
+	next;
+	mes "[Reyghema]";
+	mes "...";
+	mes "......";
+	next;
+	mes "[Reyghema]";
+	mes "...";
+	mes "......";
+	mes ".........";
+	next;
+	mes "[Reyghema]";
+	mes "That's right! I am Bill Thayer the Weaponsmith's";
+	mes "second son! And I must forge a weapon";
+	mes "in order to not regret my youth!";
+	mes "Even if I am dead, I cannot give it up!";
+	next;
+	mes "[Reyghema]";
+	mes "Hey you, thank you for letting me have my memory back!";
+	mes "You need to do me another favor!";
+	mes "Bring me some items, I need to forge a weapon.";
+	mes "Once I make one, I will give it to you in return for your favor.";
+	next;
+	mes "[Reyghema]";
+	mes "Reyghema, breathe deeply first...phew~.";
+	mes "Give me a second!";
+	set lv4_weapon, 33;
+	close;
+	
+	
+LV4_34:
+	if(countitem($@LV4_Hammer_Of_Blacksmith) < 2) goto LV4_34_BASE_MAT;
+	if(countitem($@LV4_Emperium_Anvil) < 1) goto LV4_34_BASE_MAT;
+	if(countitem($@LV4_Illusion_Flower) < 1) goto LV4_34_BASE_MAT;
+	if(countitem($@LV4_Gold) < 20) goto LV4_34_BASE_MAT;
+	
+	mes "[Reyghema]";
+	mes "Oh...you brought everything I need!";
+	mes "You are a reliable person unlike you appear.";
+	mes "But here is the thing...";
+	mes "There are some more materials I need...";
+	mes "But I cannot think of any of them...my memory";
+	mes "is unclear...arrrrph...";
+	next;
+	mes "[Reyghema]";
+	mes "I need to think about that a little longer.";
+	mes "I know that I really need those materials...awwww....";
+	mes "Do you have any idea to bring my memory back?";
+	mes "At the same time, rest assured that the materials";
+	mes "you brought will be used for my creation. So let me keep them for you.";
+	
+	if(countitem($@LV4_Hammer_Of_Blacksmith) < 2) goto LV4_HACK;
+	if(countitem($@LV4_Emperium_Anvil) < 1) goto LV4_HACK;
+	if(countitem($@LV4_Illusion_Flower) < 1) goto LV4_HACK;
+	if(countitem($@LV4_Gold) < 20) goto LV4_HACK;
+	delitem $@LV4_Hammer_Of_Blacksmith, 2;
+	delitem $@LV4_Emperium_Anvil, 1;
+	delitem $@LV4_Illusion_Flower, 1;
+	delitem $@LV4_Gold, 20;
+	set lv4_weapon, 35;
+	close;
+
+LV4_33:
+LV4_34_BASE_MAT:
+	switch( lv4_weapon ) {
+		case 33:
+			mes "[Reyghema]";
+			mes "Okay. You don't need any other explaination, do you?";
+			mes "I will tell you what I need";
+			mes "so please do not forget those materials.";
+			break;
+		case 34:
+			mes "[Reyghema]";
+			mes "I will tell you the list of materials I need again.";
+			mes "I think I need a lot of materials...so";
+			mes "write them down if you need.";
+			break;
+		}
+		next;
+		mes "[Reyghema]";
+		mes "I need 2 高級鐵砧,";
+		mes "1 華麗金屬鐵砧, 1 幻想花 and 20 黃金...";
+		mes "...wait...are they all...or do I need more?!";
+		if(lv4_weapon == 33) next;
+		if(lv4_weapon == 33) mes "[Reyghema]";
+		if(lv4_weapon == 33) mes "Ah...I think need something more...it's very important...";
+		if(lv4_weapon == 33) mes "But I cannot remember what more I need....!";
+		if(lv4_weapon == 33) mes "Bah...this is so frustrating.";
+		set lv4_weapon, 34;
+		close;
+		
+
+LV4_36:
+LV4_37:
+	if(countitem(LV4_Gem1) < 30) goto LV4_36_NOGEM;
+	if(countitem(LV4_Gem2) < 30) goto LV4_36_NOGEM;
+	if(countitem(LV4_Gem3) < 30) goto LV4_36_NOGEM;
+	mes "[Reyghema]";
+	mes "...Um? The items that you brought to me seem";
+	mes "to be good materials for my creation...";
+	mes "Give them to me, I shall try first!";
+	next;
+	mes "[Reyghema]";
+	mes "Oh...I was right! How did you";
+	mes "know these are materials I need?";
+	mes "Great, give me a moment!";
+	next;
+	mes "[Reyghema]";
+	mes "...wait, I must test your luck first.";
+	mes "Since I am not sure about the result,";
+	mes "we should place trust in luck for the result of my creation.";
+	mes "You must have good luck...";
+	next;
+	mes "[Reyghema]";
+	mes "We are going to play 'Rock, Paper, Scissors'.";
+	mes "You must win at least 2 out of 3 times.";
+	mes "If you fail, you must leave a large amount";
+	mes "of one material you have brought.";
+	mes "It is for driving away your bad luck.";
+	next;
+	mes "[Reyghema]";
+	mes "I will give you a piece of paper.";
+	mes "You will write down one among 'Rock, Paper, or Scissors'.";
+	mes "I will do the same at the same time.";
+	mes "We will then compare each other's paper.";
+	next;
+	
+	set @shobu, 0;
+	
+	for( set @i, 1; @i <= 3; set @i, @i + 1 ) {
+		if(@i == 2) mes "[Reyghema]";
+		if(@i == 2) mes "Let's play the second one!";
+		if(@i == 3) mes "[Reyghema]";
+		if(@i == 3) mes "This will be the last one!";
+		if(@i == 3) mes "Let's compare after this.";
+		set @npchand[@i], rand(1, 3);
+		switch( select( "Scissors:Rock:Paper" ) ) {
+			case 1:
+				set @myhand[@i], 1;
+				if(@npchand[@i] == 3) set @shobu, @shobu + 1;
+				break;
+			case 2:
+				set @myhand[@i], 2;
+				if(@npchand[@i] == 1) set @shobu, @shobu + 1;
+				break;
+			case 3:
+				set @myhand[@i], 3;
+				if(@npchand[@i] == 2) set @shobu, @shobu + 1;
+				break;
+		}
+	}
+		
+	if(countitem(LV4_Gem1) < 30) goto LV4_HACK;
+	if(countitem(LV4_Gem2) < 30) goto LV4_HACK;
+	if(countitem(LV4_Gem3) < 30) goto LV4_HACK;
+
+	if(@shobu > 1) goto LV4_36_WIN;
+
+	switch ( rand(1 ,3) ) {
+		case 1:
+			delitem LV4_Gem1, 30;
+			break;
+		case 2:
+			delitem LV4_Gem2, 30;
+			break;
+		case 3:
+			delitem LV4_Gem3, 30;
+			break;
+	}
+	goto LV4_36_RESULT;
+		
+LV4_36_WIN:
+	delitem LV4_Gem1, 30;
+	delitem LV4_Gem2, 30;
+	delitem LV4_Gem3, 30;
+	set lv4_weapon, lv4_weapon + 2;
+	goto LV4_36_RESULT;
+	
+LV4_36_RESULT:
+	mes "[Reyghema]";
+	mes "Okay...I played in the order of...";
+	
+	for( set @i, 1; @i <= 3; set @i, @i + 1 ) {
+		if(@npchand[@i] == 1) mes "Scissors";
+		if(@npchand[@i] == 2) mes "Rock";
+		if(@npchand[@i] == 3) mes "Paper";
+	}
+
+	next;
+	mes "[Reyghema]";
+	mes "You did in the order of...";
+
+	for( set @i, 1; @i <= 3; set @i, @i + 1 ) {
+		if(@myhand[@i] == 1) mes "Scissors";
+		if(@myhand[@i] == 2) mes "Rock";
+		if(@myhand[@i] == 3) mes "Paper";
+	}
+
+	next;
+
+	if(@shobu > 1) goto LV4_36_SAY_WIN;
+	
+	mes "[Reyghema]";
+	mes "Well well well...you lost the game.";
+	mes "Ah~ you were close though...";
+	mes "We must drive away bad luck.";
+	next;
+	mes "[Reyghema]";
+	mes "Okay, I will wait here,";
+	mes "go bring me the materials again...";
+	close;
+			
+LV4_36_SAY_WIN:
+	mes "[Reyghema]";
+	mes "Let's see...";
+	mes "You won total " + @shobu + " times.";
+	mes "Ah~ you must be really good at game!";
+	mes "Yes, your luck is at its highest!";
+	next;
+	mes "[Reyghema]";
+	mes "I am going to keep my promise.";
+	mes "But I need some time to prepare.";
+	mes "Give me the materials now and I will talk to you later.";
+	close;
+
+LV4_35:
+LV4_36_NOGEM:
+		mes "[Reyghema]";
+		mes "Not yet! I have not remembered it yet! Awwww...";
+		mes "This is killing me...";
+		mes "Oh, wait...I died already...";
+		mes "God damn it!";
+	close;
+
+
+LV4_38:
+LV4_39:
+	mes "[Reyghema]";
+	mes "..................";
+	next;
+	mes "[Reyghema]";
+	mes "...YES! It's a success!";
+	mes "I created the weapon that got me killed last time!";
+	mes "Look at this...haha! I died while making this!";
+	mes "... The name of the weapon is...";
+	
+	switch( rand(1, 2) ) {
+		case 1:
+			if(lv4_weapon == 38) mes "Berserk! Weee~ Weee~ I made it!";
+			if(lv4_weapon == 38) getitem 1814 ,1; // 1814,Berserk
+			if(lv4_weapon == 39) mes "Tjungkuletti! Weee~ I made it!";
+			if(lv4_weapon == 39) getitem 1416, 1; // 1416,Tjungkuletti
+			break;
+		case 2:
+			if(lv4_weapon == 38) mes "Rudra's Bow! Weee~ I made it!";
+			if(lv4_weapon == 38) getitem 1720, 1; // 1720,Bow_of_Rudra
+			if(lv4_weapon == 39) mes "Brocca!";
+			if(lv4_weapon == 39) getitem 1415, 1; // 1415,Skewer
+	}
+	
+	set lv4_weapon, 0;
+	next;
+	mes "[Reyghema]";
+	mes "...*sigh*.";
+	next;
+	mes "[Reyghema]";
+	mes "Happiness lasts too short...";
+	mes "As I am a dead man, I think I am not allowed";
+	mes "to keep the memory of past....";
+	mes "My memory is fading again...";
+	next;
+	mes "[Reyghema]";
+	mes "But thank you for letting me achieve";
+	mes "my long-cherished desire.";
+	mes "If we meet again, please let me";
+	mes "retrieve my memory of past again.";
+	mes "So I can try forging another weapon.";
+	next;
+	mes "[Reyghema]";
+	mes "Farewell, adventurer.";
+	close;
+	
+	
+
+//--------------------------------------------------
+//Hack Attempt
+//--------------------------------------------------
+LV4_HACK:
+	mes "[Reyghema]";
+	mes "嗯. 似乎有點什麼小問題.";
+	set lv4_weapon, 0;
+	logmes "[" +strcharinfo(0) + "]企圖篡改4 級任務.";
+	close;
+}
+
+//--------------------------------------------------
+// Hein, creates Excalibur, Schweisersabel, Dragon Slayer and Edge
+//--------------------------------------------------
+
+niflheim,187,280,3	script	Hein	795,{
+	set @NowWeight, MaxWeight - Weight;
+	if (@NowWeight >= 3000) goto LV4_NOT_OW;
+	mes "- Wait a minute! -";
+	mes "- You are currently overweight. -";
+	mes "- Please lose some Weight -";
+	mes "- and try again. -";
+	close;
+
+	
+LV4_NOT_OW:
+	if(BaseLevel >= 80) goto LV4_LEVEL_PASS;
+	mes "[Hein]";
+	mes "You should care about other people";
+	mes "more than yourself...";
+	mes "You are quite weak for an adventurer.";
+	close;
+	
+
+LV4_LEVEL_PASS:
+	if(lv4_weapon == 0) goto LV4_0;
+	if(lv4_weapon < 40) goto LV4_39;
+	if(lv4_weapon == 40) goto LV4_40;
+	if(lv4_weapon == 41) goto LV4_41;
+	if(lv4_weapon == 42) goto LV4_42;
+	if(lv4_weapon == 43) goto LV4_43;
+	if(lv4_weapon == 44) goto LV4_44;
+	if(lv4_weapon == 45) goto LV4_45;
+	if(lv4_weapon == 46) goto LV4_46;
+	if(lv4_weapon == 47) goto LV4_47;
+	if(lv4_weapon == 48) goto LV4_48;
+	if(lv4_weapon > 48) goto LV4_49;
+	end;
+
+
+LV4_0:
+LV4_40:
+	mes "[Hein]";
+	mes "Ah...are you going to ask me something?";
+	mes "However, I am not accepting money";
+	mes "from my client. Because.";
+	mes "It brings me bad luck to...";
+	mes "...whaat? What did I just say?";
+	mes "Awww....I am confused.";
+	next;
+	
+	if(lv4_weapon == 0) goto LV4_0_ASK;
+	
+	mes "[Hein]";
+	mes "Why did I speak of money?";
+	mes "I am a dead man and dead people";
+	mes "do not need money...arf!";
+	mes "My head is hurting...I guess that";
+	mes "a dead man can have a headache!";
+	close;
+	
+LV4_0_ASK:
+	switch( select( "Show interest.:Igonore him." ) ) {
+		case 1:
+			mes "[Hein]";
+			mes "Why did I speak of money?";
+			mes "I am a dead man and dead people";
+			mes "do not need money...arf!";
+			mes "My head is hurting...I guess that";
+			mes "a dead man can have a headache!";
+			set lv4_weapon, 40;
+			close;
+			break;
+		case 2:
+			mes "- Because you decided to ignore him, -";
+			mes "- you are no longer able to hear him. -";
+			close;
+			break;
+	}
+	end;
+	
+
+LV4_39:
+LV4_49:
+	mes "[Hein]";
+	mes "I feel something different from you.";
+	mes "Did you come here with a purpose?";
+	mes "I am envious of you...";
+	close;
+
+
+LV4_41:
+	mes "[Hein]";
+	mes "Ah...are you going to ask me something?";
+	mes "However, I am not accepting money";
+	mes "from my client. Because.";
+	mes "It brings me bad luck to...";
+	next;
+	set @dap3$, "to forge a good weapon.";
+	input @answer3$;
+	if(@answer3$ == @dap3$) goto LV4_41_CORRECT;
+	mes "[Hein]";
+	mes "...? What are you talking about?";
+	mes "What was I going to say?";
+	mes "Arf....my head is hurting...!";
+	close;
+
+LV4_41_CORRECT:
+	mes "[Hein]";
+	mes "That's right! It's bad luck!";
+	mes "Creating weapons is betting! And I am...I am?";
+	mes "Oh right...I forgot that. Yes, I am dead.";
+	mes "Ahahahahaha.";
+	set lv4_weapon, 42;
+	next;
+	mes "[Hein]";
+	mes "Well, I must be a lucky dead man";
+	mes "for remembering my past!";
+	mes "Hahahahaha!";
+	next;
+	mes "[Hein]";
+	mes "Perhaps God wants me to";
+	mes "continue my research...?";
+	mes "wait, let me ask you a favor.";
+	next;
+	mes "[Hein]";
+	mes "Can you bring me some materials";
+	mes "that I need for my research?";
+	mes "If I succeed in the research,";
+	mes "I will give you the result in return.";
+	next;
+	mes "[Hein]";
+	mes "You can take your time to think of my offer.";
+	mes "Please talk to me later.";	
+	close;
+	
+	
+LV4_43:
+	if(countitem($@LV4_Hammer_Of_Blacksmith) < 2) goto LV4_43_BASE_MAT;
+	if(countitem($@LV4_Emperium_Anvil) < 1) goto LV4_43_BASE_MAT;
+	if(countitem($@LV4_Illusion_Flower) < 1) goto LV4_43_BASE_MAT;
+	if(countitem($@LV4_Gold) < 20) goto LV4_43_BASE_MAT;
+	
+	mes "[Hein]";
+	mes "Oh, you have brought the materials I asked.";
+	mes "Here's the thing. I cannot remember what I need other than those...";
+	mes "Aww....I need some more time to think of them...";
+	next;
+	mes "[Hein]";
+	mes "Please try to search what I need...if you can.";
+	mes "Of course, it will not be an easy job for you";
+	mes "to do so...but I know you have a body to move with your will...";
+	mes "It is still better than being a ghost like me...";
+	next;
+	mes "[Hein]";
+	mes "Please give me all the materials you have brought.";
+	mes "I will keep them for you.";
+	
+	if(countitem($@LV4_Hammer_Of_Blacksmith) < 2) goto LV4_HACK;
+	if(countitem($@LV4_Emperium_Anvil) < 1) goto LV4_HACK;
+	if(countitem($@LV4_Illusion_Flower) < 1) goto LV4_HACK;
+	if(countitem($@LV4_Gold) < 20) goto LV4_HACK;
+	delitem $@LV4_Hammer_Of_Blacksmith, 2;
+	delitem $@LV4_Emperium_Anvil, 1;
+	delitem $@LV4_Illusion_Flower, 1;
+	delitem $@LV4_Gold, 20;
+	set lv4_weapon, 44;
+	close;
+
+LV4_42:
+LV4_43_BASE_MAT:
+	switch( lv4_weapon ) {
+		case 42:
+			mes "[Hein]";
+			mes "I will take you speaking to me again";
+			mes "as the approval of my request.";
+			mes "Thank you so much.";
+			next;
+			mes "[Hein]";
+			mes "I need 2 高級鐵砧,";
+			mes "1 華麗金屬鐵砧, 1 幻想花 and 20 黃金...";
+			mes "Most likely they are the ones I need.";
+			next;
+			mes "[Hein]";
+			mes "And I do need 3 more things...";
+			mes "but I have a hard time remembering what they are.";
+			mes "That means that my memory of the past is not";
+			mes "absolutely back.";
+			next;
+			mes "[Hein]";
+			mes "*sigh*...I am so sorry to ask of you this...";
+			mes "but please search for what those 3 things are.";
+			mes "In the meantime, I will try to remember them.";
+			mes "Thank you.";
+			set lv4_weapon, 43;
+			break;
+		case 43:
+			mes "[Hein]";
+			mes "I need 2 高級鐵砧,";
+			mes "1 華麗金屬鐵砧, 1 幻想花 and 20 黃金...";
+			mes "Most likely they are the ones I need.";
+			break;
+		}
+		close;
+		
+
+LV4_45:
+LV4_46:
+	if(countitem(LV4_Gem1) < 30) goto LV4_45_NOGEM;
+	if(countitem(LV4_Gem2) < 30) goto LV4_45_NOGEM;
+	if(countitem(LV4_Gem3) < 30) goto LV4_45_NOGEM;
+	mes "[Hein]";
+	mes "...Um? The items that you brought to me seem";
+	mes "to be good materials for my creation...";
+	mes "Give them to me, I shall try first!";
+	next;
+	mes "[Hein]";
+	mes "Oh...I was right! How did you";
+	mes "know these are materials I need?";
+	mes "Great, give me a moment!";
+	next;
+	mes "[Hein]";
+	mes "...Wait, I must test your luck first.";
+	mes "Since I am not sure about the result,";
+	mes "we should trust to luck for the result of my creation.";
+	mes "You must have good luck...";
+	next;
+	mes "[Hein]";
+	mes "We are going to play 'Rock, Paper, Scissors'.";
+	mes "You must win at least 2 out of 3 times.";
+	mes "If you fail, you must leave a large amount";
+	mes "of one material you have brought.";
+	mes "It is for driving away your bad luck.";
+	next;
+	mes "[Hein]";
+	mes "I will give you a piece of paper.";
+	mes "You will write down one among 'Rock, Paper, or Scissors'.";
+	mes "I will do the same at the same time.";
+	mes "We will then compare each other's paper at the end.";
+	next;
+	
+	set @shobu, 0;
+	
+	for( set @i, 1; @i <= 3; set @i, @i + 1 ) {
+		if(@i == 2) mes "[Hein]";
+		if(@i == 2) mes "Let's play the second one!";
+		if(@i == 3) mes "[Hein]";
+		if(@i == 3) mes "This will be the last one!";
+		if(@i == 3) mes "Let's compare after this.";
+		set @npchand[@i], rand(1, 3);
+		switch( select( "Scissors:Rock:Paper" ) ) {
+			case 1:
+				set @myhand[@i], 1;
+				if(@npchand[@i] == 3) set @shobu, @shobu + 1;
+				break;
+			case 2:
+				set @myhand[@i], 2;
+				if(@npchand[@i] == 1) set @shobu, @shobu + 1;
+				break;
+			case 3:
+				set @myhand[@i], 3;
+				if(@npchand[@i] == 2) set @shobu, @shobu + 1;
+				break;
+		}
+	}
+		
+	if(countitem(LV4_Gem1) < 30) goto LV4_HACK;
+	if(countitem(LV4_Gem2) < 30) goto LV4_HACK;
+	if(countitem(LV4_Gem3) < 30) goto LV4_HACK;
+
+	if(@shobu > 1) goto LV4_45_WIN;
+
+	switch ( rand(1 ,3) ) {
+		case 1:
+			delitem LV4_Gem1, 30;
+			break;
+		case 2:
+			delitem LV4_Gem2, 30;
+			break;
+		case 3:
+			delitem LV4_Gem3, 30;
+			break;
+	}
+	goto LV4_45_RESULT;
+		
+LV4_45_WIN:
+	delitem LV4_Gem1, 30;
+	delitem LV4_Gem2, 30;
+	delitem LV4_Gem3, 30;
+	set lv4_weapon, lv4_weapon + 2;
+	goto LV4_45_RESULT;
+	
+LV4_45_RESULT:
+	mes "[Hein]";
+	mes "Okay...I played in the order of...";
+	
+	for( set @i, 1; @i <= 3; set @i, @i + 1 ) {
+		if(@npchand[@i] == 1) mes "Scissors";
+		if(@npchand[@i] == 2) mes "Rock";
+		if(@npchand[@i] == 3) mes "Paper";
+	}
+
+	next;
+	mes "[Hein]";
+	mes "You did in the order of...";
+
+	for( set @i, 1; @i <= 3; set @i, @i + 1 ) {
+		if(@myhand[@i] == 1) mes "Scissors";
+		if(@myhand[@i] == 2) mes "Rock";
+		if(@myhand[@i] == 3) mes "Paper";
+	}
+
+	next;
+
+	if(@shobu > 1) goto LV4_45_SAY_WIN;
+	
+	mes "[Hein]";
+	mes "Well well well...you lost the game.";
+	mes "Ah~ you were close though...";
+	mes "We must drive away bad luck.";
+	next;
+	mes "[Hein]";
+	mes "Okay, I will wait here,";
+	mes "go bring me the materials again...";
+	close;
+			
+LV4_45_SAY_WIN:
+	mes "[Hein]";
+	mes "Let's see...";
+	mes "You won total " + @shobu + " times.";
+	mes "Ah~ you must be really good at game!";
+	mes "Yes, your luck is at its highest!";
+	next;
+	mes "[Hein]";
+	mes "I am going to keep my promise.";
+	mes "But I need some time to prepare.";
+	mes "Give me the materials now and I will talk to you later.";
+	close;
+
+LV4_44:
+LV4_45_NOGEM:
+		mes "[Hein]";
+		mes "I am sorry but please give me more time to remember the materials...";
+		mes "I had really good memory when I was alive...";
+		mes "So I could even recite them right after I woke up...";
+	close;
+
+
+LV4_47:
+LV4_48:
+	mes "[Hein]";
+	mes "Oh, yes. I just finished the work.";
+	mes "Do you want to know the result? Okay...";
+	mes "Breathe deeply...before we check.";
+	mes "The result is...";
+	next;
+	mes "[Hein]";
+	mes "a Big Success! This is great!";
+	mes "I have not labored in vain!";
+	mes "Let's see the weapon...it is...";
+	
+	switch( rand(1, 2) ) {
+		case 1:
+			if(lv4_weapon == 47) mes "Edge.";
+			if(lv4_weapon == 47) getitem 1132 ,1; // 1132,Edge
+			if(lv4_weapon == 48) mes "Dragon Slayer.";
+			if(lv4_weapon == 48) getitem 1166, 1; // 1166,Dragon_Slayer
+			break;
+		case 2:
+			if(lv4_weapon == 47) mes "Excalibur.";
+			if(lv4_weapon == 47) getitem 1137, 1; // 1137,Excalibur
+			if(lv4_weapon == 48) mes "Schweizersabel.";
+			if(lv4_weapon == 48) getitem 1167, 1; // 1167,Schweizersabel
+	}
+
+	set lv4_weapon, 0;	
+	next;
+	mes "[Hein]";
+	mes "Well...this is it.";
+	mes "I feel my memory is fading again...";
+	mes "Hahaha...being dead is not good.";
+	next;
+	mes "[Hein]";
+	mes "Thank you for your help. And if you have";
+	mes "a chance to visit Nifflheim again,";
+	mes "please come back and retrieve my memory once more...";
+	next;
+	mes "[Hein]";
+	mes "Aaahhhh! I don't think I will";
+	mes "remember you next time...";
+	mes "Take care, adventurer...father, I made it...";
+	close;
+	
+	
+
+//--------------------------------------------------
+//Hack Attempt
+//--------------------------------------------------
+LV4_HACK:
+	mes "[Hein]";
+	mes "嗯. 似乎有點什麼小問題.";
+	set lv4_weapon, 0;
+	logmes "[" +strcharinfo(0) + "]企圖篡改4 級任務.";
+	close;
+}
+
+//--------------------------------------------------
+// Waltboughst, creates Byeollungum, Exorciser(excercise), Combat Knife and Grand Cross
+//--------------------------------------------------
+
+niflheim,331,72,3	script	Waltboughst	795,{
+	set @NowWeight, MaxWeight - Weight;
+	if (@NowWeight >= 3000) goto LV4_NOT_OW;
+	mes "- Wait a minute! -";
+	mes "- You are currently overweight. -";
+	mes "- Please lose some Weight -";
+	mes "- and try again. -";
+	close;
+
+	
+LV4_NOT_OW:
+	if(BaseLevel >= 80) goto LV4_LEVEL_PASS;
+	mes "[Waltboughst]";
+	mes "...Hah!";
+	close;
+	
+
+LV4_LEVEL_PASS:
+	if(lv4_weapon == 0) goto LV4_0;
+	if(lv4_weapon < 49) goto LV4_48;
+	if(lv4_weapon == 49) goto LV4_49;
+	if(lv4_weapon == 50) goto LV4_50;
+	if(lv4_weapon == 51) goto LV4_51;
+	if(lv4_weapon == 52) goto LV4_52;
+	if(lv4_weapon == 53) goto LV4_53;
+	if(lv4_weapon == 54) goto LV4_54;
+	if(lv4_weapon == 55) goto LV4_55;
+	if(lv4_weapon == 56) goto LV4_56;
+	if(lv4_weapon == 57) goto LV4_57;
+	if(lv4_weapon > 57) goto LV4_58;
+	end;
+
+
+LV4_0:
+LV4_49:
+	mes "[Waltboughst]";
+	mes "Ah~ it is so frustrating to be a dead man.";
+	mes "Because I cannot do anything without a body.";
+	mes "You know what my father used to say?";
+	mes "Trying best does not always";
+	mes "result in a success.";
+	mes "However...errr?";
+	next;
+	
+	if(lv4_weapon == 0) goto LV4_0_ASK;
+	
+	mes "[Waltboughst]";
+	mes "...What was my father's";
+	mes "quote? Why am I stuck in";
+	mes "here after death? Hey, you";
+	mes "Do you know anything about";
+	mes "Waltboughst when he was";
+	mes "alive?";
+	close;
+	
+LV4_0_ASK:
+	switch( select( "Show interest.:Igonore him." ) ) {
+		case 1:
+			mes "[Waltboughst]";
+			mes "...what did he say afterwards?";
+			mes "Speaking of which, why am I";
+			mes "so anxious to do something?";
+			mes "I am a dead man, and a dead man is not supposed to do anything!";
+			mes "Hey, do you know anything about me when I was alive?";
+			set lv4_weapon, 49;
+			close;
+			break;
+		case 2:
+			mes "- Because you decided to ignore him, -";
+			mes "- you are no longer able to hear him. -";
+			close;
+			break;
+	}
+	end;
+	
+
+LV4_48:
+LV4_58:
+	mes "[Waltboughst]";
+	mes "I feel something different about you.";
+	mes "Did you come here with a purpose?";
+	mes "I am envious of you...";
+	close;
+
+
+LV4_50:
+	mes "[Waltboughst]";
+	mes "Ah~ it is so frustrating to be a dead man.";
+	mes "Because I cannot do anything without a body.";
+	mes "You know what my father used to say?";
+	mes "Trying best does not always";
+	mes "result in a success.";
+	mes "However...";
+	next;
+	set @dap4$, "All the successful men in the history tried their best!";
+	input @answer4$;
+	if(@answer4$ == @dap4$) goto LV4_50_CORRECT;
+	mes "[Waltboughst]";
+	mes "...What? What did you just say?";
+	mes "Hmmm.";
+	close;
+
+LV4_50_CORRECT:
+	mes "[Waltboughst]";
+	mes "Yes! That was it!";
+	mes "Since I am dead, I cannot even try!";
+	mes "Eh...?! Ah!";
+	mes "I see, I see now.";
+	mes "I must have been killed by some kind of accident!";
+	set lv4_weapon, 51;
+	next;
+	mes "[Waltboughst]";
+	mes "Okay, I am not going to end this way.";
+	mes "Hey, you were meant to meet me!";
+	mes "You got to do me a favor, now!";
+	next;
+	mes "[Waltboughst]";
+	mes "I will give you the result of my research";
+	mes "in return! All I want is to compete my research,";
+	mes "not the result.";
+	next;
+	mes "[Waltboughst]";
+	mes "Well, give me some time to remember";
+	mes "what I need for my research.";
+	mes "I will talk to you later.";
+	close;
+	
+	
+LV4_52:
+	if(countitem($@LV4_Hammer_Of_Blacksmith) < 2) goto LV4_52_BASE_MAT;
+	if(countitem($@LV4_Emperium_Anvil) < 1) goto LV4_52_BASE_MAT;
+	if(countitem($@LV4_Illusion_Flower) < 1) goto LV4_52_BASE_MAT;
+	if(countitem($@LV4_Gold) < 20) goto LV4_52_BASE_MAT;
+	
+	mes "[Waltboughst]";
+	mes "Oh...you brought everything I need!";
+	mes "You were quick this time...I am still having";
+	mes "a hard time remembering what I need other than those.";
+	mes "This is not good, this is not good at all.";
+	next;
+	mes "[Waltboughst]";
+	mes "Anyways, I will keep those materials for you.";
+	mes "And give me some more times to";
+	mes "remember what I need...arph!";
+	
+	if(countitem($@LV4_Hammer_Of_Blacksmith) < 2) goto LV4_HACK;
+	if(countitem($@LV4_Emperium_Anvil) < 1) goto LV4_HACK;
+	if(countitem($@LV4_Illusion_Flower) < 1) goto LV4_HACK;
+	if(countitem($@LV4_Gold) < 20) goto LV4_HACK;
+	delitem $@LV4_Hammer_Of_Blacksmith, 2;
+	delitem $@LV4_Emperium_Anvil, 1;
+	delitem $@LV4_Illusion_Flower, 1;
+	delitem $@LV4_Gold, 20;
+	set lv4_weapon, 53;
+	close;
+
+LV4_51:
+LV4_52_BASE_MAT:
+	switch( lv4_weapon ) {
+		case 51:
+			mes "[Waltboughst]";
+			mes "Umm, you came back so early.";
+			mes "I just remembered the materials.";
+			next;
+			mes "[Waltboughst]";
+			mes "I need 2 高級鐵砧,";
+			mes "1 華麗金屬鐵砧, 1 幻想花 and 20 黃金...";
+			next;
+			mes "[Waltboughst]";
+			mes "I do need some other items...but I need some time";
+			mes "to remember those. Oh well,";
+			mes "we have enough time, so let me think of them.";
+			set lv4_weapon, 52;
+			break;
+		case 52:
+			mes "[Waltboughst]";
+			mes "I need 2 高級鐵砧,";
+			mes "1 華麗金屬鐵砧, 1 幻想花 and 20 黃金...";
+			mes "Most likey they will be the ones I need...";
+			break;
+		}
+		close;
+		
+
+LV4_54:
+LV4_55:
+	if(countitem(LV4_Gem1) < 30) goto LV4_54_NOGEM;
+	if(countitem(LV4_Gem2) < 30) goto LV4_54_NOGEM;
+	if(countitem(LV4_Gem3) < 30) goto LV4_54_NOGEM;
+	mes "[Waltboughst]";
+	mes "...Um? The items that you brought to me seem";
+	mes "to be good materials for my creation...";
+	mes "Give them to me, I shall try first!";
+	next;
+	mes "[Waltboughst]";
+	mes "Oh...I was right! How did you";
+	mes "know these are materials I need?";
+	mes "Great, give me a moment!";
+	next;
+	mes "[Waltboughst]";
+	mes "...wait, I must test your luck first.";
+	mes "Since I am not sure about the result,";
+	mes "we should trust to luck for the result of my creation.";
+	mes "You must have good luck...";
+	next;
+	mes "[Waltboughst]";
+	mes "We are going to play 'Rock, Paper, Scissors'.";
+	mes "You must win at least 2 out of 3 times.";
+	mes "If you fail, you must leave a large amount";
+	mes "of one material you have brought.";
+	mes "It is for driving away your bad luck.";
+	next;
+	mes "[Waltboughst]";
+	mes "I will give you a piece of paper.";
+	mes "You will write down one among 'Rock, Paper, or Scissors'.";
+	mes "I will do the same at the same time.";
+	mes "We will then compare each other's paper at the end.";
+	next;
+	
+	set @shobu, 0;
+	
+	for( set @i, 1; @i <= 3; set @i, @i + 1 ) {
+		if(@i == 2) mes "[Waltboughst]";
+		if(@i == 2) mes "Let's play the second one!";
+		if(@i == 3) mes "[Waltboughst]";
+		if(@i == 3) mes "This will be the last one!";
+		if(@i == 3) mes "Let's compare after this.";
+		set @npchand[@i], rand(1, 3);
+		switch( select( "Scissors:Rock:Paper" ) ) {
+			case 1:
+				set @myhand[@i], 1;
+				if(@npchand[@i] == 3) set @shobu, @shobu + 1;
+				break;
+			case 2:
+				set @myhand[@i], 2;
+				if(@npchand[@i] == 1) set @shobu, @shobu + 1;
+				break;
+			case 3:
+				set @myhand[@i], 3;
+				if(@npchand[@i] == 2) set @shobu, @shobu + 1;
+				break;
+		}
+	}
+		
+	if(countitem(LV4_Gem1) < 30) goto LV4_HACK;
+	if(countitem(LV4_Gem2) < 30) goto LV4_HACK;
+	if(countitem(LV4_Gem3) < 30) goto LV4_HACK;
+
+	if(@shobu > 1) goto LV4_54_WIN;
+
+	switch ( rand(1 ,3) ) {
+		case 1:
+			delitem LV4_Gem1, 30;
+			break;
+		case 2:
+			delitem LV4_Gem2, 30;
+			break;
+		case 3:
+			delitem LV4_Gem3, 30;
+			break;
+	}
+	goto LV4_54_RESULT;
+		
+LV4_54_WIN:
+	delitem LV4_Gem1, 30;
+	delitem LV4_Gem2, 30;
+	delitem LV4_Gem3, 30;
+	set lv4_weapon, lv4_weapon + 2;
+	goto LV4_54_RESULT;
+	
+LV4_54_RESULT:
+	mes "[Waltboughst]";
+	mes "Okay...I played in the order of...";
+	
+	for( set @i, 1; @i <= 3; set @i, @i + 1 ) {
+		if(@npchand[@i] == 1) mes "Scissors";
+		if(@npchand[@i] == 2) mes "Rock";
+		if(@npchand[@i] == 3) mes "Paper";
+	}
+
+	next;
+	mes "[Waltboughst]";
+	mes "You did in the order of...";
+
+	for( set @i, 1; @i <= 3; set @i, @i + 1 ) {
+		if(@myhand[@i] == 1) mes "Scissors";
+		if(@myhand[@i] == 2) mes "Rock";
+		if(@myhand[@i] == 3) mes "Paper";
+	}
+
+	next;
+
+	if(@shobu > 1) goto LV4_54_SAY_WIN;
+	
+	mes "[Waltboughst]";
+	mes "Well well well...you lost the game.";
+	mes "Ah~ you were close though...";
+	mes "We must drive away bad luck.";
+	next;
+	mes "[Waltboughst]";
+	mes "Okay, I will wait here,";
+	mes "go bring me the materials again...";
+	close;
+			
+LV4_54_SAY_WIN:
+	mes "[Waltboughst]";
+	mes "Let's see...";
+	mes "You won total " + @shobu + " times.";
+	mes "Ah~ you must be really good at game!";
+	mes "Yes, your luck is at its highest!";
+	next;
+	mes "[Waltboughst]";
+	mes "I am going to keep my promise.";
+	mes "But I need some time to prepare.";
+	mes "Give me the materials now and I will talk to you later.";
+	close;
+
+LV4_53:
+LV4_54_NOGEM:
+	mes "[Waltboughst]";
+	mes "Arph...I haven't remembered them yet.";
+	mes "Awww....this is a problem.";
+	mes "I must think of them as soon as possible...";
+	close;
+
+
+LV4_56:
+LV4_57:
+	mes "[Waltboughst]";
+	mes "Hehe, I made something with the materials";
+	mes "in this short time! Wanna see?";
+	mes "Aren't you wondering about the result?";
+	mes "Hmmm....let's see...";
+	next;
+	mes "[Waltboughst]";
+	mes "Waltboughst never fails!";
+	mes "Besides you had good luck,";
+	mes "so it resulted in a perfect success!";
+	mes "You got a nice weapon here, it is...";
+	
+	switch( rand(1, 2) ) {
+		case 1:
+			if(lv4_weapon == 56) mes "Byeollungum!";
+			if(lv4_weapon == 56) getitem 1140 ,1; // 1140,Byeollungum
+			if(lv4_weapon == 57) mes "Exorciser!";
+			if(lv4_weapon == 57) getitem 1233, 1; // 1233,Exercise
+			break;
+		case 2:
+			if(lv4_weapon == 56) mes "Combat Knife!";
+			if(lv4_weapon == 56) getitem 1228, 1; // 1228,Combat_Knife
+			if(lv4_weapon == 57) mes "Grand Cross!!";
+			if(lv4_weapon == 57) getitem 1528, 1; // 1528,Grand_Cross
+	}
+	
+	set lv4_weapon, 0;
+	next;
+	mes "[Waltboughst]";
+	mes "I am genius! Hahahaha!";
+	mes "I made it when my brothers could not!";
+	mes "Muhahahahahaha!";
+	mes "Eh...err? Arrr...phhh?";
+	next;
+	mes "[Waltboughst]";
+	mes "Damn...I must try too hard.";
+	mes "My memory is fading again...";
+	mes "Oh well, somehow I proved";
+	mes "that I am a genius even after I died.";
+	next;
+	mes "[Waltboughst]";
+	mes "If you want me to display my genius again,";
+	mes "come retrieve my memory again.";
+	mes "And thank you!";
+	next;
+	mes "[Waltboughst]";
+	mes "Ah...my memory's dying again...";
+	mes "Farewell~ I don't think I will remember you";
+	mes "but I hope you will remember me as Waltboughst";
+	mes "the genius in the age!";
+	close;
+	
+	
+
+//--------------------------------------------------
+//Hack Attempt
+//--------------------------------------------------
+LV4_HACK:
+	mes "[Waltboughst]";
+	mes "嗯. 似乎有點什麼小問題.";
+	set lv4_weapon, 0;
+	logmes "[" +strcharinfo(0) + "]企圖篡改4 級任務.";
+	close;
+}

@@ -1,0 +1,314 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+//===== rAthena Script =======================================
+//= Morroc Guides
+//===== By: ================================================== 
+//= L0ne_W0lf
+//===== Current Version: ===================================== 
+//= 1.1
+//===== Compatible With: ===================================== 
+//= rAthena SVN
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Guides for the city of Morroc and Morroc Ruins.
+//===== Additional Comments: ================================= 
+//= 1.0 First version, Renewal guide.
+//= 1.1 Fixed and optimized. [Euphy]
+//============================================================ 
+
+morocc,153,286,6	script	導遊#01morocc::GuideMorroc	707,{
+	cutin "moc_soldier",2;
+	mes "[夢羅克導遊]";
+	mes "歡迎光臨 沙漠之都^8B4513夢羅克^000000";
+	mes "需要為您介紹嗎?";
+	next;
+	while (1) {
+		switch(select("[ 主要設施 ]:[ 商店 & 小幫手 ]:刪除小地圖的標記:結束對話")) {
+		case 1:
+			set .@loop,1;
+			while (.@loop) {
+				switch(select("[ 盜賊工會 ]:[ 史芬克斯密穴 ]:[ 綠洲入口 ]:[ 鐵工廠 ]:[ 武器 & 防具店 ]:[ 旅館 ]:[ 酒店 ]:返回上一選單")) {
+				case 1:
+					mes "[夢羅克導遊]";
+					mes "^B9062F盜賊工會^000000位於金字塔內,";
+					mes "^B9062F金字塔^000000在^B9062F綠洲^000000 附近,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,26,294,0,0xFF0000;
+					next;
+					break;
+				case 2:
+					mes "[夢羅克導遊]";
+					mes "^0000FF史芬克斯密穴^000000是";
+					mes "從夢羅克西門";
+					mes "出去的話";
+					mes "就找得到了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,26,164,1,0x0A82FF;
+					next;
+					break;
+				case 3:
+					mes "[夢羅克導遊]";
+					mes "前往^FF5400綠洲^000000";
+					mes "出入口的位置,";
+					mes "已經標記";
+					mes "小地圖上了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,26,294,2,0xFFB400;
+					next;
+					break;
+				case 4:
+					callsub L_Mark,"^006400鐵工廠";
+					viewpoint 1,47,47,3,0xAAFF00;
+					next;
+					break;
+				case 5:
+					callsub L_Mark,"^7F3300武器 & 防具店";
+					viewpoint 1,253,56,4,0xD2691E;
+					next;
+					break;
+				case 6:
+					mes "夢羅克導遊]";
+					mes "目前暫停營業中的";
+					mes "^800080旅館^000000的";
+					mes "位置已經標記在";
+					mes "小地圖上了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,273,269,5,0xDA70D6;
+					next;
+					break;
+				case 7:
+					callsub L_Mark,"^B9062F酒店";
+					viewpoint 1,52,259,6,0xFF0000;
+					next;
+					break;
+				case 8:
+					set .@loop,0;
+					break;
+				}
+			}
+			break;
+		case 2:
+			set .@loop,1;
+			while (.@loop) {
+				switch(select("[ 卡普拉職員 ]:[ 毒草銷售員 ]:[ 染料製作員 ]:[ 世亞布連 ]:返回上一選單")) {
+				case 1:
+					callsub L_Mark,"^0000FF卡普拉職員";
+					viewpoint 1,156,97,7,0x0A82FF;
+					viewpoint 1,160,258,8,0x0A82FF;
+					next;
+					break;
+				case 2:
+					callsub L_Mark,"^006400毒草銷售員";
+					viewpoint 1,190,96,9,0xAAFF00;
+					next;
+					break;
+				case 3:
+					mes "[夢羅克導遊]";
+					mes "^7F3300染料製作員^000000是";
+					mes "目前住在";
+					mes "旅館的1樓,";
+					mes "位置已經標記在";
+					mes "小地圖上了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,273,269,10,0xD2691E;
+					next;
+					break;
+				case 4:
+					mes "[夢羅克導遊]";
+					mes "^800080世亞布連^000000";
+					mes "是在武器或防具上提供^0000FF打洞^000000";
+					mes "服務的專業技術員,";
+					mes "只是並非所有的";
+					mes "東西都可以喔!";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,51,41,11,0xDA70D6;
+					next;
+					break;
+				case 5:
+					set .@loop,0;
+					break;
+				}
+			}
+			break;
+		case 3:
+			mes "[夢羅克導遊]";
+			mes "標記已刪除,";
+			mes "還需要其它服務嗎?";
+			viewpoint 2,1,1,0,0xFFFF00;
+			viewpoint 2,1,1,1,0x000000;
+			viewpoint 2,1,1,2,0xFF0000;
+			viewpoint 2,1,1,3,0xFFFF00;
+			viewpoint 2,1,1,4,0xFFFF00;
+			viewpoint 2,1,1,5,0xFFFF00;
+			viewpoint 2,1,1,6,0xFFFF00;
+			viewpoint 2,1,1,7,0xFFFF00;
+			viewpoint 2,1,1,8,0xFFFF00;
+			viewpoint 2,1,1,9,0xFFFF00;
+			viewpoint 2,1,1,10,0xFFFF00;
+			viewpoint 2,1,1,11,0xFFFF00;
+			next;
+			break;
+		case 4:
+			mes "[夢羅克導遊]";
+			mes "祝你旅途平安!";
+			close2;
+			cutin "moc_soldier",255;
+			end;
+		}
+	}
+	end;
+L_Mark:
+	mes "[夢羅克導遊]";
+	mes "讓我在你的小地圖上標記一下";
+	mes getarg(0)+"^000000";
+	mes "的位置.";
+	mes "你還需要確認其他建築物的位置嗎?";
+	return;
+}
+
+morocc,154,38,6	duplicate(GuideMorroc)	導遊#02morocc	707,{
+morocc,296,213,4	duplicate(GuideMorroc)	導遊#03morocc	707,{
+morocc,28,170,5	duplicate(GuideMorroc)	導遊#04morocc	707,{
+
+moc_ruins,159,53,3	script	導遊#01ruins::GuideMocRuins	707,{
+	cutin "moc_soldier",2;
+	mes "[夢羅克導遊]";
+	mes "歡迎光臨,這裡是沙漠之都";
+	mes "^8B4513夢羅克^000000,";
+	mes "需要為您介紹嗎?";
+	next;
+	while (1) {
+		switch(select("[ 主要設施 ]:[ 商店 & 小幫手 ]:刪除小地圖的標記:結束對話")) {
+		case 1:
+			set .@loop,1;
+			while (.@loop) {
+				switch(select("[ 盜賊工會 ]:[ 史芬克斯密穴 ]:[ 夢羅克入口 ]:返回上一選單")) {
+				case 1:
+					mes "[夢羅克導遊]";
+					mes "^B9062F盜賊工會^000000";
+					mes "位於金字塔內,";
+					mes "^B9062F金字塔^000000的位置";
+					mes "已經標記在";
+					mes "小地圖上了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,56,161,0,0xFF0000;
+					next;
+					break;
+				case 2:
+					mes "[夢羅克導遊]";
+					mes "^0000FF史芬克斯密穴^000000是";
+					mes "從綠洲南門";
+					mes "出去的話";
+					mes "就找得到了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,71,19,1,0x0A82FF;
+					next;
+					break;
+				case 3:
+					mes "[夢羅克導遊]";
+					mes "前往^FF5400夢羅克^000000";
+					mes "東南方出入口的位置";
+					mes "已經標記在";
+					mes "小地圖上了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,158,40,2,0xFFB400;
+					next;
+					break;
+				case 4:
+					set .@loop,0;
+					break;
+				}
+			}
+			break;
+		case 2:
+			set .@loop,1;
+			while (.@loop) {
+				switch(select("[ 伊甸園傳送師 ]:[ 道具商人 ]:[ 卡普拉職員 ]:[ 維修工人 ]:[ 認養寵物商人 ]:[ 料理材料商 ]:[ 雷亞布連 ]:返回上一選單")) {
+				case 1:
+					callsub L_Mark,"^006400伊甸園傳送師";
+					viewpoint 1,68,164,3,0xAAFF00;
+					next;
+					break;
+				case 2:
+					callsub L_Mark,"^800080道具商人";
+					viewpoint 1,92,128,5,0xDA70D6;
+					viewpoint 1,114,63,6,0xDA70D6;
+					next;
+					break;
+				case 3:
+					callsub L_Mark,"^B9062F卡普拉職員";
+					viewpoint 1,59,157,7,0xFF0000;
+					next;
+					break;
+				case 4:
+					callsub L_Mark,"^0000FF維修工人";
+					viewpoint 1,107,94,8,0x0A82FF;
+					next;
+					break;
+				case 5:
+					callsub L_Mark,"^FF5400認養寵物商人";
+					viewpoint 1,118,170,9,0xFFB400;
+					next;
+					break;
+				case 6:
+					callsub L_Mark,"^006400料理材料商";
+					viewpoint 1,115,123,10,0xAAFF00;
+					next;
+					break;
+				case 7:
+					mes "[Morroc Guide]";
+					mes "^7F3300雷亞布連^000000";
+					mes "是在武器或防具上提供^0000FF打洞^000000";
+					mes "服務的專業技術員,";
+					mes "只是並非所有的";
+					mes "東西都可以喔!";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,154,86,11,0xD2691E;
+					next;
+					break;
+				case 8:
+					set .@loop,0;
+					break;
+				}
+			}
+			break;
+		case 3:
+			mes "[夢羅克導遊]";
+			mes "標記已刪除,";
+			mes "還需要其它服務嗎?";
+			viewpoint 2,1,1,0,0xFFFF00;
+			viewpoint 2,1,1,1,0x000000;
+			viewpoint 2,1,1,2,0xFF0000;
+			viewpoint 2,1,1,3,0xFFFF00;
+			viewpoint 2,1,1,4,0xFFFF00;
+			viewpoint 2,1,1,5,0xFFFF00;
+			viewpoint 2,1,1,6,0xFFFF00;
+			viewpoint 2,1,1,7,0xFFFF00;
+			viewpoint 2,1,1,8,0xFFFF00;
+			viewpoint 2,1,1,9,0xFFFF00;
+			viewpoint 2,1,1,10,0xFFFF00;
+			viewpoint 2,1,1,11,0xFFFF00;
+			next;
+			break;
+		case 4:
+			mes "[夢羅克導遊]";
+			mes "祝你旅途平安!";
+			close2;
+			cutin "moc_soldier",255;
+			end;
+		}
+	}
+	end;
+L_Mark:
+	mes "[夢羅克導遊]";
+	mes "讓我在你的小地圖上標記一下";
+	mes getarg(0)+"^000000";
+	mes "的位置.";
+	mes "你還需要確認其他建築物的位置嗎?";
+	return;
+}
+
+moc_ruins,70,164,3	duplicate(GuideMocRuins)	導遊#02ruins	707
+moc_ruins,65,44,5	duplicate(GuideMocRuins)	導遊#03ruins	707

@@ -1,0 +1,1048 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+//===== rAthena Script =======================================
+//= Malangdo Culvert
+//===== By: ================================================== 
+//= Euphy
+//===== Current Version: ===================================== 
+//= 1.1
+//===== Compatible With: ===================================== 
+//= rAthena SVN
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Clean the culverts and defeat the Coelacanth.
+//= Daily and weekly quests are available.
+//= Contains a normal mode and hard mode.
+//===== Additional Comments: ================================= 
+//= 1.0 First version. [Euphy]
+//=     Letters "n" and "h" in NPC names indicate difficulty.
+//= 1.0a There is no minimum party size on official servers.
+//= 1.0b Fixed incorrect use of 'close'. [Joseph]
+//= 1.1 Instance system rewrite. [Euphy]
+//============================================================ 
+
+// Quest NPCs
+//============================================================
+mal_in01,172,28,2	script	阿爾博#mal	561,{
+	if (checkweight(1201,1) == 0) {
+		mes "你攜帶了太多種類的物品.嘗試減少物品種類然後繼續.";
+		close;
+	}
+	if (MaxWeight - Weight < 1000) {
+		mes "你的負重不夠了.嘗試降低負重然後繼續.";
+		close;
+	}
+	if (BaseLevel < 90) {
+		mes "[阿爾多]";
+		mes "你是誰?";
+		mes "我們不需要弱者!!";
+		close;
+	}
+	setarray .@quests[0],12271,12272,12273,12274;
+	setarray .@names$[0],
+		"普通排水渠日常任務","^990000困難排水渠日常任務^000000",
+		"普通排水渠周任務","^990000困難排水渠周任務^000000";
+	set .@menu$,"想不想接受這個工作?:";
+	for(set .@i,0; .@i<4; set .@i,.@i+1) {
+		if (checkquest(.@quests[.@i],PLAYTIME) > -1) {
+			set .@status[.@i],2;
+			set .@menu$, .@menu$+"^aaaaaa- 沒有新的任務 -^000000:";
+		} else if (.@i%2 && BaseLevel < 140) {
+			set .@status[.@i],0;
+			set .@menu$, .@menu$+"^aaaaaa你不能接這個任務,因為你級別不夠^000000:";
+		} else {
+			set .@status[.@i],1;
+			set .@menu$, .@menu$+.@names$[.@i]+":";
+		}
+	}
+	mes "[阿爾博]";
+	mes "我們穿越了海洋! 我們偉大的英雄!";
+	mes "絕不原諒! 不能原諒那些該死的海洋生物!";
+	next;
+	set .@i, select(.@menu$)-1;
+	if (.@i == 0) {
+		mes "[阿爾博]";
+		mes "我們曾是先生的心腹手下. 先生是一位能夠創造歷史的人物. 如果他完成了自己的夢想. 那我們也能夠成為能夠見證歷史的非凡人物了.";
+		next;
+		mes "[阿爾博]";
+		mes "但是,海水和海洋生物淹沒了一切. 先生所有珍貴的資料全部被海水和海洋生物吞噬了. 我們的夢想... 夢想... ";
+		next;
+		mes "[阿爾博]";
+		mes "所以絕對不可原諒那些海洋生物!!! 我一定要把它們做成海鮮色拉,然後用辣椒糊在一起吃掉.";
+		next;
+		mes "^0000ff阿爾博的聲音因為憤怒而顫抖,當他說到辣椒糊在一起吃掉的時候, 不小心砸到了自己的嘴唇.^000000";
+		close;
+	}
+	switch(.@status[.@i-1]) {
+	case 0:
+		mes "[阿爾博]";
+		mes "這項任務對你來說很難.我不能告訴你為什麼.你考慮下接找另一個吧?";
+		close;
+	case 1:
+		break;
+	case 2:
+		mes "[阿爾博]";
+		mes "對不起,有沒有新的任務!如果我有需要做的,我會告訴你的!";
+		close;
+	}
+	switch(.@i) {
+	case 1: // General Culvert Daily Service
+		switch(rand(1,6)) {
+			case 1: callsub L_GiveQuest,.@i,12255,12271,"深海蟹";
+			case 2: callsub L_GiveQuest,.@i,12256,12271,"深海章魚";
+			case 3: callsub L_GiveQuest,.@i,12257,12271,"深海螃蟹";
+			case 4: callsub L_GiveQuest,.@i,12258,12271,"深海寄居蟹";
+			case 5: callsub L_GiveQuest,.@i,12259,12271,"深海庫克雷";
+			case 6: callsub L_GiveQuest,.@i,12260,12271,"深海蟹蛛";
+		}
+	case 2: // Hard Culvert Daily Service
+		switch(rand(1,6)) {
+			case 1: callsub L_GiveQuest,.@i,12261,12272,"深海海馬";
+			case 2: callsub L_GiveQuest,.@i,12262,12272,"深海劍魚";
+			case 3: callsub L_GiveQuest,.@i,12263,12272,"海神";
+			case 4: callsub L_GiveQuest,.@i,12264,12272,"深海鱷魚";
+			case 5: callsub L_GiveQuest,.@i,12265,12272,"深海人魚";
+			case 6: callsub L_GiveQuest,.@i,12266,12272,"深海卡法";
+		}
+	case 3: // General Culvert Weekly Service
+		switch(rand(1,2)) {
+			case 1: callsub L_GiveQuest,.@i,12267,12273,"怪異腔棘魚";
+			case 2: callsub L_GiveQuest,.@i,12268,12273,"黑暗腔棘魚";
+		}
+	case 4: // Hard Culvert Weekly Service
+		switch(rand(1,2)) {
+			case 1: callsub L_GiveQuest,.@i,12269,12274,"兇暴腔棘魚";
+			case 2: callsub L_GiveQuest,.@i,12270,12274,"突變腔棘魚";
+		}
+	default:
+		mes "[阿爾博]";
+		mes "呃!? 哪裡的任務? 讓我查查. 你最好問下馬德卡.";
+		close;
+	}
+	end;
+
+// callsub L_GiveQuest,.@i,<quest 1>,<quest 2>,<monster>;
+L_GiveQuest:
+	setquest getarg(1);
+	setquest getarg(2);
+	mes "[阿爾博]";
+	mes "今天的深海英雄!";
+	mes "讓我們大聲說出它們滅絕的日子 ^0000ff"+getarg(3)+"^000000!";
+	next;
+	mes "[阿爾博]";
+	switch(getarg(0)) {
+	case 1:
+	case 2:
+		mes "來吧,夥計! 不用擔心,放手去做吧! 這是一個日常任務!";
+		break;
+	case 3:
+		mes "我給你1周時間來完成這個任務,在副本裡把它們全部殺死!(普通模式)";
+		break;
+	case 4:
+		mes "我給你1周時間來完成這個任務,在副本裡把它們全部殺死!(困難模式)";
+		break;
+	}
+	next;
+	mes "給你的需求是擊殺 ^005500"+getarg(3)+"^000000. 如果您需要了解更多詳情,請在任務窗口查詢.";
+	close;
+}
+
+mal_in01,172,26,2	script	馬德卡#mal	544,{
+	if (checkweight(1201,1) == 0) {
+		mes "你攜帶了太多種類的物品.嘗試減少物品種類然後繼續.";
+		close;
+	}
+	if (MaxWeight - Weight < 1000) {
+		mes "你的負重不夠了.嘗試降低負重然後繼續.";
+		close;
+	}
+	if (BaseLevel < 90) {
+		mes "[馬德卡]";
+		mes "Karrrrrrr!!";
+		mes "讓我們搞一些該死的海洋生物來燒烤!";
+		next;
+		mes "[馬德卡]";
+		mes "你是誰? 你這樣的人連海藻都可以幹掉你!";
+		close;
+	}
+	mes "[馬德卡]";
+	mes "噢?";
+	mes "你接受了我大哥阿爾博的任務. 這可是個苦差事!";
+	next;
+	set .@i, select("- 你在這裡做什麼?:- 日常普通模式任務獎勵:- 日常困難模式任務獎勵:- 周常普通模式任務獎勵:- 周常困難模式任務獎勵")-1;
+	if (.@i == 0) {
+		mes "[馬德卡]";
+		mes "我在這裡協助我大哥阿爾博!";
+		next;
+		mes "[馬德卡]";
+		mes "誰能把這些骯髒的海洋生物清理出海底,我們就會獎勵給他寶貴的財富!";
+		next;
+		mes "[馬德卡]";
+		mes "我們提供A和B級硬幣作為日常任務的獎勵,周任務獎勵是最最寶貴的海神之怒.";
+		next;
+		mes "[馬德卡]";
+		mes "如果你接受了我大哥阿爾博的任務,我會非常樂意見到你.所以,讓我們站的靠近點!";
+		close;
+	}
+	mes "[馬德卡]";
+	mes "我可不會給過期任務發放獎勵,所以先讓我檢查一下.";
+	next;
+	specialeffect2 EF_SPHERE;
+	progressbar "0xFFFF00",3;
+	specialeffect2 EF_STEAL;
+	switch(.@i) {
+	case 1: // General Culvert Daily Service
+		if (checkquest(12271,PLAYTIME) == 2)
+			callsub L_EraseQuest,12255,12256,12257,12258,12259,12260,12271;
+		else {
+			// Reward: 2x B Grade Coin
+			callsub L_CheckQuest,12255,"深海蟹",6419,2;
+			callsub L_CheckQuest,12256,"深海章魚",6419,2;
+			callsub L_CheckQuest,12257,"深海螃蟹",6419,2;
+			callsub L_CheckQuest,12258,"深海寄居蟹",6419,2;
+			callsub L_CheckQuest,12259,"深海庫克雷",6419,2;
+			callsub L_CheckQuest,12260,"深海蟹蛛",6419,2;
+		}
+		break;
+	case 2: // Hard Culvert Daily Service
+		if (checkquest(12272,PLAYTIME) == 2)
+			callsub L_EraseQuest,12261,12262,12263,12264,12265,12266,12272;
+		else {
+			// Reward: 1x A Grade Coin
+			callsub L_CheckQuest,12261,"深海海馬",6418,1;
+			callsub L_CheckQuest,12262,"深海劍魚",6418,1;
+			callsub L_CheckQuest,12263,"海神",6418,1;
+			callsub L_CheckQuest,12264,"深海鱷魚",6418,1;
+			callsub L_CheckQuest,12265,"深海人魚",6418,1;
+			callsub L_CheckQuest,12266,"深海卡法",6418,1;
+		}
+		break;
+	case 3: // General Culvert Weekly Service
+		if (checkquest(12273,PLAYTIME) == 2)
+			callsub L_EraseQuest,12267,12268,12273;
+		else {
+			// Reward: 1x Sea God's Wrath
+			callsub L_CheckQuest,12267,"怪異腔棘魚",6423,1;
+			callsub L_CheckQuest,12268,"黑暗腔棘魚",6423,1;
+		}
+		break;
+	case 4: // Hard Culvert Weekly Service
+		if (checkquest(12274,PLAYTIME) == 2)
+			callsub L_EraseQuest,12269,12270,12274;
+		else {
+			// Reward: 5x Sea God's Wrath
+			callsub L_CheckQuest,12269,"兇暴腔棘魚",6423,5;
+			callsub L_CheckQuest,12270,"突變腔棘魚",6423,5;
+		}
+		break;
+	default:
+		mes "[馬德卡]";
+		mes "有些錯誤. 請再檢查一下!";
+		close;
+	}
+	mes "[馬德卡]";
+	mes "我沒看到有任何一個任務已經完成!";
+	close;
+
+L_EraseQuest:
+	for(set .@j,0; .@j<getargcount(); set .@j,.@j+1) {
+		if (checkquest(getarg(.@j)) > -1)
+			erasequest getarg(.@j);
+	}
+	mes "[馬德卡]";
+	mes "嗯,我很抱歉. 超過標準的任務期限, 所以我不能給你任何獎勵.";
+	close;
+
+// callsub L_CheckQuest,<quest ID>,<monster>,<reward item ID>,<reward item amount>;
+L_CheckQuest:
+	if (checkquest(getarg(0),HUNTING) == 2) {
+		mes "[馬德卡]";
+		mes "你懲罰了 ^0000ff"+getarg(1)+"^000000!";
+		mes "這是你的獎勵!";
+		erasequest getarg(0);
+		specialeffect2 EF_STEAL;
+		getitem getarg(2),getarg(3);
+		close;
+	}
+	return;
+}
+
+// Instance Creation
+//============================================================
+mal_in01,160,34,4	script	清潔工小林	545,{
+	if (BaseLevel < 90) {
+		mes "[清潔工小林]";
+		mes "你在和我說話麼?!";
+		next;
+		mes "[清潔工小林]";
+		mes "我不知道你來到這裡是什麼原因,但你不能進入!";
+		mes "託馬斯的命令...";
+		next;
+		mes "^770099你的基本等級至少要90級以上才可以進去.^000000";
+		close;
+	}
+	if (in_canal_n == 0) {
+		mes "[清潔工小林]";
+		mes "(發抖)";
+		next;
+		mes "^660066這貓看起來像狀態不好,它微微顫抖.^000000";
+		next;
+		if(select("捕捉這隻貓:你還好嗎?") == 1) {
+			mes "[清潔工小林]";
+			mes "你在和我說話麼?!";
+			next;
+			mes "^660066顫抖的貓抬頭看著你.^000000";
+			close;
+		}
+		mes "[清潔工小林]";
+		mes "打噴嚏!";
+		next;
+		mes "[清潔工小林]";
+		mes "在清理海底這件事情上";
+		mes "我們曾經產生了很多問題.";
+		mes "但是作為一隻貓必須這樣做...";
+		next;
+		select("什麼海底清理?");
+		mes "[清潔工小林]";
+		mes "對一個外來者來說,這應該很陌生";
+		mes "但實際上這個地方";
+		mes "存放了很多紀念品和珍貴的財富.";
+		mes "這也許你很難理解.";
+		next;
+		mes "[清潔工小林]";
+		mes "在一次大地震後";
+		mes "我們的物資被大水衝走";
+		mes "雖然我曾經是一名經理人";
+		mes "但現在我卻在做清潔工的事情";
+		mes "現實就是如此的殘酷.";
+		next;
+		mes "^660066看上去那隻貓開始哭了...^000000";
+		next;
+		mes "[清潔工小林]";
+		mes "沿著這樣的地下室有一個洞穴.";
+		mes "那裡有許多壞人,傷害我的人";
+		mes "和它們戰鬥了很多次";
+		mes "而且每天和戰鬥它們戰鬥讓";
+		mes "我非常疲倦!";
+		next;
+		mes "[清潔工小林]";
+		mes "Ohh! 你碰到我的頭髮了!";
+		mes "我的發質是下降了...這一切都";
+		mes "這些傢伙的錯~";
+		next;
+		mes "^660066你才留意到,這隻貓的一些皮毛開始脫落了.^000000";
+		next;
+		select("你為什麼不離開!");
+		mes "[清潔工小林]";
+		mes "我也需要謀生的,你說對麼?";
+		next;
+		mes "[清潔工小林]";
+		mes "有時候我得到些幸運箱子,";
+		mes "甚至更好的是,我能得些食物罐頭...";
+		next;
+		if(select("好吧,乾杯!:如果可能的話，我會幫你...") == 1) {
+			mes "[清潔工小林]";
+			mes "謝謝.我要回去抽水了!";
+			close;
+		}
+		mes "[清潔工小林]";
+		mes "(壓低它的聲音)";
+		mes "如果你真想幫忙,就靠我近點!";
+		next;
+		select("(靠近後)");
+		mes "[清潔工小林]";
+		mes "不是每個人都可以在這裡當幫手.";
+		mes "那一刻";
+		mes "我不能幫任何人做選擇...";
+		next;
+		mes "[清潔工小林]";
+		mes "如果你要從這裡下去的話,拿著這個暗號.";
+		next;
+		mes "^660066這貓給了你一張寫著暗號的便條^000000";
+		next;
+		select("打開便條.");
+		mes "^660000一會大聲的對我說'你竟敢侮辱我'.^000000";
+		next;
+		mes "[清潔工小林]";
+		mes "你在這裡需要朋友";
+		mes "你很難一個人面臨挑戰";
+		mes "這個紙條可以讓你成為隊長!";
+		mes "所以組織一支隊伍吧!";
+		next;
+		mes "[清潔工小林]";
+		mes "還有一個重點是";
+		mes "你和你的隊友們必須每次帶來一個海神的護身符.";
+		next;
+		mes "[清潔工小林]";
+		mes "不要忘記! ";
+		mes "如果沒有海神的護身符,我是不會打開這扇門的!";
+		set in_canal_n,1;
+		close;
+	}
+	if (countitem(6436) == 0) {
+		mes "[清潔工小林]";
+		mes "你沒有^FF0000海神的護身符^000000(id:6436), 我不能打開這扇門!";
+		close;
+	}
+	set .@party_id,getcharid(1);
+	set .@md_name$,"Culvert";
+	if (!instance_check_party(.@party_id,2)) {
+		mes "^0000ff必須組隊但不限制人數.^000000";
+		mes "因此快點召集自己的好友,";
+		mes "一起過來冒險吧.";
+		close;
+	}
+	set .@playtime, checkquest(12254,PLAYTIME);
+	if (.@playtime == -1) {
+		if (getcharid(0) == getpartyleader(.@party_id,2)) {
+			mes "[清潔工小林]";
+			mes "嗯? 什麼情況? 如果你是隊長的話就告訴我口令!";
+			next;
+			switch(select("- 不,我不是隊長.:- 你竟敢侮辱我.:- 進入排水渠副本.")) {
+			case 1:
+				mes "[清潔工小林]";
+				mes "竟然是個菜鳥.";
+				close;
+			case 2:
+				if (instance_create(.@md_name$) < 0) {
+					mes "隊伍名稱: "+getpartyname(.@party_id);
+					mes "隊    長: "+strcharinfo(0);
+					mes "^0000ff"+.@md_name$+"^000000 - 保留失敗!";
+					close;
+				}
+					mes "^0000ff"+.@md_name$+"^000000 - 註冊成功!";
+					mes "當註冊完成後, ";
+					mes "你需要再次對話, 在菜單中選擇'進入副本'.";					
+				close;
+			case 3:
+				callsub L_Enter,0;
+			}
+		}
+		if(select("- 進入副本:- 取消") == 2)
+			end;
+		callsub L_Enter,1;
+	} else if (.@playtime == 0 || .@playtime == 1) {
+		mes "如果入口的門打開的話, 你就可以進入副本了.";
+		next;
+		if(select("- 進入副本:- 取消") == 2)
+			close;
+		callsub L_Enter,0;
+	} else if (.@playtime == 2) {
+		mes "^0000ff通向副本的大門再次打開.^000000";
+		erasequest 12254;
+		close;
+	}
+	end;
+L_Enter:
+	switch(instance_enter("Culvert")) {
+	case 3:
+		mes "發生未知錯誤.";
+		close;
+	case 2:
+			mes "通向排水渠副本的大門始終關閉著.";
+			mes "你必須在組隊中, 並且由隊長才能操作進入副本.";
+		close;
+	case 1:
+		mes "只有隊伍成員才能參與.";
+		close;
+	case 0:
+		mapannounce "mal_in01", strcharinfo(0)+" 隊伍 "+getpartyname(.@party_id)+" 進入了排水渠副本.",bc_map,"0x00ff99";
+		if (checkquest(12254) == -1) setquest 12254;
+		//warp "1@pump",63,98;
+		if (getarg(0) == 0) close;
+		else end;
+	}
+}
+
+// Instance: Common Scripts
+//============================================================
+1@pump,63,100,4	script	清潔工小林#0	545,{
+	if (getcharid(0) != getpartyleader(getcharid(1),2)) {
+		mes "[清潔工小林]";
+		mes "我現在正在和你們的隊長說話. 請你們耐心等待一會!";
+		close;
+	}
+	mes "[清潔工小林]";
+	mes "這裡是綿綿島排水渠, 你將在這裡帶著你的隊友一起戰鬥!";
+	next;
+	mes "[清潔工小林]";
+	mes "首先我會打開大門, 你們做好開戰的準備了嗎?";
+	next;
+	switch(select("- 我非常喜歡那個麵包的口味.:- 我懂如何去戰鬥.:- ^ffffff給我鑽石.^000000")) {
+	case 1:
+		mes "[清潔工小林]";
+		mes "那好吧, 我就讓你在這裡像往常一樣清理排水渠! 我先預備在右上角開始, 請跟我來!";
+		next;
+		if(select("- 等等! 我改變了主意了!:- 如你所願~") == 1) {
+			mes "[清潔工小林]";
+			mes "呃? 還沒好? 準備好了請告訴我.";
+			close;
+		}
+		set 'party_id,getcharid(1);
+		mapannounce instance_mapname("1@pump"),"清潔工小林: 向著3點鐘的方向走, 然後等我會在傳送門的另一端給你下一個指令",bc_map,"0xff88ff",FW_NORMAL,15;
+		disablenpc instance_npcname("清潔工小林#0");
+		enablenpc instance_npcname("清潔工小林#n");
+		close;
+	case 2:
+		if (BaseLevel < 140) {
+			mes "[清潔工小林]";
+			mes "嗯... 我覺得你實力很弱! 告訴我真相吧!!";
+			close;
+		}
+		mes "[清潔工小林]";
+		mes "呵呵? 你的戰鬥技術高超? 好吧, 那麼, 有個地方, 我還沒去清理過...你就去那裡吧?!";
+		next;
+		mes "[清潔工小林]";
+		mes "我必須告訴你, 經過了長期的掃蕩，我們已經清理了不少地方, 剩餘的地方都非常危險, 低於140級的人甚至不能進入! 你確定你還想去?";
+		next;
+		if(select("- 等等! 我改變主意了!:- 當然, 都萬事俱備~") == 1) {
+			mes "[清潔工小林]";
+			mes "嗯? 最後確認一次.";
+			close;
+		}
+		set 'party_id,getcharid(1);
+		mapannounce instance_mapname("1@pump"),"清潔工小林: 我會先進去, 然後你跟緊我! 我會打開3點鐘方向的通道!",bc_map,"0xff88ff",FW_NORMAL,15;
+		disablenpc instance_npcname("清潔工小林#0");
+		enablenpc instance_npcname("排水溝入口#i");
+		close;
+	case 3:
+		mes "[清潔工小林]";
+		mes "你小子玩我是不是~!";
+		close;
+	}
+	end;
+}
+
+1@pump,84,105,0	script	排水溝入口#i	45,3,3,{
+	end;
+OnInstanceInit:
+	disablenpc instance_npcname("排水溝入口#i");
+	end;
+OnTouch:
+	if (BaseLevel >= 140)
+		warp instance_mapname("2@pump"),38,88;
+	else
+		warp instance_mapname("1@pump"),74,105;
+	end;
+}
+
+function	script	F_mal_missing	{
+	mes "[清潔工小林]";
+	mes "我會指點你應該怎麼做, 你有沒看到周圍的排水渠?";
+	next;
+	if(select("- 什麼排水渠??:- 是的, 我看見了.") == 1) {
+		mes "[清潔工小林]";
+		mes "嗯? 看樣子你是第一次來這地方? 你會看到一些埋在泥土裡的機器. 你必須在附近好好找找!";
+		close;
+	}
+	mes "[清潔工小林]";
+	mes "很好! 這些排水渠對我們非常重要! 因此我們必須阻止那些海藻的繁殖. 這也是我, 清潔工的使命!";
+	next;
+	mes "[清潔工小林]";
+	mes "小心! 有些精明的怪物會偷偷跟著你! 絕對不能饒恕它們!";
+	next;
+	mes "[清潔工小林]";
+	mes "還有... 千萬不能讓那些受汙染的海藻長出第6個分岔! 一定要控制在5條以下! 否則, 我會以玩忽職守罪把你從這裡丟出去!!";
+	next;
+	mes "[清潔工小林]";
+	mes "我不會介意你從自己的隊友這裡獲得幫助. 我希望你能清理完整個洞穴! 不要忘記! 我也會在邊上盡我所能給你各種提示和建議. !!";
+	next;
+	if (getcharid(0) != getpartyleader(getcharid(1),2)) {
+		mes "[清潔工小林]";
+		mes "一旦你們的隊長完成準備工作, 副本就會開始, 所以請打起精神來!!";
+		close;
+	}
+	mes "[清潔工小林]";
+	mes "那麼, 你現在準備就緒了嗎?";
+	next;
+	switch(select("+ 等等! 還沒!:- 讓我們開始吧!")) {
+	case 1:
+		mes "[清潔工小林]";
+		mes "嗯? 還沒好? 準備好了就告訴我.";
+		close;
+	case 2:
+		mes "[清潔工小林]";
+		mes "OK! 好戲開始了!";
+		return;
+	}
+}
+
+// Instance: Normal Mode
+//============================================================
+1@pump,84,105,4	script	清潔工小林#nf	545,{
+	mes "[清潔工小林]";
+	mes "我在這裡幹了40年, 你們是我見過最差的隊伍!!";
+	next;
+	mes "[清潔工小林]";
+	mes "你們的疏忽導致這裡長滿了被汙染的海藻! 所有的排水渠都收到堵塞的風險!";
+	next;
+	if (getcharid(0) != getpartyleader(getcharid(1),2)) {
+		mes "[清潔工小林]";
+		mes "等你們的隊長回過神來, 會告訴你們處罰決定. 現在你們可以做一下思想準備!!";
+		close;
+	}
+	mes "[清潔工小林]";
+	mes "如果你有膽量再次挑戰, 我再給你一次機會! 你的想法是!?";
+	next;
+	switch(select("- 等等! 現在不行!:- 好的, 讓我們再來一次!")) {
+	case 1:
+		mes "[清潔工小林]";
+		mes "記住當斷則斷! 等你們準備好了就告訴我.";
+		close;
+	case 2:
+		mes "[清潔工小林]";
+		mes "好的! 讓我們現在就開始!";
+		set .@i$, charat(strnpcinfo(2),0);
+		enablenpc instance_npcname("清潔工小林#"+.@i$);
+		donpcevent instance_npcname("清潔工小林#"+.@i$)+"::OnStart";
+		disablenpc instance_npcname("排水溝入口#"+.@i$);
+		disablenpc instance_npcname("清潔工小林#"+.@i$+"o");
+		donpcevent instance_npcname("怪物洞#"+.@i$)+"::OnClear";
+		disablenpc instance_npcname(strnpcinfo(0));
+		close;
+	}
+	close;
+OnInstanceInit:
+	disablenpc instance_npcname(strnpcinfo(0));
+	end;
+}
+
+1@pump,84,105,4	script	清潔工小林#n	545,{
+	callfunc "F_mal_missing";
+	donpcevent instance_npcname("清潔工小林#n")+"::OnStart";
+	close;
+OnInstanceInit:
+	disablenpc instance_npcname("清潔工小林#n");
+	end;
+OnStart:
+	killmonster instance_mapname("1@pump"),instance_npcname("清潔工小林#n")+"::OnMyMobDead";
+	disablenpc instance_npcname("清潔工小林#n");
+	initnpctimer;
+	end;
+OnAddSeaweed:
+	set .@map$, instance_mapname("1@pump");
+	areamonster .@map$,55,99,61,105,"受汙染的海藻",2191,1,instance_npcname("清潔工小林#n")+"::OnMyMobDead";
+	set .@mob_dead_num, mobcount(.@map$,instance_npcname("清潔工小林#n")+"::OnMyMobDead");
+	if (.@mob_dead_num >= 6)
+		donpcevent instance_npcname("清潔工小林#n")+"::OnFail";
+	else
+		mapannounce .@map$,"受汙染的海藻: "+.@mob_dead_num+" stem",bc_map,"0xff3333",FW_NORMAL,20;
+	end;
+OnMyMobDead:
+	end;
+OnFail:
+	stopnpctimer;
+	donpcevent instance_npcname("怪物洞#n")+"::OnClear";
+	set .@map$, instance_mapname("1@pump");
+	killmonster .@map$,instance_npcname("清潔工小林#n")+"::OnMyMobDead";
+	enablenpc instance_npcname("清潔工小林#nf");
+	mapannounce .@map$,"你們究竟在這裡幹什麼!! 到處都是該死海藻! 放棄你的工作! 離開這裡!!",bc_map,"0xff88ff",FW_NORMAL,15;
+	disablenpc instance_npcname("清潔工小林#n");
+	end;
+OnTimer100:
+	mapannounce instance_mapname("1@pump"),"第一個排水渠將在5秒鐘內開啟. 清理者們請到排水渠這裡單擊「開始清理」.",bc_map,"0x00ffcc",FW_NORMAL,15;
+	end;
+OnTimer5500:
+	mapannounce instance_mapname("1@pump"),"排水渠副本建立時, 等候的玩家無法移動和攻擊.",bc_map,"0x00ffcc",FW_NORMAL,15;
+	donpcevent instance_npcname("怪物洞#n")+"::OnSpawn";
+	end;
+OnTimer45000:
+OnTimer95000:
+OnTimer145000:
+OnTimer195000:
+OnTimer245000:
+OnTimer295000:
+OnTimer345000:
+OnTimer395000:
+OnTimer445000:
+	mapannounce instance_mapname("1@pump"),"下一個排水渠將在50秒內開啟. 請儘快找到下一個排水渠的位置.",bc_map,"0x00ffcc",FW_NORMAL,15;
+	end;
+OnTimer50000:
+OnTimer100000:
+OnTimer150000:
+	donpcevent instance_npcname("怪物洞#n")+"::OnSpawn";
+	end;
+OnTimer200000:
+OnTimer250000:
+OnTimer300000:
+OnTimer350000:
+OnTimer400000:
+OnTimer450000:
+	set .@mob_dead_num, mobcount(instance_mapname("1@pump"),instance_npcname("清潔工小林#n")+"::OnMyMobDead");
+	if (.@mob_dead_num >= 6)
+		donpcevent instance_npcname("清潔工小林#n")+"::OnFail";
+	else
+		donpcevent instance_npcname("怪物洞#n")+"::OnSpawn";
+	end;
+OnTimer515000:
+	set .@map$, instance_mapname("1@pump");
+	set .@mob_dead_num, mobcount(.@map$,instance_npcname("清潔工小林#n")+"::OnMyMobDead");
+	mapannounce .@map$,"受汙染的海藻: "+.@mob_dead_num+" 儘快完成清潔工作, 清潔工小林就快來檢查了.",bc_map,"0xff3333",FW_NORMAL,20;
+	end;
+OnTimer520000:
+	stopnpctimer;
+	set .@mob_dead_num, mobcount(instance_mapname("1@pump"),instance_npcname("清潔工小林#n")+"::OnMyMobDead");
+	if (.@mob_dead_num >= 6)
+		donpcevent instance_npcname("清潔工小林#n")+"::OnFail";
+	else
+		donpcevent instance_npcname("Boss Creation#n")+"::OnEnable";
+	end;
+}
+
+1@pump,1,1,4	script	怪物洞#n	-1,{
+	end;
+OnSpawn:
+	set .@i$, charat(strnpcinfo(2),0);
+	if (.@i$ == "n")
+		set .@n,6;
+	else if (.@i$ == "h")
+		set .@n,10;
+	donpcevent instance_npcname("#Culvert_"+.@i$+rand(1,.@n))+"::OnEnable";
+	end;
+OnClear:
+	set .@i$, charat(strnpcinfo(2),0);
+	if (.@i$ == "n")
+		set .@n,6;
+	else if (.@i$ == "h")
+		set .@n,10;
+	for(set .@i,1; .@i<=.@n; set .@i,.@i+1)
+		donpcevent instance_npcname("#Culvert_"+.@i$+.@n)+"::OnClear";
+	end;
+}
+
+1@pump,36,111,4	script	#Culvert_n1	844,14,14,{ //temporary workaround for ALL_SAMEMAP
+	progressbar "0xFFFF00",10;
+	stopnpctimer;
+	disablenpc instance_npcname(strnpcinfo(0));
+	end;
+OnInstanceInit:
+	disablenpc instance_npcname(strnpcinfo(0));
+	end;
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0));
+	set .@label$, instance_npcname(strnpcinfo(0))+"::OnMyMobDead";
+	set .@map$, instance_mapname("1@pump");
+	set .@index, atoi(charat(strnpcinfo(2),9));
+	switch(.@index) {
+		case 1: setarray .@c[0],32,107,40,115; break;
+		case 2: setarray .@c[0],64,120,72,128; break;
+		case 3: setarray .@c[0],76,110,84,118; break;
+		case 4: setarray .@c[0],36,76,44,84; break;
+		case 5: setarray .@c[0],71,76,79,84; break;
+		case 6: setarray .@c[0],54,97,62,105; break;
+	}
+	areamonster .@map$,.@c[0],.@c[1],.@c[2],.@c[3],"深海蟹",2176,rand(1,3),.@label$;
+	areamonster .@map$,.@c[0],.@c[1],.@c[2],.@c[3],"深海章魚",2175,rand(1,3),.@label$;
+	areamonster .@map$,.@c[0],.@c[1],.@c[2],.@c[3],"深海螃蟹",2174,rand(1,3),.@label$;
+	areamonster .@map$,.@c[0],.@c[1],.@c[2],.@c[3],"深海寄居蟹",2178,rand(1,3),.@label$;
+	areamonster .@map$,.@c[0],.@c[1],.@c[2],.@c[3],"深海庫克雷",2179,rand(1,3),.@label$;
+	areamonster .@map$,.@c[0],.@c[1],.@c[2],.@c[3],"深海蟹蛛",2177,rand(1,3),.@label$;
+	specialeffect EF_MAPPILLAR2,ALL_SAMEMAP; //currently broken
+	getmapxy(.@map$,.@x,.@y,1);
+	getpartymember 'party_id,2;
+	copyarray .@partymemberaid[0],$@partymemberaid[0],$@partymembercount;
+	for(set .@i,0; .@i<$@partymembercount; set .@i,.@i+1) {
+		if (attachrid(.@partymemberaid[.@i])) {
+			if (strcharinfo(3) == .@map$)
+				viewpoint 0,.@x,.@y,.@index,0xFFFF00;
+			detachrid;
+		}
+	}
+	initnpctimer;
+	end;
+OnMyMobDead:
+	end;
+OnClear:
+	stopnpctimer;
+	killmonster instance_mapname("1@pump"),instance_npcname(strnpcinfo(0))+"::OnMyMobDead";
+	end;
+OnTimer49500:	//OnTimer50000 clashes with the timer in "清潔工小林#h".
+	donpcevent instance_npcname("清潔工小林#n")+"::OnAddSeaweed";
+	donpcevent instance_npcname(strnpcinfo(0))+"::OnClear";
+	disablenpc instance_npcname(strnpcinfo(0));
+	end;
+OnTouch:
+	specialeffect EF_MAPPILLAR2;
+	end;
+}
+1@pump,68,124,4	duplicate(#Culvert_n1)	#Culvert_n2	844,14,14
+1@pump,80,114,4	duplicate(#Culvert_n1)	#Culvert_n3	844,14,14
+1@pump,40,80,4	duplicate(#Culvert_n1)	#Culvert_n4	844,14,14
+1@pump,75,80,4	duplicate(#Culvert_n1)	#Culvert_n5	844,14,14
+1@pump,58,101,4	duplicate(#Culvert_n1)	#Culvert_n6	844,14,14
+
+1@pump,1,1,4	script	Boss Creation#n	-1,{
+	end;
+OnInstanceInit:
+	disablenpc instance_npcname(strnpcinfo(0));
+	end;
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0));
+	initnpctimer;
+	end;
+OnTimer100:
+	set .@i$, charat(strnpcinfo(2),0);
+	if (.@i$ == "n")
+		mapannounce instance_mapname("1@pump"),"嗯! 幹的不賴!",bc_map,"0xff88ff",FW_NORMAL,15;
+	else if (.@i$ == "h")
+		mapannounce instance_mapname("2@pump"),"嗯! 小子們還行!!",bc_map,"0xff88ff",FW_NORMAL,15;
+	end;
+OnTimer5000:
+	mapannounce strnpcinfo(4),"讓我們打包帶走...什麼!!?",bc_map,"0xff88ff",FW_NORMAL,15;
+	end;
+OnTimer10000:
+	mapannounce strnpcinfo(4),"我感覺到了一絲危險的氣息! 不要放鬆 - 準備戰鬥!!",bc_map,"0xff88ff",FW_NORMAL,15;
+	end;
+OnTimer20000:
+	stopnpctimer;
+	set .@i$, charat(strnpcinfo(2),0);
+	set .@label$, instance_npcname(strnpcinfo(0))+"::OnMyMobDead";
+	if (rand(1,100) > 50) {
+		if (.@i$ == "n")
+			monster instance_mapname("1@pump"),0,0,"怪異腔棘魚",2188,1,.@label$;
+		else if (.@i$ == "h")
+			monster instance_mapname("2@pump"),0,0,"突變腔棘魚",2189,1,.@label$;
+		mapannounce strnpcinfo(4),"洞穴深處有一個巨大的生物發出驚人的聲響.",bc_map,"0x00ffcc",FW_NORMAL,15;
+	} else {
+		if (.@i$ == "n")
+			monster instance_mapname("1@pump"),0,0,"黑暗腔棘魚",2187,1,.@label$;
+		else if (.@i$ == "h")
+			monster instance_mapname("2@pump"),0,0,"兇暴腔棘魚",2190,1,.@label$;
+		mapannounce strnpcinfo(4),"洞穴深處傳來巨大的聲響.",bc_map,"0x00ffcc",FW_NORMAL,15;
+	}
+	end;
+OnMyMobDead:
+	if (mobcount(strnpcinfo(4),instance_npcname(strnpcinfo(0))+"::OnMyMobDead") < 1) {
+		mapannounce strnpcinfo(4),"你擊殺了洞穴中所有的怪物. 地上有獎勵物品，請取走.",bc_map,"0xffff00",FW_NORMAL,15;
+		set .@i$, charat(strnpcinfo(2),0);
+		set .@map$, strnpcinfo(4);
+		enablenpc instance_npcname("排水溝入口#"+.@i$);
+		enablenpc instance_npcname("清潔工小林#"+.@i$+"o");
+		if (.@i$ == "n") {
+			for(set .@i,0; .@i<10; set .@i,.@i+1) {
+				set .@j, rand(1,6401);
+				     if (.@j < 5001) set .@item,12636; //Malang_Sp_Can
+				else if (.@j < 5501) set .@item,12615; //Low_Coin_Pocket
+				else if (.@j < 6001) set .@item,12621; //Egrade_Pocket
+				else if (.@j < 6201) set .@item,12620; //Dgrade_Pocket
+				else if (.@j < 6401) set .@item,12623; //High_Weapon_Box
+				else continue;
+				makeitem .@item,1,.@map$,rand(40,77),rand(87,120);
+			}
+		} else if (.@i$ == "h") {
+			for(set .@i,0; .@i<10; set .@i,.@i+1) {
+				set .@j, rand(1,5001);
+				     if (.@j < 2001) set .@item,12615; //Low_Coin_Pocket
+				else if (.@j < 3001) set .@item,12621; //Egrade_Pocket
+				else if (.@j < 4001) set .@item,12620; //Dgrade_Pocket
+				else if (.@j < 4501) set .@item,12619; //Cgrade_Pocket
+				else if (.@j < 5001) set .@item,12623; //High_Weapon_Box
+				else continue;
+				makeitem .@item,1,.@map$,rand(40,77),rand(87,120);
+			}
+		}
+	} else
+		mapannounce strnpcinfo(4),"還有怪物活著.",bc_map,"0x00ff99",FW_NORMAL,20;
+	end;
+}
+
+1@pump,84,105,4	script	清潔工小林#no	545,{
+	set .@i$, charat(strnpcinfo(2),0);
+	if (.@i$ == "n") {
+		mes "[清潔工小林]";
+		mes "我太愚蠢了!!";
+		next;
+		mes "[清潔工小林]";
+		mes "這古怪的魚，似乎是一條生長在這裡的腔棘魚。這是我第一次看到它們獨自來到這裡!";
+		next;
+		mes "[清潔工小林]";
+		mes "我會清理這個屍體。打包後離開！入口位於另一側，快去找吧!";
+		next;
+	} else if (.@i$ == "h") {
+		mes "[清潔工小林]";
+		mes "你幹掉了一個巨大的怪物!";
+		next;
+		mes "[清潔工小林]";
+		mes "你幹掉的是一種腔棘魚。曾經也有人試圖幹掉他們，但失敗了.";
+		next;
+		mes "[清潔工小林]";
+		mes "我會清理屍體。你帶著獎勵先走!";
+		next;
+	}
+	mes "[清潔工小林]";
+  mes "還有一件事！不要和任何人說起在這裡見到的情況!";
+	next;
+	mes "[清潔工小林]";
+	mes "如果託馬斯把這裡關了，我們會失去我們的工作!";
+	close;
+OnInstanceInit:
+	disablenpc instance_npcname(strnpcinfo(0));
+	end;
+}
+
+1@pump,32,100,0	script	排水溝入口#n	45,3,3,{
+	end;
+OnInstanceInit:
+	disablenpc instance_npcname(strnpcinfo(0));
+	end;
+OnTouch:
+	warp "mal_in01",161,32;
+	end;
+}
+
+//MD_Putmob "1@pump" 0 0 0 0 20 海德拉 0 0 2
+1@pump,1,1,4	script	海德拉#n	-1,{
+OnInstanceInit:
+	monster strnpcinfo(4),0,0,"海德拉",1068,20;
+	end;
+}
+
+// Instance: Hard Mode
+//============================================================
+2@pump,39,88,4	duplicate(清潔工小林#nf)	清潔工小林#hf	545
+
+2@pump,39,88,4	script	清潔工小林#h	545,{
+	callfunc "F_mal_missing";
+	donpcevent instance_npcname("清潔工小林#h")+"::OnStart";
+	close;
+OnStart:
+	killmonster instance_mapname("2@pump"),instance_npcname("清潔工小林#h")+"::OnMyMobDead";
+	disablenpc instance_npcname("清潔工小林#h");
+	initnpctimer;
+	end;
+OnAddSeaweed:
+	set .@map$, instance_mapname("2@pump");
+	areamonster .@map$,75,78,85,88,"受汙染的海藻",2191,1,instance_npcname("清潔工小林#h")+"::OnMyMobDead";
+	set .@mob_dead_num, mobcount(.@map$,instance_npcname("清潔工小林#h")+"::OnMyMobDead");
+	if (.@mob_dead_num >= 6)
+		donpcevent instance_npcname("清潔工小林#h")+"::OnFail";
+	else
+		mapannounce .@map$,"受汙染的海藻: "+.@mob_dead_num+"個受汙染的海藻分岔",bc_map,"0xff3333",FW_NORMAL,20;
+	end;
+OnMyMobDead:
+	end;
+OnFail:
+	stopnpctimer;
+	donpcevent instance_npcname("怪物洞#h")+"::OnClear";
+	set .@map$, instance_mapname("2@pump");
+	killmonster .@map$, instance_npcname("清潔工小林#h")+"::OnMyMobDead";
+	enablenpc instance_npcname("清潔工小林#hf");
+	mapannounce .@map$,"你們究竟在這裡幹什麼!! 到處都是該死海藻! 放棄你的工作! 離開這裡!!",bc_map,"0xff88ff",FW_NORMAL,15;
+	disablenpc instance_npcname("清潔工小林#h");
+	end;
+OnTimer100:
+	mapannounce instance_mapname("2@pump"),"第一個排水渠將在5秒內打開. 清理者們可以到排水渠洞口單擊'開始清理'.",bc_map,"0x00ffcc",FW_NORMAL,15;
+	end;
+OnTimer5500:
+	mapannounce instance_mapname("2@pump"),"副本構建過程中, 所有參加副本的人員無法移動和攻擊.",bc_map,"0x00ffcc",FW_NORMAL,15;
+	donpcevent instance_npcname("怪物洞#h")+"::OnSpawn";
+	end;
+OnTimer35000:
+OnTimer75000:
+OnTimer115000:
+OnTimer155000:
+OnTimer195000:
+OnTimer235000:
+OnTimer275000:
+OnTimer315000:
+OnTimer355000:
+	mapannounce instance_mapname("2@pump"),"下一個排水渠將在5秒內打開. 請儘快到達下一個排水渠的位置.",bc_map,"0x00ffcc",FW_NORMAL,15;
+	end;
+OnTimer40000:
+OnTimer80000:
+OnTimer120000:
+	donpcevent instance_npcname("怪物洞#h")+"::OnSpawn";
+	end;
+OnTimer160000:
+OnTimer200000:
+OnTimer240000:
+OnTimer280000:
+OnTimer320000:
+OnTimer360000:
+	set .@mob_dead_num, mobcount(instance_mapname("2@pump"),instance_npcname("清潔工小林#h")+"::OnMyMobDead");
+	if (.@mob_dead_num >= 6)
+		donpcevent instance_npcname("清潔工小林#h")+"::OnFail";
+	else
+		donpcevent instance_npcname("怪物洞#h")+"::OnSpawn";
+	end;
+OnTimer420000:
+	mapannounce instance_mapname("2@pump"),"看樣子, 清潔工小林馬上就要來檢查我們的清理情況了. 我們能把這裡的爛攤子清理乾淨麼?",bc_map,"0xff3333",FW_NORMAL,20;
+	end;
+OnTimer425000:
+	stopnpctimer;
+	set .@mob_dead_num, mobcount(instance_mapname("2@pump"),instance_npcname("清潔工小林#h")+"::OnMyMobDead");
+	if (.@mob_dead_num >= 6)
+		donpcevent instance_npcname("清潔工小林#h")+"::OnFail";
+	else
+		donpcevent instance_npcname("Boss Creation#h")+"::OnEnable";
+	end;
+}
+
+2@pump,53,114,4	script	#Culvert_h1	844,14,14,{ //temporary workaround for ALL_SAMEMAP
+	progressbar "0xFFFF00",15;
+	stopnpctimer;
+	disablenpc instance_npcname(strnpcinfo(0));
+	end;
+OnInstanceInit:
+	disablenpc instance_npcname(strnpcinfo(0));
+	end;
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0));
+	set .@label$, instance_npcname(strnpcinfo(0))+"::OnMyMobDead";
+	set .@map$, instance_mapname("2@pump");
+	set .@index, atoi(substr(strnpcinfo(2),9,getstrlen(strnpcinfo(2))-1));
+	switch(.@index) {
+		case 1: setarray .@c[0],49,110,57,118; break;
+		case 2: setarray .@c[0],75,105,83,113; break;
+		case 3: setarray .@c[0],110,110,118,118; break;
+		case 4: setarray .@c[0],94,94,102,102; break;
+		case 5: setarray .@c[0],58,92,66,100; break;
+		case 6: setarray .@c[0],53,66,61,74; break;
+		case 7: setarray .@c[0],43,45,51,53; break;
+		case 8: setarray .@c[0],77,59,85,67; break;
+		case 9: setarray .@c[0],96,70,104,78; break;
+		case 10: setarray .@c[0],111,46,119,54; break;
+	}
+	areamonster .@map$,.@c[0],.@c[1],.@c[2],.@c[3],"深海海馬",2182,rand(2,3),.@label$;
+	areamonster .@map$,.@c[0],.@c[1],.@c[2],.@c[3],"深海劍魚",2181,rand(2,3),.@label$;
+	areamonster .@map$,.@c[0],.@c[1],.@c[2],.@c[3],"深海海神",2180,rand(2,3),.@label$;
+	areamonster .@map$,.@c[0],.@c[1],.@c[2],.@c[3],"深海鱷魚",2183,rand(2,3),.@label$;
+	areamonster .@map$,.@c[0],.@c[1],.@c[2],.@c[3],"深海人魚",2184,rand(2,3),.@label$;
+	areamonster .@map$,.@c[0],.@c[1],.@c[2],.@c[3],"深海卡法",2185,rand(2,3),.@label$;
+	specialeffect EF_MAPPILLAR2,ALL_SAMEMAP; //currently broken
+	initnpctimer;
+	end;
+OnMyMobDead:
+	end;
+OnClear:
+	stopnpctimer;
+	killmonster instance_mapname("2@pump"),instance_npcname(strnpcinfo(0))+"::OnMyMobDead";
+	end;
+OnTimer39500:	//OnTimer40000 clashes with the timer in "清潔工小林#h".
+	donpcevent instance_npcname("清潔工小林#h")+"::OnAddSeaweed";
+	donpcevent instance_npcname(strnpcinfo(0))+"::OnClear";
+	disablenpc instance_npcname(strnpcinfo(0));
+	end;
+OnTouch:
+	specialeffect EF_MAPPILLAR2;
+	end;
+}
+2@pump,79,109,4	duplicate(#Culvert_h1)	#Culvert_h2	844,14,14
+2@pump,114,114,4	duplicate(#Culvert_h1)	#Culvert_h3	844,14,14
+2@pump,98,98,4	duplicate(#Culvert_h1)	#Culvert_h4	844,14,14
+2@pump,62,96,4	duplicate(#Culvert_h1)	#Culvert_h5	844,14,14
+2@pump,57,70,4	duplicate(#Culvert_h1)	#Culvert_h6	844,14,14
+2@pump,47,49,4	duplicate(#Culvert_h1)	#Culvert_h7	844,14,14
+2@pump,81,63,4	duplicate(#Culvert_h1)	#Culvert_h8	844,14,14
+2@pump,100,74,4	duplicate(#Culvert_h1)	#Culvert_h9	844,14,14
+2@pump,115,50,4	duplicate(#Culvert_h1)	#Culvert_h10	844,14,14
+
+2@pump,1,1,4	duplicate(怪物洞#n)	怪物洞#h	-1
+2@pump,1,1,4	duplicate(Boss Creation#n)	Boss Creation#h	-1
+2@pump,39,88,4	duplicate(清潔工小林#no)	清潔工小林#ho	545
+2@pump,38,100,0	duplicate(排水溝入口#n)	排水溝入口#h	45,3,3
+
+//MD_Putmob "2@pump" 0 0 0 0 20 海德拉 0 0 2
+2@pump,1,1,4	duplicate(海德拉#n)	海德拉#h	-1

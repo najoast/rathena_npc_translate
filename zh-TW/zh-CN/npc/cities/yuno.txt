@@ -1,0 +1,385 @@
+//============================================================
+//= rAthenaCN [城鎮人員]漢化腳本 
+//============================================================
+
+//===== rAthena Script =======================================
+//= Juno City
+//===== By: ================================================== 
+//= KitsuneStarwind, kobra_k88, L0ne_W0lf
+//===== Current Version: ===================================== 
+//= 1.5
+//===== Compatible With: ===================================== 
+//= rAthena SVN
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= NPCs for the City of Juno
+//===== Additional Comments: ================================= 
+//= Added additional npcs.  Added Metto quest. [kobra_k88]
+//= Moved item quest to quest folder. Re-edited a majority of the npcs. [kobra_k88]
+//=a Removed duplicate npcs already found in the sage quest.
+//= Fixed & Spellchecked [massdriller]
+//= 1.3 Started updating Juno NPCs based on iRO. 10% complete.
+//= 1.3.2 Started updating Juno NPCs based on iRO. 30% complete.
+//= 1.3.3 Removed Noyee NPC (it's implemented in sleipnir_seal.txt)
+//= 1.4 Updated to Aegis 10.3 standards. [L0ne_W0lf]
+//=     Added Juno Airship Representative.
+//= 1.4a Corrected a Typo error (bugreport:716) [Samuray22]
+//= 1.5 Added Renewal coordinates for Payon and Izlude. [Euphy]
+//=     Split Soldier NPCs into Pre-RE/RE (sprite change).
+//============================================================ 
+
+// Juno
+//============================================================ 
+yuno,184,173,4	script	弗雷德萊奇#juno	729,{
+	if (rand(1,5) == 1) {
+		mes "[弗雷德萊奇]";
+		mes "^3355FF朱諾^000000 依靠著遠古神秘的力量漂浮在空中.";
+		next;
+		mes "[弗雷德萊奇]";
+		mes "據說這股力量來自一個叫做 ^3355FF 優配擂斯 ^000000 的種族的遺蹟.這個種族好像遠在朱諾誕生之前就存在著.";
+		next;
+		mes "[弗雷德萊奇]";
+		mes "研究表明朱諾的能源來自於 ^3355FF 依美樂的心臟碎片 ^000000.聽說這力量之源原本是 優配擂斯 種族的遺物.";
+		next;
+		mes "[弗雷德萊奇]";
+		mes "有很多知名學者因此而來研究這股神秘力量,所以呢,我們的城市也被稱之為科學聖地.";
+		close;
+	}
+	else {
+		mes "[弗雷德萊奇]";
+		mes "賢者之都,";
+		mes "^3355FF朱諾,^000000 ";
+		mes "由三座島嶼構成.";
+		next;
+		mes "[弗雷德萊奇]";
+		mes "榮耀的所羅門, 豐饒之梅內塔, 以及智慧賢女.";
+		next;
+		mes "[弗雷德萊奇]";
+		mes "這三座島嶼分別位於";
+		mes "西北 : 所羅門";
+		mes "東北 : 賢女";
+		mes "南邊 : 梅內塔.";
+		close;
+	}
+}
+	
+yuno,337,227,4	script	朱諾的老奶奶#juno	103,{
+	mes "[老奶奶]";
+	if (rand(1,50) == 1) {
+		if (Zeny > 999) {
+			mes "要吃糖糖嗎?";
+			next;
+			mes "^3355FF老奶奶伸出手來,給你看一些糖果^000000.";
+			next;
+			mes "[老奶奶]";
+			mes "你的命運已經被註定. '你'要不要糖都不重要. 能理解為什麼我這樣做才是重點.";
+			next;
+			mes "[老奶奶]";
+			mes "我要 ^3355FF1,000 zeny^000000.";
+			mes "接受嗎?";
+			next;
+			if (select("好的:不要") == 1) {
+				mes "[老奶奶]";
+				mes "*咯咯咯*";
+				mes "好勒~";
+				set Zeny, Zeny-1000;
+				getitem 529,1; //Candy
+				next;
+				mes "[老奶奶]";
+				mes "*咯咯咯*";
+				mes "那麼...";
+				mes "白白 ~";
+				close;
+			}
+			mes "[老奶奶]";
+			mes "對.你問問你自己為什麼不要我的糖 .";
+			close;
+		}
+		else {
+			mes "*咯咯咯咯*";
+			mes "時間到了.";
+			mes "那麼...";
+			close;
+		}
+	}
+	else {
+		mes "我是一位可以預見很多事情的賢者老奶奶...";
+		next;
+		mes "[老奶奶]";
+		mes "聽說過以前朱諾被一個BOSS級魔物所包圍嗎 ? 人們稱其為 ^FF3355死靈騎士^000000.";
+		next;
+		mes "[老奶奶]";
+		mes "謠言說他來自死靈之地. 他周圍伴隨著許多不死的魔物, 把活著的生物送入他那寒冷又漆黑的領地去.";
+		next;
+		mes "[老奶奶]";
+		mes "你是否要去對付死靈騎士,也是命中注定的. 你所要知道的,是你做出抉擇的原因.";
+		close;
+	}
+}
+
+yuno,328,239,4	script	朱諾鬥士#juno	732,{
+	mes "[瑟基伍夫]";
+	mes "我叫瑟基伍夫,";
+	mes "保護朱諾奶奶的戰士.";
+	next;
+	mes "[瑟基伍夫]";
+	mes "其實 ^3355FF七彩大嘴鳥^000000 是大嘴鳥的上位品種. 七彩大嘴鳥移動速度要大於大嘴鳥的移動速度,而且也更加具有侵略性.";
+	next;
+	mes "[瑟基伍夫]";
+	mes "它用它強有力的喙進行攻擊,身邊也有很多大嘴鳥追隨. 七彩大嘴鳥和大嘴鳥之間,他們之間的區別是天和地一樣大的.";
+	close;
+}
+
+yuno,343,68,4	script	朱諾統治者#juno	730,{
+	mes "[尼諾]";
+	if (rand(1,1000) == 1) {
+		mes "很榮幸,你將會聽到我為你講一個故事. 千千萬萬的冒險者中, ^FF33551 只有少數人才會這樣幸運^000000.";
+		next;
+		mes "[尼諾]";
+		mes "你現在所感知到的世界是虛幻的!看看真實的世界吧!";
+		next;
+		mes "[尼諾]";
+		mes "睜開你的眼睛吧! 不要被眼前的虛幻所欺騙了!";
+		close2;
+		warp "prontera",182,206;
+		end;
+	}
+	mes "聽說過據說是上帝之子的埃及王嗎? 他叫 ^3355FF法老^000000.";
+	next;
+	mes "[尼諾]";
+	mes "傳聞他是一名喜好詛咒無辜者的妖術師.有人說他還活著,繼續用他的詭異力量來詛咒人類.";
+	next;
+	mes "[尼諾]";
+	mes "作為一名冒險者的話,你是很有可能在旅途中遇見他的.時刻保持警惕!";
+	close;
+}
+
+yuno,165,111,4	script	朱諾的賢者#juno	123,,{
+	mes "[摩爾莆神]";
+	if (rand(1,50) == 25) {
+		if (Zeny > 4999) {
+			mes "看著我的手,我的手裡有兩種不同的藥草.";
+			next;
+			mes "[摩爾莆神]";
+			mes "一種是 ^3355FF紅色藥草^000000 ,可以用來幫助你麻痺自己,進入虛幻^000000.";
+			next;
+			mes "[摩爾莆神]";
+			mes "另一個就是 ^FF3355藍色藥草^000000 ,幫你返回現實.";
+			next;
+			mes "[摩爾莆神]";
+			mes "不管想要哪一種,都請支付 ^3355FF5,000 zeny^000000. 現在,選擇吧.";
+			next;
+			if (select("選擇 ^FF3355紅色藥草^000000:選擇 ^3355FF藍色藥草^000000.") == 1) {
+				mes "[摩爾莆神]";
+				mes "你選擇了他,就將會在無盡的虛無中飄蕩.";
+				set Zeny, Zeny-5000;
+				getitem 507,1; //Red_Herb
+				close2;
+				warp "prontera",182,206;
+				end;
+			}
+			mes "[摩爾莆神]";
+			mes "真相在你眼前解開了序幕.";
+			set Zeny, Zeny-5000;
+			getitem 510,1; //Blue_Herb
+			close2;
+			warp "pay_dun03",200,222;
+			end;
+		}
+		else {
+			mes "嗯,抱歉,你錯過了機會咯.沒有錢的人是無法將機會變成財富的啊.";
+			close;
+		}
+	}
+	else {
+		mes "^3355FF天啟^000000...";
+		mes "這是很久以前一位保護朱諾的機器人之名.";
+		next;
+		mes "[摩爾莆神]";
+		mes "因為他的人工智慧隨著時間流逝而遭到流逝,他已經無法很好的區別同伴和敵人了.現在啊,唉,這個機器人只是一個無腦的怪物啊!....";
+		close;
+	}
+}
+	
+yuno,157,205,4	script	朱諾的匠人#juno	54,{
+	mes "[匠人]";
+	mes "*嘟噥嘟噥...*";
+	next;
+	mes "[匠人]";
+	mes "啊,你好. 介紹一下我自己吧. 我是獻身於為朱諾全體匠人爭取權利和義務的一名匠人.";
+	next;
+	switch(select("關於強力的裝備:關於特殊的物品:關於真實之食:結束對話")) {
+	case 1:
+		mes "[匠人]";
+		mes "我來介紹一下 ^3355FF聖衛^000000 和 ^3355FF聖復仇者^000000 ,對於十字軍來說這都是很特別的東東哦.";
+		next;
+		mes "[匠人]";
+		mes "這些裝備又輕,能力又強. 也有聖力呢.";
+		next;
+		mes "[匠人]";
+		mes "這些聖力使得在和不死系魔物和無形系魔物的戰鬥中,這些裝備比其他任何裝備都要給力喔.";
+		next;
+		mes "[匠人]";
+		mes "但是,哈哈,大家也認為因為這些裝備的材料太難獲得了,也只有一些好運的十字軍才可以得到這些裝備呢.";
+		close;
+	case 2:
+		mes "[匠人]";
+		mes "看起來像是一個印有同心圓和一顆星星的老舊捲軸. 這個 ^FF3355老舊捲軸^000000 真的很老哦,很多賢者都很想要拿這個做研究呢.";
+		next;
+		mes "[匠人]";
+		mes "當你能夠施展高等級魔法的時候啊,你就可以使用這個捲軸了喔.";
+		close;
+	case 3:
+		mes "[匠人]";
+		mes "^3355FF米糕^000000! 是的,這就是很多人都愛的傳統食物. 一說起米糕啊,關於米糕的老超市的懷舊感...就湧上心頭了呢.";
+		next;
+		mes "[匠人]";
+		mes "啊~";
+		mes "現在真是想輕咬一口米糕啊.";
+		close;
+	case 4:
+		mes "[匠人]";
+		mes "儘管朱諾以賢者之都的身份出名, 但是我也希望你可以理解居住在此地的人們. 請盡情享受朱諾城帶給你的獨特味道吧.";
+		close;
+	}
+}
+
+-	script	::JunoSoldier1	-1,{
+	mes "[朱諾的士兵]";
+	mes "歡迎來到朱諾,創造之源.";
+	next;
+	mes "[朱諾的士兵]";
+	mes "這裡附近有一種叫做 熔巖巨石 的魔物. 他生於石心,力量在熔巖中翻滾,壯大..";
+	next;
+	mes "[朱諾的士兵]";
+	mes "他的身上掉下來容顏,所以,如果武器和防具由高濃度的鐵製作而成的話,就會被損毀.";
+	next;
+	mes "[朱諾的士兵]";
+	mes "遇到他你就小心點吧. 眨眨眼睛你的武器和裝備就都被融化掉了.";
+	close;
+}
+
+-	script	::JunoSoldier2	-1,{
+	mes "[朱諾的士兵]";
+	mes "歡迎來到朱諾,創造之源.";
+	next;
+	mes "[朱諾的士兵]";
+	mes "邪惡向日葵...";
+	mes "那個魔物就像是一種從地裡長出來的花兒一樣.";
+	next;
+	mes "[朱諾的士兵]";
+	mes "詭異的是啊,他可以延伸自己的身體. 即使你距離他很遠也會遭到襲擊.";
+	next;
+	mes "[朱諾的士兵]";
+	mes "這個名字是這樣來的,有位可憐的地理學家,在全身心投入研究的時候就,很不小心的,唉,被這個怪物給吃掉啦.";
+	close;
+}
+
+-	script	::JunoSoldier3	-1,{
+	mes "[朱諾的士兵]";
+	mes "歡迎來到朱諾,創造之源.";
+	next;
+	mes "[朱諾的士兵]";
+	mes "朱諾旁邊有一種墮落的天使 '偽天使.' 他看起來很無辜,好想要為過路人祈禱的樣子,但是啊,會悄悄地在背後襲擊那些路人哩.";
+	next;
+	mes "[朱諾的士兵]";
+	mes "別被他的外表迷惑了,要不然你就麻煩咯.";
+	close;
+}
+
+-	script	::JunoSoldier4	-1,{
+	mes "[朱諾的士兵]";
+	mes "歡迎來到朱諾,創造之源.";
+	next;
+	mes "[朱諾的士兵]";
+	mes "'魔羌' 是一種長得像羚羊的魔物,住在高高的山上,不知怎麼的就變成了魔物.";
+	next;
+	mes "[朱諾的士兵]";
+	mes "提防他的角,還要提防他的腿啊.";
+	next;
+	mes "[朱諾的士兵]";
+	mes "魔羌'腿很有力,所以在追殺人類的時候翻山越嶺也速度很快.";
+	close;
+}
+
+-	script	::JunoSoldier5	-1,{
+	mes "[朱諾的士兵]";
+	mes "歡迎來到朱諾,創造之源.";
+	next;
+	mes "[朱諾的士兵]";
+	mes "聽說過巨大傑勒比結晶嗎?";
+	mes "那些東西真TMD大!";
+	next;
+	mes "[朱諾的士兵]";
+	mes "真TMD難以相信這樣又大又亮的傑勒比結晶居然會存在啊!";
+	close;
+}
+
+-	script	::JunoSoldier6	-1,{
+	mes "[朱諾的士兵]";
+	mes "歡迎來到朱諾,創造之源.";
+	next;
+	mes "[朱諾的士兵]";
+	mes "賢者有一種裝備叫做 '反擊短劍'";
+	next;
+	mes "[朱諾的士兵]";
+	mes "對於賢者階級來說,用處也還蠻大的, 這把短劍提高了暴擊率. 所以說對於賢者,這把短劍很有用的,而且看起來也很炫.";
+	close;
+}
+
+-	script	::JunoSoldier7	-1,{
+	mes "[朱諾的士兵]";
+	mes "歡迎來到朱諾,創造之源.";
+	next;
+	mes "[朱諾的士兵]";
+	mes "有一面聖盾叫做 '聖之使命' 只能被十字軍所裝備";
+	next;
+	mes "[朱諾的士兵]";
+	mes "這面盾牌又長又窄,前端雕刻著一個天使. 在和不死系的魔物,無形系的魔物鬥爭的過程中是很好用的.";
+	close;
+}
+
+yuno,142,183,5	script	飛空艇解說員	100,{
+	mes "[飛空艇解說員]";
+	mes "你好,我來這裡給你講講";
+	mes "我們對飛空艇這個項目做出的未來預期修正.";
+	next;
+	mes "[飛空艇解說員]";
+	mes "我們還只是在不斷測試而已.";
+	mes "但是我們認為我們的顧客是很有必要知道我們的研究進度的.";
+	next;
+	mes "[飛空艇解說員]";
+	mes "我們正在研發的飛空艇將可以帶您抵達世界上的任何一個角落.您也可以享受空中的美景.我們將會使用到各個科研領域的成果來給您提供最高格的享受.";
+	next;
+	mes "[飛空艇解說員]";
+	mes "當飛空艇開始運作的時候,";
+	mes "我們保證一定可以讓您驚訝的.";
+	mes "同時我們也提供特別的傳送服務.";
+	next;
+	mes "[飛空艇解說員]";
+	mes "傳送費為 1,800 zeny, 不管你想去哪裡. 請告訴我您想去哪裡呢.";
+	next;
+	switch(select("普隆德拉:依斯魯得:吉芬:夢羅克:斐揚:艾爾貝塔:克魔島:取消")) {
+		case 1: callsub S_Warp,"prontera",116,72;
+		case 2: if (checkre(0)) callsub S_Warp,"izlude",128,98; else callsub S_Warp,"izlude",94,103;
+		case 3: callsub S_Warp,"geffen",120,39;
+		case 4: callsub S_Warp,"morocc",156,46;
+		case 5: if (checkre(0)) callsub S_Warp,"payon",162,59; else callsub S_Warp,"payon",69,100;
+		case 6: callsub S_Warp,"alberta",117,56;
+		case 7: callsub S_Warp,"comodo",209,143;
+		case 8: close;
+	}
+
+S_Warp:
+	if (Zeny >= 1800) {
+		set Zeny, Zeny-1800;
+		warp getarg(0),getarg(1),getarg(2);
+		end;
+	}
+	else {
+		mes "[飛空艇解說員]";
+		mes "很抱歉,您的 Zeny 沒有帶足.";
+		mes "請檢查一下您所帶的 Zeny 吧.";
+		close;
+	}
+}

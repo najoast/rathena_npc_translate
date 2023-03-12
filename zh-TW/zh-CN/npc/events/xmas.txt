@@ -1,0 +1,365 @@
+//============================================================
+//= rAthenaCN [聖誕節活動]漢化腳本 
+//============================================================
+
+
+//===== rAthena Script =======================================
+//= X-mas Event
+//===== By: ==================================================
+//= rAthena Dev Team
+//===== Current Version: =====================================
+//= 1.4
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= Beat up Antonios and grab his socks.  Get at least 3 and
+//= give them to Santa Claus Claus in exchange for a present.
+//= Includes X-mas mobs.
+//= This npc will disable, the current Santa Claus npc.
+//===== Additional Comments: =================================
+//= Fixed the spawns [shadowlady]
+//= 1.1 Added Xmas Jakk, fixed 2 exploits, fixed reward Box ID [Lupus]
+//= 1.2 Added monsters to the newer fields, thanks to Muad_Dib [MasterOfMuppets]
+//= 1.2a Fixed a major problem with the monster spawns, thanks to Playtester [MasterOfMuppets]
+//= 1.2b Fixed a minor problem with the mosnter spawns, thanks to Playtester [Kayla]
+//= 1.3 Added Christmas Orc to the places where other orcs spawn [MasterOfMuppets]
+//= Added Christmas goblins to yuno_fild09, thanks to Playtester for pointing it out
+//= 1.4 Added a fix to make Lutie & Bard quests passable during this event [Lupus]
+//============================================================
+
+xmas_in,100,96,4	script	聖誕老人::Santa2	4_M_SANTA,{
+	mes "[聖誕老人]";
+	if(xmas_npc==0) set xmas_npc, 1; // For Lutie & Bard quest
+	if(#event_xmas > 0 && #event_xmas < 30 ) goto L_Start;
+	mes "Merry Christmas!";
+	if(Class==0 || #event_xmas>=30 ) close; //anti exploit protection
+	mes "我有件禮物送給你! 嗬嗬嗬!";
+	getitem rand(664,667),1; //gives one of 4 gift boxes
+	set #event_xmas,#event_xmas+1;
+	close;
+
+L_Start:
+	mes "我有一個問題...";
+	mes "你願不願意聽?";
+	next;
+	menu "- 聽聽聖誕老人的問題.",M_0, "- 給聖誕老人憑證.",M_1, "- 取消.",M_End;
+
+	M_0:
+		mes "[聖誕老人]";
+		mes "我的問題是.";
+		mes "外面有一個人在冒充我.";
+		mes "不僅如此, 他還在各地製造恐慌.";
+		mes "真是令人頭疼!";
+		next;
+		mes "[聖誕老人]";
+		mes "他好像傳說中的怪盜, 拿走了";
+		mes "所有孩子們的聖誕禮物, 自己獨自";
+		mes "娛樂.";
+		next;
+		mes "[聖誕老人]";
+		mes "我在整理今年的聖誕禮物, 實在是 ";
+		mes "無法抽出時間去找到那個傢伙.";
+		mes "因此我需要幫手.";
+		mes "就像你一樣的冒險者, 能夠幫我把";
+		mes "假冒者給剷除.";
+		next;
+		mes "[聖誕老人]";
+		mes "他盜走的東西裡面, 有一個我的魔";
+		mes "法口袋. 因此, ";
+		mes "當他被攻擊的時候, 魔法口袋會將";
+		mes "他傳送到安全的地方.";
+		next;
+		mes "[聖誕老人]";
+		mes "當然,";
+		mes "他被追殺的時候, 肯定會丟掉一些";
+		mes "從我這裡偷走的東西. 如果他掉落";
+		mes "了^FF0000有洞的聖誕襪^000000, 那是我為可憐的";
+		mes "孩子們準備的禮物, 記得要收好.";
+		next;
+		mes "[聖誕老人]";
+		mes "如果你能給我帶來3個的話, 我會給";
+		mes "你一個^FF0000神秘的禮物箱子^000000作為獎勵.";
+		mes "我已經準備好了禮物機器, ";
+		mes "它能夠隨機吐出一件禮物, 這為我省";
+		mes "了好多事情.";
+		close;
+	M_1:
+		mes "[聖誕老人]";
+		if(countitem(7034) < 3) goto L_NotEnuf;
+		delitem 7034,3;
+		mes "你成功了.";
+		mes "看樣子教訓這些搗亂的怪物, 你非常";
+		mes "在行. 好好幹!";
+		next;
+		getitem 644,1; //Gift Box Prototype
+		set #event_xmas,#event_xmas+1;
+		mes "[聖誕老人]";
+		mes "這是你的獎品.";
+		mes "如果你還能帶3個來, 我還會給你獎勵的.";
+		mes "期待你能抽到好東西.";
+		close;
+	
+		L_NotEnuf:
+			mes "你沒有足夠的襪子作為證明.";
+			mes "去教訓那些破壞聖誕的怪物們";
+			mes "幫我多拿些襪子回來, 我會獎勵你的.";
+			close;
+	M_End:
+		mes "[聖誕老人]";
+		mes "我明白. 好吧, 至少";
+		mes "我們還會在聖誕節早晨再次相遇.";
+		close;
+
+OnInit:
+	disablenpc "Santa2";
+	end;
+}
+
+// Xmas Goblin Spawns
+//============================================================
+prt_fild11,0,0,0,0	monster	聖誕哥布靈	1245,5,0,0,0
+gef_fild11,0,0,0,0	monster	聖誕哥布靈	1245,5,0,0,0
+yuno_fild09,0,0,0,0	monster	聖誕哥布靈	1245,5,0,0,0
+
+// Santa Poring Spawns
+//============================================================
+ein_fild03,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+ein_fild04,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+ein_fild06,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+ein_fild07,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+ein_fild08,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+ein_fild09,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+ein_fild10,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+gef_fild00,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+gef_fild01,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+gef_fild02,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+gef_fild03,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+gef_fild04,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+gef_fild05,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+gef_fild07,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+gef_fild08,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+gef_fild09,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+gef_fild10,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+gef_fild11,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+gef_fild12,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+gef_fild13,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+gef_fild14,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+glast_01,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+lhz_fild01,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+lhz_fild02,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+lhz_fild03,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+mjolnir_01,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+mjolnir_02,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+mjolnir_03,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+mjolnir_04,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+mjolnir_05,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+mjolnir_06,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+mjolnir_07,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+mjolnir_08,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+mjolnir_09,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+mjolnir_10,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+mjolnir_11,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+mjolnir_12,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+moc_fild01,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+moc_fild02,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+moc_fild03,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+moc_fild04,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+moc_fild05,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+moc_fild06,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+moc_fild07,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+moc_fild08,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+moc_fild09,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+moc_fild10,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+moc_fild11,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+moc_fild12,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+moc_fild13,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+moc_fild14,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+moc_fild15,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+moc_fild16,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+moc_fild17,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+moc_fild18,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+pay_fild01,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+pay_fild02,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+pay_fild03,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+pay_fild04,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+pay_fild05,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+pay_fild06,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+pay_fild07,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+pay_fild08,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+pay_fild09,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+pay_fild10,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+pay_fild11,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+prt_fild00,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+prt_fild01,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+prt_fild02,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+prt_fild03,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+prt_fild04,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+prt_fild05,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+prt_fild06,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+prt_fild07,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+prt_fild08,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+prt_fild09,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+prt_fild10,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+prt_fild11,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+xmas_fild01,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+cmd_fild01,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+cmd_fild02,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+cmd_fild03,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+cmd_fild04,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+cmd_fild05,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+cmd_fild06,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+cmd_fild07,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+cmd_fild08,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+cmd_fild09,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+yuno_fild01,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+yuno_fild02,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+yuno_fild03,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+yuno_fild04,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+yuno_fild05,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+yuno_fild06,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+yuno_fild07,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+yuno_fild08,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+yuno_fild09,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+yuno_fild11,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+yuno_fild12,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+ama_fild01,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+gon_fild01,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+um_fild01,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+um_fild02,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+um_fild03,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+um_fild04,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+nif_fild01,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+nif_fild02,0,0,0,0 	monster	聖誕波利	1062,15,0,0,0
+lou_fild01,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+hu_fild01,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+hu_fild04,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+hu_fild05,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+hu_fild07,0,0,0,0	monster	聖誕波利	1062,15,0,0,0
+
+// Antonio Spawns
+//============================================================
+ein_fild03,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+ein_fild04,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+ein_fild06,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+ein_fild07,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+ein_fild08,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+ein_fild09,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+ein_fild10,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+gef_fild00,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+gef_fild01,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+gef_fild02,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+gef_fild03,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+gef_fild04,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+gef_fild05,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+gef_fild07,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+gef_fild08,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+gef_fild09,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+gef_fild10,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+gef_fild11,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+gef_fild12,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+gef_fild13,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+gef_fild14,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+glast_01,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+lhz_fild01,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+lhz_fild02,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+lhz_fild03,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+mjolnir_01,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+mjolnir_02,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+mjolnir_03,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+mjolnir_04,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+mjolnir_05,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+mjolnir_06,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+mjolnir_07,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+mjolnir_08,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+mjolnir_09,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+mjolnir_10,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+mjolnir_11,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+mjolnir_12,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+moc_fild01,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+moc_fild02,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+moc_fild03,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+moc_fild04,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+moc_fild05,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+moc_fild06,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+moc_fild07,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+moc_fild08,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+moc_fild09,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+moc_fild10,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+moc_fild11,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+moc_fild12,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+moc_fild13,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+moc_fild14,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+moc_fild15,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+moc_fild16,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+moc_fild17,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+moc_fild18,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+pay_fild01,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+pay_fild02,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+pay_fild03,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+pay_fild04,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+pay_fild05,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+pay_fild06,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+pay_fild07,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+pay_fild08,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+pay_fild09,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+pay_fild10,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+pay_fild11,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+prt_fild00,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+prt_fild01,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+prt_fild02,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+prt_fild03,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+prt_fild04,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+prt_fild05,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+prt_fild06,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+prt_fild07,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+prt_fild08,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+prt_fild09,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+prt_fild10,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+prt_fild11,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+xmas_fild01,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+cmd_fild01,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+cmd_fild02,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+cmd_fild03,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+cmd_fild04,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+cmd_fild05,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+cmd_fild06,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+cmd_fild07,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+cmd_fild08,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+cmd_fild09,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+yuno_fild01,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+yuno_fild02,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+yuno_fild03,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+yuno_fild04,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+yuno_fild05,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+yuno_fild06,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+yuno_fild07,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+yuno_fild08,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+yuno_fild09,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+yuno_fild11,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+yuno_fild12,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+ama_fild01,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+gon_fild01,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+um_fild01,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+um_fild02,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+um_fild03,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+um_fild04,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+nif_fild01,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+nif_fild02,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+lou_fild01,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+hu_fild01,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+hu_fild04,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+hu_fild05,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+hu_fild07,0,0,0,0	monster	邪惡老公公	1247,1,0,0,0
+
+// Xmas Jakk Spawns
+//============================================================
+gef_dun01,0,0,0,0	monster	聖誕南瓜先生	1244,5,0,0,0
+//gefenia02,0,0,0,0	monster	聖誕南瓜先生	1244,5,0,0,0
+
+// Xmas Orc Spawns
+//============================================================
+gef_fild02,0,0,0,0	monster	聖誕獸人戰士	1588,5,0,0,0
+gef_fild03,0,0,0,0	monster	聖誕獸人戰士	1588,5,0,0,0
+gef_fild10,0,0,0,0	monster	聖誕獸人戰士	1588,5,0,0,0
+gef_fild14,0,0,0,0	monster	聖誕獸人戰士	1588,5,0,0,0
+alde_dun02,0,0,0,0	monster	聖誕獸人戰士	1588,5,0,0,0

@@ -1,0 +1,182 @@
+//============================================================
+//= rAthenaCN [智慧的老婦人]漢化腳本 
+//============================================================
+
+
+//===== rAthena Script =======================================
+//= Card Removal NPC
+//===== By: ==================================================
+//= TyrNemesis^
+//===== Current Version: =====================================
+//= 1.2a
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= Removes cards from equipped items.
+//===== Additional Comments: =================================
+//= 1.0 First version. [TyrNemesis^]
+//= 1.2 Optimized and fixed getequipname menu. [Kisuka]
+//= 1.2a Added 'disable_items' command. [Euphy]
+//============================================================
+
+prt_in,28,73,4	script	智慧的老婦人#eAcustom	78,{
+
+	set .zenycost,500000;    // base cost of the card remover services (in Zeny)
+	set .percardcost,100000;  // cost per card of the card remover services (in Zeny)
+	set .faildestroy,1;      // should the card remover have a chance of failure that destroys items? (1=yes, 0=no)
+
+	disable_items;
+	mes "[智慧的老婦人]";
+	mes "你好，年輕人。我能幫你把插入裝備的卡片拆下來。有興趣嗎？";
+	next;
+	switch(select("有興趣哇.:要報酬嗎?:不了，謝謝.")) {
+	case 1:
+		mes "[智慧的老婦人]";
+		mes "好的.那你要在哪件物品上做試驗?";
+		next;
+
+		setarray .@position$[0], "裝飾品[左]","裝飾品[右]","鞋子","披肩","頭下","頭中","頭上","身體","左手","右手";
+		set .@menu$,"";
+		for( set .@i,0; .@i < 10; set .@i,.@i+1 )
+		{
+			if( getequipisequiped(.@i) )
+			set .@menu$, .@menu$ + .@position$[.@i] + "-" + "[" + getequipname(.@i) + "]";
+
+			set .@menu$, .@menu$ + ":";
+		}
+		set .@part,select(.@menu$)-1;
+		if(!getequipisequiped(.@part)) {
+			mes "[智慧的老婦人]";
+			mes "年輕人... 你哪裡什麼都不穿叫我怎麼拆卡?";
+			close;
+		}
+		if(getequipcardcnt(.@part) == 0) {
+			mes "[智慧的老婦人]";
+			mes "年輕人... 你那件裝備沒有插卡.恐怕我什麼都不能做咯.";
+			close;
+		}
+		set .@cardcount,getequipcardcnt(.@part);
+		
+		if (!checkweight(1202,(.@cardcount+1))) { 
+			mes "^3355FF等一下!";
+			mes "我無法幫助你,";
+			mes "因為你攜帶了太多的東西.";
+			mes "請把身上多餘的物品";
+			mes "存到卡普拉服務員那裡再來吧~";
+			close;
+		}
+		mes "[智慧的老婦人]";
+		mes "這件道具有 " + .@cardcount + " 張卡片.為了施法,我需要 " + (.zenycost+(.@cardcount * .percardcost)) + " zeny, 一個 ^0000FF星星的角^000000, 和一個 ^0000FF黃色魔力礦石^000000.";
+		next;
+		if(select("好的,來吧.:算了.") == 2) {
+			mes "[智慧的老婦人]";
+			mes "好吧.等你想來的時候再來找我.";
+			close;
+		}
+		if((zeny < (.zenycost+(.@cardcount * .percardcost))) || (countitem(1000) < 1) || (countitem(715) < 1)) {
+			mes "[智慧的老婦人]";
+			mes "你沒有我施法需要的東西哦,孩子.等你有了再來找我吧.";
+			close;
+		}
+		mes "[智慧的老婦人]";
+		mes "施法前我必須警告你：我會失敗. 如果我失敗了,可能裝備,或者卡片,或者他們全部都會消失.我可不會賠你哦,如此一來,你要先告訴我,卡片和裝備誰重要?";
+		mes "如果你有^FF0000高級潤滑油^000000的話，我就可以讓你^FF0000百分之百^000000成功喔~!";
+		next;
+		switch(select("我改變主意了.:裝備.:卡片.")) {
+		case 1:
+			mes "[智慧的老婦人]";
+			mes "好吧.等你想來的時候再來找我.";
+			close;
+		case 2:
+			set .@failtype,1;
+			break;
+		case 3:
+			set .@failtype,2;
+		}
+		mes "[智慧的老婦人]";
+		mes "好的,我要開始了.";
+		next;
+		mes "[智慧的老婦人]";
+		if( getequipcardcnt(.@part) != .@cardcount ) {
+			mes "你給我的東西好像不是剛才了的嘛!";
+			debugmes strcharinfo(0)+" 在拆卡時試圖在中途更換裝備";
+			close;
+		}
+		if((zeny < (.zenycost+(.@cardcount * .percardcost))) || (countitem(1000) < 1) || (countitem(715) < 1)) {
+			mes "你沒有我施法需要的東西哦,孩子.等你有了再來找我吧.";
+			close;
+		}
+		set Zeny, Zeny - (.zenycost+(.@cardcount * .percardcost));
+		delitem 1000,1; //Star_Crumb
+		delitem 715,1; //Yellow_Gemstone
+		
+		// Replace the constants in the next 3 lines with failure chance values defined in refine_db.txt
+		// First value = Total failure chance (item and cards destroyed)
+		// Second value = Partial failure chance (one or the other is destroyed, player decides which one is safe)
+		// Third value = Harmless failure chance (all that's lost is your investment)
+		
+		if (countitem(6441)>=1)
+		{
+		mes "讓我給你敷上^FF0000潤滑油~~~";
+		mes "很滑、很滑、很滑。。。~~~^000000";
+		next;
+		delitem 6441,1;
+		successremovecards .@part;
+		mes "[智慧的老婦人]";
+		mes "拆卡成功!這是你的卡片和裝備.再見.";
+		close;
+		}
+		else
+		{
+		set .@failchance,rand(100);
+		if (.faildestroy==1) {
+			if(.@failchance < 70) {
+				next;
+				failedremovecards .@part,0;
+				mes "[智慧的老婦人]";
+				mes "完全失敗了!可能所有東西都壞了.";
+				close;
+			}
+
+			if(.@failchance < 90) {
+				if (.@failtype == 1) {
+					next;
+					failedremovecards .@part,1;
+					mes "[智慧的老婦人]";
+					mes "我試圖將卡片拆除的時候,卡片壞了,但是裝備還是好的.";
+					close;
+				}
+
+				if (.@failtype == 2) {
+					next;
+					failedremovecards .@part,2;
+					mes "[智慧的老婦人]";
+					mes "很不幸,拆卡是成功了,但是裝備本身壞了.";
+					close;
+				}
+			}
+		}
+
+		if(.@failchance < 75) {
+			next;
+			failedremovecards .@part,3;
+			mes "[智慧的老婦人]";
+			mes "拆卡失敗了.很幸運的是,他們都沒有損壞.";
+			close;
+		}
+		next;
+		successremovecards .@part;
+		mes "[智慧的老婦人]";
+		mes "拆卡成功!這是你的卡片和裝備.再見.";
+		close;
+		}
+	case 2:
+		mes "[智慧的老婦人]";
+		mes "起價 "+callfunc("F_InsertComma",.zenycost)+" zeny, 每張卡片另收 "+callfunc("F_InsertComma",.percardcost)+" zeny. 另外，我需要星星的角和黃色魔力礦石來輔助施法.";
+		close;
+	case 3:
+		mes "[智慧的老婦人]";
+		mes "好吧.等你想來的時候再來找我.";
+		close;
+	}
+}

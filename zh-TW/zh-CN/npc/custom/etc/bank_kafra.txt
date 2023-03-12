@@ -1,0 +1,119 @@
+//============================================================
+//= rAthenaCN [銀行職員]漢化腳本 
+//============================================================
+
+
+//===== Hercules Script ======================================
+//= 普隆德拉第二銀行 (日收益0.01% !)
+//===== By: ==================================================
+//= Lupus (1.0)
+//===== 當前版本: =====================================
+//= 1.2a
+//===== 描述: =========================================
+//= 銀行利率 %
+//===== 備註: =================================
+// 尋找公式並且設置銀行日利率, % 利息
+// #kafrabank/1000 = 0.1% 日利率
+// #kafrabank/100  =  1%  日利率
+// #kafrabank/10   =  10% of 日利率
+//
+// 1.1 添加銀行業務記錄 -> logmes "一些信息";
+// 1.2 設置最大收益為 100,000z. 這將幫助你避免
+//		當你改變伺服器時間的時候對Zeny 的漏洞利用
+// 1.2a 修正錯誤的重複名稱. (bugreport:921) [Samuray22]
+//============================================================
+
+-	script	銀行職員::bankg	4_M_ZONDAOYAJI,{
+	mes"[馬尼斯]";
+	mes strcharinfo(0)+", 歡迎來到普隆德拉第二銀行!";
+
+	set @kb_int,(gettime(6)*31)+gettime(5); //今日數字
+	set @income,0;
+	//calculate %
+	if (#kafrabank<=0 || #kb_int>=@kb_int) goto L_NoIncomeToday;
+	set @income,(#kafrabank/1000)*(@kb_int-#kb_int); //@income == % of the sum
+	//最大收益常數:
+	if (@income>100000) set @income,100000;
+L_NoIncomeToday:
+	set #kb_int,@kb_int; //重置時間計數
+
+	if(#kafrabank==0) mes "我們將會打開你的帳戶.";
+	if(@income>0) mes "今日收益: ^135445" + @income + "^000000 Zeny.";
+	set #kafrabank,#kafrabank+@income;
+	if(#kafrabank>0) mes "您的帳戶: ^135445" + #kafrabank + "^000000 Zeny.";
+	mes "請問您有何需要?";
+	next;
+	if(#kafrabank==0) menu "- 打開帳戶",-,"- 退出",B_EXIT2;
+	if(#kafrabank>0) menu "- 活期存款",-,"- 取錢",M_WITHDRAW,"- 退出",B_EXIT2;
+
+	mes"[馬尼斯]";
+	mes "請告訴我您的取現金額.";
+	next;
+	if(input(@kafrabank) == 1) goto L_TOO_BIG_AMOUNT;
+
+	if(@kafrabank<1000) goto L_LESS_1000;
+	if(@kafrabank>Zeny) goto L_NOT_ENOUGH;
+	set Zeny,Zeny-@kafrabank;
+	set #kafrabank,#kafrabank+@kafrabank;
+	mes"[馬尼斯]";
+	mes "您將取現 ^135445" + @kafrabank + "z^000000.";
+	//我們會記錄業務操作到日誌.
+	logmes "Bank %: " + @income +"z, Deposit: "+ @kafrabank +"z, Final: "+ #kafrabank +"z";
+	goto B_EXIT;
+
+M_WITHDRAW:
+	if(#kafrabank==0) goto L_ZERO_ACCOUNT;
+	mes"[馬尼斯]";
+	mes "您的帳戶: ^135445" + #kafrabank + "^000000 Zeny.";
+	mes "您需要取多少現金?";
+	next;
+	if(input(@kafrabank) == 1) goto L_TOO_BIG_AMOUNT;
+
+	if(@kafrabank<1) goto B_EXIT2;
+	if(@kafrabank>#kafrabank) goto L_NOT_ENOUGH;
+	set #kafrabank,#kafrabank-@kafrabank;
+	set Zeny,Zeny+@kafrabank;
+	mes"[馬尼斯]";
+	mes "這裡是您需要的 ^135445" + @kafrabank + "z^000000, 請籤名...";
+	//我們會記錄業務操作到日誌
+	logmes "Bank %: " + @income +"取錢: "+ @kafrabank +"z, Final: "+ #kafrabank +"z";
+	goto B_EXIT;
+
+L_NOT_ENOUGH:
+	mes"[馬尼斯]";
+	mes "您沒有足夠的金額完成此次業務操作.";
+	next;
+	goto B_EXIT2;
+
+L_ZERO_ACCOUNT:
+	mes"[馬尼斯]";
+	mes "您的帳戶裡沒有存款!";
+	next;
+	goto B_EXIT2;
+
+L_TOO_BIG_AMOUNT:
+	mes"[馬尼斯]";
+	mes "非常抱歉，每次操作的最大取款金額為 10,000,000 Zeny.";
+	next;
+	goto B_EXIT2;
+
+L_LESS_1000:
+	mes"[馬尼斯]";
+	mes "非常抱歉,馬尼斯這裡的最低取款金額為 1,000 Zeny.";
+	next;
+	goto B_EXIT2;
+
+B_EXIT:
+	mes "好的,歡迎再次光顧!";
+	next;
+
+B_EXIT2:
+	mes"[馬尼斯]";
+	mes "感謝您使用本銀行. 歡迎再次光顧.";
+	close;
+}
+
+prontera,131,190,1	duplicate(bankg)	銀行職員#1-1	4_M_ZONDAOYAJI
+geffen,125,73,3	duplicate(bankg)	銀行職員#2-1	4_M_ZONDAOYAJI
+izlude,145,107,1	duplicate(bankg)	銀行職員#3-1	4_M_ZONDAOYAJI
+morocc,147,84,7	duplicate(bankg)	銀行職員#4-1	4_M_ZONDAOYAJI

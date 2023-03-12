@@ -1,0 +1,721 @@
+//============================================================
+//= rAthenaCN [城鎮人員]漢化腳本 
+//============================================================
+
+//===== rAthena Script =======================================
+//= El Dicastes Town
+//===== By: ================================================== 
+//= Gennosuke Kouga, Muad_Dib
+//===== Current Version: ===================================== 
+//= 1.3
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= El Dicastes Town Script
+//===== Additional Comments: ================================= 
+//= 1.0 First version.
+//= 1.1 Standardized. [Euphy]
+//= 1.2 Updated to match the official script. [Joseph]
+//= 1.2a Moved Guide to a separate file. [Euphy]
+//= 1.3 Updated to match official script. [SkittleNugget]
+//============================================================
+
+dicastes01,194,159,5	script	激動的加爾滕#a	492,{
+	mes "[激動的加爾滕]";
+	if (isequipped(2782)) {
+		mes "我無法忘記";
+		mes "艾哈特那美麗的影像.";
+		emotion ET_THROB;
+		mes "只要我們有他,";
+		mes "對於沙帕來說只會是一個時間問題";
+		mes "將統治這片土地.";
+		close; 
+	}
+	mes "▲⒉ⅲ ⌒ ◎○○";
+	mes "△▲● ↑ ↑";
+	mes "※⒉⒊ ⒉";
+	mes "◇□◆ ⅲ ⌒←↑ ◎ ○■ⅲ";
+	mes "ⅳ□〓 △ ●";
+	close;
+}
+
+dicastes01,202,86,3	script	哨兵#a	492,{
+	mes "[哨兵]";
+	if (isequipped(2782)) {
+		mes "埃迪斯特斯,";
+		mes "沙帕首都.";
+		mes "這片土地相當粗曠";
+		mes "這麼多外人不能進去. 哈哈";
+		next;
+		mes "[哨兵]";
+		mes "...";
+		next;
+		mes "[哨兵]";
+		mes "嘿,你是外人!";
+		close; 
+	}
+	mes "◆⒈⒈ ← ◇⌒● ⅲ ⅳ→";
+	mes "▲◇⒉ ⅳ ";
+	mes "□◇⌒ ⒊ ⌒□ⅲ ← →★";
+	next;
+	mes "[哨兵]";
+	mes "※";
+	next;
+	mes "[哨兵]";
+	mes "●■★ → ◇⒊◆";
+	close;	
+}
+
+dicastes01,194,95,5	script	哨兵#b	450,{
+	mes "[哨兵]";
+	if (isequipped(2782)) {
+		mes "我允許你入境.";
+		mes "但是,如果你敢搗亂";
+		mes "你不會知道你被什麼東西打了. 小心!";
+		close; 
+	}
+	mes "▲◆↑ ▲ ◇";
+	mes "▲★← ◇ ←ⅳ⒉ △ ⅲ";
+	mes "ⅳ◆▲ ⒊ △←■ □ ▲";
+	close;
+}
+
+dicastes01,234,158,0	script	訓練中的加爾滕#a	450,{
+	mes "[訓練中的加爾滕]";
+	if (isequipped(2782)) {
+		mes "我會做好一切準備";
+		mes "如果我每天持續訓練.";
+		close;
+	}
+	mes "▲◆↑ ▲ ▲◆↑ ▲";
+	mes "?▲";
+	next;
+	mes "不知道是什麼意思.";
+	close;
+}
+
+dicastes01,244,166,0	script	訓練中的加爾滕#b	450,{
+	mes "[訓練中的加爾滕]";
+	if (isequipped(2782)) {
+		mes "如果艾哈特知道";
+		mes "我訓練的呢麼艱苦.";
+		close; 
+	}
+	mes "▲◆↑ ▲";
+	mes "▲◆↑ ▲ ▲◆↑ ▲ ▲◆↑ ▲";
+	next;
+	mes "不知道是什麼意思.";
+	close;
+}
+
+dicastes01,272,166,0	script	訓練中的加爾滕#c	450,{
+	mes "[訓練中的加爾滕]";
+	if (isequipped(2782)) {
+		mes "[訓練中的加爾滕]";
+		mes "我是沙帕戰士.";
+		mes "我訓練從不偷懶.";
+		close;
+	}
+	mes "▲◆↑ ▲ ▲◆↑ ▲";
+	mes "▲◆↑ ▲";
+	next;
+	mes "不知道是什麼意思.";
+	close;
+}
+
+dicastes01,248,129,0	script	訓練中的加爾滕#d	450,{
+	mes "[訓練中的加爾滕]";
+	if (isequipped(2782)) {
+		mes "[訓練中的加爾滕]";
+		mes "我聽說這是不是訓練";
+		mes "裝備, 對我來說";
+		mes "只是撓痒痒.";
+		close; 
+	}
+	mes "▲◆↑ ▲ ▲◆↑";
+	mes "★□※ ■ ◎○⒉ ⒊ ■";
+	next;
+	mes "不知道是什麼意思.";
+	close;
+}
+
+/*
+dicastes01,271,152,0	script	訓練中的加爾滕#e	450,{
+	mes "[訓練中的加爾滕]";
+	if (isequipped(2782)) {
+		mes "我會得到好的效果";
+		mes "如果我盡我所能, 對嗎?";
+		close;
+	}
+	mes "▲⒉← ◆ ⅲ⒊◆";
+	mes "↑◆";
+	close;
+}
+*/
+
+dic_in01,349,282,4	script	等待中的加爾滕#in_1	492,{
+	if (isequipped(2782)) {
+		mes "[等待中的加爾滕]";
+		mes "這裡是戰鬥基地.";
+		mes "我們都緊張起來將準備採取行動.";
+		close;	 
+	}
+	mes "[⒉⌒← ※ ⌒]";
+	mes "●□↑ ⅲ ◇";
+	mes "ⅳ◇□ ⅲ ⅲ◎◆ ■ →ⅳ→ ⅳ ◎■□ ⅳ ";
+	close;
+}
+
+dic_in01,370,261,1	script	等待中的加爾滕#in_2	492,{
+	if (isequipped(2782)) {
+		mes "[等待中的加爾滕]";
+		mes "無聊.";
+		close; 
+	}
+	mes "[⒉⌒← ※ ⌒]";
+	mes "※ⅳ⒈";
+	close;
+}
+
+dic_in01,381,261,1	script	等待中的加爾滕#in_3	492,{
+	if (isequipped(2782)) {
+		mes "[等待中的加爾滕]";
+		mes "Zzzzz...";
+		close; 
+	}
+	mes "[⒉⌒← ※ ⌒]";
+	mes "→◆";
+	close;
+}
+
+dic_in01,370,282,4	script	等待中的加爾滕#in_4	492,{
+	if (isequipped(2782)) {
+		mes "[等待中的加爾滕]";
+		mes "埃迪斯特斯是這個世界上最和平的地方,只要我在這裡.";
+		close; 
+	}
+	mes "[⒉⌒← ※ ⌒]";
+	mes "★★⒊ 〓 ■⒊ⅲ ⒈ ⒊←□ ▲ 〓★★ ▲ ←";
+	close;
+}
+
+dic_in01,354,219,4	script	休息的加爾滕#in_5	492,{
+	if (isequipped(2782)) {
+		mes "[休息的加爾滕]";
+		mes "休息總是那麼舒服.";
+		close; 
+	}
+	mes "[□▲◎ ↑ ⅳ]";
+	mes "★□※ ■ ◎○⒉ ⒊ ■";
+	close;
+}
+
+dic_in01,365,197,1	script	休息的加爾滕#in_6	492,{
+	if (isequipped(2782)) {
+		mes "[休息的加爾滕]";
+		mes "加爾滕可以像這樣站著休息.";
+		next;
+		mes "[休息的加爾滕]";
+		mes "你說我不喜歡看我休息?但我已經習慣了這種.";
+		close; 
+	}
+	mes "[□▲◎ ↑ ⅳ]";
+	mes "◆★ⅳ ■ ※○● ↑ ◇←←";
+	mes "★ⅲ◇ ※ ⒊◆○ ⅲ ⌒←◆ ◆ ⌒→※ ◆ ◇";
+	close;
+}
+
+dic_in01,87,102,5	script	休息的皮奧姆#01	454,{
+	end;
+}
+
+dic_in01,29,119,4	script	休息的皮奧姆#04	489,{
+	if (isequipped(2782)) {
+		mes "[休息的皮奧姆]";
+		mes "為什麼這麼吵的時候我試圖得到休息?";
+		close; 
+	}
+	mes "[ⅲ※◎ ⅳ ※]";
+	mes "↑⒉○ ⌒ ◎▲⒉ ◆ ⒉□";
+	close;
+}
+
+dic_in01,91,113,5	script	可疑的皮奧姆#a	489,{
+	mes "[可疑的皮奧姆]";
+	if (isequipped(2782)) {
+		mes "你有沒有聽說過";
+		mes "有關艾哈特的傳聞?";
+		next;
+		if(select("- 沒有!:- 你先說.") == 1) {
+			mes "[可疑的皮奧姆]";
+			mes "沒關係.";
+			close; 
+		}
+		mes "[可疑的皮奧姆]";
+		mes "呃, 你似乎知道?";
+		mes "我需要收集一些信息.";
+		mes "你先說.";
+		mes "你聽說的傳聞, 如何?";
+		next;
+		if(select("- 有些可疑?:如果你不打算透露的話,我也一樣!") == 1) {
+			mes "[可疑的皮奧姆]";
+			mes "我只是一個很好奇";
+			mes "普通的皮奧姆.";
+			close; 
+		}
+		mes "[可疑的皮奧姆]";
+		mes "我不會說什麼!";
+		close; 
+	}
+	mes "◇⒊◇ ◇ ◇〓■";
+	mes "□ ⒊⒉△ ◇◇";
+	next;
+	if(select("- 說不出是什麼意思:- 它是一個詛咒??") == 2) {
+		mes "[可疑的皮奧姆]";
+		mes "太糟了.";
+		close; 
+	}
+	mes "[可疑的皮奧姆]";
+	mes "用自己的方式";
+	mes "方式, 噓";
+	close;
+}
+
+dic_in01,168,116,5	script	疲勞的皮奧姆#c	491,{
+	mes "[疲勞的皮奧姆]";
+	if (isequipped(2782)) {
+		mes "如果你需要任何信息";
+		mes "你最好是從附近";
+		mes "的貓商人這裡去打聽.";
+		mes "當然你必須要付出的代價.";
+		close; 
+	}
+	mes "〓□○ ⒊ ⒊〓";
+	mes "〓▲○ ■ ●→○ ◎";
+	mes "★●→ ◆ ■■◎ ← ◇ⅳ▲ ▲ ⒉ ▲";
+	mes "ⅳ⒉▲ ◎ →◇⒈";
+	close;
+}
+
+dic_in01,149,104,5	script	疲勞的皮奧姆#b	455,{
+	mes "[疲勞的皮奧姆]";
+	if (isequipped(2782)) {
+		mes "我覺得這麼僵硬...";
+		mes "我需要另一劑量的魔力之石.";
+		mes "我覺得效果不如前,";
+		mes "還是只有我這麼覺得?";
+		emotion ET_QUESTION;
+		close; 
+	}
+	mes "○⌒→ ▲ ⒉";
+	mes "■□◇ ⅳ ◎◎⒊ ◆ ◆◇●";
+	mes "ⅲ●〓 ↑ ⒉←◇ ◎ ○〓";
+	mes "■→● ⒊";
+	emotion ET_QUESTION;
+	close;
+}
+
+dic_in01,341,113,3	script	疲勞的皮奧姆#a	491,{
+	mes "[疲勞的皮奧姆]";
+	if (isequipped(2782)) {
+		mes "[疲勞的皮奧姆]";
+		mes "我覺得我";
+		mes "穿長袍比皮革好.";
+		mes "我可能要改變著裝.";
+		mes "但採礦似乎確實適合我.";
+		next;
+		mes "[疲勞的皮奧姆]";
+		mes "...";
+		next;
+		emotion ET_SWEAT;
+		mes "[疲勞的皮奧姆]";
+		mes "我會再次拒絕了吧?";
+		close; 
+	}
+	mes "△◎← ◇ ◇⌒⒈";
+	mes "◇□※ 〓 ◎⒈● □ ⅲ";
+	mes "↑○ⅳ ※ ◎◆□ ◎ ●";
+	mes "⒊→⒊ ⌒ ●□※ △ △⒈";
+	next;
+	mes "[疲勞的皮奧姆]";
+	mes "〓";
+	next;
+	emotion ET_SWEAT;
+	mes "[疲勞的皮奧姆]";
+	mes "▲→▲ ⒈ ■◎";
+	close;
+}
+
+dic_in01,252,103,3	script	進食的冒險家#tre	711,{
+	mes "[進食的冒險家]";
+	mes "嘿, 你有沒有從米德加茲帶緊急口糧?";
+	next;
+	mes "[進食的冒險家]";
+	mes "我一路走過來在這裡與肚子一餓,因為我聽說有一個米德加茲的酒吧,但我從來沒有在任何地方嘗到了米德加茲這種食物.";
+	next;
+	mes "[進食的冒險家]";
+	mes "我敢肯定沒有人在米德加茲會想試試這個.";
+	next;
+	mes "[進食的冒險家]";
+	mes "我真的想一個不錯的熱飯.";
+	mes "我去在吉芬這個偉大的小飯館經常和我真的很想念那個地方現在.";
+	close;
+}
+
+dic_in01,32,54,5	script	凡客尼克#el_01	449,{
+	if (isequipped(2782)) {
+		mes "[凡客尼克]";
+		mes "感覺很清新.";
+		mes "精煉的魔力之石是有史以來最好的.你想嘗試一些?";
+		close; 
+	}
+	mes "[◇◎○]";
+	mes "※◇ⅳ ⒈ ⅲ";
+	mes "□〓★ ⅲ △△ⅳ → ◇●■ ⒉ 〓⒉ⅳ ⒉ ⅲ?";
+	close;
+}
+
+dic_in01,372,116,3	script	激動的皮奧姆#a	490,{
+	mes "[激動的皮奧姆]";
+	if (isequipped(2782)) {
+		mes "艾哈特是沙帕獨一無二";
+		mes "的驕傲.";
+		mes "我們有很多的魔力之石";
+		mes "都是因為他!";
+		next;
+		mes "[激動的皮奧姆]";
+		mes "...";
+		next;
+		mes "[激動的皮奧姆]";
+		mes "你不覺得是他的";
+		mes "祝福?";
+		close;
+	}
+	mes "◎□⒊ □ ◆";
+	mes "ⅲ◇▲ ⒉ ◆△";
+	mes "◎◆⒊ ※ ⒈◇⒈ □";
+	mes "◇↑⌒ ▲ ⒉↑⌒ □ ★";
+	next;
+	mes "[激動的皮奧姆]";
+	mes "ⅲ";
+	next;
+	mes "[激動的皮奧姆]";
+	mes "⌒ⅳ※ ⅲ ◇◇";
+	mes "※◇△ ← 〓◆";
+	close;
+}
+
+dic_in01,360,125,5	script	嚴肅的凡客尼克	449,{
+	mes "[嚴肅的凡客尼克]";
+	if (isequipped(2782)) {
+		mes "魔力之石的產量突然增加.";
+		mes "為什麼?";
+		mes "我會得到更多的運行工廠的生產線.";
+		close; 
+	}
+	mes "←□● ⒉ ⒉ⅳ⌒ ⒉ ↑●□";
+	mes "〓◇■ ⒉";
+	mes "■△← → △⌒⒊ ⒊";
+	close;
+}
+
+dic_in01,42,250,5	script	嚮導#diel_1	489,{
+	if (isequipped(2782)) {
+		if (ep13_3_invite > 5) {		
+			mes "[嚮導]";
+			mes "我是迪奧,埃迪斯特斯的嚮導.";
+			mes "需要幫忙嗎?";
+			next;
+			mes "[嚮導]";
+			mes "您可以在這裡提交您的投訴.";
+			mes "是公務員制度和埃迪斯特斯在情報室樓上管理.";
+			next;
+			mes "[嚮導]";
+			mes "行政辦公室位於頂樓,並處理非常重要的事情.";
+			mes "檔案室是在較低的樓層,你可以得到的大量信息.";
+			next;
+			mes "[嚮導]";
+			mes "順便說一句,你可以使用在後面的電梯去其它樓層.";
+			next;
+			mes "[嚮導]";
+			mes "噢, 你沒有問題?";
+			mes "但因為我是迪奧,這位好心的嚮導.";
+			close; 
+		}
+		mes "- 嚮導警惕的看著你. -";
+		close;
+	}
+	mes "[⒊●]";
+	mes "□ⅲ◇ ⌒ □●◎ ⅳ ▲▲ⅲ ⒈ ⒉⒊△ ⒈";
+	mes "■◎○ ◇ ◆◆?";
+	next;
+	mes "[⒊●]";
+	mes "⌒※◇ ※ ↑⒉⌒ ⒈ △■〓";
+	mes "●〓⒉ ▲ ◇★★ ※ ○●⌒ ※ ⒊◎〓 ※ ▲○□ □ ⅳ";
+	next;
+	mes "[⒊●]";
+	mes "←※◆ ▲ ○〓△ ⒊ 〓※● → ↑ⅳ◎ → ◆ⅲ";
+	mes "△◎ⅳ ▲ ←⒊";
+	next;
+	mes "[⒊●]";
+	mes "◆○● ⅳ ◇△⒊ 〓 ◇□△ ■ ◇ ■";
+	next;
+	mes "[⒊●]";
+	mes "◎◆▲ △ □▲○ ◇ ⅳ⌒◆ ▲ ●●● ▲ →■▲ ↑";
+	mes "★⒊○ ⅳ ○■ⅲ ⒈ ◆▲";
+	close;
+}
+
+dic_in01,335,34,5	script	健談的皮奧姆#a	490,{
+	mes "[健談的皮奧姆]";
+	if (isequipped(2782)) {	
+		mes "在我的工廠";
+		mes "我們不僅精煉魔力之石,";
+		mes "我們也生產各種";
+		mes "日常使用的工具.";
+		mes "我們也同樣製造戰爭用品";
+		mes "戰爭用品.";
+		close; 
+	}
+	mes "↑※⒈ ⒊";
+	mes "△▲★ 〓 ◇◇";
+	mes "●□◎ ◇ △↑※ ■";
+	mes "●▲↑ → ◆";
+	mes "〓→◎ ⒈ ←◎◎ ※ △";
+	mes "⒊◎◎ ※ ⒈ⅲ◎";
+	close;
+}
+
+dic_in01,387,30,1	script	馬努克皮奧姆#a	454,{
+	mes "[馬努克皮奧姆]";
+	if (isequipped(2782)) {
+		mes "你! 我們在馬努克見過, 是不是?";
+		mes "我是來接我下令武器.";
+		close; 
+	}
+	mes "↑◇〓 ◇ ★○ⅳ ↑ ○⒈";
+	mes "※◆★ → ●※⒊ ◇ ◎■◇ ◆◆";
+	close;
+}
+
+dicastes01,282,210,4	script	免費編織物#a	453,{
+	mes "[免費編織物]";
+	if (isequipped(2782)) {
+		mes "只要我們有一個穩定的";
+		mes "魔力之石供給";
+		mes "沙帕人可以長生不老.";
+		mes "我們的童年保持10年,";
+		mes "這太短了.";
+		close; 
+	}
+	mes "●〓○ ◇ ↑◎■ △";
+	mes "⒊○★ ⅲ ※◆◎ ◆ ◇〓● ⒉ ●←ⅲ ⒉";
+	mes "◆◇○ 〓 ⅲ○ⅳ □ ←⒊↑";
+	mes "◇⒊◎ ⒈ ◆ⅲ⒉ △ △●";
+	mes "◎⒉★ ⅲ ■■";
+	close;
+}
+
+dicastes01,246,210,3	script	自由的凡客尼克#a	449,{
+	mes "[自由的凡客尼克]";
+	if (isequipped(2782)) {
+		mes "至少我們有充足的魔力之石.";
+		mes "看,";
+		mes "你可以看到魔力之石";
+		mes "到處都是.";
+		next;
+		mes "[自由的凡客尼克]";
+		mes "?";
+		next;
+		mes "[自由的凡客尼克]";
+		mes "東西滾來滾去的瑰寶,";
+		mes "但你為什麼對它感興趣?";
+		close; 
+	}
+	mes "◆★ⅲ ⅳ △□⒈ ↑ ●□";
+	mes "↑⒊";
+	mes "■※ⅳ ⒉ ※◇◆";
+	mes "↑ⅲ⒊ ▲ ←○↑ □";
+	next;
+	mes "[自由的凡客尼克]";
+	mes "※";
+	next;
+	mes "[自由的凡客尼克]";
+	mes "〓ⅳⅲ ⒈ ◇◎⒊ ↑ ●○";
+	mes "⒈←ⅲ ■ ↑◎△ ← □◎△ ⒉⒉";
+	close;
+}
+
+dicastes01,235,245,4	script	興奮的皮奧姆#a	490,{
+	if (isequipped(2782)) {
+		mes "[興奮的皮奧姆]";
+		mes "你見過艾哈特嗎?";
+		emotion ET_DELIGHT;
+		mes "在埃迪斯特斯他的受歡迎程度是驚人的!";
+		close; 
+	}
+	mes "[興奮的皮奧姆]";
+	mes "→〓◇ ⒊ ↑⒉● ⒈";
+	emotion ET_DELIGHT;
+	mes "⒊◇● □ ○◆〓 △ →◎□ ▲ ⒉ ▲";
+	close;
+}
+
+dicastes01,284,262,3	script	良好的編織物#a	453,{
+	mes "[良好的編織物]";
+	if (isequipped(2782)) {
+		mes "不像精靈, 我們沙帕";
+		mes "是一個非常緊密的社區.";
+		mes "通過我們共同生活在公共設施開始我們出生後.";
+		mes "這就是為什麼所有沙帕人都像一家人一樣.";
+		mes "我們從來沒有階級之間的任何爭吵.";
+		close; 
+	}
+	mes "◆⒈◇ □ →△⌒ □";
+	mes "↑★⌒ □ ◆◇↑ ◇ ⒊";
+	mes "●◆↑ 〓 ⅳ●ⅳ ◆ ←★※";
+	mes "→■◆ ◇ ⅲ→〓 ▲ ▲◎";
+	mes "⒉⒊← ⅳ →●※ ← ⒊◎▲ □□";
+	close;
+}
+
+dicastes01,164,180,4	script	瘸腿的皮奧姆#a	489,{
+	mes "[瘸腿的皮奧姆]";
+	if (isequipped(2782)) {
+		mes "他們說,有一場";
+		mes "與斯普萊迪德的戰爭在馬努克.";
+		mes "我希望一切順利.";
+		mes "我希望它不";
+		mes "要蔓延到首都來.";
+		emotion ET_THINK;
+		close; 
+	}
+	mes "⒉◆〓 ※ □⌒";
+	mes "⒊◆← → ▲";
+	mes "⒊〓ⅳ ◇ □△⌒";
+	mes "●◎↑ ↑ ※〓⒈";
+	mes "ⅳ◎〓 ⅳ ⅲ● ⅳ ⅲ●";
+	emotion ET_THINK;
+	close;
+}
+
+dicastes01,191,202,4	script	抱怨的加爾滕#fihs	450,{
+	if (isequipped(2782)) {
+		mes "[抱怨的加爾滕]";
+		mes "那個瘋狂的凡客尼克";
+		mes "總是在談論這雕像的傳說.";
+		next;
+		mes "[抱怨的加爾滕]";
+		mes "你有沒有和他";
+		mes "聊過?";
+		next;
+		if(select("- 沒有:- 有的") == 1) {
+			mes "[抱怨的加爾滕]";
+			mes "你不知道雕像背後的傳奇?";
+			mes "我不知道與你談什麼.";
+			close; 
+		}
+		emotion ET_KIK, getnpcid(0, "瘋狂的凡客尼克#fihsing1");
+		mes "[抱怨的加爾滕]";
+		mes "你也愛上了那個瘋狂的人.";
+		next;
+		mes "[" + strcharinfo(0) + "]";
+		mes "是的";
+		emotion ET_CRY,1;
+		next;
+		mes "[抱怨的加爾滕]";
+		mes "忘掉它為了你自己好.";
+		close;
+	}
+	mes "[□ⅲ■ → ]";
+	mes "□◎← ◎ ⅲ←△ △ ";
+	mes "←※← △ ↑〓← ⒊ ◇";
+	next;
+	mes "[□ⅲ■ → ]";
+	mes "○⒈↑ ← □△ⅳ";
+	mes "ⅳ〓▲ ⒉ △";
+	next;
+	mes "不知道是什麼意思.";
+	close;
+}
+
+dicastes01,202,197,4	script	瘋狂的凡客尼克#fihsing1	449,{
+	if (isequipped(2782)) {
+		mes "[瘋狂的凡客尼克]";
+		mes "只要 5000 Zeny";
+		mes "我會告訴你,雕像背後的悲傷傳說.";
+		next;
+		if(select("給他 5000 Zeny.:不給 5000 Zeny.") == 2) {
+			mes "[瘋狂的凡客尼克]";
+			mes "不回來會遺憾的.";
+			close; 
+		}
+		if (Zeny < 5000) {
+			mes "[瘋狂的凡客尼克]";
+			mes "我有";
+			mes "沒有傳說";
+			mes "與窮人分享.";
+			close;
+			close; 
+		}
+		Zeny -= 5000;
+		mes "[瘋狂的凡客尼克]";
+		mes "謝謝.";
+		emotion ET_KIK, getnpcid(0, "抱怨的加爾滕#fihs");
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "什麼是悲傷的傳說?";
+		next;
+		emotion ET_THINK;
+		mes "["+strcharinfo(0)+"]";
+		mes "我問悲傷的傳說是關於什麼的!";
+		next;
+		mes "[瘋狂的凡客尼克]";
+		mes "我不相信傳說.";
+		next;
+		emotion ET_THINK,1;
+		mes "["+strcharinfo(0)+"]";
+		mes "我被欺騙了?";
+		sc_start SC_BLIND,20000,0;
+		next;
+		mes "你在被欺騙感到憤怒.";
+		close; 
+	}
+	mes "[■→※ ⒊ ]";
+	mes "⒉←◇ ◇ ※ⅳ▲";
+	mes "ⅳ○⒉ ⒈ ●■⒉ ▲ ★■↑";
+	next;
+	mes "不知道是什麼意思.";
+	close;
+}
+
+dic_in01,98,110,5	script	擔心的皮奧姆#a	489,{
+	if (isequipped(2782)) {
+		mes "[擔心的皮奧姆]";
+		mes "我還沒有看到我的朋友在過去幾個小時.";
+		mes "是關於時間讓他們有";
+		mes "他們的魔力之石. 唔..";
+		close;
+	}
+	mes "[擔心的皮奧姆]";
+	mes "←⒈△ ⒉ ★〓◎ ↑ ★←⒉";
+	mes "★△ⅳ ⌒ ★★⌒ ⅳ ⅲ";
+	mes "△〓○ ◇ ●";
+	close;
+}
+
+dic_in01,98,96,3	script	失落的加爾滕#a	492,{
+	if (isequipped(2782)) {
+		mes "[失落的加爾滕]";
+		mes "我一直以皮奧姆的身份生活的太久";
+		mes "現在它就像一個壞習慣.";
+		mes "我發現自己在這裡所有的時間.";
+		close;
+	}
+	mes "[失落的加爾滕]";
+	mes "◇◆★ ← ⒊→";
+	mes "↑▲● ⅲ ";
+	mes "■★⒉ ← ■◇";
+	close;
+}

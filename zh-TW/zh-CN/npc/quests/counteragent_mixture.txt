@@ -1,0 +1,303 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+//===== rAthena Script ======================================= 
+//= Counteragent and Mixture Quest(Morgenstein)
+//===== By: ================================================== 
+//= kobra_k88
+//= added some dialogs for Morgenstein by Komurka
+//===== Current Version: ===================================== 
+//= 2.2b
+//===== Compatible With: ===================================== 
+//= rAthena SVN
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Counteragent and Mixtures for making dyes & Alchemist Job Quest
+//===== Additional Comments: ================================= 
+//= 2.2 Rescripted to Aegis 10.3 standards. [L0ne_W0lf]
+//= 2.2a A few minor fixes. (bugreport:1122) [L0ne_W0lf]
+//= 2.2b Follow up fixes to bugreport:1122 [L0ne_W0lf]
+//============================================================ 
+
+alberta_in,133,55,3	script	雷賜	4_M_02,{
+	if (molgenstain == 2) {
+		mes "[商人 雷賜]";
+		mes "啊...就是你嗎.";
+		mes "那你有去看過吉芬的化學家嗎?";
+		next;
+		if (select("詢問莫基斯坦事跡:放棄") == 1) {
+			mes "[商人 雷賜]";
+			mes "啊, 有聽過吉芬化學家事跡, 可沒有機會去是吧?";
+			mes "恩恩... 為何不去啊?快點去吧!說不定製作非常奇特的物品 ...";
+		}
+		else {
+			mes "[商人 雷賜]";
+			mes "有話老實說吧, 當然這不是勉強的...";
+		}
+		close;
+	}
+	mes "[商人 雷賜]";
+	mes "有事情嗎?";
+	next;
+	setarray .@talk$,"對話","敘述溶液","詢問有關卡勒波迪藥水","詢問有關帝特立米藥水","放棄";
+	if(countitem(971) && countitem(972)) {
+		set .@word$,"那個溶液";
+		cleararray .@talk$[2],"",2;
+	}
+	else if(countitem(972)) {
+		set .@word$,"卡勒波迪";
+		set .@talk$[1],"";
+		set .@talk$[3],"";
+	}
+	else if(countitem(971)) {
+		set .@word$,"帝特立米";
+		cleararray .@talk$[1],"",2;
+	}
+	else {
+		cleararray .@talk$[1],"",3;
+	}
+	switch (select(.@talk$[0],.@talk$[1],.@talk$[2],.@talk$[3],.@talk$[4])) {
+	case 1:
+		mes "[商人 雷賜]";
+		mes "為了尋找魔法道具, 曾在吉芬待過";
+		mes "那時有聽到一位瘋子化 學家的傳聞";
+		mes "對化學家很有興趣";
+		mes "所以訪問他問過一些事但";
+		mes "沒有得到他的 回應.";
+		mes "他非常投入自己研究";
+		next;
+		mes "[商人 雷賜]";
+		mes "只能聽化學家的自言自語而已";
+		mes "'卡勒波迪藥水... 帝特立米藥水...'";
+		mes "那時候我不知道到這是與水不同的創新液體";
+		close;
+	default:
+		mes "[商人 雷賜]";
+		mes "哇!這就是" +.@word$+ "!";
+		mes "連我也沒有親自看過的, 您真是厲害";
+		mes "真遺憾, 對這液體沒有清楚了解, 可能那位瘋子化學家才能 知道...";
+		next;
+		mes "[商人 雷賜]";
+		mes "您想去問他解決這個疑問吧?";
+		mes "好久以前的事了, 所以不能確定他還在";
+		mes "告訴您他住在吉芬, 他名字叫 ^0000ff莫基斯坦^000000.";
+		next;
+		mes "[商人 雷賜]";
+		mes "詳細的事情是去吉芬問問看吧.";
+		mes "祝您好運.";
+		set DYE_EVE,1;
+		close;
+	case 5:
+		mes "[商人 雷賜]";
+		mes "哈... 真是無聊的人耶.";
+		close;
+	}
+}
+
+geffen,184,114,6	script	阿歐魯的朋#cm	2_M_MOLGENSTEIN,{
+	if(DYE_EVE == 2) {
+		mes "[吉芬居民 阿歐魯的朋]";
+		mes "老天爺又讓我們在一起. 我在等您來這";
+		mes "對啊...您有沒有找到您要找的人?";
+		next;
+		if(select("敘述莫基斯坦事跡:放棄")==1) {
+			mes "[吉芬居民 阿歐魯的朋]";
+			mes "您還沒見過面了.";
+			mes "他住在打鐵鋪的 2樓. 雖然跟您認識不是很久算是個緣份. 我給您一個意見, 不要太靠近他 會對您不好...";
+		}
+		else {
+			mes "[吉芬居民 阿歐魯的朋]";
+			mes "看您的臉看不出來任何鬥志. 可是您不會講出來心裡話.";
+			mes "我當您 是好朋友... 這是我一個人的錯覺嗎? ";
+		}
+		close;
+	}
+	mes "[吉芬居民 阿歐魯的朋]";
+	mes "雖然靠偉大的魔法力量也不能時間倒轉. 我這樣講話的一瞬間時間還是過去.";
+	mes "為什叫我站著?";
+	next;
+	if(DYE_EVE > 0)
+		set .@talk$,"敘述莫基斯坦事跡";
+	switch (select("對話",.@talk$,"取消")) {
+	case 1:
+		mes "[吉芬居民 阿歐魯的朋]";
+		mes "研究和崇拜魔法的我不算是普通人. 不過這個世界有很多怪人 ...";
+		mes "您會做到把全身的力量投入一個事情?  放棄一切... 好像跟瘋子 一樣...";
+		close;
+	case 2:
+		set DYE_EVE,2;
+		mes "[吉芬居民 阿歐魯的朋]";
+		mes "您知道哪個瘋子您也不算正常人. 您很想知道他不過...";
+		mes "我不能告訴您, 他是什麼樣的人. 我做不到 對不起... 不過您要了解我. 我只能告訴您他住在哪.";
+		next;
+		mes "[吉芬居民 阿歐魯的朋]";
+		mes "他住在打鐵鋪的2樓. 雖然跟您認識不是很久算是個緣份. 我給您一個意見, 不要太靠近他 會對您不好...";
+		close;
+	case 3:
+		mes "[吉芬居民 阿歐魯的朋]";
+		mes "看您的臉看不出來任何鬥志. 可是您不會講出來心裡話.";
+		mes "可惜那我也沒辦法了... 人也是大自然的一部分... 就是說人的 意志... 像個大自然的流動.";
+		close;
+	}
+}
+
+geffen_in,141,140,3	script	莫基斯坦#cm	2_M_MOLGENSTEIN,{
+	switch(DYE_EVE) {
+	case 0:
+	case 1:
+		mes "[化學者莫基斯坦]";
+		mes "哈哈哈哈哈... 哈哈哈哈哈...";
+		mes "人, 我看到人拉..哈哈哈哈哈...";
+		close;
+	case 2:
+		set DYE_EVE,3;
+		mes "[化學者莫基斯坦]";
+		mes "哈哈哈哈 ... 就是這樣.";
+		mes "哈哈哈哈 ... 哈哈哈哈哈哈 ...";
+		next;
+		mes "[化學者莫基斯坦]";
+		mes "...我很久沒有見過活人啦";
+		mes "...這是個壞習慣...哈哈";
+		mes "好吧 ... 有什麼事呢?";
+		break;
+	case 3:
+		mes "[化學者莫基斯坦]";
+		mes "哈哈哈哈...請進來吧.";
+		mes " 哈哈哈哈哈... 哈哈哈哈哈...";
+		break;
+	}
+	next;
+	switch (select("打聽研究的內容:製作新的物品:取消")) {
+	case 1:
+		mes "[化學者莫基斯坦]";
+		mes "哈哈哈哈...您好像在哪打聽研究的傳聞...";
+		mes "那麼.. 那我沒隱瞞您直接都講... ";
+		mes "不用隱瞞...哈哈哈哈...";
+		next;
+		mes "[化學者莫基斯坦]";
+		mes "說實話...我的研究已經進入完成的階段...";
+		mes "以我的天才頭腦什麼東西都能夠做出來...";
+		mes "哈哈哈...";
+		mes "只是時間的問題...";
+		mes "就是時間...哈哈哈...";
+		next;
+		mes "[化學者莫基斯坦]";
+		mes "... 您想知道研究什麼嗎";
+		mes "... 那很簡單... ";
+		mes "是研究用水溶化不了的東西";
+		mes "怎麼讓它溶化";
+		next;
+		mes "[化學者莫基斯坦]";
+		mes "是很有趣嗎? ";
+		mes "讓石頭和鋼鐵都變液體混在一起的辦法!!!";
+		mes "所有的東西都變液體~~~~ 都溶化掉!! ";
+		next;
+		mes "[化學者莫基斯坦]";
+		mes "哈...哈...嘿...嘿...";
+		mes "不管怎麼樣...";
+		mes "到目前為止不能溶化所有的東西.";
+		mes "不過有幾個新的發現.";
+		next;
+		mes "[化學者莫基斯坦]";
+		mes "用這種辦法做出更多的東西, ";
+		mes "比您想像中的還要多... ";
+		mes "只是您想要的話!!";
+		next;
+		mes "[化學者莫基斯坦]";
+		mes "...噢噢...";
+		mes "就像腦袋會分泌使人興奮和快樂的激素...";
+		mes "...啊啊啊啊...";
+		mes "您想要得話...";
+		close;
+	case 2:
+		mes "[化學者莫基斯坦]";
+		mes "嘻嘻嘻嘻...果然您也有興趣.";
+		mes "是的...是的...世界上任何人都會有興趣...";
+		next;
+		mes "[化學者莫基斯坦]";
+		mes "這麼興奮和有有趣 的事情 很少見...呵呵呵呵";
+		mes "好... 您想做什? ...";
+		mes "嗯? 嘻嘻嘻嘻";
+		next;
+		if(select("中和劑:混合劑")==1) {
+			set .@need,971;
+			set .@price,3000;
+			set .@gain,973;
+		}
+		else {
+			set .@need,972;
+			set .@price,4000;
+			set .@gain,974;
+		}
+		mes "[化學者莫基斯坦]";
+		mes "噢...你想要做" +getitemname(.@gain)+ "嗎...";
+		mes "呵呵呵呵...好讓我告訴你需要什麼東西.";
+		mes "...看看...噢...噢... 啊啊...啊哈...";
+		next;
+		mes "[化學者莫基斯坦]";
+		mes "噢...我想起來了...";
+		mes "好...酒精...." +getitemname(.@need);
+		mes "..還有空瓶子...";
+		next;
+		mes "[化學者莫基斯坦]";
+		mes "-- 你只要有這3個物品就可以做出來.";
+		mes "還有參加這次活動你要對我有所表示...";
+		mes "嘻嘻嘻嘻...不要感到太大的壓力";
+		next;
+		mes "[化學者莫基斯坦]";
+		mes "...我沒有要什麼..呵呵...";
+		mes "聽好..只要" +.@price+ " Zeny";
+		next;
+		mes "[化學者莫基斯坦]";
+		mes "噢?你不會覺得很貴吧?";
+		mes "...我感覺得到...你和我一樣";
+		mes "心裡有實驗和創造得欲望!";
+		mes "嘻嘻嘻嘻嘻嘻嘻嘻";
+		next;
+		mes "[化學者莫基斯坦]";
+		mes "好...開始吧~";
+		next;
+		if(select("開始:取消")==2) {
+			mes "[化學者莫基斯坦]";
+			mes "哈... 哈哈哈...";
+			close;
+		}
+		if(countitem(970)<1 || countitem(.@need)<1 || countitem(713)<1 || Zeny<.@price) {
+			mes "[化學者莫基斯坦]";
+			mes "好像還少東西啊!!";
+			close;
+		}
+		mes "[化學者莫基斯坦]";
+		mes "呼呼呼呼... 嘻嘻嘻嘻... 好... 就這樣...好...繼續...還要... 哈哈哈哈";
+		mes "...啊啊... 啊哈... 哈... 啊哈... 噢噢... 噢! ...噢噢噢噢噢噢啊!!! ...!!!!!!";
+		next;
+		delitem 970,1;
+		delitem .@need,1;
+		delitem 713,1;
+		set Zeny, Zeny - .@price;
+		getitem .@gain,1;
+		mes "[化學者莫基斯坦]";
+		mes "...啊哈...";
+		close;
+	case 3:
+		mes "[化學者莫基斯坦]";
+		mes "恩....恩恩恩恩恩....";
+		close;
+	}
+}
+
+//============================================================
+// Old changelog
+//============================================================
+//= 1.0 Fully working
+//= 1.1 Update for Alchemist Quest.
+//= 1.2 added check for Empty Bottle [Lupus]
+//= 1.3 Fixed some lil thingys [Darkchild]
+//= 1.4 More li'l thing, added comments for items IDs [Lupus]
+//= 1.5 Fixed Spelling mistakes. [Nexon]
+//= 1.6 Fixed some bugs, also related to Alch Job quest [Lupus]
+//= 1,7 Fixed exploit
+//= 1.8 Got rid of 'al_morgen' var [Lupus]
+//= 2.1 now uses (MISC_QUEST & 4) bit instead of al_morgen [Lupus]
+//============================================================

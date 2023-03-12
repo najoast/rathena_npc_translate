@@ -1,0 +1,221 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+//===== rAthena Script ======================================= 
+//= Divorcing Deviruchi
+//===== By: ================================================== 
+//= Perkka, Scriptor, LightFighter
+//= L0ne_W0lf
+//===== Current Version: ===================================== 
+//= 1.5
+//===== Compatible With: ===================================== 
+//= rAthena SVN
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Official Divorce script.
+//= Added isloggedin() check, even though Aegis doesn't do it;
+//= should be able to divorce even when the spouse is not online.
+//===== Additional Comments: ================================= 
+//= Both players should be online to get divorced
+//= Fixed menu [Lupus]
+//= 1.1 Added check if the patner's online, added effects [Lupus]
+//= 1.2 Updated to Aegis 10.3 standards. [L0ne_W0lf]
+//= 1.2a Commented out check of 'wedding_sign' to let
+//=     old married players divorcing, optimized, fixed a bug [Lupus]
+//= 1.3 Wedding variable 'wedding_sign' is now unset on divorce. [L0ne_W0lf]
+//= 1.4 Removed ifpartneron check, fixed typo in percentheal. [L0ne_W0lf]
+//= 1.5 Replaced effect numerics with constants. [L0ne_W0lf]
+//============================================================ 
+
+nif_in,190,112,5	script	Deviruchi#divorce	4_DEVIRUCHI,{
+	mes "[小惡魔]";
+//	if (wedding_sign == 0) {
+//		mes "呵 呵...";
+//		mes "看著那張沮喪的臉.";
+//		mes "你一定感覺到非常的孤獨.";
+//		mes "不過有些事是每個人";
+//		mes "都必須處理的.";
+//		next;
+//		mes "[小惡魔]";
+//		mes "如果你覺得這麼孤獨,";
+//		mes "不如去試試養個寵物?";
+//		mes "我聽說過我們這種";
+//		mes "現在是很流行的啊,呵 呵~";
+//		close;
+//	}
+//	else 
+  	if (!getpartnerid()) {
+		mes "巴 啦 啦 啦~!";
+		mes "看著我的眼睛~!";
+		if (Sex) {
+			mes "那清澈的眼睛";
+			mes "絕對是一位男單身漢的.";
+			mes "我百分百確定";
+			mes "你在聖壇前面被拋棄.";
+		}
+		else {
+			mes "對於你來說, 她只是";
+			mes "一個充滿痛苦的老處女--!";
+			mes "你不能強制一個";
+			mes "可憐人去結婚, 對吧?";
+		}
+		next;
+		mes "[小惡魔]";
+		mes "HHAHAHAHA~!";
+		mes "Oooooh...嘿嘿 嘿~";
+		mes "如果你知道我是";
+		mes "黑暗創造的生物,";
+		mes "我會更有同情心的";
+		close;
+	}
+	mes "你看起來非常的沮喪...";
+	mes "祝你好運, 對於快樂的人";
+	mes "我才不會注意...";
+	mes "人類的絕望";
+	mes "還真是有趣啊.";
+	mes "哈哈哈哈~!";
+	next;
+	mes "[小惡魔]";
+	mes "我能感受到";
+	mes "你攜帶的煩惱...";
+	mes "如果我沒猜錯的話";
+	if (Sex)
+		mes "與一個男人結婚了, 對吧?";
+	else
+		mes "與一個女人結婚了, 對吧?";
+	next;
+	mes "[小惡魔]";
+	mes "讓我問你一個問題.";
+	mes "結婚後你感覺快樂麼?";
+	mes "忘記了自己的責任,";
+	mes "浪漫並且其他的都是垃圾";
+	mes "現在.";
+	next;
+	mes "[小惡魔]";
+	mes "我的意思是, 變成一個人";
+	mes "真正能帶給你幸福麼?";
+	mes "我知道所有關於";
+	mes "特別的婚禮和神奇的愛";
+	mes "應該是,不過...";
+	next;
+	mes "[小惡魔]";
+	mes "在一切終止之日, 你和你的";
+	mes "戀人在對打, 你感覺";
+	mes "完全完全的悲傷.";
+	if (Sex)
+		mes "...完全是因為她.";
+	else
+		mes "...完全是因為他.";
+	next;
+	mes "[小惡魔]";
+	mes "是的, 你命中注定要遇見我";
+	mes "我們都犯了錯誤...";
+	mes "就算你發誓永恆的愛";
+	mes "就算你曾經宣誓...";
+	mes "我可以把使你從愛情的圍城中";
+	mes "解脫出來";
+	next;
+	mes "[小惡魔]";
+	mes "如果你把婚姻看成";
+	mes "一紙合同的話...";
+	mes "一張「至死也要在一起」的合同";
+	mes "不過我們是在尼芙菲姆";
+	mes "所以說我們";
+	mes "可以利用一個小漏洞...";
+	next;
+	mes "[小惡魔]";
+	mes "*小聲的說*";
+	mes "^555555對於你來說這不像是打破一個^000000";
+	if (Sex) {
+		mes "^555555誓言, 當然";
+		mes "如果你妻子她不知道的話她也不會關心";
+		mes "難道你不想";
+		mes "從她的圍城中解脫出來麼?^000000";
+	}
+	else {
+		mes "^555555誓言.當然";
+		mes "如果你丈夫他不知道的話他也不會關心";
+		mes "你應該得到";
+		mes "真正的幸福, 對吧?^000000";
+	}
+	next;
+	mes "[小惡魔]";
+	mes "你能與更好的人";
+	mes "發生一段更棒的感情...";
+	mes "不是更棒麼...?";
+	mes "如果你想的話, 我能幫你...";
+	mes "我能使這一切發生!";
+	next;
+	if (select("不用了, 謝謝我過的很愉快.:是的, 請讓他發生吧.") == 1) {
+		mes "[小惡魔]";
+		mes "嗚呼~! 你一定還在";
+		mes "對『永恆的愛』的奇葩概念有迷戀";
+		mes "好吧,";
+		mes "如果你認為你還,";
+		mes "快樂的話";
+		mes "那麼我對於你沒有任何意義--!";
+		close2;
+		warp "niflheim",169,162;
+		end;
+	}
+	mes "[小惡魔]";
+	mes "很好,很好...";
+	mes "你所需要做的就是";
+	mes "給我這些東西...";
+	mes "我要 2,500,000 zeny 和...*cough!*";
+	mes "^666666你靈魂的一小片.^000000";
+	next;
+	mes "[小惡魔]";
+	mes "在那之後";
+	mes "就是無憂無慮的單身生活了";
+	mes "但要為了實現, 你必須說出以下的話...";
+	next;
+	if (select("...給我點時間讓我想想.:我願意付錢, 讓我現在就離婚了吧!") == 1) {
+		mes "[小惡魔]";
+		mes "我能理解. 如果你在";
+		mes "想什麼的話, 請考慮";
+		if (Sex) {
+			mes "你老婆的嘮叨, ";
+			mes "回到了單身生活";
+			mes "終於從婚姻的枷鎖中";
+			mes "徹底的解放出來~";
+		}
+		else {
+			mes "你老公多麼的糟糕,";
+			mes "從討厭的人的";
+			mes "身邊解脫出來是有多好~";
+		}
+		close;
+	}
+	mes "[小惡魔]";
+	if (Zeny > 2499999) {
+		mes "明智的選擇~";
+		mes "讓我們開始吧";
+		mes "這需要點時間";
+		mes "但總比無望的";
+		mes "婚姻要好很多";
+		mes "^FF0000為了你餘下的人生.^000000";
+		next;
+		specialeffect EF_MAGICROD;
+		specialeffect2 EF_DEVIL;
+		set wedding_sign,0;
+		set Zeny, Zeny - 2500000;
+		percentheal -100,-100;
+		divorce;
+		mes "[小惡魔]";
+		mes "哇哈哈哈~!";
+		mes "現在你自由了~!";
+		mes "變成單身後";
+		mes "是不是感覺好多了?";
+		mes "啊,美妙的單身生活...";
+		close;
+	}
+	mes "Hmmm...我是不是告訴過你帶";
+	mes "2,500,000 zeny來, 對麼?";
+	mes "這世界上沒人能免費";
+	mes "的離婚, 就連GM也不行...";
+	mes "寧靜的生活是無價的";
+	mes "對吧?";
+	close;
+}

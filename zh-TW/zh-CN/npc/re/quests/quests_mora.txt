@@ -1,0 +1,5366 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+//===== rAthena Script =======================================
+//= Mora Quest NPCs
+//===== By: ==================================================
+//= Euphy
+//===== Current Version: =====================================
+//= 1.1
+//===== Compatible With: =====================================
+//= rAthena SVN
+//===== Description: =========================================
+//= [Official Conversion]
+//= Quest NPCs related to Mora:
+//== Theore's Request, Chesire's New Day,
+//== Helping Lope and Euridi, Mora Daily Quests,
+//== Find the Research Tools, Knights of the Neighborhood
+//===== Additional Comments: =================================
+//= 0.1 NPCs are currently placeholders. [Euphy]
+//= 1.0 Implemented all official quests. [Euphy]
+//= 1.1 Added GM management function and NPCs. [Euphy]
+//============================================================
+
+// Theore's Request :: ep14_1_bs
+//============================================================
+mid_camp,148,222,4	script	德歐雷#ep14_1_bs	982,3,3,{
+	if (BaseLevel < 100) {
+		mes "- 穿著白色襯衣的人 -";
+		mes "- 拉扯自己的頭髮. -";
+		close;
+	}
+	if (ep14_1_bs == 0) {
+		mes "[德歐雷]";
+		mes "啊啊啊啊啊啊啊!!!";
+		mes "該死!!!!";
+		mes "我完了!!!";
+		next;
+		mes "[德歐雷]";
+		mes "如此糟糕, 讓我怎麼提交報告!!! 5歲的孩子都可以做得比這更好!!!";
+		mes "不!!!";
+		set ep14_1_bs,1;
+		close;
+	} else if (ep14_1_bs == 1) {
+		mes "- 穿著白色襯衣的人 -";
+		mes "- 拉扯自己的頭髮. -";
+		next;
+		if(select("- 嘗試和他聊聊:- 好吵") == 2) {
+			mes "[德歐雷]";
+			mes "哦, 好吧, 我很抱歉.";
+			mes "我會小聲一點.";
+			close;
+		}
+		mes "["+strcharinfo(0)+"]";
+		mes "先生... 你還好嗎?";
+		mes "這樣下去你的頭髮都要掉了.";
+		mes "冷靜下來.";
+		next;
+		mes "[德歐雷]";
+		mes "嗚咽.......";
+		next;
+		mes "[德歐雷]";
+		mes ".......";
+		next;
+		mes "[德歐雷]";
+		mes "奧丁!!!";
+		mes "弗蕾亞!!!!";
+		mes "薩扎利姆!!!";
+		mes "謝謝你們!!";
+		mes "你們果然沒有遺棄我!!";
+		next;
+		mes "[德歐雷]";
+		mes "人們總是希望我, 德歐雷, 能持之以恆, 能繼續!!";
+		next;
+		mes "[德歐雷]";
+		mes "親愛的冒險家!!!";
+		mes "不, 不, 親愛的勇士!!!!";
+		mes "你現在忙不忙?";
+		mes "如果你能給我一點時間, 我想你會得到不錯的回報!";
+		next;
+		switch(select("- 我很忙:- 繼續聽他說下去")) {
+		case 1:
+			mes "[德歐雷]";
+			mes ".......";
+			mes "我知道了, 我得不到你的幫助.";
+			mes "可能我會失去所有的頭髮並從此不再生長. 但我不會記仇的, 戰士.";
+			next;
+			mes "[德歐雷]";
+			mes "親愛的上帝! 我的運氣到此為止. *嗚咽*";
+			mes "即使全世界都遺棄我, 我也不會責怪任何人!!!";
+			close;
+		case 2:
+			mes "[德歐雷]";
+			mes "啊哈哈!";
+			mes "我覺得我得救了.";
+			mes "所以事情是.......";
+			next;
+			mes "[德歐雷]";
+			mes "哦! 親!";
+			mes "我多麼粗魯, 我還沒有介紹我自己.";
+			mes "我叫德歐雷, 我在異世界為'巴茲特黑茶'文學院工作.";
+			next;
+			mes "[德歐雷]";
+			mes "我目前正在研究在輝煌領域的精靈.";
+			mes "可能是因為我的研究太投入了, 這些日子所有的精靈一看到我就逃跑了.";
+			next;
+			mes "[德歐雷]";
+			mes "最後期限正在迫近, 我仍然沒有想通最關鍵的部分.";
+			mes "我的導師會很失望.......";
+			next;
+			mes "[德歐雷]";
+			mes "所以你能不能幫我一把?!";
+			mes "我會承認得到了你的幫助 - 我會親口告訴我的導師!";
+			next;
+			switch(select("- 幫他:- 不幫")) {
+			case 1:
+				mes "[德歐雷]";
+				mes "嗚咽~嗚咽~戰士, 你是最棒的!";
+				mes "我絕不會忘記!!!";
+				mes "我要寫進我的日記!!";
+				mes "和報告中!!!";
+				mes "以及寄回家的書信裡!!";
+				next;
+				mes "[德歐雷]";
+				mes "我會告訴我實驗室的朋友!!!";
+				mes "我會告訴洛根!!!";
+				mes "我會寫在布告欄上!!!";
+				mes "讓我們來看看!!! 還有什麼地方?";
+				next;
+				mes "- 那人看上去非常的浮躁. -";
+				mes "- 等到他平靜下來 -";
+				mes "- 並嘗試再次跟他說話. -";
+				set ep14_1_bs,2;
+				setquest 11182;
+				close;
+			case 2:
+				mes "[德歐雷]";
+				mes ".......";
+				mes "你這個壞人, 毀了我的前途.";
+				mes "*嗚咽*";
+				close;
+			}
+		}
+	} else if (ep14_1_bs == 2) {
+		if (checkquest(11182,PLAYTIME) < 2) {
+			mes "[德歐雷]";
+			mes "......";
+			switch(rand(1,4)) {
+			case 1:
+				mes "我要告訴我的隔壁鄰居皮克!!!";
+				mes "和卡丘亞!!!";
+				break;
+			case 2:
+				mes "告訴對面街的商人!!!";
+				mes "當然也告訴管理員!!!";
+				break;
+			case 3:
+				mes "告訴霍根先生!!!";
+				mes "給國王寫一份報告!!!";
+				break;
+			case 4:
+				mes "告訴這裡周圍的人!!!";
+				mes "從天文臺上大聲喊出好讓全世界都聽到!!!";
+				break;
+			}
+			next;
+			mes "- 他仍然很狂躁. -";
+			mes "- 等到他平靜下來 -";
+			mes "- 並嘗試再次和他說話. -";
+			close;
+		}
+		mes "[德歐雷]";
+		mes "我得道歉.";
+		mes "我有點興奮.";
+		mes "我向你道歉.";
+		next;
+		mes "[德歐雷]";
+		mes "我通常是一個冷靜和理性的人, 但它讓感覺就像我已經無處不在 - 天堂和地獄 - 今天!";
+		next;
+		mes "[德歐雷]";
+		mes "重要的是: 我想給你個不知道算不算艱巨的任務.";
+		next;
+		mes "[德歐雷]";
+		mes "正如你所知道的, 精靈與盜賊行會正在戰爭中.";
+		mes "直到最近, 他們無情地襲擊了盜賊行會";
+		next;
+		mes "[德歐雷]";
+		mes "但在這之後, 攻擊的次數顯著下降了.";
+		mes "我不明白為什麼, 他們是專一的生物, 是不可能同情盜賊行會的.";
+		next;
+		mes "[德歐雷]";
+		mes "當然, 有傳言說手無寸鐵的精靈飛過田野了.";
+		next;
+		mes "[德歐雷]";
+		mes "我看到過一次, 但他發現了我立刻就逃走了, 我沒有機會問他.";
+		mes "我敢肯定他回到了村子裡. 我想拼命地問, 但被禁止進入輝煌領域.";
+		next;
+		select("禁止?");
+		mes "[德歐雷]";
+		mes "好吧...";
+		mes "教授安排我到這個研究項目後我很興奮.......";
+		mes "我不分晝夜地研究輝煌領域, 最後被他們踢了出來.";
+		mes "哈哈哈!";
+		next;
+		mes "[德歐雷]";
+		mes "這些精靈看起來很可愛, 但他們是戰鬥專家.......";
+		mes "所以我在這裡, 沒有勇氣去潛入, 但報告只完成了一半......";
+		next;
+		mes "[德歐雷]";
+		mes "告訴我, 有誰比我的生活更不幸?";
+		mes "*咯咯*";
+		next;
+		mes "[德歐雷]";
+		mes "所以戰士, 你可以找到來自輝煌領域的精靈, 看看他們在做些什麼嗎?";
+		next;
+		mes "[德歐雷]";
+		mes "如果你嘗試和他們說話他們可能會逃跑, 當你發現一個就要密切注意.";
+		next;
+		mes "[德歐雷]";
+		mes "這些個精靈真的很吵鬧, 看到安靜的他們會令人很不安 - 就像是暴風雨來臨前的平靜.";
+		set ep14_1_bs,3;
+		changequest 11182,11183;
+		close;
+	} else if (ep14_1_bs == 3) {
+		mes "[德歐雷]";
+		mes "所以戰士, 你能不能問下來自輝煌領域的精靈?";
+		next;
+		mes "[德歐雷]";
+		mes "如果你試著跟他們說話, 他們可能會跑掉, 當你發現一個就要密切注意.";
+		next;
+		mes "[德歐雷]";
+		mes "這些個精靈真的很吵鬧, 看到安靜的他們會令人很不安 - 就像是暴風雨來臨前的平靜.";
+		close;
+	} else if (ep14_1_bs < 10) {
+		if (ep14_1_bs2 == 0) {
+			mes "- 他在沒有任何意識下開始胡言亂語. 你應當去輝煌領域尋找它的主人. -";
+			close;
+		} else if (ep14_1_bs2 < 4) {
+			mes "[德歐雷]";
+			mes "唔...... 他們在灌木叢翻箱倒櫃?";
+			mes "唔... 唔...";
+			next;
+			mes "[德歐雷]";
+			mes "他們身上可能有線索, 麻煩你看看周圍地區.";
+			mes "如果他們正在灌木叢中尋找什麼, 可能是在尋找他們失去的東西.";
+			mes "或者他們可能已經把什麼東西藏在那裡了.";
+			close;
+		} else if (ep14_1_bs2 < 7) {
+			if (countitem(6390) == 0) {
+				mes "[德歐雷]";
+				mes "他們可能會留下一些線索, 可以請你去看看周圍的地區?";
+				mes "如果他們正在尋找在灌木叢中, 他們可能一直在尋找他們失去了的東西.";
+				mes "或者他們可能已經把什麼東西藏在那裡了.";
+				close;
+			}
+			mes "[德歐雷]";
+			mes "一夥精靈丟下了一個袋子然後跑了?";
+			mes "唔... 恩... 柔軟的皮革小袋一個字符串由油中浸泡幹葡萄藤....這對於人類或盜賊們來說也太小了...";
+			next;
+			mes "[德歐雷]";
+			mes "莫非......莫非??!!";
+			mes "是那個?!";
+			mes "我只是聽說過, 但從來沒有見過!!!";
+			next;
+			mes "[德歐雷]";
+			mes "在古代, 像這樣在一個小袋子, 用來存放精靈仙塵 - 精靈粉袋子, 最大限度地減少灰塵 -.";
+			next;
+			mes "[德歐雷]";
+			mes "精靈們最喜歡奢華的物品. 但這個'精靈的布袋', 他們總是隨身攜帶, 它是簡單而不奢侈的裝飾品, 與精靈們的傳統非常接近.";
+			next;
+			mes "[德歐雷]";
+			mes "我雖然不清楚它裡面有什麼, 但如果是這樣的東西, 它的主人應該是急於找到它.";
+			next;
+			mes "[德歐雷]";
+			mes "我們不能白白的還給他們. 交換一些情報 - 這是一個公平的交易!";
+			next;
+			mes "[德歐雷]";
+			mes "也許他們不會太難過, 如果我們看看裡面的小袋袋!";
+			mes "哇哦!!";
+			mes "我小的時候始終堅信有一天, 精靈會來和我紅塵作伴, 帶我飛!!!";
+			next;
+			mes "- 我剛想阻止他的時候, -";
+			mes "- 他已經打開了這個袋子. -";
+			next;
+			mes "[德歐雷]";
+			mes ".......";
+			next;
+			mes "[德歐雷]";
+			mes "噢...";
+			mes "漿果......和葉子?";
+			mes ".......";
+			next;
+			mes "[德歐雷]";
+			mes "......仙塵在哪裡?";
+			mes "不不不!";
+			mes "真讓我無法想像!!!!";
+			next;
+			mes "- 他在沒有任何意識下開始胡言亂語. 你應當收起'精靈的布袋'並去尋找它的主人. -";
+			set ep14_1_bs2, ep14_1_bs2+3; //4,5,6 -> 7,8,9
+			changequest 11185,11186;
+			close;
+		} else {
+			mes "- 他在沒有任何意識下開始胡言亂語. 你應當收起'精靈的布袋'並去尋找它的主人. -";
+			close;
+		}
+	} else if (ep14_1_bs < 18) {
+		mes "- 他似乎很忙. 你應該完成手頭上的任務再回來. -";
+		close;
+	} else if (ep14_1_bs == 18) {
+		mes "[德歐雷]";
+		mes "最終你還是回來了!!!!";
+		mes "調查的情況如何?!";
+		next;
+		mes "[德歐雷]";
+		mes "哇!!!";
+		mes "難以置信!!!!!!";
+		mes "實在難以置信!!!";
+		next;
+		mes "[德歐雷]";
+		mes "太棒了!!!!";
+		mes "寫一份出色的報告, 這肯定是不夠的!!";
+		mes "太感激你了, 戰士!!";
+		next;
+		mes "[德歐雷]";
+		mes "我將永遠, 永遠不會忘記你為我做的事情!";
+		mes "不!!";
+		mes "我們世世代代都會記得的!!!!";
+		mes "*哭泣*";
+		next;
+		mes "[德歐雷]";
+		mes "接下去我要把報告給完成!!!!!!!";
+		mes "噢耶!!!!";
+		set ep14_1_bs,19;
+		getexp 0,200000;
+		getitem 6380,5; //穆拉村硬幣
+		close;
+	} else if (ep14_1_bs > 18) {
+		mes "[德歐雷]";
+		mes "我會以閃電般的速度寫報告!!!!!!!";
+		mes "噢耶!!!!";
+		close;
+	}
+	end;
+OnTouch:
+	if (BaseLevel > 99) {
+		if (ep14_1_bs == 0) {
+			mes "[德歐雷]";
+			mes "啊啊啊啊啊啊啊!!!";
+			mes "該死!!!!";
+			mes "我完蛋了!!!";
+			next;
+			mes "[德歐雷]";
+			mes "我應該如何提交一份報告, 這是多麼的糟糕! 5年的時間啊!!!";
+			mes "不!!!";
+			set ep14_1_bs,1;
+			close;
+		}
+	}
+	end;
+}
+
+-	script	#mora_bush	-1,{
+	if (ep14_1_bs != 3 || rand(5)) {
+		mes "- 這只是一堆普通的灌木. -";
+		close;
+	}
+	set .@i, atoi(charat(strnpcinfo(2),9));
+	set .@rand, rand(1,3);
+	mes "[空著手的精靈]";
+	mes "啊啊啊啊啊啊啊!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+	donpcevent "精靈#cmd"+.@i+.@rand+"::OnEnable";
+	set ep14_1_bs, .@i+3;
+	set ep14_1_bs2, .@rand;
+	changequest 11183,11184;
+	next;
+	mes "- 這個精靈在灌木附近尋找什麼, -";
+	mes "- 你應該和這個精靈談談, -";
+	mes "- 但是他們驚慌失措地 -";
+	mes "- 飛走了. -";
+	next;
+	mes "- 這些精靈在幹什麼? -";
+	mes "- 決定環顧四周. -";
+	donpcevent "bush"+.@i+"Timer::OnEnable";
+	close;
+OnEnable:
+	enablenpc strnpcinfo(0);
+	donpcevent "bush"+charat(strnpcinfo(2),9)+"Timer::OnDisable";
+	end;
+OnDisable:
+	disablenpc strnpcinfo(0);
+	end;
+}
+
+-	script	#mora_pouch	-1,{
+	end;
+OnTouch:
+	set .@i, atoi(charat(strnpcinfo(2),9));
+	if (ep14_1_bs == .@i+3) {
+		if (countitem(6390) == 0) {
+			if (checkweight(1201,1) == 0) {
+				mes " - 等等 !! -";
+				mes " - 你所攜帶的物品過多 - ";
+		   		mes " - 如果想獲得更多物品. - ";
+				mes " - 請做一些清理工作 - ";
+		   		mes " - 再回來嘗試. - ";
+				close;
+			}
+			if (MaxWeight - Weight < 1000) {
+				mes " - 等等 !! -";
+			 	mes " - 你的負重不足 - ";
+				mes " - 請做一些清理工作 - ";
+		   		mes " - 再回來嘗試. - ";
+				close;
+			}
+			mes "- 隨意摸索 -";
+			mes "- 沙沙的喧囂聲 -";
+			next;
+			if (rand(1,5) == 4) {
+				mes "- 你找到一個小袋子. -";
+				if (ep14_1_bs2 > 0 && ep14_1_bs2 < 4)
+					set ep14_1_bs2, ep14_1_bs2+3;
+				changequest 11184,11185;
+				getitem 6390,1; //精靈的布袋
+				close;
+			} else {
+				mes "- 你沒有找到任何東西. -";
+				close;
+			}
+		}
+	}
+	end;
+}
+
+-	script	#mora_fairy	-1,{
+	end;
+OnInit:
+	disablenpc strnpcinfo(0);
+	end;
+OnEnable:
+	enablenpc strnpcinfo(0);
+	initnpctimer;
+	end;
+OnDisable:
+	disablenpc strnpcinfo(0);
+	stopnpctimer;
+	end;
+OnTimer5000:
+	donpcevent strnpcinfo(0)+"::OnDisable";
+	stopnpctimer;
+	end;
+}
+
+spl_fild02,79,104,0	duplicate(#mora_bush)	灌木#ep14_1_bs1	111
+spl_fild02,79,104,0	duplicate(#mora_pouch)	#ep14_1_bs1	139,2,2
+spl_fild02,79,104,6	duplicate(#mora_fairy)	精靈#cmd11	440
+spl_fild02,79,104,6	duplicate(#mora_fairy)	精靈#cmd12	445
+spl_fild02,79,104,6	duplicate(#mora_fairy)	精靈#cmd13	439
+
+spl_fild02,103,344,0	duplicate(#mora_bush)	灌木#ep14_1_bs2	111
+spl_fild02,103,344,0	duplicate(#mora_pouch)	#ep14_1_bs2	139,2,2
+spl_fild02,103,344,6	duplicate(#mora_fairy)	精靈#cmd21	440
+spl_fild02,103,344,6	duplicate(#mora_fairy)	精靈#cmd22	445
+spl_fild02,103,344,6	duplicate(#mora_fairy)	精靈#cmd23	439
+
+spl_fild02,261,323,0	duplicate(#mora_bush)	灌木#ep14_1_bs3	111
+spl_fild02,261,323,0	duplicate(#mora_pouch)	#ep14_1_bs3	139,2,2
+spl_fild02,261,323,6	duplicate(#mora_fairy)	精靈#cmd31	440
+spl_fild02,261,323,6	duplicate(#mora_fairy)	精靈#cmd32	445
+spl_fild02,261,323,6	duplicate(#mora_fairy)	精靈#cmd33	439
+
+spl_fild02,137,305,0	duplicate(#mora_bush)	灌木#ep14_1_bs4	111
+spl_fild02,137,305,0	duplicate(#mora_pouch)	#ep14_1_bs4	139,2,2
+spl_fild02,137,305,6	duplicate(#mora_fairy)	精靈#cmd41	440
+spl_fild02,137,305,6	duplicate(#mora_fairy)	精靈#cmd42	445
+spl_fild02,137,305,6	duplicate(#mora_fairy)	精靈#cmd43	439
+
+spl_fild02,23,196,0	duplicate(#mora_bush)	灌木#ep14_1_bs5	111
+spl_fild02,23,196,0	duplicate(#mora_pouch)	#ep14_1_bs5	139,2,2
+spl_fild02,23,196,6	duplicate(#mora_fairy)	精靈#cmd51	440
+spl_fild02,23,196,6	duplicate(#mora_fairy)	精靈#cmd52	445
+spl_fild02,23,196,6	duplicate(#mora_fairy)	精靈#cmd53	439
+
+spl_fild02,186,260,0	duplicate(#mora_bush)	灌木#ep14_1_bs6	111
+spl_fild02,186,260,0	duplicate(#mora_pouch)	#ep14_1_bs6	139,2,2
+spl_fild02,186,260,6	duplicate(#mora_fairy)	精靈#cmd61	440
+spl_fild02,186,260,6	duplicate(#mora_fairy)	精靈#cmd62	445
+spl_fild02,186,260,6	duplicate(#mora_fairy)	精靈#cmd63	439
+
+-	script	#mora_bush_timer	-1,{
+	end;
+OnInit:
+	disablenpc strnpcinfo(0);
+	end;
+OnEnable:
+	enablenpc strnpcinfo(0);
+	initnpctimer;
+	end;
+OnDisable:
+	stopnpctimer;
+	disablenpc strnpcinfo(0);
+	end;
+OnTimer1000:
+	donpcevent "灌木#ep14_1_bs"+charat(strnpcinfo(0),4)+"::OnDisable";
+	end;
+OnTimer600000:
+	donpcevent "灌木#ep14_1_bs"+charat(strnpcinfo(0),4)+"::OnEnable";
+	donpcevent strnpcinfo(0)+"::OnDisable";
+	end;
+}
+spl_fild02,180,1,0	duplicate(#mora_bush_timer)	Bush1Timer	440
+spl_fild02,181,1,0	duplicate(#mora_bush_timer)	Bush2Timer	440
+spl_fild02,182,1,0	duplicate(#mora_bush_timer)	Bush3Timer	440
+spl_fild02,183,1,0	duplicate(#mora_bush_timer)	Bush4Timer	440
+spl_fild02,184,1,0	duplicate(#mora_bush_timer)	Bush5Timer	440
+spl_fild02,186,1,0	duplicate(#mora_bush_timer)	Bush6Timer	440
+
+spl_fild02,187,1,0	script	Field Bush Switch	440,{
+	callfunc "F_GM_NPC";
+	donpcevent "Bush#ep14_1_bs1::OnEnable";
+	end;
+}
+
+splendide,183,117,4	script	疲憊的精靈	438,{
+	if (!isequipped(2782)) {
+		mes "[疲憊的精靈]";
+		mes "VeOsaRiveh No ModAsh";
+		next;
+		mes "- 你無法理解精靈的話. -";
+		mes "- 你需要能夠翻譯這些語言的東西. -";
+		close;
+	}
+	if (ep14_1_bs < 4) {
+		mes "[疲憊的精靈]";
+		mes "我很疲倦, 請別和我說話.";
+		close;
+	} else if (ep14_1_bs < 10) {
+		if (checkquest(11187) == -1) {
+			mes "[疲憊的精靈]";
+			mes "我很疲倦, 請別和我說話.";
+			next;
+			select("拿出小袋子");
+			mes "[疲憊的精靈]";
+			mes "唔?!";
+			mes "你到這裡來幹嘛?!";
+			next;
+			select("我在灌木叢中找到了它");
+			mes "[疲憊的精靈]";
+			mes "這看上去不像, 但這對我們很重要. 我想我應該對你說聲謝謝.";
+			next;
+			mes "[疲憊的精靈]";
+			mes "如果只靠這個袋子的話, 是很難找到它的主人的...";
+			changequest 11186,11187;
+			next;
+			if(select("- 我看到了一個精靈, 我覺得可能是它的主人:- 我再考慮下") == 2) {
+				mes "[疲憊的精靈]";
+				mes "如果你想起了什麼記得告訴我.";
+				close;
+			}
+		} else if (checkquest(11187) == 2) {
+			mes "[疲憊的精靈]";
+			mes "我希望你能找到它的主人.";
+			close;
+		}
+		mes "[疲憊的精靈]";
+		mes "你還記得那個精靈的相貌嗎?";
+		next;
+
+		setarray .@Hair$[0],"金色","草綠色","褐色","海洋藍";
+		setarray .@Skin$[0],"深色","白晢";
+		setarray .@Clothing$[0],"雪白色","葡萄紫","藍色","草綠色";
+		setarray .@Wings$[0],"圓形","兩對","酷帥";
+
+		setarray .@i[1],
+			select("金色頭髮:草綠色頭髮:褐色頭髮:海洋藍頭髮"),
+			select("深色皮膚:白晢皮膚"),
+			select("雪白色衣服:葡萄紫衣服:藍色衣服:草綠色衣服"),
+			select("圓形翅膀:兩對翅膀:酷帥翅膀");
+
+		set .@i[0], (1 << .@i[1]) | (1 << (.@i[2]+4)) | (1 << (.@i[3]+6)) | (1 << (.@i[4]+10));
+
+		mes "[疲憊的精靈]";
+		mes .@Hair$[.@i[1]-1]+"頭髮加上"+.@Skin$[.@i[2]-1]+"皮膚, "+.@Clothing$[.@i[3]-1]+"衣服, "+.@Wings$[.@i[4]-1]+"翅膀.......";
+		switch(.@i[0]) {
+		case 4418: // 庫斯米: blonde hair, light skin, grape clothing, two pairs of wings
+			mes "嗯...... 我想應該是庫斯米.";
+			next;
+			mes "[疲憊的精靈]";
+			mes "庫斯米應該在村子的東南面尋找.";
+			mes "如果她丟了自己的袋子應該很著急, 去找她看看吧.";
+			if (ep14_1_bs2 == 7)
+				set ep14_1_bs2,10;
+			close;
+		case 2212: // 德歐特: grassy-green hair, dark skin, snow-white clothing, round wings
+			mes "唔......那一定是德歐特.";
+			next;
+			mes "[疲憊的精靈]";
+			mes "德歐特應該在東北部地區的村莊附近.";
+			mes "如果他丟了自己的袋子應該很著急, 去找他看看吧.";
+			if (ep14_1_bs2 == 8)
+				set ep14_1_bs2,11;
+			close;
+		case 9264: // 寶熊: sea-blue hair, dark skin, grassy-green clothing, characteristic wings
+			mes "嗯......好像是寶熊?";
+			next;
+			mes "[疲憊的精靈]";
+			mes "寶熊應該在村子以北的地區.";
+			mes "如果她丟了自己的袋子應該很著急, 去找她看看吧.";
+			if (ep14_1_bs2 == 9)
+				set ep14_1_bs2,12;
+			close;
+		default:
+			next;
+			mes "[疲憊的精靈]";
+			mes "呃...";
+			mes "我不記得有這樣特徵的精靈.";
+			mes "你確定沒搞錯嗎?";
+			mes "要不要再回憶下.";
+			close;
+		}
+	}
+	mes "[疲憊的精靈]";
+	mes "什麼?";
+	mes "你找到袋子的主人了?";
+	close;
+}
+
+splendide,119,138,4	script	庫斯米#ep14_1_bs	440,{
+	if (!isequipped(2782)) {
+		mes "[庫斯米]";
+		mes "DimFusTal Mu Lars";
+		mes "ModAnduLo";
+		mes "Mod";
+		mes "DorDuMe U NohLarsFulo Mu Fus";
+		next;
+		mes "- 你無法理解精靈的話. -";
+		mes "- 你需要能夠翻譯這些語言的東西. -";
+		close;
+	}
+	if (ep14_1_bs > 3 && ep14_1_bs < 10) {
+		mes "[庫斯米]";
+		mes "你你是是誰?";
+		next;
+		select("拿出小袋子");
+		if (countitem(6390) == 0) {
+			mes "[庫斯米]";
+			mes "你找我有什麼事事情?";
+			close;
+		}
+		if (ep14_1_bs2 == 10) {
+			mes "[庫斯米]";
+			mes "啊!!";
+			mes "我的袋袋子!!!!!";
+			mes "謝謝謝謝你!!!!!";
+			mes "我找遍了都沒找找找到它!";
+			next;
+			select("詢問謠言.");
+			mes "[庫斯米]";
+			mes "這是個很很難回答的問問題!";
+			mes "但是你幫我找回了我的袋袋子, 所以我儘儘量回答......";
+			next;
+			mes "[庫斯米]";
+			mes "但是你要發發發誓, 不能告告訴任何人!";
+			mes "如果你願意發發發誓, 就就再次和我對話.";
+			delitem 6390,1; //精靈的布袋
+			set ep14_1_bs,10;
+			changequest 11187,11188;
+			close;
+		} else {
+			mes "[庫斯米]";
+			mes "唔我不知知知道是誰, 但肯定是誰誰不小心掉了自己的袋子.";
+			mes "呼? 我的??";
+			mes "不不是, 我我的就在我身上呢.";
+			next;
+			mes "[庫斯米]";
+			mes "這這是一個珍貴的東東東西, 所以我希望你能找到失失失主.";
+			close;
+		}
+	}
+	if (ep14_1_bs2 == 10) {
+		if (ep14_1_bs == 10) {
+			mes "[庫斯米]";
+			mes "你別把這事告告告訴別人, 行行嗎?";
+			mes "最近,";
+			mes "我我們大陸的供應被切斷!";
+			mes "或者更確切地說, 供應路線被被封鎖, 我我們無法得到我們的補給品.";
+			next;
+			mes "[庫斯米]";
+			mes "在我們找到足夠的食物之前, 我們用完了儲存的貨物, 這就是為什麼我們一直在灌木叢翻箱倒櫃.";
+			next;
+			mes "[庫斯米]";
+			mes "但這座被詛咒的凍結土地又沒有好的食物.";
+			mes "我們使用魔法勉強保持它的綠色, 但需要太多的力量來使水果保持新鮮.";
+			next;
+			mes "[庫斯米]";
+			mes "為了獲得能夠食用的食物, 我們花費了超過兩倍的魔力.";
+			mes "雖然不想承認這一點, 但這會很快成為一個嚴重的問題.";
+			next;
+			mes "[庫斯米]";
+			mes "因為我們是在戰爭中, 我們不能離開戰場, 所以我們不能去檢查.";
+			mes "我很好奇.......";
+			next;
+			mes "[庫斯米]";
+			mes "不僅是我, 還有其他的守護精靈士兵們.";
+			mes "基於這個情況, 如果你在灌木叢中遇到一個精靈, 請儘量不要跟他說話.";
+			mes "說起來有點尷尬!!!";
+			next;
+			mes "[庫斯米]";
+			mes "唔, 你可不能告訴任何人, 今天發生了什麼事!";
+			mes "除非這個人想幫助我們...這事傳出去不會對輝煌領域有任何好處.";
+			set ep14_1_bs,11;
+			completequest 11188;
+			setquest 11189;
+			close;
+		} else if (ep14_1_bs == 11) {
+			mes "[庫斯米]";
+			mes "呃?";
+			mes "你還想問什麼?";
+			next;
+			select("來自大陸的供應路線?");
+			mes "[庫斯米]";
+			mes "好吧, 如果你想聽那你可得幫我們!";
+			mes "還想聽嗎?!";
+			next;
+			switch(select("是的:不了")) {
+			case 1:
+				mes "[庫斯米]";
+				mes "其實這條道路也沒什麼特別的.";
+				mes "它已經存在很久了.";
+				mes "有傳言說它是連接各個大陸的道路. 也有人說它是從輝煌領域前線陣地的後方連接到艾芙菲姆.";
+				next;
+				mes "[庫斯米]";
+				mes "如果你順路的話. 請去看看, 那裡的情況是不是正常, 好嗎?";
+				set ep14_1_bs,12;
+				changequest 11189,11190;
+				close;
+			case 2:
+				mes "[庫斯米]";
+				mes "謝謝你找到了我的袋子.";
+				mes "我想給你一些仙塵, 但我已經沒有剩餘的了.";
+				close;
+			}
+		} else if (ep14_1_bs == 12) {
+			mes "[庫斯米]";
+			mes "其實這條道路也沒什麼特別的.";
+			mes "它已經存在很久了.";
+			mes "有傳言說它是連接各個大陸的道路. 也有人說它是從輝煌領域前線陣地的後方連接到艾芙菲姆.";
+			next;
+			mes "[庫斯米]";
+			mes "如果你順路的話. 請去看看, 那裡的情況是不是正常, 好嗎?";
+			close;
+		} else if (ep14_1_bs == 13) {
+			mes "[庫斯米]";
+			mes "一處裂縫?";
+			mes "這就是為什麼我們無法連絡大陸.";
+			mes "呃.......";
+			mes "知道發生了什麼情況就好辦了.";
+			next;
+			mes "[庫斯米]";
+			mes "如果你碰巧要經過彩虹橋, 請弄清楚是怎麼回事.";
+			mes "在彩虹橋的中間有個小村莊, 名叫'穆拉'. 來自大陸上的所有供給都通過那個村莊.";
+			next;
+			mes "[庫斯米]";
+			mes "如果你去穆拉村的倉庫, 管理員會告訴你更多的訊息.";
+			mes "還有, 回來的時候可以順便幫我看看我的朋友朗多是不是在穆拉村呢?";
+			next;
+			mes "[庫斯米]";
+			mes "他常去輝煌領域. 不過這個時候, 情況非常不好. 我不得不告訴他需要改變安排了.";
+			set ep14_1_bs,14;
+			changequest 11191,11192;
+			close;
+		} else if (ep14_1_bs == 14) {
+			mes "[庫斯米]";
+			mes "如果你碰巧要經過彩虹橋, 請弄清楚是怎麼回事.";
+			mes "在彩虹橋的中間有個小村莊, 名叫'穆拉'. 來自大陸上的所有供給都通過那個村莊.";
+			next;
+			mes "[庫斯米]";
+			mes "如果你去穆拉村的倉庫, 管理員會告訴你更多的訊息.";
+			if (checkquest(11193) > -1 && checkquest(11193) < 2)
+				close;
+			mes "還有, 回來的時候可以順便幫我看看我的朋友朗多是不是在穆拉村呢?";
+			next;
+			mes "[庫斯米]";
+			mes "他常去輝煌領域. 不過這個時候, 情況非常不好. 我不得不告訴他需要改變安排了.";
+			close;
+		} else if (ep14_1_bs > 14) {
+			if (checkquest(11193) == -1) {
+				mes "[庫斯米]";
+				mes "我的朋友朗多是不是在穆拉村呢?";
+				next;
+				mes "[庫斯米]";
+				mes "他常去輝煌領域. 不過這個時候, 情況非常不好. 我不得不告訴他需要改變安排了.";
+				close;
+			}
+			mes "[庫斯米]";
+			mes "他他!";
+			mes "你真的已經穿越過了迷霧森林的迷宮了?";
+			mes "哇哦!!!";
+			mes "這真令人難以相信.";
+			next;
+			mes "[庫斯米]";
+			mes "太謝謝你了.";
+			mes "我希望我們能夠再次穿越彩虹橋.";
+			mes "我要見下朗多, 麻煩再告訴他下.";
+			if (ep14_1_bs == 17) {
+				next;
+				mes "[庫斯米]";
+				mes "哦對了, 達佛雷洛在輝煌領域的西北處.";
+			}
+			if (checkquest(11193) < 2) {
+				completequest 11192;
+				completequest 11193;
+			}
+			close;
+		}
+	}
+	mes "[庫斯米]";
+	mes "這個地方總是很冷.";
+	mes "和我天堂般的家鄉完全不同.";
+	close;
+}
+
+splendide,304,295,4	script	德歐特#ep14_1_bs	445,{
+	if (!isequipped(2782)) {
+		mes "[德歐特]";
+		mes "DimFusTal Mu Lars";
+		mes "ModAnduLo";
+		mes "Mod";
+		mes "DorDuMe U NohLarsFulo Mu Fus";
+		next;
+		mes "- 你無法理解精靈的話. -";
+		mes "- 你需要能夠翻譯這些語言的東西. -";
+		close;
+	}
+	if (ep14_1_bs > 3 && ep14_1_bs < 10) {
+		mes "[德歐特]";
+		mes "你是是誰?";
+		next;
+		select("拿出小袋子");
+		if (countitem(6390) == 0) {
+			mes "[德歐特]";
+			mes "嗯? 這是什麼意思?";
+			close;
+		}
+		if (ep14_1_bs2 == 11) {
+			mes "[德歐特]";
+			mes "啊!!";
+			mes "我的袋子!!!!!";
+			mes "我找遍了都沒找找找到它.";
+			mes "謝謝!";
+			next;
+			select("詢問謠言");
+			mes "[德歐特]";
+			mes "唔!!";
+			mes "這是個很很難回答的問問題!";
+			next;
+			mes "[德歐特]";
+			mes "如果你想知道答案, 就再次和我對話.";
+			mes "我需要好好整理下思路.";
+			delitem 6390,1; //精靈的布袋
+			set ep14_1_bs,10;
+			changequest 11187,11194;
+			close;
+		} else {
+			mes "[德歐特]";
+			mes "這髒兮兮的袋子!";
+			mes "很明顯不是我的.";
+			next;
+			mes "[德歐特]";
+			mes "不過我希望你能找到失主.";
+			close;
+		}
+	}
+	if (ep14_1_bs2 == 11) {
+		if (ep14_1_bs == 10) {
+			mes "[德歐特]";
+			mes "我告訴你的事情, 你絕對不能告訴其他人.";
+			next;
+			mes "[德歐特]";
+			mes "最近輝煌領域碰到一個很麻煩的問題.";
+			mes "我們無法和大陸正常聯繫了.";
+			mes "不只是溝通連供應也被切斷. 人們表面上無動於衷, 但實際上已經處於極度恐慌.";
+			next;
+			mes "[德歐特]";
+			mes "這片冰凍的土地很難搜集到食物, 如果耕種的話, 將耗費無數的人力物力.";
+			next;
+			mes "[德歐特]";
+			mes "事實上, 目前就算維持植物生長也要耗費令人難以置信的力量.";
+			mes "高層還沒有下達任何指示, 但是聽說這不是一個容易解決的問題.";
+			next;
+			mes "[德歐特]";
+			mes "因為沒有簡單的辦法, 大家都擔心死了.";
+			mes "根據軍事法, 我們的士兵不能在戰爭期間離開戰場, 所以沒辦法得到更多的訊息.";
+			next;
+			mes "[德歐特]";
+			mes "因此, 如果你在路上遇到了精靈, 請不要提及此事.";
+			mes "每個人都很努力, 我們仍然是一個值得驕傲的種族.";
+			next;
+			mes "[德歐特]";
+			mes "就像我之前說的, 我告訴你的是一個秘密, 你不能告訴任何人.";
+			mes "我們的確需要幫助, 但我們不想讓別人知道我們被圍困了.";
+			set ep14_1_bs,11;
+			completequest 11194;
+			setquest 11195;
+			close;
+		} else if (ep14_1_bs == 11) {
+			mes "[德歐特]";
+			mes "你還有事找我?";
+			next;
+			select("來自大陸的供應路線?");
+			mes "[德歐特]";
+			mes "好吧, 如果你想聽那你可得幫我們!";
+			mes "還想聽嗎?!";
+			next;
+			switch(select("是的:不了")) {
+			case 1:
+				mes "[德歐特]";
+				mes "供應路線從彩虹橋經過, 你可以從輝煌領域中心的後方過去.";
+				mes "這就是為什麼我們在那裡設立駐營地.";
+				mes "原來的路線尚不清楚, 反正作為連接大陸的橋梁已經有很長一段時間了.";
+				next;
+				mes "[德歐特]";
+				mes "如果你正好要去那裡冒險, 你可以問問守衛那裡的情況.";
+				set ep14_1_bs,12;
+				changequest 11195,11196;
+				close;
+			case 2:
+				mes "[德歐特]";
+				mes "謝謝你把袋子還給我.";
+				mes "仙塵? 我沒攜帶這種東西.";
+				close;
+			}
+		} else if (ep14_1_bs == 12) {
+			mes "[德歐特]";
+			mes "供應路線從彩虹橋經過, 你可以從輝煌領域中心的後方過去.";
+			mes "這就是為什麼我們在那裡設立駐營地.";
+			mes "原來的路線尚不清楚, 反正作為連接大陸的橋梁已經有很長一段時間了.";
+			next;
+			mes "[德歐特]";
+			mes "如果你正好要去那裡冒險, 你可以問問守衛那裡的情況.";
+			close;
+		} else if (ep14_1_bs == 13) {
+			mes "[德歐特]";
+			mes "一處裂縫?";
+			mes "這就是為什麼我們無法連絡大陸.";
+			mes "知道發生了什麼情況就好辦了.";
+			next;
+			mes "[德歐特]";
+			mes "嗯...";
+			mes "我不能離開這裡, 但你可以, 不是嗎?";
+			mes "從大陸來的供給會經過彩虹橋中間的'穆拉村'.";
+			next;
+			mes "[德歐特]";
+			mes "如果你找穆拉村的物流倉庫管理員談談, 你會得到更多的訊息.";
+			mes "如果你願意的話, 能否去彩虹橋的'穆拉村'見下物流倉庫管理員呢?";
+			next;
+			mes "[德歐特]";
+			mes "如果方便的話, 你也可以順便去拜訪下我的朋友莉莉西亞...";
+			set ep14_1_bs,14;
+			changequest 11197,11198;
+			close;
+		} else if (ep14_1_bs == 14) {
+			mes "[德歐特]";
+			mes "如果你找穆拉村的物流倉庫管理員談談, 你會得到更多的訊息.";
+			mes "如果你願意的話, 能否去彩虹橋的'穆拉村'見下物流倉庫管理員呢?";
+			if (checkquest(11199) > -1 && checkquest(11199) < 2)
+				close;
+			next;
+			mes "[德歐特]";
+			mes "如果方便的話, 你也可以順便去拜訪下我的朋友莉莉西亞...";
+			close;
+		} else if (ep14_1_bs > 14) {
+			if (checkquest(11199) == -1) {
+				mes "[德歐特]";
+				mes "如果方便的話, 你也可以順便去拜訪下我的朋友莉莉西亞...";
+				close;
+			}
+			mes "[德歐特]";
+			mes "哇!!!";
+			mes "你竟然可以穿越霧林迷宮從穆拉村回來!";
+			mes "拜託你果然沒錯!";
+			next;
+			mes "[德歐特]";
+			mes "太感謝了.";
+			mes "希望能得到儘快解決...";
+			mes "我不想再去打擾莉莉西亞了...";
+			if (ep14_1_bs == 17) {
+				next;
+				mes "[德歐特]";
+				mes "哦對了, 達佛雷洛在輝煌領域的西北處.";
+			}
+			if (checkquest(11199) < 2) {
+				completequest 11198;
+				completequest 11199;
+			}
+			close;
+		}
+	}
+	mes "[德歐特]";
+	mes "有時, 在這片冰凍的土地上我感到一種痛苦之美, 和我家鄉的美麗完全不同.";
+	mes "但對我們來說, 在這地方生存下來實屬不易.";
+	close;
+}
+
+splendide,168,301,4	script	寶熊#ep14_1_bs	439,{
+	if (!isequipped(2782)) {
+		mes "[寶熊]";
+		mes "DimFusTal Mu Lars";
+		mes "ModAnduLo";
+		mes "Mod";
+		mes "DorDuMe U NohLarsFulo Mu Fus";
+		next;
+		mes "- 你無法理解精靈的話. -";
+		mes "- 你需要能夠翻譯這些語言的東西. -";
+		close;
+	}
+	if (ep14_1_bs > 3 && ep14_1_bs < 10) {
+		mes "[寶熊]";
+		mes "我能為你做什麼, 冒險家?";
+		next;
+		select("拿出小袋子");
+		if (countitem(6390) == 0) {
+			mes "[寶熊]";
+			mes "嗯? 你看到什麼東西嗎?";
+			mes "我什麼都沒看到...";
+			close;
+		}
+		if (ep14_1_bs2 == 12) {
+			mes "[寶熊]";
+			mes "天哪...!";
+			mes "我想這是我的!";
+			mes "太感謝你了.";
+			mes "自打丟失之後我就一直在擔心, 你讓我懸著的心終於落了地.";
+			next;
+			select("詢問謠言");
+			mes "[寶熊]";
+			mes "這個要怎麼說呢...";
+			mes "我真的很感謝你找回了我的袋子...嗯...";
+			mes "請給我一點時間考慮一下...";
+			delitem 6390,1; //精靈的布袋
+			set ep14_1_bs,10;
+			changequest 11187,11200;
+			close;
+		} else {
+			mes "[寶熊]";
+			mes "哦, 親, 這不是我的.";
+			mes "但不小心掉了如此重要的東西真是不該!";
+			mes "我不知道他是誰, 但那個精靈得吸取這個教訓!";
+			close;
+		}
+	}
+	if (ep14_1_bs2 == 12) {
+		if (ep14_1_bs == 10) {
+			mes "[寶熊]";
+			mes "我要告訴你的事是最高機密!";
+			mes "我們甚至自己都不會談論它!";
+			mes "我們怎麼會說出來自大陸的供給被切斷了!";
+			next;
+			mes "[寶熊]";
+			mes "呃?!";
+			mes "哦, 親...我說過了....";
+			mes "這真的是最高機密!!";
+			mes "別告訴任何人!";
+			next;
+			mes "[寶熊]";
+			mes "好吧, 我已經說漏嘴了...唉, 太遲了.";
+			mes "我們接收來自大陸的供給已經有一陣子了.";
+			next;
+			mes "[寶熊]";
+			mes "雖然還沒有挨餓, 但我們收到的食物越來越少了.";
+			mes "當我餓了我就去採摘水果, 但在這寒冷的天氣下, 根本就沒果樹.";
+			next;
+			mes "[寶熊]";
+			mes "但上級領導只讓我們等著...我已經厭倦了等待!";
+			mes "但如果我擅離職守的話, 就會被扔到監獄去...";
+			next;
+			mes "[寶熊]";
+			mes "所以我被困在這裡了, 我會被一直困在這裡, 等著挨餓... *哭泣*";
+			next;
+			mes "[寶熊]";
+			mes "如果可以的話, 我可以吃脫落的樹皮.";
+			mes "如果有誰願意幫我. *哭泣*";
+			set ep14_1_bs,11;
+			completequest 11200;
+			setquest 11201;
+			close;
+		} else if (ep14_1_bs == 11) {
+			mes "[寶熊]";
+			mes "什麼?";
+			mes "你想要什麼...我很餓, 沒力氣說話...";
+			next;
+			select("來自大陸的供應路線?");
+			mes "[寶熊]";
+			mes "如果告訴你的話, 你就得幫我.";
+			mes "否則我不會告訴你.";
+			next;
+			switch(select("幫:不幫")) {
+			case 1:
+				mes "[寶熊]";
+				mes "輝煌領域的後方有條巨大的連接通道.";
+				mes "什麼由來還是傳說的我是不太清楚, 不過這條橋很久以前就存在了.";
+				next;
+				mes "[寶熊]";
+				mes "哦! 那裡的守衛也許知道點什麼.";
+				mes "如果你要去那裡的話, 請了解下是怎麼回事.";
+				set ep14_1_bs,12;
+				changequest 11201,11202;
+				close;
+			case 2:
+				mes "[寶熊]";
+				mes "謝謝你找回我的袋子.";
+				mes "呃...我太餓了...也許我得吃這些未成熟的果實...";
+				close;
+			}
+		} else if (ep14_1_bs == 12) {
+			mes "[寶熊]";
+			mes "輝煌領域的後方有條巨大的連接通道.";
+			mes "什麼由來還是傳說的我是不太清楚, 不過這條橋很久以前就存在了.";
+			next;
+			mes "[寶熊]";
+			mes "哦! 那裡的守衛也許知道點什麼.";
+			mes "如果你要去那裡的話, 請了解下是怎麼回事.";
+			close;
+		} else if (ep14_1_bs == 13) {
+			mes "[寶熊]";
+			mes "裂縫?!?";
+			mes "嗯, 我聽說到處都開始出現裂縫, 沒想到連彩虹橋也遭殃了...";
+			mes "看來比我想像的要嚴重得多.";
+			next;
+			mes "[寶熊]";
+			mes "如果可以的話, 你能不能去彩虹橋的'穆拉村'看看究竟發生了什麼?";
+			next;
+			mes "[寶熊]";
+			mes "來自大陸上的所有供給都通過那個村莊. 如果你找穆拉村的物流倉庫管理員談談, 你會得到更多的訊息.";
+			mes "順便請替我拜訪下我的朋友荷明.";
+			next;
+			mes "[寶熊]";
+			mes "他是個反覆無常的傢伙, 也許已經離開了, 但可能我們會在穆拉村碰面.";
+			set ep14_1_bs,14;
+			changequest 11203,11204;
+			close;
+		} else if (ep14_1_bs == 14) {
+			mes "[寶熊]";
+			mes "如果可以的話, 你能不能去彩虹橋的'穆拉村'看看究竟發生了什麼?";
+			next;
+			mes "[寶熊]";
+			mes "來自大陸上的所有供給都通過那個村莊. 如果你找穆拉村的物流倉庫管理員談談, 你會得到更多的訊息.";
+			if (checkquest(11205) > -1 && checkquest(11205) < 2)
+				close;
+			mes "順便請替我拜訪下我的朋友荷明.";
+			next;
+			mes "[寶熊]";
+			mes "他是個反覆無常的傢伙, 也許已經離開了, 但可能我們會在穆拉村碰面.";
+			close;
+		} else if (ep14_1_bs > 14) {
+			if (checkquest(11205) == -1) {
+				mes "[寶熊]";
+				mes "請替我拜訪下我的朋友荷明.";
+				mes "他是個反覆無常的傢伙, 也許已經離開了, 但可能我們會在穆拉村碰面.";
+				close;
+			}
+			mes "[寶熊]";
+			mes "我有點不敢相信...你竟然可以穿越霧林迷宮從穆拉村回來...";
+			mes "實在難以置信.";
+			next;
+			mes "[寶熊]";
+			mes "我真的很感激你的幫忙.";
+			mes "希望能得到儘快解決.";
+			mes "我最擔心的...不是戰爭, 是飢餓.";
+			if (ep14_1_bs == 17) {
+				next;
+				mes "[寶熊]";
+				mes "哦對了, 達佛雷洛在輝煌領域的西北處.";
+			}
+			if (checkquest(11205) < 2) {
+				completequest 11204;
+				completequest 11205;
+			}
+			close;
+		}
+	}
+	mes "[寶熊]";
+	mes "啊...我餓了.";
+	mes "等我回到大陸我要好好飽餐一頓.";
+	close;
+}
+
+splendide,262,376,4	script	守護精靈士兵#ep14_1	447,{
+	if (!isequipped(2782)) {
+		mes "[守護精靈士兵]";
+		mes "DielFarmar Di RiniIyazser Ha mahAgolAsh U  U ";
+		mes "TurNohnar Di DurNeiFar Ra AnuVerNoth Ha AshRivehDor Ha BurWehLars Ur RinimanMod";
+		next;
+		mes "- 你無法理解精靈的話. -";
+		mes "- 你需要能夠翻譯這些語言的東西. -";
+		close;
+	}
+	mes "[守護精靈士兵]";
+	mes "這裡是通往艾芙菲姆的彩虹橋.";
+	mes "請注意, 由於出現了原因不明的裂縫, 導致現在無法通行.";
+	if (ep14_1_bs != 12)
+		close;
+	next;
+	mes "[守護精靈士兵]";
+	mes "另一條路通往迷霧森林的迷宮.";
+	next;
+	mes "[守護精靈士兵]";
+	mes "你可以穿越迷霧森林的迷宮到達艾芙菲姆. 不過, 至今還沒有人能從迷霧森林的迷宮裡出來.";
+	if (checkquest(11190) > -1 && checkquest(11190) < 2) {
+		set ep14_1_bs,13;
+		changequest 11190,11191;
+	} else if (checkquest(11196) > -1 && checkquest(11196) < 2) {
+		set ep14_1_bs,13;
+		changequest 11196,11197;
+	} else if (checkquest(11202) > -1 && checkquest(11202) < 2) {
+		set ep14_1_bs,13;
+		changequest 11202,11203;
+	}
+	close;
+}
+
+mora,185,163,2	script	物流倉庫管理員#ep14_1	516,{
+	if (ep14_1_bs < 15) {
+		mes "[物流倉庫管理員]";
+		mes "站住, 親!";
+		mes "你不能隨便進來.";
+		mes "這裡是倉庫. 如果你有什麼需要, 請找外面的工作人員.";
+		if (ep14_1_bs < 14)
+			close;
+		next;
+		select("精靈的供給?");
+		mes "[物流倉庫管理員]";
+		mes "啊!";
+		mes "你來自輝煌領域?";
+		mes "讓我們看看...";
+		mes "所有來往的物資都是運往輝煌領域的.";
+		next;
+		mes "[物流倉庫管理員]";
+		mes "由於彩虹橋出現的裂縫, 這些物資已經沒法運送了, 我們都十分焦心.";
+		next;
+		mes "[物流倉庫管理員]";
+		mes "那些低調的遊客也被困在了這裡. 越來越多的顧客真是讓我們喜憂參半...";
+		next;
+		mes "[物流倉庫管理員]";
+		mes "如果你打算回到輝煌領域, 去旅館拜訪下尤耐斯吧.";
+		mes "他有一些很重要的東西急需運送給輝煌領域的軍隊.";
+		set ep14_1_bs,15;
+		setquest 11206;
+		close;
+	} else if (ep14_1_bs == 15) {
+		mes "[物流倉庫管理員]";
+		mes "如果你打算回到輝煌領域, 去旅館拜訪下尤耐斯吧.";
+		mes "他有一些很重要的東西急需運送給輝煌領域的軍隊.";
+		close;
+	} else {
+		mes "[物流倉庫管理員]";
+		mes "由於彩虹橋出現的裂縫, 這些物資已經沒法運送了, 我們都十分焦心.";
+		next;
+		mes "[物流倉庫管理員]";
+		mes "那些低調的遊客也被困在了這裡. 越來越多的顧客真是讓我們喜憂參半...";
+		close;
+	}
+	end;
+}
+
+mora,35,119,4	script	朗多#ep14_1_bs	513,{
+	mes "[朗多]";
+	mes "穆拉是個神奇的地方.";
+	mes "你可以理解任何語言.";
+	next;
+	mes "[朗多]";
+	mes "當然, 如果我們離開這個地方, 我將不能夠理解你說的話. 但我會記住我們的對話, 我期待有一天我們能在這裡再次見面.";
+	if (ep14_1_bs > 13 && ep14_1_bs2 == 10) {
+		next;
+		mes "[朗多]";
+		mes "請告訴庫斯米";
+		mes "我們可以隨時隨地見面. 沒什麼好擔心的.";
+		if (checkquest(11193) == -1)
+			setquest 11193;
+	}
+	close;
+}
+
+mora,98,66,4	script	莉莉西亞#ep14_1_bs	518,{
+	if (ep14_1_bs > 13 && ep14_1_bs2 == 11) {
+		mes "[莉莉西亞]";
+		mes "噓!!!";
+		mes "他又一次違背了他的諾言!!!";
+		next;
+		mes "[莉莉西亞]";
+		mes "他說他這次肯定會來這裡!!!";
+		mes "那麼冷的地方我才不會去!!!!!";
+		mes "我珍愛的葉子在那種地方會枯萎的.";
+		next;
+		mes "[莉莉西亞]";
+		mes "什麼? 德歐特讓你來的?";
+		mes "請告訴他, 我很生氣!!";
+		if (checkquest(11199) == -1)
+			setquest 11199;
+		close;
+	}
+	mes "[莉莉西亞]";
+	mes "我真的恨死了寒冷的天氣.";
+	mes "這就是為什麼穆拉村是個適合居住的好地方.";
+	next;
+	mes "[莉莉西亞]";
+	mes "這裡的葉子總是那麼清新. 並且, 語言障礙問題也不復存在.";
+	close;
+}
+
+mora,139,102,2	script	荷明#ep14_1_bs	515,{
+	if (ep14_1_bs > 13 && ep14_1_bs2 == 12) {
+		mes "[荷明]";
+		mes "噢!";
+		mes "這麼說, 是寶熊讓你來的?";
+		next;
+		mes "[荷明]";
+		mes "難以置信. 你竟然可以穿越迷霧森林的迷宮到底這裡.";
+		mes "迷霧森林的迷宮, 它激起了我的冒險欲望!";
+		next;
+		mes "[荷明]";
+		mes "如果你趕在我之前到達輝煌領域, 請告訴寶熊,";
+		mes "我將去穿越迷霧森林的迷宮.";
+		if (checkquest(11205) == -1)
+			setquest 11205;
+		close;
+	}
+	mes "[荷明]";
+	mes "我聽說裂縫存在於艾芙菲姆和米德加爾特之間, 所以我想親自去看看. 但我被困在了這裡.";
+	mes "我很期待見識一個新的地方.";
+	next;
+	mes "[荷明]";
+	mes "你來自米德加爾特?";
+	mes "那裡是什麼樣的?";
+	mes "我一直想看看一個被喚作波利的生物.";
+	close;
+}
+
+mora,55,124,2	script	尤耐斯#ep14_1_bs	495,{
+	if (ep14_1_bs < 15) {
+		mes "[尤耐斯]";
+		mes "噢.... 該死.......";
+		mes "我不能去, 我不能回去. 我的信譽我的辛苦, 只是搖搖欲墜化為了塵土.";
+		close;
+	} else if (ep14_1_bs == 15) {
+		mes "[尤耐斯]";
+		mes "啊, 你是從輝煌領域那裡通過霧林迷宮的旅客?";
+		mes "如果你打算回去, 可以請你幫我把這個交給輝煌領域軍隊嗎?";
+		next;
+		mes "[尤耐斯]";
+		mes "有人很需要它, 但是我無法穿過彩虹橋.";
+		next;
+		mes "[尤耐斯]";
+		mes "送往別的地方的供應也都中斷了. 唉, 我的信譽正在遭受....";
+		next;
+		switch(select("- 幫:- 不幫")) {
+		case 1:
+			mes "[尤耐斯]";
+			mes "謝謝.";
+			set ep14_1_bs,16;
+			changequest 11206,11207;
+			close;
+		case 2:
+			mes "[尤耐斯]";
+			mes "我有點不好意思問一個陌生人......哈哈!";
+			close;
+		}
+	} else if (ep14_1_bs == 16) {
+		if (checkweight(1201,1) == 0) {
+			mes "[尤耐斯]";
+			mes "你身上的東西太多了, 請處理下再來.";
+			close;
+		}
+		if (MaxWeight - Weight < 3500) {
+			mes "[尤耐斯]";
+			mes "你的負重不夠了, 請處理下再來.";
+			close;
+		}
+		mes "[尤耐斯]";
+		mes "請小心保管它.";
+		mes "是給在輝煌領域的達佛雷洛.";
+		set ep14_1_bs,17;
+		getitem 6391,1; //後勤補給箱
+		changequest 11207,11208;
+		close;
+	} else if (ep14_1_bs == 17) {
+		mes "[尤耐斯]";
+		mes "請小心保管它.";
+		mes "是給在輝煌領域的達佛雷洛.";
+		close;
+	} else if (ep14_1_bs > 17) {
+		mes "[尤耐斯]";
+		mes "謝謝你, 幹得很棒.";
+		mes "呵呵, 我覺得你擁有做快遞員的潛質.";
+		mes "對快遞送貨還有沒有興趣?";
+		close;
+	} else {
+		mes "[尤耐斯]";
+		mes "呵呵, 我覺得你擁有做快遞員的潛質.";
+		mes "對快遞送貨還有沒有興趣?";
+		close;
+	}
+	end;
+}
+
+splendide,121,260,4	script	達佛雷洛#ep14_1_bs	435,{
+	if (!isequipped(2782)) {
+		mes "[達佛雷洛]";
+		mes "DRHSfhsdfGSDH FGkkmvoifk DFG DFHshfeksmn fgg FDbbd fjnnvk n skncki dfgd F FHdfkdfjkmv";
+		close;
+	}
+	if (countitem(6391)) {
+		mes "[達佛雷洛]";
+		mes "噢....";
+		mes "我正在等你呢.";
+		next;
+		mes "[達佛雷洛]";
+		mes "這正是迫切需要的, 謝謝你把它帶來, 希望沒有因此給你添太多麻煩...";
+		next;
+		mes "[達佛雷洛]";
+		mes "這是一點小小心意, 希望能表達我們的感謝之意.";
+		delitem 6391,1; //後勤補給箱
+		if (ep14_1_bs == 17) {
+			set ep14_1_bs,18;
+			completequest 11208;
+			getexp 0,500000;
+			getitem 6380,5; //穆拉村硬幣
+		} else
+			getitem 6380,2; //穆拉村硬幣
+		close;
+	}
+	if (ep14_1_bs == 17) {
+		mes "[達佛雷洛]";
+		mes "噢....";
+		mes "你把東西弄丟了.";
+		next;
+		mes "[達佛雷洛]";
+		mes "我知道這可能是天意......";
+		mes "我的想法太不切實際了.";
+		mes "不過還是要感謝你, 請接受這點小心意.";
+		set ep14_1_bs,18;
+		completequest 11208;
+		getexp 0,200000;
+		getitem 6380,2; //穆拉村硬幣
+		close;
+	}
+	mes "[達佛雷洛]";
+	mes "對我來說, 給花草澆灌遠比在戰場揮舞兵器來的重要.";
+	close;
+}
+
+sec_in02,35,175,0	script	Theore Set Guid	436,{
+	callfunc "F_GM_NPC";
+	switch(select("Set0:Set33:Set2_0")) {
+	case 1:
+		set ep14_1_bs,0;
+		end;
+	case 2:
+		set ep4_1_bs,3;
+		setquest 11183;
+		end;
+	case 3:
+		set ep14_1_bs2,0;
+		end;
+	}
+}
+
+// Chesire's New Day :: ep14_1_cheshir2
+//============================================================
+dic_in01,262,191,0	script	#ep14_1_xq02	139,0,3,{
+	end;
+OnTouch:
+	if (ep13_3_secret > 22 && checkquest(7206) == -1) {
+		enablenpc "柴郡#ep14_1_xq01";
+		cutin "ep13_柴郡_h",1;
+		mes "[柴郡]";
+		mes "噢, 等等!";
+		mes "現在有另一件事情需要你去做.";
+		mes "我們沒時間討論細節了...";
+		next;
+		mes "- 柴郡的守衛靠近了你, 並在你的耳邊開始竊竊私語. -";
+		next;
+		mes "[柴郡]";
+		mes "你應該會在^4d4dff卡米達隧道^000000中間看到一隻貓手商團的貓咪.";
+		mes "就在^4d4dff商隊物品當中有一個有標記的箱子, 裡面裝有送往甲蟲洞西邊入口的貨物^000000.";
+		next;
+		mes "[柴郡]";
+		mes "我希望你能把它帶回來給我.";
+		mes "你在找的時候會發現那個箱子的.";
+		mes "這是件重要的事情.";
+		next;
+		mes "[柴郡]";
+		mes "我也要做一些準備工作...";
+		mes "祝你好運!";
+		setquest 7206;
+		close2;
+		disablenpc "柴郡#ep14_1_xq01";
+		cutin "",255;
+	}
+	end;
+}
+
+dic_in01,260,194,4	script	柴郡#ep14_1_xq01	498,{
+	end;
+OnInit:
+	disablenpc "柴郡#ep14_1_xq01";
+	end;
+}
+
+dic_dun01,274,114,0	script	商品堆疊箱	844,{
+	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 1000) {
+		mes "- 你攜帶的物品種類過多, 請整理後再試. -";
+		close;
+	}
+	set .@playtime, checkquest(7208,PLAYTIME);
+	if (.@playtime == 0 || .@playtime == 1) {
+		mes "箱子與各種貨物堆疊在一起, 高得已經快要碰到天花板了.";
+		mes "好像沒有找到柴郡所說的有標記的箱子.";
+		close;
+	} else if (.@playtime == 2) {
+		mes "箱子與各種貨物堆疊在一起, 高得已經快要碰到天花板了.";
+		mes "仔細觀察, 你發現了一個箱子上有一個小的標記.";
+		mes "你找到了柴郡所說的箱子.";
+		next;
+		switch(select("- 搬走箱子:- 放棄")) {
+		case 1:
+			mes "你承諾過將補給箱帶回去給柴郡, 他還在彩虹橋的裂縫另一頭等著你的消息呢.";
+			erasequest 7208;
+			setquest 7210;
+			getitem 6392,1; //馬努克魔力之石箱子
+			close;
+		case 2:
+			mes "你決定放棄拿走補給箱,";
+			mes "並轉身離開.";
+			erasequest 7208;
+			close;
+		}
+	} else {
+		if (checkquest(7207) == -1) {
+			if (checkquest(7206) > -1) {
+				mes "箱子與各種貨物堆疊在一起, 高得已經快要碰到天花板了.";
+				mes "仔細觀察, 你發現了一個箱子上有一個小的標記.";
+				next;
+				mes "標記上刻著一個神秘的小符號, 符號下面寫著一行小字, 內容是 ^4d4dff目的地: 彩虹橋裂縫^000000.";
+				next;
+				mes "這肯定就是柴郡所說的箱子了.";
+				mes "你決定把箱子的位置記錄在紙上.";
+				completequest 7206;
+				setquest 7207;
+				getitem 6392,1; //馬努克魔力之石箱子
+				close;
+			}
+		} else if (checkquest(7207) < 2) {
+			mes "你已經獲得了柴郡所說的箱子.";
+			mes "現在你需要做的就是把它帶去彩虹橋的裂縫處.";
+			close;
+		}
+		mes "箱子與各種貨物堆疊在一起, 高得已經快要碰到天花板了.";
+		close;
+	}
+	end;
+}
+
+bif_fild01,335,168,3	script	柴郡#ep14_1_xq04	497,{
+	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 1000) {
+		mes "- 你攜帶的物品過多, 無法進行該任務. -";
+		close;
+	}
+	cutin "ep13_柴郡",1;
+	if (checkquest(7209) > -1) {
+		if (countitem(6090) < 20) {
+			mes "[柴郡]";
+			mes "給我拿20個精煉魔力之石來.";
+			mes "就是那些你漫不經心地賣掉的.";
+			mes "我講得夠清楚了嗎?";
+			close2;
+			cutin "",255;
+			end;
+		}
+		mes "[柴郡]";
+		mes "這麼說你帶來了?";
+		mes "這已經是最低限度的補償了, 不能再少了.";
+		mes "下次, 你必須完完整整地把箱子帶給我.";
+		next;
+		mes "- 柴郡把魔力之石扔進了裂縫裡. -";
+		next;
+		mes "[柴郡]";
+		mes "你丟失了箱子, 這是你犯的錯, 你必須對此負責.";
+		mes "從明天開始, 以及之後的每一天.";
+		mes "務必保證把箱子完完整整地帶到這來.";
+		delitem 6090,20; //精煉魔力之石
+		erasequest 7209;
+		setquest 7208;
+		getitem 6304,1; //沙帕功勳證
+		close2;
+		cutin "",255;
+		end;
+	}
+	callsub L_CheckPlaytime;
+	if (checkquest(7210) > -1) {
+		if (countitem(6392) == 0)
+			callsub L_LostQuest,7210;
+		else {
+			mes "[柴郡]";
+			mes "你來得正好.";
+			mes "我看到了完整的箱子!";
+			mes "做得好.";
+			next;
+			mes "[柴郡]";
+			mes "嗯, 我就指望你了, 明天也是.";
+			mes "明白了嗎?";
+			mes "現在, 趁精靈還沒開始懷疑, 趕緊離開這兒.";
+			erasequest 7210;
+			setquest 7208;
+			delitem 6392,1; //馬努克魔力之石箱子
+			getitem 6304,1; //沙帕功勳證
+			getexp 50000,40000;
+			close2;
+			cutin "",255;
+			end;
+		}
+	}
+	if (ep13_3_secret > 22) {
+		if (checkquest(7207) == -1) {
+			if (checkquest(7206) == -1) {
+				mes "[柴郡]";
+				mes "...嗯? 哈?";
+				mes "是 "+strcharinfo(0)+"!";
+				mes "你在這幹嘛?";
+				next;
+				select("嗯? 柴郡?");
+				mes "[柴郡]";
+				mes "你幹嘛這麼驚訝?";
+				mes "是因為在這看到我嗎?";
+				next;
+				select("沒什麼, 只是頭巾而已...");
+				mes "[柴郡]";
+				mes "哦...這個. 因為很傷腦筋.";
+				mes "在這, 我不必在意其他人.";
+				mes "噢, 正好!";
+				mes "你來迪埃我可以給你任務.";
+				next;
+				mes "[柴郡]";
+				mes ".......咋了? 你為什麼這樣盯著我?";
+				mes "這都是給阿哈特的.";
+				next;
+				switch(select("我想我別無選擇:我還有很多事要做")) {
+				case 1:
+					mes "["+strcharinfo(0)+"]";
+					mes "(如果我拒絕的話會引起他的懷疑...我想我還是暫時接受吧.)";
+					mes "好吧.";
+					mes "我很樂意為阿哈特效勞.";
+					mes "那麼, 需要我做什麼?";
+					next;
+					break;
+				case 2:
+					mes "[柴郡]";
+					mes "有事要做?";
+					mes "什麼事?";
+					mes "這個就是你必須要做的事.";
+					mes "別忘了你是為阿哈特效力.";
+					next;
+					break;
+				}
+				mes "[柴郡]";
+				mes "很好! 現在我將告訴你要做什麼.";
+				mes "你知道在卡米達隧道中間有一個通往甲蟲洞的入口吧?";
+				mes "你會看到有個貓手商隊在那賣生活用品和一些簡單的工具.";
+				next;
+				mes "[柴郡]";
+				mes "在那些堆積的貨物中有一個有標記的箱子.";
+				mes "我要你把那個箱子帶來給我.";
+				next;
+				mes "[柴郡]";
+				mes "這個任務只需要你把箱子找到然後拿來, 很簡單吧.";
+				mes "你要做得^4d4dff安靜而快速, 不能被發現^000000.";
+				setquest 7206;
+				next;
+				mes "[柴郡]";
+				mes "開始行動吧!";
+				close2;
+				cutin "",255;
+				end;
+			} else {
+				mes "[柴郡]";
+				mes "從卡米達隧道把箱子帶來.";
+				mes "乾淨利落!";
+				mes "現在, 趕緊去!";
+				close2;
+				cutin "",255;
+				end;
+			}
+		} else if (checkquest(7207) < 2) {
+			if (countitem(6392) == 0)
+				callsub L_LostQuest,7207;
+			else {
+				mes "[柴郡]";
+				mes "........那個箱子!";
+				mes "噢, 是的. 就是這個!";
+				mes "你幹得很好.";
+				mes "這事非常重要.";
+				mes "阿哈特會很滿意的.";
+				next;
+				mes "[柴郡]";
+				mes "這些箱子每天都會在同一個地方.";
+				mes "我會給你任務的.";
+				next;
+				select("為什麼你不自己去?");
+				mes "[柴郡]";
+				mes "........嗯...";
+				mes "因為只有你們人類才能自由出入任何地方.";
+				mes "再加上, 這地方是精靈的地盤.";
+				next;
+				mes "[柴郡]";
+				mes "我不想引起他們的注意, 就像這樣.";
+				mes "但是沙帕人會怎麼想?";
+				mes "在精靈的地盤看到阿哈特的人?";
+				next;
+				mes "[柴郡]";
+				mes "他們會產生懷疑.";
+				mes "但是你們人類就不存在這個麻煩, 這就是為什麼你是最合適的人選.";
+				next;
+				mes "["+strcharinfo(0)+"]";
+				mes "(...我不相信他的解釋, 但是他認為我是站在他這邊的, 所以我想我還是應該繼續下去.)";
+				mes "魔力之石後來怎麼樣了?";
+				next;
+				mes "[柴郡]";
+				mes "那個?";
+				mes "把它交給我.";
+				next;
+				mes "- 柴郡打開了箱子, 檢查了裡面的魔力之石, 並扔進了裂縫,";
+				mes "然後回頭望了一眼, 拍了拍手, 臉上帶著洋洋得意的神情. -";
+				next;
+				mes "[柴郡]";
+				mes "喏, 就是這樣.";
+				mes "*大笑* 裂縫那頭有條未知的路在等著你.";
+				next;
+				mes "[柴郡]";
+				mes "那麼, 我會把這事交給你.";
+				mes "儘量每天都給我帶來箱子吧.";
+				mes "好嗎?";
+				delitem 6392,1; //馬努克魔力之石箱子
+				completequest 7207;
+				setquest 7208;
+				getitem 6304,1; //沙帕功勳證
+				getexp 50000,40000;
+				next;
+				mes "[柴郡]";
+				mes "作為對你的回報, 我會給你一個沙帕功勳證和一點現金.";
+				mes "現在, 趁精靈還沒開始懷疑, 趕緊離開這兒.";
+				close2;
+				cutin "",255;
+				end;
+			}
+		} else {
+			callsub L_CheckPlaytime;
+			mes "[柴郡]";
+			mes "啊? 怎麼了?";
+			mes "你今天怎麼沒把箱子帶來?";
+			next;
+			mes "[柴郡]";
+			mes "嗯, 這不是我所期望的...";
+			mes "好吧, 看來我別無選擇.";
+			mes "我今天必須讓另一個人去做.";
+			mes "但是從明天開始你必須完成, 好嗎?";
+			setquest 7208;
+			close2;
+			cutin "",255;
+			end;
+		}
+	} else if (ep13_3_secret > 15) {
+		mes "[柴郡]";
+		mes "...啊? 我想我以前在哪兒見過你...";
+		mes "..........噢!";
+		mes strcharinfo(0)+"...?!";
+		mes "什麼風把你給吹來了?";
+		next;
+		mes "[柴郡]";
+		mes "你說你忘了該幹嘛?";
+		mes "你不該在這兒.";
+		mes "你應該在埃迪斯特斯南面的裂縫.";
+		next;
+		mes "[柴郡]";
+		mes "哇哦.";
+		mes "阿哈特派了一個這麼白痴的人給我, 他知道嗎?";
+		mes "現在, 趕緊去完成你的任務.";
+		close2;
+		cutin "",255;
+		end;
+	}
+	mes "[柴郡]";
+	mes "...為什麼那傢伙還不出現?";
+	mes "這個時間點應該到這了才是...";
+	mes "難不成找不到回來的路了...?";
+	mes "....? 嗯? 誰, 你是誰? 你站在這兒多久了?";
+	next;
+	select("一隻貓?!");
+	mes "[柴郡]";
+	mes "誰...誰是貓?!";
+	mes "滾蛋!";
+	close2;
+	cutin "",255;
+	end;
+L_LostQuest:
+	mes "[柴郡]";
+	mes "噢, 你去過那裡了嗎?";
+	mes "箱子怎麼了?";
+	mes "為什麼你兩手空空?";
+	next;
+	switch(select("我會再找一找的!:我弄丟了...")) {
+	case 1:
+		mes "[柴郡]";
+		mes "務必做好!";
+		mes "繼續找吧.";
+		mes "千萬別弄丟了.";
+		break;
+	case 2:
+		mes "[柴郡]";
+		mes "在哪?";
+		mes "你把它賣給誰了?";
+		mes "你不知道什麼該賣什麼不該賣?";
+		mes "你在打夢腳?";
+		next;
+		mes "[柴郡]";
+		mes "真是太不像話了.";
+		mes "為你弄丟的做賠償!";
+		mes "^4d4dff20個精煉魔力之石^000000!!!";
+		erasequest getarg(0);
+		setquest 7209;
+		break;
+	}
+	close2;
+	cutin "",255;
+	end;
+L_CheckPlaytime:
+	set .@playtime, checkquest(7208,PLAYTIME);
+	if (.@playtime == 0 || .@playtime == 1) {
+		mes "[柴郡]";
+		mes "每天, 眾多箱子中的一個會被送到卡米達隧道.";
+		mes "與其它的不同, 它是走私的.";
+		next;
+		mes "[柴郡]";
+		mes "準時潛入那個地方, 然後把箱子帶回來給我. 那些箱子每天都會在同一個地方.";
+		mes "這就是你每天要做的.";
+		close2;
+		cutin "",255;
+		end;
+	} else if (.@playtime == 2) {
+		mes "[柴郡]";
+		mes "到時間了.";
+		mes "現在, 去拿箱子.";
+		mes "它應該是堆在卡米達隧道裡的甲蟲洞入口附近.";
+		mes "你之前已經做過了, 想必你一定很熟悉了吧?";
+		close2;
+		cutin "",255;
+		end;
+	} else
+		return;
+}
+
+dicastes02,125,192,0	script	#call_cheshir_ep14	139,0,3,{
+	end;
+OnTouch:
+	if (ep13_3_secret > 22) {
+		if (rand(2)) {
+			emotion ET_DELIGHT,1;
+			mes "..........?";
+			mes "你覺得有人在周圍走動.";
+			mes "下面肯定有人.";
+			if ($@cheshire_on == 0) {
+				donpcevent "柴郡#ep14_extra::OnEnable";
+				set $@cheshire_on,1;
+			}
+			close;
+		}
+	}
+	end;
+}
+
+dicastes02,103,190,3	script	柴郡#ep14_extra	497,{
+	if (ep13_3_secret > 22) {
+		cutin "ep13_柴郡",1;
+		mes "[柴郡]";
+		mes "...嗯?";
+		mes "真令人驚訝. 你在這幹嘛?";
+		next;
+		switch(select("你又在這幹嘛?:那些耳朵...?")) {
+		case 1:
+			mes "[柴郡]";
+			mes "出來散步?";
+			mes "我和阿哈特一同出來, 但是他回去處理一個緊急事件了.";
+			next;
+			mes "[柴郡]";
+			mes ".. ..............";
+			next;
+			select("....:多麼...多麼漂亮的樹啊.");
+			mes "[柴郡]";
+			mes "這棵樹... 是白色的, 透明, 有光澤.";
+			mes "它是沙帕的身體.";
+			next;
+			mes "[柴郡]";
+			mes "你知道的, 沙帕人在活著時會慢慢變成石頭.";
+			mes "所以當他們死了, 他們會變成石樹.";
+			mes "可以說, 這片森林是...他們的墓地.";
+			next;
+			mes "[柴郡]";
+			mes ".......仔細看, 你能辨認出他們的胳膊和腿.";
+			mes "很有趣, 是吧?";
+			next;
+			mes "[柴郡]";
+			mes "... .. ...";
+			next;
+			mes "[柴郡]";
+			mes "噢, 這真是讓人生氣.";
+			mes "我走了!";
+			next;
+			mes "- 柴郡憤然離去... -";
+			break;
+		case 2:
+			mes "[柴郡]";
+			mes "什麼? 耳朵?";
+			mes "嗯, 這也難怪, 因為我是一個野人.";
+			mes "...幹嘛...幹嘛這麼瞪著我?";
+			next;
+			select("你負責這個報告?!");
+			mes "[柴郡]";
+			mes "你在說什麼?";
+			mes "我不知道你說的是神馬!";
+			next;
+			mes "- 柴郡跑了... -";
+			break;
+		}
+		disablenpc "柴郡#ep14_extra";
+		stopnpctimer;
+		close2;
+		cutin "",255;
+		end;
+	}
+	mes "一個穿著罕見的男孩站在那, 目露兇光.";
+	mes "你覺得還是不打擾他比較好.";
+	close;
+OnInit:
+	disablenpc "柴郡#ep14_extra";
+	end;
+OnEnable:
+	enablenpc "柴郡#ep14_extra";
+	initnpctimer;
+	end;
+OnDisable:
+	disablenpc "柴郡#ep14_extra";
+	stopnpctimer;
+	end;
+OnTimer600000:
+	disablenpc "柴郡#ep14_extra";
+	set $@cheshire_on,0;
+	stopnpctimer;
+	end;
+}
+
+// Helping Lope and Euridi :: ep14_1_rofe
+//============================================================
+mora,117,66,3	script	優莉蒂#pa	521,{
+	if (BaseLevel < 100) {
+		mes "[優莉蒂]";
+		mes "你太弱小了.";
+		mes "真的, 我需要幫助,";
+		mes "但我不認為你能給予.";
+		close;
+	}
+	if (ep14_1_rope == 0) {
+		mes "[優莉蒂]";
+		mes "聽說你有經過迷霧森林.";
+		mes "那...請問";
+		mes "你在那裡有見到";
+		mes "我的未婚夫洛佩嗎?";
+		next;
+		switch(select("我有看到:我沒看到")) {
+		case 1:
+			mes "[優莉蒂]";
+			mes "你確定嗎? 你在哪裡見到過他?";
+			mes "帶我過去, 快!";
+			mes "...";
+			next;
+			mes "[優莉蒂]";
+			mes "什麼?";
+			mes "你在開玩笑...?";
+			mes "你怎麼可以這樣呢?";
+			close;
+		case 2:
+			mes "[優莉蒂]";
+			mes "請幫忙找到我的洛佩.";
+			mes "我問遍周圍所有的人之後,";
+			mes "來到了這個穆拉村,";
+			mes "可是依然沒有絲毫線索.";
+			next;
+			mes "[優莉蒂]";
+			mes "只要想到洛佩現在一定";
+			mes "很心急地在找我, 我的心就...";
+			next;
+			switch(select("抱歉, 我很忙!:我幫你!")) {
+			case 1:
+				mes "[優莉蒂]";
+				mes "真是太沒同情心了!";
+				close;
+			case 2:
+				mes "[優莉蒂]";
+				mes "我聽說他在村子周圍做導遊時,";
+				mes "進入了迷霧森林.";
+				mes "其中一個與洛佩同行的旅客";
+				mes "一定還在旅館裡.";
+				next;
+				mes "[優莉蒂]";
+				mes "他把自己反鎖在房間裡不願見我.";
+				mes "但他也許願意見你, 因為你去過迷霧森林.";
+				setquest 1109;
+				set ep14_1_rope,1;
+				close;
+			}
+		}
+	} else if (ep14_1_rope == 1) {
+		mes "[優莉蒂]";
+		mes "那個旅客在旅館,";
+		mes "不是我前面的!";
+		close;
+	} else if (ep14_1_rope == 2) {
+		mes "[優莉蒂]";
+		mes "你見過皮特!";
+		mes "我就知道他願意見你.";
+		mes "他說了什麼?";
+		next;
+		mes "[優莉蒂]";
+		mes "...不可能....!";
+		mes "簡直是胡說八道.";
+		mes "這怎麼能怪洛佩!";
+		mes "我在迷霧森林附近";
+		mes "找到這張碎紙.";
+		mes "我敢肯定是洛佩的.";
+		next;
+		mes "[優莉蒂]";
+		mes "只要找到剩下的^0000FF洛佩之線索^000000,";
+		mes "一定就可以知道";
+		mes "他在什麼地方!";
+		mes "拜託你了, "+strcharinfo(0)+"!";
+		changequest 1110,1111;
+		set ep14_1_rope,3;
+		close;
+	} else if (ep14_1_rope == 3) {
+		mes "[優莉蒂]";
+		mes "如果你找到一個^0000FF洛佩之線索^000000, 請拿給皮特看看.";
+		mes "希望他很快能說出真相.";
+		close;
+	} else if (ep14_1_rope == 4) {
+		mes "[優莉蒂]";
+		mes "我實在無法理解!";
+		mes "這讓我不禁懷疑...";
+		mes "為什麼他這麼想誣賴洛佩呢?";
+		mes "等等! 那些線索...";
+		next;
+		mes "[優莉蒂]";
+		mes "那些看起來微不足道的碎紙.";
+		mes "能讓我看看嗎?";
+		mes "...";
+		mes "把它們像拼圖一樣拼湊在一起.";
+		mes "...噢! 這是...";
+		next;
+		mes "[洛佩的信]";
+		mes "...我們一直在霧林裡徘徊.";
+		mes "...所以我們沒能保護好旅客.";
+		mes "我染上了致命的病毒, 成了大家的負擔.";
+		mes "多麼可憐...";
+		next;
+		mes "[洛佩的信]";
+		mes "毫無疑問,";
+		mes "我被踢出了輝煌領域探險隊.";
+		mes "...但我試圖保護過至少一名旅客.";
+		mes "他會將這封信和戒指轉交給你.";
+		next;
+		mes "[洛佩的信]";
+		mes "...作為一名驕傲的探險隊員,";
+		mes "我想向你求婚.";
+		mes "對不起, 優莉蒂.";
+		mes "再見.";
+		next;
+		mes "讀完這封信,";
+		mes "優莉蒂就像大腦一片空白一樣站著發呆.";
+		mes "我們把信去拿給皮特看看.";
+		changequest 1112,1113;
+
+		//delitem 6383,30; //洛佩之線索
+		set .@count, countitem(6383);
+		if (.@count) delitem 6383,((.@count > 30)?30:.@count); //洛佩之線索
+
+		set ep14_1_rope,5;
+		close;
+	} else if (ep14_1_rope == 5) {
+		mes "[優莉蒂]";
+		mes "不, 洛佩一定沒事的.";
+		mes "無論怎樣他都會回來的...";
+		close;
+	} else if (ep14_1_rope == 6) {
+		mes "[優莉蒂]";
+		mes "......";
+		next;
+		mes "從暗自低頭的優莉蒂那傳來歌聲.";
+		mes "她的朋友似乎有話要說.";
+		close;
+	} else if (ep14_1_rope == 7 || ep14_1_rope == 8) {
+		mes "你聽到一個安靜的歌聲.";
+		mes "你不知道唱的什麼.";
+		close;
+	} else if (ep14_1_rope == 9) {
+		mes "[優莉蒂]";
+		mes "找到洛佩了嗎?";
+		mes "他沒事吧?";
+		next;
+		switch(select("說是沒找到:告訴她死訊")) {
+		case 1:
+			mes "[優莉蒂]";
+			mes "我自己去找他.";
+			mes "只希望...還來得及.";
+			mes "讓我去, 沒時間了!";
+			close;
+		case 2:
+			mes "[優莉蒂]";
+			mes "我不相信!";
+			mes "他說過他很快就會回來...";
+			mes "他讓我堅持下去.";
+			mes "不會的...不會這樣的...";
+			next;
+			mes "你把皮特給你的洛佩之戒遞給她.";
+			mes "看著手上的戒指, 優莉蒂哭了起來.";
+			mes "她開始用顫抖的聲音唱起歌來, 儘管還在流淚.";
+			changequest 1116,1117;
+			set ep14_1_rope,10;
+
+			//delitem 6384,1; //洛佩之戒
+			if (countitem(6384)) delitem 6384,1; //洛佩之戒
+
+			close;
+		}
+	} else if (ep14_1_rope > 9) {
+		mes "你呆立著.";
+		mes "聽到一個安靜的歌聲.";
+		close;
+	}
+}
+
+mora,115,68,3	script	優莉蒂好友#pa	520,{
+	if (ep14_1_rope < 2) {
+		mes "[優莉蒂好友]";
+		mes "請勸阻優莉蒂.";
+		mes "她不顧一切地尋找她失蹤的未婚夫.";
+		close;
+	} else if (ep14_1_rope == 2) {
+		mes "[優莉蒂好友]";
+		mes "皮特真的很可疑.";
+		mes "我覺得他是在逃避優莉蒂...";
+		mes "他一定在隱瞞什麼.";
+		close;
+	} else if (ep14_1_rope == 3) {
+		mes "[優莉蒂好友]";
+		mes "說真的, 我不認為";
+		mes "洛佩還活著.";
+		mes "我只是擔心優莉蒂.";
+		next;
+		mes "[優莉蒂]";
+		mes "啊啊啊啊啊啊啊!!!!!!!!";
+		next;
+		mes "[優莉蒂好友]";
+		mes "...";
+		mes "說實話, 我真的相信";
+		mes "洛佩還活著.";
+		mes "...";
+		mes "*嘆息*";
+		close;
+	} else if (ep14_1_rope == 4) {
+		mes "[優莉蒂好友]";
+		mes "皮特在搞什麼?";
+		mes "我想我應該去找他,";
+		mes "讓他覺得更痛苦!";
+		mes "他真令人厭惡!";
+		close;
+	} else if (ep14_1_rope == 5) {
+		mes "[優莉蒂好友]";
+		mes "快去找皮特.";
+		close;
+	} else if (ep14_1_rope == 6) {
+		mes "[優莉蒂好友]";
+		mes "優莉蒂現在為了維持";
+		mes "衰弱的身體, 正在唱治療之歌.";
+		mes "再這樣下去的話, 她也會很危險!";
+		next;
+		mes "[優莉蒂好友]";
+		mes "噢, 我記得有個旅客告訴過我,";
+		mes "他在迷霧森林的入口附近";
+		mes "看到過一個可疑的人.";
+		next;
+		mes "[優莉蒂好友]";
+		mes "旅客說那個人一聲不響地站在那,";
+		mes "看起來很可疑,";
+		mes "但是霧太濃看不清楚.";
+		mes "我想有必要調查一下!";
+		changequest 1114,1115;
+		set ep14_1_rope,7;
+		close;
+	} else if (ep14_1_rope == 7) {
+		mes "[優莉蒂好友]";
+		mes "我聽說在迷霧森林的入口附近,";
+		mes "有一個可疑的人.";
+		mes "旅客說那個人一聲不響地站在那,";
+		mes "看起來很可疑,";
+		mes "但是霧太濃看不清楚.";
+		mes "我想有必要調查一下!";
+		close;
+	} else if (ep14_1_rope == 8 || ep14_1_rope == 9) {
+		mes "[優莉蒂好友]";
+		mes "你的臉色很差.";
+		mes "壞消息?";
+		close;
+	} else if (ep14_1_rope == 10) {
+		mes "[優莉蒂好友]";
+		mes "有個精靈說,";
+		mes "絕望會帶來災難.";
+		mes "也許我們應該為所發生的一切";
+		mes "負責.";
+		next;
+		if (checkweight(6380,1) == 0) {
+			mes "[優莉蒂好友]";
+			mes "你帶了太多東西.";
+			mes "能扔掉一些麼?";
+			close;
+		}
+		mes "[優莉蒂好友]";
+		mes "現在洛佩可以好好休息了吧?!";
+		mes "謝謝你! 我會記得你的大恩大德的!";
+		completequest 1117;
+		set ep14_1_rope,11;
+		getexp 1000000,2000000;
+		getitem 6380,10; //穆拉幣
+		close;
+	} else if (ep14_1_rope > 10) {
+		mes "[優莉蒂好友]";
+		mes "謝謝你! 我會記得你的大恩大德的!";
+		close;
+	}
+}
+
+mora,65,145,3	script	皮特#pa	519,{
+	if (ep14_1_rope == 0) {
+		mes "[皮特]";
+		mes "你相當不錯,";
+		mes "能夠活著穿越迷霧森林.";
+		mes "你看我完全搞砸了,";
+		mes "所以我受不了, 聽你的顯赫冒險故事.";
+		mes "快走開.";
+		close;
+	} else if (ep14_1_rope == 1) {
+		mes "[皮特]";
+		mes "你可真難纏, 不是嗎?";
+		mes "優莉蒂讓你來的, 嗯?";
+		mes "這對精靈夫妻,";
+		mes "真尼瑪不讓我活了.";
+		next;
+		mes "[皮特]";
+		mes "你去給我告訴她!";
+		mes "是那個白痴導遊";
+		mes "說那裡是風景名勝, 硬把我們推進霧林裡,";
+		mes "結果卻自己一個人逃命!";
+		next;
+		mes "[皮特]";
+		mes "所以你對不起的是我, 不是他, 明白嗎?";
+		mes "他一定還在某個地方逍遙快活,";
+		mes "所以請去直接找他, 別再來煩我了!";
+		changequest 1109,1110;
+		set ep14_1_rope,2;
+		close;
+	} else if (ep14_1_rope == 2) {
+			mes "[皮特]";
+			mes "這都是因為";
+			mes "那個白痴的導遊!";
+			mes "我討厭精靈!";
+		close;
+	} else if (ep14_1_rope == 3) {
+		if (countitem(6383) < 30) {
+			mes "[皮特]";
+			mes "這都是因為";
+			mes "那個白痴的導遊!";
+			mes "我討厭精靈!";
+			close;
+		}
+		mes "[皮特]";
+		mes "你手裡拿的那個東西...";
+		mes "看起來好陌生.";
+		mes "我還是第一次看到呢!";
+		mes "那種東西還是趁早丟掉吧!";
+		mes "不如給我吧?";
+		next;
+		switch(select("給他:不給")) {
+		case 1:
+			mes "[皮特]";
+			mes "看著, 我就像這樣吃掉它,";
+			mes "好了, 證據沒了!";
+			mes "我終於可以睡個好覺了, 多謝你!";
+			delitem 6383,5; //洛佩之線索
+			close;
+		case 2:
+			mes "[皮特]";
+			mes "為什麼給我說這種事情?";
+			mes "我什麼都不知道! 我才是受害者!";
+			mes "我完全是受害者!.";
+			mes "真不公平...";
+			next;
+			mes "再對他說什麼都沒用了.";
+			mes "還是去找優莉蒂談談吧.";
+			changequest 1111,1112;
+			set ep14_1_rope,4;
+			close;
+		}
+	} else if (ep14_1_rope == 4) {
+		mes "[皮特]";
+		mes "這不公平!";
+		mes "真他媽的不公平!";
+		close;
+	} else if (ep14_1_rope == 5) {
+		if (checkweight(6384,1) == 0) {
+			mes "[皮特]";
+			mes "你是專業跑腿的?";
+			mes "把你攬上的破事扔掉!";
+			mes "你吵得我根本沒法休息!";
+			mes "這些個破事全都給我扔一邊去!";
+			close;
+		}
+		mes "[皮特]";
+		mes "想不到你竟然能把它們全都找到,";
+		mes "還把它們拼湊好了.";
+		mes "這是神的懲罰...?";
+		mes "還是精靈的詛咒?";
+		mes "咻...";
+		next;
+		mes "[皮特]";
+		mes "那個導遊,";
+		mes "當他被毒藥重傷時,";
+		mes "他..";
+		mes "打開了大門.";
+		next;
+		mes "[皮特]";
+		mes "我正猶豫是否帶他走時,";
+		mes "他遞給我那封信和戒指.";
+		mes "精靈的珠寶...";
+		mes "傳聞從來沒有人能擁有它, 除了精靈,";
+		mes "就連上帝也不例外.";
+		next;
+		mes "[皮特]";
+		mes "那樣的一個寶藏,";
+		mes "在我的手上!";
+		mes "我等凡夫俗子,";
+		mes "怎麼能放得下!";
+		next;
+		mes "[皮特]";
+		mes "我要振作起來,";
+		mes "儘快離開這個地方.";
+		mes "但是由於毒藥的影響,";
+		mes "我被困住了.";
+		next;
+		mes "[皮特]";
+		mes "我把戒指給你,";
+		mes "別再找來找我了!";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "那麼洛佩...?";
+		next;
+		mes "[皮特]";
+		mes "死在霧林出口附近的話,";
+		mes "管他是變成肥料還是什麼的,";
+		mes "總之應該在那附近吧!?";
+		changequest 1113,1114;
+		set ep14_1_rope,6;
+		getitem 6384,1; //洛佩之戒
+		close;
+	} else if (ep14_1_rope == 6 || ep14_1_rope == 7) {
+		mes "[皮特]";
+		mes "我也是受害者!";
+		mes "別再找來找我了! 求你了!";
+		close;
+	} else if (ep14_1_rope == 8) {
+		mes "[皮特]";
+		mes "...";
+		close;
+	} else if (ep14_1_rope > 8) {
+		mes "他睡著了.";
+		mes "看上去似乎睡得很沉.";
+		close;
+	}
+}
+
+bif_fild01,132,338,3	script	洛佩#pa	461,2,2,{
+	if (ep14_1_rope < 8) {
+		mes "[可疑的人]";
+		mes "......";
+		close;
+	} else if (ep14_1_rope == 8) {
+		donpcevent "洛佩#pa::OnEnable";
+		mes "[可疑的人]";
+		mes "啊啊啊啊啊啊啊!!!!!!";
+		mes "我什麼也看不見.";
+		mes "是誰在那?";
+		mes "快回答, 否則我會把你視為敵人消滅掉.";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "優莉蒂在找你.";
+		next;
+		mes "[可疑的人]";
+		mes "......";
+		next;
+		mes "[洛佩]";
+		mes "幽魂啊, 你怎麼能對我這麼苛刻?";
+		mes "我已請求你把這個名字從我腦海裡抹去,";
+		mes "哪怕代價是受到詛咒!";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "你冷靜點, 聽我說...";
+		next;
+		mes "[洛佩]";
+		mes "我的助人慾望";
+		mes "引領我走向死亡,";
+		mes "我的求生和復仇的欲望";
+		mes "指引我重生.";
+		mes "我不知道該如何是好.";
+		next;
+		mes "[洛佩]";
+		mes "只要我的變身一結束,";
+		mes "我會用拯救了我生命的霧林的血腥的混亂,";
+		mes "來懲罰你們所有人!";
+		next;
+		mes "你把優莉蒂拼好的信交到洛佩手上.";
+		next;
+		mes "[洛佩]";
+		mes "...這是!";
+		mes "有優莉蒂的感覺.";
+		mes "這封信...曾被轉交給了優莉蒂?";
+		mes "難以置信...";
+		next;
+		mes "[洛佩]";
+		mes "我現在已經變成了怪物,";
+		mes "我不再是她的愛人.";
+		mes "回去告訴她, 很久以前, 在霧林之地,";
+		mes "洛佩就已經化作了塵埃.";
+		next;
+		mes "[洛佩]";
+		mes "快去!";
+		mes "作為一個名叫洛佩的精靈, 這是我的最後請求...";
+		set ep14_1_rope,9;
+		changequest 1115,1116;
+		close;
+	} else {
+		mes "[洛佩]";
+		mes "我現在已經變成了怪物,";
+		mes "我不再是她的愛人.";
+		mes "回去告訴她, 很久以前, 在霧林之地,";
+		mes "洛佩就已經化作了塵埃.";
+		next;
+		mes "[洛佩]";
+		mes "快去!";
+		mes "作為一個名叫洛佩的精靈, 這是我的最後請求...";
+		next;
+		mes "你在他的左手看到一枚微微發光的戒指.";
+		close;
+	}
+	end;
+OnEnable:
+	setnpcdisplay "洛佩#pa",999;
+	end;
+OnDisable:
+	disablenpc "洛佩#pa";
+	initnpctimer;
+	end;
+OnReset:
+	setnpcdisplay "洛佩#pa",461;
+	enablenpc "洛佩#pa";
+	end;
+OnTimer2000:
+	donpcevent "洛佩#pa::OnReset";
+	stopnpctimer;
+	end;
+OnTouch:
+	mes "我看見一個可疑的人. 我是不是應該和他對話?";
+	next;
+	switch(select("離開:和他對話")) {
+	case 1:
+		donpcevent "洛佩#pa::OnDisable";
+		mes "[可疑的人]";
+		mes "......";
+		close;
+	case 2:
+		donpcevent "洛佩#pa::OnDisable";
+		if (ep14_1_rope == 7) {
+			mes "[可疑的人]";
+			mes ".";
+			mes "...";
+			mes "........!!!";
+			next;
+			mes "[可疑的人]";
+			mes "啊啊啊啊啊啊啊!!!!!";
+			set ep14_1_rope,8;
+			close;
+		} else {
+			mes "[可疑的人]";
+			mes "......";
+			close;
+		}
+	}
+}
+
+// Find the Research Tools :: ep14_1_muk
+//============================================================
+mora,31,138,6	script	草精研究員#ep14	522,{
+	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 500) {
+		mes "^FF0000- 警告信息 -";
+		mes "- 別動!! -";
+		mes "- 你帶了太多的東西 -";
+		mes "- 要想再拿更多的 -";
+		mes "- 請減輕你的負重 -";
+		mes "- 然後再來 -^000000";
+		close;
+	}
+	// NPC disabled from 12am ~ 5am.
+	if (gettime(3) >= 0 && gettime(3) < 5) {
+		if (ep14_1_muk > 0) {
+			mes "[草精研究員]";
+			mes "人類不用睡覺的嗎?";
+			mes "正常人在這個點兒都應該睡得正香.";
+			mes "你究竟為什麼要來煩我?";
+			next;
+			mes "[草精研究員]";
+			mes "你把我吵醒了.";
+			mes "我得睡覺! 我明天還要搞研究.";
+			mes "你也應該洗洗睡了.";
+			close;
+		} else {
+			mes "Z z Z z";
+			next;
+			mes "^FF0000他似乎是睡著了.^000000";
+			close;
+		}
+	}
+	if (ep14_1_muk == 0) {
+		mes "[草精研究員]";
+		mes "哦不~ 我的研究工具...";
+		mes "什麼...... 那是什麼?";
+		emotion ET_CRY;
+		next;
+		select("你是做什麼的?");
+		mes "[草精研究員]";
+		mes "嗯?";
+		emotion ET_QUESTION;
+		next;
+		mes "[草精研究員]";
+		mes "你是人類...? 你是人類...?";
+		mes "你... 來自地球?";
+		next;
+		mes "[草精研究員]";
+		mes "人類真是不可思議...";
+		mes "你竟然從裂縫中生存了下來並且來到了這裡.";
+		next;
+		mes "[草精研究員]";
+		mes "... ... ...";
+		next;
+		mes "[草精研究員]";
+		mes "你過來一下!";
+		mes "這只是個小小的實驗, 你不用害怕!";
+		emotion ET_KIK;
+		next;
+		if(select("好奇怪的守護精靈, 還是快跑吧!:... ...") == 1) {
+			mes "[草精研究員]";
+			mes "你說你是從裂縫那邊來的,";
+			mes "所以我很好奇你是什麼種族的,";
+			mes "只是人類? 你怎麼能夠來到這兒?";
+			emotion ET_THROB;
+			close;
+		}
+		if (BaseLevel < 100) {
+			mes "[草精研究員]";
+			mes "什麼?! 我認為一個從裂縫過來的人,";
+			mes "會是非比尋常的,";
+			mes "但你只不過是個孩子.";
+			next;
+			mes "[草精研究員]";
+			mes "去狩獵更多的 ^0000FF波利^000000,";
+			mes "當你的等級達到3位數時再來!";
+			close;
+		}
+		mes "[草精研究員]";
+		mes "... ... ...";
+		emotion ET_THINK;
+		next;
+		mes "[草精研究員]";
+		mes "你... 你不像其他人類.";
+		mes "你沒有逃跑...";
+		next;
+		mes "[草精研究員]";
+		mes "你相當有勇氣...";
+		mes "現在我真的要在你身上做一些實驗...";
+		next;
+		select("呃... 這個嘛... 嗯...");
+		mes "[草精研究員]";
+		mes "哈哈... 開玩笑的...";
+		mes "我是一名草精研究員,";
+		mes "但是我不研究人類.";
+		mes "其實, 我也不知道";
+		mes "關於人類";
+		mes "有什麼可以研究...";
+		next;
+		select("很高興聽到這個...");
+		mes "[草精研究員]";
+		mes "就是這樣. 你比較閒, 是吧?";
+		mes "我想請你幫我個忙...";
+		next;
+		select("幫他:心甘情願地幫他:雖然覺得有些為難, 但還是幫他:堅定地幫他:幫他到底:有些疑惑, 但還是幫他:別無選擇, 除了幫他");
+		mes "[草精研究員]";
+		mes "我遇到的人類不多,";
+		mes "但你是確實在意";
+		mes "他人困難的人.";
+		mes "你一定是一個^FF0000非常^000000好的人.";
+		emotion ET_BEST;
+		next;
+		mes "[草精研究員]";
+		mes "鑑於時間關係, 我就不作過多感謝了.";
+		mes "這很重要, 所以請趕快收下之前的感謝,";
+		mes "否則我的研究就沒法繼續進行了.";
+		next;
+		mes "[草精研究員]";
+		mes "在穆拉旅館,";
+		mes "有一個非常有名的三溫暖.";
+		mes "如果任何人, 只要不是我們精靈,";
+		mes "進到三溫暖的水中,";
+		mes "他們的傷口就會立馬癒合...";
+		next;
+		mes "[草精研究員]";
+		mes "所以為了成為一個偉大的研究者, 我也去了那個三溫暖";
+		mes "去查看更多詳情.";
+		mes "可... 不幸的是...";
+		next;
+		mes "[草精研究員]";
+		mes "我被一個不明生物襲擊了,";
+		mes "接著我失去了知覺.";
+		next;
+		mes "[草精研究員]";
+		mes "當我醒來時, 我意識到,";
+		mes "我重要的研究工具不見了...";
+		mes "這讓我感到不知所措.";
+		next;
+		mes "[草精研究員]";
+		mes "而現在, 你來了, 人類,";
+		mes "一個勇敢的, 從裂縫來到穆拉村的英雄級人物.";
+		mes "你的樂於助人太讓我感動了.";
+		next;
+		select("... ... ...");
+		mes "[草精研究員]";
+		mes "請去三溫暖取回我的研究工具.";
+		mes "你儘早幫我取回,";
+		mes "我就能儘早回到我的研究中去.";
+		setquest 5016;
+		set ep14_1_muk,1;
+		next;
+		mes "[草精研究員]";
+		mes "一路順風.";
+		emotion ET_WRAP;
+		close;
+	} else if (ep14_1_muk == 1) {
+		if (checkquest(5016) > -1 && countitem(6385) == 0) {
+			mes "[草精研究員]";
+			mes "你回來了? 我的研究工具呢?";
+			emotion ET_QUESTION;
+			next;
+			mes "[草精研究員]";
+			mes "你還沒找到我的研究工具嗎?";
+			mes "我真失望. 快去到三溫暖,";
+			mes "儘快找回我丟失的";
+			mes "研究工具.";
+			close;
+		}
+		mes "[草精研究員]";
+		mes "哇!! 你找到我的研究工具了...?";
+		mes "你果然很能幹!";
+		mes "我真的很欣賞你的能力.";
+		next;
+		mes "[草精研究員]";
+		mes "我喜歡你.";
+		mes "你想我和一起做研究嗎?";
+		mes "你可以幫我打打下手,";
+		mes "直到我的研究完成.";
+		next;
+		select("如你所願");
+		mes "[草精研究員]";
+		mes "很好. 謝謝, 等我們完成了,";
+		mes "我會給你大筆的酬勞.";
+		mes "當然, 每完成一個研究項目,";
+		mes "我都會給你一些報酬的.";
+		next;
+		mes "[草精研究員]";
+		mes "年輕的精靈們, 這些天...他們一直很愚蠢地抱怨.";
+		mes "我一直想要一個能幹的助理,";
+		mes "但是很難找到合適的.";
+		next;
+		if (checkweight(6380,1) == 0) {
+			mes "[草精研究員]";
+			mes "哦對了...回收研究工具";
+			mes "很難麼?";
+			mes "你帶著一些看起來很笨重的裝備.";
+			mes "去整理下背包, 減輕點負重吧, 我會給你薪水的.";
+			close;
+		}
+		mes "[草精研究員]";
+		mes "找回研究工具的過程一定不輕鬆吧.";
+		mes "拿著, 去旅館好好休息一下.";
+		mes "暫時沒什麼要緊事了.";
+		delitem 6385,1; //研究工具箱
+		set ep14_1_muk,2;
+		getitem 6380,1; //穆拉村硬幣
+		erasequest 5016;
+		close;
+	} else if (ep14_1_muk == 2) {
+		// Unofficial check, but it's needed here.
+		if (checkquest(5029,PLAYTIME) == 0 || checkquest(5029,PLAYTIME) == 1) {
+			mes "[草精研究員]";
+			mes "找回研究工具的過程一定不輕鬆吧.";
+			mes "拿著, 去旅館好好休息一下.";
+			mes "暫時沒什麼要緊事了.";
+			close;
+		}
+		switch(rand(1,5)) {
+		case 1:
+			mes "[草精研究員]";
+			mes "我仍然在準備著做研究.";
+			mes "但不幸的是, 一些研究工具";
+			mes "損壞了.";
+			emotion ET_FRET;
+			close;
+		case 2:
+			mes "[草精研究員]";
+			mes "我想起來了, 我貌似還沒告訴你";
+			mes "我的名字.";
+			next;
+			mes "[草精研究員]";
+			mes "我的名字是舒芙蕾. 如果有人";
+			mes "問你跟誰一起工作,";
+			mes "你可以說^0000FF我與研究員舒芙蕾一起工作.^000000";
+			mes "這就是為什麼告訴你我的名字.";
+			emotion ET_OK;
+			close;
+		case 3:
+			mes "[草精研究員]";
+			mes "什麼? 旅館關門了?";
+			mes "這可真奇怪, 不應該啊.";
+			mes "你再去試試呢?";
+			emotion ET_QUESTION;
+			close;
+		case 4:
+			break;
+		case 5:
+			mes "[草精研究員]";
+			mes "該死的, 我只是想著能做更多的工作.";
+			mes "我又沒有惡意...";
+			mes "我只是想做一些研究...";
+			mes "簡直不敢相信我會被襲擊...";
+			mes "真TMD難以置信...";
+			mes "唉, 你怎麼看?";
+			emotion ET_FRET;
+			close;
+		}
+		mes "[草精研究員]";
+		mes "你能在這兒真好.";
+		next;
+		mes "[草精研究員]";
+		mes "我在想,";
+		mes "不明生物應該在三溫暖裡.";
+		mes "這個小兔崽子, 拿走了我的研究工具,";
+		mes "這對研究員來說無疑是謀殺啊...";
+		next;
+		mes "[草精研究員]";
+		mes "研究員助理的工作,";
+		mes "就是確保研究員能專心於他的研究,";
+		mes "不用被任何事情幹擾分心...這非常的, 重要!";
+		next;
+		mes "[草精研究員]";
+		mes "我要你替我";
+		mes "向那個不明生物報仇...";
+		next;
+		mes "[草精研究員]";
+		mes "倒不用下手太狠.";
+		mes "3次! 去折磨它3次就行了.";
+		mes "你可以在它的臉上畫畫,";
+		mes "蹂躪它, 調戲它,";
+		mes "總之你想怎樣就怎樣. 只要折磨它3次就行.";
+		set ep14_1_muk,3;
+		setquest 5017;
+		close;
+	} else if (ep14_1_muk  < 6) {
+		mes "[草精研究員]";
+		mes "進展怎麼樣了?";
+		mes "作為助理, 你需要雷厲風行, 做事要有效率.";
+		mes "難道你忘了";
+		mes "你的任務是什麼了嗎?";
+		next;
+		select("我該幹嘛來著?");
+		mes "[草精研究員]";
+		mes "去折磨那個不明生物";
+		mes "3次.";
+		mes "你可以在它的臉上畫畫,";
+		mes "蹂躪它, 調戲它, 隨便你想怎樣.";
+		mes "總之折磨它3次.";
+		emotion ET_KIK;
+		close;
+	} else if (ep14_1_muk == 6) {
+		mes "[草精研究員]";
+		mes "替我報仇了嗎? 真是痛快!";
+		emotion ET_SMILE;
+		next;
+		mes "[草精研究員]";
+		mes "我一時半會還睡不著,";
+		mes "因為我沒法不去想我丟失的研究工具.";
+		next;
+		mes "[草精研究員]";
+		mes "啊對! 我們現在需要開始進行對三溫暖的研究.";
+		mes "我需要趕快完成這個研究,";
+		mes "這樣我才可以研究下一個主題.";
+		next;
+		mes "[草精研究員]";
+		mes "拿著我給你的樣本試管,";
+		mes "到三溫暖去,";
+		mes "採集一些樣本水回來.";
+		next;
+		mes "[草精研究員]";
+		mes "看看三溫暖周圍,";
+		mes "你會找到一個神秘氣體聚集的地方.";
+		mes "你可以從那個地方";
+		mes "採集樣本水.";
+		next;
+		if (MaxWeight - Weight < 100 || checkweight(1092,10) == 0) {
+			mes "[草精研究員]";
+			mes "你帶了太多東西,";
+			mes "我沒法給你裝樣本用的空試管.";
+			mes "去減輕點負重再來吧.";
+			close;
+		}
+		mes "[草精研究員]";
+		mes "這是用來採集的空試管.";
+		mes "去採集10份樣本回來!";
+		set ep14_1_muk,7;
+		getitem 1092,10; //空試管
+		erasequest 5018;
+		setquest 5019;
+		close;
+	} else if (ep14_1_muk == 7) {
+		if (checkquest(5019) > -1 && countitem(6386) < 10) {
+			mes "[草精研究員]";
+			mes "你還沒採集到樣本水嗎?";
+			mes "請抓緊時間.";
+			next;
+			mes "[草精研究員]";
+			mes "看看三溫暖周圍,";
+			mes "你會找到一個神秘氣體聚集的地方.";
+			mes "你可以從那個地方";
+			mes "採集樣本水.";
+			close;
+		}
+		if (checkweight(6380,1) == 0) {
+			mes "[草精研究員]";
+			mes "我知道你做了很多...";
+			mes "但你帶了太多東西.";
+			mes "即便我想給你一些報酬, 也無能為力.";
+			mes "去減輕點負重再來吧.";
+			close;
+		}
+		mes "[草精研究員]";
+		mes "你採集到了三溫暖樣本水. 幹得漂亮!";
+		next;
+		mes "[草精研究員]";
+		mes "樣本水還必須進行";
+		mes "各種基本的檢驗.";
+		mes "一般需花上24小時,";
+		mes "你24小時後再過來吧!";
+		delitem 6386,10; //三溫暖樣本水
+		getitem 6380,1; //穆拉村硬幣
+		set ep14_1_muk,8;
+		erasequest 5019;
+		setquest 5020;
+		close;
+	} else if (ep14_1_muk == 8) {
+		if (checkquest(5020,PLAYTIME) == 0 || checkquest(5020,PLAYTIME) == 1) {
+			mes "[草精研究員]";
+			mes "基本的檢驗尚未完成.";
+			mes "暫時沒你什麼事.";
+			mes "去散散步, 到處逛逛.";
+			mes "用我給你的錢買點東西什麼的吧.";
+			close;
+		}
+		mes "[草精研究員]";
+		mes "基本的檢驗已經完成.";
+		mes "如我所料...";
+		mes "水裡有很多有趣的物質.";
+		emotion ET_DELIGHT;
+		next;
+		mes "[草精研究員]";
+		mes "最值得關注的是這個無法識別的DNA.";
+		mes "由於樣本數量太少, 我沒法進行比對.";
+		mes "但我敢肯定, 這種DNA";
+		mes "被三溫暖的神秘物質改變了形態.";
+		next;
+		mes "[草精研究員]";
+		mes "經過深思熟慮,";
+		mes "我推測這種DNA很可能就是";
+		mes "襲擊我的不明生物的DNA.";
+		next;
+		if (rand(2)) {
+			set .@str$,"牙齒";
+			set .@quest,5021;
+		} else {
+			set .@str$,"魚鱗";
+			set .@quest,5022;
+		}
+		mes "[草精研究員]";
+		mes "保險起見, 我得將兩者進行比對.";
+		mes "請再去趟三溫暖,";
+		mes "找到不明生物的"+.@str$+".";
+		mes "可以的話, 請給我帶10個樣本來.";
+		set ep14_1_muk,9;
+		erasequest 5020;
+		setquest .@quest;
+		close;
+	} else if (ep14_1_muk == 9) {
+		if (checkquest(5021) > -1 || checkquest(5022) > -1) {
+			if (checkquest(5021) > -1) {
+				set .@quest,5021;
+				set .@item,6387; //牙齒標本
+				setarray .@str$[0],"牙齒","牙齒";
+			} else {
+				set .@quest,5022;
+				set .@item,6388; //鱗片標本
+				setarray .@str$[0],"鱗片","鱗片";
+			}
+			if (countitem(.@item) < 10) {
+				mes "[草精研究員]";
+				mes "你還沒找到不明生物的"+.@str$[1]+"樣本嗎?";
+				mes "再仔細找找!";
+				mes "我確定不明生物在某處";
+				mes "有掉落它的"+.@str$[1]+".";
+				close;
+			}
+			mes "[草精研究員]";
+			mes "終於把"+.@str$[0]+"樣本都撿回來啦!";
+			mes "用你們人類的話說,";
+			mes "就是我等到花兒都謝了.";
+			next;
+			if (checkweight(6380,1) == 0) {
+				mes "[草精研究員]";
+				mes "我知道你做了很多...";
+				mes "但你帶了太多東西.";
+				mes "即便我想給你一些報酬, 也無能為力.";
+				mes "去減輕點負重再來吧.";
+				close;
+			}
+			mes "[草精研究員]";
+			mes "嗯, 我將馬上開始工作.";
+			mes "如果你有事的話, 就趕緊去忙吧.";
+			mes "DNA的解析需要大約6個小時.";
+			mes "去散散步什麼的吧,";
+			mes "晚點再來.";
+			delitem .@item,10;
+			getitem 6380,1; //穆拉村硬幣
+			erasequest .@quest;
+			setquest 5023;
+			close;
+		} else if (checkquest(5023,PLAYTIME) == 0 || checkquest(5023,PLAYTIME) == 1) {
+			mes "[草精研究員]";
+			mes "我還在進行DNA的解析工作.";
+			mes "DNA的解析需要大約6個小時.";
+			mes "去散散步什麼的吧, 晚點再來.";
+			close;
+		} else {
+			switch(rand(1,6)) {
+			case 1:
+			case 3:
+				set .@quest,5021;
+				set .@item,6387; //牙齒標本
+				setarray .@str$[0],"牙齒","牙齒";
+				break;
+			case 2:
+			case 4:
+				set .@quest,5022;
+				set .@item,6388; //鱗片標本
+				setarray .@str$[0],"鱗片","鱗片";
+				break;
+			case 5:
+			case 6:
+				break;
+			}
+			if (.@quest) {
+				mes "[草精研究員]";
+				mes "解析結果顯示,";
+				mes "你採集的樣本只是普通生物的, 並非我們需要的.";
+				emotion ET_PROFUSELY_SWEAT;
+				next;
+				mes "[草精研究員]";
+				mes "一定是因為有太多種類的生物,";
+				mes "泡過三溫暖.";
+				next;
+				mes "[草精研究員]";
+				mes "我很抱歉, 但是還得麻煩你再重新採集一下樣本.";
+				mes "這一次, "+.@str$[1]+"樣本...是的.";
+				mes "請給我帶來"+.@str$[0]+"樣本.";
+				erasequest 5023;
+				setquest .@quest;
+				close;
+			}
+			mes "[草精研究員]";
+			mes "太棒了! 這些樣本確定是";
+			mes "來自不明生物的.";
+			next;
+			mes "[草精研究員]";
+			mes "根據解析結果,";
+			mes "這種DNA是魚的DNA的變種.";
+			mes "我不確定這個傢伙在三溫暖";
+			mes "待了多久,";
+			mes "但我發現這種DNA比普通魚類的DNA";
+			mes "進化了70%.";
+			next;
+			mes "[草精研究員]";
+			mes "這條魚是從哪來的?";
+			mes "它為什麼能在三溫暖裡生存下來?";
+			mes "在做了DNA的解析之後,";
+			mes "我的腦海裡充斥著各種疑問.";
+			next;
+			mes "... ... ... ... ...";
+			emotion ET_THINK;
+			emotion ET_THINK,1;
+			next;
+			mes "[草精研究員]";
+			mes "村裡的老人說,";
+			mes "三溫暖的水是從";
+			mes "村子周圍的水坑來的.";
+			next;
+			callsub L_CheckWeight;
+			mes "[草精研究員]";
+			mes "如果你能到東面,";
+			mes "從這裡的2點鐘方向, 給我弄來水坑裡的樣本水,";
+			mes "我會告訴你接下來幹什麼.";
+			next;
+			mes "[草精研究員]";
+			mes "你可能不需要四處奔波,";
+			mes "就像你採集";
+			mes "三溫暖樣本水一樣.";
+			set ep14_1_muk,10;
+			getitem 1092,1; //空試管
+			erasequest 5023;
+			setquest 5024;
+			next;
+			mes "[草精研究員]";
+			mes "一次採集完4個地方的樣本水";
+			mes "是比較方便啦! 不過這樣樣本水有可能會,";
+			mes "遭到破壞, 或是混在一起,";
+			mes "所以還是必須一個一個去! 辛苦啦!";
+			close;
+		}
+	} else if (ep14_1_muk == 10) {
+		if (countitem(6389) == 0) {
+			mes "[草精研究員]";
+			mes "你還沒去採集水坑的樣本水麼?";
+			mes "快去村子東面的水坑,";
+			mes "把樣本水採集帶來.";
+			mes "從這裡的2點鐘方向.";
+			close;
+		}
+		mes "[草精研究員]";
+		mes "你採集到東面水坑的樣本水了?";
+		mes "幹得不錯, 但是還沒到休息的時候,";
+		mes "研究就快完成了.";
+		next;
+		callsub L_CheckWeight;
+		mes "[草精研究員]";
+		mes "去村子西面的水坑採集樣本水給我.";
+		mes "不完全是正西面...";
+		mes "水坑大概在";
+		mes "村子的7點鐘方向.";
+		delitem 6389,1; //小坑樣本水
+		set ep14_1_muk,11;
+		getitem 1092,1; //空試管
+		changequest 5024,5025;
+		next;
+		mes "[草精研究員]";
+		mes "小心別把樣本破壞了.";
+		mes "祝你好運!";
+		close;
+	} else if (ep14_1_muk == 11) {
+		if (countitem(6389) == 0) {
+			mes "[草精研究員]";
+			mes "你還沒去採集水坑的樣本水麼?";
+			mes "快去村子西面的水坑,";
+			mes "把樣本水採集帶來.";
+			mes "水坑的位置是從這裡的7點鐘方向.";
+			close;
+		}
+		mes "[草精研究員]";
+		mes "你採集到西面水坑的樣本水了?";
+		mes "幹得不錯, 但是還沒到休息的時候,";
+		mes "研究就快完成了.";
+		next;
+		callsub L_CheckWeight;
+		mes "[草精研究員]";
+		mes "去村子南面的水坑採集樣本水給我.";
+		mes "水坑的位置嘛,";
+		mes "應該是...從這裡的6點鐘方向.";
+		delitem 6389,1; //小坑樣本水
+		set ep14_1_muk,12;
+		getitem 1092,1; //空試管
+		changequest 5025,5026;
+		next;
+		mes "[草精研究員]";
+		mes "儘管我已經強調了1000000000000000000000次, 我還是得再次強調.";
+		mes "請一定要小心,";
+		mes "別把樣本破壞了.";
+		close;
+	} else if (ep14_1_muk == 12) {
+		if (countitem(6389) == 0) {
+			mes "你還沒去採集水坑的樣本水麼?";
+			mes "去村子南面的水坑採集樣本水給我.";
+			mes "水坑的位置是";
+			mes "從這裡的6點鐘方向.";
+			next;
+			mes "[草精研究員]";
+			mes "你應該知道我要說什麼了吧?";
+			mes "一切小心.";
+			close;
+		}
+		mes "[草精研究員]";
+		mes "你採集到南面水坑的樣本水了?";
+		mes "那麼現在只剩下北面水坑的";
+		mes "樣本水未採集了.";
+		next;
+		callsub L_CheckWeight;
+		mes "[草精研究員]";
+		mes "請去村子北面的水坑採集樣本水給我.";
+		mes "不完全是正北面.";
+		mes "從這裡的11點鐘方向.";
+		delitem 6389,1; //小坑樣本水
+		set ep14_1_muk,13;
+		getitem 1092,1; //空試管
+		changequest 5026,5027;
+		next;
+		mes "[草精研究員]";
+			mes "你知道我要說什麼吧?";
+			mes "一切小心.";
+		close;
+	} else if (ep14_1_muk == 13) {
+		if (countitem(6389) == 0) {
+			mes "[草精研究員]";
+			mes "你還沒去採集水坑的樣本水麼?";
+			mes "請去村子北面的水坑採集樣本水給我.";
+			mes "不完全是村子的正北面.";
+			mes "水坑的位置應該是從村子的";
+			mes "11點鐘方向.";
+			close;
+		}
+		mes "[草精研究員]";
+		mes "你從北面的水坑帶來了最後一瓶樣本水.";
+		mes "實在是辛苦你了, 幹得漂亮.";
+		next;
+		mes "[草精研究員]";
+		mes "現在, 我將用這些樣本";
+		mes "做一些研究,";
+		mes "看看三溫暖和水坑這兩者之間";
+		mes "存在什麼關係.";
+		next;
+		if (checkweight(6380,4) == 0) {
+			mes "[草精研究員]";
+			mes "我知道你做了很多...";
+			mes "但你帶了太多東西.";
+			mes "即便我想給你一些報酬, 也無能為力.";
+			mes "去減輕點負重再來吧.";
+			close;
+		}
+		mes "[草精研究員]";
+		mes "只要我完成了這項實驗...";
+		mes "應該就沒什麼可以做的了. 在我進行實驗時,";
+		mes "你去好好休息一下吧.";
+		delitem 6389,1; //小坑樣本水
+		set ep14_1_muk,14;
+		getitem 6380,4; //穆拉村硬幣
+		erasequest 5027;
+		setquest 5028;
+		next;
+		mes "[草精研究員]";
+		mes "樣本水的對比實驗需要花費大概12個小時,";
+		mes "你晚些再來吧.";
+		close;
+	} else if (ep14_1_muk == 14) {
+		if (checkquest(5028,PLAYTIME) == 0 || checkquest(5028,PLAYTIME) == 1) {
+			mes "[草精研究員]";
+			mes "噢? 你還在這兒啊?...";
+			next;
+			mes "[草精研究員]";
+			mes "樣本的研究還沒有完成.";
+			mes "這是最終結果的實驗,";
+			mes "所以還是慎重點好.";
+			mes "我想, 研究應該會需要12個小時左右.";
+			next;
+			mes "[草精研究員]";
+			mes "晚點再來吧.";
+			close;
+		}
+		mes "[草精研究員]";
+		mes "你來啦?";
+		mes "實驗的最終結果出來了.";
+		mes "想看看嗎?";
+		next;
+		switch(select("說真的, 我沒興趣:必須啊! 我都累成狗了")) {
+		case 1:
+			mes "[草精研究員]";
+			mes "不看也好. 實際上, 普通人看了的話,";
+			mes "也許會覺得傷腦筋呢.";
+			mes "你幫了我太多忙了,";
+			mes "是時候酬謝你了.";
+			next;
+			mes "[草精研究員]";
+			mes "你幫我之前我就說過,";
+			mes "一定會酬謝你, 不會讓你後悔的...";
+			next;
+			break;
+		case 2:
+			mes "[草精研究員]";
+			mes "你對結果很好奇? 真的嗎???";
+			mes "好吧, 拿去看吧.";
+			next;
+			callsub L_ShowReport;
+			mes "[草精研究員]";
+			mes "這個地區周圍並無火山,";
+			mes "過去也沒有火山爆發的歷史,";
+			mes "但水溫卻如此高...";
+			mes "這難道不奇怪麼?";
+			next;
+			mes "[草精研究員]";
+			mes "成分嘛... 是的.";
+			mes "當然是對你們人類有益的物質.";
+			mes "但是, 也有對我們精靈";
+			mes "或者其它種族,";
+			mes "致命的物質.";
+			next;
+			mes "[草精研究員]";
+			mes "你再看看它的電導率,";
+			mes "比普通的水高出了很多.";
+			mes "我個人推測,";
+			mes "這就是神奇效果的緣由.";
+			mes "不管怎樣,";
+			mes "我反正是這麼認為的.";
+			next;
+			mes "[草精研究員]";
+			mes "三溫暖裡的有些東西";
+			mes "至今還沒法用科學來解釋...";
+			mes "比如, 那個不明生物.";
+			mes "一條魚能在那麼高溫的水裡生活";
+			mes "實在是匪夷所思.";
+			next;
+			mes "[草精研究員]";
+			mes "我並不滿意研究成果和結論.";
+			mes "我想, 到最後,";
+			mes "它將仍然是個謎...";
+			next;
+			mes "[草精研究員]";
+			mes "是時候酬謝你了,";
+			mes "你真的幫了我很多.";
+			next;
+			mes "[草精研究員]";
+			mes "你幫我之前我就說過,";
+			mes "一定會酬謝你, 不會讓你後悔的...";
+			next;
+			break;
+		}
+		mes "[草精研究員]";
+		mes "我在想, 你想要什麼樣的酬謝.";
+		mes "我覺得";
+		mes "有一點...難過.";
+		next;
+		mes "[草精研究員]";
+		mes "... ... ... ...";
+		next;
+		mes "[草精研究員]";
+		mes "在我們一起工作的短暫日子裡,";
+		mes "我讓你四處奔波.";
+		mes "一定很辛苦, 但你卻沒有半點怨言.";
+		mes "你不像我的其他助手,";
+		mes "你從不半途而廢.";
+		next;
+		mes "[草精研究員]";
+		mes "我想我已經喜歡上了你,";
+		mes "所以要說再見我真的有些不舍...";
+		next;
+		mes "[草精研究員]";
+		mes "無論如何, 真的很感謝你. 我搞研究已經有一些日子了,";
+		mes "但我從來沒遇到過像你這麼優秀的助理.";
+		next;
+		if (MaxWeight - Weight < 100 || checkweight(1092,1) == 0) {
+			mes "[草精研究員]";
+			mes "嗯? 那什麼...";
+			mes "你帶了太多東西了.";
+			mes "你也因為要分道揚鑣了";
+			mes "感到難過麼?";
+			next;
+			mes "[草精研究員]";
+			mes "帶這麼多東西, 我都沒法酬謝你了!";
+			close;
+		}
+		mes "[草精研究員]";
+		mes "我生命中最好的研究助理...";
+		mes "是你, "+strcharinfo(0)+"!!!";
+		set ep14_1_muk,15;
+		completequest 5028;
+		getexp 1000000,4000000;
+		getitem 6380,30; //穆拉村硬幣
+		next;
+		mes "[草精研究員]";
+		mes "如果我們有緣能再見面,";
+		mes "希望還能一起做更多的研究工作.";
+		close;
+	} else if (ep14_1_muk == 15) {
+		mes "[草精研究員]";
+		mes "嗯? 不?... 你在這幹嘛?";
+		next;
+		mes "[草精研究員]";
+		mes "難道是你突然想看看";
+		mes "研究報告?";
+		next;
+		switch(select("給我看下研究報告:我只是來打個招呼")) {
+		case 1:
+			mes "[草精研究員]";
+			mes "我之前沒給你看過麼?";
+			next;
+			mes "[草精研究員]";
+			mes "... ... ... ...";
+			emotion ET_THINK;
+			next;
+			mes "[草精研究員]";
+			mes "可能我真沒給你看過.";
+			mes "真是抱歉. 所以你這麼急切地回來見我,";
+			mes "是想要看它?";
+			mes "好的! 拿去看吧.";
+			next;
+			while(1) {
+				callsub L_ShowReport;
+				mes "[草精研究員]";
+				mes "這份穆拉村三溫暖神奇效果的";
+				mes "調查報告.";
+				mes "你想再看看嗎?";
+				emotion ET_QUESTION;
+				next;
+				switch(select("再看看:不看了")) {
+				case 1:
+					mes "[草精研究員]";
+					mes "好的...如你所願!";
+					next;
+					break;
+				case 2:
+					mes "[草精研究員]";
+					mes "再見. 如果你想再次看報告的話,";
+					mes "隨時都可以來看.";
+					mes "隨時歡迎你.";
+					close;
+				}
+			}
+		case 2:
+			mes "[草精研究員]";
+			mes "哦, 你是來打招呼的吧.";
+			mes "好久不見, "+strcharinfo(0)+".";
+			next;
+			mes "[草精研究員]";
+			mes "我已經說過了, 挑選你作為我的研究助理, 實乃我幸.";
+			mes "如果你想再次看報告的話,";
+			mes "隨時都可以來看.";
+			mes "隨時歡迎你.";
+			close;
+		}
+	} else {
+		mes "[草精研究員]";
+		mes "嗯? 我是研究員 舒芙蕾.";
+		mes "你是誰?";
+		close;
+	}
+	end;
+L_ShowReport:
+	mes "[研究報告]";
+	mes "*** 研究員 - 舒芙蕾";
+	mes "*** 助理 - "+strcharinfo(0);
+	mes "　";
+	mes "<研究對象>";
+	mes "*** 穆拉村三溫暖";
+	mes "　";
+	mes "<研究目的>";
+	mes "調查三溫暖的神奇效果,";
+	mes "找出更好的";
+	mes "利用方案.";
+	mes "　";
+	mes "<研究過程>";
+	mes "1. 取得未鑑定的DNA樣本.";
+	mes "取得一組未鑑定的DNA的樣本,,";
+	mes "並收集更多的樣本深入研究.";
+	mes "　";
+	mes "2. 將未鑑定的DNA進行對比解析.";
+	mes "推斷出DNA屬於生活在三溫暖的";
+	mes "一個不明生物.";
+	mes "結合劍魚的DNA分析";
+	mes "確定是源自劍魚的DNA.";
+	mes "　";
+	mes "3. 研究村子周圍的水坑.";
+	mes "從村子四面的水坑中取材,";
+	mes "確認了測試物質";
+	mes "均勻分布在水坑內.";
+	mes "綜合分析, 可以確定三溫暖的神奇效果";
+	mes "就是由這四個水坑的水";
+	mes "流入而產生的.";
+	mes "　";
+	mes "<材料解析>";
+	mes "*** 溫度 ***** 33.5?";
+	mes "*** PH值 ************ 9.8";
+	mes "*** 固體殘渣 *** 176";
+	mes "*** 成分K+ ************ 0,23";
+	mes "*** 成分Ca++ ********** 1.83";
+	mes "*** 成分Cl- *********** 26.2";
+	mes "*** 成分HCO3- ********* 31.0";
+	mes "*** 成分H2S *********** 1.7";
+	mes "*** 成分Na++ ********** 51.9";
+	mes "*** 成分Mg+ *********** 0.03";
+	mes "*** 成分SO4- ********** 5.0";
+	mes "*** 成分F ************* 12.8";
+	mes "*** 成分SiO2 ********** 23.9";
+	mes "*** 成分Li ************ 0.06";
+	mes "*** 成分CO3+ ********** 22.8";
+	mes "*** 成分Sr ************ 0.04";
+	mes "*** 成分Ge ************ 0.004";
+	mes "*** 成分T-solids ****** 165";
+	mes "*** 電導率 **** 500";
+	mes "*** 經度 ********** 4.6";
+	next;
+	return;
+L_CheckWeight:
+	if (MaxWeight - Weight < 100 || checkweight(1092,1) == 0) {
+		mes "[草精研究員]";
+		mes "你帶了太多的東西.";
+		mes "我沒法給你裝樣本用的空試管.";
+		mes "去減輕點負重再來吧.";
+		close;
+	}
+	return;
+}
+
+mora,114,79,0	script	黑影怪#ep14_muk	844,{
+	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 500) {
+		mes "^FF0000- 警告信息 -";
+		mes "- 站住!! -";
+		mes "- 你攜帶了太多的物品 -";
+		mes "- 存放掉部分後. -";
+		mes "- 並同時減輕你的負重 -";
+		mes "- 再進行嘗試. -^000000";
+		close;
+	}
+	if (BaseLevel < 100) {
+		mes "有什麼東西正從上到下打量著你, 之後便消失了, 帶著嘲諷的表情.";
+		close2;
+		donpcevent "黑影怪#ep14_muk::OnDisable";
+		end;
+	}
+	set .@playtime, checkquest(5029,PLAYTIME);
+	if (.@playtime == 0 || .@playtime == 1) {
+		mes "你看見了一個黑洞. 正當你感興趣時, 有什麼東西快速消失進了黑洞裡.";
+		close2;
+		donpcevent "黑影怪#ep14_muk::OnDisable";
+		end;
+	} else if (.@playtime == 2)
+		erasequest 5029;
+	if (ep14_1_goki == 30) {
+		if (checkquest(5030) == -1 && checkquest(5031) == -1 && checkquest(5032) == -1 && checkquest(5033) == -1 && checkquest(5034) == -1) {
+			mes "[不明生物]";
+			mes "啊啊啊啊!!!";
+			mes "你為什麼來招惹我.";
+			mes "別來折磨我.";
+			next;
+			if(select("就是要折磨:停手") == 1) {
+				emotion ET_CRY;
+				set ep14_1_goki,0;
+				close2;
+				donpcevent "黑影怪#ep14_muk::OnDisable";
+				end;
+			}
+			mes "[不明生物]";
+			mes "你... 很好.";
+			mes "人人都叫我怪物.";
+			mes "打我. 折磨我. 我好累.";
+			next;
+			mes "[費絲]";
+			mes "我叫費絲.";
+			mes "我爹起的名字.";
+			next;
+			mes "... ... ... ... ...";
+			next;
+			mes "他也不著調.";
+			next;
+			mes "[費絲]";
+			mes "折磨我. 愚弄我. 每一天.";
+			mes "我抗議. 依然折磨.";
+			next;
+			mes "[費絲]";
+			mes "你...很好. 幫助費絲?";
+			next;
+			if(select("不幫它:幫它") == 1) {
+				emotion ET_CRY;
+				set ep14_1_goki,0;
+				close2;
+				donpcevent "黑影怪#ep14_muk::OnDisable";
+				end;
+			}
+			mes "[費絲]";
+			mes "你很好. 很好!";
+			next;
+			mes "[費絲]";
+			mes "我不住這兒.";
+			mes "我住水坑.";
+			mes "水坑. 住那兒.";
+			next;
+			mes "[費絲]";
+			mes "我睡覺很奇怪.";
+			mes "有一天醒來.";
+			mes "在這, 洗澡.";
+			next;
+			mes "[費絲]";
+			mes "突然不知道怎麼回家.";
+			mes "我就住這兒了.";
+			mes "長大了. 洞太小.";
+			mes "進不去了.";
+			next;
+			mes "[費絲]";
+			mes "我思念我的家人. 我好想見他們.";
+			mes "你很好. 把我的家人.";
+			mes "帶來見我. 很好.";
+			next;
+			select("我怎麼知道誰你的家人?");
+			mes "[費絲]";
+			mes "我們魚類很笨的.";
+			mes "很笨. 但是知道家人的名字.";
+			next;
+			mes "[費絲]";
+			mes "他們聽到 費絲 這個名字. 他們就會來.";
+			next;
+			mes "[費絲]";
+			mes "拜託了. 在這水坑.";
+			mes "你告訴我的家人我一切都好.";
+			setquest 5030+rand(4); //5030,5031,5032,5033
+			close;
+		} else if (checkquest(5030) > -1 || checkquest(5031) > -1 || checkquest(5032) > -1 || checkquest(5033) > -1) {
+			mes "[費絲]";
+			mes "拜託了. 在這水坑.";
+			mes "你告訴我的家人我一切都好.";
+			next;
+			mes "[費絲]";
+			mes "你忘了我的名字?";
+			next;
+			if(select("再給我說下你的名字!:我知道你的名字.") == 1) {
+				mes "[費絲]";
+				mes "瞧你這記性, 跟我們魚一樣.";
+				mes "笨死了. 我說了.";
+				mes "我的名字叫費絲, 費絲!!";
+				next;
+			}
+			mes "[費絲]";
+			mes "拜託了. 在這水坑.";
+			mes "你告訴我的家人我一切都好.";
+			close;
+		} else if (checkquest(5034) > -1 && checkquest(5034) < 2) {
+			if (MaxWeight - Weight < 100 || checkweight(5792,1) == 0) {
+				mes "[費絲]";
+				mes "你超重了.";
+				mes "清理一下背包.";
+				mes "然後再來.";
+				close;
+			}
+			mes "[費絲]";
+			mes "你告訴我的家人我一切都好.";
+			mes "我會感謝你的. 雖然我只是條魚.";
+			mes "酬...我不知道那個單詞怎麼說.";
+			next;
+			select("你是說...酬謝??");
+			mes "[費絲]";
+			mes "是的. 就是那個. 你真厲害.";
+			mes "聰明! 給你酬謝.";
+			mes "我會感謝你的. 雖然我只是條魚.";
+			next;
+			mes "[費絲]";
+			mes "拿著, 我從三溫暖裡弄到的.";
+			mes "哦不. 不知道是誰落下的.";
+			mes "... ... 好人. 我把它給你了.";
+			completequest 5034;
+			getitem 5792,1; //小魚髮夾[0]
+			close;
+		} else if (checkquest(5034) == 2) {
+			mes "[費絲]";
+			mes "你...  我知道. 感覺. 我知道. 感覺.";
+			mes "你... 的名字?";
+			next;
+			input .@inputstr$;
+			mes "[費絲]";
+			mes .@inputstr$+" 啊.";
+			mes "不認識. 不記得..";
+			mes "你...是...誰?";
+			close;
+		}
+	}
+	set .@weapon$, ((getequipisequiped(EQI_HAND_R))?getequipname(EQI_HAND_R):"赤手空拳");
+	set .@pc_hp, 200;
+	set .@npc_hp, 200;
+	setarray .@skills$[0],"腹頂","頭頂","腰頂","螺旋拳擊","喃喃自語";
+	mes "不明生物正在攻擊你. 你打算怎麼做呢?";
+	next;
+	while(1) {
+		switch(select("使用武器攻擊:使用技能攻擊:使用牙齒攻擊:好可怕! 快逃!")) {
+		case 1: // Weapon
+			set .@p_damage,10;
+			set .@pc_attack, rand(1,10);
+			mes "[ "+strcharinfo(0)+"的攻擊 ]";
+			switch(.@pc_attack) {
+			// Miss.
+			case 3:
+				mes "你嘗試用最近購買的昂貴的^FF0000["+.@weapon$+"]^000000進行攻擊, 但是不明生物迅速躲開了.";
+				break;
+			case 6:
+				mes "由於你使用^FF0000["+.@weapon$+"]^000000的方式錯誤, 儘管攻擊了不明生物, 但被它預見到了從而閃避了攻擊.";
+				break;
+			case 9:
+				mes "你用寶貴的^FF0000[+"+.@weapon$+"+]^000000向不明生物發動了攻擊, 但被它撤走從而閃避了你的攻擊.";
+				break;
+			// Hit.
+			default:
+				specialeffect EF_HIT1;
+				set .@npc_hp, .@npc_hp - .@p_damage;
+				switch(.@pc_attack) {
+					case 1: set .@str$,"你用寶貴的^FF0000["+.@weapon$+"]^000000發動了攻擊, 武器刺穿了不明生物的身體."; break;
+					case 2: set .@str$,"你使用^FF0000["+.@weapon$+"]^000000的方式錯誤. 砰的一聲, 不明生物的身體開始搖晃."; break;
+					case 4: set .@str$,"你嘗試用最近購買的昂貴的^FF0000["+.@weapon$+"]^000000進行攻擊. 砰的一聲, 你擊中了不明生物的身體."; break;
+					case 5: set .@str$,"你用借來的FF0000["+.@weapon$+"]^000000攻擊不明生物, 但武器脫手了. 不過又恰好在下落時刺穿了不明生物的身體."; break;
+					case 7: set .@str$,"你用寶貴的^FF0000["+.@weapon$+"]^000000向不明生物進行了攻擊. 武器就像是你身體的一部分."; break;
+					case 8: set .@str$,"你用你的幸運^FF0000["+.@weapon$+"]^000000攻擊了不明生物."; break;
+					case 10: set .@str$,"你用朋友的^FF0000["+.@weapon$+"]^000000攻擊了不明生物."; break;
+				}
+				mes .@str$+" 造成了 ^FF0000["+.@p_damage+"]^000000 點傷害.";
+				break;
+			}
+			next;
+			break;
+		case 2: // Skill
+			set .@p_damage,20;
+			set .@pc_attack, rand(1,6);
+			set .@skillname$, .@skills$[rand(5)];
+			mes "[ "+strcharinfo(0)+"的攻擊 ]";
+			switch(.@pc_attack) {
+			// Miss.
+			case 2:
+				mes "你施展了技能^0000FF["+.@skillname$+"]^000000, 但你不夠集中精神, 並且施展的方式不正確.";
+				break;
+			case 4:
+				mes "你施展了技能^0000FF["+.@skillname$+"]^000000, 用盡了所有力氣, 卻被不明生物一臉嘲笑地輕鬆躲過.";
+				break;
+			case 6:
+				mes "你施展了技能^0000FF["+.@skillname$+"]^000000, 卻被不明生物跑出視野導致技能施展失敗.";
+				break;
+			// Hit.
+			default:
+				specialeffect EF_BASH;
+				set .@npc_hp, .@npc_hp - .@p_damage;
+				switch(.@pc_attack) {
+					case 1: set .@str$, "你的攻擊是如此迅猛, 不明生物驚訝得不能移動."; break;
+					case 3: set .@str$, "不明生物閃避了, 但你預見了他的動作所以準確命中了."; break;
+					case 5: set .@str$, "你的技能飛出一個完美的弧線, 精準地擊中不明生物."; break;
+				}
+				mes "你施展了技能^0000FF["+.@skillname$+"]^000000攻擊不明生物. "+.@str$+" 造成了 ^FF0000["+.@p_damage+"]^000000 點傷害.";
+				break;
+			}
+			next;
+			break;
+		case 3: // Tooth
+			set .@p_damage,50;
+			set .@pc_attack, rand(1,10);
+			mes "[ "+strcharinfo(0)+"的攻擊 ]";
+			if (.@pc_attack == 4 || .@pc_attack == 7) {
+				specialeffect EF_HIT1;
+				set .@npc_hp, .@npc_hp - .@p_damage;
+				mes "你用你整潔的牙齒使勁咬住不明生物直到牙齒陷入不明生物的硬肉裡. 造成了 ^FF0000["+.@p_damage+"]^000000 點傷害.";
+			} else
+				mes "你用你鋼鐵般的牙齒咬住不明生物, 不明生物受到驚嚇躲開了. 它冷冷地盯著你.";
+			next;
+			break;
+		case 4: // Run
+			mes "你畏懼不明生物, 開始嘗試逃跑.";
+			next;
+			mes "["+strcharinfo(0)+"的逃跑]";
+			if (rand(1,2) == 1) {
+				mes "幸運的是, 不明生物沒有跟來.";
+				close;
+			} else {
+				mes "當你試圖逃跑時, 被不明生物察覺了, 它攻擊了你. 逃跑失敗.";
+				next;
+				specialeffect2 EF_HIT1;
+				mes "不明生物用它的尾巴使勁掃了你一下. 你疼得流出了一滴眼淚. 你受到了 ^FF000010^000000 點傷害.";
+				set .@pc_hp, .@pc_hp - 10;
+				next;
+				// Unofficial check, but it's needed here.
+				callsub L_CheckPCAlive, .@pc_hp;
+			}
+			break;
+		}
+		if (.@npc_hp <= 0) {
+			mes "你贏了. 不明生物失去了知覺.";
+			next;
+			if (checkquest(5016) > -1 && countitem(6385) == 0) {
+				mes "你打算怎麼做呢?";
+				next;
+				select("尋找研究工具");
+				if (checkweight(6385,1) == 0) {
+					mes "你試圖尋找研究工具,";
+					mes "但你攜帶的東西太多了.";
+					mes "你最好減輕負重之後";
+					mes "再來.";
+					close2;
+					donpcevent "黑影怪#ep14_muk::OnDisable";
+					end;
+				}
+				mes "從倒下的不明生物身體裡找回了草精研究員的^0000FF研究工具^000000.";
+				set ep14_1_goki, ep14_1_goki+1;
+				getitem 6385,1; //研究工具箱
+				setquest 5029;
+				next;
+				mes "不明生物醒來之後消失進了黑洞裡.";
+				close2;
+				donpcevent "黑影怪#ep14_muk::OnDisable";
+				end;
+			} else if (checkquest(5017) > -1) {
+				mes "你要如何折磨不明生物?";
+				next;
+				input .@inputstr$;
+				mes "你對不明生物展開^0000FF"+.@inputstr$+"^000000並折磨它.";
+				next;
+				setquest 5029;
+				switch(ep14_1_muk) {
+				case 3:
+					mes "你折磨了不明生物一次, 總覺得有點好玩.";
+					break;
+				case 4:
+					mes "你折磨了不明生物兩次, 著實覺得很有趣.";
+					break;
+				case 5:
+					mes "你折磨了不明生物三次. 很有趣, 但是時候停手了.";
+					changequest 5017,5018;
+					break;
+				}
+				set ep14_1_muk, ep14_1_muk+1;
+				set ep14_1_goki, ep14_1_goki+1;
+				close2;
+				donpcevent "黑影怪#ep14_muk::OnDisable";
+				end;
+			} else {
+				mes "你打算怎麼做呢?";
+				next;
+				if(select("檢查不明生物的身體:離開") == 2) {
+					setquest 5029;
+					set ep14_1_goki, ep14_1_goki+1;
+					close2;
+					donpcevent "黑影怪#ep14_muk::OnDisable";
+					end;
+				}
+				if (rand(1,30) == 7) {
+					if (checkweight(6380,1) == 0) {
+						mes "當你檢查不明生物的身體時, 你的手指貌似碰到了什麼東西. 你很幸運, 但是由於你超重了, 所以未能獲得^0000FF穆拉村硬幣^000000.";
+						set ep14_1_goki, ep14_1_goki+1;
+						setquest 5029;
+						close2;
+						donpcevent "黑影怪#ep14_muk::OnDisable";
+						end;
+					}
+					mes "當你檢查不明生物的身體時, 你的手指貌似碰到了什麼東西. 很幸運, 你獲得了一枚^0000FF穆拉村硬幣^000000.";
+					set ep14_1_goki, ep14_1_goki+1;
+					getitem 6380,1; //穆拉村硬幣
+					setquest 5029;
+					next;
+					mes "不明生物醒來之後消失進了黑洞裡.";
+				} else {
+					mes "你一碰到不明生物的身體, 它就醒了過來並消失進了黑洞裡.";
+					set ep14_1_goki, ep14_1_goki+1;
+					setquest 5029;
+				}
+				close2;
+				donpcevent "黑影怪#ep14_muk::OnDisable";
+				end;
+			}
+		}
+		mes "[ 目前狀況 ]";
+		mes strcharinfo(0)+" HP = "+.@pc_hp;
+		mes "不明生物 HP = "+.@npc_hp;
+		next;
+		mes "[ 不明生物的攻擊 ]";
+		set .@npc_attack, rand(1,3);
+		switch(.@npc_attack) {
+		case 1:
+			set .@n_damage,10;
+			mes "不明生物向你射出了一股洗澡水.";
+			break;
+		case 2:
+			set .@n_damage,20;
+			mes "不明生物以最快的速度衝向你. 它似乎嘗試用頭頂你.";
+			break;
+		case 3:
+			set .@n_damage,50;
+			mes "不明生物呲牙咧嘴地衝向你. 它似乎嘗試咬你.";
+			break;
+		}
+		next;
+		mes "你打算怎麼做呢?";
+		next;
+		switch(select("... ... ...:閃開:擋住:不行! 還是快逃吧!")) {
+		case 1:
+			switch(.@npc_attack) {
+			case 1:
+				specialeffect2 EF_ICEARROW;
+				mes "你呆立著. 洗澡水直接射了你一臉. 你這才回過神來. 你受到了 ^FF0000["+.@n_damage+"]^000000 點傷害.";
+				break;
+			case 2:
+				specialeffect2 EF_BASH;
+				mes "你呆立著. 不明生物撞了你個正著. 你這才回過神來. 你受到了 ^FF0000["+.@n_damage+"]^000000 點傷害.";
+				break;
+			case 3:
+				specialeffect2 EF_HIT1;
+				mes "你呆立著. 當你傻傻地站著時, 不明生物已經來到了你面前並狠狠地咬了你一口. 你這才回過神來. 你受到了 ^FF0000["+.@n_damage+"]^000000 點傷害.";
+				break;
+			}
+			set .@pc_hp, .@pc_hp - .@n_damage;
+			next;
+			break;
+		case 2:
+			switch(.@npc_attack) {
+			case 1:
+				set .@miss, rand(1,5);
+				mes "[ 不明生物的攻擊 ]";
+				switch(.@miss) {
+				// Miss.
+				case 1:
+					mes "不明生物向你射出了一股洗澡水, 但你一個輕鬆側身就躲開了.";
+					break;
+				case 3:
+					mes "不明生物向你射出了一股洗澡水, 但你挖了挖鼻孔, 然後躲開了.";
+					break;
+				// Hit.
+				default:
+					specialeffect2 EF_ICEARROW;
+					set .@pc_hp, .@pc_hp - .@n_damage;
+					switch(.@miss) {
+						case 2: set .@str$,"臉"; break;
+						case 4: set .@str$,"胃"; break;
+						case 5: set .@str$,"胳膊"; break;
+					}
+					mes "洗澡水射中了你的"+.@str$+". 你受到了 ^FF0000["+.@n_damage+"]^000000 點傷害.";
+					break;
+				}
+				next;
+				break;
+			case 2:
+				set .@miss, rand(1,10);
+				mes "[ 不明生物的攻擊 ]";
+				switch(.@miss) {
+				// Miss.
+				case 1:
+					mes "不明生物嘗試用頭頂你, 但你根本無懼, 直接剛了正面.";
+					break;
+				case 3:
+					mes "不明生物嘗試用頭頂你, 但你一個小後撤步就躲開了.";
+					break;
+				case 5:
+					mes "不明生物嘗試用頭頂你, 但你挖了挖鼻孔, 然後躲開了.";
+					break;
+				case 7:
+					mes "不明生物嘗試用頭頂你, 但你輕輕鬆鬆就躲開了.";
+					break;
+				// Hit.
+				default:
+					specialeffect2 EF_BASH;
+					set .@pc_hp, .@pc_hp - .@n_damage;
+					switch(.@miss) {
+						case 2: set .@str$,"砰的一聲, 你感到了劇烈的疼痛."; break;
+						case 4: set .@str$,"*砰* 你的腰似乎要斷了."; break;
+						case 6: set .@str$,"不明生物的攻擊命中了你的肩膀."; break;
+						case 8: set .@str$,"這次攻擊猶如箭一般."; break;
+						case 9: set .@str$,"這次攻擊真是又快又準."; break;
+						case 10: set .@str$,"砰的一聲, 撞到了你的手."; break;
+					}
+					mes "不明生物衝到你面前撞了你一下. "+.@str$+" 你受到了 ^FF0000["+.@n_damage+"]^000000 點傷害.";
+					break;
+				}
+				next;
+				break;
+			case 3:
+				set .@miss, rand(1,10);
+				mes "[ 不明生物的攻擊 ]";
+				switch(.@miss) {
+				// Miss.
+				case 1:
+					mes "不明生物呲牙咧嘴地衝向你, 你輕蔑地嘲笑著, 然後躲開了.";
+					break;
+				case 3:
+					mes "不明生物呲牙咧嘴地衝向你, 你只是稍作移動, 就躲開了.";
+					break;
+				case 5:
+					mes "不明生物呲牙咧嘴地衝向你, 你伸了伸懶腰, 然後躲開了.";
+					break;
+				case 7:
+					mes "不明生物呲牙咧嘴地衝向你, 你躲開了, 然後繼續數錢.";
+					break;
+				case 8:
+					mes "不明生物呲牙咧嘴地衝向你, 但你輕輕鬆鬆就躲開了.";
+					break;
+				case 9:
+					mes "不明生物呲牙咧嘴地衝向你, 你輕蔑地嘲笑著, 然後躲開了.";
+					break;
+				// Hit.
+				default:
+					specialeffect2 EF_HIT1;
+					set .@pc_hp, .@pc_hp - .@n_damage;
+					switch(.@miss) {
+						case 2: set .@str$,"大腿. 鋒利的牙齒刺穿了大腿."; break;
+						case 4: set .@str$,"胳膊. 鋒利的牙齒刺穿了胳膊."; break;
+						case 6: set .@str$,"腳趾. 你感覺腳趾被咬斷了."; break;
+						case 10: set .@str$,"手指. 你感覺手指被咬斷了."; break;
+					}
+					mes "不明生物呲牙咧嘴地衝向你, 咬了你的"+.@str$+" 你受到了 ^FF0000["+.@n_damage+"]^000000 點傷害.";
+					break;
+				}
+				next;
+				break;
+			}
+			break;
+		case 3:
+			set .@defend, rand(1,10);
+			switch(.@npc_attack) {
+			case 1:
+				if (.@defend == 3 || .@defend == 6) {
+					set .@n_damage, .@n_damage / 2;
+					specialeffect2 EF_GUARD;
+				} else
+					specialeffect2 EF_ICEARROW;
+				set .@pc_hp, .@pc_hp - .@n_damage;
+				mes "[ "+strcharinfo(0)+"的防禦 ]";
+				switch(.@defend) {
+					// Blocked.
+					case 3: set .@str$,"你用大屁股抵擋了水流的攻擊. 感覺很爽. HP減少減半."; break;
+					case 6: set .@str$,"你用強有力的雙手抵擋了水流的攻擊. 你的手有點疼. HP減少減半."; break;
+					// Not blocked.
+					case 1: set .@str$,"你嘗試用大屁股抵擋水流的攻擊, 但為時已晚."; break;
+					case 2: set .@str$,"你嘗試用啤酒肚抵擋水流的攻擊, 但無濟於事."; break;
+					case 4: set .@str$,"你嘗試用交叉的雙手抵擋水流的攻擊, 但不明生物攻擊了其它部位."; break;
+					case 5: set .@str$,"你嘗試用強有力的雙手抵擋水流的攻擊, 但沒有成功."; break;
+					case 7: set .@str$,"你嘗試用交叉的雙臂抵擋水流的攻擊, 但你疊的方式不對."; break;
+					case 8: set .@str$,"你嘗試用鐵頭抵擋水流的攻擊, 但那是不可能的."; break;
+					case 9: set .@str$,"你嘗試用健碩的肌肉抵擋水流的攻擊, 但那是不可能的."; break;
+					case 10: set .@str$,"你嘗試用強有力的雙腳抵擋水流的攻擊, 但只是徒勞."; break;
+				}
+				mes .@str$+" 你受到了 ^FF0000["+.@n_damage+"]^000000 點傷害.";
+				next;
+				break;
+			case 2:
+				if (.@defend == 1 || .@defend == 3 || .@defend == 5 || .@defend == 7) {
+					set .@n_damage, .@n_damage / 2;
+					specialeffect2 EF_GUARD;
+				} else
+					specialeffect2 EF_BASH;
+				set .@pc_hp, .@pc_hp - .@n_damage;
+				mes "[ "+strcharinfo(0)+"的防禦 ]";
+				switch(.@defend) {
+					// Blocked.
+					case 1: set .@str$,"你用肥臀頂住了衝撞攻擊. 你的屁股是世界級的. HP減少減半."; break;
+					case 3: set .@str$,"你用啤酒肚頂住了衝撞攻擊. 你的肚子是世界級的. HP減少減半."; break;
+					case 5: set .@str$,"你用強有力的雙手格擋了衝撞攻擊. 你的雙手是世界級的. HP減少減半."; break;
+					case 7: set .@str$,"不明生物以閃電般的速度衝向你, 但你用啤酒肚輕鬆抗住了攻擊. 你的肚子是世界級的. HP減少減半."; break;
+					// Not blocked.
+					case 2: set .@str$,"你嘗試用肥臀頂住衝撞攻擊, 由於失誤, 你被擊中了隱私部位."; break;
+					case 4: set .@str$,"你嘗試用啤酒肚頂住衝撞攻擊, 但你的肚子還沒大到能完全抵擋這次衝擊."; break;
+					case 6: set .@str$,"你嘗試用交叉的雙臂頂住衝撞攻擊, 但你感到了一股不可思議的力量."; break;
+					case 8: set .@str$,"你嘗試頂住衝撞攻擊, 但無濟於事."; break;
+					case 9: set .@str$,"你嘗試用強有力的雙手頂住衝撞攻擊, 但無濟於事."; break;
+					case 10: set .@str$,"你嘗試用剛健的雙腳頂住衝撞攻擊, 但疼痛讓你明白那是螳臂當車."; break;
+				}
+				mes .@str$+" 你受到了 ^FF0000["+.@n_damage+"]^000000 點傷害.";
+				next;
+				break;
+			case 3:
+				if (.@defend == 2 || .@defend == 4 || .@defend == 6 || .@defend == 8) {
+					set .@n_damage, .@n_damage / 2;
+					specialeffect2 EF_GUARD;
+				}
+				set .@pc_hp, .@pc_hp - .@n_damage;
+				mes "[ "+strcharinfo(0)+"的防禦 ]";
+				switch(.@defend) {
+					// Blocked.
+					case 2: set .@str$,"但你用附近的一根樹枝抵擋了攻擊. HP減少減半."; break;
+					case 4: set .@str$,"但你用一把武器抵擋了攻擊. HP減少減半."; break;
+					case 6: set .@str$,"但你施展技能^0000FF友情之盾^000000抵擋了攻擊. HP減少減半."; break;
+					case 8: set .@str$,"但你用一直隨身攜帶的書抵擋了攻擊. HP減少減半."; break;
+					// Not blocked.
+					case 1: set .@str$,"並咬了你的手臂."; break;
+					case 3: set .@str$,"並咬了你的大腿."; break;
+					case 5: set .@str$,"並咬了你的肩膀."; break;
+					case 7: set .@str$,"並咬了你的手指."; break;
+					case 9: set .@str$,"並咬了你的手指."; break;
+					case 10: set .@str$,"並咬了你的腳趾."; break;
+				}
+				mes "不明生物呲牙咧嘴地衝向你, "+.@str$+" 你受到了 ^FF0000["+.@n_damage+"]^000000 點傷害.";
+				next;
+				break;
+			}
+			break;
+		case 4:
+			mes "你畏懼不明生物, 開始嘗試逃跑.";
+			next;
+			mes "["+strcharinfo(0)+"的逃跑]";
+			if (rand(1,2) == 1) {
+				mes "幸運的是, ^BF2C15不明生物^000000";
+				mes "沒有跟來.";
+				close;
+			} else {
+				mes "當你試圖逃跑時, 被不明生物察覺了, 它攻擊了你.";
+				mes "逃跑失敗.";
+				next;
+				mes "不明生物用它的尾巴使勁掃了你一下. 你疼得流出了一滴眼淚. 你受到了 ^FF000010^000000 點傷害.";
+				set .@pc_hp, .@pc_hp - 10;
+				next;
+			}
+			break;
+		}
+		callsub L_CheckPCAlive, .@pc_hp;
+		mes "[ 目前狀況 ]";
+		mes strcharinfo(0)+" HP = "+.@pc_hp;
+		mes "不明生物 HP = "+.@npc_hp;
+		next;
+	}
+	end;
+L_CheckPCAlive:
+	if (getarg(0) <= 0) {
+		mes "你輸給了不明生物. 你大腦一片空白, 暈倒在地.";
+		next;
+		mes "在某人的幫助下你離開了三溫暖.";
+		percentheal -99,0;
+		donpcevent "黑影怪#ep14_muk::OnDisable";
+		warp "mora",31,132;
+		end;
+	}
+	return;
+OnInit:
+	disablenpc "黑影怪#ep14_muk";
+	end;
+OnEnable:
+	enablenpc "黑影怪#ep14_muk";
+	disablenpc "???#ep14_muk01";
+	disablenpc "???#ep14_muk02";
+	disablenpc "???#ep14_muk03";
+	disablenpc "???#ep14_muk04";
+	disablenpc "???#ep14_muk05";
+	end;
+OnDisable:
+	disablenpc "黑影怪#ep14_muk";
+	donpcevent "黑影怪#ep14_muk::OnFullon";
+	mapannounce "mora","已經可以使用三溫暖的神奇效果.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+	end;
+OnFullon:
+	donpcevent "???#ep14_muk01::OnReset";
+	donpcevent "???#ep14_muk02::OnReset";
+	donpcevent "???#ep14_muk03::OnReset";
+	donpcevent "???#ep14_muk04::OnReset";
+	donpcevent "???#ep14_muk05::OnReset";
+	end;
+}
+
+-	script	???#mora	-1,{
+	if (checkquest(5019) > -1) {
+		mes "你發現了一個神秘氣體聚集的地方,";
+		mes "似乎可以採集三溫暖樣本水.";
+		mes "你打算怎麼做呢?";
+		next;
+		if(select("採集樣本水:直接離開") == 2) {
+			donpcevent strnpcinfo(0)+"::OnDisable";
+			end;
+		}
+		if (countitem(6386) >= 10) {
+			mes "你不需要那麼多的樣本.";
+			close2;
+			donpcevent strnpcinfo(0)+"::OnDisable";
+			end;
+		}
+		if (countitem(1092) == 0) {
+			mes "你需要一個空試管來裝樣本.";
+			close2;
+			donpcevent strnpcinfo(0)+"::OnDisable";
+			end;
+		}
+		mes "正在採集樣本.";
+		next;
+		progressbar "ffff00",3;
+		if (!rand(3)) {
+			if (checkweight(6386,1) == 0) {
+				mes "你攜帶了太多東西,";
+				mes "這樣很難收集到樣本了.";
+				mes "你必須減輕你的負重, 然後再來.";
+				close2;
+				donpcevent strnpcinfo(0)+"::OnDisable";
+				end;
+			}
+			mes "三溫暖樣本水採集完畢.";
+			delitem 1092,1; //空試管
+			getitem 6386,1; //三溫暖樣本水
+		} else {
+			mes "三溫暖樣本水採集失敗.";
+			percentheal 5,5;
+		}
+		close2;
+		donpcevent strnpcinfo(0)+"::OnDisable";
+		end;
+	} else if (checkquest(5021) > -1 || checkquest(5022) > -1) {
+		if (checkquest(5021) > -1) {
+			set .@str$,"牙齒";
+			set .@item,6387; //牙齒標本
+		} else {
+			set .@str$,"鱗片";
+			set .@item,6388; //鱗片標本
+		}
+		mes "水裡有什麼東西閃閃發光.";
+		mes "也許你需要收集不明生物的"+.@str$+"樣本.";
+		mes "你打算怎麼做呢?";
+		next;
+		if(select("繼續唄:直接離開") == 2) {
+			donpcevent strnpcinfo(0)+"::OnDisable";
+			end;
+		}
+		if (countitem(.@item) >= 10) {
+			mes "你不需要那麼多的樣本.";
+			close2;
+			donpcevent strnpcinfo(0)+"::OnDisable";
+			end;
+		}
+		progressbar "ffff00",3;
+		if (!rand(3)) {
+			if (checkweight(.@item,1) == 0) {
+				mes "你攜帶了太多東西,";
+				mes "這樣很難收集到樣本了.";
+				mes "你必須減輕你的負重, 然後再來.";
+				close;
+			}
+			mes "採集到不明生物的一個";
+			mes ""+.@str$+"樣本.";
+			getitem .@item,1;
+		} else
+			mes "你以為在地上看到它了, 其實是幻覺.";
+		close2;
+		donpcevent strnpcinfo(0)+"::OnDisable";
+		end;
+	} else {
+		mes "???";
+		next;
+		select("???");
+		mes "???";
+		close;
+	}
+	end;
+OnEnable:
+	enablenpc strnpcinfo(0);
+	stopnpctimer;
+	end;
+OnDisable:
+	disablenpc strnpcinfo(0);
+	initnpctimer;
+	end;
+OnReset:
+	if (rand(2))
+		donpcevent strnpcinfo(0)+"::OnEnable";
+	else
+		initnpctimer;
+	end;
+OnTimer10000:
+OnTimer20000:
+OnTimer30000:
+OnTimer40000:
+OnTimer50000:
+	if (rand(2)) 
+		donpcevent strnpcinfo(0)+"::OnEnable";
+	end;
+OnTimer60000:
+	donpcevent strnpcinfo(0)+"::OnEnable";
+	end;
+OnTouch:
+	if (checkquest(5034) == 2 || ep14_1_muk == 0 || rand(5)) {
+		percentheal 5,5;
+		end;
+	}
+	set .@playtime, checkquest(5029,PLAYTIME);
+	if (.@playtime == 0 || .@playtime == 1) {
+		percentheal 5,5;
+		end;
+	} else if (.@playtime == 2) {
+		erasequest 5029;
+		end;
+	} else {
+		mapannounce "mora","無法使用三溫暖的神奇效果了.",bc_map,"0xFFFF00"; //FW_NORMAL 12 0 0
+		mes "^FF0000有什麼東西出現了.^000000";
+		mes "^0000FF無法使用三溫暖的神奇效果了.^000000";
+		close2;
+		donpcevent "黑影怪#ep14_muk::OnEnable";
+		end;
+	}
+}
+mora,108,86,0	duplicate(???#mora)	???#ep14_muk01	844,2,2
+mora,107,82,0	duplicate(???#mora)	???#ep14_muk02	844,2,2
+mora,113,84,0	duplicate(???#mora)	???#ep14_muk03	844,2,2
+mora,116,81,0	duplicate(???#mora)	???#ep14_muk04	844,2,2
+mora,118,86,0	duplicate(???#mora)	???#ep14_muk05	844,2,2
+
+-	script	#mora_puddle	-1,{
+	set .@i, atoi(charat(strnpcinfo(2),9));
+
+	// This script has a lot of checks,
+	// so arrays are only set when used.
+	setarray .@quest1[1],5024,5025,5026,5027;
+	setarray .@dir$[1],"東面","西面","南面","北面";
+
+	if (checkquest(.@quest1[.@i]) > -1) {
+		if (countitem(6389) == 0) {
+			mes "研究員說過,";
+			mes "好像是在"+.@dir$[.@i]+"的水坑.";
+			mes "你要採集樣本水嗎?";
+			next;
+			if(select("採集樣本水:不採集樣本水") == 2)
+				close;
+			if (countitem(1092) == 0) {
+				mes "你沒有空試管.";
+				close;
+			}
+			progressbar "ffff00",5;
+			if (checkweight(6389,1) == 0) {
+				mes "你攜帶了太多東西,";
+				mes "這樣很難收集到樣本了.";
+				mes "你必須減輕你的負重, 然後再來.";
+				close;
+			}
+			mes "你從"+.@dir$[.@i]+"的水坑採集到了樣本.";
+			delitem 1092,1; //空試管
+			getitem 6389,1; //小坑樣本水
+			close;
+		} else {
+			mes "你已經有一瓶樣本水了.";
+			close;
+		}
+	}
+
+	set .@quest1[0], .@quest1[.@i];
+	set .@dir$[0], .@dir$[.@i];
+	deletearray .@quest1[.@i],1;
+	deletearray .@dir$[.@i],1;
+
+	if (checkquest(.@quest1[1]) > -1 || checkquest(.@quest1[2]) > -1 || checkquest(.@quest1[3]) > -1) {
+		for(set .@j,1; .@j<=3; set .@j,.@j+1) {
+			if (checkquest(.@quest1[.@j]) > -1)
+				break;
+		}
+		mes "這不是"+.@dir$[.@j]+"的水坑.";
+		close;
+	}
+
+	setarray .@quest2[1],5030,5031,5032,5033;
+	set .@quest2[0], .@quest2[.@i];
+	deletearray .@quest2[.@i],1;
+
+	if (ep14_1_goki == 30 && checkquest(.@quest2[0]) > -1) {
+		mes "你來到了"+.@dir$[0]+"的水坑.";
+		mes "你應該找找不明生物的家人.";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "魚兒~ 魚兒~";
+		next;
+		mes "當你正在呼喚時,";
+		mes "從水坑傳來了回答的聲音.";
+		next;
+		mes "[???]";
+		mes "誰? 釣魚的? 滾!";
+		next;
+		select("我在尋找一隻特別的魚的家人.");
+		mes "[???]";
+		mes "誰的家人? 那魚叫什麼名字?";
+		next;
+		mes "不明生物叫什麼名字?";
+		next;
+		input .@inputstr$;
+		if (.@inputstr$ != "費絲") {
+			mes "[???]";
+			mes "這裡沒有你說的 "+.@inputstr$+" 的家人.";
+			mes "你走吧.";
+			next;
+			mes "看來不明生物的家人不在這兒.";
+			close;
+		}
+		mes "[???]";
+		mes .@inputstr$+"? 噢... 怎麼...";
+		mes "老公快來. 咱的兒子.";
+		mes "有消息了!";
+		next;
+		mes "另一個不明生物從水坑出來和你對話.";
+		next;
+		mes "[????]";
+		mes "什麼? 失蹤的兒子有消息了?";
+		next;
+		mes "這兩條魚非常激動,";
+		mes "你很難跟上它們說話的節奏.";
+		mes "等到他們冷靜下來了,";
+		mes "你把整個事情都告訴了它們.";
+		next;
+		mes "[費絲的父親]";
+		mes "是的...在一個晚上, 兒子";
+		mes "被釣魚的...捉走了.";
+		mes "兒子太笨了. 被抓了. 死了. 完了.";
+		next;
+		mes "[費絲的母親]";
+		mes "費絲還活著. 太好了. 太好了!";
+		next;
+		mes "[費絲的父親]";
+		mes "嗯...人類帶來了兒子的消息.";
+		mes "謝謝你. 麻煩你轉告我的兒子,";
+		mes "我們一切都好, 在這兒過得很快樂.";
+		changequest .@quest2[0],5034;
+		close;
+	} else if (checkquest(5034) > -1 && checkquest(5034) < 2) {
+		mes "[費絲的父親]";
+		mes "嗯...人類帶來了兒子的消息.";
+		mes "謝謝你. 麻煩你轉告我的兒子,";
+		mes "我們一切都好, 在這兒過得很快樂.";
+		close;
+	} else if (checkquest(.@quest2[1]) > -1 || checkquest(.@quest2[2]) > -1 || checkquest(.@quest2[3]) > -1) {
+		mes "你來到了"+.@dir$[0]+"的水坑.";
+		mes "你應該找找不明生物的家人.";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "魚兒~ 魚兒~";
+		next;
+		mes "你邊找邊大聲呼喊著魚兒,";
+		mes "但是沒有回應.";
+		mes "我不認為有誰";
+		mes "住在這水坑裡.";
+		close;
+	}
+	mes "你看見一個沒有任何漣漪的水坑.";
+	close;
+}
+bif_fild02,315,285,0	duplicate(#mora_puddle)	Puddle#ep14_muk01	844
+bif_fild02,65,109,0	duplicate(#mora_puddle)	Puddle#ep14_muk02	844
+bif_fild02,223,71,0	duplicate(#mora_puddle)	Puddle#ep14_muk03	844
+bif_fild02,113,340,0	duplicate(#mora_puddle)	Puddle#ep14_muk04	844
+
+// Mora Daily Quests :: ep14_1_dealer
+//============================================================
+mora,133,80,6	script	艾力芬#pa0829	509,{
+	if (checkweight(1201,1) == 0) {
+		mes "你帶了太多的東西, 稍微整理一下, 然後再來.";
+		close;
+	}
+	if (MaxWeight - Weight < 1000) {
+		mes "你帶了太多的東西, 稍微整理一下, 然後再來.";
+		close;
+	}
+	if (ep14_1_mistwoods < 10) {
+		mes "[艾力芬]";
+		mes "嗯? 要接受我的任務? 你看起來還不足夠可靠.";
+		close;
+	}
+	if (BaseLevel < 135) {
+		mes "[艾力芬]";
+		mes "去變強點再回來找我. 你現在的等級我沒法給你任務.";
+		close;
+	}
+	set .@playtime, checkquest(12230,PLAYTIME);
+	if (.@playtime == 0 || .@playtime == 1) {
+		mes "[艾力芬]";
+		mes "我現在沒有適合的任務了. 如果有新任務了, 當你回來時我會告訴你.";
+		close;
+	} else if (.@playtime == 2) {
+		mes "[艾力芬]";
+		mes "請去找^990099哈查^000000";
+		mes "核對一下之前的任務細節.";
+		close;
+	}
+	mes "[艾力芬]";
+	mes "歡迎.";
+	mes "我有一些任務給你 - 要看看嗎?";
+	next;
+	if(select("你會給我什麼樣的任務?:告訴我今天的任務") == 1) {
+		mes "[艾力芬]";
+		mes "我是穆拉村巡邏隊的隊長. 不過以前不是, 呵呵.";
+		next;
+		mes "[艾力芬]";
+		mes "每天我都會給你一個在周邊地區擊殺魔物的任務.";
+		next;
+		mes "[艾力芬]";
+		mes "也許你得到的任務很難獨自一人完成 - 這樣的任務, 你可以嘗試尋找你的同伴幫你一起完成.";
+		close;
+	}
+	mes "[艾力芬]";
+	mes "讓我看看今天的任務是...嗯...";
+	next;
+	mes "[艾力芬]";
+	mes "這個怎麼樣?";
+	next;
+	switch(rand(1,5)) {
+	case 1:
+		setquest 12225;
+		setquest 12230;
+		mes "[艾力芬]";
+		mes "這個地方經常有背上背著水果的蟲在跑來跑去, 你應該也有看過.";
+		next;
+		mes "[艾力芬]";
+		mes "聽說它們還會向在森林裡徘徊的其他冒險家強行販賣水果, 希望你能去處理一下.";
+		set .@n$,"背水果的蟲";
+		break;
+	case 2:
+		setquest 12226;
+		setquest 12230;
+		mes "[艾力芬]";
+		mes "聽說螳螂最近常偽裝成花突襲路過的生物.";
+		next;
+		mes "[艾力芬]";
+		mes "雖然目前還沒有任何冒險家遇害, 但小心駛得萬年船, 請你去處理一下吧.";
+		set .@n$,"像花的獵人";
+		break;
+	case 3:
+		setquest 12227;
+		setquest 12230;
+		mes "[艾力芬]";
+		mes "聽說在彩虹橋進行採集作業的冒險家遭到體型小的鳥類攻擊.";
+		next;
+		mes "[艾力芬]";
+		mes "它們應該沒那麼壞呀...不管怎麼樣, 有冒險家委託, 所以要請你去處理一下.";
+		set .@n$,"難纏小辣椒...";
+		break;
+	case 4:
+		setquest 12228;
+		setquest 12230;
+		mes "[艾力芬]";
+		mes "雖然有點不忍心, 但這是一個要求消滅頑皮的精靈的匿名委託.";
+		next;
+		mes "[艾力芬]";
+		mes "我是不知道他們有什麼仇啦, 不過委託就是委託, 麻煩你去處理囉.";
+		set .@n$,"莫名的仇恨";
+		break;
+	case 5:
+		setquest 12229;
+		setquest 12230;
+		mes "[艾力芬]";
+		mes "要是我說有金色的毛怪到處滾來滾去你相信嗎? 應該不信吧?";
+		next;
+		mes "[艾力芬]";
+		mes "雖然外表看起來無害, 但是它們會偷走冒險家的書和甜食. 請你去處理一下吧.";
+		set .@n$,"金毛怪";
+		break;
+	}
+	next;
+	mes "你接受了任務 ^005500"+.@n$+"^000000. 打開任務視窗查看更多細節.";
+	close;
+}
+
+mora,115,98,8	script	哈查#pa0829	509,{
+	if (checkweight(1201,1) == 0) {
+		mes "你帶了太多的東西, 稍微整理一下, 然後再來.";
+		close;
+	}
+	if (MaxWeight - Weight < 1000) {
+		mes "你帶了太多的東西, 稍微整理一下, 然後再來.";
+		close;
+	}
+	if (ep14_1_mistwoods < 10) {
+		mes "[哈查]";
+		mes "嗯, 你看起來還不能勝任艾力芬的任務.";
+		close;
+	}
+	if (BaseLevel < 97) {
+		mes "[哈查]";
+		mes "這個地方對於冒險家來說簡直就是天堂. 但像你這樣的弱者除外.";
+		close;
+	}
+	set .@playtime, checkquest(12230,PLAYTIME);
+	if (.@playtime == -1) {
+		mes "[哈查]";
+		mes "我檢查到你還沒有";
+		mes "接受任務.";
+		mes "去和艾力芬談談,";
+		mes "它會在無數個任務中";
+		mes "選一個給你.";
+		close;
+	} else if (.@playtime == 2) {
+		mes "[哈查]";
+		mes "任務的時效超過了.";
+		next;
+		mes "[哈查]";
+		mes "如果你的任務日誌裡還有未完成的任務, 那麼將會被認定為'失敗', 並從任務日誌中刪除.";
+		next;
+		mes "[哈查]";
+		mes "一旦過期的任務被刪除. 你可以再去找艾力芬, 他會給你新的任務.";
+		for(set .@i,12225; .@i<=12229; set .@i,.@i+1) {
+			if (checkquest(.@i) > -1)
+				erasequest .@i;
+		}
+		erasequest 12230;
+		close;
+	}
+	mes "[哈查]";
+	mes "歡迎.";
+	mes "需要幫忙嗎?";
+	next;
+	select("我完成了一個任務");
+	mes "噢.";
+	mes "是嗎?";
+	mes "請稍等, 我檢查一下.";
+	next;
+
+	for(set .@i,12225; .@i<=12229; set .@i,.@i+1) {
+		if (checkquest(.@i,HUNTING) == 2) {
+			mes "[哈查]";
+			mes "是的, 我看到你確實完成了任務. 它已被確認為完成.";
+			erasequest .@i;
+			specialeffect2 EF_STEAL;
+			if (BaseLevel > 99)
+				getexp 0, ((JobLevel < 50)?JobLevel * JobLevel * (110/100) * 50:0);
+			else
+				getexp 0, ((JobLevel < 70)?JobLevel * JobLevel * (110/100) * 10:0);
+			getitem 6380,3; //穆拉村硬幣
+			close;
+		}
+	}
+
+	mes "[哈查]";
+	mes "唔... "+strcharinfo(0)+".";
+	mes "可能我的文件記錄有點問題, 但根據文件, 你沒有任何任務.";
+	close;
+}
+
+mora,119,103,4	script	巴沃爾沃#pa0829	513,{
+	if (checkweight(1201,1) == 0) {
+		mes "你身上的物品種類太多了, 請處理後再來.";
+		close;
+	}
+	if (MaxWeight - Weight < 1000) {
+		mes "你的負重不夠了, 請處理後再來.";
+		close;
+	}
+	if (ep14_1_mistwoods < 10) {
+		mes "[巴沃爾沃]";
+		mes "我可以給可靠的人任務. 不過你嘛...還不夠格, 別介意.";
+		close;
+	}
+	if (BaseLevel < 97) {
+		mes "[巴沃爾沃]";
+		mes "真不知道, 你這樣虛弱的身板, 能做什麼?";
+		close;
+	}
+	set .@playtime, checkquest(12241,PLAYTIME);
+	if (.@playtime == 0 || .@playtime == 1) {
+		mes "[巴沃爾沃]";
+		mes "我現在手上的任務都安排完了. 下次你再來的時候, 如果手上有任務我會安排給你的.";
+		close;
+	} else if (.@playtime == 2) {
+		mes "[巴沃爾沃]";
+		mes "你去讓 ^990099雜貨商^000000";
+		mes "檢查所有的任務細節.";
+		close;
+	}
+	mes "[巴沃爾沃]";
+	mes "很高興見到你.";
+	mes "我有些任務需求 - 你要不要看看?";
+	next;
+	if(select("- 你安排了些什麼樣的任務給我?:- 告訴我今天的任務") == 1) {
+		mes "[巴沃爾沃]";
+		mes "在這裡, 我們做冒險家的各式日用品.";
+		next;
+		mes "[巴沃爾沃]";
+		mes "我們接受每天一次的耗材原料採購.";
+		next;
+		mes "[巴沃爾沃]";
+		mes "有時候我們可能會要一些很難搞到的材料, 你可以向其他的冒險者求助.";
+		close;
+	}
+	mes "[巴沃爾沃]";
+	mes "讓我看看...今天的需求是...?";
+	next;
+	mes "[巴沃爾沃]";
+	mes "這個怎麼樣?";
+	next;
+	switch(rand(1,5)) {
+	case 1:
+		setquest 12231;
+		setquest 12241;
+		mes "[巴沃爾沃]";
+		mes "這裡的冒險家在出發去迷宮探險前, 必須拿到要灑在緊急糧食上的防腐劑, 你知道防腐劑的製作材料是什麼嗎?";
+		next;
+		mes "[巴沃爾沃]";
+		mes "*咧嘴笑* 就是昆蟲觸角喔! 雜貨商剛好要4個! 要是我才不吃這種東西呢...";
+		set .@n$,"防腐劑的材料";
+		break;
+	case 2:
+		setquest 12232;
+		setquest 12241;
+		mes "[巴沃爾沃]";
+		mes "最近, 這裡的冒險家喜歡製作符咒確保自身安全, 也算是一種保險吧.";
+		next;
+		mes "[巴沃爾沃]";
+		mes "最近不死心臟好像很受歡迎呢. 雜貨商要5個左右.";
+		set .@n$,"抵抗的象徵";
+		break;
+	case 3:
+		setquest 12233;
+		setquest 12241;
+		mes "[巴沃爾沃]";
+		mes "現在需要很多急救專用繃帶的材料腐爛繃帶, 好像沒有製作新繃帶的材料.";
+		next;
+		mes "[巴沃爾沃]";
+		mes "委託人是站在那邊的雜貨商, 找來3捆左右就好!";
+		set .@n$,"急救組的材料";
+		break;
+	case 4:
+		setquest 12234;
+		setquest 12241;
+		mes "[巴沃爾沃]";
+		mes "勇猛戰士的標誌給予冒險家的旅程很大的力量, 所以獸人戰士之證才能賣得這麼好吧.";
+		next;
+		mes "[巴沃爾沃]";
+		mes "雜貨商想要製作勇猛的象徵的材料獸人戰士之證3個.";
+		set .@n$,"勇猛的象徵";
+		break;
+	case 5:
+		setquest 12235;
+		setquest 12241;
+		mes "[巴沃爾沃]";
+		mes "將骨頭粉末參水喝下對精氣很好的消息在冒險家之間傳得沸沸揚揚的.";
+		next;
+		mes "[巴沃爾沃]";
+		mes "雜貨商要求製作強身劑所需的死人遺骨3個.";
+		set .@n$,"恢復元氣...";
+		break;
+	}
+	next;
+	mes "你接受了任務 ^880088"+.@n$+"^000000. 打開任務視窗查看更多細節.";
+	close;
+}
+
+mora,119,118,4	script	雜貨商#pa0	516,{
+	if (checkweight(1201,1) == 0) {
+		mes "你身上的物品種類太多了, 請處理後再來.";
+		close;
+	}
+	if (MaxWeight - Weight < 1000) {
+		mes "你的負重不夠了, 請處理後再來.";
+		close;
+	}
+	if (ep14_1_mistwoods < 10) {
+		mes "[雜貨商]";
+		mes "嗯, 看上去你無法完成巴沃爾沃委託給你的任務.";
+		close;
+	}
+	if (BaseLevel < 97) {
+		mes "[雜貨商]";
+		mes "如此脆弱的身體, 你還是去鍛鍊下再來吧.";
+		close;
+	}
+	set .@playtime, checkquest(12241,PLAYTIME);
+	if (.@playtime == -1) {
+		mes "[雜貨商]";
+		mes "看上去你還沒有";
+		mes "接下任何任務.";
+		mes "去找沃夫格拉談談,";
+		mes "他會挑選一個";
+		mes "任務給你做的.";
+		close;
+	} else if (.@playtime == 2) {
+		mes "[雜貨商]";
+		mes "任務的時效超過了.";
+		next;
+		mes "[雜貨商]";
+		mes "如果你的任務日誌裡還有未完成的任務, 那麼將會被認定為'失敗', 並從任務日誌中刪除.";
+		next;
+		mes "[雜貨商]";
+		mes "一旦過期的任務被刪除. 你可以再去找巴沃爾沃, 他會給你新的任務.";
+		for(set .@i,12231; .@i<=12235; set .@i,.@i+1) {
+			if (checkquest(.@i) > -1)
+				erasequest .@i;
+		}
+		erasequest 12241;
+		close;
+	}
+	mes "[雜貨商]";
+	mes "歡迎.";
+	mes "需要幫忙嗎?";
+	next;
+	select("我完成了一個任務");
+	mes "[雜貨商]";
+	mes "噢.";
+	mes "是嗎?";
+	mes "請稍等, 我檢查一下.";
+	next;
+
+	callsub L_CheckQuest,12231,928,4; //昆蟲觸角
+	callsub L_CheckQuest,12232,929,5; //不死心臟
+	callsub L_CheckQuest,12233,930,1; //腐爛繃帶
+	callsub L_CheckQuest,12234,931,3; //獸人戰士之證
+	callsub L_CheckQuest,12235,932,3; //死人遺骨
+
+	mes "[雜貨商]";
+	mes "嗯... "+strcharinfo(0)+".";
+	mes "看上去文檔有錯誤, 根據文件記錄, 你並沒有做任何與任務有關的事情.";
+	close;
+
+L_CheckQuest:
+	if (checkquest(getarg(0)) > -1) {
+		if (countitem(getarg(1)) < getarg(2)) {
+			mes "[雜貨商]";
+			mes "數量不夠...";
+			close;
+		}
+		mes "[雜貨商]";
+		mes "我已經收到了全部的任務物品, 期待下次與你繼續合作.";
+		delitem getarg(1),getarg(2);
+		erasequest getarg(0);
+		specialeffect2 EF_STEAL;
+		if (BaseLevel > 99)
+			getexp 0, ((JobLevel < 50)?JobLevel * JobLevel * (110/100) * 50:0);
+		else
+			getexp 0, ((JobLevel < 70)?JobLevel * JobLevel * (110/100) * 10:0);
+		getitem 6380,1; //穆拉村硬幣
+		close;
+	}
+	return;
+}
+
+mora,124,108,7	script	沃夫格拉#pa0829	514,{
+	if (checkweight(1201,1) == 0) {
+		mes "你身上的物品種類太多了, 請處理後再來.";
+		close;
+	}
+	if (MaxWeight - Weight < 1000) {
+		mes "你的負重不夠了, 請處理後再來.";
+		close;
+	}
+	if (ep14_1_mistwoods < 10) {
+		mes "[沃夫格拉]";
+		mes "你能不能離我遠點, 你擋著我的路了.";
+		close;
+	}
+	if (BaseLevel < 97) {
+		mes "[沃夫格拉]";
+		mes "這裡可不是幼稚園, 等你再強壯些後再來找我, 我會很樂意給你安排一些任務.";
+		close;
+	}
+	set .@playtime, checkquest(12242,PLAYTIME);
+	if (.@playtime == 0 || .@playtime == 1) {
+		mes "[沃夫格拉]";
+		mes "我現在手上的任務都安排完了. 下次你再來的時候, 如果手上有任務我會安排給你的.";
+		close;
+	} else if (.@playtime == 2) {
+		mes "[沃夫格拉]";
+		mes "你讓我對面的 ^990099生活用品商^000000, 檢查一下吧,";
+		mes "檢查所有的任務細節.";
+		close;
+	}
+	mes "[沃夫格拉]";
+	mes "很高興見到你.";
+	mes "我有些任務需求 - 你要不要看看?";
+	next;
+	if(select("- 你安排了些什麼樣的任務給我?:- 告訴我今天的任務") == 1) {
+		mes "[沃夫格拉]";
+		mes "巴沃爾沃和我是同行.";
+		next;
+		mes "[沃夫格拉]";
+		mes "我們是一家生產的探險用品的公司.";
+		next;
+		mes "[沃夫格拉]";
+		mes "我的任務不會很簡單 - 你需要做好思想準備.";
+		close;
+	}
+	mes "[沃夫格拉]";
+	mes "嗯... 今天的任務是?";
+	next;
+	mes "[沃夫格拉]";
+	mes "噢. 有一個看起來不錯.";
+	next;
+	switch(rand(1,5)) {
+	case 1:
+		setquest 12236;
+		setquest 12242;
+		mes "[沃夫格拉]";
+		mes "很多人喜歡在脖子上帶各式掛件護身符, 不過也有很多人喜歡用特殊的方式裝到身體上面.";
+		next;
+		mes "[沃夫格拉]";
+		mes "裝飾品設計師們突發了一種靈感. 生活用品商告訴我他們需要2個亡者遺物.";
+		set .@n$,"符咒的最新流行趨勢";
+		break;
+	case 2:
+		setquest 12237;
+		setquest 12242;
+		mes "[沃夫格拉]";
+		mes "冒險者, 因為護身符可以挽救他們的生命, 所以一定要安全的把它們帶回來.";
+		next;
+		mes "[沃夫格拉]";
+		mes "在我對面那個好像在烏龜殼裡面的生活用品商. 要求我們帶回3個堅硬外殼.";
+		set .@n$,"小心保存";
+		break;
+	case 3:
+		setquest 12238;
+		setquest 12242;
+		mes "[沃夫格拉]";
+		mes "冒險家們總系喜歡穿著護膝進入迷霧森林的灌木叢中.";
+		next;
+		mes "[沃夫格拉]";
+		mes "我對面的生活用品商要我幫他搞3個鱗片皮膚, 這些都是可以用來製作護膝的.";
+		set .@n$,"護膝的材料";
+		break;
+	case 4:
+		setquest 12239;
+		setquest 12242;
+		mes "[沃夫格拉]";
+		mes "我需要你幫我做一件事, 收集製作疫苗的毒物.";
+		next;
+		mes "[沃夫格拉]";
+		mes "我對面的生活用品商要我幫他搞定2顆毒牙, 用以對毒成分進行研究.";
+		set .@n$,"以毒攻毒...";
+		break;
+	case 5:
+		setquest 12240;
+		setquest 12242;
+		mes "[沃夫格拉]";
+		mes "他們似乎已經用完防止腳底打滑的材料了.";
+		next;
+		mes "[沃夫格拉]";
+		mes "我對面的生活用品商要求我幫他找5個粘稠液體.";
+		set .@n$,"小心滑倒";
+		break;
+	}
+	next;
+	mes "你接受了任務 ^880088"+.@n$+"^000000. 打開任務視窗查看更多細節.";
+	close;
+}
+
+mora,127,112,4	script	生活用品商#pa08	518,{
+	if (checkweight(1201,1) == 0) {
+		mes "你攜帶的物品種類太多了, 請處理一下再來.";
+		close;
+	}
+	if (MaxWeight - Weight < 1000) {
+		mes "你的負重不夠了, 請處理一下再來.";
+		close;
+	}
+	if (ep14_1_mistwoods < 10) {
+		mes "[生活用品商]";
+		mes "哇呀, 絕對不能給你這樣的弱者任何任務!";
+		close;
+	}
+	if (BaseLevel < 97) {
+		mes "[生活用品商]";
+		mes "滾開! 別像只蒼蠅一樣在我身邊轉...";
+		close;
+	}
+	set .@playtime, checkquest(12242,PLAYTIME);
+	if (.@playtime == -1) {
+		mes "[生活用品商]";
+		mes "看上去你還沒有";
+		mes "接下任何任務.";
+		mes "去找沃夫格拉談談,";
+		mes "他會挑選一個";
+		mes "任務給你做的.";
+		close;
+	} else if (.@playtime == 2) {
+		mes "[生活用品商]";
+		mes "任務的時效超過了.";
+		next;
+		mes "[生活用品商]";
+		mes "如果你的任務日誌裡還有未完成的任務, 那麼將會被認定為'失敗', 並從任務日誌中刪除.";
+		next;
+		mes "[生活用品商]";
+		mes "一旦過期的任務被刪除. 你可以再去找沃夫格拉, 他會給你新的任務.";
+		for(set .@i,12236; .@i<=12240; set .@i,.@i+1) {
+			if (checkquest(.@i) > -1)
+				erasequest .@i;
+		}
+		erasequest 12242;
+		close;
+	}
+	mes "[生活用品商]";
+	mes "歡迎.";
+	mes "需要幫忙嗎?";
+	next;
+	select("- 我完成了一個任務");
+	mes "[生活用品商]";
+	mes "噢.";
+	mes "是嗎?";
+	mes "請稍等, 我檢查一下.";
+	next;
+
+	callsub L_CheckQuest,12236,934,2; //亡者遺物
+	callsub L_CheckQuest,12237,935,3; //堅硬外殼
+	callsub L_CheckQuest,12238,936,3; //鱗片皮膚
+	callsub L_CheckQuest,12239,937,2; //毒牙
+	callsub L_CheckQuest,12240,938,5; //粘稠液體
+
+	mes "[生活用品商]";
+	mes "嗯... "+strcharinfo(0)+".";
+	mes "看上去文檔有錯誤, 根據文件記錄, 你並沒有做任何與任務有關的事情.";
+	close;
+
+L_CheckQuest:
+	if (checkquest(getarg(0)) > -1) {
+		if (countitem(getarg(1)) < getarg(2)) {
+			mes "[生活用品商]";
+			mes "數量不夠...";
+			close;
+		}
+		mes "[生活用品商]";
+		mes "我已經收到了全部的任務物品, 期待與你下次繼續合作.";
+		delitem getarg(1),getarg(2);
+		erasequest getarg(0);
+		specialeffect2 EF_STEAL;
+		if (BaseLevel > 99)
+			getexp 0, ((JobLevel < 50)?JobLevel * JobLevel * (110/100) * 50:0);
+		else
+			getexp 0, ((JobLevel < 70)?JobLevel * JobLevel * (110/100) * 10:0);
+		getitem 6380,1; //穆拉村硬幣
+		close;
+	}
+	return;
+}
+
+mora,170,101,4	script	靈魂引導者#pa0829	515,{
+	if (checkweight(1201,1) == 0) {
+		mes "你帶的物品種類太多了. 請清理一下再來.";
+		close;
+	}
+	if (MaxWeight - Weight < 1000) {
+		mes "你的負重不夠. 請清理一下再來.";
+		close;
+	}
+	if (ep14_1_mistwoods < 10) {
+		mes "[靈魂引導者]";
+		mes "我需要尋找迷失的靈魂. 可靠的幫手是最重要的, 不過你看起來不那麼可靠.";
+		close;
+	}
+	if (BaseLevel < 97) {
+		mes "[靈魂引導者]";
+		mes "我需要一個精神力強大的人來幫我完成這個任務, 不過看上去你應該不符合要求.";
+		close;
+	}
+	set .@playtime, checkquest(12253,PLAYTIME);
+	if (.@playtime == 0 || .@playtime == 1) {
+		mes "在你的身體上仍然縈繞靈魂的標記(任務冷卻中).";
+		next;
+		mes "等它消失了, 你再回來吧.";
+		close;
+	} else if (.@playtime == 2) {
+		mes "你覺得你的心平靜下來. 現在有足夠的精力去搜尋其它的靈魂, 因此你再度和靈魂引導者對話.";
+		for(set .@i,12243; .@i<=12252; set .@i,.@i+1) {
+			if (checkquest(.@i) > -1)
+				erasequest .@i;
+		}
+		erasequest 12253;
+		close;
+	}
+	mes "[靈魂引導者]";
+	mes "歡迎.";
+	mes "準備好了嗎?";
+	next;
+	if(select("- 你準備給我什麼樣的任務?:- 告訴我今天的任務") == 1) {
+		mes "[靈魂引導者]";
+		mes "我的工作是收集仍然困擾著森林的靈魂, 並讓他們安息.";
+		next;
+		mes "[靈魂引導者]";
+		mes "有無數的的靈魂被困在森林迷宮中.";
+		next;
+		mes "[靈魂引導者]";
+		mes "幫助他們讓他們徹底的安息.";
+		close;
+	}
+	mes "[靈魂引導者]";
+	mes "我會告訴你其中一個迷失的靈魂的詳細信息.";
+	next;
+	switch(rand(1,10)) {
+	case 1:
+		setquest 12243;
+		setquest 12253;
+		mes "^660066年齡 32. 來自米德加德. 已經失蹤3個月. 為了收集原生植物, 他多次進入迷霧森林迷宮. 生還概率低.^000000";
+		set .@n$,"達查勒";
+		break;
+	case 2:
+		setquest 12244;
+		setquest 12253;
+		mes "^660066年齡 19. 從不知名的遠方座船而來的冒險家. 儘管所有穆拉居民的勸阻, 他還是堅持去探索迷宮. 他穿著超薄緊身衣. 已失蹤2個月.";
+		mes "如果他還活著, 他會給救援隊伍帶來麻煩.^000000";
+		set .@n$,"納伊查";
+		break;
+	case 3:
+		setquest 12245;
+		setquest 12253;
+		mes "^660066年齡未知. 有一些心理疾病, 獨自前往, 淨化朦朧的森林迷宮. 他堅持認為, 他有很好的血統, 但沒有人相信他.";
+		mes "失蹤期間: 12年. 沒有太多的生存機會.^000000";
+		set .@n$,"梅斯";
+		break;
+	case 4:
+		setquest 12246;
+		setquest 12253;
+		mes "^660066年齡 51. 是一個大盜, 曾經偷竊了來自世界各地的名劍.";
+		mes "在迷宮中正在開展運行非法賭場, 在他最後的幾天裡, 他的場所內發生械鬥造成大量傷亡. 生還概率低.^000000";
+		set .@n$,"諾瓦訥伊";
+		break;
+	case 5:
+		setquest 12247;
+		setquest 12253;
+		mes "^660066年齡 22. 飛艇駕駛員學徒. 他在穆拉村休假期間的一次酒後失蹤.";
+		mes "有傳言說, 他逃到他國與他國籤約. 失蹤時長: 4個月的. 生還概率低.^000000";
+		set .@n$,"絨絨";
+		break;
+	case 6:
+		setquest 12248;
+		setquest 12253;
+		mes "^660066年齡未知. 長發女子, 黑色著裝. 進入森林迷宮探險去尋找永生的方法. 失蹤時長: 3個月. 生還概率低.^000000";
+		set .@n$,"夢特";
+		break;
+	case 7:
+		setquest 12249;
+		setquest 12253;
+		mes "^660066年齡約 50. 目前為穆拉村行政長官. 他被不法分子綁架進入森林. 不確定存亡.^000000";
+		set .@n$,"馬伊比德";
+		break;
+	case 8:
+		setquest 12250;
+		setquest 12253;
+		mes "^660066年齡 29. 一個未知的背景的年輕男子.";
+		mes "通過各種坑蒙拐騙方式, 騙得穆拉村公民一共1200個穆拉村硬幣後, 逃入迷霧森林. 不確定存亡.^000000";
+		set .@n$,"昆蒙";
+		break;
+	case 9:
+		setquest 12251;
+		setquest 12253;
+		mes "^660066年齡 34. 與數個穆拉村婦人有染. 從穆拉村出逃並進入森林. 不確定存亡.^000000";
+		set .@n$,"查伊豪金";
+		break;
+	case 10:
+		setquest 12252;
+		setquest 12253;
+		mes "^660066年齡未知. 與村民合股的穆拉村硬幣一同消失. 生還概率低.^000000";
+		set .@n$,"德爾";
+		break;
+	}
+	next;
+	mes "^990099失蹤者的情報中的 "+.@n$+"^000000 已經找到. 打開任務視窗查看更多細節.";
+	specialeffect2 EF_STEAL;
+	close;
+}
+
+mora,131,165,7	script	徘徊的顧客#pa082	520,{
+	mes "[徘徊的顧客]";
+	mes "我不知道是否應該相信這個圍巾師傅.";
+	mes "他竟然讓我在這裡連續等了幾天...";
+	mes "啊...我頭暈...";
+	close;
+}
+
+mora,125,174,2	script	天真的顧客#pa0829	520,{
+	mes "[天真的顧客]";
+	mes "我不知道我的吊墜什麼時候才會雕刻完. 不過我覺得這個垂飾工匠很可靠, 我想他不會弄壞我的吊墜.";
+	close;
+}
+
+mora,104,172,7	script	受傷的顧客#pa0829	520,{
+	mes "[受傷的顧客]";
+	mes "你這個混蛋! 我那件耐穿的軍衣! 是我父親傳給我的!";
+	mes "*哭泣*";
+	next;
+	mes "- ^990099似乎裁縫大師深深地傷害了她.^000000 -";
+	close;
+}
+
+sec_in02,29,34,5	script	穆拉村三條初始化	453,{
+	callfunc "F_GM_NPC";
+	mes "輸入密碼";
+	if (callfunc("F_GM_NPC","1854",1) == 0) {
+		mes "Hehe";
+		close;
+	} else {
+		mes "[初始化]";
+		mes "14.1 初始化所有任務包括相關的日常任務和地圖等";
+		freeloop(1);
+		for(set .@i,12225; .@i<=12353; set .@i,.@i+1) {
+			if (checkquest(.@i) > -1)
+				erasequest .@i;
+		}
+		freeloop(0);
+		set ep14_1_mistwoods,10;
+		close;
+	}
+}
+
+// Mora Daily Quests - Souls :: md_cadaver_in
+//============================================================
+// callfunc "mora_remains",<quest ID>,<NPC name>,<Mora Coin amount>,<reward ID>,<max reward amount>;
+function	script	mora_remains	{
+	if (MaxWeight - Weight < 1000) {
+		mes "你的負重不夠.";
+		close;
+	}
+	if (checkquest(getarg(0)) > -1) {
+		specialeffect2 EF_BLIND;
+		specialeffect2 EF_BEGINSPELL;
+		progressbar "ffff00",4;
+		erasequest getarg(0);
+		mes "這些必須 ["+getarg(1)+"] 們的遺骸. 所以仔細收集他的遺體.";
+		specialeffect2 EF_STEAL;
+		getitem getarg(3), rand(1,getarg(4));
+		if (rand(10)) {
+			next;
+			mes "你撿起了 "+getarg(2)+" 穆拉村硬幣, 並走向下一具遺骸.";
+			specialeffect2 EF_STEAL;
+			getitem 6380,getarg(2); //穆拉村硬幣
+		}
+		close;
+	}
+	mes "你看看最近挖掘的痕跡.";
+	close;
+}
+1@mist,132,100,0	script	達查勒的遺骸#33	844,{ callfunc "mora_remains",12243,"達查勒",6,526,3; }	//蜂膠
+1@mist,102,242,0	script	納伊查的遺骸#33	844,{ callfunc "mora_remains",12244,"納伊查",5,942,17; }	//猴子尾巴
+1@mist,145,245,0	script	梅斯的遺骸#33	844,{ callfunc "mora_remains",12245,"梅斯",5,943,4; }	//堅硬外皮
+1@mist,196,276,0	script	諾瓦訥伊的遺骸#33	844,{ callfunc "mora_remains",12246,"諾瓦訥伊",6,549,3; }	//美味蕃薯
+1@mist,304,327,0	script	絨絨的遺骸#33	844,{ callfunc "mora_remains",12247,"絨絨",5,945,18; }	//變身葉子
+1@mist,334,287,0	script	夢特的遺骸#33	844,{ callfunc "mora_remains",12248,"夢特",7,946,31; }	//蝸牛殼
+1@mist,330,177,0	script	馬伊比德的遺骸#33	844,{ callfunc "mora_remains",12249,"馬伊比德",5,7008,17; }	//鋼硬之角
+1@mist,284,84,0	script	昆蒙的遺骸#33	844,{ callfunc "mora_remains",12250,"昆蒙",4,6380,20; }	//穆拉村硬幣
+1@mist,170,54,0	script	查伊豪金的遺骸#33	844,{ callfunc "mora_remains",12251,"查伊豪金",2,929,5; }	//不死心臟
+1@mist,118,43,0	script	德爾的遺骸#33	844,{ callfunc "mora_remains",12252,"德爾",3,6380,20; }	//穆拉村硬幣
+
+// Knights of the Neighborhood :: ep14_1_mora_knight
+//============================================================
+mora,118,166,6	script	村落騎士團首席#mo	525,{
+	mes "[村落騎士團首席]";
+	mes "我們是傳奇的村落騎士團, 五分鐘前剛成立!";
+	next;
+	mes "[村落騎士團首席]";
+	mes "我們有四個領導卻沒有一個士兵...";
+	mes "這太令人沮喪了!";
+	next;
+	mes "[其他領導人]";
+	mes "那些傢伙都是士兵, 我才是首領!";
+	mes "我, 這兒的團長, 將告訴你該做什麼!";
+	mes "領袖是排在最高級別的!";
+	mes "你說服我加入這個村落騎士團, 看看現在, 這都什麼玩意兒!";
+	close;
+}
+
+mora,116,165,5	script	村落騎士團首領#mo	524,{
+	set .@playtime, checkquest(1119,PLAYTIME);
+	if (.@playtime == 0 || .@playtime == 1) {
+		mes "[村落騎士團首領]";
+		mes "我們已經沒有穆拉村硬幣了.";
+		mes "明天再來!";
+		close;
+	} else if (.@playtime == 2)
+		erasequest 1119;
+	if (checkweight(6380,1) == 0) {
+		mes "[村落騎士團首領]";
+		mes "你帶了太多的東西!";
+		mes "不如分一些給我?";
+		close;
+	}
+	if (countitem(12561) >= 200) {
+		mes "[村落騎士團首領]";
+		mes "看來你帶來了";
+		mes "200個 ^FF0000神奇種子^000000.";
+		mes "是我讓你這麼做的?";
+		mes "我有些疑惑,";
+		mes "因為我派遣差事是隨機找的人.";
+		next;
+		mes "[村落騎士團首領]";
+		mes "如同我承諾的那樣, 我會給你獎賞.";
+		mes "你得讓所有人都知道,";
+		mes "這是村落騎士團首領給的差事, 好吧?";
+		setquest 1119;
+		delitem 12561,200; //神奇種子
+		getitem 6380,1; //穆拉村硬幣
+		close;
+	}
+	mes "[村落騎士團首領]";
+	mes "你看起來很有勇氣,";
+	mes "但還沒展示出來.";
+	mes "同時你對穆拉村硬幣似乎有需求...你讓我印象深刻!";
+	mes "你相當適合成為村落騎士團的士兵.";
+	next;
+	mes "[村落騎士團首領]";
+	mes "士兵, 我有份差事要交給你.";
+	mes "去迷霧森林收集200個 ^FF0000神奇種子^000000!";
+	next;
+	switch(select("遵命, 長官!:我要跟你決鬥!")) {
+	case 1:
+		mes "[村落騎士團首領]";
+		mes "態度不錯, "+strcharinfo(0)+"士兵!";
+		mes "當你回來時我會慷慨地獎賞你.";
+		next;
+		mes "[其他領導人]";
+		mes "是我給的獎賞, 首席!";
+		mes "別小看了團長!";
+		mes "是我給的獎賞, 領袖!";
+		close;
+	case 2:
+		mes "[村落騎士團首領]";
+		mes "要決鬥你得去找首席!";
+		mes "我這裡只負責招人.";
+		mes "咳咳...";
+		close;
+	}
+}
+
+mora,114,163,5	script	村落騎士團團長#mo	522,{
+	if (checkweight(6380,1) == 0) {
+		mes "[村落騎士團團長]";
+		mes "你帶了太多的東西!";
+		mes "不如分一些給我?";
+		close;
+	}
+	if (ep14_1_rope < 11) {
+		mes "[村落騎士團團長]";
+		mes "我聽說有個叫'洛佩'的精靈,";
+		mes "在迷霧森林裡失蹤了.";
+		mes "我希望村落騎士團";
+		next;
+		mes "[村落騎士團團長]";
+		mes "能夠幫到忙.";
+		mes "但現在不行,";
+		mes "因為我們還沒有打掃完院子.";
+		mes "所以, 我想說的是";
+		next;
+		mes "[村落騎士團團長]";
+		mes "你能否";
+		mes "代表我們村落騎士團";
+		mes "去幫下忙?!";
+		next;
+		mes "[村落騎士團團長]";
+		mes "作為團長, 我向你承諾,";
+		mes "當你回來時,";
+		mes "我會給你更多的差事!";
+		next;
+		mes "[其他領導人]";
+		mes "作為首席, 我支持.";
+		mes "你可以感謝我, 首領.";
+		mes "你知道領袖才是這裡的老大, 對吧?";
+		close;
+	} else if (ep14_1_rope == 11) {
+		mes "[村落騎士團團長]";
+		mes "失蹤的精靈";
+		mes "死了?";
+		mes "聽到這個我很難過.";
+		mes "我本來可以救他的.";
+		next;
+		mes "[村落騎士團團長]";
+		mes "我聽說在迷霧森林有很多的";
+		mes "^0000FF洛佩之線索^000000.";
+		mes "去找找看,";
+		mes "然後帶30個回來.";
+		mes "它們可以作為很好的紀念品.";
+		next;
+		switch(select("TMD, 就我一個人幹活是吧?!:遵命, 長官!")) {
+		case 1:
+			mes "[村落騎士團團長]";
+			mes "你發現了?";
+			mes "該死! 我應該早點把差事吩咐給你!";
+			close;
+		case 2:
+			mes "[村落騎士團團長]";
+			mes "看來, 培養你是值得的.";
+			mes "我為你驕傲,"+strcharinfo(0)+"士兵!";
+			next;
+			mes "[其他領導人]";
+			mes "作為首席, 我想你會成為一名得力助手的.";
+			mes "作為首領, 我感到有了回報.";
+			mes "作為領袖, 我很高興看到你們的進步.";
+			set ep14_1_rope,12;
+			setquest 1118;
+			close;
+		}
+	} else if (ep14_1_rope == 12) {
+		if (countitem(6383) < 30) {
+			mes "[村落騎士團團長]";
+			mes "你還沒有收集到足夠的";
+			mes "^0000FF洛佩之線索^000000?";
+			mes "某種程度上, 我覺得還好,";
+			mes "因為這是我預期的你.";
+			close;
+		}
+		mes "[村落騎士團團長]";
+		mes "你收集齊了^0000FF洛佩之線索^000000.";
+		mes "讓我們看看...";
+		mes "拼湊, 拼湊";
+		mes "粘接, 粘接";
+		next;
+		mes "[洛佩的信]";
+		mes "...一個旅客...襲擊...";
+		mes "...在偽裝下...致命的毒藥...";
+		mes "...村子...處於危險中...";
+		next;
+		mes "[村落騎士團團長]";
+		mes "這究竟是什麼意思?";
+		mes "不管怎樣, 幹得好.";
+		mes "加油, 總有一天你會成為一個偉大的騎士團團長, 就像我一樣.";
+		next;
+		mes "[其他領導人]";
+		mes "我可不確定!";
+		mes "這對我們來說太過了.";
+		mes "試著那樣做是沒用的.";
+		completequest 1118;
+		delitem 6383,30; //洛佩之線索
+		set ep14_1_rope,13;
+		getitem 6380,2; //穆拉村硬幣
+		getexp 1000000,1000000;
+		close;
+	} else if (ep14_1_rope > 12) {
+		mes "[村落騎士團團長]";
+		mes "我們有麻煩了.";
+		mes "我們已經厭倦了當騎士.";
+		mes "我們正在考慮組建";
+		mes "一個馬戲團來代替.";
+		mes "你對走鋼絲有興趣嗎?";
+		next;
+		switch(select("好吧, 我可以表演噴火:真尼瑪扯淡")) {
+		case 1:
+			mes "[村落騎士團團長]";
+			mes "不, 這不可能.";
+			mes "我因為玩火";
+			mes "已經燒掉了好幾間房子.";
+			close;
+		case 2:
+			mes "[村落騎士團團長]";
+			mes "這正是我想聽到的答案.";
+			mes "我為自己感到驕傲.";
+			close;
+		}
+		close;
+	}
+	end;
+}
+
+mora,112,161,5	script	村落騎士團領袖#mo	523,{
+	mes "[村落騎士團領袖]";
+	mes "我是騎士團的領導 -";
+	mes "你可以告訴我.";
+	mes "你怎麼來這裡的? 找我們有什麼事?";
+	next;
+	mes "[其他領導人]";
+	mes "嘿! 我說, 首領就是首領!";
+	mes "不, 首席是最好的!";
+	mes "你怎麼能那麼粗魯! 我是這裡的團長!";
+	emotion ET_PROFUSELY_SWEAT,1;
+	close;
+}

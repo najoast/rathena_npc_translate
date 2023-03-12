@@ -1,0 +1,7859 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+//===== rAthena Script ======================================= 
+//= Quest NPCs related to Morroc
+//===== By: ================================================== 
+//= kobra_k88
+//===== Current Version: ===================================== 
+//= 2.7
+//===== Compatible With: ===================================== 
+//= rAthena SVN
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= - Stop Post
+//= - Binoculars Quest
+//= - Assassin Pub NPCs/supporting quest NPCS. [Disabled]
+//= - Resurrection of Satan Morroc
+//= - The Crow of the Fate
+//= - Succession of the Prince
+//===== Additional Comments: ================================= 
+//= 1.1 Fixed exploits [Lupus]
+//= 1.2 Added Dandelion's Request / Morroc Invasion quest. [SinSloth]
+//= 1.3 Updated dialogs from Binoculars Quest. [Samuray22]
+//= 1.3a added GM lvl check as in other invansion quests [Lupus]
+//= 1.4 Fixed a small bug in Dandelion's Request. [SinSloth]
+//= 1.5 Fixed a little bug with "Job_Alchemist" changed to "Job_Alchem". [Samuray22]
+//= 1.6 Fixed a nasty bug in last part of the quest. [SinSloth]
+//= 1.6a replaced item "names" with item id. [Lupus]
+//= 1.7 Fixed a bug with XP rewards. [SinSloth]
+//= 1.8 Fixed a bug which prevented reset of events. [SinSloth]
+//= 1.9 Corrected NPC names to fall within proper restrictions. [L0ne_W0lf]
+//= 2.0 Fixed bad NPC header data to comply with rev. 11603. [L0ne_W0lf]
+//= 2.0a Corrected a Typo error ";;". [Samuray22]
+//= 2.1 Assassins will now get their request item. (bugreport:1220) [L0ne_W0lf]
+//= 2.2 Updated Binocular and Stop Post quests. [L0ne_W0lf]
+//= 2.3 Replaced effect numerics with constants. [Samuray22]
+//= 2.4 Implemented Ep. 12.1 Continental Guard Quest. [L0ne_W0lf]
+//=     Moved Dandelion's Request to a it's own file.
+//=     Added support NPCs required to finish Gaebolg quest.
+//= 2.5 Fixed Group of Evil never re-enabling. [L0ne_W0lf]
+//= 2.6 Added quest log commands for Resurrection of Satan Morroc. [L0ne_W0lf]
+//=     Added the two remaining episode 12.1 quests. 
+//=     Updated Satan Morroc Quest to allow peopel who have
+//=     finished it to return to the previous map.
+//= 2.7 Corrected weight checks, they only check for inventory slots. [L0ne_W0lf]
+//= 2.8 Disabled Assassin bar pub NPCs, as they are included in the 13.1 quests file. [L0ne_W0lf]
+//= 2.9 Fixed player dying/logging out during conversation could prevent
+//=     summoning of Satan Morroc until server reboot. [Gepard]
+//= 3.0 Updated RE/Pre-RE EXP. [Euphy]
+//= 3.1 Updated to match the latest official scripts. [Euphy]
+//= 3.2 Added GM management NPC and variable $@re_moc_time$. [Euphy]
+//============================================================
+
+// Stop Post Quest
+// ============================================================
+moc_ruins,113,181,4	script	斯泰爾	4_M_ORIENT02,{
+	mes "[斯泰爾]";
+	mes "歡迎光臨.歡迎您來到以製作^3355FF' 停止標誌頭飾 '^000000 聞名的斯泰爾家族商店.";
+	next;
+	mes "[斯泰爾]";
+	mes "不知道您是否聽過我們的家族史..";
+	mes "我們家遠早在以馬車為主要交通工具時代就開始製作交通號誌牌, 至今已經有兩百五十年的歷史了.";
+	mes "近來我們常接到一些專門訂購^3355FF' 停止標誌頭飾 '^000000 的訂單, 現在流行將它拿來當裝飾品.";
+	next;
+	switch( select( "訂購^3355FF' 停止標誌頭飾 '^000000.:結束對話.")) {
+	case 1:
+		mes "由擁有兩百五十年悠久歷史的家族所製作的^3355FF' 停止標誌頭飾 '^000000發展出來的裝飾品..";
+		mes "有承襲著交通標誌牌傳統技術, 令人眼睛為之一亮且堅固耐用.";
+		mes "相信一定不會使訂購的顧客失望.";
+		next;
+		mes "訂購^3355FF' 停止標誌頭飾'^000000 需要花費您^3355FF' 現金 91100 金幣 '^000000 與 ..";
+		mes "^3355FF' 木頭 50 塊 '^000000 還有 ^3355FF' 黑色染料 1 桶 '^000000 .";
+		next;
+		if ((countitem(1019) > 49) && (countitem(983) > 0) && (Zeny > 91099)) {
+			delitem 1019,50;  //Wooden_Block
+			delitem 983,1;  //Black_Dyestuffs
+			Zeny -= 91100;
+			mes "[斯泰爾]";
+			mes "好了 !這是擁有兩百五十年悠久歷史的斯泰爾家族所製作的^3355FF' 停止標誌頭飾 '^000000 !";
+			mes "謝謝您的光臨, 歡迎下次再來!";
+			getitem 2272,1; // Stop_Post
+			close;
+		}
+		else {
+			mes "[斯泰爾]";
+			mes "您所準備的材料不足喔?";
+			mes "請您再確認一下.";
+			close;
+		}
+	case 2:
+		mes "[斯泰爾]";
+		mes "感謝您向斯泰爾家族訂購商品.";
+		mes "祝您事事順心.";
+		close;
+	}
+}
+
+// Binoculars Quest
+// ============================================================
+moc_ruins,118,176,4	script	鍊金術公會	1_M_WIZARD,{
+	mes "[波立歐吉娜]";
+	mes "哈哈哈 - 又有顧客上門來啦!";
+	mes "我知道你要說什麼.";
+	mes "你是為了魔法眼鏡而來的對吧 ?";
+	next;
+	switch(select( "什麼叫做魔法眼鏡?:製作魔法眼鏡.:跳過.")) {
+	case 1:
+		mes "[波立歐吉娜]";
+		mes "是的 ! 它的正式名稱應該是 ' ^3355FF望遠鏡^000000 ' !";
+		mes "外型是長桶狀, 裡頭";
+		mes "有好幾個玻璃片相疊在一起!";
+		mes "它是利用光線反射的作用";
+		mes "來看清楚在遠方的東西";
+		mes "近看的話是看不清楚的!";
+		next;
+		mes "[波立歐吉娜]";
+		mes "覺得如何? 很棒吧?!";
+		mes "阿哈哈哈哈!";
+		mes ". . . . .";
+		mes ".. 怎麼 ?你看起來好像不太相信的樣子?";
+		mes "我說的可是真的?";
+		next;
+		mes "[波立歐吉娜]";
+		mes "把製作望遠鏡所需要的東西";
+		mes "一個一個記下來 ..";
+		mes "^3355FF旋轉鏡片^000000 一個! ^3355FF鋼鐵^000000 一百片! 還有, 費用是 ^3355FF50000 金幣^000000 !";
+		close;
+	case 2:
+		if ((countitem(2243) > 0) && (countitem(999) > 99) && (Zeny > 49999)) {
+			mes "[波立歐吉娜]";
+			mes "好!希望這副眼鏡能夠給你帶來更多的快樂";
+			next;
+			delitem 2243,1;  //Spinning_Eyes
+			delitem 999,100;  //Steel
+			Zeny -= 50000;
+			mes "[波立歐吉娜]";
+			mes "這就是了!魔法眼鏡!";
+
+			getitem 2296,1; // Binoculars
+			next;
+			mes "[波立歐吉娜]";
+			mes "但是, 我必須先說明......";
+			mes "不要用它來看你不該看的東西哦!哈哈哈哈??..";
+			close;
+		}
+		else {
+			mes "[波立歐吉娜]";
+			mes "不夠 ! 不夠 ! 不夠啊";
+			mes "你怎麼可以對在塵世大陸上最頂尖的鍊金者";
+			mes "那麼不敬!";
+			mes "真是太過分了";
+		close;
+		}
+	case 3:
+		mes "[波立歐吉娜]";
+		mes "喂喂喂餵!";
+		mes "你這像是對";
+		mes "在塵世大陸遠近馳名";
+		mes "的光學大師波立歐吉娜－我本人";
+		mes "應該說的話嗎 ? 說啊 ?!";
+		close;
+	}
+}
+
+// Morroc Assassin Guild Bar [Disabled]
+// ============================================================
+/*
+morocc,43,108,5	script	在讀書的小孩#dan_07	4_KID01,{
+	if (BaseClass == Job_Assassin) {
+		mes "[Jack]";
+		mes "In spite of the chaotic mess in their town, ";
+		mes "there are still some of those who pay visits here.";
+		mes "Maybe the stronghold itself is a real one of a kind..";
+		close;
+	}
+	else {
+		if (countitem(7416) > 0) {
+			mes "[Jack]";
+			mes "A letter of recommendation?";
+			mes "Oh, boy. Looks like you've brought me a very, very old relic from the past.";
+			mes "Well, guess you should go in and see the master.";
+			close;
+		}
+		else {
+			mes "[Jack]";
+			mes "Hey, what are you peeking at?";
+			mes "Don't you have better things to do? You'd better go to the shelter and save your ass.";
+			close;
+		}
+	}
+}
+
+morocc,45,110,0	script	que_job01#01	WARPNPC,2,2,{
+OnTouch:
+	if (BaseClass == Job_Assassin) {
+		warp "que_job01",9,94;
+		end;
+	}
+	else {
+		mes "[Jack]";
+		mes "Wait, that's the restricted area....";
+		mes "......";
+		mes "Oh, well.";
+		next;
+		mes "[Jack]";
+		mes "Things have changed.";
+		mes "Just do whatever you want!";
+		close2;
+		warp "que_job01",9,94;
+		end;
+	}
+}
+
+que_job01,6,94,0	warp	morocc#01	2,2,morocc,45,103
+que_job01,17,48,0	warp	que_job01#02	2,2,que_job01,68,92
+que_job01,68,96,0	warp	que_job01#03	2,2,que_job01,17,53
+
+que_job01,80,77,0	script	que_job01#04	WARPNPC,2,2,{
+OnTouch:
+	if (BaseClass == Job_Assassin) {
+		warp "que_job01",61,50;
+		end;
+	}
+	else if (mao_request > 0) {
+		warp "que_job01",61,50;
+		end;
+	}
+	else {
+		mes "[Litheron]";
+		mes "Whoa, you're not";
+		mes "allowed to be in here.";
+		mes "Hey, master! Do you";
+		mes "know this guy?";
+		next;
+		if (prt_curse == 24) {
+	mes "[" + strcharinfo(0) + "]";
+	mes "不好意思, 但我要問你個問題.";
+	next;
+	mes "[於妮亞]";
+	mes "不好意思, 我正在忙於看書.";
+	mes "那麼你想問我什麼呢?";
+	next;
+	select("你在看什麼書?");
+	mes "[於妮亞]";
+	mes "這是：約舒華 凡恩瑟 的暢銷書籍之一.";
+	mes "主角是個作家, 寫了他的情婦的故事, 真是感人...";
+	next;
+	mes "[於妮亞]";
+	mes "你也可以看看你要不要看.";
+			next;
+			switch(select("Sure:Why should I?!")) {
+			case 1:
+				if (Zeny > 999) {
+					mes "[Litheron]";
+					mes "Heh, that's what";
+					mes "I'm talking about!";
+					mes "Hey, bartender! Gimme";
+					mes "the usual! I like your";
+					mes "style, adventurer...";
+					Zeny -= 1000;
+					next;
+					mes "[Litheron]";
+					mes "Alright, you can come";
+					mes "on in. But don't you dare";
+					mes "breathe a word about this";
+					mes "bar to another living soul.";
+					close2;
+					warp "que_job01",61,50;
+					end;
+				}
+				else {
+					mes "[Litheron]";
+					mes "Huh...";
+					mes "Oh, you don't even";
+					mes "have enough zeny to";
+					mes "buy water here. Oh boy...";
+					mes "If you really want to enter,";
+					mes "make sure you have the cash!";
+					close2;
+					warp "que_job01",85,77;
+					end;
+				}
+			case 2:
+				mes "[Litheron]";
+				mes "Not the saavy type,";
+				mes "are you...? Fine, fine.";
+				mes "If you're not gonna do";
+				mes "me any favors, then why";
+				mes "should I help you? Go away!";
+				close2;
+				warp "que_job01",85,77;
+				end;
+			}
+		}
+		else {
+			mes "[Master]";
+			mes "Not at all.";
+			mes "Make sure that this";
+			mes "one isn't allowed";
+			mes "to enter.";
+			next;
+			mes "[Litheron]";
+			mes "You heard the man.";
+			mes "You better retreat";
+			mes "from this place while";
+			mes "you still have legs...";
+			close2;
+			warp "que_job01",85,77;
+			end;
+		}
+	}
+}
+
+que_job01,65,50,0	warp	que_job01#05	2,2,que_job01,84,77
+
+que_job01,81,79,5	script	Idle Knight#dan_08	4_M_JOB_KNIGHT1,{
+	mes "[Litheron]";
+	mes "What's the matter?";
+	mes "Oh, I see... You're";
+	mes "probably wondering why";
+	mes "a Knight like me is in a";
+	mes "secret Assassin's pub.";
+	if (BaseClass == Job_Knight) {
+		mes "What about you, huh?";
+	}
+	next;
+	mes "[Litheron]";
+	mes "You know.. I just came to take a short breather. This whole restoration work is killing me.";
+	mes "It's almost impossible to spot a place for a little drink these days, if you know what I mean.";
+	close;
+}
+
+que_job01,82,95,3	script	Bar Master#moc_main01	1_ETC_01,{
+	if (checkweight(908,200) == 0) {
+		mes "^3355FFWait a second!";
+		mes "Right now, you're carrying";
+		mes "too many things with you.";
+		mes "Please come back after";
+		mes "using the Kafra Service";
+		mes "to store some of your items.^000000";
+		close;
+	}
+	if (BaseClass == Job_Assassin) {
+		mes "[Master]";
+		mes "Please, come in.";
+		mes "Care for a drink?";
+	}
+	else if ((BaseJob == Job_Thief) && (BaseClass != Job_Assassin)) {
+		mes "[Master]";
+		mes "......Huh. How did a ruffian like you get in here?";
+		mes "Well, I guess Jack's not doing his job.";
+		next;
+		mes "[" + strcharinfo(0) + "]";
+		mes "Hey,master, don't be so harsh. We know each other, don't we?";
+		mes "You don't wanna hurt your old friend's feeling~";
+		next;
+		mes "[Master]";
+		mes "Whatever you say.";
+		mes "So,what do you wanna drink?";
+	}
+	else {
+		mes "[Master]";
+		mes "....Hmm...";
+		mes "What do you wanna drink?";
+	}
+	next;
+	switch(select("Order a Drink:Ask About Mission:Cancel")) {
+	case 1:
+		mes "[Master]";
+		mes "In this place, I only serve two drinks.";
+		mes "You want a Tropical Sograt or";
+		mes "a Vermilion on the Beach?";
+		next;
+		switch(select("Tropical Sograt:Vermilion on the Beach:Do you offer any free drinks?")) {
+		case 1:
+			if (checkweight(908,200) == 0) {
+				mes "[Master]";
+				mes "Hey, why did you bring";
+				mes "so much stuff with you?";
+				mes "I can't give you anything";
+				mes "to drink if you don't have";
+				mes "the room to carry it around.";
+				mes "Clear out your inventory!";
+				close;
+			}
+			else {
+				if (BaseClass == Job_Assassin) {
+					if (Zeny < 800) {
+						mes "[Master]";
+						mes "You know...";
+						mes "I was going to charge you";
+						mes "800 zeny for this drink, but";
+						mes "it looks like you can't afford";
+						mes "it right now. Come back when";
+						mes "you have the zeny, alright?";
+					}
+					else {
+						mes "[Master]";
+						mes "Most bartenders would";
+						mes "usually charge 1,000 zeny";
+						mes "for this stuff, but I'll only";
+						mes "ask you for 800. Enjoy it,";
+						mes "my friend, and drink it as";
+						mes "deeply as you would life.";
+						Zeny -= 800;
+						getitem 12112,1; //Tropical_Sograt
+					}
+					close;
+				}
+				else {
+					if (Zeny < 1000) {
+						mes "[Master]";
+						mes "Hey, you don't have";
+						mes "the zeny for this drink.";
+						mes "Make sure you come back";
+						mes "with 1,000 zeny if you want";
+						mes "me to fix you something, okay?";
+						close;
+					}
+					else {
+						mes "[Master]";
+						mes "For Assassins, I charge";
+						mes "800 zeny, but for you, I'm";
+						mes "gonna charge 1,000. No";
+						mes "hard feelings, but you're";
+						mes "already lucky to be here.";
+						mes "Hey, enjoy your drink~";
+						Zeny -= 1000;
+						getitem 12112,1; //Tropical_Sograt
+						close;
+					}
+				}
+			}
+		case 2:
+			if (checkweight(908,200) == 0) {
+				mes "[Master]";
+				mes "Hey, why did you bring";
+				mes "so much stuff with you?";
+				mes "I can't give you anything";
+				mes "to drink if you don't have";
+				mes "the room to carry it around.";
+				mes "Clear out your inventory!";
+				close;
+			}
+			else {
+				if (BaseClass == Job_Assassin) {
+					if (Zeny < 800) {
+						mes "[Master]";
+						mes "You know...";
+						mes "I was going to charge you";
+						mes "800 zeny for this drink, but";
+						mes "it looks like you can't afford";
+						mes "it right now. Come back when";
+						mes "you have the zeny, alright?";
+					}
+					else {
+						mes "[Master]";
+						mes "Most bartenders would";
+						mes "usually charge 1,000 zeny";
+						mes "for this stuff, but I'll only";
+						mes "ask you for 800. Enjoy it,";
+						mes "my friend, and drink it as";
+						mes "deeply as you would life.";
+						Zeny -= 800;
+						getitem 12113,1; //Vermilion_The_Beach
+					}
+					close;
+				}
+				else {
+					if (Zeny < 1000) {
+						mes "[Master]";
+						mes "Hey, you don't have";
+						mes "the zeny for this drink.";
+						mes "Make sure you come back";
+						mes "with 1,000 zeny if you want";
+						mes "me to fix you something, okay?";
+						close;
+					}
+					else {
+						mes "[Master]";
+						mes "For Assassins, I charge";
+						mes "800 zeny, but for you, I'm";
+						mes "gonna charge 1,000. No";
+						mes "hard feelings, but you're";
+						mes "already lucky to be here.";
+						mes "Hey, enjoy your drink~";
+						Zeny -= 1000;
+						getitem 12113,1; //Vermilion_The_Beach
+						close;
+					}
+				}
+			}
+		case 3:
+			mes "[Master]";
+			mes "What are you...?";
+			mes "I just told you";
+			mes "I only serve two";
+			mes "drinks. If you want";
+			mes "water, you oughtta";
+			mes "go someplace else.";
+			close;
+		}
+	case 2:
+		if (mao_request == 1) {
+			if (BaseClass == Job_Assassin) {
+				mes "[Master]";
+				mes "A mission...";
+				mes "Don't you think you're little too late?";
+				mes "All the requests were cancelled and there's nothing left for you to do.";
+				mes "Besides, first things first. The restoration work for the city is the most urgent.";
+				close;
+			}
+			else {
+				mes "[Master]";
+				mes "Huh?";
+				next;
+				select("Show him the Letter of Recommendation.");
+				if (countitem(7416) > 0) {
+					mes "[Master]";
+					mes "Ah.. I think you're little too late.";
+					mes "I've got nothing to say if this's about the request sent to each guild.";
+					mes "I'm sorry you've come this far for nothing.";
+					close;
+				}
+				else {
+					mes "[Master]";
+					mes "What are you talking about?";
+					next;
+					mes "[Master]";
+					mes "................You're looking way too suspicious now.";
+					mes " ";
+					mes "Boys, show this guy the door!!";
+					next;
+					mes "[Drinking Boys]";
+					mes "- Yes, Sir!";
+					next;
+					mes "- You've got kicked out of the place. -";
+					close2;
+					warp "morocc",45,106;
+					end;
+				}
+			}
+		}
+		else {
+			if (BaseClass == Job_Assassin) {
+				mes "[Master]";
+				mes "Let me take a guess. You haven't been assigned any missions from this joint, eh?";
+				mes "By the way, you like this place?";
+				next;
+				mes "[Master]";
+				mes "You know, I kinda...";
+				mes "happen to really love this little pub of mine..";
+				mes "where some secret businesses take place..";
+				next;
+				mes "[Master]";
+				mes "If you want, I'll recommend";
+				mes "you to the guildmaster for";
+				mes "a mission. Until then, you've";
+				mes "got to focus on your training.";
+				mes "And until you train... Why";
+				mes "don't you enjoy a drink?";
+				close;
+			}
+			else {
+				mes "[Master]";
+				mes "Mission...?";
+				mes "Come on, what are";
+				mes "you talking about?";
+				mes "Stop talking crazy and";
+				mes "order something to drink.";
+				close;
+			}
+		}
+	case 3:
+		mes "[Master]";
+		mes "Hmmm.";
+		close;
+	}
+}
+
+que_job01,49,49,5	script	Tao#dan_09	4_F_YUNYANG,{
+	if (BaseClass == Job_Assassin) {
+		mes "[Tao]";
+		mes "Welcome, meow~";
+		mes "How's out, meow?";
+		next;
+		if (prt_curse == 24) {
+			switch(select("Is Marjana in?:I'm here to see you,Tao.")) {
+			case 1:
+				mes "[Tao]";
+				mes "She's in the room on your left, meow~";
+				mes "But then, how d'you know she's here, meow?";
+				close;
+			case 2:
+				mes "[Tao]";
+				mes "This is no place for playing, meow..";
+				mes "... Hey, it's awkward you looking at me like that, meow..";
+				close;
+			}
+		}
+		else {
+			mes "[Tao]";
+			mes "Is this all because of that dude called Raiyan Moore or More.. or.. blar?";
+			mes "... Meow..";
+			next;
+			mes "[Tao]";
+			mes "Ugh, you've got nothing to do, then get lost, meow?!";
+			mes "You know this place is prohibited, meow.";
+			mes "You won'e even be able to go into that room, anyway, meow~.";
+			next;
+			mes "[Tao]";
+			mes "Or, else.... You could?.. Oh, who knows, meow..";
+			mes "Tao hates to watch the gate anymore, meow~ meow~";
+			close;
+		}
+	}
+	else {
+		mes "[Tao]";
+		mes "What's up, meow!";
+		next;
+		switch(select("So, it's just you, little brat?:What has gotten into you?!:Hey, stop meowing?!")) {
+		case 1:
+			mes "[Tao]";
+			mes "What are you talking about, meow!";
+			mes "Tao's the greatest gate keeper!";
+			mes "Don't ever low estimate, meow!";
+			next;
+			mes "[Tao]";
+			mes "Looks like you came for some reasons, but don't even dream of getting my help, meow!!";
+			mes "Do you think I'm stupid enough to tell you that";
+			mes "the Master and Marjana are in that room on the right? Meow, meow, meow~~";
+			close;
+		case 2:
+			mes "[Tao]";
+			mes "Are you looking down on me because I'm a gate keeper?!";
+			mes "Grrrr...";
+			next;
+			mes "[Tao]";
+			mes "Get outta here while you have chances!!!!";
+			close;
+		case 3:
+			mes "[Tao]";
+			mes "Meow, meow.";
+			mes "It's a long story, meow.";
+			mes "That day, Tao really wanted a Big Ribbon, meow.";
+			next;
+			mes "[Tao]";
+			mes "So I went out looking for Wild Roses, meow...";
+			mes "...Meow? Wait a minute, why am I telling this story, meow?!";
+			next;
+			mes "[Tao]";
+			mes "Krrrr!";
+			mes "Who the hell are you!";
+			next;
+			mes "[Tao]";
+			mes "Get out of here, meow!!!";
+			close;
+		}
+	}
+}
+
+que_job01,51,55,0	script	que_job01#room_1	WARPNPC,1,1,{
+
+OnReset:
+	set $@maobar_room,0;
+	end;
+
+OnTouch:
+	if (prt_curse == 24) {
+		if ($@maobar_room == 0) {
+			set $@maobar_room,1;
+			donpcevent " #room1timer::OnEnable";
+			donpcevent "Marjana#poison::OnEnable";
+			mes "[Tao]";
+			mes "Ah, that place is protected";
+			mes "by security magic, so you'll";
+			mes "only have ^4D4DFF4 minutes^000000 to remain";
+			mes "there. Don't waste time, meow!";
+			close2;
+			warp "que_job01",11,7;
+			end;
+		}
+		else {
+			mes "[Tao]";
+			mes "Sooo sorry, meow~";
+			mes "Someone else is already";
+			mes "inside. Just come back";
+			mes "again later, meow?";
+			close2;
+			warp "que_job01",52,50;
+			end;
+		}
+	}
+	else if (mao_request > 0) {
+		if ($@maobar_room == 0) {
+			set $@maobar_room,1;
+			donpcevent " #room1timer::OnEnable";
+			donpcevent "Valdes#moc_master_1::OnEnable";
+			mes "[Tao]";
+			mes "Ah, that place is protected";
+			mes "by security magic, so you'll";
+			mes "only have ^4D4DFF4 minutes^000000 to remain";
+			mes "there. Don't waste time, meow!";
+			close2;
+			warp "que_job01",11,7;
+			end;
+		}
+		else {
+			mes "[Tao]";
+			mes "Sooo sorry, meow~";
+			mes "Someone else is already";
+			mes "inside. Just come back";
+			mes "again later, meow?";
+			close2;
+			warp "que_job01",52,50;
+			end;
+		}
+	}
+	else {
+		mes "[Tao]";
+		mes "Wh-who are you?";
+		mes "This is a restricted";
+		mes "area, meow! If you don't";
+		mes "have permission, then get";
+		mes "out of there right meow!";
+		close2;
+		warp "que_job01",52,50;
+		end;
+	}
+}
+
+que_job01,1,1,0	script	 #room1timer	CLEAR_NPC,{
+OnEnable:
+	initnpctimer;
+	mapannounce "que_job01","You will now enter the Master Zone, Area 1.",bc_map,"0x70DBDB";
+	end;
+
+OnStop:
+	mapannounce "que_job01","The security magic in the Master Zone, Area 1 is deactivated.",bc_map,"0x70DBDB";
+	donpcevent "#room1_warp::OnDisable";
+	donpcevent "Valdes#moc_master_1::OnDisable";
+	donpcevent "Marjana#poison::OnDisable";
+	donpcevent "que_job01#room_1::OnReset";
+	stopnpctimer;
+	end;
+
+OnTimer240000:
+	donpcevent "#room1_warp::OnEnable";
+	end;
+
+OnTimer245000:
+	donpcevent "#room1_warp::OnDisable";
+	donpcevent "Valdes#moc_master_1::OnDisable";
+	donpcevent "Marjana#poison::OnDisable";
+	end;
+
+OnTimer250000:
+	mapannounce "que_job01","The security magic Master Zone, Area 1 is now activated.",bc_map,"0x70DBDB";
+	donpcevent "que_job01#room_1::OnReset";
+	stopnpctimer;
+	end;
+}
+
+que_job01,12,13,0	script	#room1_warp	-1,15,15,{
+OnInit:
+	disablenpc "#room1_warp";
+	end;
+
+OnEnable:
+	enablenpc "#room1_warp";
+	end;
+
+OnDisable:
+	disablenpc "#room1_warp";
+	end;
+
+OnTouch:
+	warp "que_job01",52,50;
+	end;
+}
+
+que_job01,51,44,0	warp	que_job01#room_2	1,1,que_job01,80,23
+
+que_job01,11,4,0	script	que_job01#room1_out	WARPNPC,1,1,{
+OnTouch:
+	warp "que_job01",52,50;
+	donpcevent " #room1timer::OnStop";
+	end;
+}
+
+que_job01,80,27,0	warp	que_job01#room2_1_out	1,1,que_job01,52,50
+
+que_job01,16,21,5	script	Valdes#moc_master_1	1_M_JOBTESTER,{
+	if (BaseClass == Job_Assassin) {
+		mes "[Valdes]";
+		mes "What is it? I have nothing to ask you to do.";
+		mes "Could you please leave me alone? I have a bad headache.";
+		next;
+		mes "[Valdes]";
+		mes "I'll ask you for a help some other time.";
+		mes "You look pretty passionate after all.";
+	}
+	else {
+		mes "[Valdez]";
+		mes "....Sorry, but could you please leave?";
+		mes "I'm really stressed out right now.";
+		mes "If you're here for the request that we made earlier, you can just forget about it.";
+	}
+	if (countitem(7417) > 0) {
+		delitem 7417,countitem(7417); //Mission_ScrollA
+	}
+	if (countitem(7418) > 0) {
+		delitem 7418,countitem(7418); //Mission_ScrollB
+	}
+	if (countitem(7416) > 0) {
+		delitem 7416,countitem(7416); //Letter_Of_Recommend
+	}
+	close;
+
+OnInit:
+	disablenpc "Valdes#moc_master_1";
+	end;
+
+OnEnable:
+	enablenpc "Valdes#moc_master_1";
+	end;
+
+OnDisable:
+	disablenpc "Valdes#moc_master_1";
+	end;
+}
+*/
+
+yuno_in04,180,106,3	script	看書的女孩#moc_girl1	1_F_MERCHANT_01,{
+	mes "[" + strcharinfo(0) + "]";
+	mes "Excuse me, but may I ask";
+	mes "you a question?";
+	next;
+	mes "[Yunia]";
+	mes "Eh? Oh, I'm sorry, I was";
+	mes "so busy reading this book!";
+	mes "So, uh, what exactly did";
+	mes "you want to ask me?";
+	next;
+	select("What are you reading?");
+	mes "[Yunia]";
+	mes "Ah! This is one of the best sellers of Joshua Vansei's.";
+	mes "The main character is a writer, and it's so touching that this guy writes a story of his mistress...";
+	next;
+	mes "[Yunia]";
+	mes "Oh.. I can't wait to see Hoein Special..";
+	mes "And this, you could have a look if you want to.";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "Oh, now, I shouldn't.";
+	mes "Looks like the cover's rounded with a red strap,";
+	mes "which..I really think is for adults only.";
+	mes "ex..cuse me~!";
+	close;
+}
+
+morocc_in,46,125,5	script	Assistant#moc_ex1	4_F_NOVICE,{
+	mes "[Sephit]";
+	mes "I've always believed in Satan..";
+	mes "Haah... Guess it's good to be living, after all.";
+	next;
+	mes "[Sephit]";
+	mes "Who would've thought to actually see the Satan while alive.....?";
+	close;
+}
+
+que_job01,70,84,1	script	女孩#moc_ex002	4_F_SITDOWN,{
+	mes "[Girl]";
+	mes "Oh, the world.. the world is doomed..";
+	mes "-sobbing-";
+	mes "Nothing seems to be working now..";
+	emotion ET_CRY;
+	next;
+	mes "["+ strcharinfo(0) +"]";
+	mes "....嘖嘖...";
+	mes "年紀輕輕的就會借酒澆愁....";
+	close;
+}
+
+// Resurrection of Satan Morroc
+// ============================================================
+moc_fild20,354,183,3	script	大陸衛隊警備兵#01::警衛兵	4_M_MOC_SOLDIER,3,3,{
+	if ((rebirth_moc_edq == 0) && (rebirth_moc_edq < 4)) {
+		mes "[大陸衛隊警備兵]";
+		mes "這裡是禁止一般人進出的地方, 這裡非常危險請勿在這附近走動";
+		next;
+		switch(select("取消對話:詢問怎麼回事")) {
+		case 1:
+			close;
+		case 2:
+			mes "[大陸衛隊警備兵]";
+			mes "你還不知道嗎? 封印在夢羅克村落的魔王夢羅克復活了";
+			next;
+			mes "[大陸衛隊警備兵]";
+			mes "當魔王夢羅克魔復活之後移動至蘇克拉特沙漠附近去了, 然而那附近的沙漠就成了魔王的總部";
+			next;
+			mes "[大陸衛隊警備兵]";
+			mes "目前夢羅克村落因魔王復活的影響, 遭受到難以復建的極大傷害";
+			next;
+			mes "[大陸衛隊警備兵]";
+			mes "普隆德拉 王國的奉普隆德拉王國的詔令, 目前不隸屬於夢羅克討伐大隊的平民則全面禁止出入該處";
+			next;
+			switch(select("結束對話:詢問大陸衛隊的位置")) {
+			case 1:
+				close;
+			case 2:
+				mes "[大陸衛隊警備兵]";
+				mes "你是問大陸衛隊的位置嗎? 大陸衛隊目前駐紮在夢羅克村落中央的營地上";
+				next;
+				mes "[大陸衛隊警備兵]";
+				mes "你願意的話我可以送你過去...";
+				next;
+				switch(select("不用了:麻煩你了")) {
+				case 1:
+					mes "[大陸衛隊警備兵]";
+					mes "不用嗎?... 那麼路上小心, 建議你趕快離開這裡";
+					close;
+				case 2:
+					mes "[大陸衛隊警備兵]";
+					mes "沒問題, 我立刻送你到夢羅克村落的現場";
+					close2;
+					warp "morocc",160,61;
+					end;
+				}
+			}
+		}
+	}
+	else if ((rebirth_moc_edq > 3) && (rebirth_moc_edq < 8)) {
+		mes "[大陸衛隊警備兵]";
+		mes "這裡是禁止一般人進出的地方, 這裡非常危險請勿在這附近走動";
+		next;
+		switch(select("取消對話:為了調查要去原野:前往夢羅克的現場")) {
+		case 1:
+			close;
+		case 2:
+			if ($@re_moc < 3) {
+				getpartymember(getcharid(1));
+				set .@partymembercount,$@partymembercount;
+				copyarray .@partymembername$[0],$@partymembername$[0],.@partymembercount;
+				while (.@partymembercount >= 0) {
+					set .@name$,.@partymembername$[.@partymembercount];
+					if (isloggedin(getcharid(3,.@name$))) {
+						set .@onlinemembers,.@onlinemembers + 1;
+					}
+					set .@partymembercount,.@partymembercount - 1;
+				}
+				if ((.@onlinemembers > 1) && (countitem(7826) > 0)) {
+					mes "[大陸衛隊警備兵]";
+					mes "......";
+					next;
+					mes "[大陸衛隊警備兵]";
+					mes "確認過了, 你是大陸衛隊的隊員, 祝你順利地完達任務吧";
+					next;
+					mes "[大陸衛隊警備兵]";
+					mes "在立即送你到原野, 回來時可透過原野入口處的傳送點, 就能重新回到這裡來了";
+					close2;
+					warp "moc_fild21",38,193;
+					end;
+				}
+				else if ((.@onlinemembers < 2) && (countitem(7826) > 0)) {
+					mes "[大陸衛隊警備兵]";
+					mes "確認過了, 你是大陸衛隊的隊員, 剛好有來自巴祿隊長的特別命令, 我來念給你聽";
+					next;
+					mes "[大陸衛隊警備兵]";
+					mes "'因為這裡是極度危險的地帶, 所以嚴禁隊員們的單獨調查行為, 下令務必遵守編組2人以上後才能行動'";
+					next;
+					mes "[大陸衛隊警備兵]";
+					mes "請回現場後找隊員們組隊後再來吧";
+					close;
+				}
+				else if (countitem(7826) < 1) {
+					mes "[大陸衛隊警備兵]";
+					mes "只有攜帶皇家衛士證明的人, 才能不受限制.";
+					close;
+				}
+				else {
+					close;
+				}
+			}
+			else {
+				mes "[大陸衛隊警備兵]";
+				mes "我們已經收到了總部的命令來禁止進入這個領域, 因為一個不尋常的時空現象已經在夢羅克地區檢測到.";
+				next;
+				mes "[大陸衛隊警備兵]";
+				mes "我們需要等到徹查完這個現象, 才能讓你繼續調查.";
+				close;
+			}
+		case 3:
+			mes "[大陸衛隊警備兵]";
+			mes "沒問題, 我立刻送你到夢羅克村落的現場";
+			close2;
+			warp "morocc",160,61;
+			end;
+		}
+	}
+	else if (rebirth_moc_edq == 8) {
+		mes "[大陸衛隊警備兵]";
+		mes "你是隸屬於大陸衛隊的冒險家喔, 你好啊, 找我有事嗎?";
+		next;
+		getpartymember(getcharid(1));
+		set .@partymembercount,$@partymembercount;
+		copyarray .@partymembername$[0],$@partymembername$[0],.@partymembercount;
+		while (.@partymembercount >= 0) {
+			set .@name$,.@partymembername$[.@partymembercount];
+			if (isloggedin(getcharid(3,.@name$))) {
+				set .@onlinemembers,.@onlinemembers + 1;
+			}
+			set .@partymembercount,.@partymembercount - 1;
+		}
+		switch(select("為了調查要去第一原野:為了調查要去第二原野:返回夢羅克現場:取消對話")) {
+		case 1:
+			if ((.@onlinemembers > 1) && (countitem(7826) > 0)) {
+				mes "[大陸衛隊警備兵]";
+				mes "......";
+				next;
+				mes "[大陸衛隊警備兵]";
+				mes "是的, 我確認, 你是一個大陸衛隊的成員.我希望你能順利完成你的任務, 祝你好運.";
+				next;
+				mes "[大陸衛隊警備兵]";
+				mes "我會送你過去.回來的話, 通過那邊的傳送點就可以.";
+				close2;
+				warp "moc_fild21",38,193;
+				end;
+			}
+			else if ((.@onlinemembers < 2) && (countitem(7826) > 0)) {
+				mes "[大陸衛隊警備兵]";
+				mes "確認過了, 你是大陸衛隊的隊員, 剛好有來自巴祿隊長的特別命令, 我來念給你聽";
+				next;
+				mes "[大陸衛隊警備兵]";
+				mes "'因為這裡是極度危險的地帶, 所以嚴禁隊員們的單獨調查行為, 下令務必遵守編組2人以上後才能行動'";
+				next;
+				mes "[大陸衛隊警備兵]";
+				mes "請回現場後找隊員們組隊後再來吧";
+				close;
+			}
+			else if (countitem(7826) < 1) {
+				mes "[大陸衛隊警備兵]";
+				mes "只有攜帶皇家衛士證明的人, 才能不受限制.";
+				close;
+			}
+			else {
+				close;
+			}
+		case 2:
+			if ((.@onlinemembers > 1) && (countitem(7826) > 0)) {
+				mes "[大陸衛隊警備兵]";
+				mes "......";
+				next;
+				mes "[大陸衛隊警備兵]";
+				mes "確認過了, 你是大陸衛隊的隊員, 祝你順利地完達任務吧";
+				next;
+				mes "[大陸衛隊警備兵]";
+				mes "在立即送你到原野, 回來時可透過原野入口處的傳送點, 就能重新回到這裡來了";
+				close2;
+				warp "moc_fild22",38,193;
+				end;
+			}
+			else if ((.@onlinemembers < 2) && (countitem(7826) > 0)) {
+				mes "[大陸衛隊警備兵]";
+				mes "確認過了, 你是大陸衛隊的隊員, 剛好有來自巴祿隊長的特別命令, 我來念給你聽";
+				next;
+				mes "[大陸衛隊警備兵]";
+				mes "'因為這裡是極度危險的地帶, 所以嚴禁隊員們的單獨調查行為, 下令務必遵守編組2人以上後才能行動'";
+				next;
+				mes "[大陸衛隊警備兵]";
+				mes "請回現場後找隊員們組隊後再來吧";
+				close;
+			}
+			else if (countitem(7826) < 1) {
+				mes "[大陸衛隊警備兵]";
+				mes "只有攜帶皇家衛士證明的人, 才能不受限制.";
+				close;
+			}
+			else {
+				close;
+			}
+		case 3:
+			mes "[大陸衛隊警備兵]";
+			mes "沒問題, 我立刻送你到夢羅克村落的現場";
+			close2;
+			warp "morocc",160,61;
+			end;
+		case 4:
+			close;
+		}
+	}
+	else {
+		end;
+	}
+
+//OnTouch2:
+OnTouch:
+	mes "[大陸衛隊警備兵]";
+	mes "這裡是禁止一般人進出的地方, 這裡非常危險請勿在這附近走動";
+	close;
+	end;
+}
+
+moc_fild20,354,174,3	duplicate(警衛兵)	大陸衛隊警備兵#02	4_M_MOC_SOLDIER,3,3
+moc_fild20,38,174,5	duplicate(警衛兵)	大陸衛隊警備兵#03	4_M_MOC_SOLDIER,3,3
+moc_fild20,38,183,5	duplicate(警衛兵)	大陸衛隊警備兵#04	4_M_MOC_SOLDIER,3,3
+moc_fild20,189,21,7	duplicate(警衛兵)	大陸衛隊警備兵#05	4_M_MOC_SOLDIER,3,3
+moc_fild20,200,21,7	duplicate(警衛兵)	大陸衛隊警備兵#06	4_M_MOC_SOLDIER,3,3
+moc_fild20,203,336,5	duplicate(警衛兵)	大陸衛隊警備兵#07	4_M_MOC_SOLDIER,3,3
+moc_fild20,215,336,3	duplicate(警衛兵)	大陸衛隊警備兵#08	4_M_MOC_SOLDIER,3,3
+
+-	script	大陸衛隊警備兵#00::傳令兵	4_M_MOCASS1,3,3,{
+	set .@area$,strnpcinfo(2);
+	if (.@area$ == "01") { set .@area$,"普隆德拉"; }
+	else if (.@area$ == "02") { set .@area$,"吉芬"; }
+	else if (.@area$ == "03") { set .@area$,"斐揚"; }
+	else if (.@area$ == "04") { set .@area$,"艾爾貝塔"; }
+	else if (.@area$ == "05") { set .@area$,"艾爾帕蘭"; }
+	if (BaseLevel > 79) {
+		mes "你是"+ strcharinfo(0) +"啊, 這是分秒必爭的緊急事件, ";
+		mes "所以我就講重點吧";
+		next;
+		mes "[大陸衛隊 傳令兵]";
+		mes "我是從夢羅克大陸衛隊總部派到" + .@area$ + "";
+		mes "的傳令兵, 我是來傳話給像你"+ strcharinfo(0) +"這樣有";
+		mes "聲望的各位冒險家們";
+		mes "我是從夢羅克大陸衛隊總部派到" + .@area$ + "";
+		mes "的傳令兵, 我是來緊急警告盧恩";
+		mes "米德加茲全部的人";
+	next;
+	select("夢羅克大陸衛隊總部是怎麼一回事啊?");
+	mes "[大陸衛隊 傳令兵]";
+	mes "時間不多了, 那我就簡單扼要的向你說明吧";
+	next;
+	mes "[大陸衛隊 傳令兵]";
+	mes "魔王夢羅克...";
+	mes "已經復活了, 數世紀以來封印在夢羅克地下宮庭深處的夢羅克...";
+	mes "就是那個夢羅克";
+	next;
+	mes "[大陸衛隊 傳令兵]";
+	mes "受此影響, 現在夢羅村落與附近地區瞬間成了廢墟";
+	next;
+	mes "[大陸衛隊 傳令兵]";
+	mes "簡直是千瘡百孔...";
+	mes "有過之而無不及, 現在夢羅克周圍呈現一片死寂";
+	next;
+	mes "[大陸衛隊 傳令兵]";
+	mes "然而緊急對策就是促成了組織魔王夢羅克大陸衛隊... 我是來向盧恩";
+	mes "米德加茲王國與全區傳達這項消息";
+	next;
+	mes "[大陸衛隊 傳令兵]";
+		mes "當然更重要的是如今迫切需要像"+ strcharinfo(0) +"一樣";
+		mes "出色的冒險家們的幫忙, 為了再次封印夢羅克...";
+		next;
+		mes "[大陸衛隊 傳令兵]";
+		mes "詳細內容去詢問我們大陸衛隊的隊長吧!";
+		mes "他正等候著"+ strcharinfo(0) +"您呢";
+		next;
+		mes "[大陸衛隊 傳令兵]";
+		mes "討伐大隊的總部是...";
+		mes "目前設在夢羅克中央宮廷附近的臨時哨所上";
+		close;
+	} 
+	else {
+		mes "[大陸衛隊 傳令兵]";
+		mes "當然最重要的是如今迫切需要這裡所有優秀的冒險家們的協助, 為了再次封印夢羅克...";
+		next;
+		mes "[大陸衛隊 傳令兵]";
+		mes "目前夢羅克村落因受到魔王復活的影響, 都是約 7成以上嚴重的損壞";
+		next;
+		mes "[大陸衛隊 傳令兵]";
+		mes "周圍鄰近的沙漠音魔王夢羅克和它的幻影, 以及強大魔物的出現, 逐漸變成死地了... 你要多多保重";
+		next;
+		mes "[Continental Guard Messenger]";
+		mes "The revival of Satan Morroc has completely devastated Morroc Village and the area surrounding it.";
+		next;
+		mes "[Continental Guard Messenger]";
+		mes "All of the death and suffering... Anywhere else must seem like heaven compared to what's happening in and around Morroc.";
+		next;
+		mes "[Continental Guard Messenger]";
+		mes "The Morroc Continental Guard was immediately organized to fight Satan Morroc and bring relief to this dire situation. I'm here to inform everyone in the Rune-Midgarts Kingdom about this catastrophe.";
+		next;
+		mes "[Continental Guard Messenger]";
+		mes "Part of my duty is to help recruit adventurers from around the world to help drive Satan Morroc back into confinement. It won't be easy, but he was defeated once before. Satan Morroc can be sealed away again.";
+		next;
+		mes "[Continental Guard Messenger]";
+		mes "At least 70% of Morroc Village was destroyed by the fallout of Satan Morroc's resurrection.";
+		next;
+		mes "[Continental Guard Messenger]";
+		mes "The desert around Morroc has also turned into a land of death after it was claimed by Satan Morroc and his powerful doppelgangers and underlings.";
+		mes "So heed my warning, stay away from the Morroc area unless you're on a mission organized by the Morroc Continental Guard.";
+		close;
+	}
+
+OnTouch:
+	if (BaseLevel > 79) {
+		mes "[大陸衛隊 傳令兵]";
+		mes "請問你是... "+ strcharinfo(0) +"嗎?";
+		mes "正確的話請你先聽我說完, 這是非常重要的事情";
+		next;
+		mes "[大陸衛隊 傳令兵]";
+		mes "事態緊急, 請務必先聽我說";
+		close;
+	}
+	end;
+}
+
+prontera,164,304,3	duplicate(傳令兵)	夢羅克大陸衛隊傳令兵#01	4_M_MOCASS1,3,3
+geffen,128,90,3	duplicate(傳令兵)	夢羅克大陸衛隊傳令兵#02	4_M_MOCASS1,3,3
+payon,200,113,3	duplicate(傳令兵)	夢羅克大陸衛隊傳令兵#03	4_M_MOCASS1,3,3
+alberta,127,64,3	duplicate(傳令兵)	夢羅克大陸衛隊傳令兵#04	4_M_MOCASS2,3,3
+aldebaran,135,128,3	duplicate(傳令兵)	夢羅克大陸衛隊傳令兵#05	4_M_MOCASS2,3,3
+
+morocc,176,103,3	script	大陸衛隊 行政官	4_M_SAGE_A,{
+	if (rebirth_moc_edq > 3) {
+		mes "[大陸衛隊 行政官]";
+		mes "辛苦你了, 有來自總部的新消息...";
+		next;
+		mes "[大陸衛隊 行政官]";
+		mes "嗯...";
+		next;
+		mes "[大陸衛隊 行政官]";
+		mes "目前還沒有新消息... 祝你順利達成任務, 報告完畢";
+		close;
+	}
+	else if (rebirth_moc_edq == 0) {
+		mes "[大陸衛隊 行政官]";
+		mes "我是負責夢羅克討伐大隊中央的諮詢官, 請問有事嗎?";
+		next;
+		switch(select("這裡是什麼地方呢?:我來報名:詢問村落的現況")) {
+		case 1:
+			mes "[大陸衛隊 行政官]";
+			mes "這裡是負責遍布於大陸各地勇猛的冒險家們, 為了阻止魔王夢羅克而聚集報名大陸衛隊的地方";
+			next;
+			mes "[大陸衛隊 行政官]";
+			mes "你也知道魔王的復活讓盧恩 米德加茲王國與這大陸所面臨的危機是有直接的關係";
+			next;
+			mes "[大陸衛隊 行政官]";
+			mes "奉王國之命有意消滅魔王而招集的大陸衛隊, 目前正如火如荼的進行阻止魔王的各項準備";
+			next;
+			mes "[大陸衛隊 行政官]";
+			mes "如果你也是受到詔令或是對自己的實力有信心的冒險家的話, 請你現在報名以維護這大陸的和平吧";
+			close;
+		case 2:
+			if (BaseLevel > 79) {
+				mes "[大陸衛隊 行政官]";
+				mes "啊... 你是";
+				mes strcharinfo(0) + "對吧, 我正在等你, 我想你已經了解我們這裡的情況吧";
+				next;
+				mes "[大陸衛隊 行政官]";
+				mes "我會立刻登記後呈報上去, 請稍等一下";
+				next;
+				mes "[大陸衛隊 行政官]";
+				mes "現在請你去找位於中央的大陸衛隊將軍巴爾洛對話吧, 謝謝你";
+				set rebirth_moc_edq,1;
+				setquest 3050;
+				close;
+			}
+			else {
+				mes "[大陸衛隊 行政官]";
+				mes "雖高度肯定你的意志... 但也有不能單靠意志就可以解決的事情";
+				next;
+				mes "[大陸衛隊 行政官]";
+				mes "魔王夢羅克比你遭遇過的任何魔物都強大, 更有性命的危險";
+				next;
+				mes "[大陸衛隊 行政官]";
+				mes "現在請你先顧好自己的安全和性命吧";
+				close;
+			}
+		case 3:
+			mes "[大陸衛隊 行政官]";
+			mes "狀況很不理想, 你也知道村落已遭受嚴重傷害, 連帶這附近也非常危險了";
+			next;
+			mes "[大陸衛隊 行政官]";
+			mes "雖然王國下詔令後陸陸續續各地的冒險家們和勇士們都聚集到討伐大隊下... 但是力量仍不足以抵禦強大的魔王";
+			next;
+			mes "[大陸衛隊 行政官]";
+			mes "在這附近請儘可能的聽從我們的指示, 更注意自身的安全以免遭遇不測";
+			close;
+		}
+	}
+	else {
+		mes "[大陸衛隊 行政官]";
+		mes "你已經完成報名了, 請找巴祿隊長對話吧";
+		close;
+	}
+}
+
+morocc,159,113,3	script	將軍 巴爾洛	4_M_CRU_OLD,{
+	if (rebirth_moc_edq == 0) {
+		mes "[將軍 巴爾洛]";
+		mes "年輕人你不幸在這非常時期來到了夢羅克, 我是被派來阻止魔王夢羅克復活的大陸衛隊將軍巴爾洛";
+		next;
+		mes "[將軍 巴爾洛]";
+		mes "我實在太忙了無法一一向你這樣的冒險家說明, 請你去找這附近的其他人吧";
+		next;
+		mes "[將軍 巴爾洛]";
+		mes "我目前正忙於挑選要加入我們大陸衛隊的新血人才";
+		close;
+	}
+	else if (rebirth_moc_edq == 1) {
+		mes "[將軍 巴爾洛]";
+		mes "年輕人你不幸在這非常時期來到了夢羅克, 我是被派來阻止魔王夢羅克復活的大陸衛隊將軍巴爾洛";
+		next;
+		mes "[將軍 巴爾洛]";
+		mes "你找我有事嗎? 我現在很忙請你就簡單扼要的說吧";
+		next;
+		switch(select("詢問關於大陸衛隊:想加入大陸衛隊:結束對話")) {
+		case 1:
+			mes "[將軍 巴爾洛]";
+			mes "嗯...";
+			mes "我想你來這裡的途中應該有發現到了吧, 封印在這裡夢羅克王宮地下的魔王夢羅克復活了";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "受此影響這裡夢羅克村落幾乎半毀了, 而魔王移動至附近蘇克拉特沙漠後將附近佔為己有";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "照這樣下去不僅是這裡夢羅克, 連整個米德加茲大陸都會遭殃...";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "所以在王國的一聲詔令下, 將最精銳部隊和聲名遠播的冒險家們聚集後組成討伐大隊以阻止魔王的侵犯";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "當然很辛苦... 也不能保證結果如何...";
+			mes "但我們打死不退, 為了這世界的未來...";
+			mes "勸你在這危險的時勢下回家好好孝順父母及過自己的生活吧";
+			close;
+		case 2:
+			mes "[將軍 巴爾洛]";
+			mes "什麼?... 嗯...";
+			mes "你也想加入我們大陸衛隊隊員嗎?";
+			next;
+			if (BaseLevel > 79) {
+				mes "[將軍 巴爾洛]";
+				mes "嗯... 你叫什麼大名呢? 是" + strcharinfo(0) + "嗎?";
+				mes "嗯... 我也對你認識一些";
+				next;
+				mes "[將軍 巴爾洛]";
+				mes "不過你可能還不清楚這件事情非同小可, 魔王夢羅克你沒聽過嗎? 對像正是魔王";
+				next;
+				mes "[將軍 巴爾洛]";
+				mes "不要逞強了, 你知道每天有多少像你一樣的菜鳥為了虛榮心而硬要加入我們的嗎?";
+				next;
+				mes "[將軍 巴爾洛]";
+				mes "雖說這關係著大陸命運的重大事件, 但我只需要可以勝任此任務的優秀手下而已";
+				next;
+				mes "[將軍 巴爾洛]";
+				mes "如果有笨拙的冒險家來插一腳的話, 反而會牽連我寶貴的手下, 我不能放任這種事情發生, 請你回去吧";
+				next;
+				switch(select("結束對話:再次要求加入大陸衛隊")) {
+				case 1:
+					close;
+				case 2:
+					mes "[將軍 巴爾洛]";
+					mes "不行... 以你現在的實力無法加入, 你還不明白這是多麼危險的事情嗎";
+					next;
+					mes "[將軍 巴爾洛]";
+					mes "你要尊重自己的生命懂嗎?";
+					mes "魔王的恐怖跟你之前消滅的魔物是皆然不同的";
+					next;
+					mes "[將軍 巴爾洛]";
+					mes "我是因為非常擔憂你的安危才說的, 最好把你的精力用在消滅波利的地方吧";
+					next;
+					switch(select("結束對話:我一定要加入大陸衛隊")) {
+					case 1:
+						close;
+					case 2:
+						mes "[將軍 巴爾洛]";
+						mes "哈哈... 年輕人還真是固執, 我看你是吃了熊心豹子膽吧, 我再說一次";
+						next;
+						mes "[將軍 巴爾洛]";
+						mes "以現在極度危險的處境之下, 無法讓菜鳥加入, 那些死去的士兵們不覺得可憐嗎?";
+						next;
+						mes "[將軍 巴爾洛]";
+						mes "像你一樣的冒險家已經屍橫遍野, 所以別再來煩我了, 你的加入只會拖累我們而已";
+						next;
+						switch(select("放棄:證明我的實力")) {
+						case 1:
+							close;
+						case 2:
+							mes "[將軍 巴爾洛]";
+							mes "什麼? 你是說要證明你的實力嗎?";
+							mes "嗯嗯...";
+							next;
+							mes "[" + strcharinfo(0) + "]";
+							mes "我證明實力給你看的話, 就讓我加入大陸衛隊吧";
+							next;
+							mes "[將軍 巴爾洛]";
+							mes "嗯...";
+							next;
+							mes "[將軍 巴爾洛]";
+							mes "好吧, 你好大的口氣就讓我瞧瞧你的本事吧, 你若把這件事辦妥的話, 我就承認你的實力";
+							next;
+							mes "[將軍 巴爾洛]";
+							mes "我們大陸衛隊為了避免遭襲擊, 於是２４小時的在這夢羅克村落和附近沙漠維持警戒";
+							next;
+							mes "[將軍 巴爾洛]";
+							mes "為了露營的士兵們我們用石清來生火, 只是最近石清的供給量不足";
+							next;
+							mes "[將軍 巴爾洛]";
+							mes "我聽說在熔巖洞穴和火山洞穴裡的魔物們";
+							mes "帶有不會熄滅的火種... 怎樣?";
+							mes "去收集那些火種來吧";
+							next;
+							switch(select("不可能, 再考慮一下:沒問題, 難不到我")) {
+							case 1:
+								mes "[將軍 巴爾洛]";
+								mes "哼... 你在耍我嗎?";
+								mes "浪費我時間, 快快退下";
+								close;
+							case 2:
+								mes "[將軍 巴爾洛]";
+								mes "很好, 我就拭目以待吧, 是 ^0000FF火種 30個^000000";
+								mes "記住了嗎?";
+								set rebirth_moc_edq,2;
+								changequest 3050,3051;
+								close;
+							}
+						}
+					}
+				}
+			}
+			else {
+				mes "[將軍 巴爾洛]";
+				mes "什麼?你一點本事都沒有, 怎麼能加入我們大陸衛隊?";
+				next;
+				mes "[將軍 巴爾洛]";
+				mes "我覺得你可能會導致我的士兵們士氣下降.你可能只能在夢中擊敗魔王夢羅克, 放棄吧.";
+				next;
+				mes "[將軍 巴爾洛]";
+				mes "如果你不能夠清楚認識到危險性, 對我們將沒有任何幫助.我見過無數自以為是的冒險家, 認為依靠他們個人的力量就可以幾百魔王夢羅克, 從而弄丟了自己的性命.";
+				next;
+				mes "[將軍 巴爾洛]";
+				mes "我們面臨這一個可能決定世界未來命運的威脅.愚蠢的傢伙不願意依靠團隊、集體的力量, 喜歡表演英雄個人主義.";
+				next;
+				mes "[將軍 巴爾洛]";
+				mes "不好意思, 但是沒有經驗的冒險家是不允許進入的, 我希望你明白.如果你真的想幫我們, 請你先鍛鍊好你自己再來.";
+				close;
+			}
+		case 3:
+			close;
+		}
+	}
+	else if (rebirth_moc_edq == 2) {
+		mes "[將軍 巴爾洛]";
+		mes "你 ^0000FF火種 30個^000000 帶來了嗎?";
+		mes "你不會擱下大話卻是兩手空空的吧?";
+		next;
+		if (countitem(7098) > 29) {
+			mes "[將軍 巴爾洛]";
+			mes "嗯... 一二三...";
+			mes "數量沒錯, 這是基本功力, 不要退縮";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "總之謝謝你的火種, 你比想像中更優秀";
+			next;
+			mes "[" + strcharinfo(0) + "]";
+			mes "那你願意讓我加入大陸衛隊嗎?";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "呵! 你說什麼...";
+			mes "如果事情這麼簡單當初就不會拒絕你的";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "我想一下... 嗯嗯...";
+			next;
+			mes "[" + strcharinfo(0) + "]";
+			mes "我也想應該沒這麼簡單, 所以儘量測試我吧";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "你別催我等一下, 嗯...";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "對了";
+			mes "你可以做這個, 其實我的部隊並非全由米德加茲王過的士兵所組成, 有些是從北部編入的傭兵, 還有以秀髮茲發德聯合名義併入的士兵等等...";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "問題是他們未曾在沙漠中執行過任務, 有些人甚至連沙漠也沒看過, 不知這些人是否能頂得住沙漠的熱氣和風沙...";
+			next;
+			mes "[" + strcharinfo(0) + "]";
+			mes "(原來他是個善解人意的人...)";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "聽說在北方冰洞穴處有出沒擁有冰心臟的魔物, 如果能有那些士兵也不容易中暑了...";
+			next;
+			switch(select("我無能為力:我去收集, 需要多少呢?")) {
+			case 1:
+				mes "[將軍 巴爾洛]";
+				mes "現在退出還來得及, 我當初還擔心被你的匹夫之勇害死自己";
+				next;
+				mes "[將軍 巴爾洛]";
+				mes "那麼最好你快點躲到安全的地方吧, 以免遭遇不測";
+				close;
+			case 2:
+				mes "[將軍 巴爾洛]";
+				mes "什麼? 你真的願意去收集嗎? 嗯嗯...";
+				next;
+				mes "[將軍 巴爾洛]";
+				mes "我需要的數量不少喔, 至少要有 50個";
+				next;
+				mes "[將軍 巴爾洛]";
+				mes "怎麼樣? 帶給我 ^0000FF冰心臟 50個^000000吧, 當然越快越好";
+				delitem 7098,30; //Live_Coal
+				set rebirth_moc_edq,3;
+				changequest 3051,3052;
+				close;
+			}
+		}
+		else {
+			mes "[將軍 巴爾洛]";
+			mes "餵... 你沒聽清楚嗎? 需要火種 30個, 火種 30個啦";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "你快去吧, 不然你也可以隨時放棄啦...";
+			close;
+		}
+	}
+	else if (rebirth_moc_edq == 3) {
+		mes "[將軍 巴爾洛]";
+		mes "你好嗎? 冰心臟 50個都收齊了嗎?";
+		next;
+		if (countitem(7561) > 49) {
+			mes "[將軍 巴爾洛]";
+			mes "嗯... 辛苦了, 我會好好使用你帶來的冰心臟";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "這個請你收下吧";
+			delitem 7561,50; //Ice_Heart
+			getitem 7826,1; //Continental_Guard_Paper
+			set rebirth_moc_edq,4;
+			changequest 3052,3053;
+			next;
+			mes "[" + strcharinfo(0) + "]";
+			mes "這是...?";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "就是承認你成為我們大陸衛隊隊員的證書, 我也不得不佩服你的英勇表現";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "從現在起將與你一起行動, 你準備好了嗎? 要有犧牲自己的打算喔";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "現在你要做的事情說容易又不簡單, 請你與加入大陸衛隊的隊員攜手消滅魔王夢羅克以全面阻止其復活吧";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "前往夢羅克出沒地區的路上, 現在由我們的隊員拚死封鎖使傷害降到最少, 並與魔王的的手下激烈的廝殺之中";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "現在輪到各位大顯身手的時候了, 祝大家好運囉";
+			close;
+		}
+		else {
+			mes "[將軍 巴爾洛]";
+			mes "餵... 你沒聽清楚嗎? 需要冰心臟 50個, 冰心臟 50個啦";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "你快去吧, 不然你也可以隨時放棄啦?...";
+			close;
+		}
+	}
+	else if (rebirth_moc_edq == 4) {
+		mes "[將軍 巴爾洛]";
+		mes "原來如此...";
+		mes "好像是我沒有仔細向你說明這附近的現況";
+		mes "... 你想聽嗎?";
+		next;
+		switch(select("我想聽聽看:我不想聽")) {
+		case 1:
+			mes "[將軍 巴爾洛]";
+			mes "我要告訴你的是身為大陸衛隊隊員, 對抗魔王夢羅克時應該要知道的情報";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "你還記得這事態發展之前的夢羅克嗎? 當然我想你之前也許未曾來過...";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "你也知道目前夢羅克城內的各入口和通往其他村落的外圍原野皆有我們大陸衛隊管控中";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "理由除了是因魔王的復活, 讓目前在蘇克拉特沙漠上出沒的魔物增加了危險性... 但還有其他原因";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "魔王夢羅克的強大力量引起了時空次元的龜裂, 雖然目前只影響到這附近而已... 但早晚會波及到其他地方";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "因受時空次元的龜裂, 使現在的夢羅克沙漠都變形, 甚至有些地方憑空消失的異常現象";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "另外歸順於魔王勢力的強大魔物們與魔王的幻影們繼續大量出現, 造成嚴重的威脅";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "其實你也可以親自去證實... 我們所得到的情報舊這些了, 更詳細的你去問大陸衛隊行政官吧";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "別忘了這大陸的未來掌握在我們的手裡, 請你全力以赴去阻止魔王, 我說完了";
+			close;
+		case 2:
+			mes "[將軍 巴爾洛]";
+			mes "是嗎? 知道了... 那麼去跟隊員們專心完成任務吧, 如果我們不能壓制魔王的話, 這大陸也就沒未來了";
+			close;
+		}
+	}
+	else if (rebirth_moc_edq == 5) {
+		mes "[將軍 巴爾洛]";
+		mes "什麼? 你說擊敗了魔王夢羅克嗎?";
+		next;
+		mes "[將軍 巴爾洛]";
+		mes "那魔王現在怎麼樣了呢?";
+		mes "擊敗的證據呢?";
+		next;
+		mes "[將軍 巴爾洛]";
+		mes "不, 我只是口頭上說信任你接受你.我的意思是, 如果你完成了如此重要的任務, 是否應該帶回點什麼作為證明呢?";
+		next;
+		mes "[將軍 巴爾洛]";
+		mes "去帶回勝利的證明來讓我一覽.";
+		close;
+	}
+	else if (rebirth_moc_edq == 6) {
+		mes "[將軍 巴爾洛]";
+		mes "什麼? 你說擊敗了魔王夢羅克嗎?";
+		next;
+		mes "[將軍 巴爾洛]";
+		mes "那魔王現在怎麼樣了呢?";
+		mes "擊敗的證據呢?";
+		next;
+		if (countitem(7820) > 0) {
+			mes "[將軍 巴爾洛]";
+			mes "這...這是...";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "嗯...";
+			mes "應該沒錯, 我高度肯定你的功勞, 這大陸都幸好你才轉危為安了";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "我看樣子";
+			mes "魔王夢羅克是遭受到你們嚴重的傷害後, 躲入時空的縫隙裡了";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "令人婉惜的是我們目前沒能力跑到時空的另一邊去追殺夢羅克, 但至少成功的阻止了魔王的再度降臨, 可以暫時喘一口氣了...";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "這碎片...";
+			mes "可以提供給我們豐富的有關未來魔王的步調和對策的情報";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "首先對你的功勞我代表大陸衛隊和米德加茲王國向你表示十萬分的謝意, 我會秉告陛下的";
+			next;
+			delitem 7820,1; //Morroc_Skin
+			getexp 2000000,0;
+			set rebirth_moc_edq,7;
+			changequest 3055,3056;
+			mes "[將軍 巴爾洛]";
+			mes "我準備了幾項獎勵品, 我看看...";
+			mes "共有三件你來挑選吧?";
+			next;
+			switch(select("1. 皇家衛士的徽章:2. 咒語符文石:3. 死亡掛墜")) {
+			case 1:
+				mes "[將軍 巴爾洛]";
+				mes "大陸衛隊的印鑑是強韌的象徵, 這是由王國所親賜的珍貴物品";
+				next;
+				mes "[將軍 巴爾洛]";
+				mes "^0000FF MaxHP+50, 裝備時攻擊速度會增加";
+				mes "3%^000000效果的裝飾品";
+				next;
+				mes "[將軍 巴爾洛]";
+				mes "你要收下這個大陸衛隊的印鑑嗎?";
+				next;
+				switch(select("1. 收下:2. 改收別的東西")) {
+				case 1:
+					mes "[將軍 巴爾洛]";
+					mes "知道了, 我會送你大陸衛隊的印鑑";
+					next;
+					getitem 2730,1; //Morroc_Seal
+					set rebirth_moc_edq,8;
+					completequest 3056;
+					mes "[將軍 巴爾洛]";
+					mes "不過我想你也知道這一切尚未結束, 畢竟對方也不是省油的燈...";
+					next;
+					mes "[將軍 巴爾洛]";
+					mes "請你不要鬆懈繼續刺探敵情和保持巡邏吧, 當然我會準備適當的獎勵";
+					next;
+					mes "[將軍 巴爾洛]";
+					mes "辛苦你了...";
+					mes "你可以放心的回去休息和享樂了, 這裡就交給我們吧...";
+					close;
+				case 2:
+					mes "[將軍 巴爾洛]";
+					mes "喔是嗎...";
+					mes "明白了, 那麼請你挑選其它東西, 慢慢想吧";
+					close;
+				}
+			case 2:
+				mes "[將軍 巴爾洛]";
+				mes "盧恩文字咒語石是充滿魔力的象徵, 這是由王國所親賜的珍貴物品";
+				next;
+				mes "[將軍 巴爾洛]";
+				mes "";
+				mes "^0000FFMaxSP+50, 效果的裝飾品裝備時施法延遲時";
+				mes "間會減少 1%^000000效果的裝飾品";
+				next;
+				mes "[將軍 巴爾洛]";
+				mes "你要收下這個盧恩文字咒語石嗎?";
+				next;
+				switch(select("1. 收下:2. 改收別的東西")) {
+				case 1:
+					mes "[將軍 巴爾洛]";
+					mes "知道了, 我會送你盧恩文字咒語石";
+					next;
+					getitem 2731,1; //Morroc_Charm_Stone
+					set rebirth_moc_edq,8;
+					completequest 3056;
+					mes "[將軍 巴爾洛]";
+					mes "不過我想你也知道這一切尚未結束, 畢竟對方也不是省油的燈...";
+					next;
+					mes "[將軍 巴爾洛]";
+					mes "請你不要鬆懈繼續刺探敵情和保持巡邏吧, 當然我會準備適當的獎勵";
+					next;
+					mes "[將軍 巴爾洛]";
+					mes "辛苦你了...";
+					mes "你可以放心的回去休息和享樂了, 這裡就交給我們吧...";
+					close;
+				case 2:
+					mes "[將軍 巴爾洛]";
+					mes "喔是嗎...";
+					mes "明白了, 那麼請你挑選其它東西, 慢慢想吧";
+					close;
+				}
+			case 3:
+				mes "[將軍 巴爾洛]";
+				mes "死亡之扣環是致命力量的象徵, 這是由王國所親賜的珍貴物品";
+				next;
+				mes "[將軍 巴爾洛]";
+				mes "有^0000FF Cri + 5^000000  效果的裝飾品";
+				next;
+				mes "[將軍 巴爾洛]";
+				mes "你要收下這個死亡之扣環嗎?";
+				next;
+				switch(select("1. 收下:2. 改收別的東西")) {
+				case 1:
+					mes "[將軍 巴爾洛]";
+					mes "知道了, 我會送你死亡之扣環";
+					next;
+					getitem 2732,1; //Morroc_Ring
+					set rebirth_moc_edq,8;
+					completequest 3056;
+					mes "[將軍 巴爾洛]";
+					mes "不過我想你也知道這一切尚未結束, 畢竟對方也不是省油的燈...";
+					next;
+					mes "[將軍 巴爾洛]";
+					mes "請你不要鬆懈繼續刺探敵情和保持巡邏吧, 當然我會準備適當的獎勵";
+					next;
+					mes "[將軍 巴爾洛]";
+					mes "辛苦你了...";
+					mes "你可以放心的回去休息和享樂了, 這裡就交給我們吧...";
+					close;
+				case 2:
+					mes "[將軍 巴爾洛]";
+					mes "喔是嗎...";
+					mes "明白了, 那麼請你挑選其它東西, 慢慢想吧";
+					close;
+				}
+			}
+		}
+		else {
+			mes "[將軍 巴爾洛]";
+			mes "不, 我只是口頭上說信任你接受你.我的意思是, 如果你完成了如此重要的任務, 是否應該帶回點什麼作為證明呢?";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "去帶回勝利的證明來讓我一覽.";
+			close;
+		}
+	}
+	else if (rebirth_moc_edq == 7) {
+		mes "[將軍 巴爾洛]";
+		mes "我準備了幾項獎勵品, 我看看...";
+		mes "共有三件你來挑選吧?";
+		next;
+		switch(select("1. 大陸衛隊的印鑑:2. 盧恩文字咒語石:3.死亡之扣環")) {
+		case 1:
+			mes "[將軍 巴爾洛]";
+			mes "大陸衛隊的印鑑是強韌的象徵, 這是由王國所親賜的珍貴物品";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "^0000FF MHP+50, 裝備時攻擊速度會增加";
+			mes "3%^000000效果的裝飾品";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "你要收下這個大陸衛隊的印鑑嗎?";
+			next;
+			switch(select("1. 收下:2. 改收別的東西")) {
+			case 1:
+				mes "[將軍 巴爾洛]";
+				mes "知道了, 我會送你大陸衛隊的印鑑";
+				next;
+				getitem 2730,1; //Morroc_Seal
+				set rebirth_moc_edq,8;
+				completequest 3056;
+				mes "[將軍 巴爾洛]";
+				mes "不過我想你也知道這一切尚未結束, 畢竟對方也不是省油的燈...";
+				next;
+				mes "[將軍 巴爾洛]";
+				mes "請你不要鬆懈繼續刺探敵情和保持巡邏吧, 當然我會準備適當的獎勵";
+				next;
+				mes "[將軍 巴爾洛]";
+				mes "辛苦你了...";
+				mes "你可以放心的回去休息和享樂了, 這裡就交給我們吧...";
+				close;
+			case 2:
+				mes "[將軍 巴爾洛]";
+				mes "喔是嗎...";
+				mes "明白了, 那麼請你挑選其它東西, 慢慢想吧";
+				close;
+			}
+		case 2:
+			mes "[將軍 巴爾洛]";
+			mes "盧恩文字咒語石是充滿魔力的象徵, 這是由王國所親賜的珍貴物品";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "";
+			mes "^0000FFMSP+50, 效果的裝飾品裝備時施法延遲時";
+			mes "間會減少 1%^000000效果的裝飾品";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "你要收下這個盧恩文字咒語石嗎?";
+			next;
+			switch(select("1. 收下:2. 改收別的東西")) {
+			case 1:
+				mes "[將軍 巴爾洛]";
+				mes "知道了, 我會送你盧恩文字咒語石";
+				next;
+				getitem 2731,1; //Morroc_Charm_Stone
+				set rebirth_moc_edq,8;
+				completequest 3056;
+				mes "[將軍 巴爾洛]";
+				mes "不過我想你也知道這一切尚未結束, 畢竟對方也不是省油的燈...";
+				next;
+				mes "[將軍 巴爾洛]";
+				mes "請你不要鬆懈繼續刺探敵情和保持巡邏吧, 當然我會準備適當的獎勵";
+				next;
+				mes "[將軍 巴爾洛]";
+				mes "辛苦你了...";
+				mes "你可以放心的回去休息和享樂了, 這裡就交給我們吧...";
+				close;
+			case 2:
+				mes "[將軍 巴爾洛]";
+				mes "喔是嗎...";
+				mes "明白了, 那麼請你挑選其它東西, 慢慢想吧";
+				close;
+			}
+		case 3:
+			mes "[將軍 巴爾洛]";
+			mes "死亡之扣環是致命力量的象徵, 這是由王國所親賜的珍貴物品";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "有^0000FF CRI + 5^000000  效果的裝飾品";
+			next;
+			mes "[將軍 巴爾洛]";
+			mes "你要收下這個死亡之扣環嗎?";
+			next;
+			switch(select("1. 收下:2. 改收別的東西")) {
+			case 1:
+				mes "[將軍 巴爾洛]";
+				mes "知道了, 我會送你死亡之扣環";
+				next;
+				getitem 2732,1; //Morroc_Ring
+				set rebirth_moc_edq,8;
+				completequest 3056;
+				mes "[將軍 巴爾洛]";
+				mes "不過我想你也知道這一切尚未結束, 畢竟對方也不是省油的燈...";
+				next;
+				mes "[將軍 巴爾洛]";
+				mes "請你不要鬆懈繼續刺探敵情和保持巡邏吧, 當然我會準備適當的獎勵";
+				next;
+				mes "[將軍 巴爾洛]";
+				mes "辛苦你了...";
+				mes "你可以放心的回去休息和享樂了, 這裡就交給我們吧...";
+				close;
+			case 2:
+				mes "[將軍 巴爾洛]";
+				mes "喔是嗎...";
+				mes "明白了, 那麼請你挑選其它東西, 慢慢想吧";
+				close;
+			}
+		}
+	}
+	else if (rebirth_moc_edq == 8) {
+		mes "[將軍 巴爾洛]";
+		mes "據說王國現正準備派遣大規模的研究員去調查魔王夢羅克在異界所造成的騷動";
+		next;
+		mes "[將軍 巴爾洛]";
+		mes "現在起你和我都要馬不停蹄的忙碌了, 逃往異界後消失的魔王也不知何時會再出現...";
+		next;
+		mes "[將軍 巴爾洛]";
+		mes "往後也要多麻煩你了, 請你記住這大陸的存亡與否都掌握在你我的手裡";
+		close;
+	}
+	else {
+		mes "[將軍 巴爾洛]";
+		mes "年輕人你不幸在這非常時期來到了夢羅克, 我是被派來阻止魔王夢羅克復活的大陸衛隊將軍巴爾洛";
+		next;
+		mes "[將軍 巴爾洛]";
+		mes "我實在太忙了無法一一向你這樣的冒險家說明, 請你去找這附近的其他人吧";
+		next;
+		mes "[將軍 巴爾洛]";
+		mes "我目前正忙於挑選要加入我們大陸衛隊的新血人才";
+		close;
+	}
+}
+
+moc_fild21,38,193,0	script	Morocc Timer#edq	-1,6,6,{
+//OnInit:
+//	set $@re_moc,0;
+//	set $@re_moc_time$,"";
+//	end;
+
+OnTouch:
+	if ($@re_moc == 0) {
+		set $@re_moc,1;
+		donpcevent "Satan Broadcast#edq::OnEnable";
+	}
+	end;
+}
+
+moc_fild21,1,1,0	script	Satan Broadcast#edq	CLEAR_NPC,{
+OnInit:
+	disablenpc "Satan Broadcast#edq";
+	end;
+
+OnEnable:
+	enablenpc "Satan Broadcast#edq";
+	initnpctimer;
+	end;
+
+OnTimer5000:
+	mapannounce "moc_fild21","魔王夢羅克 : 連昆蟲都不如的你們, 勇氣真是可嘉啊...",bc_map,"0xFFFF00";
+	end;
+
+OnTimer15000:
+	mapannounce "moc_fild21","魔王夢羅克 : 現在想後悔也來不及了, 甚至連後悔的時間也不會有的...",bc_map,"0xFFFF00";
+	end;
+
+OnTimer25000:
+	mapannounce "moc_fild21","魔王夢羅克 : 再等一下吧... 可憐的傢伙們, 再等一下下...",bc_map,"0xFFFF00";
+	stopnpctimer;
+	end;
+
+OnDisable:
+	disablenpc "Satan Broadcast#edq";
+	end;
+}
+
+moc_fild21,178,239,0	script	黑暗之徒#edq	CLEAR_NPC,1,1,{
+	if (((rebirth_moc_edq == 4) || (rebirth_moc_edq == 7)) && ($@re_moc == 1)) {
+		mes "望著無法形容的巨大黑暗時空的縫隙處, 被那壓迫感驚嚇而不自主的向後退了幾步";
+		next;
+		mes "在充滿光芒與黑暗渾沌的時空縫隙上, 感覺到強烈的陰森氣息";
+		next;
+		mes "[" + strcharinfo(0) + "]";
+		mes "嗚... 嗚嗚";
+		close2;
+		if($@re_moc == 1) {
+			set $@re_moc,2;
+			donpcevent "Satan Summon#edq::OnEnable";
+		}
+		end;
+	}
+	else {
+		mes "望著無法形容的巨大黑暗時空的縫隙處, 被那壓迫感驚嚇而不自主的後退了幾步";
+		next;
+		mes "在充滿光芒與黑暗渾沌的時空縫隙上, 感覺到強烈的陰森氣息";
+		close;
+	}
+
+OnInit:
+	enablenpc "黑暗之徒#edq";
+	end;
+
+OnEnable:
+	enablenpc "黑暗之徒#edq";
+	set $@re_moc_time$,"";
+	end;
+
+OnDisable:
+	disablenpc "黑暗之徒#edq";
+	donpcevent "時空的裂縫#edq::OnEnable";
+	end;
+}
+
+moc_fild21,177,239,0	script	時空的裂縫#edq	CLEAR_NPC,1,1,{
+	if ((rebirth_moc_edq == 4) && ($@re_moc == 3)) {
+		mes "在魔王消失之後時空的縫隙處, 原本怵目驚心的黑暗氣息也漸漸退散了";
+		next;
+		mes "在慢慢恢復平靜的縫隙之處, 原本發出晶瑩光芒的碎片也漸漸散去了";
+		next;
+		mes "伸手撿起了失去光芒的碎片";
+		getitem 7820,1; //Morroc_Skin
+		set rebirth_moc_edq,6;
+		changequest 3053,3055;
+		close;
+	}
+	else {
+		mes "緩慢地...";
+		mes "但非常紊亂又奇妙的黑暗之帷幕開始忙忙地散開";
+		next;
+		mes "感覺到若再靠近應該會有危險";
+		close;
+	}
+
+OnInit:
+	disablenpc "時空的裂縫#edq";
+	end;
+
+OnEnable:
+	initnpctimer;
+	enablenpc "時空的裂縫#edq";
+	end;
+
+OnDisable:
+	stopnpctimer;
+	disablenpc "時空的裂縫#edq";
+	donpcevent "黑暗之徒#edq::OnEnable";
+	set $@re_moc,0;
+	end;
+
+OnTimer1800000:
+	set $@re_moc,4;
+	end;
+
+OnTimer21600000:
+	stopnpctimer;
+	set $@re_moc,0;
+	donpcevent "時空的裂縫#edq::OnDisable";
+	end;
+}
+
+moc_fild21,3,1,0	script	Satan Summon#edq	CLEAR_NPC,{
+OnInit:
+	disablenpc "Satan Summon#edq";
+	end;
+
+OnEnable:
+	enablenpc "Satan Summon#edq";
+	initnpctimer;
+	monster "moc_fild21",177,217,"魔王夢羅克",1916,1,"Satan Summon#edq::OnMyMobDead";
+	end;
+
+OnDisable:
+	stopnpctimer;
+	killmonster "moc_fild21","Satan Summon#edq::OnMyMobDead";
+	set $@re_moc,0;
+	disablenpc "Satan Summon#edq";
+	end;
+
+OnMyMobDead:
+	set $@re_moc,3;
+	set $@re_moc_time$, gettimestr("%H%M%S",7);
+	mapannounce "moc_fild21","我暫時讓你們茍延殘喘一下吧, 你們是找不到移往時空裂縫的我的!",bc_map,"0xFFFF00";
+	donpcevent "時空的裂縫#edq::OnEnable";
+	donpcevent "Satan Broadcast#edq::OnDisable";
+	donpcevent "黑暗之徒#edq::OnDisable";
+	disablenpc "Satan Summon#edq";
+	end;
+
+OnTimer5400000:
+	mapannounce "moc_fild21","要應付你們這些毛頭小子還挺累人的!",bc_map,"0xFFFF00";
+	end;
+
+OnTimer5415000:
+	mapannounce "moc_fild21","我很忙, 我可沒時間浪費在你們身上啦!",bc_map,"0xFFFF00";
+	stopnpctimer;
+	killmonster "moc_fild21","Satan Summon#edq::OnMyMobDead";
+	set $@re_moc,0;
+	donpcevent "Satan Summon#edq::OnDisable";
+	end;
+}
+
+sec_in02,14,43,5	script	Morroc GlobalVar Admin::MorrocAdmin_sec	4_F_RUSGREEN,{
+	callfunc "F_GM_NPC";
+	mes "[Helper]";
+	mes "Please enter the password and # button.";
+	next;
+	if (callfunc("F_GM_NPC",1854,0) < 1) {
+		mes "[Helper]";
+		mes "Please press the numbers we always sing about.";
+		close;
+	} else {
+		mes "[Helper]";
+		mes "Hello. I am a post office.";
+		mes "I am currently checking Morroc status.";
+		next;
+		mes "=============";
+		mes "Current State";
+		mes "=============";
+		mes "^3131FF<Morroc>^000000";
+		if ($@re_moc == 0) {
+			mes "Reset. Enable to summon Morroc.";
+			mes "^3131FF<Continental Guards>^000000";
+			mes "Enable to enter to moc_fild21 field.";
+		} else if ($@re_moc == 1) {
+			mes "^3131FF<Morroc>^000000";
+			mes "Some warrior entered after the reset. However, the warrior hasn't started the quest yet.";
+			mes "The warrior who has rebirth_moc_edq 4 and 7 is now enabled to summon Morroc.";
+			mes "^3131FF<Continental Guards>^000000";
+			mes "The warrior who has rebirth_moc_edq 4 ~ 7 is now enabled to enter to moc_fild21.";
+		} else if ($@re_moc == 2) {
+			mes "^3131FF<Morroc>^000000";
+			mes "Morroc has been summoned. After 90 minutes has passed, it will revert back to reset status.";
+			mes "^3131FF<Continental Guards>^000000";
+			mes "The warrior who has rebirth_moc_edq 4 ~ 7 is now enabled to enter to moc_fild21.";
+		} else if ($@re_moc == 3) {
+			mes "^3131FF<Morroc>^000000";
+			mes "Morroc has been killed. Death time is "+$@re_moc_time$+"(00 hr/00 min/00 sec).";
+			mes "After 6 hours later since the death time, it will be reset.";
+			mes "The warriors whom has remained in the field can continue the quest via Time Space Gap.";
+			mes "^3131FF<Continental Guards>^000000";
+			mes "Disabled to enter to moc_fild21 from outside of the field.";
+		} else {
+			mes "^3131FF<Morroc>^000000";
+			mes "Morroc has been killed. Death time is "+$@re_moc_time$+"(00 hr/00 min/00 sec).";
+			mes "After 6 hours later since the death time, it will be reset.";
+			mes "It has been already passed 30 minutes after Morroc's death, so warriors can not continue the quest even if they click the Time Space Gap.";
+			mes "^3131FF<Continental Guards>^000000";
+			mes "Disabled to enter to moc_fild21 from outside of the field.";
+		}
+		next;
+		mes "[Helper]";
+		mes "What do you want?";
+		next;
+		switch(select("Cancel.:Reset")) {
+		case 1:
+			mes "[Helper]";
+			mes "Alright.";
+			close;
+		case 2:
+			if (strnpcinfo(4) == "sec_in02")
+				mes "You can reset at moc_fild21 5 5.";
+			else {
+				mes "Reset starts.";
+				next;
+				donpcevent "Group of Evil#edq::OnEnable";
+				mes "Group of Evil NPC is appeared.";
+				mes "Time-Space Gap NPC is disappeared.";
+				mes "6 hours term timer is stopped.";
+				donpcevent "Satan Summon#edq::OnDisable";
+				mes "Morroc 90 minutes survival timer is stopped.";
+				mes "Morroc is being killed.";
+				mes "Now, Continental Guards will let players enter.";
+			}
+			close;
+		}
+	}
+}
+moc_fild21,5,5,5	duplicate(MorrocAdmin_sec)	Morroc GlobalVar Admin::MorrocAdmin_moc	4_F_RUSGREEN
+
+// The Crow of the Fate
+// ============================================================
+moc_ruins,137,70,3	script	撫摸書的男子#garas	1_M_02,{
+	if (BaseLevel > 59) {
+		if (checkweight(703,3) == 0) {
+			mes "- 你有太多的物品,請存進倉庫再進行任務. -";
+			close;
+		}
+		if (barmunt_crow == 0) {
+			mes "^660000因被魔王夢羅克摧毀而變成廢墟的沙漠之都夢羅克^000000";
+			next;
+			mes "^660000夢羅克的人們是堅韌的,能夠忍受這裡惡劣的天氣,但他們的韌性還不足以讓他們面對破壞夢羅克城市的撒旦夢羅克.^000000";
+			next;
+			mes "^660000面前這個男人,即使站在烈日下顯得幹薄如魚乾,仍然能用一個微笑讓你想起仁慈的上帝,手裡拿著一本書.^000000";
+			next;
+			mes "^660000他看著你傻笑.看起來像是金字塔裡乾燥的屍體,但他顯然是活著,似乎是一個怪物.不知何故,你發現自己不得不處理這個有趣的男人.^000000";
+			next;
+			emotion ET_THROB;
+			mes "[撫摸書的男子]";
+			mes "啊... 瑪莉...";
+			next;
+			mes "[撫摸書的男子]";
+			mes "你健康的皮膚在夢羅克金光閃閃的陽光祝福下發光.";
+			next;
+			emotion ET_CRY;
+			mes "[撫摸書的男子]";
+			mes "你的微笑像瓦爾哈拉的神之光環.你是一個活生生的福音.你的笑容讓菲力亞女神藏在陰影中害羞!啊...寶貝,我的寶貝!";
+			next;
+			mes "^660000你在他臉前揮了揮手想引起他的注意.他似乎有感覺,然而,他沉浸在自己的幻想中,完全無視你的存在.^000000";
+			next;
+			switch(select("Speak:Pass Him By")) {
+			case 1:
+				mes "["+ strcharinfo(0) +"]";
+				mes "你在和自己說話?";
+				next;
+				emotion ET_HUK;
+				mes "[撫摸書的男子]";
+				mes "哇!我的天!你必定是一個魔鬼的使者,試圖打斷我和瑪莉的感應!";
+				mes "我不怕你,因為有他!";
+				next;
+				mes "^660000你的聲音很驚訝,他對你大吼大叫,而這些看起來似乎很平常.";
+				mes "你想知道他是如何感覺她的,但他只是看著並撫摸著一本書.^000000";
+				next;
+				mes "["+ strcharinfo(0) +"]";
+				mes "誰是瑪莉?";
+				next;
+				emotion ET_HUK;
+				mes "[撫摸書的男子]";
+				mes "什麼?你居然不知道瑪莉,那可是盧恩·米德加茲三位最大偉大的名人之一.";
+				next;
+				emotion ET_OHNO;
+				mes "[撫摸書的男子]";
+				mes "你什麼都不知道嗎?嗯,從你愚蠢的臉上,我猜你只是一個坐著毫無意義的雜事,替人跑腿的冒險家.嘿嘿!";
+				next;
+				mes "^660000嗯...你現在開始後悔剛才和他說話了.^000000";
+				next;
+				mes "[撫摸書的男子]";
+				mes "我的瑪莉不同於其他名人,他並不是那種只依靠自己美麗而缺乏任何真正物質的人.";
+				mes "她總是帶著書,儘管她時間忙碌.可見她比其他人更聰明!啊...瑪莉...";
+				next;
+				mes "[撫摸書的男子]";
+				mes "她在一次採訪中提到了'夢羅克時代' ,她想遇到和她一樣愛書的男人.";
+				next;
+				emotion ET_COOL;
+				mes "[撫摸書的男子]";
+				mes "這意味著...她在等待像我這樣的人.呵呵呵!";
+				mes "你知道嗎,盧恩·米德加茲圖書館中的班傑明給每一本書寫上他們的作者...那就是我!";
+				next;
+				mes "^660000這個班傑明似乎是一個被叫做瑪莉的女名人的狂熱粉絲.他張著嘴崇拜了她的美麗一陣子,然後忽然停下來,看起來很沮喪.^000000";
+				next;
+				mes "[班傑明]";
+				mes "我有一件事情....";
+				next;
+				mes "[班傑明]";
+				mes "我的瑪莉說她愛上了^FF0000'奧利弗希爾帕特'^000000在修發茲寫的一本書: ^FF0000'命運的烏鴉,'^000000 可我甚至沒有機會看過這本書!";
+				next;
+				mes "^660000命運的烏鴉000000?";
+				next;
+				mes "[班傑明]";
+				mes "除非你是瞎子,不然你肯定知道現在夢羅克多可怕.";
+				next;
+				mes "[班傑明]";
+				mes "我真的需要去讀那本書,告訴她說我在這裡.但我沒時間喘口氣,因為我們現在面對這樣的情況!";
+				next;
+				emotion ET_CRY;
+				mes "[班傑明]";
+				mes "我的瑪莉枕套被埋在了廢墟下...*喘氣*!";
+				mes "瑪莉,我來了!你千萬別死!";
+				next;
+				mes "^660000她似乎看到了瑪莉的模樣,他喊她的名字,喘著粗氣神情焦慮.你很同情他的痛苦.^000000";
+				next;
+				mes "^660000他深深的吸了口氣,然後突然轉頭看你.^000000";
+				next;
+				emotion ET_AHA;
+				mes "[班傑明]";
+				mes "....對... , 沒錯,就是你!";
+				next;
+				mes "["+ strcharinfo(0) +"]";
+				mes "啊?";
+				emotion 19,1;
+				next;
+				mes "[班傑明]";
+				mes "你看起來很清閒.你需要有人給你一點事情做!";
+				mes "請幫我聯繫瑪莉.想去嗎?我可以給你一個和瑪莉見面的機會,這可是盧恩·米德加茲的人們都嚮往的.";
+				next;
+				mes "^660000你能像我證明你不是到處給人跑腿,做著無意義事的冒險家嗎...?^000000";
+				next;
+				mes "[班傑明]";
+				mes "我只需要你找到一本普隆德拉圖書館裡的書.這聽起來很簡單,不是嗎?";
+				mes "你或許不喜歡熱愛閱讀的人,但我希望至少知道如何從圖書館找出那本書.";
+				next;
+				if (Sex == 1) {
+					mes "[班傑明]";
+					mes "如果你幫助我,我可以給你一張限量版的瑪莉的畫像... 一張. 呵呵呵呵.";
+					mes "你怎麼想?你會幫我的,對嗎?";
+					next;
+				}
+				else {
+					mes "[班傑明]";
+					mes "如果你幫助我,我可以給你一張限量版的瑪莉的畫像... 一張. 呵呵呵呵.";
+					mes "你不喜歡一個女孩的照片?嗯,如果你答應幫助我,我可以介紹一位英俊的夢羅克警衛給你認識...";
+					mes "你怎麼想?你會幫我的,對嗎?";
+					next;
+				}
+				mes "^660000你打算怎麼做呢?^000000";
+				next;
+				switch(select("幫助他:不幫助他")) {
+				case 1:
+					mes "[班傑明]";
+					mes "哇,你真的要幫我嗎?";
+					next;
+					mes "[班傑明]";
+					mes "謝謝你!記住這本書:奧利弗希爾帕特的作品,命運的烏鴉.我想想你可以在普隆德拉圖書館找到它.";
+					mes "嘿,瑪莉! 我等你 !";
+					set barmunt_crow,1;
+					setquest 2063;
+					close;
+				case 2:
+					mes "[班傑明]";
+					mes "什麼,你不知道如何圖書館找出一本書嗎? 我...";
+					close;
+				}
+			case 2:
+				mes "[班傑明]";
+				mes "哦... 瑪莉... 我的瑪莉...";
+				close;
+			}
+		}
+		else if (barmunt_crow == 1) {
+			mes "[班傑明]";
+			mes "謝謝你!記住這本書:奧利弗希爾帕特的作品,命運的烏鴉.我想想你可以在普隆德拉圖書館找到它.";
+			close;
+		}
+		else if (barmunt_crow == 10) {
+			mes "[班傑明]";
+			mes "哦... 瑪莉... 我的瑪莉...";
+			next;
+			mes "^660000就像你最後一次看到他,班傑明用他的臉磨蹭著一本書,住在他的幻想中.^000000";
+			next;
+			mes "^660000你小心的走近他,拍了一下他的肩膀.^000000";
+			next;
+			emotion ET_HUK;
+			mes "[班傑明]";
+			mes "哇! 誰敢碰我?!";
+			next;
+			mes "^660000...嗯... 很明顯你不夠認真... ^000000";
+			next;
+			mes "[班傑明]";
+			mes "誰敢打擾我感受瑪莉?你想要我的一部分... 俄?";
+			mes "天啊,是你啊.你怎麼花了這麼長時間?從普隆德拉到這裡不就五分鐘路程嗎?";
+			next;
+			mes "["+ strcharinfo(0) +"]";
+			mes "阿嚏.拜託,我從圖書館找不到它.只好跑到修發茲找到它,... 阿嚏!";
+			specialeffect2 EF_VENOMDUST;
+			next;
+			mes "^660000看他很生氣,你誇張的打了一陣大噴嚏.^000000";
+			next;
+			mes "[班傑明]";
+			mes "... 你還好吧?";
+			mes "呵呵呵,你比我想像中的更可靠.謝謝你的書...等等,所以我必須跑到修發茲去還這本書嗎?!";
+			next;
+			mes "[班傑明]";
+			mes "...不,為了瑪莉我可以做任何事.你是一個善良的冒險家.謝謝.";
+			mes "那裡很冷嗎?我猜修發茲位於這裡以北.";
+			next;
+			mes "["+ strcharinfo(0) +"]";
+			mes "..................";
+			next;
+			mes "[班傑明]";
+			mes "我認為.如果這本書在普隆德拉圖書館裡沒有,這必然意味著,在盧恩·米德加茲沒多少人讀過這本輸.";
+			next;
+			mes "[班傑明]";
+			mes "啊啊啊... 瑪莉! 我在這裡, 追隨你高貴的味道來閱讀這樣的一本書! 瑪莉...!";
+			emotion ET_BIGTHROB;
+			next;
+			mes "[班傑明]";
+			mes "我很興奮有機會閱讀瑪莉的文學! 太好了!";
+			mes "我應該馬上去閱讀這本書!呵呵呵!";
+			emotion ET_DELIGHT;
+			next;
+			mes "[班傑明]";
+			mes "哎呀,我不會忘記報答你的.你知道的,我是一個有禮貌的人.";
+			next;
+			mes "[班傑明]";
+			mes "看,這本瑪莉的畫冊就是我答應你的.";
+			next;
+			cutin "mami01",4;
+			mes "[班傑明]";
+			mes "看這張她戴著捲起的小狗耳朵的圖像!她看起來就像城市中的戀人那樣憂傷,一切都不能如她所願?!";
+			mes "怎麼會有人看到這張悲傷的照片不流淚的呢?哎,瑪莉!我要讓你成為世界上最幸福的女人!";
+			next;
+			cutin "mami02",4;
+			mes "["+ strcharinfo(0) +"]";
+			mes "'她和我想像中的不同,戴著眼睛扎著馬尾辮...不過她真的很像一個喜歡文學的人.";
+			mes "等等,人們什麼時候開始關注克魔島上的城市戀人了?嗯,這些事情真的很奇怪!'";
+			next;
+			mes "[班傑明]";
+			mes "我已經決定把這本<天使瑪莉的特別相冊 :在克魔島的日子>送給你,這裡面全部是她受親睞的美麗圖片.你覺得如何?";
+			next;
+			mes "^660000他驕傲地盯著你.很明顯,他並不在乎你是否喜歡這本書.^000000";
+			next;
+			switch(select("我想看看它.:不,謝謝")) {
+			case 1:
+				mes "'^660000好吧,即使它是免費的,也請好好保存它.'^000000";
+				next;
+				break;
+			case 2:
+				mes "["+ strcharinfo(0) +"]";
+				mes "不,謝謝.我對她像對你一樣不感興趣.";
+				next;
+				mes "...^660000你想這麼說,但是你無法拒絕他的提議.看著他狂熱愛著她的眼神,甚至奧丁神都無法拒絕他...^000000";
+				next;
+				break;
+			}
+			mes "^660000他眨了眨眼睛,他把瑪莉的相冊放在你的懷裡,要求你好好的保存它.^000000";
+			set barmunt_crow,11;
+			getitem 7795,1; //Mami_Photo_Album
+			next;
+			mes "[班傑明]";
+			mes "對了,如果你對這本書的作者奧利弗希爾帕特感興趣,我建議你去讀<命運的烏鴉>的前傳, ^3131FF<命運的痕跡>^000000以及它的續集.";
+			next;
+			mes "[班傑明]";
+			mes "那也是一本暢銷書.";
+			next;
+			mes "[班傑明]";
+			mes "現在我要開始讀這本書了,我會遇到我的瑪莉,所以請不要打擾我.";
+			next;
+			mes "^660000在他看完以前,他逃避現實而在自己對瑪莉的幻想中放縱.^000000";
+			next;
+			mes "^660000命運的痕跡,嗯?";
+			mes "如果沒有別的事情要做,我想去讀這本書...^000000";
+			next;
+			mes "["+ strcharinfo(0) +"]";
+			mes "等等,這是不是意味著我必須回到朱諾圖書館?";
+			next;
+			mes "^660000想起回到朱諾的艱辛你嘆了一口氣.^000000";
+			changequest 2067,2068;
+			close2;
+			cutin "",255;
+			end;
+		}
+		else if (barmunt_crow == 11) {
+			mes "^660000你踏上了到朱諾的旅程,去閱讀<命運的烏鴉>前傳: <命運的痕跡>.^000000";
+			close;
+		}
+		else if (barmunt_crow == 15) {
+			if ((countitem(7797) == 1) && (countitem(7796) == 1)) {
+				mes "["+ strcharinfo(0) +"]";
+				mes "嗨, 班傑明!";
+				mes "我有一件完美的東西可以讓你引起瑪莉的注意,想看看嗎?";
+				next;
+				mes "[班傑明]";
+				mes "什... 什麼?!";
+				mes "是什麼東西? 讓我看看!?";
+				next;
+				mes "^660000你拿出了一本有奧利弗席爾佩特親筆籤名的書.^000000";
+				next;
+				mes "[班傑明]";
+				mes "我的天!";
+				mes "這一定可以幫助我引起瑪莉的注意!";
+				mes "快把它給我!";
+				next;
+				switch(select("給他:不給他")) {
+				case 1:
+					mes "[班傑明]";
+					mes " "+ strcharinfo(0) +"!";
+					mes "你是最棒的!謝謝!";
+					next;
+					mes "[班傑明]";
+					mes "瑪莉~~!";
+					mes "我明天清晨就去見她!瑪莉,我來啦!";
+					delitem 7797,1; //Author_Memo
+					delitem 7796,1; //Author_Autograph
+					set barmunt_crow,16;
+					if (checkre(3))
+						getexp 90000,90000;
+					else
+						getexp 900000,900000;
+					close;
+				case 2:
+					mes "[班傑明]";
+					mes "嗯?什麼,你在逗我玩嗎?";
+					close;
+				}
+			}
+			else {
+				mes "[班傑明]";
+				mes "阿...瑪莉...阿...";
+				close;
+			}
+		}
+		else {
+			mes "[班傑明]";
+			mes "阿...瑪莉...阿...";
+			close;
+		}
+	}
+	else {
+		mes "這個男人看著手裡的書,眼神裡有著夢幻般的色彩.";
+		close;
+	}
+}
+
+prt_in,179,92,3	script	圖書館管理員#garas	1_M_LIBRARYMASTER,{
+	if (barmunt_crow == 0) {
+		mes "[圖書館管理員]";
+		mes "我們圖書館裡有盧恩·米德加茲王國包括地下城中所有魔物的分布資料,幫助讀者輕鬆的找到他們.";
+		mes "我們也有很多冒險家必讀書籍,你要看看嗎?";
+		next;
+		mes "[圖書館管理員]";
+		mes "對面街的圖書館也有怪物百科全書.";
+		mes "如果你感興趣,隨時到圖書館逛逛.";
+		close;
+	}
+	else if (barmunt_crow == 1) {
+		mes "[圖書館管理員]";
+		mes "我們圖書館裡有盧恩·米德加茲王國包括地下城中所有魔物的分布資料,幫助讀者輕鬆的找到他們.";
+		mes "我們也有很多冒險家必讀書籍,你要看看嗎?";
+		next;
+		switch(select("尋找一本書:逛逛圖書館")) {
+		case 1:
+			mes "[圖書館管理員]";
+			mes "你要尋找一本書?";
+			mes "沒問題,我可以幫你找找.";
+			mes "你要找什麼樣的書呢?";
+			next;
+			switch(select("說書名:說作者:搜索關鍵字")) {
+			case 1:
+				mes "[圖書館管理員]";
+				mes "你知道書名嗎?";
+				mes "沒問題,書名叫什麼呢?";
+				input .@input$;
+				next;
+				if (compare(.@input$,"命運的烏鴉") == 1) {
+					mes "[圖書館管理員]";
+					mes ""+.@input$+"...?";
+					mes "好的,讓我找找...";
+					next;
+				}
+				else {
+					mes "[圖書館管理員]";
+					mes "嗯...很抱歉,我在這個圖書館許多年了,但我從來沒有見過這本書.";
+					close;
+				}
+				break;
+			case 2:
+				mes "[圖書館管理員]";
+				mes "你要找某位作家的書?";
+				mes "他的名字叫什麼呢?";
+				input .@input$;
+				next;
+				if (compare(.@input$,"奧利弗席爾佩特") == 1) {
+					mes "[圖書館管理員]";
+					mes ""+.@input$+"...?";
+					mes "好的,讓我找找...";
+					next;
+				}
+				else {
+					mes "[圖書館管理員]";
+					mes "嗯...我很抱歉.我在圖書館裡幾十年了,不曾聽說過這樣一位作家.";
+					close;
+				}
+				break;
+			case 3:
+				mes "[圖書館管理員]";
+				mes "看來你要找的那本書的書名和作者都很難記.";
+				mes "沒問題的,至少你告訴我一點你還記得的東西.";
+				next;
+				input .@input$;
+				if ((compare(.@input$,"命運") == 1) || (compare(.@input$,"烏鴉") == 1) || (compare(.@input$,"奧利弗") == 1) || (compare(.@input$,"希爾帕特") == 1)) {
+					mes "[圖書館管理員]";
+					mes ""+.@input$+"...?";
+					mes "好的,讓我找找...";
+					next;
+				}
+				else {
+					mes "[圖書館管理員]";
+					mes "嗯...對不起,我在這個地方好多年了,但我沒有聽說過一本書的名字接近你所提供的線索";
+					close;
+				}
+				break;
+			}
+			emotion ET_AHA;
+			mes "[圖書館管理員]";
+			mes "對了!我想我知道你說的這本書:";
+			next;
+			mes "[圖書館管理員]";
+			mes "^3131FF奧利弗希爾帕特的";
+			mes "<命運的烏鴉>^000000!";
+			next;
+			mes "["+ strcharinfo(0) +"]";
+			mes "就是它!它正是我要找的!";
+			next;
+			mes "[圖書館管理員]";
+			mes "哈哈..但我有個壞消息要告訴你.";
+			mes "這本書非常數歡迎,你甚至在作者的家鄉修發茲都找不到它.";
+			mes "我們試圖找到這本書,但是太遲了.需要等過一段時間這本書再版,那你為什麼不讀其他的書呢?";
+			next;
+			mes "[圖書館管理員]";
+			mes "如果你不忙,真的很想讀這本書,我有一個提議:去朱諾圖書館找找看.";
+			mes "你能從修發茲圖書館找到任何一本那裡出版的書.前提是,你確定它是存在的.";
+			next;
+			mes "[圖書館管理員]";
+			mes "朱諾離這很遠,但如果你真的非常想讀這本書,那就是值得的.";
+			next;
+			mes "^660000這本書雖然不是你想要的,但是答應別人的事就一定要做到.讓我們去朱諾圖書館.^000000";
+			set barmunt_crow,2;
+			changequest 2063,2064;
+			close;
+		case 2:
+			mes "[圖書館管理員]";
+			mes "每一本書都可以告訴你生命的故事,智慧和幸福的感覺.";
+			mes "看看周圍的人們!他們見證這一切.每天,我們都有新的人加入我們.";
+			close;
+		}
+	}
+	else if (barmunt_crow == 2) {
+		mes "[圖書館管理員]";
+		mes "^3131FF命運的烏鴉^000000已經賣完了,即使還有一本,你也很難在盧恩·米德加茲王國的任何地方找到.";
+		mes "如果你真的很想閱讀它,可以去朱諾圖書館試著找找看.";
+		close;
+	}
+	else {
+		mes "[圖書館管理員]";
+		mes "我們圖書館裡有盧恩·米德加茲王國包括地下城中所有魔物的分布資料,幫助讀者輕鬆的找到他們.";
+		mes "我們也有很多冒險家必讀書籍,你要看看嗎?";
+		next;
+		mes "[圖書館管理員]";
+		mes "對面街的圖書館也有怪物百科全書.";
+		mes "如果你感興趣,隨時到圖書館逛逛.";
+		close;
+	}
+}
+
+yuno,333,210,5	script	圖書館館長#garas	1_M_LIBRARYMASTER,{
+	if (barmunt_crow == 2) {
+		mes "[狗]";
+		mes "汪汪!";
+		mes "嗚嗚嗚... 汪汪汪!";
+		next;
+		mes "^660000一隻狗在圖書館門口大聲吠.^000000";
+		next;
+		mes "[圖書館館長]";
+		mes "這隻該死的鳥! 快滾開!";
+		next;
+		mes "^660000一個人在圖書館門口大喊大叫.^000000";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "這裡發生了什麼事?";
+		next;
+		mes "[圖書館館長]";
+		mes "其實也沒什麼,就圖書館屋頂上有一隻巨大的烏鴉叫了至少幾個小時了.";
+		mes "我想趕走它...因為它總帶給我一種不好的感覺.";
+		next;
+		mes "[圖書館館長]";
+		mes "走開!你這隻該死的鳥!快離開這兒!!";
+		next;
+		mes "^660000你抬起頭,發現了有一隻巨大的烏鴉坐在圖書館的屋頂上,如同那是它的地盤.^000000";
+		next;
+		mes "[圖書館館長]";
+		mes "走開! 那不是你該呆的地方!";
+		mes "我擔心這令人毛骨悚然的鳥會嚇跑我的顧客!";
+		next;
+		mes "[圖書館館長]";
+		mes "呼... 好吧.";
+		mes "(揀起一塊石頭)";
+		mes "我說走開,你這隻蠢鳥!";
+		next;
+		mes "(咻-)";
+		next;
+		mes "(砰!)";
+		specialeffect EF_PIERCE;
+		next;
+		mes "(嗙)";
+		next;
+		mes "^660000那人扔出的石頭打中的瞬間,烏鴉飛到空中.^000000";
+		mes "^660000然後在屋頂上盤旋了一圈,看起來讓人毛骨悚然.^000000";
+		specialeffect EF_BAT;
+		next;
+		mes "[圖書館館長]";
+		mes "拜託... 為什麼你不肯離開這兒?!";
+		next;
+		mes "^660000他開始咒罵烏鴉,但它似乎一點也不關心.相反,它飛得更高了.";
+		mes "最後他放棄並離開了烏鴉,接著狗吠聲也停了.^000000";
+		next;
+		mes "^660000你看了看地面,發現地上有兩支烏鴉被石子擊中時掉落的羽毛.^000000";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "哇,好大的羽毛.我想這樣一隻巨大的烏鴉需要很大的羽毛才能飛行.";
+		next;
+		mes "[圖書館館長]";
+		mes "在我年輕的時候,聽說那隻鳥是奧丁神的僕人,它的羽毛能夠帶來它主人的祝福,所以很多詩人用來作書籤.";
+		next;
+		mes "[圖書館館長]";
+		mes "我曾經有過一支小的羽毛,然後我自然而然的成為了圖書館館長. 哈哈哈!";
+		next;
+		mes "[圖書館館長]";
+		mes "你應該知道那句諺語, '你在一個圖書館工作3年之後,就能知道所有的事.'";
+		mes "你要保存好這隻羽毛.它可能能給你帶來好運的.";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "我想是的.";
+		next;
+		mes "^660000你從地上揀起了一支巨大的黑色羽毛.";
+		mes "光澤的羽毛讓你感覺非?燉?感覺這是一筆財富.^000000";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "...阿嚏!";
+		specialeffect2 EF_VENOMDUST;
+		next;
+		mes "[圖書館館長]";
+		mes "上帝保佑你.你感冒了嗎?";
+		mes "你應該照顧好自己,尤其你是一個冒險家.";
+		next;
+		mes "^660000你忽然感覺冷得發抖.^000000";
+		next;
+		mes "[圖書館館長]";
+		mes "試著喝點熱蜂蜜肉湯,我感冒時我母親都煮給我喝.";
+		mes "我保證你很快就會好的.";
+		next;
+		mes "^660000聽起來他很真誠,但肉湯聽起來並不一定更有效...^000000";
+		emotion ET_THINK,1;
+		set barmunt_crow,3;
+		close;
+	}
+	else {
+		mes "[圖書館館長]";
+		mes "注意身體不要感冒!";
+		close;
+	}
+}
+
+yuno,336,203,0	script	#garas_catch	HIDDEN_WARP_NPC,3,3,{
+//OnTouch2:
+OnTouch:
+	if (barmunt_crow == 2) {
+		mes "[狗]";
+		mes "汪汪!";
+		mes "嗚嗚嗚... 汪汪汪!";
+		next;
+		mes "^660000一隻狗在圖書館門口大聲吠.^000000";
+		next;
+		mes "[圖書館館長]";
+		mes "這隻該死的鳥! 快滾開!";
+		next;
+		mes "^660000一個人在圖書館門口大喊大叫.^000000";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "這裡發生了什麼事?";
+		next;
+		mes "[圖書館館長]";
+		mes "其實也沒什麼,就圖書館屋頂上有一隻巨大的烏鴉叫了至少幾個小時了.";
+		mes "我想趕走它...因為它總帶給我一種不好的感覺.";
+		next;
+		mes "[圖書館館長]";
+		mes "走開!你這隻該死的鳥!快離開這兒!!";
+		next;
+		mes "^660000你抬起頭,發現了有一隻巨大的烏鴉坐在圖書館的屋頂上,如同那是它的地盤.^000000";
+		next;
+		mes "[圖書館館長]";
+		mes "走開! 那不是你該呆的地方!";
+		mes "我擔心這令人毛骨悚然的鳥會嚇跑我的顧客!";
+		next;
+		mes "[圖書館館長]";
+		mes "呼... 好吧.";
+		mes "(揀起一塊石頭)";
+		mes "我說走開,你這隻蠢鳥!";
+		next;
+		mes "(咻-)";
+		next;
+		mes "(砰!)";
+		specialeffect EF_PIERCE;
+		next;
+		mes "(嗙)";
+		next;
+		mes "^660000那人扔出的石頭打中的瞬間,烏鴉飛到空中.^000000";
+		mes "^660000然後在屋頂上盤旋了一圈,看起來讓人毛骨悚然.^000000";
+		specialeffect EF_BAT;
+		next;
+		mes "[圖書館館長]";
+		mes "拜託... 為什麼你不肯離開這兒?!";
+		next;
+		mes "^660000他開始咒罵烏鴉,但它似乎一點也不關心.相反,它飛得更高了.";
+		mes "最後他放棄並離開了烏鴉,接著狗吠聲也停了.^000000";
+		next;
+		mes "^660000你看了看地面,發現地上有兩支烏鴉被石子擊中時掉落的羽毛.^000000";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "哇,好大的羽毛.我想這樣一隻巨大的烏鴉需要很大的羽毛才能飛行.";
+		next;
+		mes "[圖書館館長]";
+		mes "在我年輕的時候,聽說那隻鳥是奧丁神的僕人,它的羽毛能夠帶來它主人的祝福,所以很多詩人用來作書籤.";
+		next;
+		mes "[圖書館館長]";
+		mes "我曾經有過一支小的羽毛,然後我自然而然的成為了圖書館館長. 哈哈哈!";
+		next;
+		mes "[圖書館館長]";
+		mes "你應該知道那句諺語, '你在一個圖書館工作3年之後,就能知道所有的事.'";
+		mes "你要保存好這隻羽毛.它可能能給你帶來好運的.";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "我想是的.";
+		next;
+		mes "^660000你從地上揀起了一支巨大的黑色羽毛.";
+		mes "光澤的羽毛讓你感覺非?燉?感覺這是一筆財富.^000000";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "...阿嚏!";
+		specialeffect2 EF_VENOMDUST;
+		next;
+		mes "[圖書館館長]";
+		mes "上帝保佑你.你感冒了嗎?";
+		mes "你應該照顧好自己,尤其你是一個冒險家.";
+		next;
+		mes "^660000你忽然感覺冷得發抖.^000000";
+		next;
+		mes "[圖書館館長]";
+		mes "試著喝點熱蜂蜜肉湯,我感冒時我母親都煮給我喝.";
+		mes "我保證你很快就會好的.";
+		next;
+		mes "^660000聽起來他很真誠,但肉湯聽起來並不一定更有效...^000000";
+		emotion ET_THINK,1;
+		set barmunt_crow,3;
+		close;
+	}
+	end;
+}
+
+yuno,343,204,1	script	#garas_eff	HIDDEN_NPC,{
+	end;
+}
+
+yuno,335,208,5	script	狗#garas	4_DOG01,{
+	mes "[狗]";
+	mes "Bowwow!";
+	close;
+}
+
+yuno_in04,111,57,3	script	圖書館兼職人員#garas	4_F_LGTGIRL,{
+	if (barmunt_crow == 3) {
+		mes "[圖書館兼職人員]";
+		mes "人們應該學會把書讀完以後再放回去..";
+		mes "這些堆在手推車上的書讓我覺得很詛喪.唉...";
+		next;
+		mes "[圖書館兼職人員]";
+		mes "...我有什麼可以幫助你的嗎?";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "我在找奧利弗希爾帕特的<命運的烏鴉>...阿嚏";
+		emotion ET_KEK,1;
+		specialeffect2 EF_VENOMDUST;
+		next;
+		mes "[圖書館兼職人員]";
+		mes "我記得那本書...這是一本經常留在手推車裡的書.";
+		mes "在房間裡的^3131FF右側^000000. 你可以在暢銷書的角落找到它.";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "謝謝.";
+		close;
+	}
+	else if (barmunt_crow == 7) {
+		mes "[圖書館兼職人員]";
+		mes "有什麼可以為你服務的嗎?";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "嗯...阿嚏.我在哪裡可以找到舊的新聞文章...?阿嚏!";
+		specialeffect2 EF_VENOMDUST;
+		next;
+		mes "[圖書館兼職人員]";
+		mes "你可以在角落的房間裡找到.";
+		mes "請相信翻閱他們,因為他們都很古老了.";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "謝謝...阿嚏!";
+		specialeffect2 EF_VENOMDUST;
+		close;
+	}
+	else if (barmunt_crow == 11) {
+		mes "[圖書館兼職人員]";
+		mes "人們應該學會把書讀完以後再放回去..";
+		mes "這些堆在手推車上的書讓我覺得很詛喪.唉...";
+		next;
+		mes "[圖書館兼職人員]";
+		mes "...有什麼可以幫助你嗎?";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "我在找奧利弗希爾帕特的<命運的烏鴉>...阿嚏";
+		specialeffect2 EF_VENOMDUST;
+		next;
+		mes "[圖書館兼職人員]";
+		mes "我記得那本書...這是一本經常留在手推車裡的書.";
+		mes "在房間裡的^3131FF右側^000000. 你可以在暢銷書的角落找到它.";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "謝謝.";
+		next;
+		mes "[圖書館兼職人員]";
+		mes "奧弗裡希爾帕特儘管非常年輕,但他已經非常出名了.";
+		mes "我讀過好幾遍<命運的痕跡>. 我是說,那本書非常迷人,我願意不厭其煩的閱讀它.";
+		next;
+		mes "[圖書館兼職人員]";
+		mes "嗯...最令人印象深刻的場景是...嗯...";
+		next;
+		mes "[圖書館兼職人員]";
+		mes "對了!讓英雄在燃燒後的大樓... ^FF0000-- 嗶嗶 --^000000";
+		specialeffect2 EF_BASH3D2;
+		close2;
+		warp "que_ba",264,186;
+		end;
+	}
+	else if (barmunt_crow == 12) {
+		mes "[圖書館兼職人員]";
+		mes "你還好嗎?你有點恍惚..";
+		mes "你看起來有點蒼白.";
+		next;
+		mes "[圖書館兼職人員]";
+		mes "為什麼你不去休息一下呢?讀一下<命運的痕跡>或其他什麼的.";
+		mes "你能在左邊的書架上找到它.";
+		close;
+	}
+	end;
+}
+
+yuno_in04,100,5,3	script	暢銷書的角落	HIDDEN_NPC,{
+	if (barmunt_crow == 3) {
+		mes "^660000被無數書籍填充滿的房間似乎在告訴你為什麼這個擁有世界最大讀書館的朱諾被稱為學者的城市.^000000";
+		next;
+		mes "^660000在你眼前的書架中間寫著暢銷書貨架.^000000";
+		next;
+		mes "^660000這並不妨礙你找到'命運的烏鴉',";
+		mes "因為那是靠在牆上一個空書架上唯一的書.^000000";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "真是太命運了...阿嚏!";
+		specialeffect2 EF_VENOMDUST;
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "嗅嗅..現在我應該把它交給那位瑪莉的狂熱粉絲.";
+		next;
+		mes "^FF0000-- 嗶嗶 --^000000";
+		next;
+		mes "^660000你充滿牢騷和抱怨的拿起書時.忽然,你感覺大腦一熱,眼前一黑...^000000";
+		set barmunt_crow,4;
+		close2;
+		specialeffect2 EF_BASH3D2;
+		warp "que_ba",247,33;
+		end;
+	}
+	else if (barmunt_crow == 4) {
+		mes "^660000被無數書籍填充滿的房間似乎在告訴你為什麼這個擁有世界最大讀書館的朱諾被稱為學者的城市.^000000";
+		next;
+		mes "^660000在你眼前的書架中間寫著暢銷書貨架.^000000";
+		next;
+		mes "^660000這並不妨礙你找到'命運的烏鴉',";
+		mes "因為那是靠在牆上一個空書架上唯一的書.^000000";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "真是太命運了...阿嚏!";
+		specialeffect2 EF_VENOMDUST;
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "嗅嗅..現在我應該把它交給那位瑪莉的狂熱粉絲.";
+		next;
+		mes "^FF0000-- 嗶嗶 --^000000";
+		next;
+		mes "^660000你充滿牢騷和抱怨的拿起書時.忽然,你感覺大腦一熱,眼前一黑...^000000";
+		close2;
+		specialeffect2 EF_BASH3D2;
+		warp "que_ba",247,33;
+		end;
+	}
+	else if (barmunt_crow == 5) {
+		mes "^660000被無數書籍填充滿的房間似乎在告訴你為什麼這個擁有世界最大讀書館的朱諾被稱為學者的城市.^000000";
+		next;
+		mes "^660000在你眼前的書架中間寫著暢銷書貨架.^000000";
+		next;
+		mes "^660000這並不妨礙你找到'命運的烏鴉',";
+		mes "因為那是靠在牆上一個空書架上唯一的書.^000000";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "真是太命運了...阿嚏!";
+		specialeffect2 EF_VENOMDUST;
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "嗅嗅..現在我應該把它交給那位瑪莉的狂熱粉絲.";
+		next;
+		mes "^FF0000-- 嗶嗶 --^000000";
+		next;
+		mes "^660000你充滿牢騷和抱怨的拿起書時.忽然,你感覺大腦一熱,眼前一黑...^000000";
+		close2;
+		specialeffect2 EF_BASH3D2;
+		warp "que_ba",247,33;
+		end;
+	}
+	end;
+}
+
+yuno_in04,100,3,0	script	#garas_path	HIDDEN_WARP_NPC,1,1,{
+//OnTouch2:
+OnTouch2:
+	if (barmunt_crow == 6) {
+		mes "...................................";
+		next;
+		mes "...................................";
+		mes "...................................";
+		next;
+		mes "...................................";
+		mes "...................................";
+		mes "...................................";
+		next;
+		mes "^660000你依然還在圖書館裡,";
+		mes "但你分不清這是夢中還是現實.^000000";
+		next;
+		mes "^660000你把你的頭從書架上挪開,並發現書架上都是空的.^000000";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "我想我在夢境中或其他一些東西...阿嚏!";
+		specialeffect2 EF_VENOMDUST;
+		next;
+		mes "^660000這是一個說不清楚的夢境:一個在修發茲中不為人知的地方有一個燃燒的實驗室.";
+		mes "你試著猜想,猜不出這個夢意味著什麼.^000000";
+		next;
+		mes "^660000你再次打開書,但什麼事也沒有發生.^000000";
+		next;
+		mes "<....在濃重的煙霧和混亂的尖叫聲中,有一個看起來是人類的奇異生物...>";
+		next;
+		mes "...................................";
+		next;
+		mes "<- 伊娃,你在幹嘛?過來!快點! -";
+		mes "-我不能丟下他!-";
+		mes "在坍塌的實驗室中,伊娃走近了一個試管,小心的取出然後把它放在她的夾克中. >";
+		next;
+		mes "^660000...................................^000000";
+		next;
+		mes "^660000這本書講的是真實的事情,你可以在夢境中看到它.^000000";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "嗯?我有種似曾相識的感覺?";
+		next;
+		mes "^660000當然,這只是一個夢,但仍然是一個非常神秘的經驗.^000000";
+		next;
+		mes "...................................";
+		next;
+		mes "...................................";
+		next;
+		mes "'^660000我想這場景描述的事故如果在過去真正發生過.這麼大的火災,我肯定可以在過去的報紙上找到它.";
+		mes "...我非常好奇想知道它...^000000'";
+		set barmunt_crow,7;
+		changequest 2064,2065;
+		close;
+	}
+	else if (barmunt_crow == 7) {
+		mes "["+ strcharinfo(0) +"]";
+		mes "如果我想找關於火災的新聞文章,我應該去哪裡找呢?";
+		close;
+	}
+	end;
+}
+
+yuno_in04,117,102,3	script	舊新聞剪貼簿	CLEAR_NPC,{
+	if (barmunt_crow == 7) {
+		mes "^660000這是一個文件夾的木框,裡面有一本厚厚的舊報紙.^000000";
+		next;
+		mes "^660000你仔細翻閱報紙,尋找任何關於火災事故的新聞.^000000";
+		next;
+		while(1) {
+			mes "...................................";
+			next;
+			mes "...................................";
+			next;
+			set .@newspp,rand(1,10);
+			if ((.@newspp == 1) || (.@newspp == 2)) {
+				mes "- 第一頁 -";
+				mes "著名的刺客斯林德:我只願意服侍你.'";
+				mes " ";
+				mes "斯林德獲得著名刺客稱號的原因是";
+				mes "他有敬業精神以及";
+				mes "在女士中的名聲鵲起,";
+				mes "而他壞男孩的形象特點來源於他銳利的拳刃:";
+				mes "一個英俊的男人,生活浪漫而孤獨.";
+				mes "最近這位變成名人的刺客";
+				mes "在他微笑的臉上做出了一個真正的懺悔:";
+				mes "他一直秘密的和一個女人在一起,";
+				mes "並且他們打算明年結婚.";
+				mes "這個女人是眾所周知的女祭司M,";
+				mes "她在普隆德拉教堂,";
+				mes "但他為了他未婚妻的安全拒絕提供我們更多信息.";
+				mes "當消息傳出後,";
+				mes "他的女粉絲表示憤慨,";
+				mes "她們說, '這多麼可笑.";
+				mes "刺客必須獨自生活在陰影中.'";
+				mes "但對於粉絲們的反應,";
+				mes "斯林德和他的未婚妻並不太擔心.";
+				mes " ";
+				next;
+			}
+			else if ((.@newspp == 3) || (.@newspp == 4)) {
+				mes "- 第四頁 -";
+				mes "朱諾的暴力打鬥";
+				mes " ";
+				mes "昨晚,我在朱諾廣場目睹了";
+				mes "兩個年輕人的暴力打鬥.";
+				mes "根據逮捕他們的朱諾士兵陳述,";
+				mes "B先生一直對A先生粗心的行為很是不滿,";
+				mes "似乎他在昨天晚上忍受不住了.";
+				mes "他們開始打鬥前,A先生把他的汗腳放在B先生的大腿上,";
+				mes "說他的腳很酸痛.'";
+				mes "並責怪天氣炎熱,這些人!";
+				mes " ";
+				next;
+			}
+			else if (.@newspp == 5) {
+				mes "上帝的警告:一個秘密實驗室化為灰燼";
+				mes " ";
+				mes "昨天晚上濃重的煙霧遮蔽了朱諾的天空,";
+				mes "查明是由於一個秘密實驗室起火導致的.";
+				mes "更多的訊息尚未公布,";
+				mes "但根據目擊者稱,";
+				mes "該實驗室是空的,";
+				mes "沒有任何的人或者事,";
+				mes "只有破碎的試驗管,";
+				mes "以此推斷出這是一個實驗室.";
+				mes "科學家對於事故現場調查的結論,";
+				mes "從殘存的機體內取樣表明,";
+				mes "實驗室是被用於做生物技術項目研究的,";
+				mes "並表示他認為這火是上帝的憤怒,";
+				mes "對於擺弄他創造的人類予以正義的懲罰.";
+				mes " ";
+				next;
+				mes "["+ strcharinfo(0) +"]";
+				mes "...........................";
+				mes "...........................";
+				mes "這就是我在夢中見過的地方!";
+				next;
+				mes "等等,那麼他們逃脫到哪去了呢...?";
+				next;
+				mes "你快速檢查著新聞發布日期.";
+				mes "以便你搜索到更多新聞文章的相關信息.";
+				next;
+				mes "他們應該有任何後裔或繼承者吧?";
+				next;
+				mes "你感覺到你興奮得心跳加快.";
+				mes "你現在明白這不僅是一個夢或者幻想,你所看到的真正的發生在過去.";
+				next;
+				mes "["+ strcharinfo(0) +"]";
+				mes "我不相信有這樣的事!";
+				mes "認真想想... 這應該是 ^FF0000一個連接到北方洞穴的未知地區.^000000.";
+				set barmunt_crow,8;
+				changequest 2065,2066;
+				close;
+			}
+			else if ((.@newspp == 6) || (.@newspp == 7)) {
+				mes "- 文明頁 -";
+				mes "- 請救救我的水 -";
+				mes " ";
+				mes "﹛一名最近出名的年輕作家 - ";
+				mes "珍妮·卡多克的新叢書.";
+				mes "'請救救我的水'在圖書館的銷售排行榜上列為首位.";
+				mes "'請救救我的水'講述的是一個叫遇兒的女孩造福大自然的故事.";
+				mes "她的父親臨終前告訴她要保護水,反抗邪惡力量.";
+				mes "她要對抗汙染大自然的邪惡壞人,使水源淨化.";
+				mes "這本書很快被選定作為一本重要的學術著作,";
+				mes "有利於修發茲共和國整個國家提高道德水平和環境保護意識.";
+				mes " ";
+				next;
+			}
+			else {
+				mes "艾因貝赫礦井坍塌 (2)";
+				mes " ";
+				mes "根據艾因貝赫公司的僱員陳述,";
+				mes "艾因貝赫採礦業務已經停工,";
+				mes "已發現三具屍體,";
+				mes "另外一名倖存者被送往醫院搶救.";
+				mes "他是一個關鍵的轉折點,";
+				mes "給了我們繼續尋找倖存者的希望,";
+				mes "並聘請專家調查事故原因.";
+				mes " ";
+				next;
+			}
+		}
+	}
+	else {
+		mes "^660000這是一個文件夾木框,裡面放著厚厚的一堆舊報紙.^000000";
+		close;
+	}
+}
+
+yuno_in04,169,123,3	script	可疑的男人#oliver_h	4_M_ATEIL,{
+	if (checkweight(617,3) == 0) {
+		mes "- 你有太多任務在身上無法進行這個任務 -";
+		close;
+	}
+	if (barmunt_crow > 14) {
+		mes "^660000這位作家正在筆記本上快速的寫字.^000000";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "我還是不要去打擾他,尤其是在他充滿靈感的時候,這很難得.";
+		close;
+	}
+	else if (barmunt_crow == 13) {
+		cutin "oliver_pre",2;
+		if (countitem(7795) < 1) {
+			mes "[奧利弗 希爾帕特]";
+			mes "瑪莉女士...";
+			close2;
+			cutin "",255;
+			end;
+		}
+		mes "[奧利弗 希爾帕特]";
+		mes "你改變注意,願意賣瑪莉女士的相冊給我了嗎?";
+		next;
+		switch(select("是的:不")) {
+		case 1:
+			cutin "oliver_smile",2;
+			mes "[奧利弗 希爾帕特]";
+			mes "哇,謝謝!";
+			next;
+			mes "[奧利弗 希爾帕特]";
+			mes "我還沒有收到我的版稅,你介意這樣嗎";
+			next;
+			break;
+		case 2:
+			mes "[奧利弗 希爾帕特]";
+			mes "好吧... 我明白...";
+			emotion ET_CRY;
+			close2;
+			cutin "",255;
+			end;
+		}
+		mes "[奧利弗 希爾帕特]";
+		mes "我還沒有機會打開它,但我的出版商說裡面有非常罕見的東西.我希望足夠換你的書.";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "哈哈,謝謝.";
+		mes "你知道嗎, 在蒙羅克... 阿嚏! ...有一個瑪莉女士的超級粉絲... 阿嚏! 為什麼你不去見見他呢?";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "我從他那裡得到那本書作為禮物,或許他有更多珍貴的書籍... 阿嚏!";
+		next;
+		mes "[奧利弗 希爾帕特]";
+		mes "謝謝你為我帶來這樣有價值的信息!";
+		next;
+		mes "[奧利弗 希爾帕特]";
+		mes "對了!我必須繼續寫故事,我想起昨天晚上我做的夢了,趁我現在還沒忘記!";
+		next;
+		mes "[奧利弗 希爾帕特]";
+		mes "我希望你也會喜歡我的下一本書.我要走了...謝謝你的書!";
+		next;
+		cutin "oliver_smile",255;
+		mes "^660000他像一隻無頭蒼蠅一樣慌裡慌張.他迅速打開他的包,拿出自己本,跑到一張桌子前面,開始快速的寫東西.";
+		mes "起初,他看起來傻傻的,但作為一個作家,他對他的作品是非常認真的.^000000";
+		next;
+		mes "^660000你正準備離開時,發現地上有一張紙.^000000";
+		next;
+		mes "^660000這張紙上滿是塗鴉,並標記著<命運的烏鴉>在頂部. 奧利弗掉了張關於他小說 <命運的烏鴉>的紙.^000000";
+		next;
+		mes "^3131FF古代武器 = 某種動力能源^000000";
+		mes "^3131FF隱居 - 一名女弟子的信^000000";
+		mes "^3131FF繼母 = 情人過去的生活?!^000000";
+		close2;
+		specialeffect2 EF_ENHANCE;
+		delitem 7795,1; //Mami_Photo_Album
+		set barmunt_crow,14;
+		getitem 7796,1; //Author_Autograph
+		getitem 7797,1; //Author_Memo
+		getitem 617,1; //Old_Violet_Box
+		warp "que_ba",270,270;
+		end;
+	}
+	else if (barmunt_crow == 14) {
+		mes "["+ strcharinfo(0) +"]";
+		mes "這不知道是不是有用.";
+		mes "我最好拿著等他回來.";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "你好,希爾帕特先生.";
+		next;
+		cutin "oliver_think",2;
+		mes "[奧利弗 希爾帕特]";
+		mes ".................";
+		mes ".................";
+		mes "...........嗯?";
+		next;
+		cutin "oliver_think",255;
+		mes "你覺得很抱歉,打斷了他的習作.";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "我想這是你掉的.";
+		next;
+		mes "^660000你從口袋裡翻來翻去找備忘錄,翻出了在圖書館門口揀到的烏鴉羽毛,突然...^000000";
+		next;
+		mes "(重擊)";
+		specialeffect EF_VENOMDUST;
+		specialeffect2 EF_DETOXICATION;
+		next;
+		mes "^660000奧利弗艱起了羽毛,在你還沒反應過來時撕成了碎片.^000000";
+		next;
+		mes "^660000你生氣地看著他,發現他變了一個人:他看起來不再傻傻的,而是非常冷酷.^000000";
+		next;
+		cutin "oliver_hum",2;
+		mes "[奧利弗 希爾帕特]";
+		mes "嗯?!";
+		mes "這羽毛怎麼了?";
+		next;
+		mes "[奧利弗 希爾帕特]";
+		emotion ET_KEK;
+		mes "啊!這是我做的嗎?";
+		mes "我的天,我很抱歉!我很抱歉!";
+		next;
+		mes "^660000他又變回原來的性格,並開始向你道歉他剛才的行為.^000000";
+		next;
+		emotion ET_CRY;
+		mes "[奧利弗 希爾帕特]";
+		mes "我...我不知道該如何道歉...";
+		mes "我只是... 我變得非常生氣.我—!唉,對不起!";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "沒事,我只是碰巧在街上揀到它的.你不必道歉.";
+		next;
+		mes "[奧利弗 希爾帕特]";
+		mes "既然你都這麼說了,謝謝你的理解.";
+		mes "唉,我感到很內疚...";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "拿著,這是你的備忘錄.";
+		next;
+		mes "[奧利弗 希爾帕特]";
+		mes "你可以把它扔了,它已經沒用了.";
+		mes "唉...";
+		next;
+		cutin "oliver_pre",2;
+		mes "[奧利弗 希爾帕特]";
+		mes "我有更偉大的想法.我很抱歉,但是我要走了.";
+		next;
+		cutin "oliver_pre",255;
+		mes "^660000他說完以後,又完全專注於他的寫作中.^000000";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "他是如此的專心.";
+		mes "我想也不是所有人都可以寫出暢銷書的吧?";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "...等等,我好像不打噴嚏了...";
+		mes "頭痛和胸口沉重的感覺也不見了,一定是我走得太遠了!";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "莫非這是因為那支烏鴉的羽毛?如果是這樣的話...?";
+		next;
+		switch(select("是因為那被詛咒的石子:是因為被奧利弗撕碎的烏鴉羽毛")) {
+		case 1:
+			mes "["+ strcharinfo(0) +"]";
+			mes "我明白了.";
+			mes "應該是因為那塊集中烏鴉的石頭,帶來了災難";
+			next;
+			mes "["+ strcharinfo(0) +"]";
+			mes "一切都是因為那個圖書館館長!";
+			mes "值得慶幸的是羽毛沒了,我不會再受到任何災難了.";
+			next;
+			break;
+		case 2:
+			mes "["+ strcharinfo(0) +"]";
+			mes "我記得基德先生說伊娃離開時有一支黑色的羽毛在她身後.";
+			next;
+			mes "["+ strcharinfo(0) +"]";
+			mes "然後,那位女助理變成烏鴉飛走了;然後那隻烏鴉羽毛讓我打噴嚏和咳嗽.";
+			next;
+			mes "["+ strcharinfo(0) +"]";
+			mes "..................";
+			next;
+			mes "["+ strcharinfo(0) +"]";
+			mes "沒錯,那隻烏鴉是希爾帕特先生的靈魂!";
+			mes "我不知道他是否會像圖書館館長扔烏鴉石塊那樣對他...";
+			next;
+			mes "["+ strcharinfo(0) +"]";
+			mes "..................";
+			mes "這是一個愚蠢的想法.";
+			next;
+			break;
+		}
+		mes "["+ strcharinfo(0) +"]";
+		mes "不管怎樣.";
+		mes "重要的是我的病好了!";
+		mes "如果我有一個夢想,我現在就要實現它~";
+		next;
+		mes "^660000當你離開圖書館時,你覺得你應該找奧利弗先生談談比較好.^000000";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "那是相當有趣的,那也挺累的.我應該到哪裡進行我的新冒險呢?";
+		set barmunt_crow,15;
+		completequest 2068;
+		close2;
+		cutin "",255;
+		end;
+	}
+	else {
+		mes "^660000一個看起來很可疑的人在到處看,似乎在尋找什麼人.^000000";
+		close;
+	}
+}
+
+yuno_in04,167,120,3	script	破舊的書#garas	HIDDEN_NPC,{
+	if (checkweight(617,3) == 0) {
+		mes "- 你已經有太多任務在身上無法進行這個任務 -";
+		close;
+	}
+	if (barmunt_crow == 12) {
+		if (countitem(7795) < 1) {
+			mes "- 你覺得你還有更重要的事沒有做完. -";
+			close;
+		}
+		mes "^660000這本書的封面嚴重破損,但出版日期卻很近.應該有很多人翻閱過它.^000000";
+		next;
+		mes "^660000你小心翻開第一頁,你很擔心會進入另一個瘋狂的夢境中.^000000";
+		next;
+		mes ".........................";
+		mes ".........................";
+		mes ".........................";
+		next;
+		mes "< 在他年輕的時候 - 他甚至還能記住他曾經多麼年輕 - 他的夢想充滿了他的大腦,想到未知的地方去.";
+		mes "他的外表還是一個小男孩時,就比許多聖人更有智慧.他能流利地使用多種語言,他們聽起來像在歌頌奧丁神.";
+		mes "但是,他從小就被關在一個村莊陰暗的地下監獄中,阻斷了他好奇心卻渴望自由.";
+		mes "他告訴我的繼母伊娃,他想到外面世界去學習更多的知識,但她總是忽視他的想法,對他非常嚴厲.";
+		mes "最終,她不合理的勸阻不能組織他逃避現實.";
+		mes " ";
+		mes "- 喘息! 喘息! -";
+		mes "他在無盡的黑暗中奔跑.他試圖躲開所有阻止他的人或事.>";
+		next;
+		mes ".........................";
+		mes ".........................";
+		mes ".........................";
+		next;
+		mes "< - 嗯...-";
+		mes "-...他被喚醒了.-";
+		mes "- 你好,能看到我嗎?你感覺怎麼樣? -";
+		mes "一個老人家慢慢走進房間,臉上帶著微笑,他坐了起來.小男孩開始感到害怕,這是他第一次從村莊以外的地方看到人.";
+		mes "他強迫自己從床上起來,看了看四周.";
+		mes " ";
+		mes "- 我在哪裡?為什麼我在這裡? - ";
+		mes "- 我昨天晚上乘著馬車在街上發現你躺在街上.我的名字叫海智.你可以叫我海智先生,孩子.-";
+		mes "-.......-";
+		mes "- 你叫什麼名字? -";
+		mes "-......艾爾.-";
+		mes "- 你為什麼會躺在街上?你住在哪裡?你的父母一定很擔心你.-";
+		mes "海智的話讓艾爾的內心深處出現像野獸一樣的伊娃,他嚇得大聲尖叫.";
+		mes "- 我沒有住的地方,也沒有父母. -";
+		mes "艾爾不得不又躺了很久.他想,這位老人似乎非常理解:他的眼神非常同情這個小男孩.海智堅持讓他留在他家裡,不管他要住多久.";
+		mes "後來,他開始學習.海智是一名朱諾大學的教授.艾爾相信,這是他的命運.>";
+		next;
+		mes ".........................";
+		mes ".........................";
+		mes ".........................";
+		next;
+		mes "^660000你感覺有人在盯著你看那本書.你抬起頭,發現一個看起來很可疑的年輕人在看著你.^000000";
+		next;
+		cutin "oliver_pre",2;
+		mes "^660000這個年輕人笑著走進你,搖了搖你的手.^000000";
+		next;
+		mes "[看起來很可疑的男人]";
+		mes "嗨,你正在讀<命運的痕跡>!";
+		mes "哈哈哈,很高興見到你.我是這本書的作者.我來看看我的新書<命運的烏鴉>的,這樣的榮譽很滿足我的虛榮心!我覺得很尷尬,還是謝謝你!呵呵.";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "咳,不.我不是一個粉...";
+		next;
+		mes "[奧利弗 希爾帕特]";
+		mes "對了!你想要我的籤名嗎?";
+		next;
+		mes "(書寫著)";
+		next;
+		mes "[奧利弗 希爾帕特]";
+		mes "^660000他從口袋裡拿出一張紙,非?斕那┥廈?然後交給你.^000000";
+		next;
+		mes "哈哈,看.我籤了這麼大一張,這樣你可以向你的朋友炫耀!";
+		next;
+		mes "[奧利弗 希爾帕特]";
+		mes "其實,我只是寫下了我在夢中看到的東西:我不知道人們會這麼喜歡我的故事!這對我來說很奇怪.";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "夢?";
+		next;
+		cutin "oliver_think",2;
+		mes "[奧利弗 希爾帕特]";
+		mes "是的,我一直覺得夢境如此生動,他們如此現實.";
+		mes "有人告訴我偉大作家的靈感通常來自於他們的夢境.我猜我天生就屬於這一類型.哈哈!";
+		next;
+		mes "你感覺你對所謂的夢境有種不舒服的感覺,你想理解它只能通過看書.";
+		mes "如果奧利弗做的夢和你看到的是一樣的,這可能意味著你和他分享夢境.然而你已經發現書中的山洞村是真實存在的.";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "英雄艾爾是有夢想的...";
+		next;
+		cutin "oliver_pre",2;
+		mes "[奧利弗 希爾帕特]";
+		mes "哇!";
+		mes "可不是嗎?!";
+		emotion ET_HUK;
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "嗯?";
+		next;
+		mes "^660000你順著他的眼睛轉過頭去,那裡只有你的書包.^000000";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "阿...阿嚏!希爾帕特先生,你喜歡我的包嗎?它只是一個我從新手訓練場得到的包...";
+		specialeffect2 EF_VENOMDUST;
+		next;
+		mes "[奧利弗 希爾帕特]";
+		mes "不,不是的!";
+		next;
+		mes "[奧利弗 希爾帕特]";
+		mes "我看到有閃閃發光的東西在它裡面!";
+		next;
+		mes "^660000你檢查了一下背包裡的東西,這是...^000000";
+		next;
+		cutin "oliver_smile",2;
+		mes "[奧利弗 希爾帕特]";
+		mes "瑪莉女士!";
+		emotion 14;
+		next;
+		mes "^660000這是夢羅克的班傑明喜歡的盧恩·米德加茲最偉大的三大偶像之一瑪莉的相冊,這一定是奧利弗如此喜悅的原因.^000000";
+		emotion ET_THINK,1;
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "阿嚏!你也是瑪莉的粉絲嗎?";
+		specialeffect2 EF_VENOMDUST;
+		next;
+		mes "[奧利弗 希爾帕特]";
+		mes "你說笑吧?!這是當然的!";
+		mes "告訴我,你能在哪裡找到另一個像她一樣聰明漂亮的女人呢?";
+		mes "我相信她是被塵世大陸嫉妒而糟糕驅逐的智慧女神.";
+		next;
+		mes "^660000瑪莉似乎有一種神奇的知名度,你永遠無法理解.^000000";
+		next;
+		mes "[奧利弗 希爾帕特]";
+		mes "我可以看一下嗎?";
+		next;
+		mes "^660000你把瑪莉的相冊遞給了他.^000000";
+		next;
+		mes "[奧利弗 希爾帕特]";
+		mes ".................";
+		next;
+		mes "[奧利弗 希爾帕特]";
+		mes "...哇!";
+		cutin "mami01",4;
+		emotion ET_THROB;
+		next;
+		mes "[奧利弗 希爾帕特]";
+		mes "...哇哦!";
+		cutin "mami02",4;
+		emotion ET_THROB;
+		next;
+		cutin "oliver_smile",2;
+		mes "[奧利弗 希爾帕特]";
+		mes "這就是我為什麼會愛上瑪莉女士.";
+		mes "冒險家,你一定是她的狂熱粉絲.你在哪裡找到這本稀罕的相冊的?";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "不是,我只是從某人那作為禮物得到它... 阿嚏!";
+		specialeffect2 EF_VENOMDUST;
+		next;
+		mes "[奧利弗 希爾帕特]";
+		mes "什麼?這真讓我吃驚!";
+		mes "我吃驚你居然對美麗的瑪莉女士毫不動心,";
+		mes "但更讓人吃驚的是,上帝把這樣一本難得的相冊給了你這樣不懂它價值的人!";
+		mes "在這本書發售之日我還乘最早的飛船飛到盧恩·米德加茲王國去買,";
+		mes "但居然在輪到我時賣完了!";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "...............";
+		mes "我... 我明白了...";
+		emotion ET_SWEAT,1;
+		next;
+		mes "[奧利弗 希爾帕特]";
+		mes "嗯...";
+		mes "既然你不喜歡這本書,為什麼不把它賣給我呢";
+		next;
+		mes "[奧利弗 希爾帕特]";
+		mes "我告訴過你,我甚至願意跨過大洲去購買.拜託了~";
+		mes "我真的很想買你的書!";
+		next;
+		switch(select("買給他:不賣給他")) {
+		case 1:
+			mes "[奧利弗 希爾帕特]";
+			mes "哇,謝謝你!";
+			next;
+			mes "[奧利弗 希爾帕特]";
+			mes "我還沒有收到我的版稅,但你介意這樣子嗎?";
+			next;
+			break;
+		case 2:
+			mes "[奧利弗 希爾帕特]";
+			mes "好吧... 我明白...";
+			emotion ET_CRY;
+			set barmunt_crow,13;
+			close2;
+			cutin "",255;
+			end;
+		}
+		mes "[奧利弗 希爾帕特]";
+		mes "我還沒有機會打開它,但我的出版商說這裡面放著非常罕見的東西.我希望這足夠交換你的書.";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "哈哈,謝謝.";
+		mes "你知道嗎, 在夢羅克... 阿嚏! ...有一個瑪莉女士的超級粉絲... 阿嚏! 為什麼你不去見見他呢?";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "我從他那裡得到那本書作為禮物,或許他有更多珍貴的書籍... 阿嚏!";
+		next;
+		mes "[奧利弗 希爾帕特]";
+		mes "謝謝你為我帶來這樣有價值的信息!";
+		next;
+		mes "[奧利弗 希爾帕特]";
+		mes "對了!我必須繼續寫故事,我想起昨天晚上我做的夢了,趁我現在還沒忘記!";
+		next;
+		mes "[奧利弗 希爾帕特]";
+		mes "我希望你也會喜歡我的下一本書.我要走了...謝謝你的書!";
+		cutin "oliver_smile",255;
+		next;
+		mes "^660000他像一隻無頭蒼蠅一樣慌裡慌張.他迅速打開他的包,拿出自己本,跑到一張桌子前面,開始快速的寫東西.";
+		mes "起初,他看起來傻傻的,但作為一個作家,他對他的作品是非常認真的.^000000";
+		mes "^660000你正準備離開時,發現地上有一張紙.^000000";
+		next;
+		mes "^660000這張紙上滿是塗鴉,並標記著<命運的烏鴉>在頂部. 奧利弗掉了張關於他小說 <命運的烏鴉>的紙.^000000";
+		next;
+		mes "^3131FF古代武器 = 某種動力能源^000000";
+		mes "^3131FF隱居 - 一名女弟子的信^000000";
+		mes "^3131FF繼母 = 情人過去的生活?!^000000";
+		close2;
+		specialeffect2 EF_ENHANCE;
+		delitem 7795,1; //Mami_Photo_Album
+		set barmunt_crow,14;
+		getitem 7796,1; //Author_Autograph
+		getitem 7797,1; //Author_Memo
+		getitem 617,1; //Old_Violet_Box
+		warp "que_ba",270,270;
+		cutin "",255;
+		end;
+	}
+	else {
+		mes "^660000The book's cover was seriously damaged, considering its recent publishing date. Many people must have turned its pages.^000000";
+		close;
+	}
+}
+
+que_ba,247,33,0	script	#bpast_1_1	-1,1,1,{
+//OnTouch2:
+OnTouch:
+	if (barmunt_crow < 4) {
+		warp "ama_dun03",119,110;
+	}
+	else {
+		sc_end SC_BLIND;
+		mes "[???]";
+		mes "哇哇哇哇!";
+		next;
+		mes "^660000這本書的封面嚴重破損,但出版日期卻很近.應該有很多人翻閱過它.^000000";
+		next;
+		mes "^660000你感覺到腳下的地面上下移動,然後在被遺棄的老建築中聽到一聲尖叫.^000000";
+		next;
+		mes "^660000在破舊巨大的建築打開的窗戶中飄出了暗紅色的煙霧.^000000";
+		close;
+	}
+}
+
+que_ba,257,39,3	script	女研究院#bpast	4_F_ALCHE,{
+	if (barmunt_crow < 4) {
+		warp "ama_dun03",119,110;
+	}
+	else if (barmunt_crow == 4) {
+		mes "^660000當你想記住所發生的時,你遇到了一個女人經過你的身邊.你本能的按著她的肩膀想引起她的注意.^000000";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "阿嚏!阿嚏!天哪...";
+		mes "我在哪裡...?";
+		specialeffect2 EF_VENOMDUST;
+		next;
+		mes "- Pzzzz -";
+		specialeffect EF_CLOAKING;
+		next;
+		mes "^660000讓人驚訝的事,你的手穿過了她的身體.^000000";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "...我到底在哪兒?";
+		close;
+	}
+	else {
+		warp "yuno_in04",100,3;
+	}
+	end;
+}
+
+que_ba,265,34,0	warp	#bpast_1to2	1,1,que_ba,156,37
+
+que_ba,176,43,7	script	男研究員#bpast_2_1	4_M_SCIENCE,{
+	specialeffect EF_CLOAKING;
+	mes "[男研究員]";
+	mes "有火!";
+	mes "所有人,快走,快走!";
+	close;
+}
+
+que_ba,181,14,7	script	研究員#bpast_2_2	4_LGTSCIENCE,{
+	specialeffect EF_CLOAKING;
+	mes "[男研究員]";
+	mes "咳, 咳!";
+	mes "啊... 我不能呼吸了... 我要出去...";
+	close;
+}
+
+que_ba,183,25,0	warp	#bpast_2to3_1	1,1,que_ba,72,25;
+que_ba,183,52,0	warp	#bpast_2to3_2	1,1,que_ba,72,51;
+
+que_ba,102,56,0	script	#3room_barmunt	-1,3,3,{
+//OnTouch2:
+OnTouch:
+	if (barmunt_crow < 4) {
+		warp "yuno_in04",100,3;
+	}
+	else {
+		mes "^660000你穿過被火焰吞噬的走廊,到了一個正在崩潰的房間裡.^000000";
+		next;
+		mes "^660000因為有煙,你看不清楚房間裡的東西,但你知道有什麼東西在房間裡.^000000";
+		next;
+		mes "^660000你眯著眼睛,聽著.你能聽到人的聲音,但從他們的剪影看得出不是人的形狀.^000000";
+		next;
+		mes "[女人]";
+		mes "咳! 火... 咳!";
+		mes "那些該死的人... 咳, 咳!";
+		next;
+		mes "^660000她的咳嗽聲因為咆哮的火焰而越來越頻繁.^000000";
+		next;
+		mes "[男人]";
+		mes "他們逃走了,留下我們等死!";
+		next;
+		mes "[女人]";
+		mes "...我們只好等死了嗎?";
+		next;
+		mes "[男人]";
+		mes "死? ...哈哈.";
+		mes "^3131FF'伊娃'^000000, 我們不會死去...我們從來就沒有活過.";
+		next;
+		mes "- 搖搖欲墜 -";
+		next;
+		mes "[男人]";
+		mes "Argh!";
+		next;
+		mes "^660000唯一的出口被大火封住了,沒人能走出這個房間.牆壁的一個角落坍塌下來.^000000";
+		next;
+		mes "^660000那個男人迅速靠近牆壁,並開始挖開崩潰的角落.^000000";
+		next;
+		mes "[男人]";
+		mes "...行了!";
+		next;
+		mes "[男人]";
+		mes "讓我們走吧,伊娃!";
+		next;
+		mes "[伊娃]";
+		mes "等等,我們必須帶上我們的孩子一起.";
+		next;
+		mes "^660000那個叫伊娃的女人走到靠牆的一排試管那邊.^000000";
+		next;
+		mes "[男人]";
+		mes "伊娃!!我們沒有時間拯救它們了!快走!";
+		if (barmunt_crow == 4) {
+			set barmunt_crow,5;
+		}
+		sc_start SC_BLIND,600000,0,10000;
+		close2;
+		warp "que_ba",53,232;
+		end;
+	}
+	end;
+}
+
+que_ba,104,55,3	script	Grotesque 女人#eva1	4_F_MUT1,{
+	specialeffect EF_CLOAKING;
+	end;
+}
+
+que_ba,99,51,7	script	Grotesque 男人#zid1	4_M_MUT1,{
+	specialeffect EF_CLOAKING;
+	end;
+}
+
+que_ba,53,232,0	script	#garas_f_yume	HIDDEN_WARP_NPC,1,1,{
+//OnTouch2:
+OnTouch:
+	if (barmunt_crow == 5) {
+		//GetHEALTHSTATE VAR_HEALTHSTATENORMAL 0
+		mes "^660000突然一道光芒刺痛了你的眼睛.幾秒鐘後,你睜開眼睛,發現自己在修發茲共和國.^000000";
+		next;
+		mes "^660000然而不止你一個人:你看到了逃出實驗室的男人和女人.^000000";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "嗯...";
+		next;
+		mes "[奇形怪狀的人]";
+		mes "我們應該到哪裡去?";
+		mes "沒人會歡迎我們...我們看起來就像怪物!";
+		next;
+		mes "[伊娃]";
+		mes "...";
+		mes "我知道北邊有一個可以藏身的洞穴.";
+		mes "我們可以在那裡呆上一段時間.";
+		next;
+		mes "^660000他們似乎感覺不到你的存在,開始向北邊走.^000000";
+		next;
+		mes "^660000你看著他們離開的背影,發現手裡拿著你正在讀的那本書.接著...^000000";
+		set barmunt_crow,6;
+		specialeffect2 EF_FLASHER;
+		close2;
+		warp "yuno_in04",100,3;
+	}
+	else {
+		warp "yuno_in04",100,3;
+	}
+	end;
+}
+
+que_ba,50,238,1	script	Grotesque 女人#eva2	4_F_MUT1,{
+	specialeffect EF_CLOAKING;
+	end;
+}
+
+que_ba,48,227,7	script	Grotesque 男人#zid2	4_M_MUT1,{
+	specialeffect EF_CLOAKING;
+	end;
+}
+
+que_ba,264,186,0	script	#barmut_room1	HIDDEN_WARP_NPC,2,2,{
+//OnTouch2:
+OnTouch:
+	if (barmunt_crow == 11) {
+		mes "^660000你醒了過來,看看四周.你發現自己在一座豪宅裡.^000000";
+		next;
+		mes "^660000你感覺到胸口劇烈疼痛,就好像有人在擠壓你的心臟.^000000";
+		next;
+		mes "^660000這座豪宅看起來非常優雅高貴,但它在起火,就像你第一個夢境中的實驗室.^000000";
+		next;
+		mes "^660000看到四周的火,你知道這房子不久會坍塌.忍住胸口的痛疼,四處尋找出出口,並看到有一個人站在樓下的火焰中.^000000";
+		next;
+		mes "^660000他似乎不害怕這座建築隨時會崩塌,正慢慢的發出一種低沉而悲傷的聲音.^000000";
+		next;
+		mes "[神秘男子]";
+		mes ".....................";
+		mes "畢竟,神在玩弄我...";
+		mes "這或許是他遠大的計劃...";
+		mes "即使是我最好的朋友也不過是他的傀儡...";
+		next;
+		mes "[神秘男子]";
+		mes "我憎恨我的命運...";
+		mes "但我已經準備好結束...這一切...";
+		next;
+		mes "^660000他還沒把話說完就被火焰吞噬了.與此同時,你...^000000";
+		specialeffect EF_METEORSTORM;
+		set barmunt_crow,12;
+		close2;
+		warp "yuno_in04",108,57;
+	}
+	else {
+		warp "yuno_in04",108,57;
+	}
+	end;
+}
+
+que_ba,270,181,3	script	#barmunt_fire	4_M_SAGE_C,{
+	end;
+}
+
+que_ba,270,270,0	script	#barmunt_living	HIDDEN_WARP_NPC,1,1,{
+//OnTouch2:
+OnTouch:
+	mes "..................";
+	mes "..................";
+	mes "..................";
+	mes "..................";
+	next;
+	mes "[神秘男子]";
+	mes "..................";
+	mes "..................";
+	mes "..................";
+	mes "伊...伊娃,不!";
+	next;
+	mes "[神秘男子]";
+	mes "這是一場夢嗎?";
+	mes "..................";
+	mes "...天啊,太奇怪了.";
+	next;
+	mes "[神秘男子]";
+	mes "母親她...她是一個普通的人類.";
+	mes "我站在她的身邊?";
+	mes "..................";
+	next;
+	mes "^660000他喃喃自語,手抓著汗溼的頭髮顫抖著.^000000";
+	next;
+	mes "["+ strcharinfo(0) +"]";
+	mes "這是另一個夢了.";
+	mes "我想他應該看不見也聽不見我在說什麼,就像上一個夢那樣.";
+	next;
+	mes "^660000你警惕地盯著他看.";
+	mes "突然他轉過頭,憤怒的扭曲的臉看著你.^000000";
+	next;
+	mes "[神秘男子]";
+	mes "你是怎麼找到我的?!";
+	next;
+	mes "["+ strcharinfo(0) +"]";
+	mes "...什麼!他看得到我!他看得到我!";
+	next;
+	enablenpc "#barmut_onna";
+	mes "[神秘女子]";
+	mes "你不必這麼生我氣,先生.";
+	next;
+	mes "^660000聽到她的聲音,";
+	mes "你轉過身,發現一位女子站在那裡.^000000";
+	next;
+	mes "[神秘女子]";
+	mes "本來快要完成了,但那時你打破了所有的 -- 甚至 ^FF00FF嗶嗶^000000 and ^FF00FF嗶嗶^000000 -- 然後躲在這裡.";
+	next;
+	mes "[神秘男子]";
+	mes "他們本來就不應該存在這個世界上!";
+	next;
+	mes "[神秘女子]";
+	mes "這是他的決定.你的命運也在他...";
+	next;
+	mes "[神秘男子]";
+	mes "閉嘴!";
+	next;
+	mes "^660000這個憤怒的男人拔出一把刀刺向女人.女人變成了一隻烏鴉飛走了,窗外迴蕩著她的笑聲.^000000";
+	disablenpc "#barmut_onna";
+	specialeffect EF_BAT;
+	next;
+	mes "[迴蕩的 聲音]";
+	mes "你的命運早已註定,無論你多麼努力去逃避...";
+	soundeffect "loli_ruri_stand.wav",0;
+	next;
+	mes "..................";
+	mes "..................";
+	mes "..................";
+	mes "..................";
+	next;
+	mes "..................";
+	mes "..................";
+	mes "..................";
+	mes "..................";
+	close2;
+	warp "yuno_in04",165,122;
+	end;
+}
+
+que_ba,263,276,3	script	#barmut_room2	4_M_SAGE_C,{
+	end;
+}
+
+que_ba,266,268,3	script	#barmut_onna	4_F_SCIENCE,{
+OnInit:
+	disablenpc "#barmut_onna";
+	end;
+}
+
+cave,82,97,3	script	洞穴中的人#g1	4_M_CAVE1,3,3,{
+	if (barmunt_crow == 8) {
+		mes "[洞穴中的人]";
+		mes "外人是不允許到這裡來的.";
+		next;
+		switch(select("後退:不,請聽我說!")) {
+		case 1:
+			mes "[洞穴中的人]";
+			mes "哈哈,我就知道你害怕我!";
+			close2;
+			warp "cave",81,92;
+			end;
+		case 2:
+			mes "["+ strcharinfo(0) +"]";
+			mes "阿...阿嚏!";
+			mes "'我和其他外人不同... 阿嚏!";
+			mes "我來這裡有事找你... 阿嚏!";
+			specialeffect2 EF_VENOMDUST;
+			next;
+			mes "^660000雖然你有點害怕這個人,但打噴嚏絕對沒有幫助,你繼續說.^000000";
+			next;
+			mes "["+ strcharinfo(0) +"]";
+			mes "我來這裡找人的!";
+			input .@input$;
+			mes "她的名字是 ^FF0000"+.@input$+"^000000!";
+			next;
+			if (compare(.@input$,"伊娃") == 0) {
+				mes "[洞穴中的人]";
+				mes "你在和我說開玩笑嗎?如果你要尋找失蹤孩童應該去朱諾警察局.";
+				close2;
+				warp "cave",81,92;
+				end;
+			}
+			else {
+				mes "[洞穴中的人]";
+				mes "............!!!!";
+				next;
+				mes "[洞穴中的人]";
+				mes "你是說伊娃?";
+				mes "嗯...";
+				mes "在這等等.";
+				next;
+				emotion ET_COMEON;
+				mes "[洞穴中的人]";
+				mes "嘿,佳德!";
+				enablenpc "佳德#garas1";
+				next;
+				mes "[洞穴中的人]";
+				mes "上去告訴伊娃,她有一個客人.";
+				disablenpc "佳德#garas1";
+				next;
+				mes "^660000令人驚訝的是,他好像知道伊娃是誰.你還是不相信她的存在!這太奇怪了.^000000";
+				next;
+				mes "^660000你非常的興奮和期待.或許你能明白這個夢境到底意味著什麼了.^000000";
+				enablenpc "佳德#garas1";
+				next;
+				mes "[洞穴中的人]";
+				mes "嗯,我明白了.";
+				next;
+				disablenpc "佳德#garas1";
+				mes "[洞穴中的人]";
+				mes "你可以上樓去見她了.但是說任何話或做任何事之前先考慮清楚.你懂我的意思吧?";
+				next;
+				mes "^660000那個看起來很嚴厲的人走到一邊,讓你通過.";
+				mes "你緊張的握緊拳頭,然後開始走向陰暗的樓梯.^000000";
+				set barmunt_crow,9;
+				close2;
+				warp "cave",82,105;
+				end;
+			}
+		}
+	}
+	else if (barmunt_crow < 8) {
+		mes "[洞穴中的人]";
+		mes "外人不允許進入這裡.";
+		next;
+		mes "^660000他的聲音嚴厲,而且長得很可怕.^000000";
+		close2;
+		warp "cave",81,92;
+		end;
+	}
+	else {
+		mes "[洞穴中的人]";
+		mes "你有業務要找基德?";
+		mes "你最好快點完成,我們這不歡迎外人.";
+		close;
+	}
+
+//OnTouch2:
+OnTouch:
+	if (barmunt_crow == 8) {
+		mes "[洞穴中的人]";
+		mes "外人不允許進入這裡.";
+		next;
+		switch(select("後退:不,請聽我說!")) {
+		case 1:
+			mes "[洞穴中的人]";
+			mes "哈哈,我就知道你害怕我!";
+			close2;
+			warp "cave",81,92;
+			end;
+		case 2:
+			mes "["+ strcharinfo(0) +"]";
+			mes "阿...阿嚏!";
+			mes "'我和其他外人不同... 阿嚏!";
+			mes "我來這裡有事找你... 阿嚏!";
+			specialeffect2 EF_VENOMDUST;
+			next;
+			mes "^660000雖然你有點害怕這個人,但打噴嚏絕對沒有幫助,你繼續說.^000000";
+			next;
+			mes "["+ strcharinfo(0) +"]";
+			mes "我來這裡找人的!";
+			input .@input$;
+			mes "她的名字是 ^FF0000"+.@input$+"^000000!";
+			next;
+			if (compare(.@input$,"伊娃") == 0) {
+				mes "[洞穴中的人]";
+				mes "你在和我說開玩笑嗎?如果你要尋找失蹤孩童應該去朱諾警察局.";
+				close2;
+				warp "cave",81,92;
+				end;
+			}
+			else {
+				mes "[洞穴中的人]";
+				mes "............!!!!";
+				next;
+				mes "[洞穴中的人]";
+				mes "你是說伊娃?";
+				mes "嗯...";
+				mes "在這等等.";
+				next;
+				emotion ET_COMEON;
+				mes "[洞穴中的人]";
+				mes "嘿,佳德!";
+				enablenpc "佳德#garas1";
+				next;
+				mes "[洞穴中的人]";
+				mes "上去告訴伊娃,她有一個客人.";
+				disablenpc "佳德#garas1";
+				next;
+				mes "^660000令人驚訝的是,他好像知道伊娃是誰.你還是不相信她的存在!這太奇怪了.^000000";
+				next;
+				mes "^660000你非常的興奮和期待.或許你能明白這個夢境到底意味著什麼了.^000000";
+				enablenpc "佳德#garas1";
+				next;
+				mes "[洞穴中的人]";
+				mes "嗯,我明白了.";
+				next;
+				disablenpc "佳德#garas1";
+				mes "[洞穴中的人]";
+				mes "你可以上樓去見她了.但是說任何話或做任何事之前先考慮清楚.你懂我的意思吧?";
+				next;
+				mes "^660000那個看起來很嚴厲的人走到一邊,讓你通過.";
+				mes "你緊張的握緊拳頭,然後開始走向陰暗的樓梯.^000000";
+				set barmunt_crow,9;
+				close2;
+				warp "cave",82,105;
+				end;
+			}
+		}
+	}
+	else if (barmunt_crow < 8) {
+		mes "[洞穴中的人]";
+		mes "外人不允許進入這裡.";
+		next;
+		mes "^660000他的聲音嚴厲,而且長得很可怕.^000000";
+		close2;
+		warp "cave",81,92;
+	}
+	end;
+}
+
+cave,85,101,3	script	佳德#garas1	4_M_MUT2,{
+OnInit:
+	disablenpc "佳德#garas1";
+	end;
+}
+
+ein_fild01,28,261,0	warp	cave_in1	1,1,cave,97,24
+cave,97,21,0	warp	case_out1	1,1,ein_fild01,28,255
+
+cave,86,167,0	warp	zid_in	1,1,cave,77,185
+cave,79,180,0	warp	zid_out	3,3,cave,90,162
+
+cave,22,186,3	script	長得像怪物的 男人#zid	4_M_MUT1,{
+	if (barmunt_crow == 9) {
+		mes "^660000你看著一個長得非常醜惡像怪物的人.";
+		mes "他就是你在夢境中看到和伊娃一起的那個人.當然,從他的面容和皮膚上可以看出他已經老了.^000000";
+		next;
+		mes "(嗖嗖)";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "啊...";
+		next;
+		mes "^660000有人攻擊你的胸口,你感覺胸口疼痛...";
+		mes "你感覺肺似乎更痛苦,最近不停的咳嗽和打噴嚏.^000000";
+		next;
+		mes "^660000撫摸著胸口的疼痛,你驚訝的盯著他.^000000";
+		next;
+		mes "^660000謝天謝地,他開始和你說話.^000000";
+		next;
+		mes "[長得像怪物的 男人]";
+		mes "你被我的樣貌嚇到了嗎?";
+		next;
+		mes "[長得像怪物的 男人]";
+		mes "所以,你知道伊娃...嗯?";
+		next;
+		mes "^660000他聲音聽起來很弱,好像沒什麼力氣說話.^000000";
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "阿嚏!";
+		specialeffect2 EF_VENOMDUST;
+		next;
+		mes "["+ strcharinfo(0) +"]";
+		mes "你認識一個叫奧利弗 希爾帕特的人嗎?";
+		next;
+		mes "[長得像怪物的 男人]";
+		mes "奧利弗?我不認識.";
+		mes "這和他有什麼聯繫嗎?";
+		next;
+		mes "^660000你把奧利弗的小說<命運的烏鴉>交給他,並解釋發生在你身上奇怪的事情.^000000";
+		next;
+		mes "....................";
+		next;
+		mes "....................";
+		mes "....................";
+		next;
+		mes "....................";
+		mes "....................";
+		mes "....................";
+		next;
+		mes "^660000他眯起眼睛靜靜的翻閱了幾頁書,然後把書還給你,開始說.^000000";
+		next;
+		mes "[長得像怪物的 男人]";
+		mes "我很驚訝,這本書的故事...和我的人生很相似.";
+		next;
+		while(1) {
+			mes "[基德]";
+			mes "我的名字叫基德,告訴我你想從我這裡知道什麼,我想知道更多關於這本書的事.";
+			next;
+			switch(select("關於山洞村:關於他自己:關於伊娃:結束對話")) {
+			case 1:
+				mes "[基德]";
+				mes "你有沒有注意到我們的村民和普通人不同?";
+				next;
+				mes "[基德]";
+				mes "人們的好奇心可以創造巨大的成就與貢獻,但這也需要大量的知識來處理.";
+				mes "這個村子裡的每一個人都是逃亡者...我們都是受害者.當人們扮演上帝的角色,尋求禁忌的知識,把生命當做玩物.";
+				next;
+				mes "[基德]";
+				mes "我們想反抗,但他們太過強大了.我們別無選擇只能躲在這裡...即使我們知道這是不對的.";
+				next;
+				break;
+			case 2:
+				mes "[基德]";
+				mes "我是一個普通的男人,讓貧窮讓我失去了我的驕傲,尊重和身份.";
+				mes "我厭倦了每天擔心食物不夠,於是我自願參加一些實驗.";
+				mes "我不再需要擔心挨餓,但我的生命中作為'人'的時間也結束了.";
+				next;
+				mes "[基德]";
+				mes "起初,我是唯一一個住在這裡的人,後來其他人加入了我們,一個小村莊就這樣形成了.";
+				mes "現在我是最古老的村民,感覺有一份沉甸甸的責任要保護其他人.";
+				next;
+				break;
+			case 3:
+				mes "[基德]";
+				mes "在實驗室裡,我和伊娃進行的不是普通的實驗.";
+				mes "我們的實驗是用於仿造神的力量.";
+				next;
+				mes "[基德]";
+				mes "他們沒能實現目標,";
+				mes "並引發一系列災難事件試圖毀滅研究材料.";
+				mes "他們認為這個研究將為人類創造一個全新的世界...";
+				next;
+				mes "[基德]";
+				mes "伊娃就是他們的其中之一...雖然她並不好,至少她同情我,因為我把自己出賣給了貧窮.";
+				next;
+				mes "[基德]";
+				mes "她有一個她深愛的男人...";
+				mes "他叫賽發迪克,他一直很支持她的研究.";
+				next;
+				mes "[基德]";
+				mes "他...在絕望中自殺後,伊娃把他變成了像我一樣的異形...她想用他去做他的實驗對像.";
+				mes "沒有人想到他會這樣輕易結束自己的生命,當時他是最熱情的研究員.";
+				next;
+				mes "[基德]";
+				mes "接著有人在實驗室裡放火.我猜就是你在夢境中所看到的那樣.大火燒毀了所有的建築.";
+				next;
+				mes "[基德]";
+				mes "伊娃和我逃離之後,我們發現這裡就在這裡定居.畢竟,我們不能混入普通人當中.";
+				next;
+				mes "[基德]";
+				mes "伊娃救了一個實驗對象並讓他成長為一個平常的人類,但他實際上是完美的.";
+				next;
+				mes "[基德]";
+				mes "那個男孩逃走時才10歲,我想他正值青春期...你知道的,這個年輕的男孩和女孩是這樣的.";
+				next;
+				mes "[基德]";
+				mes "伊娃忘不了他.她在黑暗的山洞中等待他的回歸.有一段時間,他寄了沒有地址的信給她,後來他們停止了往來.那時伊娃就消失了.";
+				mes "我在她離開的房間中找到了^3131FF一隻巨大的黑色羽毛^000000.";
+				next;
+				mes "[基德]";
+				mes "我不知道為什麼,但是...我相信伊娃不會再出現了...";
+				next;
+				break;
+			case 4:
+				set .@exitloop,1;
+				break;
+			}
+			if (.@exitloop) break;
+		}
+		mes "[基德]";
+		mes "嗯...";
+		mes "或許奧利弗就是伊娃的那個小男孩...";
+		next;
+		mes "[基德]";
+		mes "應該不會,他還太年輕.這是很久以前的事情了...";
+		next;
+		mes "[基德]";
+		mes ".........................";
+		next;
+		mes "[基德]";
+		mes "我想這只是古老的記憶...為什麼我要在意?為什麼每個人都在意?";
+		next;
+		mes "^660000基德低下頭不說話了,暫停了一會兒,他又接著說.^000000";
+		next;
+		mes "[基德]";
+		mes "我已經很老了,不想再記得伊娃甚至那男孩的事.";
+		mes "我的人生目標就是保護其他的村名,讓他們安靜的生活在這黑暗的山洞中.";
+		next;
+		mes "[基德]";
+		mes "這本書很有趣,但我相信那個叫奧利弗的傢伙經歷了發生在你身上的事.";
+		next;
+		mes "[基德]";
+		mes "即使現在讓他見到伊娃,也已經太遲了.";
+		next;
+		mes "[基德]";
+		mes "想想看:誰能拯救我們離開這個山洞呢,就算伊娃或者那個男孩還活著又如何?沒有人能拯救我們.";
+		next;
+		mes "[基德]";
+		mes ".................................";
+		next;
+		mes "[基德]";
+		mes "我很抱歉,我只是有點無助.";
+		mes "你最好從夢境中醒過來,繼續回到你的生活中去.";
+		mes "...可悲的是這一切只是一個夢...";
+		next;
+		mes "[基德]";
+		mes "如果你真的同情我們,請不要讓別人知道我們的所在.";
+		next;
+		mes "^660000基德轉頭走遠了.你還不確定這一切是不是真的,一切都是那麼的超越現實...^000000";
+		next;
+		mes "^660000和基德沮喪的談話,你決定回到夢羅克去,忘記這裡發生的一切.^000000";
+		set barmunt_crow,10;
+		changequest 2066,2067;
+		close;
+	}
+	else if (barmunt_crow == 10) {
+		mes "基德似乎已經對這本書失去了興趣.";
+		mes "你決定要把這本書教給夢羅克的班傑明.";
+		close;
+	}
+	else {
+		mes "[長得像怪物的 男人]";
+		mes "不要看我的臉...";
+		close;
+	}
+}
+
+cave,91,43,3	script	洞穴中的人#f_cave1	4_M_LGTPOOR,{
+	mes "[洞穴中的人]";
+	mes "(震驚)";
+	next;
+	mes "[洞穴中的人]";
+	mes "喃喃自語... 喃喃自語...";
+	close;
+}
+
+cave,72,71,5	script	洞穴中的人#m_cave2	4_F_MUT2,{
+	mes "[洞穴中的人]";
+	mes "呵...";
+	mes "你想要... 這個?";
+	next;
+	mes "- 她給了你魔物飼料. -";
+	close;
+}
+
+cave,134,62,1	script	洞穴中的人#m_cave3	4_F_MUT2,{
+	mes "[洞穴中的人]";
+	mes "配件!";
+	mes "我漂亮的配件!";
+	mes "哇阿!";
+	mes "我的配件不見了!";
+	close;
+}
+
+cave,113,74,5	script	洞穴中的人#f_cave4	4_M_MUT2,{
+	mes "[洞穴中的人]";
+	mes "這個村子沒有人歡迎你,請離開.";
+	next;
+	mes "[洞穴中的人]";
+	mes "你的眼睛看起來如此誘人..我想吃掉它!嘿嘿嘿!";
+	close;
+}
+
+cave,76,39,5	shop	洞穴中的女孩#f_cave5	1_M_SIZ,712:-1
+
+cave,108,34,3	script	洞穴中的人#f_cave6	4_F_CAVE1,{
+	mes "[洞穴中的人]";
+	mes "呵呵,昨天他真的這麼說...?";
+	mes "哇!";
+	next;
+	mes "[洞穴中的人]";
+	mes "這是一個人類...";
+	next;
+	mes "(耳語)";
+	mes "(耳語)";
+	close;
+}
+
+cave,105,32,7	script	洞穴中的人#f_cave7	4_F_CAVE1,{
+	mes "[洞穴中的人]";
+	mes "呵呵,昨天他真的這麼說...?";
+	mes "哇!";
+	next;
+	mes "[洞穴中的人]";
+	mes "這是一個人類...";
+	next;
+	mes "(耳語)";
+	mes "(耳語)";
+	close;
+}
+
+// Succession of the Prince
+// ============================================================
+prontera,153,353,4	script	傳令#prince1	8W_SOLDIER,{
+	if (nk_prince == 0) {
+		if (rebirth_moc_edq > 1) {
+			mes "[傳令]";
+			mes "我是一個皇家法院的傳令,需要找一個可靠的冒險家.這是一個對我們國家非常重要的問題.";
+			next;
+			if (aru_monas > 23) {
+				mes "[傳令]";
+				mes "這可能對國家帶來障礙,但人們都擔心惡魔重生.我們必須儘早解決問題以免引起不必要的恐慌.";
+				next;
+				mes "[傳令]";
+				mes "請不要太過慌張...其實,盧恩·米德加茲的前任國王,特裡斯坦三世,";
+				next;
+				switch(select("逝世了嗎?:又要舉行登基儀式了?")) {
+				case 1:
+					emotion ET_SURPRISE;
+					mes "[傳令]";
+					mes "你已經知道這件事了...";
+					mes "那我不需要和你解釋太多.";
+					next;
+					mes "[傳令]";
+					mes "王位不能空置太長時間.";
+					mes "現在,下一任國王的選舉正在積極進行.請給我們拿這個,為了明天的盧恩·米德加茲.";
+					set nk_prince,1;
+					setquest 10000;
+					close;
+				case 2:
+					mes "[傳令]";
+					mes "...";
+					next;
+					mes "[傳令]";
+					mes "你是怎麼想的?";
+					mes "你真的覺得登基典禮對於一個國家很重要嗎?";
+					next;
+					mes "[傳令]";
+					mes "是...";
+					mes "這種期待是很平常的.我還是不知道怎麼向你表達,別太困惑.";
+					next;
+					mes "[傳令]";
+					mes "特裡斯坦三世,盧恩·米德加茲王國的統治者...";
+					next;
+					mes "[傳令]";
+					mes "...";
+					mes "他逝世了.";
+					next;
+					mes "[傳令]";
+					mes "為了防止民心散亂,這消息沒有公布.皇家法庭已經在決議選取下一任國王.他們很積極地在處理中.";
+					next;
+					mes "[傳令]";
+					mes "你需要學習更多鑑定師具備的才能.我的使命是提供這些信息給一個可靠勇敢的冒險家.";
+					next;
+					mes "[傳令]";
+					mes "幫幫忙...";
+					mes "為了盧恩·米德加茲的未來.";
+					set nk_prince,1;
+					setquest 10000;
+					close;
+				}
+			}
+			else {
+				mes "[傳令]";
+				mes "這可能對國家帶來障礙,但人們都擔心惡魔重生.我們必須儘早解決問題以免引起不必要的恐慌.";
+				next;
+				mes "[傳令]";
+				mes "國王還沒出現在公眾面前的這一段事件,";
+				mes "可能會出現一些好事者.";
+				next;
+				mes "[傳令]";
+				mes "我的責任是對付這些消極的人.";
+				mes "我想你已經從我的話中獲得了一些線索...";
+				next;
+				mes "[傳令]";
+				mes "特裡斯坦國王...";
+				next;
+				mes "[傳令]";
+				mes "特裡斯坦國王...";
+				mes "...逝世了...";
+				mes "...他承受了長事件急性病的痛苦.";
+				next;
+				mes "[傳令]";
+				mes "皇家法院正在選舉下一任國王,我的任務是找到一個忠實的冒險家對他們進行鑑定.";
+				next;
+				mes "[傳令]";
+				mes "他們會讓你知道";
+				mes "你作為鑑定師需要做些什麼,";
+				mes "我希望你能夠幫助盧恩·米德加茲";
+				mes "帶來和平和安定.";
+				set nk_prince,1;
+				setquest 10000;
+				close;
+			}
+		}
+		else {
+			mes "[傳令]";
+			mes "我是一個米德加茲王國的傳令.";
+			mes "有什麼特別的事嗎?";
+			next;
+			mes "[傳令]";
+			mes "你看到了什麼奇怪的東西?或者聽說了什麼小道消息?";
+			close;
+		}
+	}
+	else if (nk_prince == 1) {
+		mes "[傳令]";
+		mes "我需要你去幫助盧恩·米德加茲王室選擇新的國王.";
+		next;
+		mes "[傳令]";
+		mes "我會在這裡繼續尋找其他冒險家.願你的心意能為盧恩·米德加茲帶來巨大的榮耀!";
+		close;
+	}
+	else {
+		mes "[傳令]";
+		mes "我現在有使命在身.我想你可能需要一個不同的勢力.問問別人吧.";
+		close;
+	}
+}
+
+prt_castle,117,163,5	script	審查官#prince	4_M_SAGE_C,{
+	if (checkquest(10004) == 0 || checkquest(10004) == 1) {
+		mes "[審查官]";
+		mes "法官!";
+		mes "情況怎麼樣?我覺得很難滿足七位候選人的評價.";
+		next;
+		mes "[審查官]";
+		mes "哈.你完成了嗎?";
+		mes "你是一個快速的工作者,這麼快就完成了!";
+		next;
+		mes "[審查官]";
+		mes "讓我們決定一下候選人~";
+		next;
+		mes "-我馬上和審查官談了談";
+		mes "我對各位候選人王子的印象,";
+		mes "我相信我告訴他的是清晰而簡明的事實.-";
+		next;
+		mes "[審查官]";
+		mes "真的是這樣嗎?你所說的一切對我們有很大的幫助.辛苦了.";
+		next;
+		mes "[審查官]";
+		mes "在路上,";
+		mes "我聽到了一些關於沃爾特家族艾倫王子的謠言.";
+		mes "你可以再去評估一下所有的候選人嗎?我非常需要這些信息.";
+		next;
+		mes "[審查官]";
+		mes "現在整個局勢可能會改變...其他人可能還好.但我擔心,我因為無法忽視艾倫王子的謠言而偏袒其他候選人.";
+		next;
+		mes "[審查官]";
+		mes "好了...請你再去調查一次.";
+		completequest 10004;
+		setquest 10018;
+		setquest 10019;
+		setquest 10020;
+		setquest 10021;
+		setquest 10022;
+		close;
+	}
+	if (nk_prince < 2) {
+		mes "[審查官]";
+		mes "你怎麼來這裡?";
+		mes "這裡是不對外開放的!";
+		next;
+		switch(select("我馬上離開:是傳令叫我這裡")) {
+		case 1:
+			mes "[審查官]";
+			mes "你為什麼會在這裡?快滾出去!";
+			close2;
+			warp "prontera",155,353;
+			end;
+		case 2:
+			if (nk_prince == 0) {
+				mes "[Inspector]";
+				mes "I don't think";
+				mes "that he is an experienced appraiser...";
+				close;
+			}
+			mes "[Inspector]";
+			mes "......";
+			next;
+			if (BaseLevel > 89) {
+				mes "[審查官]";
+				mes "傳令只能對你的身體能力進行檢查,並派你前往法庭.這是他的職業所在.";
+				next;
+				mes "[審查官]";
+				mes "我擔心你沒有足夠的資格.";
+				next;
+				mes "[審查官]";
+				mes "嗯...";
+				next;
+				mes "[審查官]";
+				mes "你是一個經驗豐富的冒險家,並且實力不俗.但是...我們需要的人並不是根據一個人的經驗或實力選擇的.";
+				next;
+				mes "[審查官]";
+				mes "要檢查一些相關的素質,";
+				mes "以考證你是否有資格.";
+				next;
+				mes "[審查官]";
+				mes "因此,我需要對你做一個簡單的考試.";
+				mes "讓我考考你吧.";
+				next;
+				mes "[審查官]";
+				mes "這並不會很複雜.你只需要在每一個特定情境下坦率地作簡短的回答.";
+				next;
+				mes "[審查官]";
+				mes "讓我們開始吧.";
+				next;
+				mes "[審查官]";
+				mes "作為一個領導者,";
+				mes "你覺得一次狩獵中最重要的是什麼?";
+				next;
+				switch(select("怪物的實力和特徵.:狩獵的效率.:我們能從狩獵中獲得什麼.")) {
+				case 1:
+					set .@int,.@int+10;
+					break;
+				case 2:
+					set .@solid,.@solid+10;
+					break;
+				case 3:
+					set .@brave,.@brave+10;
+					break;
+				}
+				mes "[審查官]";
+				mes "如果你在戰鬥中失去了一名隊員,應該怎麼辦?";
+				next;
+				switch(select("繼續努力.:換個隊員繼續打.:停下來休息.")) {
+				case 1:
+					set .@brave,.@brave+10;
+					break;
+				case 2:
+					set .@int,.@int+10;
+					break;
+				case 3:
+					set .@solid,.@solid+10;
+					break;
+				}
+				mes "[審查官]";
+				mes "你如何處理狩獵成果...";
+				next;
+				switch(select("自己優先獲得.:我不關心如何分配.:給需要的隊員.")) {
+				case 1:
+					set .@int,.@int+10;
+					break;
+				case 2:
+					set .@solid,.@solid+10;
+					break;
+				case 3:
+					set .@brave,.@brave+10;
+					break;
+				}
+				mes "[審查官]";
+				mes "什麼職業不擅長打怪,專精治癒?";
+				next;
+				switch(select("牧師,治療:獵人,輸出:騎士,坦克")) {
+				case 1:
+					set .@int,.@int+10;
+					break;
+				case 2:
+					set .@brave,.@brave+10;
+					break;
+				case 3:
+					set .@solid,.@solid+10;
+					break;
+				}
+				mes "[審查官]";
+				mes "你最想和誰交往呢?";
+				next;
+				switch(select("一個堅強的人.:一個經驗豐富的人.:一個善良的人.")) {
+				case 1:
+					set .@brave,.@brave+10;
+					break;
+				case 2:
+					set .@int,.@int+10;
+					break;
+				case 3:
+					set .@solid,.@solid+10;
+					break;
+				}
+				mes "[審查官]";
+				mes "你覺得哪有一種能力最能幫助你成長?";
+				next;
+				switch(select("人際關係.:收集大量信息.:識別能力和機動力.")) {
+				case 1:
+					set .@solid,.@solid+10;
+					break;
+				case 2:
+					set .@int,.@int+10;
+					break;
+				case 3:
+					set .@brave,.@brave+10;
+					break;
+				}
+				mes "[審查官]";
+				mes "你通常如何鼓勵他人?";
+				next;
+				switch(select("失敗都會過去的.:猶豫是最致命的.:你並不孤單.")) {
+				case 1:
+					set .@int,.@int+10;
+					break;
+				case 2:
+					set .@brave,.@brave+10;
+					break;
+				case 3:
+					set .@solid,.@solid+10;
+					break;
+				}
+				mes "[審查官]";
+				mes "你生活的最終追求是什麼?";
+				next;
+				switch(select("自己的成長.:世界和平.:追求真理.")) {
+				case 1:
+					set .@brave,.@brave+10;
+					break;
+				case 2:
+					set .@solid,.@solid+10;
+					break;
+				case 3:
+					set .@int,.@int+10;
+					break;
+				}
+				mes "[審查官]";
+				mes "如果你在一個荒島上,";
+				mes "你最需要什麼?";
+				next;
+				switch(select("地圖:打火石:武器")) {
+				case 1:
+					set .@int,.@int+10;
+					break;
+				case 2:
+					set .@solid,.@solid+10;
+					break;
+				case 3:
+					set .@brave,.@brave+10;
+					break;
+				}
+				mes "[審查官]";
+				mes "你最喜歡什麼類型的故事?";
+				next;
+				switch(select("愛情故事:英雄傳記:宗教故事")) {
+				case 1:
+					set .@solid,.@solid+10;
+					break;
+				case 2:
+					set .@brave,.@brave+10;
+					break;
+				case 3:
+					set .@int,.@int+10;
+					break;
+				}
+				mes "[審查官]";
+				mes "你到一個新的地方狩獵,";
+				mes "最需要先做的事情是什麼?";
+				next;
+				switch(select("先發制人.:從遠處觀察.:逃跑.")) {
+				case 1:
+					set .@brave,.@brave+10;
+					break;
+				case 2:
+					set .@int,.@int+10;
+					break;
+				case 3:
+					set .@solid,.@solid+10;
+					break;
+				}
+				mes "[審查官]";
+				mes "你覺得目前盧恩·米德加茲";
+				mes "最優先需要的是什麼?";
+				next;
+				switch(select("國家加強軍事力量.:經濟和科技進步.:維持公共安全.")) {
+				case 1:
+					set .@brave,.@brave+10;
+					break;
+				case 2:
+					set .@int,.@int+10;
+					break;
+				case 3:
+					set .@solid,.@solid+10;
+					break;
+				}
+				mes "[審查官]";
+				mes "你的素質考試結束了.";
+				mes "你是屬於...";
+				next;
+				if (.@brave > 50) {
+					if (.@int > 30) {
+						mes "[審查官]";
+						mes "堅定的信念,";
+						mes "合理的判斷,";
+						mes "到目前為止.";
+						next;
+					}
+					else if (.@solid > 30) {
+						mes "[審查官]";
+						mes "勇敢,";
+						mes "堅強,";
+						mes "而且你有溫馨的生活.";
+						next;
+					}
+					else {
+						mes "[審查官]";
+						mes "與抉擇的心性.";
+						mes "你能克服所有的困難.";
+						next;
+					}
+				}
+				else if (.@int > 50) {
+					if (.@brave > 30) {
+						mes "[審查官]";
+						mes "堅定的信念,";
+						mes "合理的判斷,";
+						mes "到目前為止.";
+						next;
+					}
+					else if (.@solid > 30) {
+						mes "[審查官]";
+						mes "合理的判斷";
+						mes "和感性的態度,";
+						mes "到目前為止.";
+						next;
+					}
+					else {
+						mes "[審查官]";
+						mes "冷靜和明智的決定,";
+						mes "我想你有豐富的經驗.";
+						next;
+					}
+				}
+				else if (.@solid > 50) {
+					if (.@brave > 30) {
+						mes "[審查官]";
+						mes "勇敢,";
+						mes "堅強,";
+						mes "而且你有溫馨的生活.";
+						next;
+					}
+					else if (.@int > 30) {
+						mes "[審查官]";
+						mes "合理的判斷,";
+						mes "愛好和平的感覺,";
+						mes "到目前為止.";
+						next;
+					}
+					else {
+						mes "[審查官]";
+						mes "...嗯,其實...";
+						mes "你沒有任何扭曲的地方...";
+						mes "穩定和平常是你生命中最重要的美德.";
+						next;
+					}
+				}
+				mes "[審查官]";
+				mes "我認為你足以勝任評價他人.";
+				mes "我對剛剛的粗魯行為表示抱歉.";
+				next;
+				mes "[審查官]";
+				mes "因此,我需要你幫我一個忙.你已經稱為優秀的冒險家鑑定人了.";
+				next;
+				mes "[審查官]";
+				mes "你已經花了很長時間接受考試,你一定很累了.在開始工作前你準備一下.如果你準備好了就回來找我,我在這裡等你.";
+				next;
+				set nk_prince,4;
+				changequest 10000,10003;
+				close;
+			}
+			else {
+				mes "[審查官]";
+				mes "我想你不是一個經驗豐富的冒險家.";
+				mes "這是重大的國家問題,我不能交給像你這樣的人去做.";
+				next;
+				mes "[審查官]";
+				mes "但是,如果你能證明自己是一個經驗豐富的冒險家,我就讓你通過第一個考試.";
+				next;
+				mes "[審查官]";
+				mes "Have you heard of Glastheim? In that area, there are monsters named Knights of Abyss.";
+				next;
+				mes "[審查官]";
+				mes "擊敗深淵騎士並帶來他";
+				mes "掉落的兩個^ff0000韁繩^000000.";
+				mes "如果你可以完成任務,";
+				mes "我會尊重你的力量.";
+				set nk_prince,2;
+				changequest 10000,10001;
+				next;
+				mes "[審查官]";
+				mes "等你收集兩個韁繩給我,";
+				mes "我們再繼續.";
+				mes "再見...";
+				close;
+			}
+		}
+	}
+	else if (nk_prince == 2) {
+		mes "[審查官]";
+		mes "你回來找我了?我猜你已經到過克雷斯特漢姆了.";
+		next;
+		mes "[審查官]";
+		mes "你已經有我說的兩個韁繩了嗎?";
+		next;
+		if (countitem(1064) > 1) {
+			mes "[審查官]";
+			mes "噢!";
+			mes "坦白說,我沒想到你可以弄到.你太棒了.";
+			next;
+			mes "[審查官]";
+			mes "好吧,你證明了你的力量.現在你通過了第一項考試.";
+			delitem 1064,2; //Reins
+			set nk_prince,3;
+			changequest 10001,10002;
+			next;
+			mes "[審查官]";
+			mes "法官在評價候選人性格時,力量不能涵蓋所有方面,人格也尤為重要.";
+			next;
+			mes "[審查官]";
+			mes "從某種意義來說,下一個考試是測試你的性格.這是一系列簡單的問題,請放鬆.做好心理準備再來跟我說話.";
+			close;
+		}
+		else {
+			mes "[審查官]";
+			mes "你沒有完成前一個任務.怎麼能來這個地方呢?我不認為你能接受評價候選人這份工作.";
+			next;
+			mes "[審查官]";
+			mes "請你完成了再來.";
+			close;
+		}
+	}
+	else if (nk_prince == 3) {
+		mes "[審查官]";
+		mes "你已經準備好了?";
+		mes "儘管這次考試不會很困難...";
+		next;
+		mes "[審查官]";
+		mes "這樣做是為了了解你在某些情況下的態度和行為.仔細聽清楚我的問題和選項,坦率回答對事件的看法.";
+		next;
+		mes "[審查官]";
+		mes "讓我們開始吧.";
+		next;
+		mes "[審查官]";
+		mes "作為一個領導者,";
+		mes "你覺得一次狩獵中最重要的是什麼?";
+		next;
+		switch(select("怪物的實力和特徵.:狩獵的效率.:我們能從狩獵中獲得什麼.")) {
+		case 1:
+			set .@int,.@int+10;
+			break;
+		case 2:
+			set .@solid,.@solid+10;
+			break;
+		case 3:
+			set .@brave,.@brave+10;
+			break;
+		}
+		mes "[Inspector]";
+		mes "如果你在戰鬥中失去了一名隊員,應該怎麼辦?";
+		next;
+		switch(select("繼續努力.:換個隊員繼續打.:停下來休息.")) {
+		case 1:
+			set .@brave,.@brave+10;
+			break;
+		case 2:
+			set .@int,.@int+10;
+			break;
+		case 3:
+			set .@solid,.@solid+10;
+			break;
+		}
+		mes "[審查官]";
+		mes "你如何處理狩獵成果...";
+		next;
+		switch(select("自己優先獲得.:我不關心如何分配.:給需要的隊員.")) {
+		case 1:
+			set .@int,.@int+10;
+			break;
+		case 2:
+			set .@solid,.@solid+10;
+			break;
+		case 3:
+			set .@brave,.@brave+10;
+			break;
+		}
+		mes "[審查官]";
+		mes "什麼職業不擅長打怪,專精治癒?";
+		next;
+		switch(select("牧師,治療:獵人,輸出:騎士,坦克")) {
+		case 1:
+			set .@int,.@int+10;
+			break;
+		case 2:
+			set .@brave,.@brave+10;
+			break;
+		case 3:
+			set .@solid,.@solid+10;
+			break;
+		}
+		mes "[審查官]";
+		mes "你最想和誰交往呢?";
+		next;
+		switch(select("一個堅強的人.:一個經驗豐富的人.:一個善良的人.")) {
+		case 1:
+			set .@brave,.@brave+10;
+			break;
+		case 2:
+			set .@int,.@int+10;
+			break;
+		case 3:
+			set .@solid,.@solid+10;
+			break;
+		}
+		mes "[審查官]";
+		mes "你覺得哪有一種能力最能幫助你成長?";
+		next;
+		switch(select("人際關係.:收集大量信息.:識別能力和機動力.")) {
+		case 1:
+			set .@solid,.@solid+10;
+			break;
+		case 2:
+			set .@int,.@int+10;
+			break;
+		case 3:
+			set .@brave,.@brave+10;
+			break;
+		}
+		mes "[審查官]";
+		mes "你通常如何鼓勵他人?";
+		next;
+		switch(select("失敗都會過去的.:猶豫是最致命的.:你並不孤單.")) {
+		case 1:
+			set .@int,.@int+10;
+			break;
+		case 2:
+			set .@brave,.@brave+10;
+			break;
+		case 3:
+			set .@solid,.@solid+10;
+			break;
+		}
+		mes "[審查官]";
+		mes "你生活的最終追求是什麼?";
+		next;
+		switch(select("自己的成長.:世界和平.:追求真理.")) {
+		case 1:
+			set .@brave,.@brave+10;
+			break;
+		case 2:
+			set .@solid,.@solid+10;
+			break;
+		case 3:
+			set .@int,.@int+10;
+			break;
+		}
+		mes "[審查官]";
+		mes "如果你在一個荒島上,";
+		mes "你最需要什麼?";
+		next;
+		switch(select("地圖:打火石:武器")) {
+		case 1:
+			set .@int,.@int+10;
+			break;
+		case 2:
+			set .@solid,.@solid+10;
+			break;
+		case 3:
+			set .@brave,.@brave+10;
+			break;
+		}
+		mes "[審查官]";
+		mes "你最喜歡什麼類型的故事?";
+		next;
+		switch(select("愛情故事:英雄傳記:宗教故事")) {
+		case 1:
+			set .@solid,.@solid+10;
+			break;
+		case 2:
+			set .@brave,.@brave+10;
+			break;
+		case 3:
+			set .@int,.@int+10;
+			break;
+		}
+		mes "[審查官]";
+		mes "你到一個新的地方狩獵,";
+		mes "最需要先做的事情是什麼?";
+		next;
+		switch(select("先發制人.:從遠處觀察.:逃跑.")) {
+		case 1:
+			set .@brave,.@brave+10;
+			break;
+		case 2:
+			set .@int,.@int+10;
+			break;
+		case 3:
+			set .@solid,.@solid+10;
+			break;
+		}
+		mes "[審查官]";
+		mes "你覺得目前盧恩·米德加茲";
+		mes "最優先需要的是什麼?";
+		next;
+		switch(select("國家加強軍事力量.:經濟和科技進步.:維持公共安全.")) {
+		case 1:
+			set .@brave,.@brave+10;
+			break;
+		case 2:
+			set .@int,.@int+10;
+			break;
+		case 3:
+			set .@solid,.@solid+10;
+			break;
+		}
+		mes "[審查官]";
+		mes "你的素質考試結束了.";
+		mes "你是屬於...";
+		next;
+		if (.@brave > 50) {
+			if (.@int > 30) {
+				mes "[審查官]";
+				mes "堅定的信念,";
+				mes "合理的判斷,";
+				mes "到目前為止.";
+				next;
+			}
+			else if (.@solid > 30) {
+				mes "[審查官]";
+				mes "勇敢,";
+				mes "堅強,";
+				mes "而且你有溫馨的生活.";
+				next;
+			}
+			else {
+				mes "[審查官]";
+				mes "與抉擇的心性.";
+				mes "你能克服所有的困難.";
+				next;
+			}
+		}
+		else if (.@int > 50) {
+			if (.@brave > 30) {
+				mes "[審查官]";
+				mes "堅定的信念,";
+				mes "合理的判斷,";
+				mes "到目前為止.";
+				next;
+			}
+			else if (.@solid > 30) {
+				mes "[審查官]";
+				mes "合理的判斷";
+				mes "和感性的態度,";
+				mes "到目前為止.";
+				next;
+			}
+			else {
+				mes "[審查官]";
+				mes "冷靜和明智的決定,";
+				mes "我想你有豐富的經驗.";
+				next;
+			}
+		}
+		else if (.@solid > 50) {
+			if (.@brave > 30) {
+				mes "[審查官]";
+				mes "勇敢,";
+				mes "堅強,";
+				mes "而且你有溫馨的生活.";
+				next;
+			}
+			else if (.@int > 30) {
+				mes "[審查官]";
+				mes "合理的判斷,";
+				mes "愛好和平的感覺,";
+				mes "到目前為止.";
+				next;
+			}
+			else {
+				mes "[審查官]";
+				mes "...嗯,其實...";
+				mes "你沒有任何扭曲的地方...";
+				mes "穩定和平常是你生命中最重要的美德.";
+				next;
+			}
+		}
+		mes "[審查官]";
+		mes "我認為你足以勝任評價他人.";
+		mes "我對剛剛的粗魯行為表示抱歉.";
+		next;
+		mes "[審查官]";
+		mes "因此,我需要你幫我一個忙.你已經稱為優秀的冒險家鑑定人了.";
+		next;
+		mes "[審查官]";
+		mes "你已經花了很長時間接受考試,你一定很累了.在開始工作前你準備一下.如果你準備好了就回來找我,我在這裡等你.";
+		next;
+		set nk_prince,4;
+		changequest 10002,10003;
+		close;
+	}
+	else if (nk_prince == 4) {
+		mes "[審查官]";
+		mes "歡迎...";
+		mes "我現在會告訴你,";
+		mes "你應該去做什麼.";
+		mes "你必須小心處理和王子的關係.請把注意力放在我身上.";
+		next;
+		mes "[審查官]";
+		mes "現在我會回答你的問題.";
+		next;
+		while(1) {
+			switch(select("我應該怎麼做才是正確的.:國王是死於疾病嗎?:我的任務是保密的嗎?:我沒有其他問題了.")) {
+			case 1:
+				mes "[審查官]";
+				mes "我們的七個候選人來自七個不同的家庭.所有候選人都住在同一個地方,在那裡我將他們介紹給你.";
+				next;
+				mes "[審查官]";
+				mes "你必須接近這些候選人,問他們一些關於品質的問題,或觀察他們的行動,然後向我匯報.";
+				next;
+				mes "[審查官]";
+				mes "原來的規則是:品質評價王子在皇室生活的很長一段時間的表現,並有當選的內部條例.";
+				next;
+				mes "[審查官]";
+				mes "因為撒旦夢羅克復活,人心動蕩,王國的氣氛也很不穩定.";
+				next;
+				mes "[審查官]";
+				mes "每一個王國都在忙著抵禦夢羅克的襲擊.";
+				next;
+				mes "[審查官]";
+				mes "所以這一次,法庭決定改變這樣的方式,讓經驗豐富的冒險家去評價候選人.這就是你出現在這裡的原因.";
+				next;
+				set .@prince,1;
+				break;
+			case 2:
+				mes "[審查官]";
+				mes "你的問題真荒謬.我已經清楚的告訴你,特裡斯坦國王病逝!";
+				next;
+				mes "[審查官]";
+				mes "你是不是沒有其他東西值得好奇了?";
+				next;
+				break;
+			case 3:
+				mes "[審查官]";
+				mes "當然...";
+				mes "公開等於宣布國王逝世了,但現在國家氣氛不穩定.這是我們唯一的選擇了.";
+				next;
+				mes "[審查官]";
+				mes "王子們每天只能呆在高高的圍牆內,而他的子民們只能從高牆外遠遠的眺望王子.";
+				next;
+				break;
+			case 4:
+				if (.@prince == 1) {
+					mes "[審查官]";
+					mes "我認為這樣已經足夠了.";
+					mes "我現在告訴你如何去找王子們.";
+					next;
+					mes "[審查官]";
+					mes "你先到軍醫官的房間,會看到一個陌生的地方站著一個士兵.那裡有一扇看不見的門.";
+					next;
+					mes "[審查官]";
+					mes "士兵身後,你可以找到一扇秘密的門.只要你和士兵交談,士兵就會讓你進去.";
+					next;
+					mes "[審查官]";
+					mes "就像我曾經說的,這對於盧恩·米德加茲王國是非常嚴重的問題.即使我已經強調過很多遍了,但我還是覺得不夠.";
+					next;
+					mes "[審查官]";
+					mes "請按照我說的做.";
+					mes "謝謝你的努力.";
+					set nk_prince,5;
+					completequest 10003;
+					setquest 10005;
+					setquest 10006;
+					setquest 10007;
+					setquest 10008;
+					setquest 10009;
+					setquest 10010;
+					setquest 10011;
+					close;
+				}
+				else {
+					mes "[審查官]";
+					mes "你有按照我說的做嗎?不管它是否重要你都不能抱著輕鬆的態度去看待,一定要注意這一點.";
+					next;
+					mes "[審查官]";
+					mes "如果你沒有動力去做這件事情,我可以找另外的冒險家.你可以做你想做的事,或去想去的地方.";
+					next;
+				}
+				break;
+			}
+		}
+	}
+	else if (nk_prince == 7) {
+		mes "[審查官]";
+		mes "進展怎麼樣?";
+		mes "這確實是個艱難的工作, 不過你要記住你是在為我們國家效命.";
+		next;
+		if ((nkprince_eisen == 15) && (checkquest(10025) == 0 || checkquest(10025) == 1)) {
+			mes "-我告訴了他那次衝突.-";
+			next;
+			mes "[審查官]";
+			mes "什麼!? 簡直無法相信!";
+			mes "這,這是...";
+			next;
+			mes "[審查官]";
+			mes "艾裡希的手...?";
+			next;
+			mes "[審查官]";
+			mes "你已經完成了鑑定候選人的工作.";
+			mes "非常感謝你到目前為止的幫助.由於你的幫助,未來王國才有了希望.";
+			next;
+			mes "[" + strcharinfo(0) + "]";
+			mes "(他似乎一點也不驚訝,這其中可能有什麼原因吧?現在我非常懷疑.)";
+			next;
+			mes "[審查官]";
+			mes "你對事情的感受不能透露給這裡的任何人,你明白這種情況是要完全保密的.";
+			next;
+			mes "[審查官]";
+			mes "所以,請保持良好的工作態度.";
+			mes "為了錄得米德加茲王國!";
+			if (checkre(3)) {
+				if ((BaseLevel > 80) && (BaseLevel < 86)) getexp 40000,0;
+				else if ((BaseLevel > 85) && (BaseLevel < 91)) getexp 45000,0;
+				else if ((BaseLevel > 90) && (BaseLevel < 96)) getexp 50000,0;
+				else if ((BaseLevel > 95) && (BaseLevel < 99)) getexp 55000,0;
+				else if (BaseLevel > 99) getexp 110000,0;
+				else getexp 30000,0;
+			} else {
+				if ((BaseLevel > 80) && (BaseLevel < 86)) getexp 400000,0;
+				else if ((BaseLevel > 85) && (BaseLevel < 91)) getexp 450000,0;
+				else if ((BaseLevel > 90) && (BaseLevel < 96)) getexp 500000,0;
+				else if ((BaseLevel > 95) && (BaseLevel < 99)) getexp 550000,0;
+				else if (BaseLevel >= 99) getexp 1100000,0;
+				else getexp 300000,0;
+			}
+			set nk_prince,8;
+			completequest 10025;
+			close;
+		}
+		else {
+			mes "[審查官]";
+			mes "現在,我也該走了..";
+			close;
+		}
+	}
+	else if ((nk_prince == 8) || (nk_prince == 9)) {
+		mes "[審查官]";
+		mes "一切為了盧恩·米德加茲的榮耀!";
+		close;
+	}
+	else {
+		mes "[審查官]";
+		mes "你好,鑑定師.";
+		mes "我希望你能夠完成任務.你有像我交代你的一樣見過所有候選人了嗎?";
+		if (nkprince_eisen != 10)
+			close;
+		next;
+		switch(select("是的.:還沒有.")) {
+		case 1:
+			set .@prin1,checkquest(10005);
+			set .@prin2,checkquest(10006);
+			set .@prin3,checkquest(10007);
+			set .@prin4,checkquest(10008);
+			set .@prin5,checkquest(10009);
+			set .@prin6,checkquest(10010);
+			set .@prin7,checkquest(10011);
+			if (.@prin1 + .@prin2 + .@prin3 + .@prin4 + .@prin5 + .@prin6 + .@prin7 == 14) {
+				mes "[Inspector]";
+				mes "Very well.";
+				mes "I like hearing about the princes.";
+				completequest 10004;
+				setquest 10004;
+			} else {
+				mes "[Inspector]";
+				mes "Are you sure?";
+				mes "Please check on all the princes.";
+			}
+			close;
+		case 2:
+			set .@prin1,checkquest(10005);
+			set .@prin2,checkquest(10006);
+			set .@prin3,checkquest(10007);
+			set .@prin4,checkquest(10008);
+			set .@prin5,checkquest(10009);
+			set .@prin6,checkquest(10010);
+			set .@prin7,checkquest(10011);
+			if (.@prin1 + .@prin2 + .@prin3 + .@prin4 + .@prin5 + .@prin6 + .@prin7 == 14) {
+				mes "[Inspector]";
+				mes "Don't be coy. I'm sure you have done it already.";
+				completequest 10004;
+				setquest 10004;
+			} else {
+				mes "[Inspector]";
+				mes "My investigations on all the princes are done.";
+			}
+			close;
+	}
+}
+}
+
+prt_castle,272,375,4	script	王子	4_M_SITDOWN,{
+	if (nk_prince > 6) {
+		mes "-各種各樣的鎖和鑰匙.-";
+		close;
+	}
+	if (checkquest(10020) == 2) {
+		mes "[艾裡希]";
+		mes "...為什麼我這麼倒黴!";
+		mes "但他堅持說是我弄壞的,這到底應該怎麼辦...";
+		close;
+	}
+	else if (checkquest(10020) == 1) {
+		mes "[艾裡希]";
+		mes "這些天,我真倒黴...只有騷擾發生在我身上...";
+		close;
+	}
+	if (nk_prince < 5) {
+		mes "[王子]";
+		mes "你是誰?";
+		mes "你應該是不準進入這個房間的吧?";
+		next;
+		mes "[王子]";
+		mes "我命令你離開我的視線.";
+		close;
+	}
+	else if (nk_prince == 5) {
+		mes "[王子]";
+		mes "你是誰?";
+		mes "肯定是有人進入這個隱藏入口的.莫非...你是冒險家鑑定師?";
+		next;
+		select("我是.");
+		mes "[王子]";
+		mes "是你嗎?...請幫助我.我叫艾裡希,是內斯裡家族的合法兒子.你可以叫我艾裡希王子.";
+		next;
+		mes "[艾裡希]";
+		mes "我的全名是...";
+		next;
+		mes "[艾裡希]";
+		mes "算了.";
+		mes "你有任何事情可以問我的僕人,我要休息了.";
+		set nk_prince,6;
+		completequest 10011;
+		set .@prin1,checkquest(10005);
+		set .@prin2,checkquest(10006);
+		set .@prin3,checkquest(10007);
+		set .@prin4,checkquest(10008);
+		set .@prin5,checkquest(10009);
+		set .@prin6,checkquest(10010);
+		set .@prin7,checkquest(10011);
+		if ((.@prin1 + .@prin2 + .@prin3 + .@prin4 + .@prin5 + .@prin6 + .@prin7) == 14) {
+			setquest 10012;
+		}
+		close;
+	}
+	else {
+		mes "[艾裡希]";
+		mes "......我的良知!";
+		mes "這工作不大正常...";
+		next;
+		mes "-他看起來更著迷於其他的事.-";
+		close;
+	}
+}
+
+prt_castle,274,372,4	script	侍者#hans	1_M_02,{
+	if (checkquest(10020) == 2) {
+		mes "[侍者 漢斯]";
+		mes "啊... 嗯... 我...";
+		mes "我... 非常, 抱歉!";
+		mes "我... 我認為我犯了很大的錯誤!";
+		next;
+		mes "[侍者 漢斯]";
+		mes "我的王子沒有做錯什麼事,但我還是為任何事向你道歉!";
+		close;
+	}
+	else if (checkquest(10020) == 0 || checkquest(10020) == 1) {
+		mes "不必...-";
+		mes "-他的行為讓我很同情.-";
+		close;
+	}
+	if (nk_prince == 6) {
+		mes "[侍者 漢斯]";
+		mes "你有什麼事嗎,先生?";
+		mes "我的名字叫漢斯,艾裡希王子的僕人.";
+		next;
+		mes "[侍者 漢斯]";
+		mes "有什麼可以幫助你嗎?";
+		next;
+		switch(select("艾裡希王子讓我找你.:沒什麼事.")) {
+		case 1:
+			mes "[侍者 漢斯]";
+			mes "是艾裡希王子的吩咐...?";
+			next;
+			select("我想聽一些關於他的故事.");
+			mes "[侍者 漢斯]";
+			mes "我明白了.";
+			mes "坦白說,艾裡希王子對政權並不怎麼感興趣.";
+			next;
+			mes "[侍者 漢斯]";
+			mes "他每天都寫日記.結婚那天,他是這樣寫的:'今天沒什麼特別的事發生'.他不關心時事,也不在意人與人之間的關係.";
+			next;
+			mes "[侍者 漢斯]";
+			mes "他更喜歡開鎖.";
+			mes "這是不是很古怪?";
+			mes "他是一個善良的小丑.";
+			next;
+			mes "[侍者 漢斯]";
+			mes "他不喜歡優雅的服裝,在這裡甚至不穿套裝.當他回到房間裡,就喜歡沉浸在鎖和鑰匙的世界裡.";
+			next;
+			mes "[侍者 漢斯]";
+			mes "我不認為我的表達有任何偏袒...你可以評價你看到的他...";
+			next;
+			mes "[侍者 漢斯]";
+			mes "這是我全部要說的.";
+			mes "哈...~";
+			next;
+			emotion ET_SURPRISE;
+			mes "[侍者 漢斯]";
+			mes "啊,王子!";
+			mes "你要小心你的手指!";
+			next;
+			mes "[艾裡希]";
+			mes ".........";
+			next;
+			mes "[侍者 漢斯]";
+			mes "...他甚至沒有聽到...";
+			mes "哎...";
+			next;
+			mes "[" + strcharinfo(0) + "]";
+			mes "......";
+			close;
+		case 2:
+			mes "[侍者 漢斯]";
+			mes "你要去見見其他王子嗎?";
+			next;
+			mes "[侍者 漢斯]";
+			mes "雖然你可能會問一些問題,那你不會聽到特別的回答.";
+			close;
+		}
+	}
+	else {
+		mes "[侍者 漢斯]";
+		mes "你好?";
+		mes "你是新來的冒險家鑑定師嗎??";
+		close;
+	}
+}
+
+prt_castle,339,202,3	script	王子#urgen	4_M_4THPRIN1,{
+	if (nk_prince > 6) {
+		mes "[尤勒堅]";
+		mes "...它不漂亮.";
+		mes "這不適合我...";
+		close;
+	}
+	if (checkquest(10021) == 2) {
+		mes "[尤勒堅]";
+		mes "感覺挺開心的.嘿,你在看什麼?給我出去!";
+		next;
+		mes "[尤勒堅]";
+		mes "我美麗的身體現在不是最完美的狀態.我今天不想見任何人.";
+		close;
+	}
+	else if (checkquest(10021) == 0 || checkquest(10021) == 1) {
+		mes "[尤勒堅]";
+		mes "...什麼?你只是...";
+		mes "只是來和我說說話的?";
+		close;
+	}
+	if (nk_prince < 5) {
+		mes "[王子]";
+		mes "呼呼呼,";
+		mes "這個工作並不適合你.";
+		next;
+		mes "[王子]";
+		mes "離我遠一點,能多遠就多遠.";
+		close;
+	}
+	else if (nk_prince > 4) {
+		mes "[王子]";
+		mes "啦~ 啦啦啦啦~ 啦啦啦~";
+		mes "你是來評價我品質的人?";
+		next;
+		mes "[王子]";
+		mes "和你說話的是尤勒堅,綻放在維格納家族的一朵黃水仙.";
+		next;
+		mes "[尤勒堅]";
+		mes "我一般不讓人聽到我美麗的聲音.但這一次,我特別為你破例一次.";
+		next;
+		mes "[尤勒堅]";
+		mes "聽著...";
+		mes "讓我用我難忘,清亮而美麗的聲音";
+		mes "回答你的疑問.";
+		next;
+		while(1) {
+			switch(select("那麼從成長背景開始說吧...:你的國家觀如何?:你的興趣愛好是?:下次我再來.")) {
+			case 1:
+				mes "[尤勒堅]";
+				mes "我帥氣的臉從小就讓男人女人嫉妒";
+				mes "和無休止的建議.後來我生病了,就離開了那些人.";
+				next;
+				mes "[尤勒堅]";
+				mes "我的美麗有時候";
+				mes "不應該承受這些.";
+				next;
+				mes "[尤勒堅]";
+				mes "我變得害羞.漸漸的,我對男人女人都產生敬畏.";
+				set .@p_a,1;
+				next;
+				break;
+			case 2:
+				mes "[尤勒堅]";
+				mes "人們應該做他們應該做的事,這是國家的驅動力.對我來說,對於這個國家我的存在已經足夠了.";
+				next;
+				mes "[尤勒堅]";
+				mes "只要像我這樣美麗如陽光的人當國王,他們才覺得自己的生命有希望.";
+				set .@p_b,1;
+				next;
+				break;
+			case 3:
+				mes "[尤勒堅]";
+				mes "當然是照顧我的身體.人類應該追求美,這是很自然的,不是嗎?";
+				next;
+				mes "[尤勒堅]";
+				mes "在任何情況下都應如此,有一個例外—像你這樣的鑑定師.你可以站離我遠一點嗎?因為你的氣味我快不能呼吸了.";
+				set .@p_c,1;
+				next;
+				break;
+			case 4:
+				mes "[尤勒堅]";
+				mes "你的靈魂一定很堅強.看著美麗的我如此長時間,你還沒有丟失自己的靈魂.";
+				if (.@p_a + .@p_b + .@p_c == 3) {
+					completequest 10009;
+				}
+				completequest 10011;
+				set .@prin1,checkquest(10005);
+				set .@prin2,checkquest(10006);
+				set .@prin3,checkquest(10007);
+				set .@prin4,checkquest(10008);
+				set .@prin5,checkquest(10009);
+				set .@prin6,checkquest(10010);
+				set .@prin7,checkquest(10011);
+				if ((.@prin1 + .@prin2 + .@prin3 + .@prin4 + .@prin5 + .@prin6 + .@prin7) == 14) {
+					setquest 10012;
+				}
+				close;
+			}
+		}
+	}
+}
+
+prt_castle,289,201,3	script	王子#helmut	4_M_5THPRIN1,{
+	if (nk_prince > 6) {
+		mes "[赫爾穆特]";
+		mes "這個傻瓜.我應該早點殺了他的.現在我好輕鬆.";
+		close;
+	}
+	if (checkquest(10022) == 2) {
+		mes "[赫爾穆特]";
+		mes "該死... 真該死!";
+		mes "沃爾特的新手!!";
+		mes "我該怎麼處理這個問題呢? 該死! 找死啊!";
+		close;
+	}
+	else if (checkquest(10022) == 0 || checkquest(10022) == 1) {
+		mes "-他的臉漲紅,";
+		mes "明顯臉上帶著怒氣.-";
+		close;
+	}
+	if (nk_prince < 5) {
+		mes "[赫爾穆特]";
+		mes "你不應該在這裡!";
+		mes "快離開這兒!";
+		close;
+	}
+	else if (nk_prince > 4) {
+		mes "[赫爾穆特]";
+		mes "你是新的鑑定師嗎?我厭煩了如此多的遊客!讓我們進入主題吧";
+		next;
+		mes "-我應該從哪裡開始呢?-";
+		next;
+		switch(select("你的背景...:你的野心...:你的國家觀...:我想認識其他人.")) {
+		case 1:
+			mes "[赫爾穆特]";
+			mes "我不知道其他人怎麼回答的,但我很厭煩你的問題.但我又必須回答!";
+			next;
+			mes "[赫爾穆特]";
+			mes "我是一位王子;如果你有抱怨,那你來當王子!我覺得這種質疑很無聊.";
+			next;
+			mes "[" + strcharinfo(0) + "]";
+			mes "............";
+			mes "好吧,我明白了.我走...";
+			next;
+			mes "[赫爾穆特]";
+			mes "我是赫爾穆特.";
+			mes "我喜歡戰場上的血腥味,也很喜歡節日.";
+			next;
+			mes "[赫爾穆特]";
+			mes "我很討厭固定的形式和說話.至於野心嗎?我想做...國王...?很多人問過我這個問題了.";
+			next;
+			mes "[赫爾穆特]";
+			mes "當我成為國王,我要加強我們的軍隊後統一大陸;我要消滅所有怪物和對我不利的人.";
+			next;
+			mes "[赫爾穆特]";
+			mes "~咳咳~! 我的喉嚨好痛! 有一段時間我喉嚨一直這樣. ~咳咳~!";
+			next;
+			mes "[赫爾穆特]";
+			mes "嘿!";
+			mes "拿啤酒來! 啤酒!";
+			next;
+			mes "[赫爾穆特]";
+			mes "你為什麼還站在這裡?我沒有其他話想和你說了!往後退!";
+			next;
+			mes "[" + strcharinfo(0) + "]";
+			mes "......";
+			completequest 10010;
+			set .@prin1,checkquest(10005);
+			set .@prin2,checkquest(10006);
+			set .@prin3,checkquest(10007);
+			set .@prin4,checkquest(10008);
+			set .@prin5,checkquest(10009);
+			set .@prin6,checkquest(10010);
+			set .@prin7,checkquest(10011);
+			if ((.@prin1 + .@prin2 + .@prin3 + .@prin4 + .@prin5 + .@prin6 + .@prin7) == 14) {
+				setquest 10012;
+			}
+			close;
+		case 2:
+			mes "[赫爾穆特]";
+			mes "我不知道其他人怎麼回答的,但我很厭煩你的問題.但我又必須回答!";
+			next;
+			mes "[赫爾穆特]";
+			mes "我是一位王子;如果你有抱怨,那你來當王子!我覺得這種質疑很無聊.";
+			next;
+			mes "[" + strcharinfo(0) + "]";
+			mes "............";
+			mes "好吧,我明白了.我走...";
+			next;
+			mes "[赫爾穆特]";
+			mes "我是赫爾穆特.";
+			mes "我喜歡戰場上的血腥味,也很喜歡節日.";
+			next;
+			mes "[赫爾穆特]";
+			mes "我很討厭固定的形式和說話.至於野心嗎?我想做...國王...?很多人問過我這個問題了.";
+			next;
+			mes "[赫爾穆特]";
+			mes "當我成為國王,我要加強我們的軍隊後統一大陸;我要消滅所有怪物和對我不利的人.";
+			next;
+			mes "[赫爾穆特]";
+			mes "~咳咳~! 我的喉嚨好痛! 有一段時間我喉嚨一直這樣. ~咳咳~!";
+			next;
+			mes "[赫爾穆特]";
+			mes "嘿!";
+			mes "拿啤酒來! 啤酒!";
+			next;
+			mes "[赫爾穆特]";
+			mes "你為什麼還站在這裡?我沒有其他話想和你說了!往後退!";
+			next;
+			mes "[" + strcharinfo(0) + "]";
+			mes "......";
+			completequest 10010;
+			set .@prin1,checkquest(10005);
+			set .@prin2,checkquest(10006);
+			set .@prin3,checkquest(10007);
+			set .@prin4,checkquest(10008);
+			set .@prin5,checkquest(10009);
+			set .@prin6,checkquest(10010);
+			set .@prin7,checkquest(10011);
+			if ((.@prin1 + .@prin2 + .@prin3 + .@prin4 + .@prin5 + .@prin6 + .@prin7) == 14) {
+				setquest 10012;
+			}
+			close;
+		case 3:
+			mes "[赫爾穆特]";
+			mes "我不知道其他人怎麼回答的,但我很厭煩你的問題.但我又必須回答!";
+			next;
+			mes "[赫爾穆特]";
+			mes "我是一位王子;如果你有抱怨,那你來當王子!我覺得這種質疑很無聊.";
+			next;
+			mes "[" + strcharinfo(0) + "]";
+			mes "............";
+			mes "好吧,我明白了.我走...";
+			next;
+			mes "[赫爾穆特]";
+			mes "我是赫爾穆特.";
+			mes "我喜歡戰場上的血腥味,也很喜歡節日.";
+			next;
+			mes "[赫爾穆特]";
+			mes "我很討厭固定的形式和說話.至於野心嗎?我想做...國王...?很多人問過我這個問題了.";
+			next;
+			mes "[赫爾穆特]";
+			mes "當我成為國王,我要加強我們的軍隊後統一大陸;我要消滅所有怪物和對我不利的人.";
+			next;
+			mes "[赫爾穆特]";
+			mes "~咳咳~! 我的喉嚨好痛! 有一段時間我喉嚨一直這樣. ~咳咳~!";
+			next;
+			mes "[赫爾穆特]";
+			mes "嘿!";
+			mes "拿啤酒來! 啤酒!";
+			next;
+			mes "[赫爾穆特]";
+			mes "你為什麼還站在這裡?我沒有其他話想和你說了!往後退!";
+			next;
+			mes "[" + strcharinfo(0) + "]";
+			mes "......";
+			completequest 10010;
+			set .@prin1,checkquest(10005);
+			set .@prin2,checkquest(10006);
+			set .@prin3,checkquest(10007);
+			set .@prin4,checkquest(10008);
+			set .@prin5,checkquest(10009);
+			set .@prin6,checkquest(10010);
+			set .@prin7,checkquest(10011);
+			if ((.@prin1 + .@prin2 + .@prin3 + .@prin4 + .@prin5 + .@prin6 + .@prin7) == 14) {
+				setquest 10012;
+			}
+			close;
+		case 4:
+			mes "[" + strcharinfo(0) + "]";
+			mes "不,王子,";
+			mes "我一會兒就回來.";
+			next;
+			mes "[赫爾穆特]";
+			mes "好吧,隨你.";
+			mes "嘿!卡爾伯爾尼!";
+			mes "再不給我酒就打你屁股了!";
+			mes "你是不是想辭職了?";
+			close;
+		}
+	}
+}
+
+prt_castle,288,208,4	script	卡爾伯爾尼	4_M_RUSCHILD,{
+	mes "[卡爾伯爾尼]";
+	mes "你有什麼事,先生?";
+	mes "我是赫爾穆特王子的僕人...";
+	mes "卡爾伯爾尼.";
+	next;
+	mes "[赫爾穆特]";
+	mes "卡爾伯爾尼!";
+	mes "給我啤酒! 啤酒!";
+	next;
+	mes "[卡爾伯爾尼]";
+	mes "我很抱歉.";
+	mes "我要去事要做...";
+	close;
+}
+
+prt_castle,391,205,3	script	王子#poe	4_M_6THPRIN1,{
+	if (nk_prince > 6) {
+		mes "[珀]";
+		mes "無論發生什麼,他就只是一個生活中的失敗者.";
+		close;
+	}
+	if (checkquest(10018) == 2) {
+		mes "[珀]";
+		mes "艾倫放棄了所有的競爭.即使有時候不得不得這樣.他不如我,但是我對他很失望.";
+		close;
+	}
+	else if (checkquest(10018) == 0 || checkquest(10018) == 1) {
+		mes "[珀]";
+		mes "......";
+		close;
+	}
+	if (nk_prince < 5) {
+		mes "[王子]";
+		mes "你是誰?";
+		mes "我覺得你不應該出現在這兒.";
+		mes "還是你是為了鑑定繼承人來的?";
+		close;
+	}
+	else if (nk_prince > 4) {
+		mes "[王子]";
+		mes "過來這邊.";
+		mes "你是一位冒險家!";
+		mes "我最愛挑戰艱苦的冒險了.他們的冒險令我嚮往...你不能停止冒險...";
+		next;
+		mes "[王子]";
+		mes "我的名字叫珀.";
+		mes "我是理察家族的王子.請你記住我,支持我...";
+		next;
+		mes "[珀]";
+		mes "首先,我想測試你作為一個冒險家的能力.";
+		mes "這不會很難,我只想知道你的直覺是否正確.";
+		next;
+		mes "[珀]";
+		mes "我不想和一個直覺遲鈍的人交談.";
+		mes "讓我測試一下你的直覺.";
+		next;
+		mes "[珀]";
+		mes "我有1到13號卡片,說出我選擇的一張卡片的數字,是屬於大的還是小的.";
+		next;
+		mes "[珀]";
+		mes "對了,7是中間數.7代表不成功也不失敗.這個遊戲的目標是告訴我正確的數字,連續2次,讓我們開始.";
+		next;
+		while(.@wincount < 2) {
+			set .@card,rand(1,13);
+			mes "[珀]";
+			mes "好的,現在選擇比較大或者較小的.";
+			mes "只能選一種.";
+			next;
+			switch(select("大:小")) {
+			case 1:
+				mes "[珀]";
+				mes "大嗎?...";
+				mes "我現在選擇一張卡!";
+				next;
+				mes "[珀]";
+				mes "我選擇的是..." + .@card + "!!";
+				next;
+				if (.@card > 7) {
+					set .@wincount,.@wincount+1;
+					mes "[珀]";
+					mes "哇,你答對了!";
+					if (.@wincount == 2) {
+						mes "你能連贏2次嗎?...";
+						next;
+						break;
+					}
+					else {
+						mes "但你還需要再答對了1次.";
+						next;
+					}
+				}
+				else if (.@card == 7) {
+					mes "[珀]";
+					mes "這次是中間數.";
+					mes "下次再努力.";
+					next;
+				}
+				else {
+					mes "[珀]";
+					mes "錯誤...";
+					mes "希望下次你能有好運氣.";
+					close;
+				}
+				break;
+			case 2:
+				mes "[珀]";
+				mes "小嗎?...";
+				mes "現在我選擇一張卡!";
+				next;
+				mes "[珀]";
+				mes "我選擇的是..." + .@card + "!!";
+				next;
+				if (.@card < 7) {
+					set .@wincount,.@wincount+1;
+					mes "[珀]";
+					mes "哇,你猜對了!";
+					if (.@wincount == 2) {
+						mes "你能連贏2次嗎?...";
+						next;
+						break;
+					}
+					else {
+						mes "但你還需答對1次.";
+						next;
+					}
+				}
+				else if (.@card == 7) {
+					mes "[珀]";
+					mes "這次是中間數.";
+					mes "下次再努力.";
+					next;
+				}
+				else {
+					mes "[珀]";
+					mes "錯誤...";
+					mes "希望你下次能有好運氣.";
+					close;
+				}
+				break;
+			}
+		}
+		mes "[珀]";
+		mes "很好,只有像直覺敏銳的人才會喜歡這種卡牌.告訴你一些事也是很自然的.";
+		next;
+		mes "[珀]";
+		mes "我與你分享了這種卡牌,也可以和你分享你想知道的事!你想從我這裡知道什麼.";
+		next;
+		mes "[珀]";
+		mes "所以...你想從我這裡知道些什麼呢?";
+		next;
+		while(1) {
+			switch(select("你的背景...:你的國家觀...:你的興趣愛好...:我一會再來.")) {
+			case 1:
+				mes "[珀]";
+				mes "我的背景...";
+				mes "過去的事了.";
+				mes "我認為那不重要,所以我記不清楚了...";
+				next;
+				mes "[珀]";
+				mes "我可以說是一個戰爭的倖存者,這很適合我.哈哈哈哈哈!";
+				next;
+				mes "[珀]";
+				mes "我不得不面對許多事故和挑戰...而我活了下來,並一直追求新的事物和生活方式...";
+				next;
+				mes "[珀]";
+				mes "永遠不要給自己失望和否定,這是致命的!";
+				next;
+				mes "[珀]";
+				mes "......";
+				next;
+				mes "[珀]";
+				mes "這樣很酷吧?";
+				mes "我們有相同的氣息,不是嗎?";
+				set .@p_a,1;
+				next;
+				break;
+			case 2:
+				mes "[珀]";
+				mes "我認為一個國家應該只有少量的看守人,保證子民們的自由..";
+				next;
+				mes "[珀]";
+				mes "男人應該渴望挑戰他們充滿熱情的事物,這需要自由而不受到國家的拘束.";
+				next;
+				mes "[珀]";
+				mes "如果我是國王,我會取消所有限制讓每一個都在自由下生活.";
+				next;
+				mes "[珀]";
+				mes "我的家族,我的朋友都是如此循規蹈矩.";
+				next;
+				mes "[珀]";
+				mes "他們一直都說.不要去那樣做,那是危險的,這是自然而然的...糾纏不清的約束限制了我整個生命...";
+				next;
+				mes "[珀]";
+				mes "最後我們都這樣不正常的活著,";
+				mes "我不想像我的家人那樣.";
+				set .@p_b,1;
+				next;
+				break;
+			case 3:
+				mes "[珀]";
+				mes "經歷一些新的食物!";
+				mes "我不在乎它是什麼!";
+				next;
+				mes "[珀]";
+				mes "如果我們的時代需要探索,我可能是一個探險隊長!探索,尋找,調查...這些都是我的座右銘.你覺得呢??";
+				next;
+				mes "[珀]";
+				mes "但很多人說我生性喜歡賭博.我只是充滿挑戰精神,我喜歡賺來的錢!我是一個自由奔放的正常人.";
+				set .@p_c,1;
+				next;
+				break;
+			case 4:
+				mes "[珀]";
+				mes "好吧,";
+				mes "讓我們下次見面能在一個興奮而危險的地方.";
+				if (.@p_a + .@p_b + .@p_c == 3) {
+					completequest 10007;
+				}
+				set .@prin1,checkquest(10005);
+				set .@prin2,checkquest(10006);
+				set .@prin3,checkquest(10007);
+				set .@prin4,checkquest(10008);
+				set .@prin5,checkquest(10009);
+				set .@prin6,checkquest(10010);
+				set .@prin7,checkquest(10011);
+				if ((.@prin1 + .@prin2 + .@prin3 + .@prin4 + .@prin5 + .@prin6 + .@prin7) == 14) {
+					setquest 10012;
+				}
+				close;
+			}
+		}
+	}
+}
+
+prt_castle,364,375,4	script	王子#peter	4_M_3RDPRIN1,{
+	if (nk_prince > 6) {
+		mes "[佩託]";
+		mes "鑑定師.";
+		mes "你在艾爾帕蘭見過一個小女孩嗎?";
+		next;
+		switch(select("是的,我看到她了.:不,我不想去.")) {
+		case 1:
+			if (checkquest(10014) == 0 || checkquest(10014) == 1) {
+				mes "[Peter]";
+				mes "I am glad that the girl liked it. Once I got cured, I wanted to go meet with her.";
+				next;
+				mes "[Peter]";
+				mes "Anyhow, thanks for your good work. I really feel sorry about bothering you with trifle things. This is my sense of gratitude. Don't feel so much burden and take this.";
+				completequest 10014;
+				getitem 644,1; //Gift_Box
+				close;
+			}
+			mes "[Peter]";
+			mes "Thinking about the little girl calms me. I still can't believe my eyes. My prince Ahrum who just passed away...~";
+			close;
+		case 2:
+			if (checkquest(10014) == 0 || checkquest(10014) == 1) {
+				mes "[Peter]";
+				mes "As you said.";
+				mes "I've heard that her life is like a flower when I lost it.";
+				mes "I will go see her on my own.";
+				next;
+				mes "[Peter]";
+				mes "I really feel sorry about bothering you with trifle things. Please take this.";
+				completequest 10014;
+				getitem 644,1; //Gift_Box
+				close;
+			}
+			mes "[Peter]";
+			mes "Never mind.";
+			mes "I still can't believe my eyes. My prince Ahrum who just passed away...~~";
+			close;
+		}
+	}
+	if (checkquest(10019) == 2) {
+		mes "[佩託]";
+		mes "孩子...你身上發生了什麼事?...";
+		close;
+	}
+	else if (checkquest(10019) == 0 || checkquest(10019) == 1) {
+		mes "[佩託]";
+		mes "......";
+		close;
+	}
+	if (checkquest(10008) == 2) {
+		set .@quest, checkquest(10014);
+		if (.@quest == 2) {
+			mes "[佩託]";
+			mes "我真的很感激.";
+			mes "你真好!";
+			close;
+		}
+		else if (.@quest == 0 || .@quest == 1) {
+			mes "[佩託]";
+			mes "我很高興見到這個女孩子.一旦我康復了,我想去找她.";
+			next;
+			mes "[佩託]";
+			mes "謝謝你幫我去見她.我真的很感謝你.這是我的一點禮物.";
+			completequest 10014;
+			getitem 644,1; //Gift_Box
+			close;
+		}
+		else {
+			mes "[佩託]";
+			mes "你有其他的事嗎?鑑定師.";
+			close;
+		}
+	}
+	else {
+		if (nk_prince < 4) {
+			mes "[王子]";
+			mes "我認為你不該在這裡出現.";
+			close;
+		}
+		else if (nk_prince > 4) {
+			mes "[王子]";
+			mes "你好,";
+			mes "我是佩託,海涅家族的孩子.我很高興見到你.";
+			next;
+			mes "[佩託]";
+			mes "你有什麼想知道的嗎?";
+			next;
+			while(1) {
+				switch(select("你的背景...:你的國家觀...:你的興趣愛好...:我一會再來...")) {
+				case 1:
+					mes "[佩託]";
+					mes "我的家族不具有影響力.我的童年也不富裕.我必須找工作和兼職賺錢.";
+					next;
+					mes "[佩託]";
+					mes "但這些工作能夠幫助我查訪子民們生活細節.這是好的一面.";
+					next;
+					mes "[佩託]";
+					mes "這足夠回答你的問題嗎?";
+					next;
+					break;
+				case 2:
+					mes "[佩託]";
+					mes "我想說,在自己的國家中,首先要實現自我,然後才能在子民中獲得支持.";
+					mes "總之,我想說,國家的統治是為了讓子民們平安.";
+					next;
+					mes "[佩託]";
+					mes "因此,我要從不同階層獲得支持,這不是一個平等的問題,但相對的可以提升國家實力.";
+					next;
+					break;
+				case 3:
+					mes "[佩託]";
+					mes "我的愛好閱讀書籍.我認為人應該向前看,他們需要一個努力的態度.";
+					next;
+					break;
+				case 4:
+					mes "[佩託]";
+					mes "嗯,是嗎?";
+					next;
+					mes "[佩託]";
+					mes "我要請你幫個忙...你能不能聽完我的故事?";
+					next;
+					mes "[佩託]";
+					mes "最初,我不喜歡留鬍子...但我最後有人改變了我的想法...";
+					next;
+					mes "[佩託]";
+					mes "這是一個陌生女孩的來信...";
+					next;
+					mes "[佩託]";
+					mes "她在信中說,我的形象太過尖銳.如果我留長鬍子可以把我臉的輪廓隱藏起來.這樣看起來更有親和力.";
+					next;
+					mes "[佩託]";
+					mes "我想報答她.";
+					mes "因為她的信對我有很大幫助.這花並不新鮮,但是一點新意.";
+					next;
+					mes "[佩託]";
+					mes "你能幫我把這束花拿去給艾爾帕蘭的那個女孩嗎?";
+					completequest 10008;
+					next;
+					switch(select("好的,沒問題.:交給別人去做吧.")) {
+					case 1:
+						mes "[佩託]";
+						mes "非常感謝你!";
+						mes "請多保重.";
+						getitem 744,1; //Bunch_Of_Flowers
+						setquest 10013;
+						set .@prin1,checkquest(10005);
+						set .@prin2,checkquest(10006);
+						set .@prin3,checkquest(10007);
+						set .@prin4,checkquest(10008);
+						set .@prin5,checkquest(10009);
+						set .@prin6,checkquest(10010);
+						set .@prin7,checkquest(10011);
+						if ((.@prin1 + .@prin2 + .@prin3 + .@prin4 + .@prin5 + .@prin6 + .@prin7) == 14) {
+							setquest 10012;
+						}
+						close;
+					case 2:
+						mes "[佩託]";
+						mes "我理解...";
+						mes "我知道你有你自己的事.";
+						setquest 10013;
+						set .@prin1,checkquest(10005);
+						set .@prin2,checkquest(10006);
+						set .@prin3,checkquest(10007);
+						set .@prin4,checkquest(10008);
+						set .@prin5,checkquest(10009);
+						set .@prin6,checkquest(10010);
+						set .@prin7,checkquest(10011);
+						if ((.@prin1 + .@prin2 + .@prin3 + .@prin4 + .@prin5 + .@prin6 + .@prin7) == 14) {
+							setquest 10012;
+						}
+						close;
+					}
+				}
+			}
+		}
+	}
+}
+
+aldebaran,132,184,3	script	小女孩#prince	4W_KID,{
+	if (checkquest(10013) == 1) {
+		if (countitem(744) > 0) {
+			// Missed
+			mes "[小女孩]";
+			mes "哇,這是佩託叔叔送我的花嗎?";
+			mes "它們聞起來真香.";
+			next;
+			mes "[小女孩]";
+			mes "你一定是佩託叔叔的朋友.";
+			mes "如果你再見到他,";
+			mes "請幫我告訴他,我很喜歡這些花.";
+			mes "這些花真多呀...";
+			mes "回頭見.";
+			next;
+			mes "[小女孩]";
+			mes "我要早點回家";
+			mes "把這些花放進花瓶裡.";
+			mes "啦啦啦~";
+			delitem 744,1; //Bunch_Of_Flowers
+			changequest 10013,10014;
+			close;
+		}
+		else {
+			mes "[小女孩]";
+			mes "你好,你聽說過長腿叔叔的故事嗎? ... ...";
+			close;
+		}
+	}
+	else {
+		mes "[小女孩]";
+		mes "你好,你聽說過長腿叔叔的故事嗎? ... ...";
+		close;
+	}
+}
+
+prt_castle,314,373,4	script	王子#eisen	4_M_1STPRIN1,{
+	if (nkprince_eisen > 2) {
+		if (nkprince_eisen == 3) {
+			mes "[艾倫]";
+			mes "阿勒姆還好嗎 ...?";
+			mes "他出了這麼嚴重的事.他沒有麻煩或異常,只是有點怪怪的.";
+			next;
+			mes "[艾倫]";
+			mes "我們是親密的朋友.但他和我不同,他是一個善良而富有同情心的貴族.而且他對自己很嚴格.";
+			set nkprince_eisen,4;
+			close;
+		}
+		else if (nkprince_eisen == 4) {
+			mes "[艾倫]";
+			mes "我是艾倫,";
+			mes "我將成為盧恩·米德加茲之光.";
+			close;
+		}
+		else if (nkprince_eisen == 5) {
+			mes "[艾倫]";
+			mes "無論我是否成為國王,我們都應該通過互相幫助,讓盧恩·米德加茲成為這個世界上最好的國家.";
+			next;
+			mes "[阿勒姆]";
+			mes "我想這麼做.";
+			mes "不,我就應該和我的哥哥們這麼做.我們必須一起建設它.";
+			next;
+			mes "[艾倫]";
+			mes "但... 如果是我統治國家,就需要你的幫助 ; 如果我墮落了,請你一定要殺了我...親手...";
+			next;
+			mes "[艾倫]";
+			mes "相對的,我也會殺了你,明白嗎? 所以,永遠不要迷茫,永遠不要忘記你的決心.";
+			next;
+			mes "[阿勒姆]";
+			mes "兄弟,你認為的災難.永遠不會發生,所以...別這樣說.";
+			next;
+			mes "[艾倫]";
+			mes "這只是一個假設.";
+			mes "不要看得太重了.";
+			next;
+			mes "[阿勒姆]";
+			mes "好吧好吧.";
+			mes "不要這麼極端.";
+			mes "我會和兄弟們一起治理這個國家,永遠.";
+			next;
+			emotion ET_SURPRISE;
+			mes "[艾倫]";
+			mes "嗯?鑑定師來了.";
+			mes "你怎麼在我們的交談中忽然出現?";
+			next;
+			mes "[阿勒姆]";
+			mes "怎麼了,兄弟?我們沒有談論什麼壞事,只是在堅定決心.";
+			next;
+			mes "[艾倫]";
+			mes "你來的正好,我們決定如果兄弟中有一人腐敗,我們就殺死他.";
+			next;
+			mes "[阿勒姆]";
+			mes "兄弟?!";
+			next;
+			mes "[艾倫]";
+			mes "通過一切手段完成這個協議吧.你不能說不,因為這從某些方面來說是一個很好的建議,不是嗎?";
+			next;
+			mes "[阿勒姆]";
+			mes "兄..兄弟,你的方式太極端了.我們必須讓鑑定師有他自己的觀點和立場.";
+			next;
+			mes "[艾倫]";
+			mes "你的個性還是這麼軟弱.我不強迫你做艱難的決定吧!誰有空理這麼多?我當沉默就是肯定的回答!我們的協議就這麼達成了.";
+			next;
+			mes "[阿勒姆]";
+			mes "哈哈..哈哈..鑑定師,我深感抱歉.不該這樣冒犯你,對不起.但我絕不履行這個承諾.因為這個情況太嚴重了...你知道的...絕對不可能...~";
+			next;
+			mes "[阿勒姆]";
+			mes "現在,我要回我的房間了.保持良好的工作態度,鑑定師.";
+			donpcevent "王子#another_ern::OnDisable";
+			set nkprince_eisen,6;
+			close;
+		}
+		else if (nkprince_eisen == 6) {
+			mes "[艾倫]";
+			mes "我聽說今天有一個我的家人要來,";
+			mes "但是我沒找到他.";
+			next;
+			mes "[艾倫]";
+			mes "我擔心你說的...";
+			mes "你想說什麼?...";
+			mes "還是你看到他了?";
+			set nkprince_eisen,7;
+			changequest 10012,10016;
+			close;
+		}
+		else if (nkprince_eisen == 7) {
+			mes "[艾倫]";
+			mes "唉...枯燥,範圍.";
+			mes "我現在認真的懺悔!";
+			close;
+		}
+		else if (nkprince_eisen == 8) {
+			mes "[艾倫]";
+			mes "你經常到這兒來.";
+			mes "我知道你是一個忠實的人,在做一件對國家非常重要的事.但你一直來這裡是多餘的...";
+			next;
+			switch(select("I have something...:Is that so? Then, see you later.")) {
+			case 1:
+				mes "[" + strcharinfo(0) + "]";
+				mes "我看見了一個沃爾特家族的人.";
+				next;
+				mes "[艾倫]";
+				mes "真的?";
+				mes "那他為什麼不來找我?";
+				next;
+				mes "[" + strcharinfo(0) + "]";
+				mes "-我告訴了他阿勒姆的事.-";
+				next;
+				mes "[艾倫]";
+				mes "......";
+				next;
+				mes "[艾倫]";
+				mes "什麼!你說的是真的嗎?啊啊啊啊啊...";
+				next;
+				mes "[艾倫]";
+				mes "......";
+				next;
+				mes "[艾倫]";
+				mes "我很抱歉,我想一個人靜一靜.現在離我遠一點!";
+				set nkprince_eisen,9;
+				close2;
+				warp "prt_castle",318,273;
+				end;
+			case 2:
+				mes "[艾倫]";
+				mes "好的,太好了!";
+				close;
+			}
+		}
+		else if ((nkprince_eisen == 9) || (nkprince_eisen == 10) || (nkprince_eisen == 11) || (nkprince_eisen == 12)) {
+			mes "[艾倫]";
+			mes "我很抱歉,我想一個人靜一靜.現在離我遠一點!";
+			close2;
+			warp "prt_castle",318,273;
+			end;
+		}
+		else if (nkprince_eisen == 13) {
+			mes "[艾倫]";
+			mes "我告訴你,我不想當國王.也從未改變過我的想法.";
+			next;
+			mes "[阿勒姆]";
+			mes "兄弟!我不知道你為什麼如此痛苦!你如此懦弱了?!";
+			next;
+			mes "[艾倫]";
+			mes "痛苦?我?啊啊啊...我看起來是這樣的...?哈,是的,確實如此....哈哈哈哈哈!!!";
+			next;
+			mes "[阿勒姆]";
+			mes "兄弟,艾倫..?";
+			next;
+			mes "[艾倫]";
+			mes "...我只是在逃避.總之,我是一個合格的人...但是,我已經做出了一個決定.";
+			next;
+			mes "[艾倫]";
+			mes "阿勒姆.";
+			next;
+			mes "[阿勒姆]";
+			mes "嗯?... 我在?";
+			next;
+			mes "[艾倫]";
+			mes "拿著這個.";
+			next;
+			mes "- 沙沙. - ";
+			next;
+			mes "- 艾倫隨手扔了一個華麗短劍給阿勒姆.-";
+			next;
+			mes "[阿勒姆]";
+			mes "這是什麼?...這是沃爾特家族的華麗短劍?為什麼...";
+			next;
+			mes "[艾倫]";
+			mes "現在是一個完美的機會.就算我們的見證人在,你還記得我們的承諾吧?";
+			next;
+			mes "[阿勒姆]";
+			mes "什麼?承諾?證人?.....真要這樣嗎?";
+			next;
+			mes "[艾倫]";
+			mes "真的.現在就是時候.";
+			next;
+			mes "[阿勒姆]";
+			mes "胡說!你認為我會這麼做嗎?!";
+			next;
+			mes "[艾倫]";
+			mes "白痴!國王的行動應該果斷.我沒有機會做國王.因為這樣的生活太失敗了,還不如被你殺死..";
+			next;
+			mes "[阿勒姆]";
+			mes "但,但是,你可以自由的活著.好像什麼事都沒有發生.你需要回到以前的生活方式.兄弟,讓我幫你.告訴我你隱瞞了什麼...";
+			next;
+			mes "[艾倫]";
+			mes "這太幼稚了!你可以說你是國王?你在同情我?!你應該是一個了解真相的人!如果不是,你沒有資格作為一個國王的繼承人.";
+			next;
+			mes "[阿勒姆]";
+			mes "但...但是!";
+			next;
+			mes "[艾倫]";
+			mes "交涉是沒有用的!他不能幫助我.如果你能成為一個有膽識的人,那麼這樣的人就該成為國王.";
+			next;
+			mes "[艾倫]";
+			mes "啊?!兄弟?!";
+			next;
+			mes "(艾倫的胸口衝向匕首)";
+			specialeffect EF_HIT2;
+			set nkprince_eisen,14;
+			donpcevent "王子#another_ern::OnDisable";
+			donpcevent "王子#another_ern1::OnEnable";
+			close;
+		}
+		else if (nkprince_eisen == 14) {
+			mes "兄..兄弟?你...你告訴我? ";
+			mes "你會殺了我嗎....你想殺了我嗎?";
+			mes "兄...兄弟?...";
+			next;
+			mes "[艾倫]";
+			mes "別難過.我想殺了你的...很好,作為非常好...這是合法的正當防衛...明白了嗎?";
+			next;
+			mes "[阿勒姆]";
+			mes "兄,兄弟...現在還不晚,我帶你去找醫生,你會沒事的!";
+			next;
+			mes "[艾倫]";
+			mes "太晚了...我的心臟已經被刺傷...我想知道...即使我活過來...我活著還有什麼意義...我不想活...";
+			next;
+			mes "[阿勒姆]";
+			mes "兄,兄弟...你怎麼可以這樣?!";
+			next;
+			mes "[艾倫]";
+			mes "永別了,我的兄弟...你一定...可以成為...國...國王的,並改變這個國家.";
+			next;
+			mes "[阿勒姆]";
+			mes "...兄弟...我的兄弟...為什麼...到底為什麼?! 為什麼你看起來如此安詳?為什麼要這樣..?兄弟...";
+			next;
+			mes "[艾倫]";
+			mes "啊,啊...你不需要知道.記得你的承諾...你要成為國王...如果你迷茫了,放縱了,我會來殺了你...從地獄來!!!";
+			next;
+			mes "[阿勒姆]";
+			mes "我...我不知道!我不知道發生了什麼事!";
+			next;
+			mes "[艾倫]";
+			mes "你不需要知道...你只要知道,只有我的犧牲,你才能成為國王.這就是我死的意義,也是我的信念...不要忘記我的話!!";
+			next;
+			mes "[阿勒姆]";
+			mes "白痴...笨蛋...";
+			next;
+			mes "[艾倫]";
+			mes "啊...鑑定師,你知道你應該怎麼做吧.注意你的言語.你所看到的,你所聽到的...不必全部告訴審查官.";
+			next;
+			mes "[艾倫]";
+			mes "見證一個惡棍被殺死的過程,我失去了機會...而他表現很果斷,所以他獲得成為國王的權利.";
+			next;
+			mes "[艾倫]";
+			mes "如果你不這麼說,我的死就毫無意義了....你聽懂了嗎??";
+			next;
+			switch(select("... 好吧,我尊重你的意願.:......")) {
+			case 1:
+				mes "[" + strcharinfo(0) + "]";
+				mes "... 好吧,我尊重你的意願,別擔心...";
+				next;
+				break;
+			case 2:
+				mes "[" + strcharinfo(0) + "]";
+				mes "......";
+				next;
+				mes "[艾倫]";
+				mes "沉默... 就是答應了... 這說明... 我的做法... 是成功的...";
+				next;
+				break;
+			}
+			mes "[艾倫]";
+			mes "現在...我可以...靜靜地..死去了...謝謝你...非常...謝謝...你...";
+			next;
+			mes "[阿勒姆]";
+			mes "兄弟...";
+			next;
+			mes "[艾倫]";
+			mes "然後,永遠... 再見了... 對不起 ... 我不能和你去釣魚了.";
+			next;
+			mes "[阿勒姆]";
+			mes "兄, 兄弟?";
+			next;
+			mes "[艾倫]";
+			mes "......";
+			next;
+			mes "[阿勒姆]";
+			mes "兄...兄弟,兄弟!";
+			next;
+			mes "[艾倫]";
+			mes "......";
+			next;
+			mes "[阿勒姆]";
+			mes "兄弟!!!!!!!!!!!!";
+			next;
+			set nkprince_eisen,15;
+			set nk_prince,7;
+			donpcevent "王子#another_ern1::OnDisable";
+			changequest 10024,10025;
+			close2;
+			warp "prt_castle",318,273;
+			end;
+		}
+	}
+	if (nk_prince < 5) {
+		mes "[王子]";
+		mes "你不被允許出現在這裡.";
+		next;
+		mes "[王子]";
+		mes "馬上出去.";
+		mes "我不想面對你.";
+		close;
+	}
+	else if (nk_prince > 4) {
+		mes "[王子]";
+		mes "你是新來的鑑定師?我是沃爾特家族的艾倫.你可以叫我艾倫王子,這樣簡短一點.";
+		next;
+		mes "[艾倫]";
+		mes "我希望你的問題簡短,大問題並不意味著好的答案.";
+		next;
+		while(1) {
+			mes "-我要問...-";
+			next;
+			mes "[" + strcharinfo(0) + "]";
+			mes "我想問關於...";
+			next;
+			switch(select("你的背景...:你的國家觀...:你的興趣愛好...:沒事,我一會再來.")) {
+			case 1:
+				mes "[艾倫]";
+				mes "你是想要了解這個國家每個家族的背景嗎?";
+				next;
+				mes "[艾倫]";
+				mes "從小,我就喜歡很多東西,並且學習他們的知識.因此,我要承受家人的幹擾.對他們來說,我只是一個體面的貴族.";
+				next;
+				mes "[艾倫]";
+				mes "但我不敏感,我認為一個好的國王應該忽略那些小事.";
+				next;
+				mes "[艾倫]";
+				mes "別人說我的行為讓他們很尷尬,但結果他們都得到滿意的答案.我錯了嗎?";
+				next;
+				mes "[艾倫]";
+				mes "我雖然跳過了一些生活的經驗,但我可以努力學習缺少的.誰能保證我一定成為國王呢!這就是我.";
+				next;
+				mes "[艾倫]";
+				mes "我很重視一些問題,";
+				mes "如果我不隨時提出問題,這些混蛋不會發現的.";
+				next;
+				mes "[艾倫]";
+				mes "就像我說的,我在責罵聲中長大.我覺得只有我完成了他們才會閉上嘴.";
+				next;
+				mes "[艾倫]";
+				mes "他總是說,結果不能結束每一件事.";
+				next;
+				mes "[艾倫]";
+				mes "但在這之前,我有運氣和榮譽.我出生在沃爾特家族,一個傑出的貴族家庭.";
+				next;
+				mes "[艾倫]";
+				mes "當然,我的能力就被低估了.";
+				mes "因為我的背景,其他方面看起來就很渺小.我因此難過.";
+				next;
+				mes "[艾倫]";
+				mes "在未來,人們討論的是艾倫的沃爾特家族,而不是沃爾特家族的艾倫.";
+				next;
+				mes "[艾倫]";
+				mes "沃爾特家族本身具有很高的名聲,但我會讓我的名字進一步發光,讓其他人以我為榮.";
+				next;
+				break;
+			case 2:
+				mes "[艾倫]";
+				mes "我認為我們的國家";
+				mes "並不應該有幼稚的童話色彩.";
+				next;
+				mes "[艾倫]";
+				mes "當然,失敗和沮喪的人都有他們自己的缺點,在挑戰著他們的生活.";
+				next;
+				mes "[艾倫]";
+				mes "我信仰無限的競爭.坦白地說,我不喜歡這個國家的國王是由貴族中選舉的.";
+				next;
+				mes "[艾倫]";
+				mes "雖然這樣的制度可以在我成為";
+				mes "國王后取消,我有這樣的能力!";
+				mes "哈哈哈.";
+				emotion ET_SMILE;
+				next;
+				mes "[艾倫]";
+				mes "我很清楚這次國王的人選.";
+				mes "但我找不到比這更傑出的人了.";
+				next;
+				mes "[艾倫]";
+				mes "我不是說他不優秀,但考慮當前盧恩·米德加茲王國的形式,他似乎沒有驚人的領導能力.";
+				next;
+				mes "[艾倫]";
+				mes "為此,我想你保證.沒有候選人適合這個位置.如果我要選擇一個人成為的對手的話,我認為是阿勒姆.";
+				next;
+				mes "[艾倫]";
+				mes "他是一個溫和的人,知道許多東西,但我承認他的優點.我想他是一個相當合適的繼承人.";
+				next;
+				mes "[艾倫]";
+				mes "........";
+				next;
+				mes "[艾倫]";
+				mes "我說得太多了.";
+				mes "我很抱歉我說了多餘的話,哈哈哈.";
+				next;
+				break;
+			case 3:
+				mes "[艾倫]";
+				mes "我喜歡的活動嗎.";
+				mes "我不能忍受消極的遊戲,";
+				mes "比如卡牌和棋牌.";
+				mes "我認為這些遊戲比較適合學者.";
+				next;
+				mes "[艾倫]";
+				mes "我的兄弟阿勒姆一直很喜歡讀書和學習.";
+				next;
+				mes "[艾倫]";
+				mes "如果我成為國王,";
+				mes "我不會一整天處理文件.";
+				next;
+				mes "[艾倫]";
+				mes "這對我來說很難做到.";
+				next;
+				break;
+			case 4:
+				mes "[艾倫]";
+				mes "好的...";
+				mes "請慢走.";
+				if (nkprince_eisen == 2) {
+					set nkprince_eisen,3;
+				}
+				else {
+					set nkprince_eisen,1;
+				}
+				completequest 10005;
+				set .@prin1,checkquest(10005);
+				set .@prin2,checkquest(10006);
+				set .@prin3,checkquest(10007);
+				set .@prin4,checkquest(10008);
+				set .@prin5,checkquest(10009);
+				set .@prin6,checkquest(10010);
+				set .@prin7,checkquest(10011);
+				if ((.@prin1 + .@prin2 + .@prin3 + .@prin4 + .@prin5 + .@prin6 + .@prin7) == 14) {
+					setquest 10012;
+				}
+				close;
+			}
+		}
+	}
+}
+
+prt_castle,368,312,4	script	王子#ern	4_M_2NDPRIN1,{
+	if (checkquest(10024) == 2) {
+		mes "[阿勒姆]";
+		mes "...兄弟,我希望...";
+		mes "...你離開這裡.";
+		mes "我不想看到任何人.";
+		close;
+	}
+	else if (checkquest(10024) == 0 || checkquest(10024) == 1) {
+		mes "[阿勒姆]";
+		mes "...艾倫兄弟...";
+		close;
+	}
+	if (nkprince_eisen > 2) {
+		if (nkprince_eisen == 3) {
+			mes "[阿勒姆]";
+			mes "你見過我的兄弟艾倫嗎?他真的是一個偉大的人.";
+			next;
+			mes "他處理事情的態度太過強硬,有時候會讓事情變成一個問題.但即使在那個時候,他也願意聽我的話;所以我們似乎很少有嚴重的麻煩.";
+			next;
+			mes "[阿勒姆]";
+			mes "也可能是因為這樣,因為我們比較親近.";
+			next;
+			mes "[阿勒姆]";
+			mes "艾倫一直責備我.但我覺得沒多久之後他還是聽從了我的建議.";
+			next;
+			mes "[阿勒姆]";
+			mes "你不是一個偉大的人嗎?";
+			mes "他是個值得信賴而有意義的人.";
+			close;
+		}
+		else if (nkprince_eisen == 5) {
+			mes "[阿勒姆]";
+			mes "現在我和艾倫有個計劃.";
+			mes "如果你沒有重要的事,我現在要去了. ";
+			close;
+		}
+		else if (nkprince_eisen == 6) {
+			mes "[阿勒姆]";
+			mes "我聽說有沃爾特家族的人到這來,你有看到他嗎?";
+			next;
+			mes "[阿勒姆]";
+			mes "似乎艾倫還找不到他.";
+			set nkprince_eisen,7;
+			changequest 10012,10016;
+			close;
+		}
+		else if (nkprince_eisen == 9) {
+			mes "[阿勒姆]";
+			mes "你好,鑑定師.";
+			mes "我們相對配合你";
+			mes "沒有減少你的工作量嗎?";
+			next;
+			mes "[阿勒姆]";
+			mes "我沒有更多的話要說.此外,最近艾倫有些奇怪.我很擔心,希望這不會是個大問題.";
+			set nkprince_eisen,10;
+			changequest 10017,10004;
+			close;
+		}
+		else if ((nkprince_eisen == 10) || (nkprince_eisen == 11) || (nkprince_eisen == 12)) {
+			mes "[阿勒姆]";
+			mes "艾倫看起來很奇怪.";
+			mes "這樣的變化不大正常,我感到不安.";
+			next;
+			mes "[阿勒姆]";
+			mes "這不會持續太久的.";
+			mes "我相信艾倫會恢復正常的.不過我還是感覺不大舒服.";
+			close;
+		}
+		else if (nkprince_eisen == 15) {
+			mes "[阿勒姆]";
+			mes "啊...";
+			mes "我的兄弟,艾倫...";
+			mes "艾倫...你怎麼了.";
+			next;
+			mes "[阿勒姆]";
+			mes "......";
+			next;
+			mes "[阿勒姆]";
+			mes "請離開這裡,我不想看到任何人.";
+			close;
+		}
+		else {
+			mes "[阿勒姆]";
+			mes "歡迎你,鑑定師.";
+			mes "你辛苦了,這一定很難判斷吧,不是嗎?";
+			close;
+		}
+	}
+	if (nk_prince < 5) {
+		mes "[王子]";
+		mes "你不是一個冒險家鑑定師,";
+		mes "就不應該出現在這裡.";
+		close;
+	}
+	else if (nk_prince > 4) {
+		mes "[王子]";
+		mes "你好.";
+		mes "我知道你是鑑定師.";
+		mes "我是阿勒姆,吉爾伯格家族的王子.";
+		next;
+		mes "[阿勒姆]";
+		mes "我認為鑑定師是一項艱苦的工作,我會盡最大努力幫助你.";
+		next;
+		mes "[阿勒姆]";
+		mes "辛苦你了.";
+		next;
+		mes "[" + strcharinfo(0) + "]";
+		mes "(他作為一個繼承者的候選人似乎太過禮貌了.)";
+		next;
+		while(1) {
+			mes "-問些什麼問題呢.-";
+			next;
+			switch(select("你的家庭背景.:你的國家觀.:你的興趣和愛好.:我一會回來.")) {
+			case 1:
+				mes "[阿勒姆]";
+				mes "在我年輕的時候,我就受到了皇家教育.我沒有對人不禮貌或吵架過.";
+				next;
+				mes "[阿勒姆]";
+				mes "人們認為我膽小,但那是因為我不想逃避.";
+				next;
+				mes "[阿勒姆]";
+				mes "當然,我們中有一個例外...艾倫.";
+				next;
+				mes "[阿勒姆]";
+				mes "艾倫是個例外.他很不禮貌,但他看人很準.";
+				next;
+				mes "[阿勒姆]";
+				mes "我認為這是一個重大的能力,必須要學習它.但是如果結果不好的,應該要注意保持尺度.";
+				next;
+				mes "[阿勒姆]";
+				mes "對我來說,過程比結果更重要.現在,我把它當做平等的美德.但我沒帶來成效,艾倫經常說,誰能猜到結果是什麼呢.";
+				break;
+			case 2:
+				mes "[阿勒姆]";
+				mes "如果我當了國王嗎?";
+				next;
+				mes "[阿勒姆]";
+				mes "你可能認為國王的力量是無限的,但作為一個人,它是有限的.";
+				next;
+				mes "[阿勒姆]";
+				mes "突出的人負責社會的公共制度,然後集合大智慧做一些事情.";
+				next;
+				mes "[阿勒姆]";
+				mes "艾倫會補足我的缺點.不僅僅是艾倫,所有的貴族和內閣成員以及子民們都是我的老師.";
+				next;
+				mes "[阿勒姆]";
+				mes "這是我的命運,我在艾倫身邊獲得了很多知識.這對我有很大幫助.";
+				next;
+				break;
+			case 3:
+				mes "[阿勒姆]";
+				mes "我沒有特別的愛好,我願意學習和讀書.";
+				next;
+				mes "[阿勒姆]";
+				mes "我很喜歡和艾倫一起.艾倫足夠聰明,總是有新的想法,我願意跟隨他.";
+				next;
+				mes "[阿勒姆]";
+				mes "說實話,和艾倫釣魚更開心.儘管我們太忙了,沒什麼事件去釣魚.因為王國有許多事要處理.";
+				next;
+				mes "[阿勒姆]";
+				mes "我們答應國王選出後一起去釣魚...我很期待.";
+				next;
+				mes "[阿勒姆]";
+				mes "嗯...這些足夠了嗎?";
+				next;
+				break;
+			case 4:
+				mes "[阿勒姆]";
+				mes "好的.那,一會見.";
+				if (nkprince_eisen == 1) {
+					set nkprince_eisen,3;
+				}
+				else {
+					set nkprince_eisen,2;
+				}
+				completequest 10006;
+				set .@prin1,checkquest(10005);
+				set .@prin2,checkquest(10006);
+				set .@prin3,checkquest(10007);
+				set .@prin4,checkquest(10008);
+				set .@prin5,checkquest(10009);
+				set .@prin6,checkquest(10010);
+				set .@prin7,checkquest(10011);
+				if ((.@prin1 + .@prin2 + .@prin3 + .@prin4 + .@prin5 + .@prin6 + .@prin7) == 14) {
+					setquest 10012;
+				}
+				close;
+			}
+		}
+	}
+}
+
+prt_castle,163,319,0	script	#twonoble	-1,3,3,{
+//OnTouch2:
+OnTouch:
+	if (nkprince_eisen == 7) {
+		donpcevent "老年貴族#valter::OnEnable";
+		donpcevent "老年貴族#rihart::OnEnable";
+		mes "[老年貴族]";
+		mes "你不必擔心.";
+		mes "一旦艾倫被選為國王,理查家族將成為第二大貴族.";
+		next;
+		mes "[中年貴族]";
+		mes "呵,艾倫是最具影響力的候選人.你會吃驚是你讓他具有影響力的.";
+		next;
+		mes "[一個沃爾特家族的男人]";
+		mes "雖然艾倫是強有力的候選人,吉爾伯格家族的王子也有很高的聲譽,他的美德是不可多得的.";
+		next;
+		mes "[一個沃爾特家族的男人]";
+		mes "所以你想讓阿勒姆王子中毒?";
+		next;
+		mes "[中年貴族]";
+		mes "當然,即使屍檢也發現不了的...你不必擔心.";
+		next;
+		mes "[一個沃爾特家族的男人]";
+		mes "一旦艾倫當選,就馬上殺死吉爾伯格王子,然後...";
+		next;
+		mes "[中年貴族]";
+		mes "我們的家族將領導這個國家,呼.....";
+		next;
+		mes "[一個沃爾特家族的男人]";
+		mes "你必須知道,沃爾特和吉爾伯格家族是全國第一的.";
+		next;
+		mes "[中年貴族]";
+		mes "七個家族中最弱的是賈爾伯格家族,而最團結的是施密特和沃爾特家族.";
+		next;
+		mes "[一個沃爾特家族的男人]";
+		mes "是的.這就是為什麼沃爾特家族和賈爾伯格家族的聯盟是完美的.還有,艾倫和阿勒姆...很明顯施密特家族和海因裡希家族想進行聯盟.";
+		next;
+		mes "[一個沃爾特家族的男人]";
+		mes "所以沃爾特家族和賈爾伯格家族不能共存,他們的共存會帶來毀滅,就像過去那樣.";
+		next;
+		mes "[中年貴族]";
+		mes "謝謝你提供的信息,一切準備就緒.所有的人都會否認過去艾倫和阿勒姆是同盟.";
+		next;
+		mes "[一個沃爾特家族的男人]";
+		mes "我們還需要更多一點.保守秘密,不能讓任何人知道.";
+		next;
+		mes "[中年貴族]";
+		mes "是的,為了盧恩·米德加茲的未來.";
+		next;
+		mes "[一個沃爾特家族的男人]";
+		mes "一切為了盧恩·米德加茲的未來...";
+		mes "嗯?";
+		next;
+		emotion ET_SURPRISE;
+		mes "[一個沃爾特家族的男人]";
+		mes "安靜... 有人來了.";
+		mes "保重.";
+		next;
+		mes "[中年貴族]";
+		mes "別讓在身上...";
+		donpcevent "老年貴族#valter::OnDisable";
+		donpcevent "老年貴族#rihart::OnDisable";
+		next;
+		mes "[" + strcharinfo(0) + "]";
+		mes "(沃爾特家族候選人是艾倫.";
+		mes "理查家族候選人是珀.)";
+		next;
+		mes "[" + strcharinfo(0) + "]";
+		mes "(這是兩個家族之間的陰謀?這到底是怎麼回事.)";
+		changequest 10016,10017;
+		set nkprince_eisen,8;
+		close;
+	}
+}
+
+prt_castle,156,325,4	script	老年貴族#valter	4_M_04,{
+	mes "[老年貴族]";
+	mes "讓開.";
+	mes "你怎麼敢和他說話.";
+	close;
+
+OnInit:
+	disablenpc "老年貴族#valter";
+	end;
+
+OnEnable:
+	enablenpc "老年貴族#valter";
+	end;
+
+OnDisable:
+	disablenpc "老年貴族#valter";
+	end;
+}
+
+prt_castle,157,323,3	script	老年貴族#rihart	880,{
+	mes "[老年貴族]";
+	mes "嗯-嗯.";
+	mes "多麼無禮的人!";
+	close;
+
+OnInit:
+	disablenpc "老年貴族#rihart";
+	end;
+
+OnEnable:
+	enablenpc "老年貴族#rihart";
+	end;
+
+OnDisable:
+	disablenpc "老年貴族#rihart";
+	end;
+}
+
+prt_castle,314,371,0	script	王子#another_ern	4_M_2NDPRIN1,{
+	if (nkprince_eisen == 13) {
+		mes "[艾倫]";
+		mes "我告訴你,我不想當國王.也從未改變過我的想法.";
+		next;
+		mes "[阿勒姆]";
+		mes "兄弟!我不知道你為什麼如此痛苦!你如此懦弱了?!";
+		next;
+		mes "[艾倫]";
+		mes "痛苦?我?啊啊啊...我看起來是這樣的...?哈,是的,確實如此....哈哈哈哈哈!!!";
+		next;
+		mes "[阿勒姆]";
+		mes "兄弟,艾倫..?";
+		next;
+		mes "[艾倫]";
+		mes "...我只是在逃避.總之,我是一個合格的人...但是,我已經做出了一個決定.";
+		next;
+		mes "[艾倫]";
+		mes "阿勒姆.";
+		next;
+		mes "[阿勒姆]";
+		mes "嗯?... 我在?";
+		next;
+		mes "[艾倫]";
+		mes "拿著這個.";
+		next;
+		mes "- 沙沙. - ";
+		next;
+		mes "- 艾倫隨手扔了一個華麗短劍給阿勒姆.-";
+		next;
+		mes "[阿勒姆]";
+		mes "這是什麼?...這是沃爾特家族的華麗短劍?為什麼...";
+		next;
+		mes "[艾倫]";
+		mes "現在是一個完美的機會.就算我們的見證人在,你還記得我們的承諾吧?";
+		next;
+		mes "[阿勒姆]";
+		mes "什麼?承諾?證人?.....真要這樣嗎?";
+		next;
+		mes "[艾倫]";
+		mes "真的.現在就是時候.";
+		next;
+		mes "[阿勒姆]";
+		mes "胡說!你認為我會這麼做嗎?!";
+		next;
+		mes "[艾倫]";
+		mes "白痴!國王的行動應該果斷.我沒有機會做國王.因為這樣的生活太失敗了,還不如被你殺死..";
+		next;
+		mes "[阿勒姆]";
+		mes "但,但是,你可以自由的活著.好像什麼事都沒有發生.你需要回到以前的生活方式.兄弟,讓我幫你.告訴我你隱瞞了什麼...";
+		next;
+		mes "[艾倫]";
+		mes "這太幼稚了!你可以說你是國王?你在同情我?!你應該是一個了解真相的人!如果不是,你沒有資格作為一個國王的繼承人.";
+		next;
+		mes "[阿勒姆]";
+		mes "但...但是!";
+		next;
+		mes "[艾倫]";
+		mes "交涉是沒有用的!他不能幫助我.如果你能成為一個有膽識的人,那麼這樣的人就該成為國王.";
+		next;
+		mes "[艾倫]";
+		mes "啊?!兄弟?!";
+		next;
+		mes "(艾倫的胸口衝向匕首)";
+		specialeffect EF_HIT2;
+		set nkprince_eisen,14;
+		donpcevent "王子#another_ern::OnDisable";
+		donpcevent "王子#another_ern1::OnEnable";
+		close;
+	}
+	if (nkprince_eisen == 5) {
+		mes "[艾倫]";
+		mes "無論是否成為國王,";
+		mes "我們都要一起努力...";
+		mes "通過互相幫助讓盧恩·米德加茲成為世界上最好的國家.";
+		next;
+		mes "[阿勒姆]";
+		mes "我們可以做到的.";
+		mes "不,我們必須做到.只要兄弟們在一起,我們就能做到.";
+		next;
+		mes "[艾倫]";
+		mes "但... 如果是我統治國家,就需要你的幫助 ; 如果我墮落了,請你一定要殺了我...親手...";
+		next;
+		mes "[艾倫]";
+		mes "相對的,我也會殺了你,明白嗎? 所以,永遠不要迷茫,永遠不要忘記你的決心.";
+		next;
+		mes "[阿勒姆]";
+		mes "兄弟,你認為的災難.永遠不會發生,所以...別這樣說.";
+		next;
+		mes "[艾倫]";
+		mes "這只是一個假設.";
+		mes "不要看得太重了.";
+		next;
+		mes "[阿勒姆]";
+		mes "好吧好吧.";
+		mes "不要這麼極端.";
+		mes "我會和兄弟們一起治理這個國家,永遠.";
+		next;
+		emotion ET_SURPRISE;
+		mes "[艾倫]";
+		mes "嗯?鑑定師來了.";
+		mes "你怎麼在我們的交談中忽然出現?";
+		next;
+		mes "[阿勒姆]";
+		mes "怎麼了,兄弟?我們沒有談論什麼壞事,只是在堅定決心.";
+		next;
+		mes "[艾倫]";
+		mes "你來的正好,我們決定如果兄弟中有一人腐敗,我們就殺死他.";
+		next;
+		mes "[阿勒姆]";
+		mes "兄弟?!";
+		next;
+		mes "[艾倫]";
+		mes "通過一切手段完成這個協議吧.你不能說不,因為這從某些方面來說是一個很好的建議,不是嗎?";
+		next;
+		mes "[阿勒姆]";
+		mes "兄..兄弟,你的方式太極端了.我們必須讓鑑定師有他自己的觀點和立場.";
+		next;
+		mes "[艾倫]";
+		mes "你的個性還是這麼軟弱.我不強迫你做艱難的決定吧!誰有空理這麼多?我當沉默就是肯定的回答!我們的協議就這麼達成了.";
+		next;
+		mes "[阿勒姆]";
+		mes "哈哈..哈哈..鑑定師,我深感抱歉.不該這樣冒犯你,對不起.但我絕不履行這個承諾.因為這個情況太嚴重了...你知道的...絕對不可能...~";
+		next;
+		mes "[阿勒姆]";
+		mes "現在,我要回我的房間了.保持良好的工作態度,鑑定師.";
+		donpcevent "王子#another_ern::OnDisable";
+		set nkprince_eisen,6;
+		close;
+	}
+
+OnInit:
+	disablenpc "王子#another_ern";
+	end;
+
+OnEnable:
+	enablenpc "王子#another_ern";
+	end;
+
+OnDisable:
+	disablenpc "王子#another_ern";
+	end;
+}
+
+prt_castle,314,372,0	script	王子#another_ern1	4_M_2NDPRIN1,{
+	if (nkprince_eisen == 14) {
+		mes "[阿勒姆]";
+		mes "兄..兄弟?你...你告訴我? ";
+		mes "你會殺了我嗎....你想殺了我嗎?";
+		mes "兄...兄弟?...";
+		next;
+		mes "[艾倫]";
+		mes "別難過.我想殺了你的...很好,作為非常好...這是合法的正當防衛...明白了嗎?";
+		next;
+		mes "[阿勒姆]";
+		mes "兄,兄弟...現在還不晚,我帶你去找醫生,你會沒事的!";
+		next;
+		mes "[艾倫]";
+		mes "太晚了...我的心臟已經被刺傷...我想知道...即使我活過來...我活著還有什麼意義...我不想活...";
+		next;
+		mes "[阿勒姆]";
+		mes "兄,兄弟...你怎麼可以這樣?!";
+		next;
+		mes "[艾倫]";
+		mes "永別了,我的兄弟...你一定...可以成為...國...國王的,並改變這個國家.";
+		next;
+		mes "[阿勒姆]";
+		mes "...兄弟...我的兄弟...為什麼...到底為什麼?! 為什麼你看起來如此安詳?為什麼要這樣..?兄弟...";
+		next;
+		mes "[艾倫]";
+		mes "啊,啊...你不需要知道.記得你的承諾...你要成為國王...如果你迷茫了,放縱了,我會來殺了你...從地獄來!!!";
+		next;
+		mes "[阿勒姆]";
+		mes "我...我不知道!我不知道發生了什麼事!";
+		next;
+		mes "[艾倫]";
+		mes "你不需要知道...你只要知道,只有我的犧牲,你才能成為國王.這就是我死的意義,也是我的信念...不要忘記我的話!!";
+		next;
+		mes "[阿勒姆]";
+		mes "白痴...笨蛋...";
+		next;
+		mes "[艾倫]";
+		mes "啊...鑑定師,你知道你應該怎麼做吧.注意你的言語.你所看到的,你所聽到的...不必全部告訴審查官.";
+		next;
+		mes "[艾倫]";
+		mes "見證一個惡棍被殺死的過程,我失去了機會...而他表現很果斷,所以他獲得成為國王的權利.";
+		next;
+		mes "[艾倫]";
+		mes "如果你不這麼說,我的死就毫無意義了....你聽懂了嗎??";
+		next;
+		switch(select("... 好吧,我尊重你的意願.:......")) {
+		case 1:
+			mes "[" + strcharinfo(0) + "]";
+			mes "... 好吧,我尊重你的意願,別擔心...";
+			next;
+			break;
+		case 2:
+			mes "[" + strcharinfo(0) + "]";
+			mes "......";
+			next;
+			mes "[艾倫]";
+			mes "沉默... 就是答應了... 這說明... 我的做法... 是成功的...";
+			next;
+			break;
+		}
+		mes "[艾倫]";
+		mes "現在...我可以...靜靜地..死去了...謝謝你...非常...謝謝...你...";
+		next;
+		mes "[阿勒姆]";
+		mes "兄弟...";
+		next;
+		mes "[艾倫]";
+		mes "然後,永遠... 再見了... 對不起 ... 我不能和你去釣魚了.";
+		next;
+		mes "[阿勒姆]";
+		mes "兄, 兄弟?";
+		next;
+		mes "[艾倫]";
+		mes "......";
+		next;
+		mes "[阿勒姆]";
+		mes "兄...兄弟,兄弟!";
+		next;
+		mes "[艾倫]";
+		mes "......";
+		next;
+		mes "[阿勒姆]";
+		mes "兄弟!!!!!!!!!!!!";
+		next;
+		set nkprince_eisen,15;
+		set nk_prince,7;
+		donpcevent "王子#another_ern1::OnDisable";
+		changequest 10024,10025;
+		close2;
+		warp "prt_castle",318,273;
+		end;
+	}
+
+OnInit:
+	disablenpc "王子#another_ern1";
+	end;
+
+OnEnable:
+	enablenpc "王子#another_ern1";
+	end;
+
+OnDisable:
+	disablenpc "王子#another_ern1";
+	end;
+}
+
+prt_castle,272,372,1	script	王子#eisen1	4_M_1STPRIN1,{
+	mes "[艾倫]";
+	mes "白痴.你永遠不會成為國王.你這樣的生活...你不明白嗎?你不過是一個垃圾癮君子.";
+	next;
+	mes "[艾裡希]";
+	mes "...我也不想的,我發誓.別這樣我感覺很好.你怎麼突然這樣?";
+	next;
+	mes "[艾倫]";
+	mes "我只是討厭你.即使你這樣一個混蛋也是國王的候選人?我對這樣的繼承權覺得噁心.";
+	next;
+	mes "[艾裡希]";
+	mes "是,這沒錯.但我代表Nerious家族.我不能忍受你的侮辱.";
+	next;
+	mes "[艾裡希]";
+	mes "你覺得家族會允許你瘋狂的行徑?你毀了你的名字和家族.";
+	next;
+	mes "[艾倫]";
+	mes "...! 是的... 我是一個垃圾. 不... 我的存在也是! 哈哈哈...哈哈哈哈哈!";
+	next;
+	mes "[艾倫]";
+	mes "是的,你和我都是不合格的!哈哈哈哈!!這個無聊的癮君子揭露真相!!是的,哈哈哈哈哈哈!!";
+	next;
+	mes "[艾裡希]";
+	mes "... 瘋狂的笨蛋.走開,我不想和你說話.";
+	next;
+	mes "[艾倫]";
+	mes "沒錯,我要走了.家族恥辱?!!哈哈哈哈...什麼是一個家族!!咳咳咳咳咳咳!!很有意思!";
+	next;
+	mes "-艾倫慢慢走向門口,似乎是瘋了.-";
+	next;
+	mes "[艾裡希]";
+	mes "...Nuts.";
+	completequest 10020;
+	set .@er1,checkquest(10018);
+	set .@er2,checkquest(10019);
+	set .@er3,checkquest(10020);
+	set .@er4,checkquest(10021);
+	set .@er5,checkquest(10022);
+	if ((.@er1 + .@er2 + .@er3 + .@er4 + .@er5) == 10) {
+		setquest 10023;
+		set nkprince_eisen,11;
+	}
+	donpcevent "王子#eisen1::OnDisable";
+	close;
+
+OnInit:
+	disablenpc "王子#eisen1";
+	end;
+
+OnEnable:
+	enablenpc "王子#eisen1";
+	end;
+
+OnDisable:
+	disablenpc "王子#eisen1";
+	end;
+}
+
+prt_castle,336,202,7	script	王子#eisen2	4_M_1STPRIN1,{
+	mes "[尤勒堅]";
+	mes "你在說什麼?艾倫?";
+	mes "你剛才說的是我嗎?艾倫?!";
+	next;
+	mes "[艾倫]";
+	mes "我說了無數次了!尤勒堅,你不漂亮!一點也不!事實上,你看起來很醜很下流!";
+	next;
+	mes "[尤勒堅]";
+	mes "這是非常不禮貌的.像你這樣骯髒的細菌怎麼敢和我說話!";
+	mes "像你這樣的細菌居然會對我說話!";
+	next;
+	mes "[艾倫]";
+	mes "骯髒?是的,我是.我是骯髒的.但是,這並不只是我一個人的問題.每樣東西都是骯髒的!你不能忍受這一切!";
+	next;
+	mes "[尤勒堅]";
+	mes "我不同意你的說法,世界是汙穢的,但你不能把我也帶到那個水平!我不能原諒你的話!永遠,永遠!!";
+	next;
+	mes "[艾倫]";
+	mes "你如何不原諒我?你會做什麼?那很好,你要殺了我?你要殺了我?殺了我啊?哈哈?你只會說自己是美麗的!";
+	next;
+	mes "[尤勒堅]";
+	mes "我不能忍受這一點!這麼低賤的行為和語言...你不是王子.我不想面對你了!滾開!";
+	next;
+	mes "[艾倫]";
+	mes "你沒有足夠的份量.你沒有信仰消除邪惡.你只是垃圾,我不想和垃圾說話.你就呆在你的世界裡永遠別出來了!";
+	next;
+	mes "-艾倫發牢騷大步走出房間...-";
+	next;
+	mes "[尤勒堅]";
+	mes "...你這麼低賤,我看錯你了.我以為你有一些藝術的看法,看來你完全走錯了方向.";
+	completequest 10021;
+	set .@er1,checkquest(10018);
+	set .@er2,checkquest(10019);
+	set .@er3,checkquest(10020);
+	set .@er4,checkquest(10021);
+	set .@er5,checkquest(10022);
+	if ((.@er1 + .@er2 + .@er3 + .@er4 + .@er5) == 10) {
+		setquest 10023;
+		set nkprince_eisen,11;
+	}
+	donpcevent "王子#eisen2::OnDisable";
+	close;
+
+OnInit:
+	disablenpc "王子#eisen2";
+	end;
+
+OnEnable:
+	enablenpc "王子#eisen2";
+	end;
+
+OnDisable:
+	disablenpc "王子#eisen2";
+	end;
+}
+
+prt_castle,286,201,7	script	王子#eisen3	4_M_1STPRIN1,{
+	mes "[艾倫]";
+	mes "軍事瘋子!廢墟!混球!你認為權利可以解決一切嗎?你認為人們能和平相處嗎?";
+	next;
+	mes "[赫爾穆特]";
+	mes "你現在完全暴力了.";
+	mes "你的理論已經讓你沒有資格成為國王.";
+	next;
+	mes "[艾倫]";
+	mes "你說得很好,呸!";
+	mes "我沒有資格!!";
+	mes "但你比我更糟糕!國王的繼承人?你只是一個戰爭販子.";
+	next;
+	mes "[赫爾穆特]";
+	mes "你來惹怒我?你認為你能打敗我,艾倫?";
+	next;
+	mes "[艾倫]";
+	mes "打架?真是垃圾.我不在乎這些.我只是來對你說.我甚至都不想和你打架.我要走了!";
+	next;
+	mes "[赫爾穆特]";
+	mes "等一下,膽小鬼.你要逃走?懦夫!讓我們來決鬥吧!";
+	next;
+	mes "[艾倫]";
+	mes "懦夫是一個很好的賜.是的,我就是,我要走了.你是一個比我更壞的懦夫...再見了戰爭狂人!";
+	next;
+	mes "-艾倫咧嘴笑著看著激怒了赫爾穆特,然後離開了房間.-";
+	next;
+	mes "[赫爾穆特]";
+	mes "那真是......這樣一個小人";
+	completequest 10022;
+	set .@er1,checkquest(10018);
+	set .@er2,checkquest(10019);
+	set .@er3,checkquest(10020);
+	set .@er4,checkquest(10021);
+	set .@er5,checkquest(10022);
+	if ((.@er1 + .@er2 + .@er3 + .@er4 + .@er5) == 10) {
+		setquest 10023;
+		set nkprince_eisen,11;
+	}
+	donpcevent "王子#eisen3::OnDisable";
+	close;
+
+OnInit:
+	disablenpc "王子#eisen3";
+	end;
+
+OnEnable:
+	enablenpc "王子#eisen3";
+	end;
+
+OnDisable:
+	disablenpc "王子#eisen3";
+	end;
+}
+
+prt_castle,388,205,6	script	王子#eisen4	4_M_1STPRIN1,{
+	mes "[艾倫]";
+	mes "你總在賭博.為什麼不關心一下你的家族呢?我說的對嗎?小主任理查?";
+	next;
+	mes "[珀]";
+	mes "你為什麼要取笑我?至少我能搖出比你數字大的骰子,不是嗎?";
+	next;
+	mes "[艾倫]";
+	mes "呸!你知道骰子.聽好,你只知道我會扔出比你數字小的骰子...但你已經在你的骰子裡沉淪了!你知道嗎?!";
+	next;
+	mes "[珀]";
+	mes "你在說什麼?我不懂你的意思.我已經失去了什麼?我不知道你為什麼這樣說.";
+	next;
+	mes "[艾倫]";
+	mes "你可能不明白!那又怎麼樣?!如果你知道,你能做什麼?你太自傲這一切了.你認為培養一顆深深腐爛的樹,能變成一顆健康的樹嗎?";
+	next;
+	mes "[珀]";
+	mes "你想要什麼,你必須說清楚.你宣布了一次損失和失敗?我的運氣可是很可怕的,艾倫?";
+	next;
+	mes "[艾倫]";
+	mes "我宣布我的失敗,但不是你的失敗.你是一個比我更失敗的失敗者.你毀了一個美好的環境.";
+	next;
+	mes "[珀]";
+	mes "...你到底在說什麼?環境?我完全不懂你.從來就沒有搞清楚過.";
+	next;
+	mes "[艾倫]";
+	mes "你最好不要去理解它.如果你理解了,你將會在你以後的生活中的失去健康.";
+	next;
+	mes "[珀]";
+	mes "停-停止! 看,艾倫!";
+	mes "堅持住! 艾倫! 嘿!";
+	next;
+	mes "-艾倫完全忽略了珀的呼喚,";
+	mes "落寞地離開了珀的房間.-";
+	next;
+	mes "[珀]";
+	mes "什麼..什麼.這可不好玩.";
+	mes "我完全不了解他.";
+	completequest 10018;
+	set .@er1,checkquest(10018);
+	set .@er2,checkquest(10019);
+	set .@er3,checkquest(10020);
+	set .@er4,checkquest(10021);
+	set .@er5,checkquest(10022);
+	if ((.@er1 + .@er2 + .@er3 + .@er4 + .@er5) == 10) {
+		setquest 10023;
+		set nkprince_eisen,11;
+	}
+	donpcevent "王子#eisen4::OnDisable";
+	close;
+
+OnInit:
+	disablenpc "王子#eisen4";
+	end;
+
+OnEnable:
+	enablenpc "王子#eisen4";
+	end;
+
+OnDisable:
+	disablenpc "王子#eisen4";
+	end;
+}
+
+prt_castle,364,372,1	script	王子#eisen5	4_M_1STPRIN1,{
+	mes "[艾倫]";
+	mes "佩託,你會做什麼,你的工作並不意味著什麼吧?";
+	next;
+	mes "[佩託]";
+	mes "...我不只奧你在說什麼,但是無意義的事物是不存在的.我以為你知道.";
+	next;
+	mes "[艾倫]";
+	mes "噗哈哈,你是錯的.有一件事本身就沒有意義的.確切地說,行動變得毫無意義,你不知道它的含義...";
+	next;
+	mes "[佩託]";
+	mes "你是想解釋...清楚嗎?它變得更糟糕?你到底想說什麼?讓我們開門見山吧.";
+	next;
+	mes "[艾倫]";
+	mes "...無論我怎麼做,我只是被操縱的一些東西.更糟糕的是,我為了一些東西傷害了別人.";
+	next;
+	mes "[佩託]";
+	mes "......";
+	next;
+	mes "[艾倫]";
+	mes "最糟糕的是,我覺得我只是害怕,知道和了解了一些事情的本身.";
+	next;
+	mes "[艾倫]";
+	mes "但是這和你不一樣.如果你真想表達對那個女孩的感激之情,你應該去找她.而你沒有這麼做,不是嗎?";
+	next;
+	mes "[佩託]";
+	mes "...艾倫,你怎麼了?你不是我認識的艾倫,是什麼讓你這樣了?";
+	next;
+	mes "[艾倫]";
+	mes "沒事,有些事毫無意義!現實就是這樣,很高興和你聊天.從此以後,再見.像活在過去生活中的你.";
+	next;
+	mes "[佩託]";
+	mes "......艾倫.你...";
+	next;
+	mes "-艾倫一臉陰沉的離開房間.-";
+	next;
+	mes "[佩託]";
+	mes "......";
+	completequest 10019;
+	set .@er1,checkquest(10018);
+	set .@er2,checkquest(10019);
+	set .@er3,checkquest(10020);
+	set .@er4,checkquest(10021);
+	set .@er5,checkquest(10022);
+	if ((.@er1 + .@er2 + .@er3 + .@er4 + .@er5) == 10) {
+		setquest 10023;
+		set nkprince_eisen,11;
+	}
+	donpcevent "王子#eisen5::OnDisable";
+	close;
+
+OnInit:
+	disablenpc "王子#eisen5";
+	end;
+
+OnEnable:
+	enablenpc "王子#eisen5";
+	end;
+
+OnDisable:
+	disablenpc "王子#eisen5";
+	end;
+}
+
+prt_castle,368,310,1	script	王子#eisen6	4_M_1STPRIN1,{
+	mes "[阿勒姆]";
+	mes "兄弟,再說一次.你說什麼?";
+	next;
+	mes "[艾倫]";
+	mes "沒問題.讓我告訴你.盧恩·米德加茲是垃圾.你和我的鬥爭只是在倒垃圾.我們都一樣,即使垃圾不能被回收.";
+	next;
+	mes "[阿勒姆]";
+	mes "兄弟,你怎麼了?你瘋了嗎?";
+	next;
+	mes "[艾倫]";
+	mes "瘋了?我完全清醒的...我只是厭倦了這可憎的現實,我可愛的弟弟.";
+	next;
+	mes "[阿勒姆]";
+	mes "現實?什麼現實?你察覺到什麼了?你這樣我完全沒辦法幫你!";
+	next;
+	mes "[艾倫]";
+	mes "我一直是這樣,阿勒姆.只是,現實是骯髒的,而我意識到的時候,我已經被困在垃圾裡出不去了.";
+	next;
+	mes "[阿勒姆]";
+	mes "騙子!你總是告訴我,你要載入史冊!你總是表現得驕傲!";
+	next;
+	mes "[艾倫]";
+	mes "閉嘴.";
+	next;
+	mes "[阿勒姆]";
+	mes "就算它是骯髒的,我們就應該改正它.我們已經知道了這樣的情況,可你為什麼要這樣!!!";
+	next;
+	mes "[艾倫]";
+	mes "...我告訴你,不要出聲!";
+	next;
+	mes "[阿勒姆]";
+	mes "不,腐敗是雙方的意願,你把我帶到這裡.因為你的存在,我才可以依賴你!";
+	next;
+	mes "[艾倫]";
+	mes "閉嘴,閉嘴!!!!!!!!!!!!";
+	next;
+	mes "[阿勒姆]";
+	mes "......!";
+	next;
+	mes "[艾倫]";
+	mes "毫無意義的行為不會被用戶!被操控的汙垢是可憎的.我不知道.但我可以感覺到,我是被操縱的!";
+	next;
+	mes "[艾倫]";
+	mes "國王?!那算什麼?!那算不了什麼!即使我們創造一個全新的世界也不能改變什麼!!我們只是生活的玩偶.某些人的意圖,只是傀儡!!明白嗎?!";
+	next;
+	mes "[阿勒姆]";
+	mes "你在說什麼?我完全不懂!你是說你現在無法控制現狀?對嗎?你在說什麼鬼話!";
+	next;
+	mes "[艾倫]";
+	mes "閉嘴!你不知道什麼時候你會被殺死.你沒有依賴過我...啊...!你需要明白這件事!";
+	next;
+	mes "[阿勒姆]";
+	mes "兄...兄弟,你會堅持的對嗎?我們的友情這麼短暫嗎?";
+	next;
+	mes "[艾倫]";
+	mes "閉嘴.如果你不滿意,你就殺了我!你...我...!!我不想談這個了,我要回我的房間了.";
+	next;
+	mes "[阿勒姆]";
+	mes "我們一直是兄弟!艾倫!";
+	next;
+	mes "[艾倫]";
+	mes "我... 不知道! 國王... 你!";
+	next;
+	mes "-艾倫滿臉通紅地離開了房間.";
+	mes "他看起來非常疲憊.-";
+	next;
+	mes "[阿勒姆]";
+	mes "艾倫,艾倫...";
+	changequest 10023,10024;
+	set nkprince_eisen,13;
+	donpcevent "王子#eisen6::OnDisable";
+	close;
+
+OnInit:
+	disablenpc "王子#eisen6";
+	end;
+
+OnEnable:
+	enablenpc "王子#eisen6";
+	end;
+
+OnDisable:
+	disablenpc "王子#eisen6";
+	end;
+}
+
+prt_castle,318,276,0	script	#eisen	WARPNPC,1,1,{
+OnTouch:
+	if ((nkprince_eisen == 4) || (nkprince_eisen == 5)) {
+		donpcevent "王子#another_ern::OnEnable";
+		set nkprince_eisen,5;
+		warp "prt_castle",318,368;
+	}
+	else if ((nkprince_eisen == 9) || (nkprince_eisen == 10) || (nkprince_eisen == 11) || (nkprince_eisen == 12)) {
+		set .@armkoe,rand(1,4);
+		if (.@armkoe == 1) {
+			mes "-你聽到了艾倫走進他房間的聲音.";
+			mes "聲音從房間裡傳過來.-";
+			next;
+			mes "[艾倫]";
+			mes "我沒有資格.我成長在一個這樣骯髒的地方.我是如此的無知!";
+			next;
+			mes "[艾倫]";
+			mes "什麼是一個國王的能力?什麼是乾淨的政治...?啊啊啊啊啊啊啊啊啊!!!";
+			next;
+			mes "[" + strcharinfo(0) + "]";
+			mes "......";
+			close2;
+		}
+		else if (.@armkoe == 2) {
+			mes "-你聽到了艾倫走進他房間的聲音.";
+			mes "聲音從房間裡傳過來.-";
+			next;
+			mes "[艾倫]";
+			mes "驕傲的家族?...名聲...";
+			mes "出生?... 皇家貴族? ...這些到底關我什麼事?";
+			next;
+			mes "[艾倫]";
+			mes "我的兄弟阿勒姆,我是我的家人.這是罪.我是罪的一部分.作為家族的一部分.家族的罪,等於是我的罪.";
+			next;
+			mes "[艾倫]";
+			mes "我不能... 再隱瞞了... 阿勒姆... 我希望你可以...";
+			next;
+			mes "[" + strcharinfo(0) + "]";
+			mes "......";
+			close2;
+		}
+		else if (.@armkoe == 3) {
+			mes "-你聽到了艾倫走進他房間的聲音.";
+			mes "聲音從房間裡傳過來.-";
+			next;
+			mes "[艾倫]";
+			mes "最後,我只是被操縱的...充分利用了我的努力,成為契機.這只是整件事的一部分...";
+			next;
+			mes "[艾倫]";
+			mes "該死! 該死...!!";
+			mes "我不接受.絕不,絕不!";
+			next;
+			mes "[艾倫]";
+			mes "My ancestor ^FF0000Schmidt^000000... What shall you do with this situation? No...were you just used like me... by others?";
+			next;
+			mes "[" + strcharinfo(0) + "]";
+			mes "......";
+			close2;
+		}
+		else if (.@armkoe == 4) {
+			mes "-你聽到了艾倫走進他房間的聲音.";
+			mes "聲音從房間裡傳過來.-";
+			next;
+			mes "[艾倫]";
+			mes "這是不對的.不,在這個時候我會成為國王.我不應該成為國王..阿勒姆..你不要忘記真正的國王.";
+			next;
+			mes "[艾倫]";
+			mes "真正國王的樣子... 我打算今天晚上.... 趁著黑暗見你. ...啊啊啊啊啊!!!";
+			next;
+			mes "[" + strcharinfo(0) + "]";
+			mes "......";
+			close2;
+		}
+		warp "prt_castle",318,368;
+	}
+	else if (nkprince_eisen == 13) {
+		donpcevent "王子#another_ern::OnEnable";
+		warp "prt_castle",318,368;
+	}
+	else if (nkprince_eisen == 15) {
+		warp "prt_castle",318,309;
+	}
+	else {
+		warp "prt_castle",318,368;
+	}
+	end;
+}
+
+prt_castle,336,276,0	script	#ern	WARPNPC,1,1,{
+OnTouch:
+	if (checkquest(10023) == 0 || checkquest(10023) == 1) {
+		donpcevent "王子#eisen6::OnEnable";
+	}
+	warp "prt_castle",368,308;
+	end;
+}
+
+prt_castle,300,276,0	script	#erich	WARPNPC,1,1,{
+OnTouch:
+	if (checkquest(10020) == 0 || checkquest(10020) == 1) {
+		donpcevent "王子#eisen1::OnEnable";
+	}
+	warp "prt_castle",274,368;
+	end;
+}
+
+prt_castle,330,271,0	script	#helmut	WARPNPC,1,1,{
+OnTouch:
+	if (checkquest(10022) == 0 || checkquest(10022) == 1) {
+		donpcevent "王子#eisen3::OnEnable";
+	}
+	warp "prt_castle",290,208;
+	end;
+}
+
+prt_castle,348,271,0	script	#poe	WARPNPC,1,1,{
+OnTouch:
+	if (checkquest(10018) == 0 || checkquest(10018) == 1) {
+		donpcevent "王子#eisen4::OnEnable";
+	}
+	warp "prt_castle",390,208;
+	end;
+}
+
+prt_castle,354,276,0	script	#peter	WARPNPC,1,1,{
+OnTouch:
+	if (checkquest(10019) == 0 || checkquest(10019) == 1) {
+		donpcevent "王子#eisen5::OnEnable";
+	}
+	warp "prt_castle",366,368;
+	end;
+}
+
+prt_castle,310,271,0	script	#urgen	WARPNPC,1,1,{
+OnTouch:
+	if (checkquest(10021) == 0 || checkquest(10021) == 1) {
+		donpcevent "王子#eisen2::OnEnable";
+	}
+	warp "prt_castle",340,208;
+	end;
+}
+
+prt_castle,317,364,0	warp	#eisen2	1,1,prt_castle,318,273
+prt_castle,317,304,0	warp	eisen22	1,1,prt_castle,318,273
+prt_castle,367,304,0	warp	#ern2	1,1,prt_castle,336,273
+prt_castle,273,364,0	warp	#erich2	1,1,prt_castle,300,273
+prt_castle,289,213,0	warp	#helmut2	1,1,prt_castle,330,274
+prt_castle,389,213,0	warp	#poe2	1,1,prt_castle,348,274
+prt_castle,365,364,0	warp	#peter2	1,1,prt_castle,354,273
+prt_castle,340,213,0	warp	#urgen2	1,1,prt_castle,310,274
+prt_castle,163,312,0	warp	#class2	1,1,prt_castle,221,343
+prt_castle,221,347,0	warp	#class	1,1,prt_castle,163,316
+prt_castle,225,338,0	warp	#room11	1,1,prt_castle,275,283
+prt_castle,273,284,0	warp	#room21	1,1,prt_castle,221,338
+prt_castle,225,318,0	warp	#room12	1,1,prt_castle,276,263
+prt_castle,273,264,0	warp	#room22	1,1,prt_castle,221,318
+prt_castle,221,308,0	warp	#princeout	1,1,prt_castle,176,167
+
+prt_castle,176,170,5	script	守衛士兵#princein	8W_SOLDIER,{
+	if (nk_prince > 4) {
+		mes "[站在奇怪地方的士兵]";
+		mes "你可以通過隱藏的門到候選人的房間.出於安全原因,它能完全的隱藏和保護你";
+		next;
+		mes "[站在奇怪地方的士兵]";
+		mes "讓我為你打開門.";
+		close2;
+		warp "prt_castle",220,312;
+		end;
+	}
+	else {
+		mes "[站在奇怪地方的士兵]";
+		mes "我只是來這裡休息的,有事你可以問別人.";
+		close;
+	}
+}
+
+prt_castle,121,168,0	script	#arm	HIDDEN_NPC,4,4,{
+//OnTouch2:
+OnTouch:
+	if (nk_prince == 8) {
+		mes "[" + strcharinfo(0) + "]";
+		mes "..............";
+		next;
+		mes "[" + strcharinfo(0) + "]";
+		mes "牛奶都灑出來了.";
+		mes "Just forget about it.";
+		next;
+		mes "[" + strcharinfo(0) + "]";
+		mes "誰要代替他成為國王嗎?";
+		next;
+		set nk_prince,9;
+		mes "[" + strcharinfo(0) + "]";
+		mes "噢不...";
+		close;
+	}
+}
+
+prt_castle,316,313,0	script	#arm1	HIDDEN_NPC,3,3,{
+//OnTouch2:
+OnTouch:
+	if (nkprince_eisen > 14) {
+		mes "[" + strcharinfo(0) + "]";
+		mes "..............";
+		next;
+		mes "[" + strcharinfo(0) + "]";
+		mes "他是否有什麼想法,或者在房間裡決定怎麼成為國王?";
+		next;
+		mes "[" + strcharinfo(0) + "]";
+		mes "什麼情況...";
+		mes "把他置於一個無法彌補的地步?";
+		next;
+		mes "[" + strcharinfo(0) + "]";
+		mes "我不能再問他了,而且沒有線索就離開了.只剩下的是...";
+		next;
+		mes "[艾倫]";
+		mes "~~如果你不說出這件事,我的死就毫無意義...你聽懂了嗎?~~";
+		next;
+		mes "[" + strcharinfo(0) + "]";
+		mes "..............";
+		next;
+		mes "[" + strcharinfo(0) + "]";
+		mes "...他沉默著.";
+		mes "帶著負擔離開... 結束了一生.";
+		next;
+		mes "[" + strcharinfo(0) + "]";
+		mes "...安息吧.";
+		close;
+	}
+	end;
+}

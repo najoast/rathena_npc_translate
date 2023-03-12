@@ -1,0 +1,113 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+
+//===== Hercules Script ======================================
+//= Catalog Magician
+//===== By: ==================================================
+//= skyiing, Scriptor
+//===== Current Version: =====================================
+//= 1.1
+//===== Description: =========================================
+//= [Official Conversion]
+//= Catalogs allow players to easily search for items in-game,
+//= and to buy/sell directly from the catalog interface.
+//===== Additional Comments: =================================
+//= 1.0 Moved from root directory. [Euphy]
+//= 1.1 Updated dialogue. [Euphy]
+//============================================================
+
+moc_para01,22,16,5	script	檢索達人#catal01	4_M_BIBI,{
+	if (!checkweight(1301,3)) {
+		mes "- 你身上的物品太多了，騰點空位後再來找我吧。 -";
+		close;
+	}
+	set .@ticket_cost, 200;
+	mes "[檢索達人]";
+	mes "聽著...";
+	mes "走過路過別錯過咯!";
+	mes "由吉芬魔法學會直接供應的新產品：";
+	mes "^007777露天商店檢索卡(銀)^000000!";
+	next;
+	mes "他看寫在手心的文字，";
+	mes "頭也不抬，";
+	mes "好像很忙的樣子...";
+	mes "......";
+	next;
+	mes "[檢索達人]";
+	mes "一個全新的產品，";
+	mes "才剛剛出來!";
+	mes "可以幫助你快速找出，";
+	mes "市場流通哪些商品，";
+	mes "露天商店出售些什麼商品，";
+	mes "這是最受露天商店歡迎的東西了。";
+	next;
+	mes "[檢索達人]";
+	mes "^007777露天商店檢索卡(銀)^000000~";
+	mes "每張成本為 200z !";
+	mes "你一次最多可以購買50張喲。";
+	mes "你想要嗎!";
+	next;
+	switch(select("購買 ^007777露天商店檢索卡(銀)^000000:我並不需要!:你看起來好像不商人的樣子...")) {
+	case 1:
+		mes "[檢索達人]";
+		mes "你... 想要 50 張嗎?";
+		mes "還是你想要多少?";
+		next;
+		while (1) {
+			input .@input;
+			mes "[檢索達人]";
+			if (.@input == 0) {
+				mes "你不想買噢!";
+				mes "接下來不知如何是好...";
+				mes "我應該怎麼辦呢?";
+				emotion ET_PROFUSELY_SWEAT,1;
+				close;
+			} else if (.@input < 1 || .@input > 50) {
+				mes "新產品一次最多只能購買50張~.";
+				next;
+			} else
+				break;
+		}
+		set .@sell, .@ticket_cost * .@input;
+		mes "謝謝您!!";
+		mes "您購買的張數與費用為：";
+		mes .@input + " 張和 " + .@sell + " z.";
+		if (Zeny < .@sell) {
+			mes "我看你好像沒有足夠的金錢可以購買哦。";
+			mes "如果你真的想要...";
+			mes "可以賣掉你的裝備來湊錢。";
+			close;
+		}
+		mes "給您，請收好.";
+		set Zeny, Zeny - .@sell;
+		getitem 12580,.@input; //Vending_Search_Scroll
+		close;
+	case 2:
+		mes "[檢索達人]";
+		mes "阿...";
+		mes "你真的不想買嗎?";
+		mes "需要重新給你解說一下嗎？";
+		mes "接下來不知如何是好...";
+		mes "我該怎麼辦呢？";
+		emotion ET_PROFUSELY_SWEAT,1;
+		close;
+	case 3:
+		mes "[檢索達人]";
+		mes "我本職是一位魔法師，";
+		mes "本來要委託商人公會出售~";
+		mes "但是他們總是想和掃把搭配販賣，";
+		mes "所以我只能親自來賣咯。";
+		mes "交個朋友吧!!";
+		mes "相信這產品絕對不會讓你失望.";
+		next;
+		mes "[檢索達人]";
+		mes "這裡是冒險家們來往頻繁的地方，";
+		mes "相信這東西肯定會在這裡大賣吧？";
+		mes "我敢肯定，可以賣給他們,";
+		mes "能否請你多買幾個呢...";
+		mes "求求你了...!";
+		close;
+	}
+}

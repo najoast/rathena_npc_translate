@@ -1,0 +1,172 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+//===== rAthena Script =======================================
+//= Lighthalzen Guides
+//===== By: ================================================== 
+//= L0ne_W0lf
+//===== Current Version: ===================================== 
+//= 1.1
+//===== Compatible With: ===================================== 
+//= rAthena SVN
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Guides for the city of Lighthalzen.
+//===== Additional Comments: ================================= 
+//= 1.0 First version, Renewal guide.
+//= 1.1 Optimized. [Euphy]
+//============================================================ 
+
+lighthalzen,207,310,5	script	裡希塔樂鎮導遊#lhz01::GuideLighthazlen	852,{
+	cutin "ein_soldier",2;
+	mes "[裡希塔樂鎮導遊]";
+	mes "歡迎光臨 企業之都^8B4513裡希塔樂鎮^000000,";
+	mes "我們為了造訪裡希塔樂鎮的各位旅行家們提供導遊服務,";
+	mes "歡迎隨時洽詢我們的導遊";
+	next;
+	mes "[裡希塔樂鎮導遊]";
+	mes "我負責裡希塔樂鎮^8B4513左側地區^000000的介紹,";
+	mes "請選擇您想了解的選項吧!";
+	next;
+	while (1) {
+		switch(select("[ 主要設施 ]:[ 商店 & 小幫手 ]:刪除小地圖的標記:結束對話")) {
+		case 1:
+			set .@loop,1;
+			while (.@loop) {
+				switch(select("[ 酒店 ]:[ 銀行 ]:[ 機場 ]:[ 武器店 ]:[ 百貨公司 ]:[ 警察局 ]:[ 珠寶店 ]:[ 準它企劃公司 ]:[ 人工生命體實驗室 ]:[ 鍊金術師協會 ]:返回上一選單")) {
+				case 1:
+					callsub L_Mark,"^FF0000酒店";
+					viewpoint 1,160,217,0,0xFF0000;
+					next;
+					break;
+				case 2:
+					callsub L_Mark,"^FF4500銀行";
+					viewpoint 1,203,257,1,0xFF4500;
+					next;
+					break;
+				case 3:
+					callsub L_Mark,"^DAA520機場";
+					viewpoint 1,262,75,2,0xDAA520;
+					next;
+					break;
+				case 4:
+					callsub L_Mark,"^7B68EE武器店";
+					viewpoint 1,194,35,3,0x7B68EE;
+					next;
+					break;
+				case 5:
+					callsub L_Mark,"^B91A4D百貨公司";
+					viewpoint 1,202,106,4,0xB91A4D;
+					next;
+					break;
+				case 6:
+					callsub L_Mark,"^008000警察局";
+					viewpoint 1,234,276,5,0x008000;
+					next;
+					break;
+				case 7:
+					callsub L_Mark,"^0000FF珠寶店";
+					viewpoint 1,96,110,6,0x0000FF;
+					next;
+					break;
+				case 8:
+					callsub L_Mark,"^000080準它企劃公司";
+					viewpoint 1,238,217,7,0x000080;
+					next;
+					break;
+				case 9:
+					callsub L_Mark,"^800080人工生命體實驗室";
+					viewpoint 1,101,243,8,0x800080;
+					next;
+					break;
+				case 10:
+					callsub L_Mark,"^0A9696鍊金術師協會";
+					viewpoint 1,54,132,9,0x0A9696;
+					next;
+					break;
+				case 11:
+					set .@loop,0;
+					break;
+				}
+			}
+			break;
+		case 2:
+			set .@loop,1;
+			while (.@loop) {
+				switch(select("[ 精鍊師 ]:[ 世亞布連 ]:[ 認養寵物商人 ]:[ 卡普拉職員 ]:[ 準它企劃公司職員 ]:返回上一選單")) {
+				case 1:
+					callsub L_Mark,"^0A9696精鍊師";
+					viewpoint 1,194,35,10,0x0A9696;
+					next;
+					break;
+				case 2:
+					callsub L_Mark,"^4B0082世亞布連";
+					viewpoint 1,194,35,11,0x4B0082;
+					next;
+					break;
+				case 3:
+					callsub L_Mark,"^FF4500認養寵物商人";
+					viewpoint 1,222,191,12,0xFF4500;
+					next;
+					break;
+				case 4:
+					callsub L_Mark,"^008080卡普拉職員";
+					viewpoint 1,164,99,13,0x008080;
+					viewpoint 1,164,99,14,0x008080;
+					next;
+					break;
+				case 5:
+					callsub L_Mark,"^FF1493準它企劃公司職員";
+					viewpoint 1,94,247,15,0xFF1493;
+					next;
+					break;
+				case 6:
+					set .@loop,0;
+					break;
+				}
+			}
+			break;
+		case 3:
+			mes "[裡希塔樂鎮導遊]";
+			mes "標記已刪除,";
+			mes "還需要其它服務嗎?";
+			viewpoint 2,160,217,0,0xFFFFFF;
+			viewpoint 2,203,257,1,0xFFFFFF;
+			viewpoint 2,262,75,2,0xFFFFFF;
+			viewpoint 2,194,35,3,0xFFFFFF;
+			viewpoint 2,202,106,4,0xFFFFFF;
+			viewpoint 2,234,276,5,0xFFFFFF;
+			viewpoint 2,96,110,6,0xFFFFFF;
+			viewpoint 2,238,217,7,0xFFFFFF;
+			viewpoint 2,101,243,8,0xFFFFFF;
+			viewpoint 2,54,132,9,0xFFFFFF;
+			viewpoint 2,194,35,10,0xFFFFFF;
+			viewpoint 2,194,35,11,0xFFFFFF;
+			viewpoint 2,222,191,12,0xFFFFFF;
+			viewpoint 2,164,99,13,0xFFFFFF;
+			viewpoint 2,164,99,14,0xFFFFFF;
+			viewpoint 2,94,247,15,0xFFFFFF;
+			next;
+			break;
+		case 4:
+			mes "[裡希塔樂鎮導遊]";
+			mes "祝你旅途愉快!";
+			close2;
+			cutin "ein_soldier",255;
+			end;
+		}
+	}
+	end;
+L_Mark:
+	mes "[裡希塔樂鎮導遊]";
+	mes "讓我在你的小地圖上標記一下";
+	mes getarg(0)+"^000000";
+	mes "的位置.";
+	mes "你還需要確認其他建築物的位置嗎?";
+	return;
+}
+
+lighthalzen,220,310,3	duplicate(GuideLighthazlen)	裡希塔樂鎮導遊#lhz02	852
+lighthalzen,154,100,5	duplicate(GuideLighthazlen)	裡希塔樂鎮導遊#lhz03	852
+lighthalzen,307,224,3	duplicate(GuideLighthazlen)	裡希塔樂鎮導遊#lhz04	852

@@ -1,0 +1,393 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+
+//===== rAthena Script =======================================
+//= Novice Goods Exchanger
+//===== By: ==================================================
+//= ???, rAthena Team
+//===== Current Version: =====================================
+//= 1.4
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= [Official Conversion]
+//= Exchanges your Basic Monster drops for Red Potions.
+//===== Additional Comments: =================================
+//= 1.2 Rescripted to Aegis 10.standards. [L0ne_W0lf[
+//=     Made it easier to add new items to exhange list
+//=     meaning only the exchange is done in a function now.
+//= 1.3 Fixed dialog mix-up in function. [L0ne_W0lf]
+//= 1.4 Added checkweight, and input min/max values. [L0ne_W0lf]
+//============================================================
+
+prontera,123,102,5	script	初學者導師#pron	85,{
+	if (MaxWeight - Weight < 6301 || checkweight(1201,1) == 0) {
+		mes "[初學者導師]";
+		mes "哈哈!";
+		mes "你是超人嗎?";
+		mes "你帶了太多東西了!";
+		mes "你最好把一些東西放到卡普拉倉庫~";
+		close;
+	}
+	mes "[初學者導師]";
+	mes "你好!";
+	mes "你有沒有收集一些像比如堅硬外";
+	mes "殼或是絨毛之類的東西?";
+	mes "傑勒比結晶呢? 是這樣, 我現在";
+	mes "很需要那些東西.";
+	next;
+	mes "[初學者導師]";
+	mes "當然, 我不會免費要你的那些東";
+	mes "西的. 用一瓶紅色藥水換5 個堅硬外殼, 或10 塊絨毛, 或是10 ";
+	mes "塊傑勒比結晶怎麼樣?";
+	next;
+	switch(select("好啊!:我想這是敲詐!:不, 謝謝.")) {
+	case 1:
+		mes "[初學者導師]";
+		mes "看看你的成果";
+		mes "你給我帶來了什麼?";
+		mes "堅硬外殼, 絨毛, 還是傑勒比結晶?";
+		next;
+		switch(select("堅硬外殼:傑勒比結晶:絨毛:取消")) {
+		case 1: callfunc "F_PotExchange",935,5;
+		case 2: callfunc "F_PotExchange",909,10;
+		case 3: callfunc "F_PotExchange",914,10;
+		case 4:
+			mes "[初學者導師]";
+			mes "好吧~";
+			mes "沒事.";
+			close;
+		}
+	case 2:
+		mes "[初學者導師]";
+		mes "敲詐...?";
+		mes "如果你看過這些東西的市場價的";
+		mes "話, 我才算被敲詐, 好不好!";
+		mes "快給我滾.";
+		close;
+	case 3:
+		mes "[初學者導師]";
+		mes "好吧, 沒事.";
+		mes "如果你改變主意的話, 就來找我.";
+		mes "我會一直在這裡.";
+		mes "再見.";
+		close;
+	}
+}
+
+morocc,180,259,3	script	初學者導師#morroc	85,{
+	if (MaxWeight - Weight < 6301 || checkweight(1201,1) == 0) {
+		mes "[初學者導師]";
+		mes "哈哈!";
+		mes "你是超人嗎?";
+		mes "你帶了太多東西了!";
+		mes "你最好把一些東西放到卡普拉倉庫~";
+		close;
+	}
+	mes "[初學者導師]";
+	mes "你好!";
+	mes "你有沒有收集一些像比如堅硬外";
+	mes "殼或是羽毛之類的東西?";
+	mes "傑勒比結晶呢? 是這樣, 我現在";
+	mes "很需要那些東西.";
+	next;
+	mes "[初學者導師]";
+	mes "當然, 我不會免費要你的那些東";
+	mes "西的. 用一瓶紅色藥水換5 個堅硬外殼殼, 或7 根羽毛, 或是10";
+	mes "塊傑勒比結晶怎麼樣?";
+	next;
+	switch(select("好啊!:我想這是敲詐!:不, 謝謝.")) {
+	case 1:
+		mes "[初學者導師]";
+		mes "看看你的成果.";
+		mes "你給我帶來了什麼?";
+		mes "外殼, 羽毛, 還是傑勒比結晶?";
+		mes "是哪個?";
+		next;
+		switch(select("外殼:羽毛:傑勒比結晶:取消")) {
+		case 1: callfunc "F_PotExchange",935,5;
+		case 2: callfunc "F_PotExchange",916,7;
+		case 3: callfunc "F_PotExchange",909,10;
+		case 4:
+			mes "[初學者導師]";
+			mes "好吧~";
+			mes "沒事.";
+			close;
+		}
+	case 2:
+		mes "[初學者導師]";
+		mes "敲詐...?";
+		mes "如果你看過這些東西的市場價的";
+		mes "話, 我才算被敲詐, 好不好!";
+		mes "快給我滾.";
+		close;
+	case 3:
+		mes "[初學者導師]";
+		mes "好吧, 沒事.";
+		mes "如果你改變主意的話, 就來找我.";
+		mes "我會一直在這裡.";
+		mes "再見.";
+		close;
+	}
+}
+
+payon,200,134,5	script	初學者導師#pay	85,{
+	if (MaxWeight - Weight < 6301 || checkweight(1201,1) == 0) {
+		mes "[初學者導師]";
+		mes "哈哈!";
+		mes "你是超人嗎?";
+		mes "你帶了太多東西了!";
+		mes "你最好把一些東西放到卡普拉倉庫~";
+		close;
+	}
+	mes "[初學者導師]";
+	mes "你好!";
+	mes "你有沒有收集一些像比如樹根之";
+	mes "類的東西?";
+	mes "傑勒比結晶呢? 是這樣, 我現在";
+	mes "很需要那些東西.";
+	next;
+	mes "[初學者導師]";
+	mes "當然, 我不會免費要你的那些物";
+	mes "品的. 用一瓶紅色藥水換6 顆樹根, 或10 塊傑勒比結晶怎麼樣?";
+	next;
+	switch(select("好啊!:我想這是敲詐!:不, 謝謝.")) {
+	case 1:
+		mes "[初學者導師]";
+		mes "那麼你給我帶來了什麼.";
+		mes "樹根, 還是傑勒比結晶?";
+		mes "或者有什麼驚喜?";
+		next;
+		switch(select("樹根:傑勒比結晶:取消")) {
+		case 1: callfunc "F_PotExchange",902,6;
+		case 2: callfunc "F_PotExchange",909,10;
+		case 3:
+			mes "[初學者導師]";
+			mes "好吧~";
+			mes "沒事.";
+			close;
+		}
+	case 2:
+		mes "[初學者導師]";
+		mes "敲詐...?";
+		mes "如果你看過這些東西的市場價的";
+		mes "話, 我才算被敲詐, 好不好!";
+		mes "快給我滾.";
+		close;
+	case 3:
+		mes "[初學者導師]";
+		mes "好吧, 沒事.";
+		mes "如果你改變主意的話, 就來找我.";
+		mes "我會一直在這裡.";
+		mes "再見.";
+		close;
+	}
+}
+
+aldebaran,152,63,5	script	初學者導師#alde	85,{
+	if (MaxWeight - Weight < 6301 || checkweight(1201,1) == 0) {
+		mes "[初學者導師]";
+		mes "哈哈!";
+		mes "你是超人嗎?";
+		mes "你帶了太多東西了!";
+		mes "你最好把一些東西放到卡普拉倉庫~";
+		mes "再見~";
+		close;
+	}
+	mes "[初學者導師]";
+	mes "你好!";
+	mes "你有沒有收集一些像比如昆蟲外";
+	mes "殼或是羽毛之類的東西?";
+	mes "傑勒比結晶呢? 是這樣, 我現在";
+	mes "很需要那些東西.";
+	next;
+	mes "[初學者導師]";
+	mes "當然, 我不會免費要你的那些物";
+	mes "品的. 用一瓶紅色藥水換1 個昆蟲外殼, 或7 根羽毛, 或是10塊傑勒比結晶怎麼樣?";
+	next;
+	switch(select("好啊!:我想這是敲詐!:不, 謝謝.")) {
+	case 1:
+		mes "[初學者導師]";
+		mes "那麼你給我帶來了什麼?";
+		mes "羽毛?";
+		mes "昆蟲外殼?";
+		mes "或是傑勒比結晶?";
+		mes "或是其它什麼東西?";
+		next;
+		switch(select("昆蟲外殼:羽毛:傑勒比結晶:取消")) {
+		case 1: callfunc "F_PotExchange",955,1;
+		case 2: callfunc "F_PotExchange",916,7;
+		case 3: callfunc "F_PotExchange",909,10;
+		case 4:
+			mes "[初學者導師]";
+			mes "好吧~";
+			mes "沒事.";
+			close;
+		}
+	case 2:
+		mes "[初學者導師]";
+		mes "敲詐...?";
+		mes "如果你看過這些東西的市場價的";
+		mes "話, 我才算被敲詐, 好不好!";
+		mes "快給我滾.";
+		close;
+	case 3:
+		mes "[初學者導師]";
+		mes "好吧, 沒事.";
+		mes "如果你改變主意的話, 就來找我.";
+		mes "我會一直在這裡.";
+		mes "再見.";
+		close;
+	}
+}
+
+geffen,173,88,5	script	初學者導師#geff	85,{
+	if (MaxWeight - Weight < 6301 || checkweight(1201,1) == 0) {
+		mes "[初學者導師]";
+		mes "哈哈!";
+		mes "你是超人嗎?";
+		mes "你帶了太多東西了!";
+		mes "你最好把一些東西放到卡普拉倉庫~";
+		close;
+	}
+	mes "[初學者導師]";
+	mes "你好!";
+	mes "你有沒有收集一些像比如外殼或";
+	mes "是蟲繭之類的東西?";
+	mes "傑勒比結晶呢? 是這樣, 我現在";
+	mes "很需要那些東西.";
+	next;
+	mes "[初學者導師]";
+	mes "當然, 我不會免費要你的那些物";
+	mes "品的. 用一瓶紅色藥水換5 個外殼, 或6 塊蟲繭, 或是10 塊傑勒比結晶怎麼樣?";
+	next;
+	switch(select("好啊!:我想這是敲詐!:不, 謝謝.")) {
+	case 1:
+		mes "[初學者導師]";
+		mes "那麼你給我帶來了什麼?";
+		mes "外殼, 蟲繭, 還是傑勒比結晶?";
+		mes "或是其它什麼東西?";
+		next;
+		switch(select("外殼:蟲繭:傑勒比結晶:取消")) {
+		case 1: callfunc "F_PotExchange",935,5;
+		case 2: callfunc "F_PotExchange",915,6;
+		case 3: callfunc "F_PotExchange",909,10;
+		case 4:
+			mes "[初學者導師]";
+			mes "好吧~";
+			mes "沒事.";
+			close;
+		}
+	case 2:
+		mes "[初學者導師]";
+		mes "敲詐...?";
+		mes "如果你看過這些東西的市場價的";
+		mes "話, 我才算被敲詐, 好不好!";
+		mes "快給我滾.";
+		close;
+	case 3:
+		mes "[初學者導師]";
+		mes "好吧, 沒事.";
+		mes "如果你改變主意的話, 就來找我.";
+		mes "我會一直在這裡.";
+		mes "再見.";
+		close;
+	}
+}
+
+function	script	F_PotExchange	{
+	.@item_req = getarg(0);
+	.@req_amount = getarg(1);
+
+	if (countitem(.@item_req) < .@req_amount) {
+		mes "[初學者導師]";
+		mes "嘿, 小子.";
+		mes "所有這些 "+ getitemname(.@item_req) +"";
+		mes "是你答應要給我的";
+		mes "給我 "+ getitemname(.@item_req) +"啊!";
+		close;
+	}
+	else {
+		mes "[初學者導師]";
+		mes "好吧, 讓我看看你有多少";
+		mes "how many "+ getitemname(.@item_req) +" you";
+		mes "嗯嗯....";
+		next;
+		mes "[初學者導師]";
+		mes "你一共";
+		mes "總共有 "+ countitem(.@item_req) +" 的"+ getitemname(.@item_req) +".";
+		mes "我最多能給你";
+		mes "換 "+ (countitem(.@item_req)/.@req_amount) +" 瓶紅色藥水.";
+		next;
+		mes "[初學者導師]";
+		mes "怎麼樣?";
+		mes "要交易嗎?";
+		next;
+		if (select("交易.:不交易.") == 1) {
+			mes "[初學者導師]";
+			mes "現在你應該很明白";
+			mes "要換多少紅色藥水";
+			mes "你需要用";
+			mes "那些 "+ getitemname(.@item_req) +", 你明白嗎?";
+			next;
+			mes "[初學者導師]";
+			mes "那麼, 我一次可以跟你";
+			mes "交易 1~100";
+			mes "瓶的紅色藥水.";
+			mes "如果你改變主意了.";
+			mes "就輸入'0'來取消.";
+			next;
+			while(1) {
+				input .@input,0,101;
+				if (.@input == 0) {
+					mes "[初學者導師]";
+					mes "什麼...?";
+					mes "為什麼要如此費勁的跟我交談?";
+					mes "早點說, 不好麼?";
+					mes "唉, 真費勁!";
+					close;
+				}
+				else if (.@input > 100) {
+					mes "[初學者導師]";
+					mes "我不能一次給你超過100 瓶的紅";
+					mes "色藥水. 在試試吧.";
+					mes "最大的數字是";
+					mes "100.";
+					next;
+				}
+				else {
+					break;
+				}
+			}
+			.@put_out_item = .@input * .@req_amount;
+			if (countitem(.@item_req) < .@put_out_item) {
+				mes "[初學者導師]";
+				mes "呃, 你輸入的數字好像不正確. 你最好再檢查一下你能交易的紅色藥水的數量.";
+				close;
+			}
+			mes "[初學者導師]";
+			mes "給你!";
+			mes "檢查下我剛給你的紅色藥水吧, ";
+			mes "那可是非常棒的. 謝謝, 多棒的交易~";
+			delitem .@item_req,.@put_out_item; //Shell
+			getitem 501,.@input; //Red_Potion
+			close;
+		}
+		mes "[初學者導師]";
+		mes "啊~";
+		mes "好吧.";
+		mes "對於你這樣的冒險家來說, 紅色";
+		mes "藥水難道沒用嗎?";
+		mes "那你想喝啥?";
+		close;
+	}
+}
+
+//============================================================ 
+// Old changelog
+//============================================================ 
+//= 1.1 Made it as a function. U can add your own Merchs [Lupus]
+//= 1.1a Fixed item select [KarLaeda]
+//============================================================ 

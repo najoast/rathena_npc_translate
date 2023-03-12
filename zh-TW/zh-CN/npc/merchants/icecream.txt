@@ -1,0 +1,97 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+
+//===== rAthena Script =======================================
+//= Ice Cream Maker
+//===== By: ==================================================
+//= KOOK SWU, Kisuka
+//===== Current Version: =====================================
+//= 1.5
+//===== Compatible With: =====================================
+//= rAthena SVN
+//===== Description: =========================================
+//= A man makes you ice-cream
+//===== Additional Comments: =================================
+//= 1.1 Optimized, changed overlapping coords in Alberta [Lupus]
+//= 1.2 According to the patch, IceCream seller has been removed from Morocc [Lupus]
+//= 1.3 No more label menu and updated to match AEGIS script. [Kisuka]
+//= 1.4 Duplicates now spawn from floating NPCs. [L0ne_W0lf]
+//= 1.5 Fixed small checkweight issue. [Kisuka]
+//============================================================
+
+-	script	冰淇淋販賣員::IceCreamer	-1,{
+	mes "[冰淇淋販賣員]";
+	mes "由純淨的雪製作而成的新鮮冰淇淋啊！";
+	mes "現在享受它吧，限時銷售哦！";
+	mes "每個冰淇淋僅需^3355FF100 金幣^000000！";
+	next;
+	if(select("我要買冰淇淋:結束交易") == 2) {
+		mes "[冰淇淋販賣員]";
+		mes "你確定你不想要麼？";
+		mes "我不會賣很久的，";
+		mes "一旦我離開了，就再也沒有了！！！";
+		close;
+	}
+	mes "[冰淇淋販賣員]";
+	mes "由純淨的雪製作而成的新鮮冰淇淋啊！";
+	mes "每個人都想要我們那美味的冰淇淋，";
+	mes "但是總量有限，";
+	mes "所以你只能一次性最多買50個！！";
+	next;
+	//while(1) {
+		input .@input;
+		if(.@input < 1) {
+			mes "[冰淇淋販賣員]";
+			mes "如果你一個都不想買，";
+			mes "你能讓位給下一個顧客買麼？謝謝。";
+			close;
+		}
+		if(.@input > 50) {
+			mes "[冰淇淋販賣員]";
+			mes "哎喲，你期望過高了。";
+			mes "尊敬的客人，";
+			mes "如果你吃了超過50個冰淇淋，";
+			mes "你今晚會做個漫長的夢。";
+			close;
+		}
+	//}
+	if(Zeny<.@input*100) {
+		mes "[冰淇淋販賣員]";
+		mes "尊敬的顧客, 你的錢似乎不夠啊。";
+		mes "每個冰淇淋賣^3355FF100 金幣^000000。";
+		close;
+	}
+	if(checkweight(536,.@input) == 0) {
+		mes "[冰淇淋販賣員]";
+		mes "尊敬的顧客，你似乎已經拿了很多東西在身上。";
+		mes "冰淇淋很好吃，";
+		mes "但是你必須在購買前考慮到你的負重。";
+		close;
+	}
+	mes "[冰淇淋販賣員]";
+	mes "好勒，這是你的冰淇淋，請拿好。";
+	mes "請儘快食用，避免融化喲~";
+	set Zeny,Zeny-100*.@input;
+	getitem 536,.@input;	// Ice_Cream
+	close;
+}
+
+// Geffen
+geffen,103,56,5	duplicate(IceCreamer)	冰淇淋販賣員#1	85
+
+// Izlude
+izlude,127,168,5	duplicate(IceCreamer)	冰淇淋販賣員#2	85
+
+// Prontera
+prontera,110,97,5	duplicate(IceCreamer)	冰淇淋販賣員#3	85
+
+// Alberta
+alberta,120,45,2	duplicate(IceCreamer)	冰淇淋販賣員#4	85
+
+// Morroc Field
+moc_fild16,88,304,4	duplicate(IceCreamer)	冰淇淋販賣員#5	85
+
+// Morroc
+//morocc,160,144,4	duplicate(IceCreamer)	冰淇淋販賣員#6	85

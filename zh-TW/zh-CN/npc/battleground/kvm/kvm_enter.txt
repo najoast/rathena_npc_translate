@@ -1,0 +1,222 @@
+//============================================================
+//= rAthenaCN [戰場]漢化腳本 
+//============================================================
+
+//===== rAthena Script =======================================
+//= BattleGround System - KvM Entrance NPCs
+//===== By: ================================================== 
+//= L0ne_W0lf
+//===== Current Version: ===================================== 
+//= 1.1
+//===== Compatible With: ===================================== 
+//= rAthena 1.0
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Kreiger Von Midgard Battleground Entrance NPCs
+//= Original NPCs scrapped from bg_common.
+//===== Additional Comments: ================================= 
+//= 1.0 First Version.
+//= 1.1 Corrected some typos, and shifted messages around.
+//=     Corrected iRO style quest log entries, however it's
+//=     advisable that you not use them, as they conflict.
+//============================================================
+
+// KvM Officer - Guillaume
+//============================================================
+bat_room,164,178,5	script	5V5僱傭軍軍官#1	418,{
+	/*
+	set .@kvm,checkquest(6026,PLAYTIME);
+	if ((.@kvm == 0) || (.@kvm == 1)) {
+		mes "[5V5僱傭軍軍官]";
+		mes "我知道你已經在對面報了名。去加入他們的隊伍。我們不會接受叛國者為我們而戰。";
+		close;
+	}
+	else if (.@kvm == 2) erasequest 6026;
+	*/
+	set .@permit,checkquest(6025,PLAYTIME);
+	if ((.@permit == 0) || (.@permit == 1)) {
+		mes "[5V5僱傭軍軍官]";
+		mes "看來你最近參加了5V5的戰鬥。你必須等待5分鐘再籤約。";
+		close;
+	}
+	else if (.@permit == 2) erasequest 6025;
+	mes "[5V5僱傭軍軍官]";
+	mes "為馬洛爾的明天而戰！";
+	next;
+	switch(select("我會和你並肩作戰.:結束談話.")) {
+	case 1:
+		mes "[5V5僱傭軍軍官]";
+		mes "最後的勝利者絕對是我們！";
+		mes "今天，每個人都會聽到勝利女神在向我們招手！";
+		close2;
+		//setquest 6025;
+		if (BaseLevel > 79)  warp "bat_room",169,223;
+		else if (BaseLevel < 60) warp "bat_room",197,223;
+		else warp "bat_room",225,223;
+		close;
+	case 2:
+		mes "[5V5僱傭軍軍官]";
+		mes "我們會贏的！";
+		close;
+	}
+}
+
+// Guillaume Knight - KvM
+//============================================================
+bat_room,167,178,5	script	馬洛爾騎士#kvm	417,{
+	mes "[馬洛爾騎士]";
+	mes "您好。";
+	mes "你想知道什麼？";
+	next;
+	switch(select("申請5V5。:5V5是什麼？:我如何參與5V5？:我想知道我的KVM點數。")) {
+	case 1:
+		mes "[馬洛爾騎士]";
+		mes "你好。";
+		mes "申請5V5，你需要去5V5僱傭軍軍官。";
+		close;
+	case 2:
+		mes "[馬洛爾騎士]";
+		mes "5V5就是 5人組對抗5人組。";
+		mes "戰鬥結束後會獲得KVM點數 可以在KVM戰場後勤官那裡兌換物品";
+		next;
+		mes "[馬洛爾騎士]";
+		mes "我們已經提前一些軍事計劃。";
+		mes "派遣你參加5V5對抗就是其中之一。";
+		next;
+		mes "[馬洛爾騎士]";
+		mes "參加此戰役的人來自不同的國家，";
+		mes "擁有一支軍事素質過硬的隊伍 是勝利的關鍵";
+		next;
+		mes "[馬洛爾騎士]";
+		mes "因此，選擇最佳的冒險家，進行5V5對抗。";
+		mes "我們從許多冒險家中進行選拔。";
+		next;
+		mes "[馬洛爾騎士]";
+		mes "我們將給予獎勵！";
+		mes "作為回報，請聯繫KVM後勤軍官。";
+		close;
+	case 3:
+		mes "[馬洛爾騎士]";
+		mes "組隊好5個人。";
+		mes "然後和5V5僱傭軍軍官那裡對話進入場地。";
+		next;
+		mes "[馬洛爾騎士]";
+		mes "進入等待地圖之後";
+		mes "所有組隊成員進入報名NPC的聊天頻道";
+		next;
+		mes "[馬洛爾騎士]";
+		mes "所有條件滿足 會自動傳送到目的地";
+		next;
+		mes "[馬洛爾騎士]";
+		mes "然後注意戰場上的指示。";
+		next;
+		mes "[馬洛爾騎士]";
+		mes "請注意，如果你不在報名NPC的聊天頻道，你的隊伍將無法參戰。";
+		close;
+	case 4:
+		mes "[馬洛爾騎士]";
+		mes "你的KVM點:";
+		mes ""+kvm_point+".";
+		close;
+	}
+}
+
+// KvM Officer - Croix
+//============================================================
+bat_room,164,121,1	script	5V5僱傭軍軍官#2	414,{
+	/*
+	set .@kvm,checkquest(6025,PLAYTIME);
+	if ((.@kvm == 0) || (.@kvm == 1)) {
+		mes "[5V5僱傭軍軍官]";
+		mes "我知道你已經在對面報了名。去加入他們的隊伍。我們不會接受叛國者為我們而戰。";
+		close;
+	}
+	else if (.@kvm == 2) erasequest 6025;
+	*/
+	set .@permit,checkquest(6025,PLAYTIME);
+	if ((.@permit == 0) || (.@permit == 1)) {
+		mes "[5V5僱傭軍軍官]";
+		mes "看來你最近參加了5V5的戰鬥。你必須等待5分鐘再籤約。";
+		close;
+	}
+	else if (.@permit == 2) erasequest 6025;
+	mes "[5V5僱傭軍軍官]";
+	mes "為馬洛爾的明天而戰！";
+	next;
+	switch(select("我會和你並肩作戰.:結束談話.")) {
+	case 1:
+		mes "[5V5僱傭軍軍官]";
+		mes "最後的勝利者絕對是我們！";
+		mes "今天，每個人都會聽到勝利女神在向我們招手！";
+		close2;
+		//setquest 6026;
+		if (BaseLevel > 79) warp "bat_room",169,207;
+		else if (BaseLevel < 60) warp "bat_room",197,207;
+		else warp "bat_room",225,207;
+		close;
+	case 2:
+		mes "[5V5僱傭軍軍官]";
+		mes "我們會贏的！";
+		close;
+	}
+}
+
+// Croix Knight - KvM
+//============================================================
+bat_room,167,121,1	script	十字騎士#kvm	413,{
+	mes "[十字騎士]";
+	mes "您好。";
+	mes "你想知道什麼？";
+	next;
+	switch(select("申請5V5。:5V5是什麼？:我如何參與5V5？:我想知道我的KVM點數。")) {
+	case 1:
+		mes "[十字騎士]";
+		mes "你好。";
+		mes "申請5V5，你需要去5V5僱傭軍軍官。";
+		close;
+	case 2:
+		mes "[十字騎士]";
+		mes "5V5就是 5人組對抗5人組。";
+		mes "戰鬥結束後會獲得KVM點數 可以在KVM戰場後勤官那裡兌換物品";
+		next;
+		mes "[十字騎士]";
+		mes "我們已經提前一些軍事計劃。";
+		mes "派遣你參加5V5對抗就是其中之一。";
+		next;
+		mes "[十字騎士]";
+		mes "參加此戰役的人來自不同的國家，";
+		mes "擁有一支軍事素質過硬的隊伍 是勝利的關鍵";
+		next;
+		mes "[十字騎士]";
+		mes "因此，選擇最佳的冒險家，進行5V5對抗。";
+		mes "我們從許多冒險家中進行選拔。";
+		next;
+		mes "[十字騎士]";
+		mes "我們將給予獎勵！";
+		mes "作為回報，請聯繫KVM後勤軍官。";
+		close;
+	case 3:
+		mes "[十字騎士]";
+		mes "組隊好5個人。";
+		mes "然後和5V5僱傭軍軍官那裡對話進入場地。";
+		next;
+		mes "[十字騎士]";
+		mes "進入等待地圖之後";
+		mes "所有組隊成員進入報名NPC的聊天頻道";
+		next;
+		mes "[十字騎士]";
+		mes "所有條件滿足 會自動傳送到目的地";
+		next;
+		mes "[十字騎士]";
+		mes "然後注意戰場上的指示。";
+		next;
+		mes "[十字騎士]";
+		mes "請注意，如果你不在報名NPC的聊天頻道，你的隊伍將無法參戰。";
+		close;
+	case 4:
+		mes "[十字騎士]";
+		mes "你的KVM點:";
+		mes ""+kvm_point+".";
+		close;
+	}
+}

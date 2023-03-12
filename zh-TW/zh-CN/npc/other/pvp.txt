@@ -1,0 +1,451 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+//===== rAthena Script ======================================= 
+//= PvP NPCs
+//===== By: ==================================================
+//= kobra_k88; L0ne_W0lf, Elias (og2)
+//===== Current Version: =====================================
+//= 2.5
+//===== Compatible With: =====================================
+//= rAthena SVN
+//===== Description: =========================================
+//= PvP NPCs that are found in the Inns in major cities.
+//= Includes Yoyo Mode, Nightmare Mode, and Event Mode.
+//===== Additional Comments: ================================= 
+//= 2.0 Narrators/GateKeepers,etc. Translated from the Official 2011 [Elias]
+//= 2.1 Changed PVP Narrator and GateKeeper to Floating NPC [Elias]
+//= 2.2 Some cleaning. [Euphy]
+//= 2.3 Fixed grammatical errors. [Joseph]
+//= 2.4 Fixed incorrect use of 'close' and some cleaning. [Joseph]
+//= 2.5 Renewal/Pre-Renewal split. [Euphy]
+//============================================================
+
+// Information
+//============================================================
+-	script	PVP Narrator::pvpe	-1,{
+	mes "[PvP解說員]";
+	mes "歡迎大家!";
+	mes "我是負責解說";
+	mes "PVP模式.";
+	mes "我是PVP解說員!";
+	next;
+	switch(select("什麼是PvP?","PvP有哪些模式?","PvP的規則?","儲存位置.","結束談話.")) {
+	case 1:
+		mes "[PvP解說員]";
+		mes "簡單的說,PvP就是";
+		mes "' 玩家與玩家的較量 '";
+		mes "這是特別的地方";
+		mes "讓玩家們能得以相互較量.";
+		next;
+		mes "[PvP解說員]";
+		mes "就去找";
+		mes "^3355FF守門人^000000";
+		mes "告訴他你想試試. ";
+		mes "他會讓你進入PVP場地的.";
+		next;
+		mes "[PvP解說員]";
+		mes "不過你至少要";
+		mes "31級";
+		mes "並且交500Z才能";
+		mes "進入PVP對戰場.";
+		break;
+	case 2:
+		mes "[PvP解說員]";
+		mes "當你有資格進入賽場後,";
+		mes "你有兩個模式可以選擇.";
+		mes "喲喲猴模式或死亡競賽模式.";
+		next;
+		mes "[PvP解說員]";
+		mes "喲喲猴模式不需要經驗.";
+		mes "你可以探索PVP";
+		mes "而不需要任何的限制也沒有懲罰";
+		mes "推薦你先在這裡鍛鍊你的技巧";
+		mes "在你進一步之前";
+		mes ".";
+		next;
+		mes "[PvP解說員]";
+		mes "死亡競賽模式就非常危險了";
+		mes "請注意,";
+		mes "你會丟失一些經驗值";
+		mes "當你被打敗的時候";
+		mes "當然,你也有一定的機率";
+		mes "會丟掉一些裝備.";
+		next;
+		mes "[PvP解說員]";
+		mes "當然,如果你贏了, ";
+		mes "回報可是非常豐富的!";
+		mes "為了避免誤解,";
+		mes "你必須再三考慮";
+		mes "在你進入的時候...";
+		mes "好運!";
+		break;
+	case 3:
+		mes "[PvP解說員]";
+		mes "在每個競技廣場";
+		mes "都有一位解說員";
+		mes "基於你的的能力";
+		mes "去選擇他們.";
+		next;
+		mes "[PvP解說員]";
+		mes "每一位解說員";
+		mes "都會問你";
+		mes "你要去5張地圖的哪一張.";
+		mes "選擇,並且去戰鬥吧!";
+		next;
+		mes "[PvP解說員]";
+		mes "每個地圖都有";
+		mes "限制參與的人數";
+		mes "所以你可以在";
+		mes "右下角看到目前的";
+		mes "'參與人數'.";
+		next;
+		mes "[PvP解說員]";
+		mes "當然,PvP模式下有隱藏";
+		mes "的PvP經驗值. 這個經驗值";
+		mes "只有當你在PvP區的時候";
+		mes "顯示,所以別擔心";
+		mes ".";
+		next;
+		mes "[PvP解說員]";
+		mes "在最初的時候";
+		mes "每個玩家的初始經驗值只有5.";
+		mes "如果你贏了";
+		mes "經驗點會增加1";
+		next;
+		mes "[PvP解說員]";
+		mes "當然,當你輸了的時候";
+		mes "你的經驗值會";
+		mes "掉5點.";
+		mes "所以,必須小心!";
+		next;
+		mes "[PvP解說員]";
+		mes "當你被打敗時";
+		mes "同時你的分數低於或者";
+		mes "等於0,";
+		mes "你將被移除出PVP競技場";
+		mes "當然,你的對決就結束了!";
+		next;
+		mes "[PvP解說員]";
+		mes "當然,如果你的經驗值高於0";
+		mes "你還是能從別的";
+		mes "別的玩家哪裡得到治療...";
+		mes "知道了麼?";
+		next;
+		mes "[PvP解說員]";
+		mes "在裡面的戰地指揮官";
+		mes "和平時PvP的相同.";
+		mes "所有的基礎操作都";
+		mes "一樣.";
+		next;
+		mes "[PvP解說員]";
+		mes "當然,這裡有一點在...";
+		mes "PVP競技場和PVP地區";
+		mes "要注意,";
+		mes "你不能儲存地點.";
+		mes "記住這個...這條規矩";
+		mes "能幫你贏得比賽.";
+		break;
+	case 4:
+		mes "[PvP解說員]";
+		mes "位置成功儲存...";
+		mes "非常感謝!";
+		mes "期待能再見到你.";
+		if(strnpcinfo(4) == "morocc_in") { savepoint "morocc_in",141,139; }
+		if(strnpcinfo(4) == "alberta_in") { savepoint "alberta_in",22,148; }
+		if(strnpcinfo(4) == "prt_in") { savepoint "prt_in",54,137; }
+		if(strnpcinfo(4) == "geffen_in") { savepoint "geffen_in",70,59; }
+		if(strnpcinfo(4) == "payon_in01") { savepoint "payon_in01",142,46; }
+		break;
+	case 5:
+		mes "[PvP解說員]";
+		mes "胸懷著與怪物搏鬥的熱情";
+		mes "與人類戰鬥的激情";
+		mes "那就是 - PvP -";
+		mes "激勵著我們不斷前進";
+		mes "向著更高更快更強而前進,";
+		mes "我們期待著挑戰者!";
+		break;
+	}
+	close;
+}
+morocc_in,144,138,4	duplicate(pvpe)	PvP解說員#pe1	4_M_02
+alberta_in,22,146,4	duplicate(pvpe)	PvP解說員#pe2	4_M_02
+prt_in,56,140,4	duplicate(pvpe)	PvP解說員#pe3	4_M_02
+geffen_in,67,63,4	duplicate(pvpe)	PvP解說員#pe4	4_M_02
+payon_in01,142,50,4	duplicate(pvpe)	PvP解說員#pe5	4_M_02
+geffen_in,67,63,4	duplicate(pvpe)	PvP解說員#pe6	4_M_02
+
+// Mode select
+//============================================================ 
+-	script	Gate Keeper::gkut	-1,{
+	mes "[守門人]";
+	mes "非常榮幸為您服務.";
+	mes "我會為你打開PVP競技場";
+	mes "如果有任何的";
+	mes "關於PVP的問題";
+	mes "模式或者規則,請提問";
+	mes "解說員說...";
+	next;
+	switch(select("^FF5533'噩夢模式PvP'^000000:^3355FF'溜溜猴模式PvP'^000000:^3355FF'任務事件模式PvP'^000000:離開")) {
+		case 1:
+			mes "[守門人]";
+			mes "我很抱歉, 不過目前死亡競賽模式不可用.";
+			mes "請使用悠悠猴模式代替. 我們真誠的表示抱歉.";
+			break;
+		case 2:
+			mes "[守門人]";
+			mes "入場費是500 zeny.";
+			mes "你想進入";
+			mes "悠悠猴模式的";
+			mes "戰鬥場麼?";
+			next;
+			switch(select("進入:取消")) {
+			case 1:
+				if ((Zeny > 499) && (BaseLevel > 30)) {
+					set Zeny, Zeny - 500;
+					callsub L_Warp,"pvp_y_room";
+				}
+				else {
+					mes "[守門人]";
+					mes "對不起,不過";
+					mes "你是不是還沒準備好啊?";
+					mes "你再檢查下你是不是沒有";
+					mes "500 zeny 的入場費, 並且";
+					mes "你至少需要31級!";
+				}
+				close;
+			case 2:
+				mes "[守門人]";
+				mes "胸懷著與怪物搏鬥的熱情";
+				mes "與人類戰鬥的激情";
+				mes "那就是 - PvP -";
+				mes "激勵著我們不斷前進";
+				mes "向著更高更快更強而前進,";
+				mes "我們期待著挑戰者!";
+				close;
+			}
+		case 3:
+			mes "[守門人]";
+			mes "歡迎!";
+			mes "請再次確認";
+			mes "你有入場的資格,或者你有入場參觀卷.";
+			next;
+			if ((countitem(7028) == 0) && (countitem(7029) == 0)) {
+				mes "[守門人]";
+				mes "呃?您沒有? ";
+				mes "此戰鬥場只對";
+				mes "有資格或者有";
+				mes "入場參觀卷你人開放.";
+				mes "沒有的話就不能進入.";
+				close;
+			}
+			mes "[守門人]";
+			mes "感謝你的參加.玩的愉快!";
+			if (Zeny >= 500) set Zeny, Zeny - 500;
+			callsub L_Warp,"pvp_room";
+			break;
+		case 4:
+			mes "[守門人]";
+			mes "胸懷著與怪物搏鬥的熱情";
+			mes "與人類戰鬥的激情";
+			mes "那就是 - PvP -";
+			mes "激勵著我們不斷前進";
+			mes "向著更高更快更強而前進,";
+			mes "我們期待著挑戰者!";
+			break;
+	}
+	close;
+
+L_Warp:
+	set .@map$,getarg(0);
+	if (checkre(0)) {
+		switch(rand(1,10)) {
+			case 1: warp .@map$,34,38; break;
+			case 2: warp .@map$,46,38; break;
+			case 3: warp .@map$,58,38; break;
+			case 4: warp .@map$,70,38; break;
+			case 5: warp .@map$,82,38; break;
+			case 6: warp .@map$,82,58; break;
+			case 7: warp .@map$,65,58; break;
+			case 8: warp .@map$,49,58; break;
+			case 9: warp .@map$,33,58; break;
+			case 10: warp .@map$,52,24; break;
+		}
+	} else
+		warp .@map$,51,23;
+	return;
+}
+morocc_in,144,142,4	duplicate(gkut)	守門人#gke1	4_M_01
+alberta_in,26,146,4	duplicate(gkut)	守門人#gke2	4_M_01
+prt_in,52,140,4	duplicate(gkut)	守門人#gke3	4_M_01
+geffen_in,63,63,4	duplicate(gkut)	守門人#gke4	4_M_01
+payon_in01,140,53,4	duplicate(gkut)	守門人#gke5	4_M_01
+
+// PVP Warper Function
+//============================================================
+// Note: The warper NPCs are in the pre-re/re paths.
+
+//callfunc "F_PVP_FSRS"{,<min_lvl>,<max_lvl>};
+function	script	F_PVP_FSRS	{
+	if (getargcount()) {
+		if (BaseLevel < getarg(0) || BaseLevel > getarg(1)) {
+			mes "[PvP場地報名人員]";
+			mes "抱歉, 您的基本等級必須在"+getarg(0)+"與"+getarg(1)+"之間.";
+			close;
+		}
+	}
+	if (strnpcinfo(4) == "pvp_y_room") {
+		set .@base$, "pvp_y_"+strnpcinfo(2);
+		setarray .@maps$[0],	.@base$+"-1",	.@base$+"-2",	.@base$+"-3",	.@base$+"-4",	.@base$+"-5";
+		setarray .@name$[0],	"Prontera",		"Izlude",		"Payon",		"Alberta",		"Morroc";
+		setarray .@Limit[0],	128,			128,			128,			128,			128;
+	} else {
+		setarray .@maps$[0],	"pvp_n_8-1",	"pvp_n_8-2",	"pvp_n_8-3",	"pvp_n_8-4",	"pvp_n_8-5";
+		setarray .@name$[0],	"Sandwich",		"Lock on",		"Four Room",	"Under cross",	"Compass Room";
+		setarray .@Limit[0],	64,				32,				32,				32,				32;
+	}
+	for(set .@i,0; .@i<5; set .@i,.@i+1)
+		set .@menu$, .@menu$+.@name$[.@i]+" ["+getmapusers(.@maps$[.@i])+" / "+.@Limit[.@i]+"]:";
+	set .@menu$, .@menu$+"Cancel.";
+	set .@i, select(.@menu$)-1;
+	if (.@i == 5) close;
+	if (getmapusers(.@maps$[.@i]) >= .@Limit[.@i]) {
+		mes "[PVP競技場接待員]";
+		mes "此地圖當前已滿.";
+		close;
+	}
+	warp .@maps$[.@i],0,0;
+	end;
+}
+
+
+
+// Event Contestant Entrance
+//============================================================
+pvp_room,54,85,4	script	報名人員#1	8W_SOLDIER,{
+	if (countitem(7028) == 0) {
+		mes "[PvP場地報名人員]";
+		mes "哦? 你怎麼到這裡的?";
+		mes "這是玩家專用入口.";
+		mes "觀眾請找右手邊的登記員.";
+		close;
+	}
+	set .@size, getarraysize(.warp_x);
+	if (.@size == 0) {
+		setarray .warp_x,40,59,20,40;
+		setarray .warp_y,59,40,40,20;
+	}
+	if (select("隨機PvP場地:取消") == 1) {
+		mes "[PvP 場地報名人員]";
+		mes "'"+ strcharinfo(0) +"'";
+		mes "你準備好了麼?!";
+		next;
+		if (select("是的!:不!") == 1) {
+			mes "[PvP場地報名人員]";
+			mes "好的!我要把你送進去了";
+			mes "祝你好運!";
+			close2;
+			delitem 7028,1; //Invite_For_Duel
+			set .@rand, rand(.@size);
+			warp "pvp_2vs2", .warp_x[.@rand], .warp_y[.@rand];
+			deletearray .warp_x[.@rand],1;
+			deletearray .warp_y[.@rand],1;
+			end;
+		}
+		mes "[PvP場地報名人員]";
+		mes "當你準備好了就來找我.";
+		close;
+	}
+	close;
+
+OnInit:
+	waitingroom "PvP場地唯一入口",0;
+	end;
+}
+
+// Spectator Entrance
+//============================================================
+-	script	Spectator's Entrance#dum::PVPSpectator	-1,{
+	if (countitem(7029) == 0) {
+		mes "[PvP場地報名人員]";
+		mes "這是玩家專用入口.";
+		mes "觀眾請找右手邊的登記員.";
+		close;
+	}
+	if (select("隨機PvP場地:取消") == 1) {
+		mes "[PvP場地報名人員]";
+		mes "感謝您的參與,祝您玩的愉快!";
+		close2;
+		delitem 7029,1; //Admission_For_Duel
+		switch(rand(1,4)) {
+			case 1: warp "pvp_2vs2",39,7; end;
+			case 2: warp "pvp_2vs2",39,73; end;
+			case 3: warp "pvp_2vs2",7,39; end;
+			case 4: warp "pvp_2vs2",73,39; end;
+		}
+	}
+	close;
+
+OnInit:
+	waitingroom "PvP場地看臺入口",0;
+	end;
+}
+pvp_room,62,85,4	duplicate(PVPSpectator)	觀眾入口#1	8W_SOLDIER
+pvp_room,70,85,4	duplicate(PVPSpectator)	觀眾入口#2	8W_SOLDIER
+pvp_room,78,85,4	duplicate(PVPSpectator)	觀眾入口#3	8W_SOLDIER
+pvp_room,86,85,4	duplicate(PVPSpectator)	觀眾入口#4	8W_SOLDIER
+
+// Spectator Warps
+//============================================================
+-	script	PvP場地工作人員#dum::PVPSpecWarp	-1,{
+OnTouch:
+	mes "[PvP場地工作人員]";
+	mes "要我幫忙麼?";
+	if (select("去中心看臺.:離開PvP場地.") == 1) {
+		warp "pvp_2vs2",38,38;
+		end;
+	}
+	warp "pvp_room",84,39;
+	end;
+}
+pvp_2vs2,5,4,0	duplicate(PVPSpecWarp)	PvP場地工作人員#1	WARPNPC,1,1
+pvp_2vs2,5,74,0	duplicate(PVPSpecWarp)	PvP場地工作人員#2	WARPNPC,1,1
+pvp_2vs2,74,74,0	duplicate(PVPSpecWarp)	PvP場地工作人員#3	WARPNPC,1,1
+pvp_2vs2,74,5,0	duplicate(PVPSpecWarp)	PvP場地工作人員#4	WARPNPC,1,1
+
+pvp_2vs2,40,40,0	script	PvP場地工作人員#5	WARPNPC,1,1,{
+	mes "[PvP場地工作人員]";
+	mes "我可以幫你麼?";
+	switch(select("- 去邊緣看臺.:- 離開格鬥場.")) {
+	case 1:
+		switch(rand(1,4)) {
+			case 1: warp "pvp_2vs2",39,7; end;
+			case 2: warp "pvp_2vs2",39,73; end;
+			case 3: warp "pvp_2vs2",7,39; end;
+			case 4: warp "pvp_2vs2",73,39; end;
+		}
+	case 2:
+		warp "pvp_c_room",84,39;
+		end;
+	}
+}
+
+// PVP Area Exit warp
+//============================================================ 
+pvp_room,51,19,0	script	出口#eventpvp	WARPNPC,4,2,{
+OnTouch:
+	mes "[PvP場地工作人員]";
+	mes "在戰鬥廣場玩的愉快麼?";
+	mes "我能問問你準備去哪麼?";
+	next;
+	switch(select("- 普德隆拉.:- 夢羅克.:- 吉芬.:- 斐揚.:- 艾爾貝塔.:- 取消.")) {
+		case 1: warp "prontera",107,60; end;
+		case 2: warp "morocc",157,96; end;
+		case 3: warp "geffen",120,36; end;
+		case 4: warp "payon",96,100; end;
+		case 5: warp "alberta",41,243; end;
+		case 6: close;
+	}
+}

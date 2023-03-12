@@ -1,0 +1,2222 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+//===== rAthena Script =======================================
+//= Dewata Quest NPCs
+//===== By: ==================================================
+//= Gennosuke Kouga, Muad_Dib
+//===== Current Version: =====================================
+//= 1.2
+//===== Compatible With: =====================================
+//= rAthena SVN
+//===== Description: =========================================
+//= [Official Conversion]
+//= Quest NPCs related to Dewata:
+//== "Dewata Legend"
+//== "Help Out the Old Man"
+//== "Traditional Weapon"
+//===== Additional Comments: =================================
+//= 1.0 First version.
+//= 1.1 Standardized. [Euphy]
+//= 1.2 Updated to match the official script. [Lemongrass/Euphy]
+//============================================================
+
+// Dewata Legend Quest :: dewata_legend
+//============================================================
+dew_fild01,57,274,0	script	#hideout_legend	HIDDEN_NPC,6,6,{
+OnTouch:
+	if (BaseLevel > 59 && dew_legend < 1) {
+		mes " - 你聽到微弱的談話裡面怎麼回事.  - ";
+		next;
+		mes "[部落首領派克]";  
+		mes "再一次, 我都沒有";
+		mes "使賈提皇冠...";
+		mes "我確信, 我可以做這一次. ";
+		mes "為什麼不工作? ";
+		next;
+		mes "[聖人迦葉]";  
+		mes "該賈提皇冠已經知道有神奇的力量, 因為在古人的時間. ";
+		mes "但它已經表示, 只有那些誰已經贏得了部落的榮譽";
+		mes "將能夠使用它. ";
+		next;
+		mes "[部落首領派克]";  
+		mes "迦葉! ";
+		mes "你是說即使我是我們部落的領袖, 我還沒有收到這一榮譽? ";
+		next;
+		mes "[聖人迦葉]";  
+		mes "冷靜下來首領派克 ...";
+		mes "正如偉大和強大的首席, 你應該是綽綽有餘的參賽資格. ";
+		next;
+		mes "[聖人迦葉]";  
+		mes "在我年輕時, 我可以很容易地解決了這個問題, 但這個老男人的心靈也弄不清缺少了什麼. ";
+		next;
+		mes "談話落後了, 你沒有聽到了. ";
+		set dew_legend,1;
+		close;
+	}
+	end;
+}
+
+dew_in01,15,33,0	script	#hidein_legend	HIDDEN_NPC,5,5,{
+OnTouch:
+	if (dew_legend == 3) {
+		mes "迦葉兼派克開始說話, 你將要離開......";
+		next;
+		mes "[聖人迦葉]";  
+		mes "我不確定什麼是失蹤, 但該旅客可能是在創建賈提皇冠大的幫助. ";
+		mes "這一點我敢肯定. ";
+		mes "原因是...";
+		next;
+		mes "[部落首領派克]";  
+		mes "這是什麼原因? ";
+		next;
+		mes "[聖人迦葉]";  
+		mes "這天堂鳥羽毛最初創建的錶冠時, 我們的第一個部落的領導者擁有. ";
+		mes "它被存儲為我們部落的珍貴的傳家寶. ";
+		next;
+		mes "[聖人迦葉]";  
+		mes "但是, 當客人來到附近, 這羽開始發光, 我一直在想, 這是不是只是一個巧合. ";
+		mes "此人將是關鍵, 以協助我們做出的桂冠. ";
+		next;
+		mes "[部落首領派克]";  
+		mes "難道這一點是肯定的? ";
+		mes "如果是的話, 我會付出一切";
+		mes "支持他們...";
+		set dew_legend,4;
+		close;
+	}
+	end;
+}
+
+dew_in01,22,48,3	script	聖人迦葉#dew	4_M_DEWZATIMAN,{
+	if (dew_legend == 0) {
+		mes "[聖人迦葉]";  
+		mes "啊, 一個陌生人給我們的土地. ";
+		mes "你失去了什麼? ";
+		mes "我希望你沒有遇到在這裡你的旅程太大的危險. ";
+		close;
+	} else if (dew_legend == 1) {
+		mes "[聖人迦葉]";  
+		mes "你認真的表情告訴我";
+		mes "您有話要說";
+		mes "你不妨告訴我它是什麼. ";
+		next;
+		if(select("我聽到談論冠:只是在尋找的禮品店. ") == 2) {
+			mes "[部落首領派克]";  
+			mes "真的嗎? ";
+			mes "它看起來好像你的眼睛";
+			mes "想說點什麼. ";
+			close;
+		}
+		mes "[聖人迦葉]";  
+		mes "哦, 你聽說了冠, 是嗎? ";
+		mes "啊, 這老頭的得到禍從口出";
+		mes "我們應該用多一點自由裁量權...";
+		next;
+		select("還有什麼我可以幫忙的? ");
+		mes "[聖人迦葉]";  
+		mes "我可以在你的眼中看到";
+		mes "你是一個值得信賴的那種...但是...";
+		next;
+		mes "還有就是光迦葉簡要瞬間所有的突然似乎吃了一驚. ";
+		specialeffect2 EF_PNEUMA;
+		next;
+		mes "[聖人迦葉]";  
+		mes "啊, 羽毛......! ";
+		mes "而不是在跟我說話的, 你為什麼不跟我們部落的領袖, 派克. ";
+		set dew_legend,2;
+		close;
+	} else if (dew_legend == 2) {
+		mes "[聖人迦葉]";  
+		mes "而不是在跟我說話的, 你為什麼不跟我們部落的領袖, 首領派克. ";
+		close;
+	} else if (dew_legend == 3) {
+		mes "[聖人迦葉]";  
+		mes "如果這就是行政Paiko希望";
+		mes "我沒有任何更多的話要說. ";
+		mes "嗯....";
+		mes "不過......這....";
+		next;
+		mes "[聖人迦葉]";  
+		mes "沒關係, 請旅途愉快. ";
+		close;
+	} else if (dew_legend == 4) {
+		mes "[聖人迦葉]";  
+		mes "我一直在為瓦亭您旅行. ";
+		mes "我們部落的領導人有利於";
+		mes "要問你. ";
+		mes "請您談談對行政Paiko. ";
+		close;
+	} else if (dew_legend == 5) {
+		mes "[聖人迦葉]";  
+		mes "我聽說你能幫助做一個冠";
+		mes "我們的部落領袖. ";
+		mes "你肯定會";
+		mes "一個很大的幫助給我們...";
+		mes "我相信我自己的眼睛! ";
+		mes "並且還波光粼粼的光...";
+		next;
+		mes "[聖人迦葉]";  
+		mes "達雅族的象徵";
+		mes "和著名的神秘生物. ";
+		mes "找到15 天堂鳥羽毛";
+		mes "並把他們帶到首領派克. ";
+		close;
+	} else if (dew_legend == 6) {
+		mes "[聖人迦葉]";  
+		mes "與你竟使創建賈提皇冠羽毛會更順利. ";
+		mes "去看看總Paiko. ";
+		close;
+	} else if (dew_legend == 7) {
+		mes "[聖人迦葉]";  
+		mes "有somehing";
+		mes "我想給你";
+		mes "作為獎勵對你有所幫助. ";
+		mes "拜託, 這將履行我們, 如果你會採取它. ";
+		next;
+		if (checkweight(6406,1) == 0) {
+			if (Weight + getiteminfo(6406,6) > MaxWeight) {
+				mes "[聖人迦葉]";  
+				mes "你帶了太多東西的重量超過限制. ";
+				mes "我不能讓你們的獎賞, 除非你降低你背著沉重的物品的數量. ";
+				close;
+			} else {
+				mes "[聖人迦葉]";  
+				mes "你帶了太多東西的庫存. ";
+				mes "我會給你獎勵你一次表白自己並返回. ";
+				close;
+			}
+		}
+		set dew_legend,8;
+		getitem 6406,1; //Cendrawasih_SF
+		completequest 9157;
+		erasequest 9157;
+		mes "[聖人迦葉]";  
+		mes "我之所以問你走上這一重要使命就是因為這個羽毛. ";
+		mes "流傳下來的一代又一代冠的傳奇起源是這樣的羽毛...";
+		specialeffect2 EF_PNEUMA;
+		next;
+		mes "[聖人迦葉]";  
+		mes "我看到這個羽毛開始, 當你來到這裡閃耀. ";
+		mes "我知道你是一個人誰";
+		mes "會盡力幫助我們. ";
+		mes "我代表我的人";
+		mes "我給我的感謝. ";
+		next;
+		mes "[聖人迦葉]";  
+		mes "此外, 您收到的羽毛不僅是寶貴的本身, 它也是從我們部落的確認. ";
+		next;
+		mes "[聖人迦葉]";  
+		mes "像喀拉喀託火山, 當你冒險進入危險區域一樣, 如果你顯示這個羽毛, 可以從部落獲得幫助. ";
+		mes "無論如何, 我真的很感謝你. ";
+		close;
+	} else {
+		mes "[聖人迦葉]";  
+		mes "此外, 您收到的羽毛不僅是寶貴的本身, 它也是從我們部落的確認. ";
+		next;
+		mes "[聖人迦葉]";  
+		mes "像喀拉喀託火山, 當你冒險進入危險區域一樣, 如果你顯示這個羽毛, 可以從部落獲得幫助. ";
+		mes "無論如何, 我真的很感謝你. ";
+		close;
+	}
+}
+
+dew_in01,15,49,4	script	部落首領派克#dew	4_M_DEWZATICHIEF,{
+	if (dew_legend < 2) {
+		mes "[部落首領派克]";  
+		mes "我是這個部落的領導者";
+		mes "Paiko";
+		close;
+	} else if (dew_legend == 2) {
+		mes "[部落首領派克]";  
+		mes "我可以看到你是一個旅行家, ";
+		mes "從另一個土地. ";
+		mes "你怎麼在這裡? ";
+		next;
+		if(select("我聽到的故事意外:我沒有什麼可說的. ") == 2) {
+			mes "[部落首領派克]";  
+			mes "你是在浪費你的時間在這裡. ";
+			mes "周圍有我們村的許多其他景點. ";
+			close;
+		}
+		mes "[部落首領派克]";  
+		mes "你是什??麼意思? ";
+		mes "你聽說過一個皇冠的故事嗎? ";
+		mes "你一定聽說過不正確. ";
+		mes "我沒有什麼要對你說";
+		mes "對於這樣的事情. ";
+		next;
+		select("迦葉在談論冠...");
+		mes "[部落首領派克]";  
+		mes "看來, 迦葉告訴你一個高大的故事, 我很感激你對我們的事務的關注. ";
+		next;
+		mes "[部落首領派克]";  
+		mes "這不是說像你可以了解一個陌生人所以要像一棵樹, 離開這裡. ";
+		set dew_legend,3;
+		close;
+	} else if (dew_legend == 3) {
+		mes "[部落首領派克]";  
+		mes "周圍有我們村的許多其他景點. ";
+		next;
+		mes "[部落首領派克]";  
+		mes "如果是關於冠我希望你不再問這件事. ";
+		mes "請你離開. ";
+		close;
+	} else if (dew_legend == 4) {
+		mes "[部落首領派克]";  
+		mes "我一直在瓦亭為你, 遊客";
+		mes "根據聖人迦葉";
+		mes "你願意幫我們做一頂王冠為我們的部落. ";
+		select("賈提皇冠? ");
+		mes "[部落首領派克]";  
+		mes "部落領導者決策和保護Jaty冠堅持部落的驕傲和榮譽的責任. ";
+		next;
+		mes "[部落首領派克]";  
+		mes "但是, 自從我成為了部落的領導者已經出現了使困難. ";
+		next;
+		mes "[部落首領派克]";  
+		mes "據賢者迦葉, 你可以幫助我們創建一個賈提皇冠. ";
+		next;
+		mes "[部落首領派克]";  
+		mes "你認為你能幫忙嗎? ";
+		mes "你的努力不會獲得報酬. ";
+		next;
+		if(select("好吧, 我會幫助:我很抱歉, 我現在不能幫忙. ") == 2) {
+			mes "[部落首領派克]";  
+			mes "這是很可悲的. ";
+			mes "如果你改變";
+			mes "你的心, 請";
+			mes "再來. ";
+			mes "我將等待著. ";
+			close;
+		}
+		mes "[部落首領派克]";  
+		mes "非常感謝你, 陌生人";
+		mes "如果迦葉信任你, 然後我知道, 你能幫助我們做出";
+		mes "賈提皇冠";
+		mes "你可以做什麼來";
+		mes "幫助我們來說是非常簡單的. ";
+		next;
+		mes "[部落首領派克]";  
+		mes "該賈提部落的象徵, 也是一個著名的神秘生物. ";
+		mes "找到15個天堂鳥羽毛拿來給我. ";
+		mes "我們的信仰是你, 陌生人. ";
+		set dew_legend,5;
+		setquest 9155;
+		close;
+	} else if (dew_legend == 5) {
+		if (countitem(6405) < 15) {
+			mes "[部落首領派克]";  
+			mes "看來你還沒有找到的材料, 以使賈提皇冠. ";
+			next;
+			mes "[部落首領派克]";  
+			mes "達雅族的象徵, 也是一個著名的神秘生物. ";
+			mes "找到15個天堂鳥羽毛拿來給我. ";
+			close;
+		}
+		set dew_legend,6;
+		delitem 6405,15; //Cendrawasih_F
+		changequest 9155,9156;
+		mes "[部落首領派克]";  
+		mes "哦! 你發現所有的人. 看! 你已經找到了羽毛閃閃發光. 不是嗎? ";
+		mes "好吧, 讓我開始各具特色的賈提皇冠我覺得我準備好了. ";
+		next;
+		mes "突然, 一個大的噪聲開始蓬勃發展, 你和派克被溫暖而明亮閃耀的能量包圍就像一千發出叮叮噹噹的螢火蟲. ";
+		specialeffect2 EF_BASH3D2;
+		close;
+	} else if (dew_legend == 6) {
+		mes "[部落首領派克]";  
+		mes "有了您的幫助賈提皇冠是很好磨磨蹭蹭. ";
+		mes "這將需要一些時間, 直到任務完成, 所以請等一下. ";
+		next;
+		mes "[部落首領派克]";  
+		mes "該Jaty冠完成後, 有說我想給你的禮物. ";
+		next;
+		mes "[部落首領派克]";  
+		mes "啊, 你也應該去看看聖人迦葉誰真的想報答你的東西. ";
+		set dew_legend,7;
+		changequest 9156,9157;
+		close;
+	} else if (dew_legend == 7) {
+		mes "[部落首領派克]";  
+		mes "啊, 你應該跟賢者迦葉誰真的想報答你的東西. ";
+		close;
+	} else if (dew_legend == 8) {
+		mes "[部落首領派克]";  
+		mes "有了你們的支持, 我擔心的不是創造賈提皇冠. ";
+		mes "我真的很感激. ";
+		next;
+		mes "[部落首領派克]";  
+		mes "一個愉快的一天像今天應該慶祝. 難道你不覺得嗎? ";
+		mes "所以我準備品嘗我們部落的特殊食品, 稱為沙爹";
+		next;
+		mes "[部落首領派克]";  
+		mes "但是, 這沙爹是太好吃只是我們兩個人分享, 所以我們想與人在村裡分享. ";
+		next;
+		mes "[部落首領派克]";  
+		mes "你怎麼看? ";
+		mes "為了分擔消息稱, ";
+		mes "該賈提皇冠正被成功地製作, 並與我們的朋友一起分享美味的沙爹, 我需要你的幫助. ";
+		next;
+		mes "[部落首領派克]";  
+		mes "是您很短的交付工作? ";
+		next;
+		if(select("當然, 我可以幫:對不起, 我太忙了幫助. ") == 2) {
+			mes "[部落首領派克]";  
+			mes "我相信你一定會幫我...";
+			mes "這是一個有點令人失望. ";
+			mes "如果你改變你的想法";
+			mes "跟我說話了. ";
+			close;
+		}
+		mes "[部落首領派克]";  
+		mes "哦! , 我知道你會有所幫助. ";
+		mes "我們部落的勇士們來我的心之前, 我們與其他人分享. ";
+		mes "請在村裡的勇士分享沙爹. ";
+		next;
+		mes "[部落首領派克]";  
+		mes "就目前而言, 我會給你2沙爹. ";
+		next;
+		mes "[部落首領派克]";  
+		mes "您可以通過我們的沙嗲的香氣誘惑, 你可以吃一個, 但, 如果你吃的比, 你將不能夠共享沙爹";
+		mes "我們村的朋友. ";
+		set dew_legend,9;
+		getitem 11533,2; //Satay
+		setquest 9158;
+		close;
+	} else if (dew_legend == 9) {
+		callsub L_Delivery,0;
+		mes "[部落首領派克]";  
+		mes "我們部落的勇士來我的心, 以提供足夠的糧食與村裡的戰士分享沙爹. ";
+		close;
+	} else if (dew_legend == 10) {
+		mes "[部落首領派克]";  
+		mes "啊, 旁邊的人就是我想要的沙爹傳遞到是誰的人從河中, 部落經理保持跨越. ";
+		next;
+		mes "[部落首領派克]";  
+		mes "為此, 我會給你2份以上的沙爹的. ";
+		next;
+		mes "[部落首領派克]";  
+		mes "如果您是由沙嗲的香氣所吸引, 你可以吃一個, 但, 如果你吃越多, 你將不能夠與我們的朋友分享沙爹. ";
+		set dew_legend,11;
+		getitem 11533,2; //Satay
+		changequest 9159,9160;
+		close;
+	} else if (dew_legend == 11) {
+		callsub L_Delivery,0;
+		mes "[部落首領派克]";  
+		mes "第二個人交付沙爹是誰的人留在河對岸. ";
+		next;
+		mes "這是部落經理. ";
+		mes "請把它交給他們才冷卻下來. ";
+		close;
+	} else if (dew_legend == 12) {
+		mes "[部落首領派克]";  
+		mes "哦, 你已經交付了已經? ";
+		mes "第三人提供的沙爹的就是喀拉喀託火山的看門人. ";
+		next;
+		mes "[部落首領派克]";  
+		mes "我給你2份以上的沙爹為這個交付. ";
+		next;
+		mes "[部落首領派克]";  
+		mes "並像以前一樣, 不給進香, 儘量不要吃沙爹. ";
+		set dew_legend,13;
+		getitem 11533,2; //Satay
+		changequest 9161,9162;
+		close;
+	} else if (dew_legend == 13) {
+		callsub L_Delivery,1;
+		mes "[部落首領派克]";  
+		mes "第三人提供的沙爹的就是喀拉喀託火山的看門人. ";
+		mes "請提供它之前, 它冷卻下來. ";
+		close;
+	} else if (dew_legend == 14) {
+		mes "[部落首領派克]";  
+		mes "哦, 你已經交付了";
+		mes "最後一個人提供沙爹的就是婆羅浮屠寺經理誰是德瓦塔島. ";
+		next;
+		mes "[部落首領派克]";  
+		mes "我會給你2更嗲";
+		next;
+		mes "[部落首領派克]";  
+		mes "並像以前一樣, 不給進香, 儘量不要吃沙爹. ";
+		set dew_legend,15;
+		getitem 11533,2; //Satay
+		changequest 9163,9164;
+		close;
+	} else if (dew_legend == 15) {
+		callsub L_Delivery,1;
+		mes "[部落首領派克]";  
+		mes "最後一個人將交付沙爹是";
+		mes "婆羅浮屠寺經理是誰在";
+		mes "德瓦塔島. ";
+		mes "請提供它之前, 它冷卻下來. ";
+		close;
+	} else if (dew_legend == 16) {
+		mes "[部落首領派克]";  
+		mes "哦, 你已經交付了. ";
+		mes "你已經做了很好的工作. ";
+		mes "這是一個好時機, 我們所有的人分享, 享受這幸福的時刻在一起. 謝謝. ";
+		next;
+		mes "[部落首領派克]";  
+		mes "當你在回來的路上從提供的沙爹, ";
+		mes "賈提皇冠已經取得進展. 它的氛圍和輻射使它成為一個真正完美無瑕的桂冠. ";
+		next;
+		mes "[部落首領派克]";  
+		mes "此外, 您還帶來了足夠多的材料, 以便使賈提皇冠後, 我們可以製作一個類似的一個使你能保持. ";
+		next;
+		mes "[部落首領派克]";  
+		mes "這不是和原來一樣, 但它有它自己的特色. 這是我的獎勵, 感謝您為你做了什麼. ";
+		next;
+		if (checkweight(18520,1) == 0) {
+			mes "[部落首領派克]";  
+			mes "你帶了太多東西的重量, 以獲得您的獎勵. ";
+			mes "請減少你的體重進行再回來. ";
+			close;
+		}
+		mes "[部落首領派克]";  
+		mes "使我們部落的秘密醃料嘗試沙爹. ";
+		mes "它是由我們所有的心臟, 特別是對你, 但不要忘了與朋友分享. ";
+		set dew_legend,17;
+		getitem 18520,1; //Jaty_C
+		getitem 11533,5; //Satay
+		completequest 9165;
+		erasequest 9165;
+		next;
+	}
+	mes "[部落首領派克]";  
+	mes "你已經做了很好的工作. ";
+	mes "不管你將來做什麼, 我希望你有自己的生活是充滿幸運和喜悅. ";
+	mes "由於Jaty部落首領, 祝你好運! ";
+	close;
+L_Delivery:
+	mes "[部落首領派克]";  
+	if (getarg(0) == 0) {
+		mes "看來你還沒有交付沙爹. ";
+		mes "你有沒有遇到什麼問題? ";
+	} else {
+		mes "你有沒有交付的沙嗲嗎? ";
+		mes "有什麼地方錯了? ";
+	}
+	next;
+	switch(select("我吃了他們所有. :交付給誰:沒什麼. ")) {
+	case 1:
+		mes "[部落首領派克]";  
+		mes "呵呵...所以你無法抗拒自己, 不是嗎? ";
+		mes "不要責怪自己太多. 這是難以抗拒的沙嗲的讓人上癮的香氣. ";
+		next;
+		mes "[部落首領派克]";  
+		mes "我們部落是短暫的糧食供應, 所以我們不能給了我們更多的沙嗲的, 但有一個傳言, 該餐廳老闆DEWATA島製作和銷售自己的沙爹. ";
+		next;
+		mes "[部落首領派克]";  
+		mes "這是不是可口作為我們部落的配方, 但是這是一項緊迫的任務, 所以只要找到它, 並提供它. ";
+		close;
+	case 2:
+		return;
+	case 3:
+		mes "[部落首領派克]";  
+		mes "好吧! 提供它吧! ";
+		close;
+	}
+}
+
+dew_fild01,78,288,6	script	賈提部落勇士#dew	4_M_DEWZATIMAN,{
+	mes "[賈提部落勇士]";  
+	mes "我們敬畏的力量和勇氣. ";
+	mes "我們是Jaty部落. ";
+	if (dew_legend != 9 || !countitem(11533))
+		close;
+	next;
+	mes "[賈提部落勇士]";  
+	mes "我受過訓練的眼睛看到, ";
+	mes "你似乎正要說些什麼. ";
+	mes "說話, 說明你的業務. ";
+	next;
+	select("部落首領派克");
+	mes "[賈提部落勇士]";  
+	mes "我聽說過你";
+	mes "有用的事跡...";
+	mes "由於我的部落的代表";
+	mes "我對此表示感謝. ";
+	next;
+	mes "[賈提部落勇士]";  
+	mes "此外, 謝謝你的沙爹";
+	mes "我的嘴已經澆水謝謝. ";
+	mes "也有一些是我想與你對我們的族人分享. ";
+	delitem 11533,1; //Satay
+	set dew_legend,10;
+	changequest 9158,9159;
+	next;
+	mes "[賈提部落勇士]";  
+	mes "不同於古代的時候我們部落的勇士們戰鬥和流血的世界變得更加和平, 但現在我們部落的領土已經大幅縮水. ";
+	next;
+	mes "[賈提部落勇士]";  
+	mes "不過, 我們將繼續保持我們部落的勇士傳統活著, 我們將保留我們通過過去的那些戰士的犧牲贏得了驕傲. ";
+	next;
+	mes "[賈提部落勇士]";  
+	mes "我希望你perserverance和自豪感常伴隨你在你的旅行. ";
+	close;
+}
+
+dew_fild01,185,300,6	script	部落管理者#dew	4_M_DEWZATIMAN,{
+	mes "[部落管理者]";  
+	mes "保持我們的文化和傳統是非常重要的. ";
+	if (dew_legend != 11 || !countitem(11533)) {
+		if (dew_legend < 11)
+			mes "雖然這是一個有點悶...";
+		close;
+	}
+	next;
+	mes "[部落管理者]";  
+	mes "在我看來, 你有什麼";
+	mes "說了, 不是嗎? ";
+	next;
+	select("部落首領派克");
+	mes "[部落管理者]";  
+	mes "我不知道, 有";
+	mes "正在實施這種努力向前";
+	mes "那你把在項目中的關鍵作用...";
+	mes "你是theJaty部落的英雄. ";
+	next;
+	mes "[部落管理者]";  
+	mes "哇?香香的氣味";
+	mes "美味的自製沙嗲! ";
+	mes "謝謝你的飯. ";
+	mes "請代我問候";
+	mes "我們的部落領袖. ";
+	delitem 11533,1; //Satay
+	set dew_legend,12;
+	changequest 9160,9161;
+	next;
+	mes "[部落管理者]";  
+	mes "之間有一些接觸";
+	mes "DEWATA島和Jaty部落. ";
+	mes "我們曾經有過一個更強有力的紐帶";
+	mes "在舊時代. ";
+	next;
+	mes "[部落管理者]";  
+	mes "但隨著新的文化和外國人在流動";
+	mes "DEWATA島已經成為了一個旅遊景點, 我們已經失去了與他們接觸. ";
+	next;
+	mes "[部落管理者]";  
+	mes "旅遊景點已continously擴展, 但它不影響我們這裡的原因是因為這個小寺廟的我管理. ";
+	next;
+	mes "[部落管理者]";  
+	mes "我不能讓我們的傳統逐漸消失一樣, 很容易. ";
+	mes "我希望保持我們的傳統和文化的活力讓人們知道這些東西有多麼重要對我們. ";
+	next;
+	mes "[部落管理者]";  
+	mes "從現在起, 我希望德瓦塔島和賈提部落的人都能相處和互動更加頻繁. ";
+	close;
+}
+
+//Original name: Gatekeeper of Krakatau Volcano
+dewata,235,56,4	script	喀拉喀託火山的守門人#1	4_M_DEWOLDMAN,{
+	mes "[喀拉喀託火山的守門人]";  
+	mes "喀拉喀託火山是";
+	mes "一個非常危險的區域";
+	mes "我不能讓任何人去那裡. ";
+	next;
+	if (dew_legend == 13 && countitem(11533))
+		set .@menu$, ":Tribal Chief Paiko";
+	switch(select("請允許我通過:我不想去. "+.@menu$)) {
+	case 1:
+		if (dew_legend < 8) {
+			mes "[喀拉喀託火山的守門人]";  
+			mes "喀拉喀託火山是";
+			mes "一個非常危險的區域";
+			mes "所以我不能讓你在";
+			mes "除非你有資格進入. ";
+			close;
+		}
+		mes "[喀拉喀託火山的守門人]";  
+		mes "你是誰被承認的部落領袖作為部落的朋友, 並獲得了光輝Cendrawasih羽毛的旅客. ";
+		next;
+		mes "[喀拉喀託火山的守門人]";  
+		mes "好吧, 我會讓你通過, 但喀拉喀託火山是危險的, 所以請小心. ";
+		close2;
+		warp "dew_dun01",289,160;
+		end;
+	case 2:
+		mes "[喀拉喀託火山的守門人]";  
+		mes "你選擇了明智. ";
+		mes "喀拉喀託火山是";
+		mes "一個極其危險的區域. ";
+		close;
+	case 3:
+		mes "[喀拉喀託火山的守門人]";  
+		mes "哦! 我不知道這件事! ";
+		mes "這是一些最好的消息";
+		mes "我最近聽到. ";
+		next;
+		mes "[喀拉喀託火山的守門人]";  
+		mes "嗯, 這是什麼奇妙的味道? ";
+		mes "當然, 這是我們的沙嗲! ";
+		mes "我有點餓了";
+		mes "所以這應該填不平我的. ";
+		delitem 11533,1; //Satay
+		set dew_legend,14;
+		changequest 9162,9163;
+		next;
+		mes "[喀拉喀託火山的守門人]";  
+		mes "既然你來到了這裡所有的方式";
+		mes "我將分享你的有趣的故事. ";
+		next;
+		mes "[喀拉喀託火山的守門人]";  
+		mes "它已成為一個失去的傳統, 在最近幾年, 但直到10多年前, 才能成為一個Jaty部落的勇士, 你必須爬上喀拉喀託火山來證明你的耐力. ";
+		next;
+		mes "[喀拉喀託火山的守門人]";  
+		mes "那些戰士的眼睛焦急又才去了喀拉喀託火山確定. ";
+		next;
+		mes "[喀拉喀託火山的守門人]";  
+		mes "我還是不能忘記, 看看在他們眼裡, 我覺得有點從您冒險家一樣的情感. ";
+		next;
+		mes "[喀拉喀託火山的守門人]";  
+		mes "我希望你能長壽和繁榮. ";
+		mes "是健康和安全, 旅客這樣你就可以活到告訴你的冒險的故事. ";
+		close;
+	}
+}
+
+//Original name: Gatekeeper of Krakatau Volcano
+dew_dun01,292,164,4	script	喀拉喀託火山的守門人#2	4_M_DEWZATIMAN,{
+	mes "[喀拉喀託火山的守門人]";  
+	mes "想回去";
+	mes "到DEWATA? ";
+	next;
+	switch(select("是:沒有")) {
+	case 1:
+		close2;
+		warp "dewata",232,53;
+		end;
+	case 2:
+		mes "[喀拉喀託火山的守門人]";  
+		mes "喀拉喀託火山是";
+		mes "一個危險的地方. ";
+		mes "你應該回去了. ";
+		close;
+	}
+}
+
+dewata,78,192,6	script	婆羅浮屠寺管理員	4_M_DEWMAN,{
+	mes "[婆羅浮屠寺管理員]";  
+	mes "今天天氣是如此的美麗. ";
+	if (dew_legend != 15 || !countitem(11533))
+		close;
+	next;
+	mes "[婆羅浮屠寺管理員]";  
+	mes "順便說一句, 你有";
+	mes "有事要告訴我...? ";
+	next;
+	select("部落首領派克");
+	mes "[婆羅浮屠寺管理員]";  
+	mes "我從來不知道這樣的事情發生了. ";
+	mes "如果你告訴我在前進, 我就能幫至少一點點. ";
+	mes "還是事情已經過去了好您的幫助. ";
+	next;
+	mes "[婆羅浮屠寺管理員]";  
+	mes "啊, 這是我品嘗的時候, 部落邀請我前段時間Sataythat. ";
+	next;
+	mes "[婆羅浮屠寺管理員]";  
+	mes "好??這是一樣的味道, 我記得. ";
+	mes "給我的感謝, 我會沿著傳遞您可能感興趣的一個故事";
+	delitem 11533,1; //Satay
+	set dew_legend,16;
+	changequest 9164,9165;
+	next;
+	mes "[婆羅浮屠寺管理員]";  
+	mes "傳說講述了一個奇怪的鳥稱為金翅鳥. ";
+	mes "它具有軀幹, 手臂和腿一個人, 但有一個鷹的頭和嘴. ";
+	next;
+	mes "[婆羅浮屠寺管理員]";  
+	mes "這種鳥的故事描述它幫助眾神消滅邪惡的魔鬼和毒蛇. ";
+	next;
+	mes "[婆羅浮屠寺管理員]";  
+	mes "這個故事已經通過了一代又一代. ";
+	mes "挺有意思, 不是嗎? ";
+	next;
+	mes "[婆羅浮屠寺管理員]";  
+	mes "我相信在賈提部落的村莊也有許多傳奇的故事. ";
+	mes "當我得到滿足行政, 我會聽到很多這樣的故事肯定. ";
+	next;
+	mes "[婆羅浮屠寺管理員]";  
+	mes "我不能肯定, 當我們將再次穿越的路徑, 但我希望我們還會再見面的一天. ";
+	mes "祝您旅途愉快, 年輕的行人. ";
+	close;
+}
+
+// Help Out the Old Man :: dewata_drink
+//============================================================
+dewata,109,262,4	script	梅莫#dew_drink	4_M_DEWOLDMAN,{
+	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 5000) {
+		if (dew_drink) {
+			mes "[梅莫]";  
+			mes "為什麼你背著這麼多? 不會傷害你的背? ";
+			close;
+		} else {
+			mes "[梅莫]";  
+			mes "它是一個趨勢, 年輕人提著重重的東西呢? ";
+			close;
+		}
+	}
+	set .@playtime, checkquest(5044,PLAYTIME);
+	if (.@playtime == 0) {
+		mes "[梅莫]";  
+		mes "你能幫我明天再? ";
+		mes "博比仍然有背部疼痛. ";
+		mes "一天後背痛不只是走開. ";
+		close;
+	} else if (.@playtime == 1) {
+		erasequest 5044;
+	} else if (.@playtime == 2) {
+		completequest 5044;
+		erasequest 5044;
+	}
+	if (BaseLevel < 60) {
+		mes "[梅莫]";  
+		mes "DEWATA總是擁擠, 但今天很安靜. ";
+		close;
+	}
+	if (dew_drink == 0) {
+		if (rand(3)) {
+			mes "[梅莫]";  
+			mes "哦, 上帝! 我們沒有從賈提部落的消息呢. ";
+			emotion ET_PROFUSELY_SWEAT;
+			next;
+			mes "[梅莫]";  
+			mes "他們從來沒有打破10年的承諾, 我不知道原因. 這是怎麼回事? ";
+			next;
+			mes "[梅莫]";  
+			mes "我可能會破壞所有的液體, 如果它是怎麼回事這個樣子. ";
+			emotion ET_CRY;
+			close;
+		}
+		mes "[梅莫]";  
+		mes "我該怎麼辦? 我還沒有從賈提部落的任何消息. ";
+		emotion ET_PROFUSELY_SWEAT;
+		next;
+		mes "[梅莫]";  
+		mes "哦不?所有的液體會破壞...";
+		next;
+		select("發生了什麼事? ");
+		mes "[梅莫]";  
+		mes "你是誰? ";
+		emotion ET_QUESTION;
+		next;
+		mes "[梅莫]";  
+		mes "你是一個冒險家, 對不對? ";
+		mes "正如您可以從我身邊的罐子看, 我正在做傳統的葡萄酒為生. ";
+		next;
+		mes "[梅莫]";  
+		mes "每個人都知道這一點, 所以DEWATA島吸引了眾多遊客. ";
+		next;
+		mes "[梅莫]";  
+		mes "尤其是這傳統的葡萄酒, 這已經取得了四代! 但方舟是供不應求的. ";
+		mes "方舟需要棕櫚油, 從油棕果實製成. ";
+		next;
+		mes "[梅莫]";  
+		mes "不幸的是, 我們還沒有得到棕櫚油從Jaty部落村莊最近. ";
+		mes "成分可能是無用的, 如果它被傳遞為時已晚. ";
+		next;
+		select("聽起來像一個大問題. ");
+		mes "[梅莫]";  
+		mes "它更是一個問題比你想像的. 銷售信用, 但如果我們不把今天到期, 我們就會失去信用, 配料, 遊客誰沒有得到方舟所以這是相當有害的. ";
+		next;
+		mes "[梅莫]";  
+		mes "......";
+		emotion ET_THINK;
+		next;
+		emotion ET_SURPRISE;
+		mes "[梅莫]";  
+		mes "啊, 對了! 你現在忙嗎? ";
+		next;
+		if(select("對不起, 我忙:不, 我不是忙. ") == 1) {
+			mes "[梅莫]";  
+			mes "嗯, 我別無選擇. ";
+			mes "你不關心別人是麻煩. 什麼這個世界來? ";
+			emotion ET_HNG;
+			close;
+		}
+		mes "[梅莫]";  
+		mes "這是很好聽. ";
+		mes "所以, 既然你都徘徊在這裡...";
+		next;
+		mes "[梅莫]";  
+		mes "你介意我問你一個忙?? 其實我要拜訪的賈提部落, 但這未到期方舟不會讓我離開. ";
+		next;
+		mes "[梅莫]";  
+		mes "你會去賈提村, 問勒羅發生了什麼? ";
+		next;
+		mes "[梅莫]";  
+		mes "這傢伙從來沒有打破10年的承諾, 所以他必須有一個很好的理由不來. ";
+		set dew_drink,1;
+		setquest 5035;
+		next;
+		mes "[梅莫]";  
+		mes "找到最好的油主人. ";
+		mes "他的名字又是勒羅. ";
+		close;
+	} else if (dew_drink < 5) {
+		mes "[梅莫]";  
+		mes "那麼, 什麼也勒羅說什麼? ";
+		next;
+		mes "[梅莫]";  
+		mes "............";
+		emotion ET_THINK;
+		next;
+		mes "[梅莫]";  
+		mes "你沒弄明白髮生了什麼事? ";
+		next;
+		mes "[梅莫]";  
+		mes "找到最好的油主人. 他的名字是勒羅. ";
+		close;
+	} else if (dew_drink == 5) {
+		mes "[梅莫]";  
+		mes "那麼, 什麼也勒羅說什麼? ";
+		next;
+		select("棕櫚樹......成了. ");
+		mes "- 你說明情況, 以備忘先生 - ";
+		next;
+		mes "[梅莫]";  
+		mes "勒羅說對不起? ";
+		mes "嗯, 沒關係. ";
+		next;
+		mes "[梅莫]";  
+		mes "那一定是博比. 如果他已經受傷了, 這就是為什麼有沒有任何消息. 勒羅其實在乎他很多...";
+		next;
+		mes "[梅莫]";  
+		mes "他可能會很麻煩, 但請訪問Jaty村. 勒羅必須完成油. ";
+		next;
+		mes "[梅莫]";  
+		mes "如果不是, 在那裡等候, 並把30瓶油給我. ";
+		set dew_drink,6;
+		changequest 5040,5041;
+		close;
+	} else if (dew_drink == 6) {
+		mes "[梅莫]";  
+		mes "他可能會很麻煩, 但請訪問Jaty村. 勒羅必須完成油. ";
+		next;
+		mes "[梅莫]";  
+		mes "如果不是, 在那裡等候, 並把30瓶油給我. ";
+		close;
+	} else if (dew_drink == 7) {
+		if (countitem(6401) < 30) {
+			mes "[梅莫]";  
+			mes "哦, 我沒告訴你帶30瓶油? 你忘了? ";
+			next;
+			mes "[梅莫]";  
+			mes "回到勒羅並獲得更多, 他會給你更多的, 如??果它是你的錯誤. ";
+			close;
+		}
+		mes "[梅莫]";  
+		mes "你帶來的油. 幹得好, 謝謝你. ";
+		next;
+		mes "[梅莫]";  
+		mes "對不起, 但我有急事要處理. 你可以等待一段時間跟我說??話時, 我做了什麼? ";
+		delitem 6401,30; //Palm_O
+		changequest 5042,5043;
+		set dew_drink,8;
+		close;
+	} else if (dew_drink == 8) {
+		if (checkquest(5043,PLAYTIME) == 0) {
+			mes "[梅莫]";  
+			mes ".........";
+			emotion ET_PROFUSELY_SWEAT;
+			next;
+			mes "- 備註正在方舟.  - ";
+			close;
+		} else if (checkquest(5043,PLAYTIME) == -1) {
+			mes "- 有一個在追求錯誤.  - ";
+			close;
+		}
+		mes "[梅莫]";  
+		mes "難道我讓你等太久? ";
+		next;
+		mes "[梅莫]";  
+		mes "我的家人一直在方舟四代. ";
+		next;
+		mes "[梅莫]";  
+		mes "爺爺有個辛苦活, 因為他並沒有得到很多不錯的銷量. ";
+		next;
+		mes "[梅莫]";  
+		mes "DEWATA島上的人不要喝太多在炎熱的天氣. ";
+		next;
+		mes "[梅莫]";  
+		mes "我年輕的時候, 德瓦塔發展成為一個旅遊景點, 這就是當旅遊包方舟開始賣得很好. ";
+		next;
+		mes "[梅莫]";  
+		mes "良好的液體需要新鮮的油. 我能夠讓液體十年, 並提供它所有的時間. ";
+		next;
+		mes "[梅莫]";  
+		mes "因為今天的油價並沒有準時到達, 我想我可能也很難. ";
+		next;
+		mes "[梅莫]";  
+		mes "你幫助我做出正確的液體. ";
+		next;
+		mes "[梅莫]";  
+		mes "這句諺語'Mengatakan mudah, mengerjakan蘇塞. '意思是說起來容易一些, 但很難做任何事情. ";
+		next;
+		mes "[梅莫]";  
+		mes "換句話說, 它很容易地說, 我們會幫助別人, 但很難真正做到的動作. ";
+		next;
+		emotion ET_THANKS;
+		mes "[梅莫]";  
+		mes "你真的做的非常出色. 我喜歡你, 因為你是從今天的youngins不同. ";
+		changequest 5043,5044;
+		set dew_drink,10;
+		getexp 50000,10000;
+		getitem 617,1; //Old_Violet_Box
+		next;
+		mes "[梅莫]";  
+		mes "你能幫我與我的工作時? ";
+		mes "我會付給你為你為我做. ";
+		close;
+	} else if (dew_drink == 10) {
+		for(set .@i,0; .@i<7; set .@i,.@i+1)
+			if (checkquest(5045+.@i) > -1)
+				set .@j, .@j | (1<<.@i);
+		if (.@j == 0) {
+			mes "[梅莫]";  
+			mes strcharinfo(0)+", to what do I owe the pleasure?";
+			next;
+			switch(select("只要走過來打招呼:我會幫你. ")) {
+			case 1:
+				mes "[梅莫]";  
+				mes "我猜你是忙碌的. ";
+				mes "如果可能的話, 你會從勒羅得到的油? 我將不勝感激...";
+				close;
+			case 2:
+				mes "[梅莫]";  
+				mes "謝謝. 我知道你很忙, 幫助我可以是一個苦差事. ";
+				next;
+				mes "[梅莫]";  
+				mes "你能不能幫勒羅並帶回棕櫚樹油...? ";
+				setquest 5045;
+				close;
+			}
+		} else if ((.@j & 1) || (.@j & 2) || (.@j & 8) || (.@j & 32)) {
+			mes "[梅莫]";  
+			mes "你能不能幫勒羅並帶回棕櫚樹油...? ";
+			close;
+		} else if ((.@j & 4) || (.@j & 16) || (.@j & 64)) {
+
+			// .@i[]: <required amount>,<quest ID>,<reward amount>
+			if (.@j & 4)
+				setarray .@i[0],10,5047,1;
+			else if (.@j & 16)
+				setarray .@i[0],15,5049,2;
+			else
+				setarray .@i[0],20,5051,3;
+
+			if (countitem(6401) < .@i[0]) {
+				mes "[梅莫]";  
+				mes "您還沒有帶來足夠的石油. ";
+				next;
+				mes "............";
+				next;
+				mes "[梅莫]";  
+				mes "博比欠我的幾件事情, 他會給你一些. ";
+				close;
+			}
+			mes "[梅莫]";  
+			mes "哦, 你帶來的油, 不錯. ";
+			next;
+			mes "[梅莫]";  
+			mes "你一定有一個很難使油所以在這裡把這種飲料. ";
+			delitem 6401,.@i[0]; //Palm_O
+			erasequest .@i[1];
+			setquest 5044;
+			getitem 11534,.@i[2]; //Coco_Juice
+			next;
+			switch(rand(4)) {
+			case 0:
+				mes "[梅莫]";  
+				mes "方舟是著名的遊客, 一個人獨自買了很多瓶. ";
+				next;
+				mes "[梅莫]";  
+				mes "擔心他會獨自喝嗎? 太多的飲料總是變得有毒. ";
+				break;
+			case 1:
+				mes "[梅莫]";  
+				mes "太陽總是從東方升起. 眾所周知懶惰清晨醒來. ";
+				next;
+				mes "[梅莫]";  
+				mes "難道他走到現實? 他是好的, 但懶惰. ";
+				break;
+			case 2:
+				mes "[梅莫]";  
+				mes "第一個打擊是成功的一半. ";
+				next;
+				mes "[梅莫]";  
+				mes "我認為你註定要做偉大的事情. ";
+				break;
+			case 3:
+				mes "[梅莫]";  
+				mes "有一個人說吹熱和冷, 似乎一個字是容易的, 但事實並非如此. ";
+				next;
+				mes "[梅莫]";  
+				mes "我相信, 你將舉行忠於你的承諾. ";
+				break;
+			}
+			next;
+			mes "[梅莫]";  
+			mes "我要你幫我這一次. ";
+			next;
+			mes "[梅莫]";  
+			mes "博比仍然有腰酸背痛, 這將需要一些日子讓他恢復. ";
+			close;
+		}
+	} else { // Should never happen.
+		mes "[梅莫]";  
+		mes "德瓦塔島永遠是擁擠的, 但今天很安靜. ";
+		close;
+	}
+}
+
+dew_fild01,114,275,4	script	勒羅#dew_drink	4_M_DEWMAN,{
+	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 5000) {
+		mes "[勒羅]";  
+		mes "你背負的東西太多了...";
+		close;
+	}
+	if (dew_drink == 1) {
+		mes "[勒羅]";  
+		mes "哦, 不! 我有這麼多的訂單, 我跑出來的成分. ";
+		mes "還沒有? 這是怎麼回事, 博比? 他去哪兒了? ";
+		emotion ET_FRET;
+		next;
+		select("對不起, 但你勒羅? ");
+		mes "[勒羅]";  
+		mes "當博比回來這裡, 我會給他一個跳動, 他永遠不會忘記! ";
+		emotion ET_ANGER;
+		next;
+		mes "- 勒羅似乎很生氣的人, 而忽略你 - ";
+		next;
+		mes "[勒羅]";  
+		mes "哎呀. 你是誰? ";
+		emotion ET_QUESTION;
+		next;
+		select("備忘錄派我來這裡. ");
+		mes "[勒羅]";  
+		mes "啊, 對了! 我忘了備忘錄, 因為誰收集堅果的工人都還沒來. 抱歉. ";
+		next;
+		mes "[勒羅]";  
+		mes "為了使新鮮的棕櫚油, 我需要新鮮的棕櫚油水果. 然後, 我就可以得到更多的新鮮的油從它的新鮮水果. ";
+		next;
+		mes "[勒羅]";  
+		mes "你我之間, 備忘錄先生是如此的挑剔, 他不會使用任何unfresh油. ";
+		next;
+		mes "[勒羅]";  
+		mes "為了讓新油, 他總是向工人棕櫚樹森林, 但是......在黎明發來的傢伙都還沒回來. ";
+		next;
+		mes "[勒羅]";  
+		mes "首先, 我以為他很懶, 這讓我很不安. ";
+		mes "你可以找到工人椰樹成林? ";
+		next;
+		select("是的, 我會找到他們. ");
+		mes "[勒羅]";  
+		mes "謝謝你這麼多. ";
+		mes "查找博比. ";
+		next;
+		mes "[勒羅]";  
+		mes "博比可能在棕櫚林. 作物最好在森林的南部. ";
+		set dew_drink,2;
+		changequest 5035,5036;
+		close;
+	} else if (dew_drink == 2) {
+		mes "[勒羅]";  
+		mes "你有沒有發現博比? ";
+		emotion ET_QUESTION;
+		next;
+		mes "[勒羅]";  
+		mes ".........";
+		next;
+		mes "[勒羅]";  
+		mes "哦, 你還沒有訪問棕櫚林東呢. 我很擔心. ";
+		close;
+	} else if (dew_drink == 3) {
+		mes "[勒羅]";  
+		mes "你回來了......和...... 博比 ...";
+		mes "如何博比? ";
+		emotion ET_QUESTION;
+		next;
+		select("博比 .....");
+		mes "[勒羅]";  
+		mes "啊! 我不知道. 我總是告訴博比'Kemarau setahun rusak sehari. '";
+		next;
+		mes "[勒羅]";  
+		mes "他爬上了樹, 沒有任何安全設備, 所以他可能已經倒下了, 並得到受傷. ";
+		next;
+		mes "[勒羅]";  
+		mes "嗯......對不起, 我不能得到棕櫚油現在. ";
+		next;
+		mes "[勒羅]";  
+		mes "您將郵件傳遞到備忘先生, 這是不可能得到應有的油做缺乏的成分? ";
+		mes "沒有工匠沒有成分可以創造任何東西. ";
+		next;
+		select("為什麼我沒有拿到的成分? ");
+		mes "[勒羅]";  
+		mes "啊, 那可以是一個很好的方式, 但是這將是很難收集堅果作為首發. ";
+		next;
+		mes "[勒羅]";  
+		mes "哼! ";
+		mes "我有一個好主意. ";
+		next;
+		mes "[勒羅]";  
+		mes "你可以問博比關於收集, 你見過他在森林堅果的最佳方法. 他應該能夠教你的技術. ";
+		set dew_drink,4;
+		changequest 5037,5038;
+		next;
+		mes "[勒羅]";  
+		mes "雖然他是懶惰, 而是不小心, 他是最好的工人. ";
+		close;
+	} else if (dew_drink == 4) {
+		if (checkquest(5038) > -1) {
+			mes "[勒羅]";  
+			mes "你可以問博比關於收集, 你見過他在森林堅果的最佳方法. 他應該能夠教你的技術. ";
+			next;
+			mes "[勒羅]";  
+			mes "雖然他是懶惰, 而是不小心, 他是最好的工人. ";
+			close;
+		} else if (checkquest(5039) > -1) {
+			if (countitem(6402) < 60) {
+				mes "[勒羅]";  
+				mes "你收集的堅果了嗎? ";
+				next;
+				mes "[勒羅]";  
+				mes "一, 二...";
+				next;
+				mes "[勒羅]";  
+				mes "這不是我從博比訂購的數量. ";
+				next;
+				mes "[勒羅]";  
+				mes "這將是困難的, 如果它被耽誤了, 所以快點給我60. ";
+				close;
+			}
+			mes "[勒羅]";  
+			mes "一個, 兩個, 三個, 四個, . . . . ";
+			next;
+			mes "[勒羅]";  
+			mes "60件堅果的, 沒錯. 我會按油現在. ";
+			next;
+			emotion ET_SORRY;
+			mes "[勒羅]";  
+			mes "這需要一些時間, 所以回去備註先生告訴他的情況. 還告訴他, 我很抱歉耽擱. ";
+			delitem 6402,60; //Oil_Palm_F
+			set dew_drink,5;
+			changequest 5039,5040;
+			close;
+		}
+	} else if (dew_drink == 5) {
+		mes "[勒羅]";  
+		mes "這需要一些時間, 所以回去備註先生告訴他的情況. 還告訴他, 我很抱歉耽擱. ";
+		close;
+	} else if (dew_drink == 6) {
+		if (checkweight(1201,1) == 0 || MaxWeight - Weight < 15000) {
+			mes "[勒羅]";  
+			mes "你帶了太多東西, 現在繼續. ";
+			close;
+		}
+		mes "[勒羅]";  
+		mes "你來得正是時候. 我剛剛完成製作的棕櫚樹油. ";
+		next;
+		mes "[勒羅]";  
+		mes "它比你想像的更重, 所以攜帶時要小心. ";
+		next;
+		emotion ET_SORRY;
+		mes "[勒羅]";  
+		mes "哦, 告訴備忘錄先生, 我很抱歉遲交貨, 並解釋說, 這不是我的錯. ";
+		changequest 5041,5042;
+		set dew_drink,7;
+		getitem 6401,30; //Palm_O
+		close;
+	} else if (dew_drink == 7) {
+		if (checkquest(5042) > -1 && countitem(6401) > 29) {
+			mes "[勒羅]";  
+			mes "它比你想像的更重, 所以攜帶時要小心. ";
+			next;
+			emotion ET_SORRY;
+			mes "[勒羅]";  
+			mes "哦, 告訴備忘錄先生, 我很抱歉遲交貨, 並解釋說, 這不是我的錯. ";
+			close;
+		} else {
+			set .@num, 30 - countitem(6401);
+			if (checkweight(6401,.@num) == 0) {
+				mes "[勒羅]";  
+				mes "你帶了太多東西, 現在繼續. ";
+				close;
+			}
+			mes "[勒羅]";  
+			mes "我清楚地記得給你30瓶棕櫚樹油, 你失去這一切? ";
+			next;
+			select("對不起, 這是我的錯......");
+			emotion ET_FRET;
+			mes "[勒羅]";  
+			mes "這是棕櫚樹油是供不應求. 小心皮斯. 這是真的很難得到這個...";
+			getitem 6401,.@num; //Palm_O
+			close;
+		}
+	} else if (dew_drink == 8) {
+		mes "[勒羅]";  
+		mes "什麼備忘先生說的? ";
+		emotion ET_QUESTION;
+		next;
+		mes "["+ strcharinfo(0)+"]";  
+		emotion ET_BLABLA,1;
+		mes "............";
+		next;
+		mes "[勒羅]";  
+		mes "啊...我明白...";
+		emotion ET_OK;
+		close;
+	} else if (dew_drink == 10) {
+		for(set .@i,0; .@i<7; set .@i,.@i+1)
+			if (checkquest(5045+.@i) > -1)
+				set .@j, .@j | (1<<.@i);
+		if (.@j == 0) {
+			mes "[勒羅]";  
+			mes "發生了什麼事? 我沒有從記事先生拿到了一份備忘錄, 他要派人在這裡. ";
+			close;
+		} else if (.@j & 1) {
+			mes "[勒羅]";  
+			mes "嘿, 我一直在等著你. 我不知道博比的傷病會讓我的生活如此艱難. ";
+			next;
+			set .@quest,rand(3);
+			mes "[勒羅]";  
+			mes "我很慚愧地問你, 但你可以把"+(20 +(@quest* 10))+"塊油棕櫚果好嗎? ";
+			changequest 5045,5046+(.@quest*2);
+			next;
+			mes "[勒羅]";  
+			mes "一旦你把油棕櫚堅果, 備忘錄先生將交換他們的石油. ";
+			close;
+		} else if ((.@j & 2) || (.@j & 8) || (.@j & 32)) {
+			
+			// .@i[]: <required amount>,<quest ID>,<reward amount>,<free weight>
+			if (.@j & 2)
+				setarray .@i[0],20,5046,10,5000;
+			else if (.@j & 8)
+				setarray .@i[0],30,5048,15,7500;
+			else
+				setarray .@i[0],40,5050,20,10000;
+
+			if (countitem(6402) < .@i[0]) {
+				mes "[勒羅]";  
+				mes "一旦你把"+ @i[0] +"的油棕櫚堅果片, 備忘先生將交換他們的石油. ";
+				close;
+			}
+			if (checkweight(1201,1) == 0 || MaxWeight - Weight < .@i[3]) {
+				mes "[勒羅]";  
+				mes "你背負了太多, 現在繼續. ";
+				close;
+			}
+			mes "[勒羅]";  
+			mes "一個, 兩個, 三個, 四個, . . . . ";
+			next;
+			mes "[勒羅]";  
+			mes "正是"+ @i[0] +"個油棕櫚果. 讓你現在用的油換的. ";
+			changequest .@i[1], .@i[1]+1;
+			delitem 6402,.@i[0]; //Oil_Palm_F
+			getitem 6401,.@i[2]; //Palm_O
+			next;
+			mes "[勒羅]";  
+			mes "正如我之前告訴過你, 它比你想像的更重, 所以這個實施時要小心. ";
+			close;
+		} else if ((.@j & 4) || (.@j & 16) || (.@j & 64)) {
+			mes "[勒羅]";  
+			mes "正如我之前告訴過你, 它比你想像的更重, 所以這個實施時要小心. ";
+			close;
+		}
+	}
+	mes "[勒羅]";  
+	mes "這是怎麼回事與博比 ...? 為什麼他不回來了......? ";
+	next;
+	mes "- 看來他是在等人, ";
+	close;
+}
+
+dew_fild01,259,48,4	script	博比#dew_drink	4_M_DEWBOY,{
+	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 500) {
+		if (dew_drink > 0) {
+			mes "[博比]";  
+			mes "為什麼你背著這麼多? ";
+			close;
+		} else {
+			mes "[博比]";  
+			mes "你要去, 如果你背著這麼多的後悔. ";
+			close;
+		}
+	}
+	if (dew_drink == 2) {
+		mes "[博比]";  
+		mes "啊?腰酸...";
+		emotion ET_PROFUSELY_SWEAT;
+		next;
+		select("你是博比? ");
+		mes "[博比]";  
+		mes "你是誰? ";
+		next;
+		mes "[博比]";  
+		mes "我不知道你, 但";
+		mes "你是我的粉絲? ";
+		mes "我博比, 最好的水果獵人在Jaty部落. ";
+		next;
+		mes "[博比]";  
+		mes "你在這裡為我籤名嗎? ";
+		emotion ET_QUESTION;
+		next;
+		select("勒羅讓我來這裡. ");
+		mes "[博比]";  
+		mes "啊! 勒羅先生讓你來這裡. 我不能動, 因為我傷害了我的背部, 而爬樹. ";
+		next;
+		mes "[博比]";  
+		mes "! ＃$ @ *＆％! @ $＆! $％! $＃*＆! @＃$";
+		emotion ET_CRY;
+		next;
+		mes "[博比]";  
+		mes "而且我還從未有過一個女朋友...";
+		next;
+		mes "[博比]";  
+		mes "! ＃$ @ *＆％! @ $＆! $％! $＃*＆! @＃$";
+		emotion ET_CRY;
+		next;
+		mes "[博比]";  
+		mes "啊! 抱歉. 告訴勒羅先生, 我會回去, 如果我能找到一種方法來移動. ";
+		changequest 5036,5037;
+		set dew_drink,3;
+		next;
+		mes "[博比]";  
+		mes "我不能動彈'因為這個腰酸...";
+		close;
+	} else if (dew_drink == 3) {
+		mes "[博比]";  
+		mes "啊! 抱歉. 告訴勒羅先生, 我會回去, 如果我能找到一種方法來移動. ";
+		next;
+		mes "[博比]";  
+		mes "我不能動彈'因為這個腰酸...";
+		emotion ET_PROFUSELY_SWEAT;
+		close;
+	} else if (dew_drink == 4) {
+		if (checkquest(5039) > -1) {
+			if (countitem(6402) > 59) { // Oil_Palm_F
+				mes "[博比]";  
+				mes "你得到所有的水果. 他們帶來勒羅先生. ";
+				close;
+			} else {
+				mes "[博比]";  
+				mes "這是初學者最容易喜歡你搖晃或踢樹. ";
+				next;
+				mes "[博比]";  
+				mes "這可能是危險的, 所以總是穿安全頭盔. ";
+				next;
+				mes "[博比]";  
+				mes "收集60棕櫚油水果, 將他們勒羅先生. ";
+				close;
+			}
+		}
+		mes "[博比]";  
+		mes "啊?腰酸...";
+		emotion ET_PROFUSELY_SWEAT;
+		next;
+		mes "[博比]";  
+		mes "哦! 讓隱私無處藏 - 讓我猜...";
+		next;
+		mes "[博比]";  
+		mes "............";
+		emotion ET_THINK;
+		next;
+		mes "[博比]";  
+		mes "...你回來了! 你打算趕上, 而不是我棕油果, 對不對? ";
+		next;
+		mes "[博比]";  
+		mes "這是很難初學??者趕上水果像我一樣. 不, 它是不可能的. ";
+		next;
+		mes "[博比]";  
+		mes "大師通常爬上樹捉水果, 但你是一個初學者...";
+		next;
+		mes "[博比]";  
+		mes "這是初學者最容易動搖或踢樹. 這可能是危險的, 所以記得要戴安全頭盔. ";
+		changequest 5038,5039;
+		next;
+		mes "[博比]";  
+		mes "好吧! 收集60棕櫚油水果, 並把該金額勒羅先生. ";
+		emotion ET_SURPRISE;
+		close;
+	} else if (dew_drink == 10) {
+		mes "[博比]";  
+		mes "哦! "+ strcharinfo(0)+", 我們又見面了. 這是怎麼回事? ";
+
+		if (checkquest(5047) > -1)
+			set .@count,10;
+		else if (checkquest(5049) > -1)
+			set .@count,15;
+		else if (checkquest(5051) > -1)
+			set .@count,20;
+		if (.@count) {
+			if (countitem(6401) >= .@count) {
+				// Custom translation
+				mes "[博比]";  
+				mes "良好的工作! 要小心, 同時提供他們?";
+				close;
+			}
+			set .@new_count, .@count-countitem(6401);
+			mes "- 你說明情況.  - ";
+			next;
+			mes "[博比]";  
+			mes "正確的...我欠備忘錄的祖父. 等一下, 我躲在一些油在這裡. ";
+			next;
+			if (checkweight(6401,.@new_count) == 0) {
+				mes "[博比]";  
+				mes "我有一些, 但你似乎有太多的東西和你在一起. ";
+				close;
+			}
+			mes "- 翻箱倒櫃...翻箱倒櫃...  - ";
+			next;
+			mes "[博比]";  
+			mes "啊! 這裡是另外一個. 小心不要再失去它. 並保持它從勒羅先生的秘密. ";
+			getitem 6401,.@new_count; //Palm_O
+			next;
+			mes "[博比]";  
+			mes "請?"+ strcharinfo(0)+". ";
+			close;
+		}
+		next;
+		switch(select("- 你為什麼要到這裡來:- 我想知道如何得到的果實. ")) {
+		case 1:
+			mes "[博比]";  
+			mes "我正在散步, 因為我覺得它會讓我的背部疼痛較少. ";
+			close;
+		case 2:
+			mes "[博比]";  
+			mes "這是初學者最容易動搖或踢樹. ";
+			next;
+			mes "[博比]";  
+			mes "這可能是危險的, 所以總是穿安全頭盔. ";
+			close;
+		}
+	}
+	mes "[博比]";  
+	mes "啊?我的刻著的背疼得要命. ";
+	emotion ET_CRY;
+	close;
+}
+
+-	script	::DewataPalm	-1,{
+	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 5000) {
+		mes "你負重了太高. ";
+		close;
+	}
+
+	if (checkquest(5039) > -1) set .@count,60;
+	else if (checkquest(5046) > -1) set .@count,20;
+	else if (checkquest(5048) > -1) set .@count,30;
+	else if (checkquest(5050) > -1) set .@count,40;
+	if (.@count == 0) {
+		mes "有一個棕櫚樹";
+		mes "面對涼爽的風. ";
+		close;
+	} else if (countitem(6402) >= .@count) {
+		mes "棕櫚樹否認";
+		mes "你貪婪的手中. ";
+		close;
+	}
+
+	if (isequipped(5009)) { // Safety_Helmet
+		mes "有水果和鮮花掛在樹枝棕櫚樹. ";
+		mes "一定要戴安全頭盔, 而試圖挑水果. ";
+	} else {
+		mes "有一個棕櫚樹. ";
+		mes "你可以踢或搖晃. ";
+		mes "那你想幹什麼? ";
+	}
+	next;
+	switch(select("搖樹:踢樹")) {
+	case 1:
+		specialeffect EF_HITLINE2;
+		set .@message$, "你搖動的棕櫚樹...";
+		mes "你搖動的棕櫚樹. ";
+		break;
+	case 2:
+		specialeffect EF_BASH;
+		set .@message$, "你踢的棕櫚樹迅速提供所有您可能...";
+		mes "你踢的棕櫚樹迅速提供所有您可能. ";
+		break;
+	}
+	next;
+	mes ".........";
+	next;
+	mes .@message$;
+	switch(rand(1,20)) {
+	case 1:
+	case 2:
+	case 3:
+		mes "石頭掉下來. ";
+		getitem 7049,1; //Stone
+		break;
+	case 6:
+	case 7:
+		mes "一個偉大的葉子掉下來. ";
+		getitem 7198,1; //Great_Leaf
+		break;
+	case 8:
+	case 9:
+		mes "一個蠕蟲剝離掉出來. ";
+		getitem 955,1; //Worm_Peelings
+		break;
+	case 4:
+	case 5:
+	case 11:
+	case 12:
+	case 13:
+		mes "油棕果實掉下來. ";
+		getitem 6402,1; //Oil_Palm_F
+		break;
+	case 14:
+	case 16:
+	case 20:
+		specialeffect2 EF_BASH;
+		if (isequipped(5009)) { //Safety_Helmet
+			mes "東西落在你的頭上, 但因為你戴著安全帽你安然無恙. ";
+			emotion ET_BEST,1;
+			break;
+		} else {
+			mes "摔破的東西倒在你的頭上, 右邊那個地方情有獨鐘的是, $＃* @! 這是一個萬裡挑一的拍攝. ";
+			percentheal -30,0;
+			close2;
+			donpcevent strnpcinfo(0)+"::OnDisable";
+			warp "dew_fild01",371,211;
+			end;
+		}
+	case 10:
+	case 17:
+		if (countitem(6402) <= .@count-5) {
+			mes "噸油棕果的崩潰從樹上下來. ";
+			getitem 6402,1; //Oil_Palm_F
+			getitem 6402,1; //Oil_Palm_F
+			getitem 6402,1; //Oil_Palm_F
+			getitem 6402,1; //Oil_Palm_F
+			getitem 6402,1; //Oil_Palm_F
+		} else {
+			mes "油棕果實掉下來. ";
+			getitem 6402,1; //Oil_Palm_F
+		}
+		break;
+	default:
+		mes "但沒有任何反應. ";
+		break;
+	}
+	close2;
+	donpcevent strnpcinfo(0)+"::OnDisable";
+	end;
+OnEnable:
+	enablenpc strnpcinfo(0);
+	stopnpctimer;
+	end;
+OnDisable:
+	disablenpc strnpcinfo(0);
+	initnpctimer;
+	end;
+OnTimer60000:
+OnTimer180000:
+OnTimer120000:
+OnTimer240000:
+	if(rand(2))
+		donpcevent strnpcinfo(0)+"::OnEnable";
+	end;
+OnTimer300000:
+	donpcevent strnpcinfo(0)+"::OnEnable";
+	end;
+}
+dew_fild01,247,62,0	duplicate(DewataPalm)	棕櫚樹#drink01	CLEAR_NPC
+dew_fild01,276,73,0	duplicate(DewataPalm)	棕櫚樹#drink02	CLEAR_NPC
+dew_fild01,278,63,0	duplicate(DewataPalm)	棕櫚樹#drink03	CLEAR_NPC
+dew_fild01,301,88,0	duplicate(DewataPalm)	棕櫚樹#drink04	CLEAR_NPC
+dew_fild01,314,72,0	duplicate(DewataPalm)	棕櫚樹#drink05	CLEAR_NPC
+dew_fild01,320,68,0	duplicate(DewataPalm)	棕櫚樹#drink06	CLEAR_NPC
+dew_fild01,334,107,0	duplicate(DewataPalm)	棕櫚樹#drink07	CLEAR_NPC
+dew_fild01,345,88,0	duplicate(DewataPalm)	棕櫚樹#drink08	CLEAR_NPC
+dew_fild01,344,71,0	duplicate(DewataPalm)	棕櫚樹#drink09	CLEAR_NPC
+dew_fild01,358,93,0	duplicate(DewataPalm)	棕櫚樹#drink10	CLEAR_NPC
+dew_fild01,338,121,0	duplicate(DewataPalm)	棕櫚樹#drink11	CLEAR_NPC
+dew_fild01,358,136,0	duplicate(DewataPalm)	棕櫚樹#drink12	CLEAR_NPC
+dew_fild01,326,147,0	duplicate(DewataPalm)	棕櫚樹#drink13	CLEAR_NPC
+dew_fild01,307,146,0	duplicate(DewataPalm)	棕櫚樹#drink14	CLEAR_NPC
+dew_fild01,325,159,0	duplicate(DewataPalm)	棕櫚樹#drink15	CLEAR_NPC
+dew_fild01,339,163,0	duplicate(DewataPalm)	棕櫚樹#drink16	CLEAR_NPC
+dew_fild01,346,193,0	duplicate(DewataPalm)	棕櫚樹#drink17	CLEAR_NPC
+dew_fild01,355,193,0	duplicate(DewataPalm)	棕櫚樹#drink18	CLEAR_NPC
+dew_fild01,363,219,0	duplicate(DewataPalm)	棕櫚樹#drink19	CLEAR_NPC
+dew_fild01,341,261,0	duplicate(DewataPalm)	棕櫚樹#drink20	CLEAR_NPC
+dew_fild01,289,302,0	duplicate(DewataPalm)	棕櫚樹#drink21	CLEAR_NPC
+dew_fild01,70,196,0	duplicate(DewataPalm)	棕櫚樹#drink22	CLEAR_NPC
+dew_fild01,97,145,0	duplicate(DewataPalm)	棕櫚樹#drink23	CLEAR_NPC
+dew_fild01,119,42,0	duplicate(DewataPalm)	棕櫚樹#drink24	CLEAR_NPC
+dew_fild01,188,72,0	duplicate(DewataPalm)	棕櫚樹#drink25	CLEAR_NPC
+dew_fild01,238,80,0	duplicate(DewataPalm)	棕櫚樹#drink26	CLEAR_NPC
+dew_fild01,252,97,0	duplicate(DewataPalm)	棕櫚樹#drink27	CLEAR_NPC
+dew_fild01,256,98,0	duplicate(DewataPalm)	棕櫚樹#drink28	CLEAR_NPC
+dew_fild01,279,93,0	duplicate(DewataPalm)	棕櫚樹#drink29	CLEAR_NPC
+dew_fild01,299,107,0	duplicate(DewataPalm)	棕櫚樹#drink30	CLEAR_NPC
+dew_fild01,355,113,0	duplicate(DewataPalm)	棕櫚樹#drink31	CLEAR_NPC
+dew_fild01,278,136,0	duplicate(DewataPalm)	棕櫚樹#drink32	CLEAR_NPC
+dew_fild01,258,128,0	duplicate(DewataPalm)	棕櫚樹#drink33	CLEAR_NPC
+dew_fild01,240,125,0	duplicate(DewataPalm)	棕櫚樹#drink34	CLEAR_NPC
+dew_fild01,225,117,0	duplicate(DewataPalm)	棕櫚樹#drink35	CLEAR_NPC
+dew_fild01,219,121,0	duplicate(DewataPalm)	棕櫚樹#drink36	CLEAR_NPC
+dew_fild01,226,99,0	duplicate(DewataPalm)	棕櫚樹#drink37	CLEAR_NPC
+dew_fild01,209,137,0	duplicate(DewataPalm)	棕櫚樹#drink38	CLEAR_NPC
+dew_fild01,206,156,0	duplicate(DewataPalm)	棕櫚樹#drink39	CLEAR_NPC
+dew_fild01,209,201,0	duplicate(DewataPalm)	棕櫚樹#drink40	CLEAR_NPC
+
+// Traditional Weapon Quest :: dewata_weapon
+//============================================================
+dew_fild01,127,240,4	script	加蒂#weapon	2_M_OLDBLSMITH,{
+	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 10000) {
+		mes "- 保持它在那裡!  - ";
+		mes "- 你攜帶了太多的物品, 並沒有足夠的庫存空間收取任何報酬.  - ";
+		mes "- 請您提供更多的庫存空間, 然後回來接受這個挑戰.  - ";
+		close;
+	}
+	if (BaseLevel < 60) {
+		mes "[加蒂]";  
+		mes "凡在地獄我是誰? 每個人都在這裡躲著我. ";
+		close;
+	}
+	if (dew_weapon == 0) {
+		mes "[加蒂]";  
+		mes "嘿, 年輕的"+((Sex)?"男人":"女人")+"你是從在這裡? ";
+		next;
+		select("不, 我不是. ");
+		mes "[加蒂]";  
+		mes "我想問問";
+		mes "你一個問題. ";
+		mes "這個地方在哪裡? ";
+		next;
+		mes "- 他好像要求的島名.  - ";
+		next;
+		input .@island_name$;
+		next;
+		mes "["+ strcharinfo(0)+"]";  
+		mes "這就是所謂的"+ @island_name$ +". 什麼是錯的? ";
+		next;
+		if (.@island_name$ == "德瓦塔島") {
+			mes "[加蒂]";  
+			mes "這是DEWATA島? 你確定這是德瓦塔島? ";
+			next;
+			mes "[加蒂]";  
+			mes "Hahahahahahahahaha ...! ";
+			next;
+			mes "- 老人開始聽到這個島的名字後, 笑起來就像一個瘋狂的人. 你決定以後要問一點點.  - ";
+			set dew_weapon,1;
+			close;
+		} else {
+			mes "[加蒂]";  
+			mes "是這樣的......"+ @island_name$ +"? "+ @island_name$ +"..."+ @island_name$ +"..."+ @island_name$ +"...";
+			next;
+			mes "- 老男人給了辭職深深地嘆了口氣, 繼續說道.  - ";
+			next;
+			mes "[加蒂]";  
+			mes "該死的......我的計劃是毀了. 我投資了我所有的財富到那裡, 但我失敗了. 我現在不能做任何事情, 我的船已經被破壞了. ";
+			next;
+			mes "- 老人開始哭泣.  - ";
+			mes "- 感覺彆扭, 你趕緊離開.  - ";
+			close;
+		}
+	} else if (dew_weapon == 1) {
+		select("嗯......先生......");
+		mes "[加蒂]";  
+		mes "咳...咳...";
+		next;
+		mes "[加蒂]";  
+		mes "哦......對不起?對不起. 我很高興, 我終於到達了德瓦塔島. ";
+		next;
+		mes "[加蒂]";  
+		mes "這不是一個小故事. 哦! 我得先介紹一下我自己. 我鐵匠加蒂, 也是一個冒險家. ";
+		next;
+		mes "[加蒂]";  
+		mes "我發現了一個神秘的武器藍圖, 但我不記得什麼時候我收購了它. ";
+		next;
+		mes "["+ strcharinfo(0)+"]";  
+		mes "武器藍圖? ";
+		next;
+		mes "[加蒂]";  
+		mes "沒錯! 我走遍各地尋找武器的材料, 但...";
+		next;
+		mes "["+ strcharinfo(0)+"]";  
+		mes "但? ";
+		next;
+		mes "[加蒂]";  
+		mes "我不能在任何地方找到最後的材料. ";
+		next;
+		mes "[加蒂]";  
+		mes "我正要放棄, 但對藍圖的一些小字說, 它可以在德瓦塔島被發現. ";
+		next;
+		mes "[加蒂]";  
+		mes "我不知道為什麼有人把這麼重要的事情的小字. 總之, 看完之後說, 我投入我所有的財富發現島. ";
+		next;
+		mes "["+ strcharinfo(0)+"]";  
+		mes "哦......是這樣嗎? ";
+		next;
+		mes "[加蒂]";  
+		mes "這個島是奇怪. 我來到這裡一個星期前, 每個人都在這裡一直躲著我. ";
+		next;
+		mes "[加蒂]";  
+		mes "上周是如此辛苦, 但你救了我, 告訴我, 這是德瓦塔島. ";
+		mes "謝謝你告訴我, 謝謝你路過這裡正是時候. ";
+		next;
+		mes "["+ strcharinfo(0)+"]";  
+		mes "呃......沒問題. ";
+		next;
+		mes "[加蒂]";  
+		mes "嗯......有我的船失事得到一個小問題, 但這是不倫不類. ";
+		next;
+		mes "[加蒂]";  
+		mes "現在, 我發現這是德瓦塔島, 我應該找到這個偉大的武器的材料. ";
+		next;
+		mes "[加蒂]";  
+		mes "...............";
+		next;
+		if (dew_legend < 9) {
+			mes "[加蒂]";  
+			mes "啊! 我正在尋找的材料是魔島皮革. ";
+			next;
+			mes "["+ strcharinfo(0)+"]";  
+			mes "科摩多皮? ";
+			next;
+			mes "[加蒂]";  
+			mes "是. 在藍圖中, 它的寫入的DEWATA當地人只認可少數是足夠值得反對的科摩多龍戰鬥. ";
+			next;
+			mes "[加蒂]";  
+			mes "為了打擊的科摩多龍, 你必須得到由當地人認可. 我認為這將是難以得到認可. ";
+			next;
+			mes "["+ strcharinfo(0)+"]";  
+			mes "當然, 它必須是...";
+			next;
+			mes "[加蒂]";  
+			mes "讓我問你一個忙. 如果你第一次得到確認, 請不要忘了來探望我. ";
+			close2;
+			setquest 5052;
+			set dew_weapon,2;
+			end;
+		}
+		mes "[加蒂]";  
+		if(Sex == 0)
+			mes "夫人, 你擁有一個強大的能量. ";
+		else
+			mes "你擁有旺盛的精力. ";
+		mes "你見過所謂的科摩多龍的怪物在這個島? ";
+		next;
+		select("是的, 我有. ");
+		mes "[加蒂]";  
+		mes "哦! 真的嗎? ";
+		mes "我很幸運, 能夠遇到你. 這是怎麼回事這麼好. ";
+		next;
+		mes "[加蒂]";  
+		mes "你能幫我嗎? ";
+		next;
+		mes "[加蒂]";  
+		mes "我一直在尋找武器的材料是科摩多龍皮. 帶給我, 其中100個, 我會讓你看上的武器. ";
+		setquest 5053;
+		set dew_weapon,3;
+		next;
+		mes "[加蒂]";  
+		mes "我聽說科摩多龍是很厲害的怪物. 請注意. ";
+		close;
+	} else if (dew_weapon == 2) {
+		if (dew_legend < 9) {
+			mes "[加蒂]";  
+			mes "難道你被當地人認可? ";
+			next;
+			mes "[加蒂]";  
+			mes "..........";
+			next;
+			mes "[加蒂]";  
+			mes "我想還沒有. 我問身邊無處不在, 但我無法找到一個方法來得到當地人認可. 我不知道我什麼時候能完成讓這件武器. ";
+			next;
+			mes "[加蒂]";  
+			mes "如果你在我面前得到認可, 請不要忘了來探望我. ";
+			close;
+		}
+		mes "[加蒂]";  
+		mes "那麼, 你得到了當地人認可? ";
+		next;
+		mes "[加蒂]";  
+		mes "..........";
+		next;
+		mes "[加蒂]";  
+		mes "哦, 是的! 終於. ";
+		if (Sex == 0)
+			mes "夫人, 你也擁有強大的能量. ";
+		else
+			mes "您也擁有強大的能量. ";
+		mes "你終於得到當地人的認可? ";
+		next;
+		select("是的. ");
+		mes "[加蒂]";  
+		mes "哦! 正如我所料! ";
+		mes "我是如此幸運, 以滿足你. 一切都那麼好. ";
+		next;
+		mes "[加蒂]";  
+		mes "我知道我沒有權利問你這一點, 但會像這是一個命運...";
+		next;
+		mes "- 加蒂喃喃自語.  - ";
+		next;
+		mes "[加蒂]";  
+		mes "武器材料, 我如此渴望是魔島皮革. 請給我他們的100. ";
+		next;
+		mes "[加蒂]";  
+		mes "我是如此渴望使武器藍圖的武器. ";
+		changequest 5052,5053;
+		set dew_weapon,3;
+		next;
+		mes "[加蒂]";  
+		mes "請在我的激情淡出. ";
+		next;
+		mes "[加蒂]";  
+		mes "哦! 和科摩多龍是一個非常強大的怪物, 所以請小心. ";
+		close;
+	} else if (dew_weapon == 3) {
+		if (countitem(6403) > 99) {
+			mes "[加蒂]";  
+			mes "由你走路的樣子, 你必須給我帶來了100科摩多龍皮. 把它交給我. ";
+			delitem 6403,100;
+			erasequest 5053;
+			set dew_weapon,4;
+			next;
+			mes "- 你把科摩多龍皮給加蒂  - ";
+			close;
+		} else if (countitem(6403)) {
+			mes "[加蒂]";  
+			mes "所以, 這是科摩多龍皮. 但這還不夠. ";
+			next;
+			mes "[加蒂]";  
+			mes "我知道我在問你一個忙, 但我需要100個. ";
+			close;
+		} else {
+			mes "[加蒂]";  
+			mes "請小心, 因為科摩多龍是很厲害的怪物. 而且不要忘記帶上我對你的方式100科摩多龍皮. ";
+			close;
+		}
+	} else if (dew_weapon == 4) {
+		mes "[加蒂]";  
+		mes "哦?看看這個. 如何彈性...所以柔軟. ";
+		next;
+		mes "[加蒂]";  
+		mes "科摩多皮革是有史以來最好的材料. ";
+		next;
+		mes "[加蒂]";  
+		mes "是的, 我應該怎麼處理呢? ";
+		next;
+		mes "[加蒂]";  
+		mes "嗯......像這樣嗎? ";
+		next;
+		mes "[加蒂]";  
+		mes "之類的? 沒錯! 這是正路! ";
+		next;
+		mes "-  鐵匠加蒂是享受來處理你帶來, 使武器的皮革.  - ";
+		mes "- 你應該等待一小會兒.  - ";
+		set dew_weapon,5;
+		close;
+	} else if (dew_weapon == 5) {
+		mes "["+ strcharinfo(0)+"]";  
+		mes "嗯......加蒂? ";
+		next;
+		mes "[加蒂]";  
+		mes "哦! 對不起, 對不起! 這種皮革是如此有趣. ";
+		next;
+		mes "[加蒂]";  
+		mes "我做了一個劍柄了你給我帶來的皮革. ";
+		next;
+		mes "[加蒂]";  
+		mes "................";
+		next;
+		mes "["+ strcharinfo(0)+"]";  
+		mes "印尼短劍柄? ";
+		next;
+		mes "[加蒂]";  
+		mes "你不知道什麼是劍柄是什麼? 這就是你所說的印尼短劍柄. ";
+		next;
+		mes "- 加蒂顯示了一個東西, 看起來像一個印尼短劍柄.  - ";
+		next;
+		mes "[加蒂]";  
+		mes "我試圖使它喜歡什麼寫的藍圖, 但我需要更多的材料. ";
+		next;
+		mes "["+ strcharinfo(0)+"]";  
+		mes "真的嗎? ";
+		next;
+		mes "[加蒂]";  
+		mes "............";
+		next;
+		mes "[加蒂]";  
+		mes "是的......坦白地說, 我毀了他們中的很多嘗試不同的東西. ";
+		next;
+		mes "[加蒂]";  
+		mes "我知道這是很多要問, 但你可以得到我100科摩多龍皮, 20鋼, 10神之金屬? ";
+		next;
+		mes "[加蒂]";  
+		mes "我會讓你永遠的最佳利器. ";
+		setquest 5054;
+		set dew_weapon,6;
+		getitem 6404,1; //Caress_H
+		next;
+		mes "[加蒂]";  
+		mes "哦! 我差點忘了. 不要忘記帶上, 我只是讓你的印尼短劍柄. ";
+		next;
+		mes "[加蒂]";  
+		mes "使用的武器必須有一個劍柄. ";
+		close;
+	} else if (dew_weapon == 6) {
+		disable_items;
+		mes "[加蒂]";  
+		mes "你把所有的材料了嗎? ";
+		mes "你也很好奇成品武器? 哈哈. ";
+		next;
+		mes "[加蒂]";  
+		mes "............";
+		next;
+		if (countitem(6403) < 100 || countitem(999) < 20 || countitem(984) < 10 || countitem(6404) < 1) {
+			mes "[加蒂]";  
+			mes "嗯......我需要更多的這些. 如果我的船沒有得到破壞, 我可以對我自己做到了, 但...";
+			next;
+			mes "- 加蒂喃喃自語自語.  - ";
+			next;
+			mes "[加蒂]";  
+			mes "100科摩多龍皮, 20鋼, 10神之金屬是我所需要的. ";
+			next;
+			mes "[加蒂]";  
+			mes "如果你把所有這些, 我會做出有史以來最好的武器. ";
+			close;
+		}
+		mes "[加蒂]";  
+		mes "太棒了! 我們有足夠的. 等待一點點. ";
+		next;
+		specialeffect2 EF_REPAIRWEAPON;
+		next;
+		emotion ET_PROFUSELY_SWEAT;
+		next;
+		mes "[加蒂]";  
+		mes "我完成了製作武器. 這是根據藍圖稱為愛撫. ";
+		next;
+		mes "[加蒂]";  
+		mes "我一直在尋找新的東西, 當我把我看中了這個藍圖. ";
+		next;
+		mes "[加蒂]";  
+		mes "現在, 我學會了如何使武器, 問我任何時間, 如果你需要它. ";
+		erasequest 5054;
+		set dew_weapon,7;
+		delitem 6403,100; //Comodo_L
+		delitem 999,20; //Steel
+		delitem 984,10; //Oridecon
+		delitem 6404,1; //Caress_H
+		getitem 13067,1; //Caress
+		close;
+	} else if (dew_weapon >= 7) {
+		mes "[加蒂]";  
+		mes "你是"+ strcharinfo(0)+", ";
+		mes "那麼, 怎樣的, 我做你的愛撫? ";
+		switch(select("- 這是偉大的:- 我需要另一個愛撫:- 我可以把它做強? ")) {
+		case 1:
+			mes "[加蒂]";  
+			mes "是的, 是的, 當然它的偉大. ";
+			mes "我做了武器所以它應該是不錯的. ";
+			close;
+		case 2:
+			disable_items;
+			if (countitem(6404)) {
+				if (countitem(6403) < 70 || countitem(984) < 10 || countitem(999) < 20 || countitem(6404) < 1) {
+					mes "[加蒂]";  
+					mes "你只有一個劍柄. 你需要給我10神之金屬, 20鋼, 70魔島皮革. ";
+					next;
+					mes "[加蒂]";  
+					mes "如果你帶他們, 我會成為一個全新的愛撫. ";
+					close;
+				}
+				mes "[加蒂]";  
+				mes "你把所有的材料. 等待只是一點點. ";
+				next;
+				specialeffect2 EF_REPAIRWEAPON;
+				next;
+				emotion ET_PROFUSELY_SWEAT;
+				next;
+				mes "[加蒂]";  
+				mes "這裡是愛撫! 問我任何時候. ";
+				delitem 6403,70; //Comodo_L
+				delitem 999,20; //Steel
+				delitem 984,10; //Oridecon
+				delitem 6404,1; //Caress_H
+				getitem 13067,1; //Caress
+				close;
+			} else {
+				if (countitem(6403) < 50 || countitem(7201) < 1) {
+					mes "[加蒂]";  
+					mes "你要我讓你多一個愛撫? 在這種情況下, 我需要一個劍柄. 50魔島皮革, 和1登錄. 這些都是我需要做一個劍柄. ";
+					close;
+				}
+				mes "[加蒂]";  
+				mes "你帶了希爾特的材料. 我會做它的時候了. ";
+				next;
+				mes "[加蒂]";  
+				mes "把這個在這裡, 並處理像這樣...";
+				next;
+				mes "[加蒂]";  
+				mes "在這裡你去. 我可以做一個愛撫, 如果你給我10神之金屬, 20鋼, 70魔島皮革. ";
+				delitem 6403,50; //Comodo_L
+				delitem 7201,1; //Log
+				getitem 6404,1; //Caress_H
+				close;
+			}
+		case 3:
+			mes "[加蒂]";  
+			mes "所以, 你要加強你的武器嗎? 在過程中的武器被分解時, 但它不發生的頻率. ";
+			if(select("請加強武器:可能是下一次. ") == 2) {
+				mes "[加蒂]";  
+				mes "每當你想加強愛撫, 只是把我的愛撫和10萬金幣. ";
+				close;
+			}
+			mes "[加蒂]";  
+			mes "如果你想這樣做, 我不得不告訴你, 加強愛撫之前的一些警示性的東西. ";
+			next;
+			mes "[加蒂]";  
+			mes "第一! 我需要1愛撫和10萬金幣, 以加強愛撫. 如你所知, 我沒有什麼錢, 因為現在我的船得到了失事. ";
+			next;
+			mes "[加蒂]";  
+			mes "第二個! 如果你有, 你不想要鞏固所提煉或卡插入您的庫存愛撫, 它可以被摧毀或它的升級可以在強化過程中??得到改變. ";
+			next;
+			mes "[加蒂]";  
+			mes "如果你不希望這樣的事情發生, 把精緻的愛撫之前, 其他地方的加強. ";
+			next;
+			mes "[加蒂]";  
+			mes "三! 有時候reinfocing失敗. 武器沒有得到每次你失敗銷毀. 然而, 你應該知道, 如果你失敗了武器被銷毀時. ";
+			next;
+			if(select("- 請加強武器:- 也許下次吧. ") == 2) {
+				mes "[加蒂]";  
+				mes "每當你想加強愛撫, 只是把我的愛撫和10萬金幣. ";
+				close;
+			}
+			break;
+		}
+
+		if (countitem(13067) < 1 || Zeny < 100000) {
+			mes "[加蒂]";  
+			mes "你沒有所有的材料. 這是不可能的加強, 如果你不具備他們所有. 如果你想增強, 帶來100,000金幣和1愛撫. ";
+			close;
+		}
+		specialeffect2 EF_REPAIRWEAPON;
+		progressbar "0xFFFF00",3;
+		Zeny -= 100000;
+
+		// Socket 3
+		set .@i, rand(4300);
+		     if (.@i < 150)  set .@s3,4700; // STR + 1
+		else if (.@i < 300)  set .@s3,4730; // AGI + 1
+		else if (.@i < 450)  set .@s3,4740; // VIT + 1
+		else if (.@i < 600)  set .@s3,4710; // INT + 1
+		else if (.@i < 750)  set .@s3,4720; // DEX + 1
+		else if (.@i < 900)  set .@s3,4750; // LUK + 1
+		else if (.@i < 1050) set .@s3,4761; // MATK + 2%
+		else if (.@i < 1200) set .@s3,4764; // CRIT + 5
+		else if (.@i < 1350) set .@s3,4786; // MDEF + 2
+		else if (.@i < 1500) set .@s3,4791; // DEF + 3
+		else if (.@i < 1650) set .@s3,4795; // HP + 100
+		else if (.@i < 1750) set .@s3,4800; // SP + 50
+		else if (.@i < 1850) set .@s3,4797; // HP + 300
+		else if (.@i < 1950) set .@s3,4793; // DEF + 9
+		else if (.@i < 2050) set .@s3,4788; // MDEF + 6
+		else if (.@i < 2150) set .@s3,4752; // LUK + 3
+		else if (.@i < 2250) set .@s3,4722; // DEX + 3
+		else if (.@i < 2350) set .@s3,4712; // INT + 3
+		else if (.@i < 2450) set .@s3,4742; // VIT + 3
+		else if (.@i < 2550) set .@s3,4732; // AGI + 3
+		else if (.@i < 2650) set .@s3,4702; // STR + 3
+		else if (.@i < 2700) set .@s3,4703; // STR + 4
+		else if (.@i < 2750) set .@s3,4733; // AGI + 4
+		else if (.@i < 2800) set .@s3,4743; // VIT + 4
+		else if (.@i < 2850) set .@s3,4713; // INT + 4
+		else if (.@i < 2900) set .@s3,4723; // DEX + 4
+		else if (.@i < 2950) set .@s3,4753; // LUK + 4
+		else if (.@i < 3000) set .@s3,4789; // MDEF + 8
+		else if (.@i < 3001) set .@s3,4704; // STR + 5
+		else if (.@i < 3002) set .@s3,4734; // AGI + 5
+		else if (.@i < 3003) set .@s3,4744; // VIT + 5
+		else if (.@i < 3004) set .@s3,4714; // INT + 5
+		else if (.@i < 3005) set .@s3,4724; // DEX + 5
+		else if (.@i < 3006) set .@s3,4754; // LUK + 5
+		else if (.@i < 3007) set .@s3,4806; // MATK + 3%
+		else if (.@i < 3008) set .@s3,4765; // CRIT + 7
+		else if (.@i < 3009) set .@s3,4766; // ATK + 2%
+		else if (.@i < 3010) set .@s3,4801; // SP + 100
+		else if (.@i < 3140) set .@s3,4796; // HP + 200
+		else if (.@i < 3270) set .@s3,4792; // DEF + 6
+		else if (.@i < 3400) set .@s3,4787; // MDEF + 4
+		else if (.@i < 3530) set .@s3,4751; // LUK + 2
+		else if (.@i < 3660) set .@s3,4721; // DEX + 2
+		else if (.@i < 3790) set .@s3,4711; // INT + 1
+		else if (.@i < 3920) set .@s3,4741; // VIT + 2
+		else if (.@i < 4050) set .@s3,4731; // AGI + 2
+		else if (.@i < 4180) set .@s3,4701; // STR + 2
+		else set .@s3,0;
+
+		// Socket 4
+		set .@j, rand(4100);
+		     if (.@j < 130)  set .@s4,4700; // STR + 1
+		else if (.@j < 260)  set .@s4,4730; // AGI + 1
+		else if (.@j < 390)  set .@s4,4740; // VIT + 1
+		else if (.@j < 520)  set .@s4,4710; // INT + 1
+		else if (.@j < 650)  set .@s4,4720; // DEX + 1
+		else if (.@j < 780)  set .@s4,4750; // LUK + 1
+		else if (.@j < 910)  set .@s4,4760; // MATK + 1%
+		else if (.@j < 1040) set .@s4,4764; // CRIT + 5
+		else if (.@j < 1170) set .@s4,4766; // ATK + 2%
+		else if (.@j < 1300) set .@s4,4786; // MDEF + 2
+		else if (.@j < 1430) set .@s4,4791; // DEF + 3
+		else if (.@j < 1560) set .@s4,4795; // HP + 100
+		else if (.@j < 1690) set .@s4,4800; // SP + 50
+		else if (.@j < 1790) set .@s4,4796; // HP + 200
+		else if (.@j < 1890) set .@s4,4792; // DEF + 6
+		else if (.@j < 1990) set .@s4,4787; // MDEF + 4
+		else if (.@j < 2090) set .@s4,4767; // ATK + 3%
+		else if (.@j < 2190) set .@s4,4765; // CRIT + 7
+		else if (.@j < 2290) set .@s4,4751; // LUK + 2
+		else if (.@j < 2390) set .@s4,4721; // DEX + 2
+		else if (.@j < 2490) set .@s4,4711; // INT + 2
+		else if (.@j < 2590) set .@s4,4741; // VIT + 2
+		else if (.@j < 2690) set .@s4,4731; // AGI + 2
+		else if (.@j < 2790) set .@s4,4701; // STR + 2
+		else if (.@j < 2860) set .@s4,4702; // STR + 3
+		else if (.@j < 2930) set .@s4,4732; // AGI + 3
+		else if (.@j < 3000) set .@s4,4742; // VIT + 3
+		else if (.@j < 3140) set .@s4,4712; // INT + 3
+		else if (.@j < 3210) set .@s4,4722; // DEX + 3
+		else if (.@j < 3280) set .@s4,4788; // MDEF + 8
+		else if (.@j < 3350) set .@s4,4793; // DEF + 9
+		else if (.@j < 3420) set .@s4,4797; // HP + 300
+		else if (.@j < 3490) set .@s4,4801; // SP + 100
+		else if (.@j < 3540) set .@s4,4798; // HP + 400
+		else if (.@j < 3590) set .@s4,4789; // MDEF + 8
+		else if (.@j < 3640) set .@s4,4753; // LUK + 4
+		else if (.@j < 3690) set .@s4,4723; // DEX + 4
+		else if (.@j < 3740) set .@s4,4713; // INT + 4
+		else if (.@j < 3790) set .@s4,4743; // VIT + 4
+		else if (.@j < 3840) set .@s4,4733; // AGI + 4
+		else if (.@j < 3890) set .@s4,4703; // STR + 4
+		else if (.@j < 3900) set .@s4,4704; // STR + 5
+		else if (.@j < 3910) set .@s4,4734; // AGI + 5
+		else if (.@j < 3920) set .@s4,4744; // VIT + 5
+		else if (.@j < 3930) set .@s4,4714; // INT + 5
+		else if (.@j < 3940) set .@s4,4724; // DEX + 5
+		else if (.@j < 3950) set .@s4,4754; // LUK + 5
+		else set .@s4,0;
+
+		delitem 13067,1; //Caress
+		if (.@s3 == 0 && .@s4 == 0) {
+			mes "[加蒂]";  
+			mes "哦, 我的??幾乎得手......但是失敗了. 對不起, 對不起......";
+			emotion ET_HUK;
+			close;
+		}
+		getitem2 13067,1,1,0,0,0,0,.@s3,.@s4;
+		mes "[加蒂]";  
+		mes "加強愛撫是成功的. 以後見. ";
+		close;
+	}
+}

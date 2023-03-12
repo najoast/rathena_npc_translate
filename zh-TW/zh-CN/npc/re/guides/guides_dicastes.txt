@@ -1,0 +1,96 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+//===== rAthena Script =======================================
+//= El Dicastes Guide
+//===== By: ================================================== 
+//= Muad_Dib
+//===== Current Version: ===================================== 
+//= 1.2
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Guide for the city of El Dicastes.
+//===== Additional Comments: ================================= 
+//= 1.0 First version. [Joseph]
+//= 1.1 Fixed viewpoint syntax. [Euphy]
+//= 1.2 Navigation system update. [Euphy]
+//============================================================ 
+
+dicastes01,181,191,5	script	冒險家 阿蘇#info	4_M_SHADOWCHASER,2,2,{
+	mes "[冒險家 阿蘇]";
+	mes "噢!! 你是一個陌生人!";
+	mes "我是阿蘇, 是第一個到達埃迪斯特斯的冒險家!";
+	next;
+	mes "[冒險家 阿蘇]";
+	mes "有一個人在探險隊聲稱他們是第一個,但那支冒險隊是我的.就是這樣.";
+	next;
+	mes "[冒險家 阿蘇]";
+	mes "這就是為什麼我會對米德加茲而來的冒險家們提供援手.";
+	mes "你想了解些什麼?";
+	mes "<NAVI>[冒險家 阿蘇]<INFO>dicastes01,181,191,</INFO></NAVI>";
+	next;
+	switch(select("- 迪斯特斯議政廳:- 居住區:- 訓練室:- 工廠:- 酒吧:- 貓手營地")) {
+	case 1:
+		mes "[冒險家 阿蘇]";
+		mes "啊~ 這是一個美麗的建築.";
+		mes "據說他們討論重要的事情...";
+		next;
+		mes "[冒險家 阿蘇]";
+		mes "請確保你在<NAVI>[議政廳]<INFO>dicastes01,198,351,</INFO></NAVI>,辦理過入境手續,否則你會惹上麻煩.";
+		mes "直接從這裡向北,你不會錯過的.";
+		viewpoint 1,198,351,0,0x00FF00;
+		close;
+	case 2:
+		mes "[冒險家 阿蘇]";
+		mes "沙帕部落是如此的怪異.在這種地方,他們怎麼睡得著?";
+		next;
+		mes "[冒險家 阿蘇]";
+		mes "你不能理解?";
+		mes "你不用相信我,直到你親眼看到之前! 自己去看看吧!";
+		next;
+		mes "[冒險家 阿蘇]";
+		mes "居住區分為2個區域.";
+		mes "<NAVI>[較低級的居民區]<INFO>dicastes01,136,106,</INFO></NAVI>, 大約在7點鐘方向, 然後 ";
+		mes "<NAVI>[高級的區域]<INFO>dicastes01,280,283,</INFO></NAVI>是大約1點鐘方向.";
+		viewpoint 1,280,283,1,0x01FF01;
+		viewpoint 1,136,106,2,0x0066FF;
+		close;
+	case 3:
+		mes "[冒險家 阿蘇]";
+		mes "因為這裡很危險,我們需要更多的注意安全..";
+		mes "你曾經去過的培訓室? ";
+		mes "<NAVI>[培訓室]<INFO>dicastes01,255,172,</INFO></NAVI>裡的訓練員似乎從來不睡覺!";
+		viewpoint 1,255,172,3,0xFFCCCC;
+		close;
+	case 4:
+		mes "[冒險家 阿蘇]";
+		mes "這就是為什麼他們住在這裡最重要的原因之一.";
+		mes "如果你去<NAVI>[工廠]<INFO>dicastes01,97,256,</INFO></NAVI>,你可以看到最新的精煉魔力之石.";
+		viewpoint 1,97,256,4,0x0066FF;
+		close;
+	case 5:
+		mes "[冒險家 阿蘇]";
+		mes "雖然我來到這裡的第一個冒險家, 酒吧的主人卻是這裡的第一人.";
+		mes "<NAVI>[布門弗洛林的酒吧]<INFO>dicastes01,136,106,</INFO></NAVI>在較低級的住宅區裡位於地下.";
+		mes "他可能有一些有價值的信息給你.";
+		viewpoint 1,136,106,5,0xFF3300;
+		close;
+	case 6:
+		mes "[冒險家 阿蘇]";
+		mes "那些<NAVI>[貓]<INFO>dicastes01,199,39,</INFO></NAVI>似乎沒有與沙帕建立起與我們一樣的良好關係.";
+		mes "也許是因為參與交易.";
+		mes "可憐的貓.他們肯定因為外面的寒冷而瑟瑟發抖.";
+		next;
+		mes "[冒險家 阿蘇]";
+		mes "你可以找到他們的商隊就在門外.";
+		viewpoint 1,199,39,6,0x9933FF;
+		close;
+	}
+OnTouch:
+	if (ep13_3_invite == 6) 
+		emotion ET_SURPRISE,0;
+	end;
+}

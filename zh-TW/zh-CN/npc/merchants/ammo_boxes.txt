@@ -1,0 +1,142 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+
+//===== rAthena Script =======================================
+//= Magazine Dealers
+//===== By: ==================================================
+//= rAthena Dev Team
+//===== Current Version: =====================================
+//= 1.5
+//===== Compatible With: =====================================
+//= rAthena SVN
+//===== Description: =========================================
+//= Turns bullets into magazines/packs.
+//===== Additional Comments: =================================
+//= 1.0 First version. [SinSloth]
+//= 1.1 Optimized version - Reduced to only one function [SinSloth]
+//= 1.2 Optimized^2, corrected npc's name [ultramage]
+//= 1.2a Optimized. Please, ommit extra NPC names [Lupus]
+//= 1.3 Updated to match AEGIS script. [Kisuka]
+//= 1.4 Updated to match AEGIS script again. [Masao]
+//= 1.5 Moved Izlude duplicate to pre-re/re paths. [Euphy]
+//============================================================
+
+alberta,118,157,3	script	彈藥背包商人 凱尼::mdk	4_M_01,{
+	if (BaseClass == Job_Gunslinger) {
+		mes "[凱尼]";
+		mes "歡迎來到我的彈藥背包店. ";
+		mes "正如你所知, 大量的子彈";
+		mes "用彈夾來攜帶, ";
+		mes "會十分的方便. 那麼, 您對這裡";
+		mes "的什麼感興趣? ";
+		next;
+		switch(select("- 雷擊彈夾:- 失明彈夾:- 毒彈夾:- 冰彈夾:- 火彈夾:- 普通彈夾:- 血波彈彈夾:- 銀色彈夾:- 取消")) {
+		case 1: callfunc "Func_Casing",13204,12144; break;
+		case 2: callfunc "Func_Casing",13206,12145; break;
+		case 3: callfunc "Func_Casing",13205,12146; break;
+		case 4: callfunc "Func_Casing",13207,12147; break;
+		case 5: callfunc "Func_Casing",13203,12148; break;
+		case 6: callfunc "Func_Casing",13200,12149; break;
+		case 7: callfunc "Func_Casing",13202,12150; break;
+		case 8: callfunc "Func_Casing",13201,12151; break;
+		case 9:
+			mes "[凱尼]";
+			mes "好吧, 如果您發覺";
+			mes "您攜帶的子彈太多, ";
+			mes "可以隨時來找我. ";
+			mes "把子彈存入彈夾中";
+			mes "是個很好的主意. ";
+			close;
+		}
+	}
+	mes "[凱尼]";
+	mes "歡迎來到我的商店. ";
+	mes "這裡我提供給槍手";
+	mes "各種彈藥夾. ";
+	mes "對不起, 我提供的服務";
+	mes "好像對您沒有什麼幫助, ";
+	mes "冒險者. ";
+	next;
+	mes "[凱尼]";
+	mes "呃, 如果您認識其他的槍手, ";
+	mes "讓他們來找我. ";
+	mes "子彈帶的再多, ";
+	mes "也不為過. ";
+	close;
+}
+
+function	script	Func_Casing	{
+	mes "[凱尼]";
+	mes "現在, 你可以用";
+	mes "500 個"+getitemname(getarg(0));
+	mes "以及 500 Zeny 換一個 "+getitemname(getarg(1))+", 所以請確定";
+	mes "您帶夠了子彈";
+	mes "和 Zeny 來兌換. ";
+	next;
+	mes "[凱尼]";
+	mes "你可以用 500 個 "+getitemname(getarg(0))+"和 500 Zeny 來兌換";
+	mes "一個 "+getitemname(getarg(1))+". ";
+	next;
+	mes "[凱尼]";
+	mes "請記得我一次最多只能";
+	mes "幫您兌換 50 個彈夾. ";
+	mes "請輸入您想要兌換";
+	mes "的彈夾數量. ";
+	mes "如果想取消兌換, 請輸入 ''0. ''";
+	next;
+	input .@amount;
+	if (.@amount > 50 || .@amount == 0) {
+		mes "[凱尼]";
+		mes "嘿, 我不能給您";
+		mes "那麼多彈夾. ";
+		mes "請重試, 不要";
+		mes "輸入一個大於";
+		mes "50 的數字. ";
+		close;
+	}
+	if (countitem(getarg(0)) >= (500*.@amount)) {
+		if (Zeny >= (500*.@amount)) {
+			if (checkweight(getarg(1),.@amount) == 0) {
+				mes "[凱尼]";
+				mes "嘿, 您的背包裡";
+				mes "塞的東西太多了. ";
+				mes "清理出一些空間, ";
+				mes "然後再來用子彈";
+				mes "和我換彈夾, ";
+				mes "明白了嗎? ";
+				close;
+			}else{
+				mes "[凱尼]";
+				mes "很好, 這裡是您的";
+				mes "彈夾. 謝謝光臨我的";
+				mes "商店, 同時我希望您";
+				mes "能好好利用手裡的這";
+				mes "些彈藥. ";
+				set Zeny, Zeny - 500*.@amount;
+				delitem getarg(0),500*.@amount;
+				getitem getarg(1),.@amount;
+				close;
+			}
+		} else {
+			mes "[凱尼]";
+			mes "對不起, 您沒有足夠的";
+			mes "zeny 來換取這些彈夾. ";
+			mes "等你存夠了錢, ";
+			mes "再回到我的商店, ";
+			mes "那時候, ";
+			mes "我再幫你換彈夾. ";
+			close;
+		}
+	} else {
+		mes "[凱尼]";
+		mes "對不起, 但是您沒有";
+		mes "足夠的彈藥來兌換";
+		mes "這個彈夾. ";
+		mes "也許您需要再檢查";
+		mes "一下您的物品欄. ";
+		mes "確定了再來找我. ";
+		close;
+	}
+}

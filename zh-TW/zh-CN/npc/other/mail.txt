@@ -1,0 +1,146 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+//===== rAthena Script =======================================
+//= Mail Boxes
+//===== By: ==================================================
+//= L0ne_W0lf
+//===== Current Version: =====================================
+//= 1.8
+//===== Compatible With: =====================================
+//= rAthena SVN
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Pickup and write mail from/to players in game.
+//===== Additional Comments: =================================
+//= 1.0 First version, place holders only. [L0ne_W0lf]
+//= 1.1 Dialog updated to Official. [L0ne_W0lf]
+//= 1.2 Swapped "atcommand" for "Openmail". [L0ne_W0lf]
+//= 1.3 Added Veins mail box. [L0ne_W0lf]
+//= 1.3a Corrected a typo error. (bugreport:798) [Samuray22]
+//= 1.4 Added a Mapflag to prevent mail operations in other maps [Zephyrus]
+//= 1.5 Moved Morroc Mail boxes to Morroc Ruins. [L0ne_W0lf]
+//= 1.6 Duplicates now spawn from floating NPCs. [L0ne_W0lf]
+//= 1.7 Updated Script from the Official. [Elias]
+//= 1.8 Optimized a bit. [Daegaladh]
+//============================================================
+
+// Floating mailbox npc that all NPCs duplicate from.
+//============================================================
+-	script	郵政速遞#dummy::MailBox	-1,{
+	mes "- ^cc6600郵政速遞^000000 - ^cccccc郵箱系統^000000";
+	mes "---------------------------";
+	mes "使用郵政速遞服務,";
+	mes "您需要支付 130 Zeny.";
+	mes "請問是否需要使用該服務?";
+	next;
+	switch(select("- 是.:- 否.")) {
+	case 1:
+		mes "- ^cc6600郵政速遞^000000 - ^cccccc郵箱系統^000000";
+		mes "---------------------------";
+		if (Zeny < 130) {
+			mes "非常抱歉, 您身上的 Zeny 不夠.";
+			mes "使用郵政速遞服務,";
+			mes "您需要支付 130 Zeny.";
+			close;
+		}
+		mes "謝謝使用.";
+		Zeny -= 130;
+		close2;
+		openmail;
+		end;
+	case 2:
+		mes "- ^cc6600郵政速遞^000000 - ^cccccc郵箱系統^000000";
+		mes "---------------------------";
+		mes "謝謝, 再見.";
+		close;
+	}
+}
+
+// Prontera
+//============================================================
+prontera,146,86,0	duplicate(MailBox)	郵政速遞#prt	2_POSTBOX
+prontera,275,213,0	duplicate(MailBox)	郵政速遞#2prt	2_POSTBOX
+prontera,34,212,0	duplicate(MailBox)	郵政速遞#3prt	2_POSTBOX
+
+// Izlude
+//============================================================
+izlude,136,94,0	duplicate(MailBox)	郵政速遞#iz	2_POSTBOX
+
+// Morroc
+//============================================================
+moc_ruins,72,166,0	duplicate(MailBox)	郵政速遞#1moc	2_POSTBOX
+moc_ruins,156,52,0	duplicate(MailBox)	郵政速遞#2moc	2_POSTBOX
+
+// Geffen
+//============================================================
+geffen,115,67,0	duplicate(MailBox)	郵政速遞#gef	2_POSTBOX
+geffen,199,125,0	duplicate(MailBox)	郵政速遞#2gef	2_POSTBOX
+
+// Payon
+//============================================================
+payon,191,104,0	duplicate(MailBox)	郵政速遞#pay	2_POSTBOX
+payon,171,226,0	duplicate(MailBox)	郵政速遞#2pay	2_POSTBOX
+pay_arche,55,127,0	duplicate(MailBox)	郵政速遞#3pay	2_POSTBOX
+
+// Alberta
+//============================================================
+alberta,90,60,0	duplicate(MailBox)	郵政速遞#alb	2_POSTBOX
+alberta,30,240,0	duplicate(MailBox)	郵政速遞#2alb	2_POSTBOX
+
+// Al De Baran
+//============================================================
+aldebaran,135,122,0	duplicate(MailBox)	郵政速遞#alde	2_POSTBOX
+
+// Juno
+//============================================================
+yuno,148,187,0	duplicate(MailBox)	郵政速遞#yuno	2_POSTBOX
+yuno,332,108,0	duplicate(MailBox)	郵政速遞#2yuno	2_POSTBOX
+
+// Lightalzen
+//============================================================
+lighthalzen,164,85,0	duplicate(MailBox)	郵政速遞#lht	2_POSTBOX
+lighthalzen,196,320,0	duplicate(MailBox)	郵政速遞#2lht	2_POSTBOX
+
+// Einbroch and Einbech
+//============================================================
+einbroch,231,215,0	duplicate(MailBox)	郵政速遞#ein	2_POSTBOX
+einbroch,77,202,0	duplicate(MailBox)	郵政速遞#2ein	2_POSTBOX
+einbech,182,124,0	duplicate(MailBox)	郵政速遞#3ein	2_POSTBOX
+
+// Comodo
+//============================================================
+comodo,200,150,0	duplicate(MailBox)	郵政速遞#cmd	2_POSTBOX
+
+// Umbala
+//============================================================
+umbala,104,155,0	duplicate(MailBox)	郵政速遞#um	2_POSTBOX
+
+// Amatsu
+//============================================================
+amatsu,102,146,0	duplicate(MailBox)	郵政速遞#ama	2_POSTBOX
+
+// Gonryun
+//============================================================
+gonryun,152,117,0	duplicate(MailBox)	郵政速遞#gon	2_POSTBOX
+
+// Ayothaya
+//============================================================
+ayothaya,205,169,0	duplicate(MailBox)	郵政速遞#ayo	2_POSTBOX
+
+// Louyang
+//============================================================
+louyang,204,100,0	duplicate(MailBox)	郵政速遞#lou	2_POSTBOX
+
+// Hugel
+//============================================================
+hugel,86,168,0	duplicate(MailBox)	郵政速遞#hu	HIDDEN_NPC
+
+// Rachel
+//============================================================
+rachel,122,146,0	duplicate(MailBox)	郵政速遞#ra	2_POSTBOX
+
+// Veins
+//============================================================
+veins,218,123,0	duplicate(MailBox)	郵政速遞#ve	2_POSTBOX

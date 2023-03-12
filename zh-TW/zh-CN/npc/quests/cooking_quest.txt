@@ -1,0 +1,2338 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+//===== rAthena Script ======================================= 
+//= Cooking Quest
+//===== By: ================================================== 
+//= Reddozen; L0ne_W0lf
+//===== Current Version: ===================================== 
+//= 1.8a
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Official Cooking Quest (10.3)
+//===== Additional Comments: ================================= 
+//= 1.1 Fixed wrong item ID, added missing ";, optimized [Lupus]
+//= 1.1a minor bugfix, thx 2 Irmin [Lupus]
+//= 1.2 Fixed exploit, some typos [Lupus]
+//= 1.3 Fixed wrong label [Lupus] 1.3a updated to Reddozen's changes
+//= 1.3b Fixed wrong id, fixed Puch quest, added more Pouch Quest
+//=     dialogues [Lupus]
+//= 1.4 Fixed spelling, added some dialoguesm optimized
+//=     fixed bugs. Tested, fully working [Lupus]
+//= 1.5 More fixes [Lupus]
+//= 1.6 Quest is now up to iRO 10.3 standards. [L0ne_W0lf]
+//= - Not sure what the EnableItemMove is for, as there is no 
+//=   command to disable being able to move items.
+//= 1.6a Corrected a bad cutin, a Typo error ";;" and a bad delitem (bugreport:911) [Samuray22]
+//= 1.6b Corrected a "donpcevent" missing a ":". (bugreport:962) [Samuray22]
+//= 1.7 Replaced effect numerics with constants. [L0ne_W0lf]
+//= 1.8 Renamed the variable cooking to cooking_q [ultramage]
+//= 1.8a Minor cleaning. [Euphy]
+//============================================================ 
+
+prt_castle,43,30,3	script	夏羅樂 歐羅萊昂#cook	4_M_OILMAN,{
+	if (MaxWeight - Weight < 2000) {
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "非常抱歉,";
+		mes "您目前身上東西太多了,";
+		mes "請把一些東西放到卡普拉倉庫中,";
+		mes "好嗎?";
+		close2;
+		//EnableItemMove;
+		end;
+	}
+	if (BaseJob == Job_Novice) {
+		if (Sex) {
+			cutin "orleans_5",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "抱歉,這位先生?";
+			mes "沒錯!就是您!";
+			mes "如果您不是到廚房裡來幫忙的";
+			mes "麻煩請您馬上離開!";
+			next;
+			emotion ET_FRET;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "沒有要冒犯你的意思, ";
+			mes "但有個像你這樣的小鬼頭";
+			mes "在我旁邊一直晃來晃去的,  ";
+			mes "我實在沒辦法專心做料理啊";
+			close;
+		}
+		cutin "orleans_1",0;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "到 法蘭西斯, 你怎麼會";
+		mes "來到這裡的呢? 難道你是在城裡";
+		mes "邊完後迷路了嗎...?";
+		next;
+		cutin "orleans_2",0;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "你往那邊右側的樓梯上去的話, ";
+		mes "就可以出去了, ";
+		mes "希望你能平安的出去";
+		goto L_End;
+	}
+	else if (getequipid(EQI_HEAD_TOP) != 5026) {
+		if (Sex) {
+			cutin "orleans_5",0;
+			emotion ET_FRET;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "..........................";
+			next;
+			cutin "orleans_7",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "莫非是想用懂得欣賞雷根貝勒公日的";
+			mes "手工眼鏡架等言語";
+			mes "以博我的歡心是不是, ";
+			mes "先生你並沒有那個眼光吧";
+			next;
+			cutin "orleans_2",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "..........................";
+			next;
+			cutin "orleans_5",0;
+			cutin "orleans_4",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "你別來煩我, 請你趕快";
+			mes "離開我的工作室吧!";
+			mes "艾德郎潔(法語), 再見!!";
+			goto L_End;
+		}
+		cutin "orleans_1",0;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "啊... 小姐, ";
+		mes "真是好久不見了, ";
+		mes "依舊不變的那美貌, ";
+		mes "總是讓我驚嘆不已啊...";
+		next;
+		cutin "orleans_2",0;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "在旁邊拎著小貓的可愛";
+		mes "小孩, 是你是妹妹嗎?";
+		mes "嬌小玲瓏的好可愛啊";
+		next;
+		switch(select("......?:是我妹妹:我不認識的小孩")) {
+		case 1:
+			cutin "nyuang_3",2;
+			donpcevent "拎著小貓的 小孩#cook::onDelight";
+			mes "[拎著小貓的 小孩]";
+			mes "喵哈哈哈, ";
+			mes "(喵喵...)";
+			next;
+			cutin "orleans_2",0;
+			emotion ET_SMILE;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "真乖巧...";
+			mes "要乖乖的喔";
+			next;
+			break;
+		case 2:
+			cutin "nyuang_1",2;
+			donpcevent "拎著小貓的 小孩#cook::OnWhat";
+			mes "[拎著小貓的 小孩]";
+			mes "...喵啊?";
+			mes "(喵喵)";
+			next;
+			cutin "orleans_2",0;
+			emotion ET_THROB2;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "雖然跟姐姐感覺不太像, ";
+			mes "但是真的很乖巧又可愛, ";
+			mes "拎著的那高貴小貓, 看起來";
+			mes "也金光閃閃的呢, 哈哈哈";
+			break;
+		case 3:
+			cutin "nyuang_2",2;
+			donpcevent "拎著小貓的 小孩#cook::OnPif";
+			mes "[拎著小貓的 小孩]";
+			mes "喵哈哈哈, ";
+			mes "(喵喵...)";
+			next;
+			cutin "orleans_4",0;
+			cutin "orleans_3",0;
+			emotion ET_PROFUSELY_SWEAT;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "失, 失禮了, 竟然對小姐";
+			mes "如此沒禮貌... 不知道";
+			mes "是從哪來的小孩, 我會";
+			mes "叫她出去的";
+			break;
+		}
+		next;
+		cutin "orleans_1",0;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "....哼哼";
+		next;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "....我重新自我介紹, ";
+		mes "我是你的侍從, 對不能得到的花";
+		mes "希望能開的園藝家, 以及冒險追求";
+		mes "絕色佳人的探險家...";
+		mes "我叫做夏羅樂 歐羅萊昂...";
+		next;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "我豈敢忘記小姐你呢, ";
+		mes "即使我的外貌有稍微";
+		mes "改變, 但我的心卻是";
+		mes "始終如一呢, 你知道吧";
+		next;
+		cutin "orleans_4",0;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "不過自從國王陛下失蹤後, ";
+		mes "如今已經沒有人品嘗我的";
+		mes "點心了... 閒暇的時光";
+		mes "卻要注費在這種無聊的";
+		mes "消遣的東西上... 甚感悲哀!!";
+		next;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "料理的基礙嗎?! 你也知道, ";
+		mes "我所謂的一系列創造, 就是指";
+		mes "經歷誕生的痛苦後所完成的價值, ";
+		mes "我不是為了秀給不知";
+		mes "從哪裡突然冒出來的";
+		mes "實習廚師呢!!";
+		next;
+		cutin "orleans_3",0;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "哈, 真是的, 失禮了, ";
+		mes "我不是在對你生氣...";
+		mes "只是對自已不可原諒的";
+		mes "現狀, 不由自已的動了怒...";
+		mes "我向你道歉";
+		next;
+		cutin "orleans_1",0;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "下次有機會的話, 為了表示我的";
+		mes "小小誠意, 我希望準備一份, ";
+		mes "可以在你的嘴唇上留下若干";
+		mes "甜蜜, 以及戀戀不捨的禮物...";
+		mes "小姐 那麼, 再會囉";
+		goto L_End;
+	}
+	else if (cooking_q == 0) {
+		cutin "orleans_5",0;
+		emotion ET_THINK;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "啊-啊- 好煩啊, 好煩, 這是幹嘛, ";
+		mes "與其在這裡消磨時間, ";
+		mes "不如去市場到處買些";
+		mes "好吃的水果還比較實在啊";
+		next;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "餵, 你不這樣認為嗎?";
+		mes "其實這不是對來學習";
+		mes "料理的人該說的話啊";
+		next;
+		switch(select("你是說我嗎?:你知道我是誰嗎?:你是歐羅萊昂先生嗎?")) {
+		case 1:
+			cutin "orleans_7",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "我還能在跟誰說話?";
+			mes "那邊的瑪德琳?";
+			mes "還是那邊那個拎著髒兮兮小貓的小鬼?";
+			mes "我的天!(法文)";
+			next;
+			cutin "nyuang_4",2;
+			mes "[拎著小貓的 小孩]";
+			mes "Grrrrrrr!";
+			mes "Rrrroreow!";
+			next;
+			cutin "orleans_4",0;
+			cutin "orleans_3",0;
+			emotion ET_HUK;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "天?∧閬諾轎伊?";
+			mes "真是個有問題的小鬼";
+			mes "誰讓這小鬼進來的?";
+			break;
+		case 2:
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "我不可能記住每一個";
+			mes "跑來要求我教他們料理藝術的新手";
+			mes "我敢發誓你在幾個月前絕對來過, ";
+			mes "只是...";
+			mes "等等, 你叫什麼來著?";
+			next;
+			cutin "orleans_7",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "噢! 算了";
+			mes "我想這也不太重要";
+			break;
+		case 3:
+			cutin "orleans_4",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "抱-抱歉";
+			mes "雖然我是你的指導員";
+			mes "但你可以直呼我的名字沒關係";
+			mes "我知道我有時候很嚴厲,";
+			mes "但畢竟我們還是同事阿...儘管我是你的上司";
+			next;
+			cutin "orleans_1",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "啊, 沒關係!";
+			mes "如果你堅持要表達你那極其微的尊重,";
+			mes "你可以稱呼我為";
+			mes " '夏羅樂騎士大人' ";
+			next;
+			cutin "orleans_7",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "啊~那的確有個不錯的戒指跟著一起";
+			mes "事實上這個稱號是國王本人賜給我的";
+			mes "儘管跟力量比起來,";
+			mes "我有的是騎士的稱號及態度";
+			break;
+		}
+		next;
+		cutin "orleans_7",0;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "非常好,我們開始吧!";
+		mes "今天我們來做道簡單的菜色";
+		mes "好, ^FF0000我只會講一次";
+		mes "^000000, ^FF0000所以請把我說的話記下來";
+		mes "^000000.現在,";
+		mes "我們可以開始了嗎?";
+		next;
+		cutin "orleans_6",0;
+		set .@cook_m1,rand(1,6);
+		if (.@cook_m1 == 1) {
+			set cooking_q,1;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "啊~不如我們來做";
+			mes "'蝗蟲熱炒?'";
+			mes "對那些未開化的人來說, ";
+			mes "它可能是道噁心的料理, ";
+			mes "不過請相信我, 它精緻的味道絕對會是截然不同的享受.";
+			next;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "現在,請給我";
+			mes "^4D4DFF蝗蟲後腿 5個^000000,";
+			mes "^4D4DFF1 烹飪用的油^000000, 和";
+			mes "^4D4DFF老舊平底鍋 1個^000000.";
+			mes "接著我們就可以開始了.";
+			goto L_End;
+		}
+		else if (.@cook_m1 == 2) {
+			set cooking_q,2;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "啊, 我知道了!";
+			mes "讓我們開始做 '果汁吧'";
+			mes "Herbal Tea.'' The weather";
+			mes "is perfect right now for";
+			mes "a cool, refreshing drink.";
+			next;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "請準備";
+			mes "^4D4DFF3 Grapes^000000, 和";
+			mes "^4D4DFF2 Red Potions^000000";
+			mes "so that we can";
+			mes "begin the lesson~";
+			goto L_End;
+		}
+		else if (.@cook_m1 == 3) {
+			set cooking_q,3;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "........做'蜂蜜葡萄汁'給你看吧";
+			next;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "蜂蜜... 1個, ";
+			mes "葡萄... 2個, ";
+			mes "紅色藥水... 1個";
+			mes "...";
+			mes "以上傳達完畢";
+			goto L_End;
+		}
+		else if (.@cook_m1 == 4) {
+			set cooking_q,4;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "Mmm, why don't we";
+			mes "make ''Frog Egg and";
+			mes "Squid Ink Soup?'' Those";
+			mes "bereft of gourmet taste may";
+			mes "think it's disgusting, but it's";
+			mes "actually quite scrumptious.";
+			next;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "^4D4DFF1 Bag of Grain^000000,";
+			mes "^4D4DFF10 Spawns^000000, and";
+			mes "^4D4DFF1 Squid Ink^000000.";
+			mes "...";
+			mes "以上傳達完畢";
+			goto L_End;
+		}
+		else if (.@cook_m1 == 5) {
+			set cooking_q,5;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "Ah, I know what";
+			mes "would be perfect right";
+			mes "now. ''Steamed Crab";
+			mes "Nippers.'' Now, please";
+			mes "bring these ingredients";
+			mes "so we can make this soup.";
+			next;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "^4D4DFF10 Green Herbs^000000,";
+			mes "^4D4DFF10 Nippers^000000, and";
+			mes "^4D4DFF1 Yellow Potion^000000.";
+			mes "...";
+			mes "以上傳達完畢";
+			goto L_End;
+		}
+		set cooking_q,6;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "Ooh, you know what";
+		mes "would be scrumptious?";
+		mes "''Fried Monkey Tails.'' Yes,";
+		mes "that sounds perfect! Please";
+		mes "bring these ingredients so";
+		mes "that I can teach you this dish.";
+		next;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "^4D4DFF1 Frying Pan^000000,";
+		mes "^4D4DFF5 Yoyo Tails^000000, and";
+		mes "^4D4DFF1 Cooking Oil^000000.";
+		mes "...";
+		mes "以上傳達完畢";
+		goto L_End;
+	}
+	else if (cooking_q == 1) {
+		if (countitem(940) > 4 && countitem(7031) > 0 && countitem(7457) > 0) {
+			cutin "orleans_4",0;
+			emotion ET_FRET;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "你在幹嘛!! 很慢耶!!";
+			mes "這麼晚來的話, 材料的新鮮度";
+			mes "就會變得糟糕透了!!";
+			mes "烹調料理時每時每刻";
+			mes "都要銘記在心!!";
+			next;
+			cutin "orleans_6",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "Scrub the Grasshopper Legs";
+			mes "as cleanly as you can before";
+			mes "placing them in the Frying Pan.";
+			mes "Afterwards, pour half a bottle of Cooking Oil and fry the legs at";
+			mes "high heat for about 20 minutes.";
+			next;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "Now, follow the instructions";
+			mes "that I've just given you to the";
+			mes "letter! Hmmm... Good, good.";
+			mes "That's not bad at all. Alright,";
+			mes "you're almost there...";
+			next;
+			cutin "orleans_7",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "There, you're done!";
+			mes "The presentation can use";
+			mes "a little work, but at least you";
+			mes "know this recipe now. That's";
+			mes "all for today, so please go";
+			mes "and practice on your own now.";
+			delitem 940,5; //Grasshopper's_Leg
+			delitem 7031,1; //Old_Frying_Pan
+			delitem 7457,1; //Cooking_Oil
+			set cooking_q,7;
+			getitem 12041,1; //Str_Dish01
+			goto L_End;
+		}
+		cutin "orleans_6",0;
+		set .@talk_j,rand(1,2);
+		if (.@talk_j == 1) {
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "Hurry and bring me";
+			mes "the ingredients to make";
+			mes "Fried Grasshopper Legs!";
+			mes "If a restaurant patron had";
+			mes "ordered this, then you'd";
+			mes "already be making him wait!";
+			goto L_End;
+		}
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "Just go and ambush those";
+		mes "happy-go-lucky grasshoppers";
+		mes "just playing in the fields. Hurry and smash them, then rip their";
+		mes "legs off--but be humane about it! ";
+		goto L_End;
+	}
+	else if (cooking_q == 2) {
+		if (countitem(514) > 2 && countitem(501) > 1) {
+			cutin "orleans_4",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "你在幹嘛!! 很慢耶!!";
+			mes "這麼晚來的話, 材料的新鮮度";
+			mes "就會變得糟糕透了!!";
+			mes "烹調料理時每時每刻";
+			mes "都要銘記在心!!";
+			next;
+			cutin "orleans_6",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "You extract the juice";
+			mes "from the Grapes like this--";
+			mes "we can't use pre-made Grape";
+			mes "Juice for the sake of freshness. Then, you need to boil the Red";
+			mes "Potions in a bain-marie...";
+			next;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "When the Red Potions";
+			mes "reach the right consistency,";
+			mes "gently stir in the juice that you just squeezed from the Grapes.";
+			mes "Now, I want you to try it. Hmm... That's not bad... Good, good...";
+			next;
+			cutin "orleans_7",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "There, you're done!";
+			mes "The presentation can use";
+			mes "a little work, but at least you";
+			mes "know this recipe now. That's";
+			mes "all for today, so please go";
+			mes "and practice on your own now.";
+			delitem 514,3; //Grape
+			delitem 501,2; //Red_Potion
+			set cooking_q,7;
+			getitem 12046,1; //Int_Dish01
+			goto L_End;
+		}
+		cutin "orleans_6",0;
+		set .@talk_j,rand(1,2);
+		if (.@talk_j == 1) {
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "What are you doing?";
+			mes "Hurry and bring me the";
+			mes "ingredients for Grape Juice";
+			mes "Herbal Tea! At a real restaurant, you'd never be able to take your";
+			mes "time like this! Quickly, now!";
+			goto L_End;
+		}
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "Having trouble finding";
+		mes "Grapes? Just pop open";
+		mes "those cute little Poporings...";
+		mes "Of course, you should try to";
+		mes "be humane when you hunt them...";
+		goto L_End;
+	}
+	else if (cooking_q == 3) {
+		if (countitem(518) > 0 && countitem(514) > 1 && countitem(501) > 0) {
+			cutin "orleans_4",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "你在幹嘛!! 很慢耶!!";
+			mes "這麼晚來的話, 材料的新鮮度";
+			mes "就會變得糟糕透了!!";
+			mes "烹調料理時每時每刻";
+			mes "都要銘記在心!!";
+			next;
+			cutin "orleans_6",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "First, skin the Grapes";
+			mes "and extract the seeds. Then,";
+			mes "blend the Grapes with the";
+			mes "Honey. Take this blended";
+			mes "mixture and carefully stir";
+			mes "it into the Red Potion...";
+			next;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "When the pulp is fully";
+			mes "mixed into the Red Potion,";
+			mes "you'll be finished. Now, go";
+			mes "and try making it yourself.";
+			mes "Right, that's good. Yes...";
+			mes "Wait, wait! Okay, there you go~";
+			next;
+			cutin "orleans_7",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "There, you're done!";
+			mes "The presentation can use";
+			mes "a little work, but at least you";
+			mes "know this recipe now. That's";
+			mes "all for today, so please go";
+			mes "and practice on your own now.";
+			delitem 518,1; //Honey
+			delitem 514,2; //Grape
+			delitem 501,1; //Red_Potion
+			set cooking_q,7;
+			getitem 12061,1; //Dex_Dish01
+			goto L_End;
+		}
+		cutin "orleans_6",0;
+		set .@talk_j,rand(1,2);
+		if (.@talk_j == 1) {
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "What's taking you so";
+			mes "long? You should have";
+			mes "brought me the ingredients";
+			mes "to make Honey Grape Juice";
+			mes "a while ago. Hurry it up!";
+			goto L_End;
+		}
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "You're having trouble";
+		mes "finding some Honey for the";
+		mes "Honey Grape Juice, aren't you?";
+		mes "Just go and hunt some bears,";
+		mes "they're always carrying some";
+		mes "of that Honey around.";
+		goto L_End;
+	}
+	else if (cooking_q == 4) {
+		if (countitem(577) > 0 && countitem(908) > 9 && countitem(1024) > 0) {
+			cutin "orleans_4",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "你在幹嘛!! 很慢耶!!";
+			mes "這麼晚來的話, 材料的新鮮度";
+			mes "就會變得糟糕透了!!";
+			mes "烹調料理時每時每刻";
+			mes "都要銘記在心!!";
+			next;
+			cutin "orleans_6",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "Mill the grain until";
+			mes "it's a fine flour, then";
+			mes "boil the Squid Ink at";
+			mes "medium heat. Once it";
+			mes "bubbles, pour in the flour.";
+			next;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "Keep stirring, slowly";
+			mes "adding the Spawns. When";
+			mes "it all boils again, reduce the";
+			mes "heat and simmer for about 10";
+			mes "minutes. Okay, now you try it.";
+			mes "That's good, good... Alright~";
+			next;
+			cutin "orleans_7",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "There, you're done!";
+			mes "The presentation can use";
+			mes "a little work, but at least you";
+			mes "know this recipe now. That's";
+			mes "all for today, so please go";
+			mes "and practice on your own now.";
+			delitem 577,1; //Grain
+			delitem 908,10; //Spawn
+			delitem 1024,1; //Chinese_ink
+			set cooking_q,7;
+			getitem 12056,1; //Agi_Dish01
+			goto L_End;
+		}
+		cutin "orleans_6",0;
+		set .@talk_j,rand(1,2);
+		if (.@talk_j == 1) {
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "What are you doing?";
+			mes "You're supposed to be";
+			mes "preparing ingredients";
+			mes "for Frog Egg and Squid";
+			mes "Ink Soup right now!";
+			goto L_End;
+		}
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "You have to be careful";
+		mes "when you're handling Frog";
+		mes "Eggs. If you feed them raw to";
+		mes "somebody, well, their flavor is";
+		mes "decidely less than magnifique.";
+		goto L_End;
+	}
+	else if (cooking_q == 5) {
+		if (countitem(960) > 9 && countitem(511) > 9 && countitem(503) > 0) {
+			cutin "orleans_4",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "你在幹嘛!! 很慢耶!!";
+			mes "這麼晚來的話, 材料的新鮮度";
+			mes "就會變得糟糕透了!!";
+			mes "烹調料理時每時每刻";
+			mes "都要銘記在心!!";
+			next;
+			cutin "orleans_6",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "Boil the Nippers in Yellow";
+			mes "Potion on low heat for about";
+			mes "30 minutes. Then, bring it down";
+			mes "to a simmer and carefully stir";
+			mes "in the Green Herbs one by one.";
+			next;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "This is an easy recipe, but";
+			mes "I still want you to demonstrate";
+			mes "for me. Okay, let's see now...";
+			mes "You're doing fine. Now, wait...";
+			mes "Good, good, okay, it's ready";
+			mes "for the Green Herbs now...";
+			next;
+			cutin "orleans_7",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "There, you're done!";
+			mes "The presentation can use";
+			mes "a little work, but at least you";
+			mes "know this recipe now. That's";
+			mes "all for today, so please go";
+			mes "and practice on your own now.";
+			delitem 960,10; //Nipper
+			delitem 511,10; //Green_Herb
+			delitem 503,1; //Yellow_Potion
+			set cooking_q,7;
+			getitem 12051,1; //Vit_Dish01
+			goto L_End;
+		}
+		cutin "orleans_6",0;
+		set .@talk_j,rand(1,2);
+		if (.@talk_j == 1) {
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "Shouldn't you be";
+			mes "preparing all of the";
+			mes "ingredients for Steamed";
+			mes "Crab Nippers? You need";
+			mes "to work quickly for those";
+			mes "hungry restaurant patrons!";
+			goto L_End;
+		}
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "It shouldn't be too hard";
+		mes "to gather Nippers. Just";
+		mes "find some Vadons and crush";
+		mes "them, making sure to rip off";
+		mes "their Nippers. That sounds strange, I know, but just do it.";
+		goto L_End;
+	}
+	else if (cooking_q == 6) {
+		if (countitem(942) > 4 && countitem(7031) > 0 && countitem(7457) > 0) {
+			cutin "orleans_4",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "你在幹嘛!! 很慢耶!!";
+			mes "這麼晚來的話, 材料的新鮮度";
+			mes "就會變得糟糕透了!!";
+			mes "烹調料理時每時每刻";
+			mes "都要銘記在心!!";
+			next;
+			cutin "orleans_6",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "Pluck the hair from the";
+			mes "tails and rinse them well";
+			mes "under cold water. Pour half";
+			mes "a bottle of Cooking Oil unto";
+			mes "a preheated pan, and then";
+			mes "quickly fry the tails.";
+			next;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "The trick is to fry the";
+			mes "tails quickly without burning";
+			mes "them, so you'll probably want";
+			mes "to cook using medium-high heat.";
+			mes "Show me what you've learned now... Alright, that's not bad... Hmmm...";
+			next;
+			cutin "orleans_7",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "There, you're done!";
+			mes "The presentation can use";
+			mes "a little work, but at least you";
+			mes "know this recipe now. That's";
+			mes "all for today, so please go";
+			mes "and practice on your own now.";
+			delitem 942,5; //Yoyo_Tail
+			delitem 7031,1; //Old_Frying_Pan
+			delitem 7457,1; //Cooking_Oil
+			set cooking_q,7;
+			getitem 12066,1; //Luk_Dish01
+			goto L_End;
+		}
+		cutin "orleans_6",0;
+		set .@talk_j,rand(1,2);
+		if (.@talk_j == 1) {
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "You better go prepare";
+			mes "those ingredients for Fried";
+			mes "Monkey Tails are quickly as";
+			mes "you can. In a real restaurant,";
+			mes "you'd never able to take your";
+			mes "time like this. Toute allure!";
+			goto L_End;
+		}
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "You need more tails?";
+		mes "Just sneak up on some";
+		mes "Yoyos, swiftly kill them,";
+		mes "and then slice off their tails.";
+		mes "You're a beginner, but I won't";
+		mes "allow you to be inhumane!";
+		goto L_End;
+	}
+	else if (cooking_q == 7) {
+		cutin "orleans_7",0;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "Oh... I'm so exhausted!";
+		mes "I have too much wisdom and";
+		mes "skills to pass on! Teaching is";
+		mes "not an endeavor I enjoy, but";
+		mes "I do realize it is necessary";
+		mes "for my cuisine to survive me...";
+		next;
+		cutin "orleans_1",0;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "Peser le bien et le mal...";
+		mes "Even though it pains me,";
+		mes "I suppose I have to continue";
+		mes "teaching until one of you can";
+		mes "become a worthy successor.";
+		mes "It will take some time...";
+		goto L_End;
+	}
+	else if (cooking_q == 8) {
+		cutin "orleans_5",0;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "Strange, strange...";
+		mes "What is that kid and";
+		mes "that cat doing here?";
+		mes "The kitchen is no place";
+		mes "for them--at the very least,";
+		mes "not for pets, you know.";
+		next;
+		cutin "orleans_4",0;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "Pardon moi, child,";
+		mes "but would you remove";
+		mes "yourself and your cat";
+		mes "from the premises? This";
+		mes "is a kitchen, and everything";
+		mes "here needs to be clean!";
+		next;
+		cutin "nyuang_1",2;
+		mes "[拎著小貓的 小孩]";
+		mes "...Nyaaa?";
+		mes "...Meow?";
+		next;
+		switch(select("What's your name, kid?:Do you want to eat something?:Here, kitty~:Get out!")) {
+		case 1:
+			emotion ET_OK, getnpcid(0, "拎著小貓的 小孩#cook");
+			mes "[拎著小貓的 小孩]";
+			mes "Nyaaa~";
+			mes "nyaaa~";
+			mes "(Purrrrrr)";
+			next;
+			cutin "orleans_4",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes ".....Who told you";
+			mes "to ask her name?";
+			mes "You don't even understand what she is saying.";
+			goto L_End;
+		case 2:
+			cutin "nyuang_2",2;
+			emotion ET_HNG, getnpcid(0, "拎著小貓的 小孩#cook");
+			mes "[拎著小貓的 小孩]";
+			mes "Nyaaaa~";
+			mes "(Purrrrrr~)";
+			next;
+			cutin "orleans_5",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "That was a good idea...";
+			mes "Offering them food to get";
+			mes "them to leave. Mon dieu, if";
+			mes "the child won't talk to us...";
+			mes "Still, we need to get those";
+			mes "two out of the kitchen.";
+			goto L_End;
+		case 3:
+			cutin "nyuang_3",2;
+			emotion ET_SMILE, getnpcid(0, "拎著小貓的 小孩#cook");
+			mes "[拎著小貓的 小孩]";
+			mes "Nyahahaha~";
+			mes "Nyhhahaha~";
+			mes "(Meow, meow~)";
+			next;
+			cutin "orleans_4",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "...Are you playing with that kid...?";
+			mes "...Then I don't need you to be here.";
+			goto L_End;
+		case 4:
+			emotion ET_THINK, getnpcid(0, "拎著小貓的 小孩#cook");
+			mes "[拎著小貓的 小孩]";
+			mes "...";
+			mes "(喵?)";
+			next;
+			cutin "nyuang_4",2;
+			emotion ET_FRET, getnpcid(0, "拎著小貓的 小孩#cook");
+			specialeffect2 EF_HIT2;
+			percentheal -10,0;
+			mes "[拎著小貓的 小孩]";
+			mes "Grrrrrrr!";
+			mes "(RRRrrreow!)";
+			next;
+			cutin "orleans_7",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "Oh, look out!";
+			mes "You should have";
+			mes "been more careful";
+			mes "handling that cat...";
+			goto L_End;
+		}
+	}
+	else if (cooking_q == 9) {
+		cutin "orleans_5",0;
+		emotion ET_FRET;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "Alright, enough";
+		mes "is enough. We can't";
+		mes "continue to cook if we";
+		mes "have live animals in the";
+		mes "kitchen. It's a violation";
+		mes "of our sanitary standards!";
+		next;
+		cutin "orleans_6",0;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "I'm sorry, mon chere,";
+		mes "but you have to leave.";
+		mes "Child, please take your";
+		mes "cat and head out the door";
+		mes "before your feline can touch";
+		mes "or shed on any of the food!";
+		next;
+		cutin "nyuang_4",2;
+		emotion ET_FRET, getnpcid(0, "拎著小貓的 小孩#cook");
+		mes "[拎著小貓的 小孩]";
+		mes "Grrrrrrr!";
+		mes "RRRRreow!";
+		next;
+		donpcevent "Wickebine#cook::OnEnable";
+		emotion ET_HUK;
+		emotion ET_DELIGHT, getnpcid(0, "拎著小貓的 小孩#cook");
+		next;
+		cutin "job_black_hucke01",1;
+		mes "[Wickebine]";
+		mes "Oh...!";
+		mes "Nyuyang, there";
+		mes "you are! What are";
+		mes "you doing here in";
+		mes "Charles's kitchen?";
+		next;
+		cutin "orleans_3",0;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "M-Madam Wickebine...!";
+		mes "Forgive me, you surprised";
+		mes "me by appearing from out";
+		mes "of nowhere. Do you happen";
+		mes "to know this young child?";
+		next;
+		cutin "job_black_hucke02",1;
+		mes "[Wickebine]";
+		mes "Oh, Nyuyang here is my";
+		mes "little sister. It may be hard";
+		mes "to see the resemblance...";
+		mes "Anyway, I've been looking";
+		mes "all over for her. Are you";
+		mes "bothering Charles, Nyuyang?";
+		next;
+		cutin "nyuang_3",2;
+		emotion ET_SMILE, getnpcid(0, "拎著小貓的 小孩#cook");
+		mes "[拎著小貓的 小孩]";
+		mes "Nyuuuunyuuu~";
+		mes "nyuuuunyuuu~";
+		mes "Meooooow~";
+		next;
+		cutin "orleans_3",0;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "...!!!";
+		next;
+		cutin "job_black_hucke03",1;
+		mes "[Wickebine]";
+		mes "Oh, so you have";
+		mes "been bothering him!";
+		mes "You think Charles";
+		mes "wants you to leave?";
+		next;
+		cutin "orleans_3",0;
+		emotion ET_PROFUSELY_SWEAT;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "Hahahahah, what";
+		mes "are you talking about!";
+		mes "Nonsense! How can ";
+		mes "such a cute little belle";
+		mes "be of any trouble to me?";
+		next;
+		cutin "orleans_7",0;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "As a matter of fact,";
+		mes "I was just about to treat";
+		mes "this precious petit and";
+		mes "her little cat to some";
+		mes "of my delicious cuisine.";
+		mes "So do not worry, Madam~";
+		next;
+		cutin "job_black_hucke01",1;
+		emotion ET_QUESTION, getnpcid(0, "Wickebine#cook");
+		mes "[Wickebine]";
+		mes "Are you sure, Charles?";
+		mes "I know how serious you";
+		mes "are about your cooking,";
+		mes "and I don't want Nyuyang";
+		mes "to disturb you in any way...";
+		next;
+		cutin "job_black_hucke02",1;
+		mes "[Wickebine]";
+		mes "Oh, Charles, you've";
+		mes "been nothing but kind";
+		mes "to me. I'm glad that you're";
+		mes "also taking care of Nyuyang.";
+		mes "Well then, take care~";
+		next;
+		cutin "nyuang_3",2;
+		emotion ET_SMILE, getnpcid(0, "拎著小貓的 小孩#cook");
+		mes "[拎著小貓的 小孩]";
+		mes "Nyahahaha~";
+		mes "Nyahahaha~";
+		mes "(Meow, meow~)";
+		next;
+		cutin "job_black_hucke02",255;
+		emotion ET_DELIGHT, getnpcid(0, "Wickebine#cook");
+		donpcevent "Wickebine#cook::OnDisable";
+		next;
+		emotion ET_THINK;
+		emotion ET_THINK, getnpcid(0, "拎著小貓的 小孩#cook");
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "......";
+		next;
+		cutin "orleans_6",0;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "Ah...";
+		mes "There goes a true";
+		mes "lady... Madam Wickebine...";
+		goto L_End;
+	}
+	else if (cooking_q == 10) {
+		cutin "orleans_5",0;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "It's been bothering";
+		mes "me that his highness";
+		mes "has been missing for";
+		mes "a while. Why doesn't";
+		mes "anybody know where he is?";
+		next;
+		cutin "orleans_4",0;
+		cutin "orleans_3",0;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "Wise and benevolent";
+		mes "King Tristram III would";
+		mes "never abandon his subjects.";
+		mes "I dearly hope that nothing";
+		mes "serious has happened to him...";
+		next;
+		cutin "orleans_6",0;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "Can it be possible that";
+		mes "our beloved king would";
+		mes "have enemies? He's done";
+		mes "nothing but good for the";
+		mes "Rune-Midgarts Kingdom";
+		mes "and the rest of the world!";
+		next;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "I can't imagine a great";
+		mes "man like him to be in any";
+		mes "sort of trouble. It makes me";
+		mes "me laugh whenever anyone";
+		mes "suggests that he is hiding";
+		mes "in the Schwaltzvalt Republic...";
+		next;
+		emotion ET_GO;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "Praise the glories of the";
+		mes "Rune-Midgarts Kingdom!";
+		mes "Long live King Tristram III!";
+		goto L_End;
+	}
+	else if (cooking_q == 11) {
+		cutin "orleans_5",0;
+		emotion ET_THINK;
+		mes "[夏羅樂 歐羅萊昂]";
+		mes "好吧, 到底是何事呢?";
+		next;
+		switch(select("我想看別的料理書:你是為誰做料理呢?:沒事")) {
+		case 1:
+			cutin "orleans_7",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "You want to learn more";
+			mes "recipes? I suppose that";
+			mes "you should borrow another";
+			mes "cookbook then. Before that,";
+			mes "please return the cookbook";
+			mes "that you were studying, okay?";
+			next;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "Now, choose the cookbook";
+			mes "that you want to borrow by";
+			mes "entering a level from 1 to 5.";
+			mes "There are more advanced books,";
+			mes "but I'm not lending those out.";
+			mes "Oh, and enter 0 to cancel.";
+			next;
+			input .@new_book;
+			if (.@new_book < 0 || .@new_book > 5) {
+				cutin "orleans_5",0;
+				mes "[夏羅樂 歐羅萊昂]";
+				mes "Hmm...";
+				mes "I asked to you to";
+				mes "enter a level from";
+				mes "1 to 5. Those are the";
+				mes "only cookbooks that I will";
+				mes "lend out to my students.";
+				goto L_End;
+			}
+			else if (.@new_book == 0) {
+				cutin "orleans_5",0;
+				mes "[夏羅樂 歐羅萊昂]";
+				mes "So you changed your mind?";
+				mes "It would be a good idea to";
+				mes "study the recipes that you";
+				mes "have right now before trying";
+				mes "something new, I suppose.";
+				goto L_End;
+			}
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "So you wanted to borrow a";
+			mes "Level " + .@new_book + " Cookbook, eh?";
+			mes "Oh, would you please tell";
+			mes "me the level of the cookbook";
+			mes "that you are returning to me?";
+			next;
+			input .@old_book;
+			if (.@old_book < 0 || .@old_book > 5) {
+				mes "[夏羅樂 歐羅萊昂]";
+				mes "There must be some";
+				mes "kind of mistake-- I only";
+				mes "lend out cookbooks from";
+				mes "levels 1 to 5. Hmm, well, ask";
+				mes "me again when you remember";
+				mes "which cookbook you have, okay?";
+				goto L_End;
+			}
+			else if (.@old_book == 0) {
+				cutin "orleans_5",0;
+				mes "[夏羅樂 歐羅萊昂]";
+				mes "So you changed your mind?";
+				mes "It would be a good idea to";
+				mes "study the recipes that you";
+				mes "have right now before trying";
+				mes "something new, I suppose.";
+				goto L_End;
+			}
+			else if (.@old_book == .@new_book) {
+				cutin "orleans_4",0;
+				mes "[夏羅樂 歐羅萊昂]";
+				mes "Wait, wait...";
+				mes "Why do you want to";
+				mes "borrow a copy of the";
+				mes "cookbook that you already";
+				mes "have? I guess you made";
+				mes "some sort of mistake?";
+				goto L_End;
+			}
+			else {
+				if (countitem(7471+.@old_book) < 1) {
+						mes "[夏羅樂 歐羅萊昂]";
+						mes "Wait, wait...";
+						mes "Why don't you have";
+						mes "the book that you said";
+						mes "that you'd return to me?";
+						mes "Find it first, and then I can";
+						mes "lend another cookbook to you.";
+						goto L_End;
+					}
+					cutin "orleans_2",0;
+					mes "[夏羅樂 歐羅萊昂]";
+				switch(.@old_book) {
+				case 1:
+					mes "Ah, so you're done";
+					mes "with the Level 1 Cookbook.";
+					mes "That's good, that means you're";
+					mes "ready to graduate from the most";
+					mes "basic of basics. From now on,";
+					mes "the recipes will be harder...";
+					break;
+				case 2:
+					mes "Ah, so what did you";
+					mes "think of the recipes in";
+					mes "the Level 2 Cookbook?";
+					mes "Homestyle cooking may be";
+					mes "simple, but it should never";
+					mes "be neglected by chefs.";
+					break;
+				case 3:
+					mes "Ah, done with the Level 3";
+					mes "Cookbook already? The recipes";
+					mes "in there are really good when you're cooking romantic dinners.";
+					mes "They'll come in handy someday,";
+					mes "if you know what I mean.";
+					break;
+				case 4:
+					mes "So you've finished the";
+					mes "Level 4 Cookbook. That's";
+					mes "no small feat! You've got to";
+					mes "use very strange ingredients";
+					mes "to create delicious cuisine!";
+					break;
+				case 5:
+					mes "You're done with the";
+					mes "Level 5 Cookbook? Good";
+					mes "work: most beginners don't";
+					mes "even get this far. I suppose";
+					mes "you'll want to review some";
+					mes "of the easier recipes now~";
+					break;
+				}
+				next;
+			}
+			cutin "orleans_1",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "Now, before I let you";
+			mes "borrow one of my beloved";
+			mes "cookbooks, I have a small";
+			mes "condition that you must fulfill. ";
+			next;
+			if (.@new_book == 1) {
+				cutin "orleans_7",0;
+				mes "[夏羅樂 歐羅萊昂]";
+				mes "When I was a young child,";
+				mes "my family was destitute to";
+				mes "the point where we live off";
+				mes "leftover vegetables. Even";
+				mes "Monster's Feed was a prime";
+				mes "delicacy back in those days.";
+				next;
+				mes "[夏羅樂 歐羅萊昂]";
+				mes "Back then, my father would";
+				mes "always serve us Pumpkin.";
+				mes "I grew sick of it as a boy, but";
+				mes "now it brings back memories";
+				mes "of those days of innocence.";
+				next;
+				mes "[夏羅樂 歐羅萊昂]";
+				mes "Why don't we do this?";
+				mes "If you bring me 10 Pumpkins,";
+				mes "I will let you borrow one of";
+				mes "my Level 1 Cookbooks.";
+				if (countitem(535) > 9) {
+					next;
+					if (select("Give 10 Pumpkins and Current Cookbook:Cancel") == 1) {
+						cutin "orleans_6",0;
+						mes "[夏羅樂 歐羅萊昂]";
+						mes "Perfect, you've brought";
+						mes "me 10 Pumpkins! I can't";
+						mes "want to taste these flavors";
+						mes "that I used to experience";
+						mes "everyday in my childhood.";
+						next;
+					}
+					else {
+						mes "[夏羅樂 歐羅萊昂]";
+						mes "Oh, how I miss the";
+						mes "taste of Pumpkins!";
+						mes "Ahhh, how nostalgic~";
+						goto L_End;
+					}
+				}
+				else goto L_End;
+			}
+			else if (.@new_book== 2) {
+				cutin "orleans_7",0;
+				mes "[夏羅樂 歐羅萊昂]";
+				mes "Today, I have a craving";
+				mes "for a cup of tea. Of course,";
+				mes "you cannot enjoy tea without";
+				mes "crackers or cookies. Please";
+				mes "bring me 5 Well-Baked Cookies";
+				mes "to borrow my Level 2 Cookbook.";
+				if (countitem(538) > 4) {
+					next;
+					if (select("Give Cookies and Current Cookbook:Cancel") == 1) {
+						cutin "orleans_6",0;
+						mes "[夏羅樂 歐羅萊昂]";
+						mes "Oh, you brought these";
+						mes "cookies much quicker";
+						mes "than I had expected!";
+						mes "Great, now I can put";
+						mes "the tea on, relax, then";
+						mes "enjoy a delicious snack~";
+						next;
+					}
+					else {
+						mes "[夏羅樂 歐羅萊昂]";
+						mes "Ohh...";
+						mes "I must have some tea";
+						mes "soon... But the experience";
+						mes "isn't complete without any";
+						mes "Well-Baked Cookies to munch~";
+						goto L_End;
+					}
+				}
+				else goto L_End;
+			}
+			else if (.@new_book== 3) {
+				cutin "orleans_7",0;
+				mes "[夏羅樂 歐羅萊昂]";
+				mes "You know that specialty";
+				mes "dish from Amatsu? I've";
+				mes "been craving that lately.";
+				mes "Please bring me 5 Sushi,";
+				mes "and I'll let you borrow a";
+				mes "Level 3 Cookbook, okay?";
+				if (countitem(551) > 4) {
+					next;
+					if (select("Give Sushi and Current Cookbook:Cancel")) {
+						cutin "orleans_6",0;
+						mes "[夏羅樂 歐羅萊昂]";
+						mes "Ooh, these look so fresh!";
+						mes "And the presentation is also";
+						mes "wonderful! These must have";
+						mes "been prepared by a skilled chef! ";
+						next;
+					}
+					else {
+						mes "[夏羅樂 歐羅萊昂]";
+						mes "Ahhh, Sushi...";
+						mes "It's one of the few";
+						mes "things I don't know";
+						mes "how to make extremely";
+						mes "well. Can you believe that?";
+						goto L_End;
+					}
+				}
+				else goto L_End;
+			}
+			else if (.@new_book== 4) {
+				cutin "orleans_7",0;
+				mes "[夏羅樂 歐羅萊昂]";
+				mes "Oh, I'm in the mood for";
+				mes "some cuisine from Kunlun.";
+				mes "Would you bring me some of";
+				mes "that delicious Bao? 5 would";
+				mes "be perfect. Then, I'll let you";
+				mes "borrow my Level 4 Cookbook.";
+				if (countitem(553) > 4) {
+					next;
+					if (select("Give Bao and Current Cookbook:Cancel") == 1) {
+						cutin "orleans_6",0;
+						mes "[夏羅樂 歐羅萊昂]";
+						mes "Great, you actually";
+						mes "brought them! These";
+						mes "Bao look especially";
+						mes "scrumptious! I can't";
+						mes "wait to have a taste!";
+						next;
+					}
+					else {
+						mes "[夏羅樂 歐羅萊昂]";
+						mes "Oh...";
+						mes "It's been so long";
+						mes "since I've had a taste";
+						mes "of that delicious Bao.";
+						mes "I'd cook it myself, but";
+						mes "I don't know the secret!";
+						goto L_End;
+					}
+				}
+				else goto L_End;
+			}
+			else if (.@new_book== 5) {
+				cutin "orleans_7",0;
+				mes "[夏羅樂 歐羅萊昂]";
+				mes "Lately, my pantry has been";
+				mes "in some dire need of Shoots.";
+				mes "They're a tasty ingredient with";
+				mes "unignorable health value. Bring";
+				mes "me 10 of those, and you can";
+				mes "borrow a Level 5 Cookbook.";
+				if (countitem(711) > 9) {
+					next;
+					if (select("Give Shoots and Current Cookbook:Quit") == 1) {
+						cutin "orleans_6",0;
+						mes "[夏羅樂 歐羅萊昂]";
+						mes "Goodness, these are";
+						mes "some high quality Shoots!";
+						mes "These look so good, I'm";
+						mes "sure that you you can";
+						mes "even eat them raw!";
+						next;
+					}
+					else {
+						mes "[夏羅樂 歐羅萊昂]";
+						mes "I'm going to need to";
+						mes "cook with those Shoots";
+						mes "soon, so I'd appreciate it";
+						mes "if you'd do this little favor~";
+						goto L_End;
+					}
+				}
+				else goto L_End;
+			}
+
+			if (.@old_book == 1) delitem 7472,1; //1等料理書
+			else if (.@old_book == 2) delitem 7473,1; //2等料理書
+			else if (.@old_book == 3) delitem 7474,1; //3等料理書
+			else if (.@old_book == 4) delitem 7475,1; //4等料理書
+			else if (.@old_book == 5) delitem 7476,1; //5等料理書
+			if (.@new_book == 1) {
+				delitem 535,10; //南瓜
+				getitem 7472,1; //1等料理書
+			}
+			else if (.@new_book== 2) {
+				delitem 538,5; //薑餅
+				getitem 7473,1; //2等料理書
+			}
+			else if (.@new_book== 3) {
+				delitem 551,5; //壽司
+				getitem 7474,1; //3等料理書
+			}
+			else if (.@new_book== 4) {
+				delitem 553,5; //包子
+				getitem 7475,1; //5等料理書
+			}
+			else if (.@new_book== 5) {
+				delitem 711,10; //芽苗
+				getitem 7476,1; //5等料理書
+			}
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "Well, as promised,";
+			mes "here's the cookbook";
+			mes "that you asked for. Take";
+			mes "good care of it--don't sell";
+			mes "it or lose it or anything like";
+			mes "that. Good luck cooking now~";
+			goto L_End;
+
+		case 2:
+			cutin "orleans_3",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "What do you mean,";
+			mes "''Who do I cook for?''";
+			mes "That's a strange question";
+			mes "with a simple answer. I'm";
+			mes "an artiste that must bring";
+			mes "more of my art into the world.";
+			next;
+			cutin "orleans_3",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "Wait, wait...";
+			mes "Have you been speaking";
+			mes "to 馬德連 修? She";
+			mes "didn't say anything out";
+			mes "of the ordinary did she?";
+			mes "Because if she did, ignore her!";
+			next;
+			cutin "orleans_6",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "No. There is";
+			mes "no special reason";
+			mes "why my spirit to create";
+			mes "culinary masterpieces has";
+			mes "been reinvigorated lately...";
+			goto L_End;
+
+		case 3:
+			cutin "orleans_5",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "Please, do not worry";
+			mes "yourself about it. Just";
+			mes "let me rest for now~";
+			goto L_End;
+
+		}
+	}
+	else {
+		mes "[Charles Orleans]";
+		mes "Mon dieu!";
+		mes "An error has";
+		mes "occurred!";
+		goto L_End;
+	}
+
+L_End:
+	close2;
+	cutin "",255;
+	end;
+}
+
+prt_castle,45,35,5	script	馬德連 修#cook	4_COOK,{
+	set .@now_weight,MaxWeight-Weight;
+	if (.@now_weight < 2000) {
+		mes "[馬德連 修]";
+		mes "負重量不足";
+		close2;
+		//EnableItemMove
+		end;
+	}
+	if (cooking_q == 0) {
+		mes "[馬德連 修]";
+		mes "你好嗎!! 我叫做馬德連 修, ";
+		mes "是個實習廚師, ";
+		mes "目前是夏羅樂師傅的大徒弟, ";
+		mes "正在學習各種料理呢";
+		next;
+		switch(select("什麼是廚師啊?:你做哪一種料理呢?:我也想學料理啊")) {
+		case 1:
+			mes "[馬德連 修]";
+			mes "哈哈哈, 你這樣問我感覺";
+			mes "有點怪怪的, 我還不是";
+			mes "真正的廚師, 是正在學";
+			mes "料理的學生, 我的職業";
+			mes "還不是真正的廚師啊";
+			next;
+			mes "[馬德連 修]";
+			mes "不過任何一個人只要對料理";
+			mes "關心, 用心學習做的話, ";
+			mes "總有一天會被別人稱讚為";
+			mes "了不起的廚師的, 我是";
+			mes "深信不疑";
+			next;
+			mes "[馬德連 修]";
+			mes "料理是和火之間的戰爭!!!";
+			mes "能夠壓制火侯的人會得到勝利的!";
+			mes "要更香一點! 要更脆一點!!";
+			mes "我現在正在支配火侯啊!!";
+			close;
+
+		case 2:
+			mes "[馬德連 修]";
+			mes "我只會做一些基礎料理, ";
+			mes "不過夏羅樂師傅";
+			mes "經常提過, 能把任何人都會";
+			mes "做的東西, 做的最好的人";
+			mes "才會成功的...";
+			next;
+			mes "[馬德連 修]";
+			mes "我也總有一天要做出獨特的";
+			mes "料哩, 讓大家吃得津津有味, ";
+			mes "讚不絕口, 都吃光光, ";
+			mes "希望把幸福滿溢的料理, ";
+			mes "傳給所有的人";
+			next;
+			mes "[馬德連 修]";
+			mes "我告訴你, 夏羅樂師傅的";
+			mes "甜點是極品, 我也只有";
+			mes "一次機會吃過... 眼前";
+			mes "竟然出現一個巨大的心型";
+			mes "揮動著羽翼飛舞著呢?";
+			next;
+			mes "[馬德連 修]";
+			mes "可是不知道為什麼, ";
+			mes "師傅都不教我做些甜點, ";
+			mes "每天只教些奇怪的料理, ";
+			mes "我想學師傅的拿手絕活";
+			mes "手制巧克力的製作方法";
+			next;
+			mes "[馬德連 修]";
+			mes "應該是我還不夠成熟吧, ";
+			mes "有朝一日必定成為青出於藍";
+			mes "又出類拔萃的料理名人, ";
+			mes "直到那一天我會努力不懈";
+			close;
+
+		case 3:
+			mes "[馬德連 修]";
+			mes "嗯... 我是沒辦法教你的, ";
+			mes "你要不要拜託我師傅呢?";
+			mes "他是有點木訥啦, ";
+			mes "但對料理卻是首屈一指";
+			next;
+			mes "[馬德連 修]";
+			mes "還有所謂料理必須長時間";
+			mes "不斷地多做才能熟練, ";
+			mes "這樣才會做得更好, ";
+			mes "並不是單靠材料和道具";
+			mes "就能容易做得出來的";
+			next;
+			mes "[馬德連 修]";
+			mes "你先向我師傅學習料理後, ";
+			mes "可以的話, 當做練習自己";
+			mes "多做一些料理吧, 不停地做後";
+			mes "總有一天會發現對料理烹飪";
+			mes "非常熟練的自己";
+			next;
+			mes "[馬德連 修]";
+			mes "當然我的師父是有一點";
+			mes "死板啦... 不過你能明確表達";
+			mes "學習料理的決心就沒問題了, ";
+			mes "戴一下廚師的帽子也不賴吧?";
+			close;
+		}
+	}
+	else if (cooking_q > 0 && cooking_q < 7) {
+		mes "[馬德連 修]";
+		mes "Hello, is there any";
+		mes "way I can help you today?";
+		mes "Oh, if you're studying cooking";
+		mes "under Sir Charles, I can remind";
+		mes "you of the ingredients you need";
+		mes "if you've forgotten them~";
+		next;
+		switch(select("蚱蜢熱炒:葡萄果汁藥草茶:蜂蜜葡萄汁:青蛙墨水湯:蒸蟹之螯:猴子尾巴熱炒")) {
+		case 1:
+			mes "[馬德連 修]";
+			mes "Oh! You'll need";
+			mes "^4D4DFF5 Grasshopper Legs^000000,";
+			mes "^4D4DFF1 Cooking Oil^000000, and";
+			mes "^4D4DFF1 Old Frying Pan^000000 to make";
+			mes "fried Grasshopper Legs.";
+			break;
+
+		case 2:
+			mes "[馬德連 修]";
+			mes "Oh! You'll need";
+			mes "^4D4DFF3 Grapes^000000, and";
+			mes "^4D4DFF2 Red Potions^000000 for";
+			mes "Grape Juice Herbal Tea.";
+			break;
+
+		case 3:
+			mes "[馬德連 修]";
+			mes "Oh! You'll need";
+			mes "^4D4DFF1 Honey^000000,";
+			mes "^4D4DFF2 Grapes^000000, and";
+			mes "^4D4DFF1 Red Potion^000000.";
+			break;
+
+		case 4:
+			mes "[馬德連 修]";
+			mes "Oh! You'll need";
+			mes "^4D4DFF1 Bag of Grain^000000,";
+			mes "^4D4DFF10 Spawns^000000, and";
+			mes "^4D4DFF1 Squid Ink^000000 for Frog";
+			mes "Egg and Squid Ink soup.";
+			break;
+
+		case 5:
+			mes "[馬德連 修]";
+			mes "Oh! You'll need";
+			mes "^4D4DFF10 Green Herbs^000000,";
+			mes "^4D4DFF10 Nippers^000000, and";
+			mes "^4D4DFF1 Yellow Potion^000000 for";
+			mes "Steamed Crab Nippers.";
+			break;
+
+		case 6:
+			mes "[馬德連 修]";
+			mes "Oh! You'll need";
+			mes "^4D4DFF1 Frying Pan^000000,";
+			mes "^4D4DFF5 Yoyo Tails^000000, and";
+			mes "^4D4DFF1 Cooking Oil^000000 for";
+			mes "Fried Monkey Tails.";
+			break;
+		}
+		next;
+		mes "[馬德連 修]";
+		mes "I know that Sir Charles";
+		mes "is stubborn and won't tell";
+		mes "you the ingredients again";
+		mes "if you forget. Anyway, I hope";
+		mes "you collect them and complete";
+		mes "the recipe as soon as you can~";
+		close;
+	}
+	else if (cooking_q == 7) {
+		mes "[馬德連 修]";
+		mes "Sir Charles taught you";
+		mes "a recipe? That's great!";
+		mes "I hope you remember that the";
+		mes "quality of your dishes mostly";
+		mes "relies on your skills, so always remember to keep practicing.";
+		next;
+		mes "[馬德連 修]";
+		mes "Ah, you know what might";
+		mes "help you improve your";
+		mes "culinary skills? Why don't";
+		mes "you borrow this cookbook";
+		mes "and try some of its recipes?";
+		next;
+		mes "[馬德連 修]";
+		mes "Before you cook, make sure";
+		mes "that you have enough of the";
+		mes "ingredients. Oh, and keep the";
+		mes "cookbook nearby while you are";
+		mes "cooking. You'll probably need";
+		mes "to refer to it pretty often...";
+		next;
+		mes "[馬德連 修]";
+		mes "這是最基礎的 1等料理書, ";
+		mes "先請熟練這書的內容之後, ";
+		mes "再來找我吧, 啊, 還有...";
+		set cooking_q,8;
+		getitem 7472,1; //1等料理書
+		next;
+		mes "[馬德連 修]";
+		mes "用這個去練習料理吧, ";
+		mes "還需要時隨時來找我";
+		getitem 12125,10; //戶外料理器具
+		close;
+	}
+	else if (cooking_q == 8) {
+		mes "[馬德連 修]";
+		mes "你好嗎, ";
+		mes "你有多練習料理嗎?";
+		mes "要歷時長久、努力不懈的練習";
+		mes "才是最重要的";
+		next;
+		switch(select("我需要料理器具:請你評評我的料理:這料理你覺得怎麼樣呢?")) {
+		case 1:
+			mes "[馬德連 修]";
+			mes "你需要何種的料理器具呢?";
+			next;
+			switch(select("戶外料理器具 - 500z:家庭式料理器具 - 1,000z:取消")) {
+			case 1:
+				callsub S_SellSets,12125;
+				close;
+			case 2:
+				mes "[馬德連 修]";
+				mes "唉喲, 你好像還沒到可以使用";
+				mes "家庭式料理器具的階段呢, ";
+				mes "先用戶外料理器具再做一些";
+				mes "基本料理吧";
+				close;
+			case 3:
+				mes "[馬德連 修]";
+				mes "那麼, 下次再來找我吧";
+				close;
+			}
+
+		case 2:
+			if (countitem(12041) > 0 && countitem(12046) > 0 && countitem(12061) > 0 && countitem(12056) > 0 && countitem(12051) > 0 && countitem(12066) > 0) {
+				mes "[馬德連 修]";
+				mes "Oh, you've made a sample";
+				mes "of every recipe detailed in";
+				mes "that basic cookbook, did you?";
+				mes "That must have been very good training for your culinary skills.";
+				next;
+				mes "[馬德連 修]";
+				mes "I'd love to taste your";
+				mes "food and give my opinion,";
+				mes "but do you mind if I ask";
+				mes "you a favor first? I have";
+				mes "a friend in Payon who used";
+				mes "to study cooking in Prontera.";
+				next;
+				mes "[馬德連 修]";
+				mes "However, he became frustrated";
+				mes "with the culinary classes and";
+				mes "moved back to Prontera. Would";
+				mes "you mind asking him to taste";
+				mes "them? Here, I'll wrap your";
+				mes "food in this handy cloth...";
+				next;
+				delitem 12041,1; //Str_Dish01
+				delitem 12046,1; //Int_Dish01
+				delitem 12061,1; //Dex_Dish01
+				delitem 12056,1; //Agi_Dish01
+				delitem 12051,1; //Vit_Dish01
+				delitem 12066,1; //Luk_Dish01
+				set cooking_q,9;
+				getitem 12111,1; //食物保鮮袋
+				mes "[馬德連 修]";
+				mes "There you go, it's ready";
+				mes "to be delivered. Now, make";
+				mes "sure not to open this before";
+				mes "giving it to my old friend,";
+				mes "阿宏. You can find him";
+				mes "somewhere around Payon...";
+				next;
+				mes "[馬德連 修]";
+				mes "You should be able to";
+				mes "find 阿宏 around the";
+				mes "water mill or the pub in";
+				mes "Payon. Oh, and don't";
+				mes "forget to tell him that";
+				mes "I sent you, okay? Thanks~";
+				close;
+			}
+			mes "[馬德連 修]";
+			mes "Hmm... I think it'd";
+			mes "be better if you tried";
+			mes "to make every recipe in";
+			mes "that basic cookbook I gave";
+			mes "you first. That way, I can more";
+			mes "accurately judge your skills.";
+			next;
+			mes "[馬德連 修]";
+			mes "It's not bad to focus";
+			mes "on just one recipe, but";
+			mes "as a beginner, you need";
+			mes "to cover all of the basics.";
+			mes "Please read the cookbook that I gave you very carefully, okay?";
+			close;
+
+		case 3:
+			if (countitem(12041) > 0 || countitem(12046) > 0 || countitem(12061) > 0 || countitem(12056) > 0 || countitem(12051) > 0 || countitem(12066) > 0) {
+				mes "[馬德連 修]";
+				mes "Oh, I see that you've";
+				mes "tried some recipes in that";
+				mes "basic cookbook that I gave";
+				mes "you. Everything you made looks";
+				mes "delicious. All that's left now";
+				mes "is for someone to taste it...";
+				close;
+			}
+			mes "[馬德連 修]";
+			mes "Well... I don't know...";
+			mes "I think you really should try";
+			mes "to make every recipe listed";
+			mes "in that basic cookbook that";
+			mes "I gave to you first. Then, you";
+			mes "can present your dishes~";
+			close;
+		}
+	}
+	else if (cooking_q == 9) {
+		if (countitem(12111) > 0) {
+			mes "[馬德連 修]";
+			mes "Please find my friend";
+			mes "阿宏 in Payon and";
+			mes "give him the Bundle of";
+			mes "Food so that he can taste";
+			mes "the dishes you've made.";
+			close;
+		}
+		else {
+			mes "[馬德連 修]";
+			mes "Ah, hello~ oh, will you give me a second?";
+			mes "Right now, I am frying something so, I need to focus on this work for a while.";
+			mes "Hahahaha.";
+			next;
+			mes "[馬德連 修]";
+			mes "Oh, so have you met";
+			mes "my friend 阿宏?";
+			mes "You brought him the";
+			mes "Bundle of Food, right?";
+			mes "I'd be disappointed if";
+			mes "you lost it or sold it...";
+			next;
+			if (select("I did!:I lost the Bundle of Food!") == 1) {
+				mes "[馬德連 修]";
+				mes "Hahaha, I suppose you";
+				mes "did. But even if you didn't";
+				mes "yet, make sure that you do";
+				mes "it soon, alright? See you~";
+				close;
+			}
+			if (countitem(7472) > 0) {
+				mes "[馬德連 修]";
+				mes "You lost it? Oh, that's";
+				mes "not good. How can you ";
+				mes "disrespect the culinary";
+				mes "arts in that way? I'm so";
+				mes "very ashamed of you...";
+				next;
+				delitem 7474,1; //1等料理書
+				set cooking_q,0;
+				mes "[馬德連 修]";
+				mes "First of all, I'd like";
+				mes "you to return my cookbook.";
+				mes "I want you to reflect on what";
+				mes "you've done, and then learn";
+				mes "cooking skills from Sir Charles, starting from the very beginning.";
+				close;
+			}
+			mes "[馬德連 修]";
+			mes "Oh, you must be joking~";
+			mes "I'm sure you must have";
+			mes "hidden it somewhere.";
+			mes "Anyway, please deliver that";
+			mes "Bundle of Food to 阿宏.";
+			close;
+		}
+	}
+	else if (cooking_q == 10) {
+		mes "[馬德連 修]";
+		mes "I just received a";
+		mes "message from 阿宏";
+		mes "thanking me for having";
+		mes "you send him that food.";
+		mes "I'm guessing that he";
+		mes "really liked it a lot.";
+		next;
+		mes "[馬德連 修]";
+		mes "I think you're ready to use";
+		mes "higher grade cooking tools now.";
+		mes "But never forget that your own";
+		mes "skills are the most important";
+		mes "factor in quality cuisine.";
+		next;
+		set cooking_q,11;
+		getitem 12126,10; //Indoor_Cooking_Kits
+		mes "[馬德連 修]";
+		mes "來, 從現在起用這個看看, ";
+		mes "用起來會比戶外料理器具";
+		mes "更方便順手, 高檔料理";
+		mes "也會更好做的";
+		next;
+		mes "[馬德連 修]";
+		mes "Also, if you want to";
+		mes "learn some new recipes,";
+		mes "why don't you talk to Sir";
+		mes "Charles again? Okay then,";
+		mes "good luck, and I'll see you later~ ";
+		close;
+	}
+	else if (cooking_q == 11) {
+		mes "[馬德連 修]";
+		mes "How are you? I hope";
+		mes "that you've been honing";
+		mes "your cooking skills since";
+		mes "the last time we've met.";
+		mes "Now, can I help you with";
+		mes "anything in particular?";
+		next;
+		switch(select("I need some Cooking Kits.:How is Sir Charles?:Um, who's that kid?")) {
+		case 1:
+			mes "[馬德連 修]";
+			mes "Sure, which kind";
+			mes "of Cooking Kits";
+			mes "did you need?";
+			next;
+			switch(select("Outdoor Cooking Kit - 500z:Home Cooking Kit - 1,000z:Show me a different kit.:Quit")) {
+			case 1:
+				callsub S_SellSets,12125;
+				close;
+
+			case 2:
+				callsub S_SellSets,12126;
+				close;
+
+			case 3:
+				mes "[馬德連 修]";
+				mes "Well, I only have two";
+				mes "types of cooking kits,";
+				mes "although there is a superior";
+				mes "Professional Cooking Kit that";
+				mes "real experts, like Sir Charles,";
+				mes "use. Amazing, isn't it?";
+				next;
+				mes "[馬德連 修]";
+				mes "You're still a beginner, so";
+				mes "my kits will serve you well. ";
+				mes "You know, there's a rumor about a cooking kit that can perfectly";
+				mes "make any recipe, so long as all of the ingredients are provided.";
+				next;
+				mes "[馬德連 修]";
+				mes "Of course, it's only";
+				mes "a rumor, probably just";
+				mes "the result of someone's";
+				mes "weird imagination. I still";
+				mes "believe skill is the most";
+				mes "important ingredient~";
+				close;
+
+			case 4:
+				mes "[馬德連 修]";
+				mes "Please come back and";
+				mes "let me know if you need";
+				mes "to purchase any Cooking";
+				mes "Kits, alright? See you later~";
+				close;
+			}
+
+		case 2:
+			mes "[馬德連 修]";
+			mes "Hm? Sir Charles is";
+			mes "fine, but lately he's been";
+			mes "getting a little upset at";
+			mes "even small things. Still,";
+			mes "I guess it's understandable.";
+			next;
+			set .@talk_j,rand(1,3);
+			if (.@talk_j == 1) {
+				mes "[馬德連 修]";
+				mes "You know, when I first";
+				mes "met him, I assumed he was";
+				mes "only good at cooking sweets";
+				mes "like chocolates and caramels.";
+				mes "However, he is highly skilled";
+				mes "at cooking almost everything!";
+				next;
+				mes "[馬德連 修]";
+				mes "I suppose he's been focusing";
+				mes "on foods other than desserts";
+				mes "ever since our king disappeared. I wonder if King Tristram III's";
+				mes "disappearance is related to Sir";
+				mes "Charles's change in mood?";
+				close;
+			}
+			else if (.@talk_j == 2) {
+				mes "[馬德連 修]";
+				mes "I mean, Sir Charles seems";
+				mes "to be the type that has trouble";
+				mes "opening up to other people.";
+				mes "That may explain why he's much";
+				mes "nicer to women than to men.";
+				mes "Doesn't that make sense?";
+				close;
+			}
+			mes "[馬德連 修]";
+			mes "Maybe it's because he's";
+			mes "been experimenting with";
+			mes "a new recipe lately. I think he";
+			mes "mentioned something about";
+			mes "wanting to treat some woman";
+			mes "to the finest food ever made.";
+			next;
+			mes "[馬德連 修]";
+			mes "I've never seen Sir Charles";
+			mes "so excited before. That woman";
+			mes "must be very lucky: she has the";
+			mes "chance to eat his cooking every";
+			mes "day if she wanted! I'm almost";
+			mes "jealous of her, you know that?";
+			close;
+
+		case 3:
+			mes "[馬德連 修]";
+			mes "Oh, you mean the";
+			mes "child with the cat?";
+			mes "I'm not sure, but I think";
+			mes "I overheard that she might";
+			mes "be the younger sister of";
+			mes "Madam Wickebine.";
+			next;
+			mes "[馬德連 修]";
+			mes "I wonder why Sir Charles";
+			mes "gives Madam Wickebine such";
+			mes "special treatment. Whenever";
+			mes "I ask him about it, he gets so";
+			mes "upset and doesn't say anything!";
+			next;
+			cutin "orleans_6",0;
+			mes "[夏羅樂 歐羅萊昂]";
+			mes "Mince alors!";
+			mes "I just felt a chill down my";
+			mes "spine... Could someone";
+			mes "be talking about me?";
+			close2;
+			cutin "",255;
+			end;
+		}
+	}
+	mes "[馬德連 修]";
+	mes "Error occurred.";
+	close;
+
+S_SellSets:
+	set .@item_cost,getiteminfo(getarg(0),0);
+	set .@item_weight,getiteminfo(getarg(0),6);
+	mes "[馬德連 修]";
+	mes "How many " + (getarg(0)==12125 ? "Outdoor":"Indoor");
+	mes "Cooking Kits would";
+	mes "you like to buy? If you";
+	mes "want to cancel, please";
+	mes "enter the number 0.";
+	next;
+	while(1) {
+		input .@sell;
+		if (.@sell == 0) {
+			mes "[馬德連 修]";
+			mes "交易已經取消了, ";
+			mes "那麼, 下次再來找我吧";
+			mes "to buy "+getitemname(getarg(0));
+			mes "Kits later, just come back";
+			mes "to me at anytime, alright?";
+			close;
+		}
+		else if (.@sell > 100) {
+			mes "[馬德連 修]";
+			mes "請輸入100個以下";
+			mes "100 "+getitemname(getarg(0));
+			mes "at a time, just to be safe.";
+			next;
+		}
+		else break;
+	}
+	set .@total_cost,.@sell * .@item_cost;
+	set .@total_weight,.@sell * .@item_weight;
+	if (Zeny < .@total_cost) {
+		mes "[馬德連 修]";
+		mes "Oh, I'm sorry, but you";
+		mes "can't afford this many";
+		mes getitemname(getarg(0));
+		mes "Please check your Zeny";
+		mes "before purchasing my kits~";
+		close;
+	}
+	if (!checkweight(getarg(0),.@sell)) {
+		mes "[馬德連 修]";
+		mes "I'm sorry, but you don't";
+		mes "have enough room in your";
+		mes "Inventory for this many";
+		mes getitemname(getarg(0))+"...";
+		close;
+	}
+	set Zeny, Zeny - .@total_cost;
+	getitem getarg(0),.@sell;
+	mes "[馬德連 修]";
+	mes "祝你做出許多美味的料理來";
+	return;
+}
+
+prt_castle,45,28,3	script	拎著小貓的 小孩#cook	4_F_YUNYANG,{
+	set .@nyu,rand(1,2);
+	if (.@nyu == 1) {
+		cutin "nyuang_1",2;
+		emotion ET_QUESTION;
+		mes "[拎著小貓的 小孩]";
+		mes "...Nya?";
+		mes "(...Meow?)";
+		close2;
+		cutin "nyuang_1",255;
+		end;
+	}
+	cutin "nyuang_3",2;
+	emotion ET_DELIGHT;
+	mes "[拎著小貓的 小孩]";
+	mes "Nyahahahaha,";
+	mes "nyahahahaha~";
+	mes "(Meow~, meow~)";
+	close2;
+	cutin "nyuang_1",255;
+	end;
+}
+
+prt_castle,44,30,5	script	Wickebine#cook	4_F_JOB_ASSASSIN,{
+	disablenpc "Wickebine#cook";
+	end;
+
+OnInit:
+	disablenpc "Wickebine#cook";
+	end;
+
+OnEnable:
+	enablenpc "Wickebine#cook";
+	end;
+
+OnDisable:
+	disablenpc "Wickebine#cook";
+	end;
+}
+
+payon,209,127,3	script	村落 男傭	4_M_ORIENT01,{
+	if (!checkweight(555,1)) {
+		mes "[阿宏]";
+		mes "Hold on, you're carrying";
+		mes "too many items with you.";
+		mes "Why don't you put some of";
+		mes "your stuff in Kafra Storage";
+		mes "before coming back to me?";
+		close2;
+		//EnableItemMove;
+		end;
+	}
+	if (cooking_q == 10) {
+		mes "[阿宏]";
+		mes "When you get the chance,";
+		mes "please give Madeline my";
+		mes "thanks. I'll visit Prontera";
+		mes "soon to see her, as well as";
+		mes "make amends with Sir Charles.";
+		close;
+	}
+	else if (cooking_q == 9) {
+		mes "[阿宏]";
+		mes "你要糕餅嗎? 每個賣 200金幣!";
+		mes "每個只要給我 200金幣就好了!";
+		next;
+		switch(select("給我糕餅!:我不吃:我從普隆德拉送東西來了")) {
+		case 1:
+			if (Zeny < 200) {
+				mes "[阿宏]";
+				mes "Oh, I'm sorry, but";
+				mes "you don't have enough";
+				mes "money to buy a Rice Cake...";
+				mes "Still, it should be easy to";
+				mes "raise 200 Zeny, right?";
+				close;
+			}
+			set Zeny, Zeny-200;
+			getitem 555,1; //糕餅
+			mes "[阿宏]";
+			mes "Thank you very";
+			mes "much! I hope you";
+			mes "enjoy your Rice Cake~";
+			close;
+
+		case 2:
+			mes "[阿宏]";
+			mes "Are you sure about";
+			mes "that? You won't get";
+			mes "the chance to have a";
+			mes "Rice Cake this delicious";
+			mes "anywhere else. Oh well,";
+			mes "that means more for me~";
+			close;
+
+		case 3:
+			if (countitem(12111) > 0) {
+				mes "["+strcharinfo(0)+"]";
+				mes "Actually, Madeleine";
+				mes "sent me here to find";
+				mes "you. She said that you'd";
+				mes "be willing to taste test";
+				mes "the food in this bundle...";
+				next;
+				mes "[阿宏]";
+				mes "Madeleine? You mean";
+				mes "馬德連 修? Oh, I haven't";
+				mes "heard from her in such a long";
+				mes "time! Great, let me see the";
+				mes "bundle that she sent me. Ah, everything here looks appetizing!";
+				next;
+				mes "[阿宏]";
+				mes "Oh, wait. She even";
+				mes "included a message";
+				mes "inside this bundle.";
+				mes "Let's see, here...";
+				next;
+				mes "^333333Dear 阿宏,";
+				mes " It's been a long time.";
+				mes "I know you left Prontera on";
+				mes "bad terms with Sir Charles,";
+				mes "but please understand that";
+				mes "he was only trying his best to";
+				mes "help improve your cooking.^000000";
+				next;
+				mes "^333333 Sir Charles always wished";
+				mes "that you'd expand your repetoire, and that you'd make these kinds";
+				mes "of foods someday. The person";
+				mes "that delivered this food also";
+				mes "cooked it. Please try it...^000000";
+				next;
+				mes "^333333 Hopefully, you'll be";
+				mes "able to understand Sir ";
+				mes "Charles a little better ";
+				mes "after tasting this food.";
+				mes " ";
+				mes " Your friend, Madeleine^000000";
+				next;
+				mes "[阿宏]";
+				mes "Now I get it...";
+				mes "These are the recipes";
+				mes "that Sir Charles tried";
+				mes "to teach me. But I refused";
+				mes "to learn them because I had";
+				mes "thought they were too gross...";
+				next;
+				mes "[阿宏]";
+				mes "......";
+				mes ".........";
+				mes "It's so delicious... Are";
+				mes "you sure you're just a";
+				mes "beginner? No... This must";
+				mes "be what I've been missing...";
+				next;
+				mes "[阿宏]";
+				mes "It's what my master";
+				mes "always tried to teach me,";
+				mes "but I was too impatient to";
+				mes "properly learn it. The greatest";
+				mes "ingredient of them all... ^D02090heart^000000. After all this time, I understand.";
+				next;
+				mes "[阿宏]";
+				mes "Thank you for bringing";
+				mes "this food to me. I will enjoy";
+				mes "it thoroughly, and reflect upon";
+				mes "what my old teacher was trying";
+				mes "to tell me. In return, please have one of my humble Rice Cakes.";
+				next;
+				delitem 12111,1; //食物保鮮袋
+				set cooking_q,10;
+				getitem 555,1; //糕餅
+				mes "[阿宏]";
+				mes "這是我親手做的糕餅, ";
+				mes "希望你在回去的路上吃, ";
+				mes "我會找一天去普隆德拉, ";
+				mes "向師傅負荊請罪的...!!";
+				close;
+			}
+			mes "["+strcharinfo(0)+"]";
+			mes "Actually, Madeleine";
+			mes "sent me here to find";
+			mes "you. She said that you'd";
+			mes "be willing to taste test";
+			mes "the food in this bundle...";
+			next;
+			mes "["+strcharinfo(0)+"]";
+			mes "Wait, wait...";
+			mes "I don't have it!";
+			mes "Where did I put";
+			mes "that Bundle of Food?";
+			close;
+		}
+	}
+	else if (cooking_q == 8) {
+		mes "[阿宏]";
+		mes "糕餅生意也不好, 你可以聽我";
+		mes "講話嗎, 我不久之前去過";
+		mes "那裡普隆德拉王宮";
+		next;
+		mes "[阿宏]";
+		mes "那是為了, 曾經有一位製作";
+		mes "甜點師傅的先生, 以前我";
+		mes "第一次做糯米年糕時幫助過我, ";
+		mes "是為了表示我的感謝之意";
+		next;
+		mes "[阿宏]";
+		mes "所以前去拜訪他... 沒想到";
+		mes "不敢當的是他說要教我料理!!";
+		mes "說真的, 我並沒有請他教我啊";
+		next;
+		mes "[阿宏]";
+		mes "所以我實在感激不盡...";
+		mes "我也剛好想做一些美味的";
+		mes "廖哩, 給我們家女主人, ";
+		mes "因緣際會, 所以我就學了";
+		next;
+		mes "[阿宏]";
+		mes "沒想到光教些青蛙蛋啦、";
+		mes "蝗蟲腿啦、墨汁啦, 究竟";
+		mes "這些東西要怎麼吃嘛!";
+		mes "好幾個月就只教這些東西";
+		mes "不是嗎.....我的媽呀....";
+		next;
+		mes "[阿宏]";
+		mes "所以我實在太氣憤, 就大發雷霆後";
+		mes "跑掉了, 由於太倉促離開";
+		mes "我還沒搞清楚狀況, ";
+		mes "現在, 離開後回想起來, ";
+		mes "實在是慚愧無地";
+		next;
+		mes "[阿宏]";
+		mes "於是我很想現在立刻回去";
+		mes "負荊請罪... 只是我到至今";
+		mes "還不明白師傅為什麼";
+		mes "要教我這些料理呢!!";
+		mes "那種東西怎麼咽得下嘛...!?";
+		close;
+	}
+	else {
+		mes "[阿宏]";
+		mes "你要糕餅嗎? 每個賣 200金幣!";
+		mes "每個只要給我 200金幣就好了!";
+		next;
+		if (select("給我糕餅!:我不吃") == 1) {
+			if (Zeny < 200) {
+				mes "[阿宏]";
+				mes "Oh, I'm sorry, but";
+				mes "you don't have enough";
+				mes "money to buy a Rice Cake...";
+				mes "Still, it should be easy to";
+				mes "raise 200 zeny, right?";
+				close;
+			}
+			set Zeny, Zeny - 200;
+			getitem 555,1; //糕餅
+			mes "[阿宏]";
+			mes "謝謝你!!";
+			mes "小心別噎著了, 請好好享用!!";
+			close;
+		}
+		mes "[阿宏]";
+		mes "唉喲喲!! 你不吃就早點說嘛!!";
+		mes "這麼好吃的糕餅";
+		mes "再也找不到的... 那隻好";
+		mes "我一個人把它吃光光囉!!";
+		close;
+	}
+}

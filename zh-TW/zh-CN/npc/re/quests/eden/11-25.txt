@@ -1,0 +1,150 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+//===== rAthena Script =======================================
+//= Eden Group Quests - Mission [11 - 25]
+//===== By: ==================================================
+//= L0ne_W0lf
+//===== Current Version: =====================================
+//= 1.2
+//===== Compatible With: =====================================
+//= rAthena SVN
+//===== Description: =========================================
+//= Repetable Quests for Players between Baselevel 11 - 25.
+//===== Additional Comments: =================================
+//= 1.0 First Version.
+//= 1.1 Some little optimization here and there. [Masao]
+//= 1.2 Optimized. [Euphy]
+//============================================================
+
+moc_para01,36,38,3	script	任務 [11 - 25]#Tuto	857,{
+	if (countitem(6219) < 1) {
+		mes "- 你必須持有 -";
+		mes "- ^4d4dff'樂園團的證物'^000000 -";
+		mes "- 才能接這些任務 -";
+		close;
+	}
+	for(set .@i,11124; .@i<11134; set .@i,.@i+1)
+		if (checkquest(.@i,PLAYTIME) == 2) erasequest .@i;
+	for(set .@i,11114; .@i<11123; set .@i,.@i+1) {
+		set .@j, checkquest(.@i,HUNTING);
+		if (.@j == 2) {
+			mes " - 在開始前你必須先選擇一個任務- ";
+			mes " ";
+			mes " - 管理員: 斯派克 - ";
+			close;
+		}
+		else if (.@j >= 0) {
+			mes " - 你一次只能接受一個任務 - ";
+			mes " ";
+			mes " - 管理員: 斯派克 - ";
+			close;
+		}
+	}
+	if (BaseLevel < 11) {
+		mes " - 這兒沒有你適合做的任務! - ";
+		close;
+	}
+	if (BaseLevel > 25) {
+		mes " - 這些任務對你來說太簡單了 - ";
+		mes " - 你應該去挑戰難度更高的任務 - ";
+		close;
+	}
+	mes " - 任務布告欄 -";
+	mes " - 11-25級 -";
+	mes " ";
+	mes " - 管理員: 斯派克 -";
+	next;
+	switch(select("狩獵蜂兵:狩獵禿鷹:收集蝗蟲後腿:狩獵森靈:狩獵魔菇:消滅害蟲:狩獵摩卡:狩獵吸血蝙蝠:收集羽毛:收集毒魔菇芽孢")) {
+		case 1: callsub L_Quest,11114,"狩獵蜂兵"," - 狩獵10隻 ^4d4dff'蜂兵'^000000 - "," - 請往普隆德拉的西南方向尋找. - ";
+		case 2: callsub L_Quest,11115,"狩獵禿鷹"," - 狩獵20隻 ^4d4dff'禿鷹'^000000 - "," - 它們出沒於夢羅克的南面. - ";
+		case 3: callsub L_Quest,11116,"收集蝗蟲後腿"," - 狩獵10隻 ^4d4dff'蝗蟲'^000000 - "," - 請往普隆德拉的西南方向尋找 - "," - 並且帶回10個^4d4dff蝗蟲後腿^000000.- ";
+		case 4: callsub L_Quest,11117,"狩獵森靈"," - 狩獵20隻 ^4d4dff'森靈'^000000 - "," - 它們出沒於斐揚東南方向.- ";
+		case 5: callsub L_Quest,11118,"狩獵魔菇"," - 狩獵30隻 ^4d4dff'魔菇'^000000 - "," - 你能在斐揚周邊找到它們.- ";
+		case 6: callsub L_Quest,11119,"消滅害蟲"," - 消滅20枚 ^4d4dff盜蟲卵^000000 - "," - 它們生存在普隆德拉的下水道中. - "," - 並且帶回10個^4d4dff蛹殼^000000. - ";
+		case 7: callsub L_Quest,11120,"狩獵摩卡"," - 狩獵20隻 ^4d4dff'摩卡'^000000 - "," - 請往普隆德拉南面尋找它們的蹤??- ";
+		case 8: callsub L_Quest,11121,"狩獵吸血蝙蝠"," - 狩獵20隻 ^4d4dff吸血蝙蝠^000000 - "," - 它們出沒於普隆德拉的西邊. - "," - 在地下水道裡能找到哦. - ";
+		case 9: callsub L_Quest,11122,"收集羽毛"," - 狩獵30隻 ^4d4dff'大嘴鳥'^000000 - "," - 去普隆德拉的南邊尋找它們吧. - ";
+		case 10: callsub L_Quest,11123,"收集毒魔菇芽孢"," - 狩獵30隻 ^4d4dff毒魔菇^000000 - "," - 去吉芬東北吧,那裡能找到你想要的. - "," - 記得帶回5個^4d4dff毒魔菇芽孢^000000哦. - ";
+		case 11: mes " - 取消 - "; close;
+	}
+	end;
+L_Quest:
+	if (checkquest(getarg(0),PLAYTIME) == 1) {
+		mes " - 你今天已經完成過^4d4dff"+getarg(1)+"^000000任務了! - ";
+		mes " ";
+		mes " - 管理員: 斯派克 - ";
+		close;
+	}
+	mes " - 任務 '"+getarg(1)+"' - ";
+	for(set .@i,2; .@i<getargcount(); set .@i,.@i+1)
+		mes getarg(.@i);
+	mes " ";
+	mes " - 管理員: 斯派克 - ";
+	next;
+	if(select("接受任務.:查看其他任務.") == 2) {
+		mes " - 讓我們來看看其他任務吧 -";
+		close;
+	}
+	for(set .@i,2; .@i<getargcount(); set .@i,.@i+1)
+		mes getarg(.@i);
+	if (getarg(0) == 11123 && checkquest(11123,PLAYTIME) == 2)
+		erasequest 11133;	// Special case for "Collect Poison Spores"
+	setquest getarg(0);
+	close;
+}
+
+moc_para01,32,30,6	script	斯派克	914,{
+	for(set .@i,11114; .@i<11124; set .@i,.@i+1) {
+		set .@j, checkquest(.@i,HUNTING);
+		if (.@j == 2) switch(.@i) {
+			case 11114: callsub L_Quest,.@i,"狩獵蜂兵",900;
+			case 11115: callsub L_Quest,.@i,"狩獵禿鷹",1800;
+			case 11116: callsub L_Quest,.@i,"收集蝗蟲後腿",1400,940,10;
+			case 11117: callsub L_Quest,.@i,"狩獵森靈",2600;
+			case 11118: callsub L_Quest,.@i,"狩獵魔菇",3900;
+			case 11119: callsub L_Quest,.@i,"消滅害蟲",2900,915,10;
+			case 11120: callsub L_Quest,.@i,"狩獵摩卡",3200;
+			case 11121: callsub L_Quest,.@i,"狩獵吸血蝙蝠",3200;
+			case 11122: callsub L_Quest,.@i,"收集羽毛",5400;
+			case 11123: callsub L_Quest,.@i,"收集毒魔菇芽孢",6000,7033,5;
+		}
+		else if (.@j >= 0) {
+			mes "[斯派克]";
+			mes "你還沒有完成你的任務呢~";
+			mes "加油吧~就快完成了~你可以的!~";
+			close;
+		}
+	}
+	mes "[斯派克]";
+	mes "想找個工作麼?";
+	mes "我們這兒總是能提供各種機會的.";
+	next;
+	mes "[斯派克]";
+	mes "你怎麼不去周圍看看有沒有你感興趣的任務呢?";
+	close;
+L_Quest:
+	if (checkquest(getarg(0),HUNTING) == 2) {
+		if (getarg(3,0))
+			if (countitem(getarg(3)) < getarg(4)) {
+				mes "[斯派克]";
+				mes "你還沒有足夠的 "+getitemname(getarg(3))+".";
+				mes "你還必須帶上 "+getarg(4)+" "+getitemname(getarg(3))+".";
+				close;
+			}
+		mes "[斯派克]";
+		mes "嗯?!Ｈ夢依純純磣~";
+		mes "啊哈!你已經完成了 '"+getarg(1)+"' 任務了呀!~";
+		next;
+		mes "[斯派克]";
+		mes "幹得好!!";
+		mes "我們的委託人對你的工作會滿意的,他會給你應得的獎勵的.";
+		mes "希望下次能繼續合作,謝謝!";
+		if (getarg(3,0)) delitem getarg(3),getarg(4);
+		erasequest getarg(0);
+		setquest getarg(0)+10;
+		getexp getarg(2),0;
+		close;
+	}
+}

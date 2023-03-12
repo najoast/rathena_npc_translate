@@ -1,0 +1,492 @@
+//============================================================
+//= rAthenaCN [城鎮人員]漢化腳本 
+//============================================================
+
+
+//===== Hercules Script ======================================
+//= Eclage Town
+//===== By: ================================================== 
+//= Euphy
+//===== Current Version: ===================================== 
+//= 1.0
+//===== Compatible With: ===================================== 
+//= rAthena SVN
+//===== Description: ========================================= 
+//= Eclage Town Script
+//===== Additional Comments: ================================= 
+//= 1.0 Nearly complete iRO town NPCs. [Euphy]
+//============================================================ 
+
+// Generic Eclage NPCs - Set 1
+//============================================================
+ecl_fild01,92,316,4	script	遊客#ep14_2f2	545,{
+	mes "[遊客]";
+	mes "我不敢相信居然要等那麼久……";
+	mes "什麼時候才能輪到我啊?";
+	emotion ET_CRY;
+	close;
+}
+
+ecl_fild01,106,312,4	script	遊客#ep14_2f3	525,{
+	mes "[遊客]";
+	mes "我其實已經考察完了, 只是在這裡賞花罷了.";
+	emotion ET_THROB2;
+	next;
+	mes "[遊客]";
+	mes "我剛在我的睡袋裡過了一晚上.";
+	mes "只要你能忍衛兵的騷擾, 還是不錯的.";
+	close;
+}
+
+ecl_fild01,108,320,6	script	遊客#ep14_2f4	941,{
+	mes "[遊客]";
+	mes "不知道艾喀拉蚩到底多美!";
+	mes "光是想一想就讓人心馳神往!";
+	emotion ET_THROB;
+	close;
+}
+
+ecl_fild01,105,320,2	script	遊客#ep14_2f5	436,{
+	mes "[遊客]";
+	mes "我不是訪客, 我是艾喀拉蚩的居民!";
+	emotion ET_FRET;
+	next;
+	mes "[遊客]";
+	mes "不敢相信因為這些遊客的原因我進不去.";
+	emotion ET_HUK;
+	close;
+}
+
+ecl_fild01,103,319,4	script	遊客#ep14_2f6	900,{
+	mes "[遊客]";
+	mes "我聽說他們的橡實一點都不苦, 美味極了.";
+	next;
+	mes "[遊客]";
+	mes "你應該可以用它們做出世界上最美味的橡實果凍.";
+	emotion ET_HUK;
+	close;
+}
+
+ecl_fild01,110,316,2	script	遊客#ep14_2f7	896,{
+	mes "[遊客]";
+	mes "旅行時最好不要帶太重的行李.";
+	next;
+	mes "[遊客]";
+	mes "因為你在遊玩的過程中行李會越來越多.";
+	next;
+	mes "[遊客]";
+	mes "也許你應該將它視作是生命之重?";
+	emotion ET_COOL,0;
+	close;
+}
+
+ecl_fild01,92,318,4	script	遊客#ep14_2f8	517,{
+	mes "[遊客]";
+	mes "太棒了!太棒了!";
+	close;
+}
+
+ecl_fild01,93,318,2	script	遊客#ep14_2f9	107,{
+	mes "[遊客]";
+	mes "呼嚕嚕嚕嚕....呃嗯....";
+	next;
+	mes "[遊客]";
+	mes "呃……不……";
+	mes "咖喱……咖喱飯……呼嚕嚕嚕……";
+	emotion ET_HELP;
+	close;
+}
+
+ecl_fild01,94,313,4	script	遊客#ep14_2f10	715,{
+	mes "[遊客]";
+	mes "噢!你是不是來自米德加爾茲王國?";
+	next;
+	mes "[遊客]";
+	mes "現在能看到那麼多來自米德加爾茲的人們真是讓人太激動了.";
+	emotion ET_COMEON;
+	close;
+}
+
+ecl_fild01,101,320,4	script	遊客#ep14_2f11	522,{
+	mes "[遊客]";
+	mes "嗷……我的腿……";
+	mes "你的意思是說我大老遠穿過Bifrost來到這裡還要等半天?!";
+	emotion ET_FRET;
+	close;
+}
+
+ecl_fild01,88,315,4	script	遊客#ep14_2f12	957,{
+	mes "[遊客]";
+	mes "啊...";
+	mes "為什麼有那麼多人?";
+	next;
+	mes "[遊客]";
+	mes "我想一個人呆會……嗅嗅……";
+	emotion ET_OTL;
+	close;
+}
+
+// Generic Eclage NPCs - Set 2
+//============================================================
+ecl_fild01,183,190,4	script	餐飲介紹#eclbig	447,{
+	mes "[餐飲介紹]";
+	mes "哇哈哈哈!你好呀!";
+	mes "不覺得這是一個野餐的好日子麼?";
+	next;
+	emotion ET_KEK;
+	mes "[餐飲介紹]";
+	mes "你說準備野餐很麻煩?";
+	next;
+	emotion ET_BEST;
+	mes "[餐飲介紹]";
+	mes "不要擔心!";
+	next;
+	emotion ET_SURPRISE;
+	mes "[餐飲介紹]";
+	mes "這是用7種不同的由艾喀拉蚩松鼠採來的橡實做成的有7種不同風味做成的特產!";
+	next;
+	emotion ET_MONEY;
+	mes "[餐飲介紹]";
+	mes "這個特產禮盒只賣2999zeny!";
+	next;
+	emotion ET_HUK;
+	mes "[餐飲介紹]";
+	mes "多麼吸引人的價格呀!";
+	next;
+	emotion ET_THROB;
+	mes "[餐飲介紹]";
+	mes "現在訂購, 我們還送您一把用個幾百次都像新的一樣的一次性叉子!";
+	close;
+}
+
+ecl_fild01,134,109,4	script	瓦勞#eclbig	446,{
+	mes "[瓦勞]";
+	mes "啊, 我好餓.今天吃點什麼?";
+	next;
+	mes "[瓦勞]";
+	mes "說到這個, 不知道這個外國人是什麼味道的……";
+	next;
+	emotion ET_KIK;
+	mes "[瓦勞]";
+	mes "喂喂!我開玩笑呢!";
+	close;
+}
+
+ecl_fild01,70,285,4	script	吉拉尼#eclbig	611,{
+	mes "[吉拉尼]";
+	mes "他跑到哪裡去了, 應該在這附近才對.";
+	close;
+}
+
+eclage,106,61,4	script	馬克薩#eclbig	444,{
+	mes "[馬克薩]";
+	mes "我也想去其他國度看看.";
+	next;
+	mes "[馬克薩]";
+	mes "但是外國人會不會受不了我的可愛……";
+	next;
+	emotion ET_HNG;
+	mes "[馬克薩]";
+	mes "朋友你懂的, 我的可愛總是讓很多事情變得很麻煩.";
+	close;
+}
+
+eclage,101,130,5	script	烏塔博阿#eclbig	435,{
+	mes "[烏塔博阿]";
+	mes "我最近從我爸媽那裡搬出來了!";
+	mes "我終於有屬於自己的合艾了!";
+	next;
+	mes "[烏塔博阿]";
+	mes "我要把這裡裝點成全艾喀拉蚩最美麗的合艾!";
+	next;
+	emotion ET_SMILE;
+	mes "[烏塔博阿]";
+	mes "耶!喔吼!!!";
+	close;
+}
+
+eclage,200,272,4	script	馬塞尼#eclbig	437,{
+	mes "[馬塞尼]";
+	mes "嗚啊!嘿!";
+	mes "你能別突然出現嗎!";
+	emotion ET_HUK;
+	next;
+	mes "[馬塞尼]";
+	mes "我可是一個脆弱敏感的小生命!";
+	close;
+}
+
+ecl_in01,55,25,3	script	米賈妮#eclbig	520,{
+	mes "[米賈妮]";
+	mes "你不是本地人吧?";
+	mes "歡迎你.";
+	next;
+	mes "[米賈妮]";
+	mes "當然, 只要你不要打擾艾喀拉蚩.";
+	close;
+}
+
+ecl_in01,38,37,4	script	跪著的男孩#eclbig	441,{
+	mes "[跪著的男孩]";
+	mes "為什麼我要跪下?";
+	next;
+	mes "[跪著的男孩]";
+	mes "起先, 是因為這樣做比較舒服.現在主要是因為我跪久了站不起來了……";
+	next;
+	emotion ET_CRY;
+	mes "[跪著的男孩]";
+	mes "我想伸開腿來著的, 問題我覺得他們睡著了.";
+	mes "這是不是意味著我飛的時候我的腳也要這樣彎著……";
+	close;
+}
+
+ecl_in02,168,41,2	script	帕姆博#eclbig	438,{
+	mes "[帕姆博]";
+	mes "你喜歡那些閃閃發亮的東西麼?";
+	next;
+	emotion ET_THROB2;
+	mes "[帕姆博]";
+	mes "我喜歡的很呢!";
+	next;
+	mes "[帕姆博]";
+	mes "一閃~一閃~";
+	next;
+	mes "[帕姆博]";
+	mes "一閃一閃~一閃一閃~";
+	mes "亮晶晶~亮晶晶~";
+	next;
+	mes "[帕姆博]";
+	mes "一閃一閃~一閃一閃~";
+	mes "亮晶晶~亮晶晶~";
+	mes "唔哈哈~哈哈哈~呵呵呵~";
+	mes "嘿嘿嘿~呼呼呼~嚯嚯~";
+	mes "咳咳咳~啦啦啦~呼呼~";
+	next;
+	emotion ET_CRY;
+	mes "[帕姆博]";
+	mes "可是這裡沒有閃閃發光的東西.";
+	close;
+}
+
+ecl_in01,41,103,1	script	害羞的女孩#eclbig	439,{
+	mes "[害羞的女孩]";
+	mes "你有沒有看到上面的陽臺?";
+	mes "市長君會在那裡出現, 每個在那裡出現的東西都有它的意義.";
+	next;
+	emotion ET_THROB2;
+	mes "[害羞的女孩]";
+	mes "他好帥啊!";
+	close;
+}
+
+ecl_in01,53,92,4	script	拉菲基#eclbig	444,{
+	mes "[拉菲基]";
+	mes "我今天的時尚感一如既往的優秀, 呵呵呵……";
+	next;
+	emotion ET_THROB2;
+	mes "[拉菲基]";
+	mes "你好~我美麗的身段!";
+	mes "每一縷髮絲都是如此的動人!";
+	next;
+	mes "[花花公子]";
+	mes "是的, 你糟糕的品味一如既往的差.";
+	emotion ET_KIK, getnpcid(0, "花花公子#eclbig");
+	close;
+}
+
+ecl_in01,54,91,2	script	花花公子#eclbig	443,{
+	mes "[花花公子]";
+	mes "看這裡!怎麼樣?難道不美麼?";
+	next;
+	mes "[花花公子]";
+	mes "精靈靠衣裝, 但是不是每個精靈都可以那麼漂亮!";
+	next;
+	mes "[拉菲基]";
+	mes "胡說些什麼, 不管由誰來評判, 在這裡就屬我最漂亮!";
+	emotion ET_HNG, getnpcid(0, "拉菲基#eclbig");
+	close;
+}
+
+ecl_in01,52,102,4	script	合唱團指揮#eclbig	442,{
+	mes "[合唱團指揮]";
+	mes "我們是艾喀拉蚩的樹翼合唱團.";
+	mes "我們為您帶來天籟般的和聲!";
+	next;
+	mes "[合唱團指揮]";
+	mes "你好~外鄉人.我們為您帶來我們的和聲!";
+	next;
+	emotion ET_DELIGHT;
+	mes "[Choir]";
+	mes "啊~啊~啊~";
+	next;
+	emotion ET_DELIGHT, getnpcid(0, "合唱團成員#eclbig01");
+	mes "[Choir]";
+	mes "啊~啊~啊~";
+	mes "啊~啊~啊~";
+	next;
+	emotion ET_DELIGHT, getnpcid(0, "合唱團成員#eclbig02");
+	mes "[Choir]";
+	mes "啊~啊~啊~";
+	mes "啊~啊~啊~";
+	mes "啊~啊~啊~";
+	next;
+	emotion ET_DELIGHT, getnpcid(0, "合唱團成員#eclbig03");
+	mes "[Choir]";
+	mes "啊~啊~啊~~~~";
+	mes "啊~啊~啊~~~";
+	mes "啊~啊~啊~~";
+	mes "啊~啊~啊~";
+	next;
+	emotion ET_DELIGHT, getnpcid(0, "合唱團成員#eclbig04");
+	mes "[Choir]";
+	mes "啊~啊~啊~~~~~";
+	mes "啊~啊~啊~~~~";
+	mes "啊~啊~啊~~~";
+	mes "啊~啊~啊~~";
+	mes "啊~啊~啊~";
+	next;
+	emotion ET_DELIGHT, getnpcid(0, "合唱團成員#eclbig05");
+	mes "[Choir]";
+	mes "啊~啊~啊~~~~~~";
+	mes "啊~啊~啊~~~~~";
+	mes "啊~啊~啊~~~~";
+	mes "啊~啊~啊~~~";
+	mes "啊~啊~啊~~";
+	mes "啊~啊~啊~";
+	next;
+	emotion ET_DELIGHT;
+	emotion ET_DELIGHT, getnpcid(0, "合唱團成員#eclbig01");
+	emotion ET_DELIGHT, getnpcid(0, "合唱團成員#eclbig02");
+	emotion ET_DELIGHT, getnpcid(0, "合唱團成員#eclbig03");
+	emotion ET_DELIGHT, getnpcid(0, "合唱團成員#eclbig04");
+	emotion ET_DELIGHT, getnpcid(0, "合唱團成員#eclbig05");
+	mes "[Choir]";
+	mes "啊呼嚕唔唔嚕呼呼嚕唔唔嚕呼~";
+	mes "感受一下~旋律在風中流淌~";
+	next;
+	mes "[合唱團指揮]";
+	mes "感覺如何!這就是我們的和聲~";
+	close;
+}
+
+ecl_in01,51,103,4	script	合唱團成員#eclbig01	442,{
+	mes "[合唱團成員]";
+	mes "啊~啊~啊~";
+	emotion ET_DELIGHT;
+	close;
+}
+ecl_in01,53,103,4	duplicate(合唱團成員#eclbig01)	合唱團成員#eclbig02	442
+ecl_in01,50,104,4	duplicate(合唱團成員#eclbig01)	合唱團成員#eclbig03	442
+ecl_in01,52,104,4	duplicate(合唱團成員#eclbig01)	合唱團成員#eclbig04	442
+ecl_in01,54,104,4	duplicate(合唱團成員#eclbig01)	合唱團成員#eclbig05	442
+
+// Generic Eclage NPCs - Set 3
+//============================================================
+ecl_fild01,190,93,4	script	菲利#1	617,{
+	mes "[菲利]";
+	mes "看看這片美麗的田野, 仿佛自己在歌唱~";
+	emotion ET_DELIGHT;
+	close;
+}
+
+ecl_fild01,83,263,4	script	灑水的精靈#1	444,{
+	mes "[灑水的精靈]";
+	mes "我覺得大地正在變幹.";
+	close;
+}
+
+ecl_fild01,163,196,4	script	跳舞的精靈#1	438,{
+	mes "[跳舞的精靈]";
+	mes "起舞前像這樣熱身很重要. 一, 二, 三, 四……";
+	close;
+}
+
+// Eclage Prison & Clinic
+//============================================================
+ecl_in01,8,71,4	script	艾喀拉蚩守衛#pri_inn	447,{
+	mes "[艾喀拉蚩守衛]";
+	mes "這條路通向艾喀拉蚩下層, 那裡你可以找到監獄與一間診所.";
+	close;
+}
+
+ecl_in02,96,22,2	script	牌子#prison_inn	835,{
+	mes "[北面]監獄";
+	mes "[西面]診所";
+	close;
+}
+
+ecl_in02,164,56,2	script	接待員#Laphine	437,{
+	mes "[接待員]";
+	mes "歡迎來到艾喀拉蚩的診所.";
+	next;
+	switch(select("保存位置:休息:結束對話")) {
+	case 1:
+		mes "[接待員]";
+		mes "診所現在是您的保存點, 要注意安全喲~";
+		savepoint "ecl_in02",162,49;
+		close;
+	case 2:
+		mes "[接待員]";
+		mes "在我們的診所修養生息吧, 這裡充滿的純淨的能量.";
+		mes "通常我們要收取一枚輝煌領域硬幣, 但是您是旅行者, 我們可以打折收你5000zeny.";
+		next;
+		switch(select("用輝煌領域硬幣支付:用zeny支付:算了")) {
+		case 1:
+			if (countitem(6081) == 0) {
+				mes "[接待員]";
+				mes "您好像沒有足夠的硬幣, 再確認一下?";
+				close;
+			}
+			delitem 6081,1; //Splendide_Coin
+			break;
+		case 2:
+			if (Zeny < 5000) {
+				mes "[接待員]";
+				mes "您好像沒有足夠的zeny, 再確認一下?";
+				close;
+			}
+			set Zeny, Zeny-5000;
+			break;
+		case 3:
+			close;
+		}
+		mes "[接待員]";
+		mes "請隨意.";
+		close2;
+		percentheal 100,100;
+		warp "ecl_in02",167,49;
+		end;
+	case 3:
+		close;
+	}
+}
+
+ecl_in02,137,44,2	script	精靈醫生#doctor	442,{
+	mes "[受傷的精靈]";
+	mes "嗷……";
+	mes "我…在…哪兒?";
+	next;
+	mes "[醫生]";
+	mes "你現在在診所裡, 別擔心.";
+	mes "我們已經幫你止血並且施放了應急法術.";
+	mes "之前你流了很多血, 現在傷口已經癒合了.";
+	next;
+	mes "[受傷的精靈]";
+	mes "……";
+	mes "什麼?哦!不!我的身上怎麼沒有感覺了!";
+	next;
+	mes "[醫生]";
+	mes "唔……一支箭重傷了你的翅膀.";
+	next;
+	mes "[受傷的精靈]";
+	mes "……你想說什麼?";
+	next;
+	mes "[醫生]";
+	mes "呃……我想告訴你一個不幸的消息.當你康復以後, 你可能再也無法裝點你的合艾了.";
+	mes "換句話說, 你的翅膀已經沒用了.那支箭射中了翅膀最重要的部分.";
+	next;
+	mes "[受傷的精靈]";
+	mes "什麼?不是這樣吧……不要啊!醫生!不要啊……!";
+	close;
+}
+ecl_in02,135,45,4	duplicate(精靈醫生#doctor)	受傷的精靈	441

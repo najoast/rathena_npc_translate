@@ -1,0 +1,93 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+//===== rAthena Script =======================================
+//= Eden Group Quests - Mission [41 - 55]
+//===== By: ==================================================
+//= L0ne_W0lf
+//===== Current Version: =====================================
+//= 1.2
+//===== Compatible With: =====================================
+//= rAthena SVN
+//===== Description: =========================================
+//= Repetable Quests for Players between Baselevel 41 - 55.
+//===== Additional Comments: =================================
+//= 1.0 First Version.
+//= 1.1 Some little optimization here and there. [Masao]
+//= 1.2 Optimized. [Euphy]
+//============================================================
+
+moc_para01,40,38,3	script	任務 [41 - 55]	857,{
+	if (countitem(6219) < 1) {
+		mes "你還不是伊甸園的成員，所以不能接受布告欄上的任務。";
+		close;
+	}
+	if (checkweight(1201,1) == 0 || (MaxWeight - Weight) < 1000) {
+		mes "^008800等一下!!";
+		mes "你帶了太多的東西，已經超負重啦！快去減負後再來吧。^000000";
+		close;
+	}
+	if (checkquest(12088) == -1) {
+		if (BaseLevel < 41 || BaseLevel > 55) {
+			mes "[Lv.41~55的冒險者. 任務布告欄]";
+			close;
+		}
+		mes "[任務看板]";
+		mes "任務布告欄";
+		next;
+		if(select("- 查看任務:- 取消") == 2) {
+			mes "^000077好，那下次再來查看任務吧。^000000.";
+			close;
+		}
+		switch(select("狩獵達拉蛙:狩獵玩具士兵:狩獵庫克雷:狩獵獸人嬰兒:狩獵獸人戰士:狩獵螃蟹:狩獵邪骸食人魚:狩獵烏賊:狩獵卡那多斯:狩獵麥斯特:狩獵貝殼魔靈:狩獵氣泡蟲:狩獵劍魚:狩獵邪骸獸人:狩獵茲諾克:狩獵木乃伊")) {
+			case 1: callsub L_Quest,12072,"你見過一種紅色青蛙麼？它叫達拉蛙，是一種稀有的生物，我們想找出它們的棲息場所。所以，請狩獵20隻達拉蛙回來。";
+			case 2: callsub L_Quest,12073,"我聽說一些玩具會攻擊人類，這太可笑了！讓它們見識一下我們的厲害！請狩獵30隻玩具士兵回來。";
+			case 3: callsub L_Quest,12074,"有人在海邊被搶劫了，這可能是一種名叫庫克雷的生物幹得。所以，請去狩獵30隻庫克雷。";
+			case 4: callsub L_Quest,12075,"最近獸人嬰兒越來越暴力猖獗了。請去狩獵15隻獸人嬰兒。";
+			case 5: callsub L_Quest,12076,"獸人戰士侵犯我們的次數越來越多了。請去狩獵20個獸人戰士。";
+			case 6: callsub L_Quest,12077,"你見過那些帶著厚殼的螃蟹麼？請狩獵15隻螃蟹回來。";
+			case 7: callsub L_Quest,12078,"死魚在海邊的數量越來越多了，情況很糟糕。請去狩獵30隻邪骸食人魚。";
+			case 8: callsub L_Quest,12079,"你能去狩獵烏賊麼？我需要15隻烏賊來繼續我的研究。請幫助我！";
+			case 9: callsub L_Quest,12080,"有一隻白痴卡那多斯咬傷了邁亞的腳。邁亞很不爽，所以我們需要狩獵20隻卡那多斯來讓他高興一下。";
+			case 10: callsub L_Quest,12081,"人們被一種叫麥斯特的怪物嚇壞了！他們看起來像鬼一樣。請去狩獵15隻麥斯特。";
+			case 11: callsub L_Quest,12082,"不要問為什麼，請去狩獵30隻貝殼魔靈回來。這是一個秘密任務！";
+			case 12: callsub L_Quest,12083,"氣泡蟲？你知道什麼是氣泡蟲麼？我需要你去為我狩獵15隻氣泡蟲回來。";
+			case 13: callsub L_Quest,12084,"邁亞想吃一頓美味的魚餐，劍魚是一種不錯的選擇。請去狩獵20隻劍魚回來。";
+			case 14: callsub L_Quest,12085,"死去的獸人又復活了，這讓我們很頭疼。你能幫助我們去狩獵這些邪骸獸人麼？15隻就可以了。";
+			case 15: callsub L_Quest,12086,"一種名叫茲諾克的奇怪生物總是攻擊我們。請去狩獵30隻茲諾克回來。";
+			case 16: callsub L_Quest,12087,"準備好了麼？這是一個兇殘的任務。狩獵15隻木乃伊！我嘗試了一次但是沒有成功，它們太可怕了！";
+		}
+		end;
+	}
+	setarray .@Exp[0],9600,7200,15750,7875,11100,8550,17100,9000,12300,9900,20250,10350,13800,11025,22500,11250;
+	for(set .@i,0; .@i<16; set .@i,.@i+1)
+		if (checkquest(12072+.@i,HUNTING) == 2) {
+			mes "[任務看板]";
+			mes "你已經完成任務拉！";
+			mes "這是給你的獎勵！";
+			erasequest 12088;
+			erasequest 12072+.@i;
+			specialeffect2 EF_STEAL;
+			getexp .@Exp[.@i],0;
+			close;
+		}
+	if ((checkquest(12072,HUNTING) == 0) && (checkquest(12073,HUNTING) == 0) && (checkquest(12074,HUNTING) == 0) && (checkquest(12075,HUNTING) == 0) && (checkquest(12076,HUNTING) == 0) && (checkquest(12077,HUNTING) == 0) && (checkquest(12078,HUNTING) == 0) && (checkquest(12079,HUNTING) == 0) && (checkquest(12080,HUNTING) == 0) && (checkquest(12081,HUNTING) == 0) && (checkquest(12082,HUNTING) == 0) && (checkquest(12083,HUNTING) == 0) && (checkquest(12084,HUNTING) == 0) && (checkquest(12085,HUNTING) == 0) && (checkquest(12086,HUNTING) == 0) && (checkquest(12087,HUNTING) == 0)) {
+		mes "你可以先在查看任務布告欄了。";
+		erasequest 12088;
+		close;
+	}
+	mes "現在沒什麼特別的事可以幹。";
+	close;
+L_Quest:
+	mes "[任務看板]";
+	mes getarg(1);
+	next;
+	if(select("接受任務:取消") == 1) {
+		mes "[任務看板]";
+		mes "你已經接受了任務。想知道具體細節，請按'alt + u'打開任務窗口進行查看。";
+		setquest 12088;
+		setquest getarg(0);
+	}
+	close;
+}

@@ -1,0 +1,73 @@
+//============================================================
+//= rAthenaCN [重置助手]漢化腳本 
+//============================================================
+
+
+//===== rAthena Script =======================================
+//= Reset NPC
+//===== By: ==================================================
+//= rAthena Dev Team
+//===== Current Version: =====================================
+//= 1.3
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= Resets skills, stats, or both.
+//===== Additional Comments: =================================
+//= 1.0 First Version
+//= 1.1 Optimized for the greater good. [Kisuka]
+//= 1.2 Cleaning [Euphy]
+//= 1.3 All statuses removed upon skill reset. [Euphy]
+//============================================================
+
+prontera,150,193,4	script	重置助手	124,{
+
+	.@ResetStat  = 500000;	// Zeny for stat reset
+	.@ResetSkill = 500000;	// Zeny for skill reset
+	.@ResetBoth  = 800000;	// Zeny for resetting both together
+
+	mes "[重置助手]";
+	mes "你好,我是重置助手.";
+	mes "屬性點重置費用: "  + callfunc("F_InsertComma", .@ResetStat)  + "z";
+	mes "技能點重置費用: " + callfunc("F_InsertComma", .@ResetSkill) + "z";
+	mes "全部點重置費用: "   + callfunc("F_InsertComma", .@ResetBoth)  + "z";
+	mes "請你選擇需要的服務:";
+	next;
+	switch(select("^FF3355重置技能點:重置屬性點:重置屬性和技能點^000000:取消")) {
+	case 1:
+		mes "[重置助手]";
+		if (Zeny < .@ResetSkill) {
+			mes "抱歉, 你沒有足夠的Zeny.";
+			close;
+		}
+		Zeny -= .@ResetSkill;
+		sc_end SC_ALL;
+		resetskill;
+		mes "搞定啦!有需要再來找我吧~";
+		close;
+	case 2:
+		mes "[重置助手]";
+		if (Zeny < .@ResetStat) {
+			mes "抱歉, 你沒有足夠的Zeny.";
+			close;
+		}
+		Zeny -= .@ResetStat;
+		resetstatus;
+		mes "搞定啦!有需要再來找我吧~";
+		close;
+	case 3:
+		mes "[重置助手]";
+		if (Zeny < .@ResetBoth) {
+			mes "抱歉, 你沒有足夠的Zeny.";
+			close;
+		}
+		Zeny -= .@ResetBoth;
+		sc_end SC_ALL;
+		resetskill;
+		resetstatus;
+		mes "搞定啦!有需要再來找我吧~";
+		close;
+	case 4:
+		close;
+	}
+}

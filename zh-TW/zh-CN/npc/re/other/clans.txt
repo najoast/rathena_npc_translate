@@ -1,0 +1,604 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+//===== rAthena Script =======================================
+//= Clan masters
+//===== Description: =========================================
+//= The clan master NPCs that allow you to join and leave
+//= one of the clans.
+//===== Changelogs: ==========================================
+//= 1.0 Initial release. [Lemongrass]
+//= 1.1 iRO translation. [RagnarokNova]
+//= 1.2 Dialogue cleanup. [Aleos]
+//============================================================
+
+prt_in,33,114,5	script	瑞夫曼歐萊比亞	10058,{
+	cutin "laperm01.bmp", 2;
+	mes "[瑞夫曼歐萊比亞]";
+	mes "嗨! 我是瑞夫曼, 魯恩-米德加德王國 ^3131FF劍士氏族^000000 的管理者.";
+	next;
+	switch( select( "氏族信息:加入氏族:退出氏族" ) ){
+		case 1:
+			switch( select( "什麼是氏族?:關於劍士氏族:取消" ) ){
+				case 1:
+					mes "[瑞夫曼歐萊比亞]";
+					mes "^3131FF氏族^000000 是公會的一種.";
+					mes "他們不參加圍攻, 所以會員可以隨時免費加入或退出.";
+					next;
+					mes "[瑞夫曼歐萊比亞]";
+					mes "我希望參加圍攻. 我喜歡駕著我的龍飛行燃燒每一個人!";
+					mes "哎呦, 太激動了!";
+					next;
+					mes "[瑞夫曼歐萊比亞]";
+					mes "如果沒有氏族適合你, 就加入我們吧.";
+					mes "新會員有 ^3131FF免費獎勵^000000.";
+					next;
+					mes "[瑞夫曼歐萊比亞]";
+					mes "混戰統計由 ^3131FF劍士氏族^000000 來操作, 但不是所有會員都是混戰級.";
+					mes "不要感到壓力, 算上我吧!";
+					next;
+					cutin "laperm02.bmp", 2;
+					mes "[瑞夫曼歐萊比亞]";
+					mes "品種差異創造樂趣.";
+					mes "在這個團隊裡會認識很多人.";
+					next;
+					mes "[瑞夫曼歐萊比亞]";
+					mes "誰知道你也許會在氏族裡遇見你的靈魂伴侶呢? 哈哈!";
+					break;
+				case 2:
+					mes "[瑞夫曼歐萊比亞]";
+					mes " ^3131FF劍士氏族^000000 主要支持混戰冒險家們.";
+					mes "加入免費獎勵 ^FF0000<STR+1, VIT+1, MHP+30, MSP+10>^000000!";
+					next;
+					mes "[瑞夫曼歐萊比亞]";
+					mes "記住, 沒有參與圍攻.";
+					mes "你應該聯繫其他公會來圍攻.";
+					next;
+					mes "[瑞夫曼歐萊比亞]";
+					mes "有一個問題?";
+					mes "加入我嗎? 哈哈!";
+					break;
+				case 3:
+					break;
+			}			
+			break;
+		case 2:
+			mes "[瑞夫曼歐萊比亞]";
+			mes "哦, 你要加入? 明智的選擇!";
+			mes "讓我們確認下氏族的政策然後開始辦理入職手續吧.";
+			next;
+			mes "[瑞夫曼歐萊比亞]";
+			mes "^3131FF族人^000000 不能參加圍攻.";
+			mes "新會員有獎勵: ^FF0000<STR+1, VIT+1, MHP+30, MSP+10>^000000.";
+			mes "迄今為止就你和我?";
+			next;
+			if( select( "是的:不要" ) == 1 ){
+				mes "[瑞夫曼歐萊比亞]";
+				mes "你可以隨時加入或者退出氏族,  ^FF0000超過2周^000000, 你會被 ^除名^000000.";
+				mes "你要像我一樣一直存在這個氏族,";
+				mes "明白嗎?";
+				next;
+				if( select( "繼續:放棄" ) == 1 ){
+					mes "[瑞夫曼歐萊比亞]";
+					mes "好的, 請在這裡籤上你的名字來做登記.";
+					next;
+					input .@name$;
+					mes "[瑞夫曼歐萊比亞]";
+					mes "那麼, 你是 ^3131FF" + strcharinfo( 0 ) + "^000000! 好名字!";
+					mes "幫你登記了.";
+					next;
+					if( getcharid( 2 ) ){
+						mes "[瑞夫曼歐萊比亞]";
+						mes "在退出你現在的公會後來加入.";
+						close;
+					}else if( getcharid( 5 ) != 0 ){
+						cutin "laperm04.bmp", 2;
+						mes "[瑞夫曼歐萊比亞]";
+						mes "恩? 哦, 你已經在氏族裡了.";
+						mes "別把我搞糊塗了, 這可不好玩!";
+					}else{
+						cutin "laperm02.bmp", 2;
+						if (clan_join(SWORDCLAN)) {
+							sc_start2 SC_SWORDCLAN, -1, 0, SWORDCLAN;
+							mes "[瑞夫曼歐萊比亞]";
+							mes "歡迎來到 ^3131FF劍士氏族^000000!";
+							mes "你可以按 ^3131FFCtrl+G^000000 回看氏族信息.";
+							mes "樂意效勞!";
+						} else
+							mes "出現一個錯誤.";
+					}
+				}else{
+					mes "[瑞夫曼歐萊比亞]";
+					mes "哦. 讓我們回到開始的地方.";
+				}
+			}else{
+				cutin "laperm03.bmp", 2;
+				mes "[瑞夫曼歐萊比亞]";
+				mes "哦. 讓我們回到開始的地方.";
+			}
+			break;
+		case 3:
+			cutin "laperm01.bmp", 2;
+			mes "[瑞夫曼歐萊比亞]";
+			mes "你想退出嗎?";
+			mes "沒有問題. 我希望你會找到一個適合的氏族.";
+			mes "準備好退出了嗎?";
+			next;
+			if( select( "繼續:取消" ) == 1 ){
+				if( getcharid( 5 ) == 0 ){
+					cutin "laperm04.bmp", 2;
+					mes "[瑞夫曼歐萊比亞]";
+					mes "等一下, 你沒有和我們在一起! 不要讓我對你開火!";
+				}else if( getcharid( 5 ) != SWORDCLAN ){
+					cutin "laperm04.bmp", 2;
+					mes "[瑞夫曼歐萊比亞]";
+					mes "嗨, 如果你想要退出, 請與你的公會管理者談談.";
+				}else{
+					if (clan_leave()) {
+						sc_end SC_SWORDCLAN;
+						mes "[瑞夫曼歐萊比亞]";
+						mes "好的, 已經完成了. 單請不要讓我們變成陌生人好嗎?";
+						mes "和你做朋友很高興!";
+					} else
+						mes "出現一個錯誤.";
+				}
+			}
+			break;
+	}
+	close2;
+	cutin "", 255;
+	end;
+}
+
+prt_in,35,114,5	script	德豐艾爾	10059,{
+	cutin "debon01.bmp", 2;
+	mes "[德豐艾爾]";
+	mes "我是德豐,  ^3131FF魔法氏族^000000 的管理者.";
+	next;
+	switch( select( "氏族信息:加入氏族:退出氏族" ) ){
+		case 1:
+			switch( select( "什麼是氏族?:關於魔法氏族:取消" ) ){
+				case 1:
+					mes "[德豐艾爾]";
+					mes "^3131FF氏族^000000 是公會的一種.";
+					mes "我管理他們中的一個.";
+					next;
+					cutin "debon02.bmp", 2;
+					mes "[德豐艾爾]";
+					mes "...";
+					mes "看上去怎麼樣? 你有問題嗎?";
+					next;
+					cutin "birman01.bmp", 2;
+					mes "[伯曼艾爾 ]";
+					mes "兄弟, 你在恐嚇一個潛在會員啊, 友好點.";
+					next;
+					cutin "debon02.bmp", 2;
+					mes "[德豐艾爾]";
+					mes "...";
+					next;
+					cutin "debon01.bmp", 2;
+					mes "[德豐艾爾]";
+					mes "如果你正在尋找一個適合的地方就加入我們. 我們提供 ^3131FF免費獎勵^000000. 但不參與圍攻.";
+					next;
+					mes "[德豐艾爾]";
+					mes "大部分的會員是 ^3131FF魔法氏族^000000 內的魔法攻擊級別, 但不是必要條件.";
+					next;
+					cutin "debon02.bmp", 2;
+					mes "[德豐艾爾]";
+					mes "...嗨, 沙姆魯米.";
+					mes "停止攻擊我的兄弟, 回去工作.";
+					next;
+					cutin "sham03.bmp", 2;
+					mes "[沙姆魯米]";
+					mes "無路如何!";
+					next;
+					cutin "debon02.bmp", 2;
+					mes "[德豐艾爾]";
+					mes "...Hmpf!";
+					mes "聽著, 弓箭手氏族的管理者是魔鬼.";
+					next;
+					cutin "sham02.bmp", 2;
+					mes "[沙姆魯米]";
+					mes "原諒我, 德豐! 不要擴散謠言!";
+					next;
+					cutin "birman01.bmp", 2;
+					mes "[伯曼艾爾]";
+					mes "停下來. 你們兩個這樣當眾大吵大鬧.";
+					mes "回去工作吧, 夥計們.";
+					break;
+				case 2:
+					cutin "debon01.bmp", 2;
+					mes "[德豐艾爾]";
+					mes " ^3131FF魔法氏族^000000 主要支持魔法攻擊級別會員.";
+					mes "我們提供新會員 ^FF0000<INT+1, DEX+1, MHP+30, MSP+10>^000000 . 不要要求太多; 這是王國的規定.";
+					next;
+					mes "[德豐艾爾]";
+					mes "^3131FF族人^000000 不能參加圍攻.";
+					mes "如果你喜歡圍攻, 那麼去加入幾個常規公會.";
+					next;
+					mes "[德豐艾爾]";
+					mes "就這些了. 沒有問題了. ";
+					break;
+				case 3:
+					break;
+			}
+			break;
+		case 2:
+			cutin "debon01.bmp", 2;
+			mes "[德豐艾爾]";
+			mes "...";
+			mes "讓我們確認下氏族的政策然後開始辦理入職手續吧.";
+			next;
+			mes "[德豐艾爾]";
+			mes "^3131FF族人^000000 不能參加圍攻.";
+			mes "新會員有獎勵: ^FF0000<INT+1, DEX+1, MHP+30, MSP+10>^000000.";
+			mes "到現在為止你都和我在一起?";
+			next;
+			if( select( "是的:不要" ) == 1 ){
+				mes "[德豐艾爾]";
+				mes "你可以隨時加入或者退出氏族, 但是如果登錄沒有 ^FF0000超過 2 周^000000, 你會被 ^FF0000除名^000000.";
+				mes "你同意嗎?";
+				next;
+				if( select( "繼續:放棄" ) == 1 ){
+					mes "[德豐艾爾]";
+					mes "請在這裡籤上你的名字.";
+					next;
+					input .@name$;
+					mes "[德豐艾爾]";
+					mes "^3131FF" + strcharinfo( 0 ) + "^000000.....";
+					mes "好的, 讓我來邀請你進入.";
+					next;
+					if( getcharid( 2 ) ){
+						mes "[德豐艾爾]";
+						mes "首先離開你的公會, 然後加入我的.";
+						close;
+					}else if( getcharid( 5 ) != 0 ){
+						cutin "debon03.bmp", 2;
+						mes "[德豐艾爾]";
+						mes "你真的在氏族裡. 你在開玩笑吧?!";
+						mes "哦, 我可能是太有趣了, 給你一個火柱攻擊!";
+					}else{
+						if (clan_join(ARCWANDCLAN)) {
+							sc_start2 SC_ARCWANDCLAN, -1, 0, ARCWANDCLAN;
+							mes "[德豐艾爾]";
+							mes "你加入了 ^3131FF魔法氏族^000000.";
+							next;
+							mes "[德豐艾爾]";
+							mes "用 ^3131FFCtrl+G^000000 你可以重新查看氏族信息.";
+							mes "稍後請不要打擾我.";
+							next;
+							mes "[德豐艾爾]";
+							mes "就這些了. 訪問經常會被終止.";
+						} else
+							mes "出現一個錯誤.";
+					}
+				}else{
+					mes "[德豐艾爾]";
+					mes "那麼我不想要你了.";
+				}
+			}else{
+				mes "[德豐艾爾]";
+				mes "天啊, 再聽一次規則.";
+			}
+			break;
+		case 3:
+			mes "[德豐艾爾]";
+			mes "W想離開?";
+			mes "我明白, 關於圍攻. 如果不是, 為什麼..沒關係..";
+			mes "我會處理你的退出.";
+			next;
+			if( select( "繼續.:取消." ) == 1 ){
+				if( getcharid( 5 ) == 0 ){
+					cutin "debon03.bmp", 2;
+					mes "[德豐艾爾]";
+					mes "頑童應得一個好的雷鳴術.";
+				}else if( getcharid( 5 ) != ARCWANDCLAN ){
+					cutin "debon02.bmp", 2;
+					mes "[德豐艾爾]";
+					mes "你對樹進行攻擊, 目標搞錯了. 去找你的氏族管理者吧.";
+				}else{
+					if (clan_leave()) {
+						sc_end SC_ARCWANDCLAN;
+						mes "[德豐艾爾]";
+						mes "你從氏族退出來了.";
+						mes "現在離開. 我不想多說了.";
+					} else
+						mes "一個錯誤出現了.";
+				}
+			}		
+			break;
+	}
+	close2;
+	cutin "", 255;
+	end;
+}
+
+prt_in,37,114,5	script	伯曼艾爾	10060,{
+	cutin "birman01.bmp", 2;
+	mes "[伯曼艾爾]";
+	mes "很高興見到你. 我是 ^3131FF服事氏族^000000 的管理者伯曼艾爾.";
+	mes "我也是德豐艾爾的哥哥. 德豐看著嚴肅, 但他是個熱心腸.";
+	next;
+	switch( select( "氏族信息:加入氏族:退出氏族" ) ){
+		case 1:
+			switch( select( "什麼是氏族?:關於服事氏族:取消" ) ){
+				case 1:
+					mes "[伯曼艾爾]";
+					mes " ^3131FF氏族^000000 是由王國建立起來, 來幫助冒險家們聯絡和分享信息的.";
+					next;
+					mes "[伯曼艾爾]";
+					mes "因為王國運著氏族, 那裡沒有圍攻的參與, 但至少會員有 ^3131FF獎勵^000000.";
+					mes "雖然獎勵不多, 但對於剛開始的冒險家們是非常有用的.";
+					next;
+					mes "[伯曼艾爾]";
+					mes "我們叫 ^3131FF服事氏族^000000, 但我們不排斥其他級別的申請者.";
+					mes "名字只是幫你更容易地選擇你需要的氏族.";
+					next;
+					cutin "sham02.bmp", 2;
+					mes "[沙姆魯米]";
+					mes "伯曼, 解釋地夠清楚的了. 我們去克雷斯特漢姆古城吧.";
+					next;
+					cutin "debon03.bmp", 2;
+					mes "[德豐艾爾]";
+					mes "... Hey.";
+					next;
+					cutin "sham03.bmp", 2;
+					mes "[沙姆魯米]";
+					mes "哦, 你在恐嚇我.";
+					mes "伯曼, 你方便的時候打電話給我!~";
+					next;
+					cutin "birman03.bmp", 2;
+					mes "[伯曼艾爾]";
+					mes "哈哈, 對他們的爭吵我表示歉意.";
+					next;
+					cutin "birman01.bmp", 2;
+					mes "[伯曼艾爾]";
+					mes "你有問題嗎?";
+					mes "如果你厭煩了一個人旅行, 那麼久加入我們吧! 你可以隨時加入或者退出氏族.";
+					break;
+				case 2:
+					mes "[伯曼艾爾]";
+					mes " ^3131FF金色服事氏族^000000 主要是為了輔助別人.";
+					mes "我們為新會員提供 ^FF0000<INT+1, LUK+1, MHP+30, MSP+10>^000000 .";
+					next;
+					mes "[伯曼艾爾]";
+					mes "正如我之前告訴你的, 由于氏族屬於王國, 所以不能加入圍攻.";
+					mes "如果你想加入圍攻, 那麼我推薦你加入一個常規公會.";
+					next;
+					mes "[伯曼艾爾]";
+					mes "你現在明白氏族是什麼了嗎?";
+					break;
+				case 3:
+					break;
+			}
+			break;
+		case 2:
+			mes "[伯曼艾爾]";
+			mes "太好了!";
+			mes "讓我們確認下氏族的政策然後開始辦理入職手續吧.";
+			next;
+			mes "[伯曼艾爾]";
+			mes "^3131FF族人^000000 不能參加圍攻.";
+			mes "如果你是我們的新會員, 你會收到如下獎勵: ^FF0000<INT+1, LUK+1, MHP+30, MSP+10>^000000.";
+			mes "你同意嗎?";
+			next;
+			if( select( "是的:不要" ) == 1 ){
+				mes "[伯曼艾爾]";
+				mes "你可以隨時加入或者退出氏族, 但是如果登錄沒有 ^FF0000超過2周^000000, 你會被 ^FF0000除名^000000.";
+				mes "你同意在這個氏族裡保持良好的狀態嗎?";
+				next;
+				if( select( "繼續:放棄" ) == 1 ){
+					mes "[伯曼艾爾]";
+					mes "現在, 請在這裡寫下你的名字.";
+					next;
+					input .@name$;
+					mes "[伯曼艾爾]";
+					mes "^3131FF" + strcharinfo( 0 ) + "^000000! 多好聽的名字啊!";
+					mes "好的,那麼...";
+					next;
+					if( getcharid( 2 ) ){
+						mes "[伯曼艾爾]";
+						mes "哦, 不.";
+						mes "你要先離開現在的公會才能加入.";
+						close;
+					}else if( getcharid( 5 ) != 0 ){
+						mes "[伯曼艾爾]";
+						mes "你已經在一個氏族了.";
+						mes "你是不是有點糊塗了?";
+					}else{
+						if (clan_join(GOLDENMACECLAN)) {
+							sc_start2 SC_GOLDENMACECLAN, -1, 0, GOLDENMACECLAN;
+							cutin "birman02.bmp", 2;
+							mes "[伯曼艾爾]";
+							mes "歡迎來到 ^3131FF服事氏族^000000!";
+							next;
+							mes "[伯曼艾爾]";
+							mes "你可以重新查看氏族信息 ^3131FFCtrl+G^000000.";
+							next;
+							mes "[伯曼艾爾]";
+							mes "請記住我告訴你的一些注意事項, 享受你的家族活動 !";
+						} else
+							mes "出現一個錯誤.";
+					}
+				}
+			}
+			break;
+		case 3:
+			mes "[伯曼艾爾]";
+			mes "隨著時間, 總會有離別.";
+			mes "我希望你在 ^3131FF服事氏族^000000 裡過的很愉快.";
+			mes "現在, 我要處理你的退出申請嗎?";
+			next;
+			if( select( "繼續:取消" ) == 1 ){
+				if( getcharid( 5 ) == 0 ){
+					mes "[伯曼艾爾]";
+					mes "你沒有加入本氏族, 不能處理你的申請.";
+				}else if( getcharid( 5 ) != GOLDENMACECLAN ){
+					mes "[伯曼艾爾]";
+					mes "對不起, 我不能處理你退出其他氏族的申請...";
+				}else{
+					if (clan_leave()) {
+						sc_end SC_GOLDENMACECLAN;
+						mes "[伯曼艾爾]";
+						mes "我已經處理好了.";
+						mes "你可以隨時回到 ^3131FF服事氏族^000000. 我在這等你.";
+					} else
+						mes "發生了一個錯誤.";
+				}
+			}
+			break;
+	}
+	close2;
+	cutin "", 255;
+	end;
+}
+
+prt_in,39,114,5	script	沙姆魯米	10027,{
+	cutin "sham01.bmp", 2;
+	mes "[沙姆魯米]";
+	mes "Hi, there! I'm Shaam, master of the ^3131FF弓箭手氏族^000000";
+	mes "What can I do for you?";
+	next;
+	switch( select( "氏族信息:加入氏族:退出氏族" ) ){
+		case 1:
+			switch( select( "什麼是氏族?:關於弓箭手氏族:取消" ) ){
+				case 1:
+					mes "[沙姆魯米]";
+					mes "氏族事由 by the Rune-Midgarts Kingdom 建立的.";
+					mes "拉法母, 為什麼我們是 ^3131FF氏族^000000 所建立的?";
+					next;
+					cutin "laperm01.bmp", 2;
+					mes "[瑞夫曼歐萊比亞]";
+					mes "你在課上睡覺嗎? 天哪.";
+					mes "氏族幫助寂寞的冒險家與其他夥伴聯繫並共享信息.";
+					next;
+					cutin "sham01.bmp", 2;
+					mes "[沙姆魯米]";
+					mes "啊哈, 明白了! 謝謝你, 隊長!";
+					mes "你也聽到了, 是嗎?";
+					next;
+					mes "[沙姆魯米]";
+					mes "氏族不允許參加圍攻, 但是好消息是, 會員會有更多的 ^3131FF獎勵^000000.";
+					next;
+					mes "[沙姆魯米]";
+					mes "如果你懷疑, 是否^3131FF弓箭手氏族^000000 只僱傭弓箭手, 不, 不是這樣的.";
+					mes "所有氏族都接受所有不同等級的的會員. 你可以選擇最適合你的.";
+					next;
+					cutin "sham02.bmp", 2;
+					mes "[沙姆魯米]";
+					mes "你得知道, 這需要覆蓋所有的東西.";
+					mes "伯曼, 讓我們出發去克雷斯特漢姆古城.";
+					next;
+					cutin "debon03.bmp", 2;
+					mes "[德豐艾爾]";
+					mes "你...";
+					next;
+					cutin "sham03.bmp", 2;
+					mes "[沙姆魯米]";
+					mes "哦, 好可怕! 你是如此的愛護你的兄弟.";
+					break;
+				case 2:
+					mes "[沙姆魯米]";
+					mes " ^3131FF弓箭手氏族^000000 是遠程類級別的理想氏族.";
+					next;
+					mes "[沙姆魯米]";
+					mes "恩, 讓我看下氏族手冊. 啊哈, 我們提供新會員初始獎勵: ^FF0000<DEX+1, AGI+1, MHP+30, MSP+10>^000000.";
+					next;
+					mes "[沙姆魯米]";
+					mes "氏族不允許參加圍攻; 你可以加入一個私人的公會來代替圍攻.";
+					mes "宗族是冒險家，討厭被束縛.";
+					next;
+					mes "[沙姆魯米]";
+					mes "你有問題嗎?";
+					break;
+				case 3:
+					break;
+			}
+			break;
+		case 2:
+			mes "[沙姆魯米]";
+			mes "哦? 好的選擇!";
+			mes "讓我們確認下氏族的政策然後開始辦理入職手續吧.";
+			next;
+			mes "[沙姆魯米]";
+			mes "^3131FF族人^000000 不能參加圍攻.";
+			mes "作為我們新的成員, 你會活得如下獎勵: ^FF0000<DEX+1, AGI+1, MHP+30, MSP+10>^000000.";
+			mes "你同意嗎?";
+			next;
+			if( select( "是的:不要" ) == 1 ){
+				mes "[沙姆魯米]";
+				mes "你可以隨時加入或者退出氏族, 但是如果登錄沒有 ^FF0000超過2周^000000, 你會被 ^FF0000除名^000000.";
+				mes "你能許諾你可以保持良好的狀態嗎?";
+				next;
+				if( select( "繼續:放棄" ) == 1 ){
+					mes "[沙姆魯米]";
+					mes "好的, 在這裡寫上你的名字.";
+					next;
+					input .@name$;
+					mes "[沙姆魯米]";
+					mes "^3131FF" + strcharinfo( 0 ) + "^000000..!";
+					mes "啊, 你的字需要練習啊. 讓我來處理你的申請.";
+					next;
+					if( getcharid( 2 ) ){
+						mes "[沙姆魯米]";
+						mes "你已經與你的公會結束了嗎?";
+						close;
+					}else if( getcharid( 5 ) != 0 ){
+						mes "[沙姆魯米]";
+						mes "恩, 你已經在一個氏族了. 嘿, 這不好笑.";
+					}else{
+						if (clan_join(CROSSBOWCLAN)) {
+							sc_start2 SC_CROSSBOWCLAN, -1, 0, CROSSBOWCLAN;
+							cutin "sham02.bmp", 2;
+							mes "[沙姆魯米]";
+							mes "歡迎來到 ^3131FF弓箭手氏族^000000!";
+							next;
+							cutin "sham01.bmp", 2;
+							mes "[沙姆魯米]";
+							mes "你可以按 ^3131FFCtrl+G^000000 查看氏族信息.";
+							next;
+							mes "[沙姆魯米]";
+							mes "不要挑戰其他族人.";
+							mes "如果你需要幫助, 你隨時可以招呼我, 好嗎? 再見!";
+						} else
+							mes "出現一個錯誤.";
+					}
+				}else{
+					mes "[沙姆魯米]";
+					mes "好的. 我知道想找點樂子.";
+				}
+			}else{
+				mes "[沙姆魯米]";
+				mes "哦, 你需要一點時間去考慮下? 沒問題.";
+			}
+			break;
+		case 3:
+			mes "[沙姆魯米]";
+			mes "為什麼, 你找到一個更好的氏族了嗎?";
+			mes "我有點失望, 但這是你的選擇. 我來處理你的退出申請.";
+			next;
+			if( select( "繼續:取消" ) == 1 ){
+				if( getcharid( 5 ) == 0 ){
+					cutin "sham04.bmp", 2;
+					mes "[沙姆魯米]";
+					mes "我沒法讓你離開--因為你根本不在我的氏族裡!";
+				}else if( getcharid( 5 ) != CROSSBOWCLAN ){
+					mes "[沙姆魯米]";
+					mes "對不起, 但我不想搞亂其他氏族的生意.";
+				}else{
+					if (clan_leave()) {
+						sc_end SC_CROSSBOWCLAN;
+						mes "[沙姆魯米]";
+						mes "不是它.";
+						mes "如果你想我們, 不要猶豫回來找我們, 好嗎?";
+					} else
+						mes "出現一個錯誤.";
+				}
+			}
+			break;
+	}
+	close2;
+	cutin "", 255;
+	end;
+}

@@ -1,0 +1,196 @@
+//============================================================
+//= rAthenaCN 腳本漢化 轉自 [ www.99Max.mE ]
+//============================================================
+
+//===== rAthena Script =======================================
+//= Izlude Guides
+//===== By: ================================================== 
+//= L0ne_W0lf
+//===== Current Version: ===================================== 
+//= 1.4
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Guides for the city of Izlude.
+//===== Additional Comments: ================================= 
+//= 1.0 First version, Renewal guide.
+//= 1.1 Updated to match the new Izlude Map. [Masao]
+//= 1.2 Added Renewal Izlude viewpoint coordinates.
+//= 1.3 Navigation system update. [Euphy]
+//=     Optimized.
+//= 1.4 Added Izlude duplicates. [Euphy]
+//============================================================ 
+
+-	script	::GuideIzlude	-1,{
+	cutin "prt_soldier",2;
+	mes "[依斯魯得導遊]";
+	mes "歡迎光臨 普隆德拉的";
+	mes "衛星城市^8B4513依斯魯得^000000.";
+	mes "需要為您介紹嗎?";
+	F_Navi("[依斯魯得導遊]");
+	next;
+	set .@map$, strnpcinfo(4);
+	while (1) {
+		switch(select("[ 主要設施 ]:[ 商店 & 小幫手 ]:- 刪除小地圖的標記:- 結束對話")) {
+		case 1:
+			set .@loop,1;
+			while (.@loop) {
+				switch(select("[ 碼頭 ]:[ 國際機場 ]:[ 競技場 ]:[ 道具店 ]:[ 武器 & 防具店 ]:[ 劍士工會 ]:[ 劍士協會 ]:返回上一選單")) {
+				case 1:
+					mes "[依斯魯得導遊]";
+					mes "可透過西北方的^B9062F碼頭^000000";
+					mes "到達^8B4513艾爾貝塔^000000或^8B4513柏伊亞嵐島^000000";
+					mes "等地.";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,197,205,0,0xFF0000;
+					next;
+					break;
+				case 2:
+					mes "[依斯魯得導遊]";
+					mes "東南方的^0000FF國際機場^000000";
+					mes "可前往^8B4513朱諾^000000 and ^8B4513拉赫^000000";
+					mes "等地,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,204,75,1,0x0A82FF;
+					next;
+					break;
+				case 3:
+					mes "[依斯魯得導遊]";
+					mes "位於北邊的^FF5400競技場^000000";
+					mes "是測試自己戰鬥實力的";
+					mes "最佳場地,";
+					mes "位置已經標記在";
+					mes "小地圖上了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,128,255,2,0xFF5400;
+					next;
+					break;
+				case 4:
+					mes "[依斯魯得導遊]";
+					mes "^006400道具店^000000的位置已經標記在";
+					mes "小地圖上了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,160,125,3,0xAAFF00;
+					next;
+					break;
+				case 5:
+					mes "[依斯魯得導遊]";
+					mes "^7F3300武器 & 防具店^000000的位置已經標記在";
+					mes "小地圖上了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,109,182,4,0xD2691E;
+					next;
+					break;
+				case 6:
+					mes "[依斯魯得導遊]";
+					mes "^800080劍士工會^000000是負責劍士轉職的地方,";
+					mes "位置已經標記在";
+					mes "小地圖上了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,52,175,5,0xDA70D6;
+					next;
+					break;
+				case 7:
+					mes "[依斯魯得導遊]";
+					mes "^B9062F劍士協會^000000";
+					mes "位置已經標記在";
+					mes "小地圖上了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,212,161,6,0xFF0000;
+					next;
+					break;
+				case 8:
+					set .@loop,0;
+					break;
+				}
+			}
+			break;
+		case 2:
+			set .@loop,1;
+			while (.@loop) {
+				switch(select("[ 伊甸園傳送師 ]:[ 卡普拉職員 ]:[ 新婚秘書 ]:[ 子彈商人 ]:[ 傭兵工會管理員 ]:返回上一選單")) {
+				case 1:
+					mes "[依斯魯得導遊]";
+					mes "^0000FF伊甸園傳送師^000000";
+					mes "位置已經標記在";
+					mes "小地圖上了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,131,148,7,0x0A82FF;
+					next;
+					break;
+				case 2:
+					mes "[依斯魯得導遊]";
+					mes "^FF5400卡普拉職員^000000";
+					mes "位置已經標記在";
+					mes "小地圖上了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,128,148,8,0xFF5400;
+					next;
+					break;
+				case 3:
+					mes "[依斯魯得導遊]";
+					mes "想要到夫婦們的度假勝地";
+					mes "^8B4513爪哇咿^000000的話,";
+					mes "請向^B9062F新婚秘書^000000";
+					mes "諮詢吧!";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,180,224,9,0xFF0000;
+					next;
+					break;
+				case 4:
+					mes "[依斯魯得導遊]";
+					mes "^7F3300神槍手^000000冒險家們";
+					mes "專屬的^7F3300子彈商人^000000";
+					mes "位置已經標記在";
+					mes "小地圖上了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,158,130,10,0xD2691E;
+					next;
+					break;
+				case 5:
+					mes "[依斯魯得導遊]";
+					mes "^0000FF劍士傭兵工會管理員^000000和^0000FF傭兵商品商人^000000";
+					mes "位置已經標記在";
+					mes "小地圖上了,";
+					mes "還需要其它服務嗎?";
+					viewpoint 1,56,169,11,0xDA70D6;
+					next;
+					break;
+				case 6:
+					set .@loop,0;
+					break;
+				}
+			}
+			break;
+		case 3:
+			mes "[依斯魯得導遊]";
+			mes "標記已刪除,";
+			mes "還需要其它服務嗎?";
+			viewpoint 2,1,1,0,0xFFFF00;
+			viewpoint 2,1,1,1,0x000000;
+			viewpoint 2,1,1,2,0xFF0000;
+			viewpoint 2,1,1,3,0xFFFF00;
+			viewpoint 2,1,1,4,0xFFFF00;
+			viewpoint 2,1,1,5,0xFFFF00;
+			viewpoint 2,1,1,6,0xFFFF00;
+			viewpoint 2,1,1,7,0xFFFF00;
+			viewpoint 2,1,1,8,0xFFFF00;
+			viewpoint 2,1,1,9,0xFFFF00;
+			viewpoint 2,1,1,10,0xFFFF00;
+			viewpoint 2,1,1,11,0xFFFF00;
+			next;
+			break;
+		case 4:
+			mes "[依斯魯得導遊]";
+			mes "祝你旅途愉快!";
+			close2;
+			cutin "prt_soldier",255;
+			end;
+		}
+	}
+}
+
+izlude,129,175,4	duplicate(GuideIzlude)	導遊#02izlude	105
+izlude,133,113,4	duplicate(GuideIzlude)	導遊#03izlude	105
+izlude,120,206,4	duplicate(GuideIzlude)	導遊#04izlude	105
