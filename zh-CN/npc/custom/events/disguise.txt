@@ -1,10 +1,7 @@
 //============================================================
-//= rAthenaCN [Î±×°ÓÎÏ·]ºº»¯½Å±¾ [ www.rAthenaCN.com ]
+//= rAthenaCN [ä¼ªè£…æ¸¸æˆ]æ±‰åŒ–è„šæœ¬ 
 //============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
+
 
 //===== Hercules Script ======================================
 //= Disguise Event
@@ -23,112 +20,112 @@
 //= 5.1 Cleaned and standardized, mostly. [Euphy]
 //============================================================
 
-prontera,160,155,4	script	Î±×°ÓÎÏ·	795,{
+prontera,160,155,4	script	ä¼ªè£…æ¸¸æˆ	795,{
 
 	// Currently set to run every two hours.
 	// To change times, edit the OnClock labels below.
 
 	set .@GMLevel,60;	// GM level required to access NPC.
-	set .@n$,"[^0000FFÎ±×°NPC^000000]";
+	set .@n$,"[^0000FFä¼ªè£…NPC^000000]";
 
 	if (getgmlevel()>=.@GMLevel) {
 		mes .@n$;
-		mes "Ñ¡ÔñÒ»¸öÑ¡Ïî.";
+		mes "é€‰æ‹©ä¸€ä¸ªé€‰é¡¹.";
 		next;
-		switch(select("- Ñ¡Ôñ¿ª/¹Ø:- ÊÂ¼şÉèÖÃ")) {
+		switch(select("- é€‰æ‹©å¼€/å…³:- äº‹ä»¶è®¾ç½®")) {
 		case 1:
 			mes .@n$;
 			if (.EventON) {
-				mes "µ±Ç°ÊÂ¼ş: [^0000FFON^000000]";
-				mes "ĞèÒª¹Ø±ÕÂğ?";
+				mes "å½“å‰äº‹ä»¶: [^0000FFON^000000]";
+				mes "éœ€è¦å…³é—­å—?";
 			} else {
-				mes "µ±Ç°ÊÂ¼ş: [^FF0000OFF^000000]";
-				mes "ĞèÒª´ò¿ªÂğ?";
+				mes "å½“å‰äº‹ä»¶: [^FF0000OFF^000000]";
+				mes "éœ€è¦æ‰“å¼€å—?";
 			}
-			if(select("- ÊÇ:- ·ñ")==2) close;
+			if(select("- æ˜¯:- å¦")==2) close;
 			if (.EventON) {
 				set .EventON,0; set .Timer,0;
 				setnpctimer 0; stopnpctimer;
-				announce "GM¾ö¶¨¹Ø±ÕÎ±×°»î¶¯,½«²»»á»ñµÃ½øÒ»²½µÄ½±Àø",bc_map | bc_blue;
+				announce "GMå†³å®šå…³é—­ä¼ªè£…æ´»åŠ¨,å°†ä¸ä¼šè·å¾—è¿›ä¸€æ­¥çš„å¥–åŠ±",bc_map | bc_blue;
 				deletepset 1;
-				setnpcdisplay "Î±×°»î¶¯", 4_M_NFDEADMAN;
+				setnpcdisplay "ä¼ªè£…æ´»åŠ¨", 4_M_NFDEADMAN;
 				close;
 			}
 			set .EventON,1; set .Timer,1; setnpctimer 0; initnpctimer;
 			set .ResetCounter,.ResetCounter+1;
-			announce "Î±×°»î¶¯ÔÚÈı·ÖÖÓºó¿ªÊ¼",bc_all | bc_blue;
-			announce "ÊÂ¼şÔÚÆÕÂ¡µÂÀ­·¢Éú",bc_all | bc_blue;
+			announce "ä¼ªè£…æ´»åŠ¨åœ¨ä¸‰åˆ†é’Ÿåå¼€å§‹",bc_all | bc_blue;
+			announce "äº‹ä»¶åœ¨æ™®éš†å¾·æ‹‰å‘ç”Ÿ",bc_all | bc_blue;
 			close;
 		case 2:
 			mes .@n$;
-			mes "Ñ¡ÔñÒ»¸öĞŞ¸ÄÉèÖÃ.";
+			mes "é€‰æ‹©ä¸€ä¸ªä¿®æ”¹è®¾ç½®.";
 			next;
-			switch(select("- ¹ÖÎïÏÔÊ¾:- »ØºÏÊı:- ½±ÀøÉèÖÃ")) {
+			switch(select("- æ€ªç‰©æ˜¾ç¤º:- å›åˆæ•°:- å¥–åŠ±è®¾ç½®")) {
 			case 1:
-				setarray .@r$[0],"- ×÷Îª¹ÖÎïÎ±×°.","- ½ö×÷ÎªMVPsÎ±×°";
+				setarray .@r$[0],"- ä½œä¸ºæ€ªç‰©ä¼ªè£….","- ä»…ä½œä¸ºMVPsä¼ªè£…";
 				mes .@n$;
-				mes "Ñ¡ÔñÒ»¸öÎ±×°¹æÔò.";
+				mes "é€‰æ‹©ä¸€ä¸ªä¼ªè£…è§„åˆ™.";
 				next;
 				set .Rule, select(implode(.@r$,":"));
 				mes .@n$;
-				mes "Î±×°¹æÔòÒÑÉèÖÃ:";
+				mes "ä¼ªè£…è§„åˆ™å·²è®¾ç½®:";
 				mes "  > ^0055FF"+.@r$[.Rule-1]+"^000000";
 				close;
 			case 2:
 				mes .@n$;
-				mes "ÇëÑ¡Ò»¸ö»î¶¯³ÖĞøµÄ»ØºÏÊı.";
-				mes "µ±Ç°ÊıÖµ: [^0000FF"+.Rounds+"^000000]";
+				mes "è¯·é€‰ä¸€ä¸ªæ´»åŠ¨æŒç»­çš„å›åˆæ•°.";
+				mes "å½“å‰æ•°å€¼: [^0000FF"+.Rounds+"^000000]";
 				next;
 				input .@Rounds;
 				set .Rounds,.@Rounds;
 				mes .@n$;
-				mes "»ØºÏÊı±»ĞŞ¸ÄÎª: "+.Rounds+".";
+				mes "å›åˆæ•°è¢«ä¿®æ”¹ä¸º: "+.Rounds+".";
 				close;
 			case 3:
 				mes .@n$;
-				mes "Â¼ÈëÃ¿»ØºÏµÃµ½½±ÀøµÄÎïÆ·ID.";
-				mes "µ±Ç°ÏîÄ¿: [^0000FF"+getitemname(.Prize)+"^000000] (ID #"+.Prize+")";
+				mes "å½•å…¥æ¯å›åˆå¾—åˆ°å¥–åŠ±çš„ç‰©å“ID.";
+				mes "å½“å‰é¡¹ç›®: [^0000FF"+getitemname(.Prize)+"^000000] (ID #"+.Prize+")";
 				next;
 				input .@Prize;
 				mes .@n$;
 				if (getitemname(.@Prize)=="" || getitemname(.@Prize)=="null") {
-					mes "ÎïÆ·²»´æÔÚ,ÇëÖØÊÔ.";
+					mes "ç‰©å“ä¸å­˜åœ¨,è¯·é‡è¯•.";
 					close;
 				}
 				set .Prize,.@Prize;
-				mes "Â¼Èë»ñÈ¡ÎïÆ·×ÜÊı.";
+				mes "å½•å…¥è·å–ç‰©å“æ€»æ•°.";
 				next;
 				input .@amount;
 				mes .@n$;
 				if (.@amount<=0 || .@amount>=10000) {
-					mes "×ÜÊı·Ç·¨. Ê¹ÓÃÄ¬ÈÏÖµ 1.";
+					mes "æ€»æ•°éæ³•. ä½¿ç”¨é»˜è®¤å€¼ 1.";
 					set .@amount,1;
 					next;
 					mes .@n$;
 				}
 				set .PrizeAmt,.@amount;
-				mes "½±Àø³É¹¦¸üĞÂ.";
-				mes "½±Àø: "+.PrizeAmt+"x [^0000FF"+getitemname(.Prize)+"^000000]";
+				mes "å¥–åŠ±æˆåŠŸæ›´æ–°.";
+				mes "å¥–åŠ±: "+.PrizeAmt+"x [^0000FF"+getitemname(.Prize)+"^000000]";
 				close;
 			}
 		}
 	}
 	if (.EventON) end;
 	mes .@n$;
-	mes "»¶Ó­.";
-	mes "ÎÒÓĞÊ²Ã´ÄÜ°ïÖúÄãµÄÂğ?";
-	if(select("- ĞÅÏ¢:- Ã»ÓĞ, ½ö½öÂ·¹ı.")==2) close;
+	mes "æ¬¢è¿.";
+	mes "æˆ‘æœ‰ä»€ä¹ˆèƒ½å¸®åŠ©ä½ çš„å—?";
+	if(select("- ä¿¡æ¯:- æ²¡æœ‰, ä»…ä»…è·¯è¿‡.")==2) close;
 	next;
 	mes .@n$;
-	mes "Õâ¸öÊÂ¼şÏàµ±¼òµ¥.";
-	mes "»î¶¯¿ªÊ¼, ÎÒ½«";
-	mes "×÷ÎªÒ»¸ö¹ÖÎïËæ»úÎ±×°.";
-	mes "Äã±ØĞë";
-	mes "´óÉù½Ğ³öÄÇ¹ÖÎïµÄÃû³Æ.";
+	mes "è¿™ä¸ªäº‹ä»¶ç›¸å½“ç®€å•.";
+	mes "æ´»åŠ¨å¼€å§‹, æˆ‘å°†";
+	mes "ä½œä¸ºä¸€ä¸ªæ€ªç‰©éšæœºä¼ªè£….";
+	mes "ä½ å¿…é¡»";
+	mes "å¤§å£°å«å‡ºé‚£æ€ªç‰©çš„åç§°.";
 	next;
-	mes "Èç¹ûÄãÕıÈ·, Äã½«ÊÕµ½";
-	mes "Ò»¸ö½±Àø. ²»ÕıÈ·µÄ»°¼ÌĞø³¢ÊÔ!";
-	mes "ÒÔÉÏ¾ÍÊÇÕâ¸ö»î¶¯µÄ½éÉÜ.";
+	mes "å¦‚æœä½ æ­£ç¡®, ä½ å°†æ”¶åˆ°";
+	mes "ä¸€ä¸ªå¥–åŠ±. ä¸æ­£ç¡®çš„è¯ç»§ç»­å°è¯•!";
+	mes "ä»¥ä¸Šå°±æ˜¯è¿™ä¸ªæ´»åŠ¨çš„ä»‹ç».";
 	close;
 
 OnInit:
@@ -171,8 +168,8 @@ OnClock2200:
 	set .EventON,1;
 	set .Timer,1;
 	set .Wait,1;
-	announce "Î±×°»î¶¯½«ÔÚÈı·ÖÖÓºó¿ªÊ¼.",bc_all | bc_blue;
-	announce "ÊÂ¼şÔÚÆÕÂ¡µÂÀ­·¢Éú.",bc_all | bc_blue;
+	announce "ä¼ªè£…æ´»åŠ¨å°†åœ¨ä¸‰åˆ†é’Ÿåå¼€å§‹.",bc_all | bc_blue;
+	announce "äº‹ä»¶åœ¨æ™®éš†å¾·æ‹‰å‘ç”Ÿ.",bc_all | bc_blue;
 	setnpctimer 0;
 	initnpctimer;
 	end;
@@ -184,8 +181,8 @@ OnTimer10000:
 OnTimer30000:
 	if (.Timer) end;
 	set .Change,0;
-	setnpcdisplay "Î±×°»î¶¯", 4_M_NFDEADMAN;
-	npctalk "Äã»¨·ÑÁËÌ«³¤µÄÊ±¼ä£¬ÇëµÈ´ı10ÃëÖÓµÈ´ıÎÒÒş²Ø.";
+	setnpcdisplay "ä¼ªè£…æ´»åŠ¨", 4_M_NFDEADMAN;
+	npctalk "ä½ èŠ±è´¹äº†å¤ªé•¿çš„æ—¶é—´ï¼Œè¯·ç­‰å¾…10ç§’é’Ÿç­‰å¾…æˆ‘éšè—.";
 	specialeffect EF_DETECT2;
 	set $MonsterName$,"";
 	deletepset 1;
@@ -195,18 +192,18 @@ OnTimer30000:
 	end;
 OnTimer60000:
 	if (.Timer!=1) end;
-	announce "Î±×°»î¶¯½«ÔÚ¶ş·ÖÖÓºó¿ªÊ¼.",bc_all | bc_blue;
-	announce "ÊÂ¼şÔÚÆÕÂ¡µÂÀ­·¢Éú.",bc_all | bc_blue;
+	announce "ä¼ªè£…æ´»åŠ¨å°†åœ¨äºŒåˆ†é’Ÿåå¼€å§‹.",bc_all | bc_blue;
+	announce "äº‹ä»¶åœ¨æ™®éš†å¾·æ‹‰å‘ç”Ÿ.",bc_all | bc_blue;
 	end;
 OnTimer120000:
 	if (.Timer!=1) end;
-	announce "Î±×°»î¶¯½«ÔÚ¶ş·ÖÖÓºó¿ªÊ¼",bc_all | bc_blue;
-	announce "ÊÂ¼şÔÚÆÕÂ¡µÂÀ­·¢Éú.",bc_all | bc_blue;
+	announce "ä¼ªè£…æ´»åŠ¨å°†åœ¨äºŒåˆ†é’Ÿåå¼€å§‹",bc_all | bc_blue;
+	announce "äº‹ä»¶åœ¨æ™®éš†å¾·æ‹‰å‘ç”Ÿ.",bc_all | bc_blue;
 	end;
 OnTimer180000:
 	if (.Timer!=1) end;
-	announce "Î±×°»î¶¯¿ªÊ¼!",bc_all | bc_blue;
-	announce "ÊÂ¼şÔÚÆÕÂ¡µÂÀ­·¢Éú.",bc_all | bc_blue;
+	announce "ä¼ªè£…æ´»åŠ¨å¼€å§‹!",bc_all | bc_blue;
+	announce "äº‹ä»¶åœ¨æ™®éš†å¾·æ‹‰å‘ç”Ÿ.",bc_all | bc_blue;
 	set .Timer,0; stopnpctimer;
 	setnpctimer 0; initnpctimer;
 iDisguise:
@@ -224,16 +221,16 @@ iDisguise:
 		set $MonsterName$,getmonsterinfo(.MVP[.Monster],0);
 	}
 	deletepset 1;
-	defpattern 1,"([^:]+):.\\s*"+$MonsterName$+".*", "²»ÕıÈ·";
+	defpattern 1,"([^:]+):.\\s*"+$MonsterName$+".*", "ä¸æ­£ç¡®";
 	activatepset 1;
-	if (.Rule==1) setnpcdisplay "Î±×°»î¶¯",.Monster;
-	if (.Rule==2) setnpcdisplay "Î±×°»î¶¯",.MVP[.Monster];
+	if (.Rule==1) setnpcdisplay "ä¼ªè£…æ´»åŠ¨",.Monster;
+	if (.Rule==2) setnpcdisplay "ä¼ªè£…æ´»åŠ¨",.MVP[.Monster];
 	set .Change,1;
 	setnpctimer 0;
 	end;
 iCorrect:
 	if (.Winner) {
-		dispbottom "ÓĞÈËÓ®µÃÁËÕâÒ»»ØºÏ.";
+		dispbottom "æœ‰äººèµ¢å¾—äº†è¿™ä¸€å›åˆ.";
 		end;
 	}
 	set .Winner,1;
@@ -241,15 +238,15 @@ iCorrect:
 	deletepset 1;
 	activatepset 1;
 	getitem .Prize,.PrizeAmt;
-	announce strcharinfo(0)+" ÕıÈ·! ÎÒÒş²ØÎª: "+$MonsterName$+"",bc_map | bc_blue;
+	announce strcharinfo(0)+" æ­£ç¡®! æˆ‘éšè—ä¸º: "+$MonsterName$+"",bc_map | bc_blue;
 	if (.RoundCount>=.Rounds) {
-		setnpcdisplay "Î±×°»î¶¯", 4_M_NFDEADMAN;
+		setnpcdisplay "ä¼ªè£…æ´»åŠ¨", 4_M_NFDEADMAN;
 		set .RoundCount,0; set .Change,0; set .EventON,0;
 		setnpctimer 0; stopnpctimer;
-		npctalk "Ğ»Ğ». ÕâÊÇ×îºóÒ»»ØºÏÎ±×°»î¶¯. ÇëÉÔºóÔÙ´Î³¢ÊÔ.";
+		npctalk "è°¢è°¢. è¿™æ˜¯æœ€åä¸€å›åˆä¼ªè£…æ´»åŠ¨. è¯·ç¨åå†æ¬¡å°è¯•.";
 		end;
 	}
-	setnpcdisplay "Î±×°»î¶¯", 4_M_NFDEADMAN;
+	setnpcdisplay "ä¼ªè£…æ´»åŠ¨", 4_M_NFDEADMAN;
 	set .Change,0;
 	setnpctimer 0;
 	end;

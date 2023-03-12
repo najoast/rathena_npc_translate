@@ -1,10 +1,7 @@
 //============================================================
-//= rAthenaCN [ÒøĞĞ¼Ò]ºº»¯½Å±¾ [ www.rAthenaCN.com ]
+//= rAthenaCN [é“¶è¡Œå®¶]æ±‰åŒ–è„šæœ¬ 
 //============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
+
 
 //===== Hercules Script ======================================
 //= Banker Script 
@@ -21,69 +18,69 @@
 //= Version 2.0: Optimized and brought the script up to standard. [Jguy]
 //============================================================
 
-prontera,132,217,5	script	ÒøĞĞ¼Ò	4_M_MANAGER,{
+prontera,132,217,5	script	é“¶è¡Œå®¶	4_M_MANAGER,{
 set @cost,500;
-mes "[ÒøĞĞ¼Ò]";
-mes "»¶Ó­À´µ½ÆÕÂ¡µÂÀ­µÚÒ»ÒøĞĞ. ÓĞÊ²Ã´¿ÉÒÔÎªÄú·şÎñµÄ?";
+mes "[é“¶è¡Œå®¶]";
+mes "æ¬¢è¿æ¥åˆ°æ™®éš†å¾·æ‹‰ç¬¬ä¸€é“¶è¡Œ. æœ‰ä»€ä¹ˆå¯ä»¥ä¸ºæ‚¨æœåŠ¡çš„?";
 next;
-switch(select("- ÎÒÒª´æ¿î.:- ÎÒÒªÈ¡¿î.:- ÎÒÒª²é¿´ÎÒµÄÕË»§?:- È¡Ïû")) {
+switch(select("- æˆ‘è¦å­˜æ¬¾.:- æˆ‘è¦å–æ¬¾.:- æˆ‘è¦æŸ¥çœ‹æˆ‘çš„è´¦æˆ·?:- å–æ¶ˆ")) {
 	case 1:
-		mes "[ÒøĞĞ¼Ò]";
-		mes "ºÃµÄ... ÄãÒª´æ¶àÉÙ? Ò»´Î×î¶à´æ 999,999 Zeny.";
+		mes "[é“¶è¡Œå®¶]";
+		mes "å¥½çš„... ä½ è¦å­˜å¤šå°‘? ä¸€æ¬¡æœ€å¤šå­˜ 999,999 Zeny.";
 		next;
 		if (@cost > 0) {
-			mes "[ÒøĞĞ¼Ò]";
-			mes "Å¶, Çë×¢ÒâÓĞ " +@cost + " Zeny µÄ·şÎñ·Ñ!";
+			mes "[é“¶è¡Œå®¶]";
+			mes "å“¦, è¯·æ³¨æ„æœ‰ " +@cost + " Zeny çš„æœåŠ¡è´¹!";
 			next;
 		}
 				input @deposit;
 		if (@deposit < 1) {
-			mes "È·¶¨Äã´æµÄÊÇ¸öÓĞÒâÒåµÄÊı×Ö.";
+			mes "ç¡®å®šä½ å­˜çš„æ˜¯ä¸ªæœ‰æ„ä¹‰çš„æ•°å­—.";
 			close;
 		}
 		else if (@deposit > Zeny) {
-			mes "ÄãÃ»ÓĞÕâÃ´¶àÇ®!";
+			mes "ä½ æ²¡æœ‰è¿™ä¹ˆå¤šé’±!";
 			close;
 		}
 		else if (@deposit > (Zeny - @cost)) {
-			mes "ÄãĞèÒª " + @cost + " Zeny À´Ö§¸¶·şÎñ·Ñ!";
+			mes "ä½ éœ€è¦ " + @cost + " Zeny æ¥æ”¯ä»˜æœåŠ¡è´¹!";
 			close;
 		}
 				else {
 		set Zeny, Zeny - @deposit;
 		set Zeny, Zeny - @cost;
 		set #bankstorage,#bankstorage + @deposit;
-		mes "[ÒøĞĞ¼Ò]";
-		mes "Ğ»Ğ»... ÎÒÃÇ»á±£´æºÃÄúµÄÇ®.";
+		mes "[é“¶è¡Œå®¶]";
+		mes "è°¢è°¢... æˆ‘ä»¬ä¼šä¿å­˜å¥½æ‚¨çš„é’±.";
 		close;
 		}
 
 	case 2:
-		mes "[ÒøĞĞ¼Ò]";
-		mes "ºÃµÄ... ÄãÒªÈ¡¶àÉÙÇ®? Ò»´ÎÈ¡Ç®ÉÏÏŞÎª 999,999 Zeny";
+		mes "[é“¶è¡Œå®¶]";
+		mes "å¥½çš„... ä½ è¦å–å¤šå°‘é’±? ä¸€æ¬¡å–é’±ä¸Šé™ä¸º 999,999 Zeny";
 		next;
 		if (@cost > 0) {
-			mes "[ÒøĞĞ¼Ò]";
-			mes "Å¶, Çë×¢ÒâÓĞ " +@cost + " µÄ·şÎñ·Ñ!";
+			mes "[é“¶è¡Œå®¶]";
+			mes "å“¦, è¯·æ³¨æ„æœ‰ " +@cost + " çš„æœåŠ¡è´¹!";
 			next;
 		}
 				input @withdrawl;
 		if (@withdrawl < 1) {
-			mes "±ğÍæÎÒ. Ëµ¸öÓĞÒâÒåµÄÊı×Ö°É.";
+			mes "åˆ«ç©æˆ‘. è¯´ä¸ªæœ‰æ„ä¹‰çš„æ•°å­—å§.";
 			close;
 		}
 		else if (@withdrawl > #bankstorage) {
-			mes "ÄãÖ»ÓĞ ^00FF00" + #bankstorage +"^000000 zeny ÔÚÄãµÄÕË»§!";
+			mes "ä½ åªæœ‰ ^00FF00" + #bankstorage +"^000000 zeny åœ¨ä½ çš„è´¦æˆ·!";
 			close;
 		}
 		else if ((@cost > Zeny) && ((Zeny + @withdrawl) > @cost)) {
-			mes "[ÒøĞĞ¼Ò]";
-			mes "ÄãÃ»ÓĞÇ®¸¶·şÎñ·Ñ. Òª²»ÒªÖ±½Ó´ÓÄãµÄÈ¡¿îÀï¿Û³ı?";
+			mes "[é“¶è¡Œå®¶]";
+			mes "ä½ æ²¡æœ‰é’±ä»˜æœåŠ¡è´¹. è¦ä¸è¦ç›´æ¥ä»ä½ çš„å–æ¬¾é‡Œæ‰£é™¤?";
 			next;
-			switch(select("- ºÃµÄ.:- ²»ºÃ")){
+			switch(select("- å¥½çš„.:- ä¸å¥½")){
 			case 1:
-				mes "[Ó¦ĞĞ¼Ò]";
-				mes "¿Û³ı " + @cost + " ÓÃÀ´½ÉÄÉ·şÎñ·Ñ...";
+				mes "[åº”è¡Œå®¶]";
+				mes "æ‰£é™¤ " + @cost + " ç”¨æ¥ç¼´çº³æœåŠ¡è´¹...";
 				set @withdrawl,@withdrawl - @cost;
 				set #bankstorage,#bankstorage - @cost;
 								set @cost,0;
@@ -91,12 +88,12 @@ switch(select("- ÎÒÒª´æ¿î.:- ÎÒÒªÈ¡¿î.:- ÎÒÒª²é¿´ÎÒµÄÕË»§?:- È¡Ïû")) {
 				set Zeny, Zeny - @cost;
 				set Zeny, Zeny + @withdrawl;
 				set #bankstorage,#bankstorage - @withdrawl;
-				mes "[ÒøĞĞ¼Ò]";
-				mes "ÊÕºÃÄãµÄÇ®£¬×£ÄãÓä¿ì.";
+				mes "[é“¶è¡Œå®¶]";
+				mes "æ”¶å¥½ä½ çš„é’±ï¼Œç¥ä½ æ„‰å¿«.";
 				close;
 			case 2:
-				mes "[Ó¦ĞĞ¼Ò]";
-				mes "ÄÇÃ´... »¶Ó­ÔÙÀ´.";
+				mes "[åº”è¡Œå®¶]";
+				mes "é‚£ä¹ˆ... æ¬¢è¿å†æ¥.";
 				close;
 			}
 				}
@@ -104,22 +101,22 @@ switch(select("- ÎÒÒª´æ¿î.:- ÎÒÒªÈ¡¿î.:- ÎÒÒª²é¿´ÎÒµÄÕË»§?:- È¡Ïû")) {
 			set Zeny, Zeny - @cost;
 			set Zeny, Zeny + @withdrawl;
 			set #bankstorage,#bankstorage - @withdrawl;
-			mes "[ÒøĞĞ¼Ò]";
-			mes "ÊÕºÃÄãµÄÇ®£¬×£ÄãÓä¿ì.";
+			mes "[é“¶è¡Œå®¶]";
+			mes "æ”¶å¥½ä½ çš„é’±ï¼Œç¥ä½ æ„‰å¿«.";
 			close;
 		}
 	case 3:
-		mes "[ÒøĞĞ¼Ò]";
-		mes "àÅ ÎÒ²é²é.";
+		mes "[é“¶è¡Œå®¶]";
+		mes "å—¯ æˆ‘æŸ¥æŸ¥.";
 		next;
 		mes "*Rustle, Rustle*";
 		next;
-		mes "[ÒøĞĞ¼Ò]";
-		mes "Äã»¹ÓĞ " + #bankstorage + " Zeny ÔÚÄãµÄÕË»§.";
+		mes "[é“¶è¡Œå®¶]";
+		mes "ä½ è¿˜æœ‰ " + #bankstorage + " Zeny åœ¨ä½ çš„è´¦æˆ·.";
 		close;
 	case 4:
-		mes "[ÒøĞĞ¼Ò]";
-		mes "ÄÇÃ´... »¶Ó­ÔÙÀ´.";
+		mes "[é“¶è¡Œå®¶]";
+		mes "é‚£ä¹ˆ... æ¬¢è¿å†æ¥.";
 		close;
 	}
 }

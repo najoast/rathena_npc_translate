@@ -1,15 +1,12 @@
 //============================================================
-//= rAthenaCN [Íæ¼ÒµÇÂ¼ÌáÊ¾]½Å±¾ [ www.rAthenaCN.com ]
+//= rAthenaCN [ç©å®¶ç™»å½•æç¤º]è„šæœ¬ 
 //============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
+
 
 -	script	player_login_prompt	-1,{
 OnPCLoginEvent:
-if(getgroupid() == 0) atcommand "@kamib »¶Ó­Íæ¼Ò - [" + strcharinfo(0) + "] µÇÈë rAthenaCN";
-if(getgroupid() == 5 && #VIP_announce == 0) atcommand "@kami »¶Ó­×ğ¹ó<VIP>»áÔ± - [" + strcharinfo(0) + "] µÇÈë rAthenaCN";
-if(getgroupid() == 1 || getgroupid() == 99) atcommand "@kami »¶Ó­¹ÜÀíÔ± - [" + strcharinfo(0) + "] µÇÈë rAthenaCN";
+if(getgroupid() == 0) atcommand "@kamib æ¬¢è¿ç©å®¶ - [" + strcharinfo(0) + "] ç™»å…¥ rAthenaCN";
+if(getgroupid() == 5 && #VIP_announce == 0) atcommand "@kami æ¬¢è¿å°Šè´µ<VIP>ä¼šå‘˜ - [" + strcharinfo(0) + "] ç™»å…¥ rAthenaCN";
+if(getgroupid() == 1 || getgroupid() == 99) atcommand "@kami æ¬¢è¿ç®¡ç†å‘˜ - [" + strcharinfo(0) + "] ç™»å…¥ rAthenaCN";
 end;
 }

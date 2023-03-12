@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN ½Å±¾ºº»¯ www.rAthenaCN.com ×ª×Ô [ www.99Max.mE ]
-//============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN è„šæœ¬æ±‰åŒ– è½¬è‡ª [ www.99Max.mE ]
 //============================================================
 
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Malangdo Enchants
 //===== By: ================================================== 
 //= Muad_Dib
@@ -27,40 +23,40 @@
 
 // Enchanter NPC :: mal_yong
 //============================================================
-malangdo,213,167,4	script	ß÷ßÏß÷ßÏ#mal	555,{
+malangdo,213,167,4	script	å–µå‘¦å–µå‘¦#mal	555,{
 	disable_items;
 	if (checkweight(1201,1) == 0) {
-		mes "ÄãĞ¯´øµÄÎïÆ·ÖÖÀàÌ«¶àÁË. ¼ÌĞøÖ®Ç°ÄãĞèÒªÏÈÕûÀíÏÂ±³°ü.";
+		mes "ä½ æºå¸¦çš„ç‰©å“ç§ç±»å¤ªå¤šäº†. ç»§ç»­ä¹‹å‰ä½ éœ€è¦å…ˆæ•´ç†ä¸‹èƒŒåŒ….";
 		close;
 	}
 	if (MaxWeight - Weight < 10000) {
-		mes "Âú¸ºÖØµÄÇé¿öÏÂÊÇÎŞ·¨¼ÌĞøµÄ. Äã½â¾ö¸ºÖØÎÊÌâºóÎÒÃÇ¼ÌĞø.";
+		mes "æ»¡è´Ÿé‡çš„æƒ…å†µä¸‹æ˜¯æ— æ³•ç»§ç»­çš„. ä½ è§£å†³è´Ÿé‡é—®é¢˜åæˆ‘ä»¬ç»§ç»­.";
 		close;
 	}
-	mes "[ß÷ßÏß÷ßÏ]";
-	mes "àŞ»¶Ó­. ÕâÀïÊÇß÷ßÏß÷ßÏĞÂµÄ¸½Ä§ÉÌµê~ ÎÒ¿ÉÒÔ¸½Ä§ÎäÆ÷°üº¬4¼¶µÄÎäÆ÷.";
+	mes "[å–µå‘¦å–µå‘¦]";
+	mes "å™¢æ¬¢è¿. è¿™é‡Œæ˜¯å–µå‘¦å–µå‘¦æ–°çš„é™„é­”å•†åº—~ æˆ‘å¯ä»¥é™„é­”æ­¦å™¨åŒ…å«4çº§çš„æ­¦å™¨.";
 	next;
-	switch(select("- ÉÌµêµÄ¾­ÓªÕş²ßÓĞÊ²Ã´±ä»¯?:- ¸½Ä§¸ß¼¶ÎäÆ÷:- ÖØÖÃ¸½Ä§[ĞèÒªĞÂÏÊË®¹û]")) {
+	switch(select("- å•†åº—çš„ç»è¥æ”¿ç­–æœ‰ä»€ä¹ˆå˜åŒ–?:- é™„é­”é«˜çº§æ­¦å™¨:- é‡ç½®é™„é­”[éœ€è¦æ–°é²œæ°´æœ]")) {
 	case 1:
-		mes "[ß÷ßÏß÷ßÏ]";
-		mes "ÔÚÒÔÍùµÄ¸½Ä§¹ı³ÌÖĞ, ¿¨Æ¬ºÍ¾«Á¶µÈ¼¶¾­³£»á±»»Ùµô. ÕâÈÃÎÒÊ®·ÖÄÕ»ğ. È»¶ø, ½ñÌìÎÒÒÑ¾­ÕÒµ½ÁË¸ü°²È«µÄ·½·¨.";
+		mes "[å–µå‘¦å–µå‘¦]";
+		mes "åœ¨ä»¥å¾€çš„é™„é­”è¿‡ç¨‹ä¸­, å¡ç‰‡å’Œç²¾ç‚¼ç­‰çº§ç»å¸¸ä¼šè¢«æ¯æ‰. è¿™è®©æˆ‘ååˆ†æ¼ç«. ç„¶è€Œ, ä»Šå¤©æˆ‘å·²ç»æ‰¾åˆ°äº†æ›´å®‰å…¨çš„æ–¹æ³•.";
 		next;
-		mes "[ß÷ßÏß÷ßÏ]";
-		mes "ÄãÔø¾­ÊÇ·ñ¼ûµ½¹ıÓĞ¸öÈËÔÚ¸½½üµÄÎİ×ÓÀïÎªÈËÌá¹©¸½Ä§µÄ?";
+		mes "[å–µå‘¦å–µå‘¦]";
+		mes "ä½ æ›¾ç»æ˜¯å¦è§åˆ°è¿‡æœ‰ä¸ªäººåœ¨é™„è¿‘çš„å±‹å­é‡Œä¸ºäººæä¾›é™„é­”çš„?";
 		next;
-		if(select("- ÎÒÔø¾­¼û¹ı.:- ÎÒ´ÓÃ»¼û¹ı.") == 2) {
-			mes "[ß÷ßÏß÷ßÏ]";
-			mes "ÄÇ¸öÎİ×Ó¾ÍÔÚÕâÀïµÄ¶«ÄÏÃæ. ÄãÎªÊ²Ã´²»È¥ÄÇÀï¿´¿´ÄØ?";
+		if(select("- æˆ‘æ›¾ç»è§è¿‡.:- æˆ‘ä»æ²¡è§è¿‡.") == 2) {
+			mes "[å–µå‘¦å–µå‘¦]";
+			mes "é‚£ä¸ªå±‹å­å°±åœ¨è¿™é‡Œçš„ä¸œå—é¢. ä½ ä¸ºä»€ä¹ˆä¸å»é‚£é‡Œçœ‹çœ‹å‘¢?";
 			close;
 		}
-		mes "[ß÷ßÏß÷ßÏ]";
-		mes "Èç¹ûÄãµ½ÄÇÀïµÄ»°, ÄÇÀïÓĞÒ»¸ö×¨ÃÅÎªÓÀºãÖ®Òí¸½Ä§µÄÈË. µ±Ê±ÄÇÊÇ¾ÙÊÀÎŞË«µÄ, µ±Ê±ÎÒÈÏÎªÕâ¶ÔÎÒÀ´ËµÊÇÌì·½Ò¹Ì·.";
+		mes "[å–µå‘¦å–µå‘¦]";
+		mes "å¦‚æœä½ åˆ°é‚£é‡Œçš„è¯, é‚£é‡Œæœ‰ä¸€ä¸ªä¸“é—¨ä¸ºæ°¸æ’ä¹‹ç¿¼é™„é­”çš„äºº. å½“æ—¶é‚£æ˜¯ä¸¾ä¸–æ— åŒçš„, å½“æ—¶æˆ‘è®¤ä¸ºè¿™å¯¹æˆ‘æ¥è¯´æ˜¯å¤©æ–¹å¤œè°­.";
 		next;
-		mes "[ß÷ßÏß÷ßÏ]";
-		mes "ÎÒ×öÁËËûµÄÓ¶ÈË. ²»·ÖÖçÒ¹µÄÑ§Ï°ÈçºÎ¸½Ä§.";
+		mes "[å–µå‘¦å–µå‘¦]";
+		mes "æˆ‘åšäº†ä»–çš„ä½£äºº. ä¸åˆ†æ˜¼å¤œçš„å­¦ä¹ å¦‚ä½•é™„é­”.";
 		next;
-		mes "[ß÷ßÏß÷ßÏ]";
-		mes "¾­¹ı²»¶ÏµÄ¸Ä½ø, ÎŞÊıµÄ¸½Ä§¹æÔò±»¸Ä±ä.";
+		mes "[å–µå‘¦å–µå‘¦]";
+		mes "ç»è¿‡ä¸æ–­çš„æ”¹è¿›, æ— æ•°çš„é™„é­”è§„åˆ™è¢«æ”¹å˜.";
 		close;
 	case 2:
 		set @mal_enchant_select,1;
@@ -71,8 +67,8 @@ malangdo,213,167,4	script	ß÷ßÏß÷ßÏ#mal	555,{
 	}
 
 	if (!getequipisequiped(EQI_HAND_R)) {
-		mes "[ß÷ßÏß÷ßÏ]";
-		mes "ÄãÊÇ²»ÊÇÍÑµôÁËÄãµÄ×°±¸?";
+		mes "[å–µå‘¦å–µå‘¦]";
+		mes "ä½ æ˜¯ä¸æ˜¯è„±æ‰äº†ä½ çš„è£…å¤‡?";
 		set @mal_enchant_select,0;
 		close;
 	}
@@ -104,9 +100,9 @@ malangdo,213,167,4	script	ß÷ßÏß÷ßÏ#mal	555,{
 			case 1234: callsub L_Socket,2,2; //Moonlight_Sword
 			case 1230: callsub L_Socket,4,2; //House_Auger
 			case 1231: callsub L_Socket,4,2; //Bazerald
-			case 13017: callsub L_Socket,1,2; //ÆÆ¼×¶Ì×¶
+			case 13017: callsub L_Socket,1,2; //ç ´ç”²çŸ­é”¥
 			case 13062: callsub L_Socket,4,2; //Ancient_Dagger
-			case 13073: callsub L_Socket,2,2; //·´»÷¶Ì½£
+			case 13073: callsub L_Socket,2,2; //åå‡»çŸ­å‰‘
 
 		}
 		break;
@@ -122,7 +118,7 @@ malangdo,213,167,4	script	ß÷ßÏß÷ßÏ#mal	555,{
 			case 1265: callsub L_Socket,2,2; //Bloody_Roar
 			case 1261: callsub L_Socket,4,2; //Infiltrator
 			case 1266: callsub L_Socket,4,2; //Infiltrator_
-			case 1295: callsub L_Socket,3,2; //ÑªÖ®Àá
+			case 1295: callsub L_Socket,3,2; //è¡€ä¹‹æ³ª
 		}
 		break;
 	case 6: // 1-H Axes
@@ -146,7 +142,7 @@ malangdo,213,167,4	script	ß÷ßÏß÷ßÏ#mal	555,{
 			case 1366: callsub L_Socket,4,2; //Right_Epsilon
 			case 1370: callsub L_Socket,4,2; //Doom_Slayer
 			case 1371: callsub L_Socket,4,2; //Doom_Slayer_
-			case 1397: callsub L_Socket,2,2; //Ä§Á¦Ö®Ê¯Ê¯´¸
+			case 1397: callsub L_Socket,2,2; //é­”åŠ›ä¹‹çŸ³çŸ³é”¤
 		}
 		break;
 	case 2: // 1-H Swords
@@ -166,8 +162,8 @@ malangdo,213,167,4	script	ß÷ßÏß÷ßÏ#mal	555,{
 			case 1137: callsub L_Socket,2,2; //Excalibur
 			case 1130: callsub L_Socket,2,2; //Nagan
 			case 1132: callsub L_Socket,4,2; //Edge
-			case 13435: callsub L_Socket,1,2; //»ğÁéÖ®½£
-			case 13436: callsub L_Socket,3,2; //Ë®ÁéÖ®µ¶
+			case 13435: callsub L_Socket,1,2; //ç«çµä¹‹å‰‘
+			case 13436: callsub L_Socket,3,2; //æ°´çµä¹‹åˆ€
 		}
 		break;
 	case 3: // 2-H Swords
@@ -192,8 +188,8 @@ malangdo,213,167,4	script	ß÷ßÏß÷ßÏ#mal	555,{
 			case 1175: callsub L_Socket,2,2; //Altas_Weapon
 			case 1185: callsub L_Socket,4,2; //Violet_Fear
 			case 1186: callsub L_Socket,4,2; //Death_Guidance
-			case 21003: callsub L_Socket,2,2; //Ãûµ¶²»Öª»ğ
-			case 21004: callsub L_Socket,2,2; //º£Ó¥ÕÙ»½Õß
+			case 21003: callsub L_Socket,2,2; //ååˆ€ä¸çŸ¥ç«
+			case 21004: callsub L_Socket,2,2; //æµ·é¹°å¬å”¤è€…
 		}
 		break;
 	case 4: // 1-H Spears
@@ -236,9 +232,9 @@ malangdo,213,167,4	script	ß÷ßÏß÷ßÏ#mal	555,{
 			case 1636: callsub L_Socket,2,2; //Thorn_Staff
 			case 1637: callsub L_Socket,2,2; //Eraser
 			case 1473: callsub L_Socket,1,2; //Wizardy_Staff
-			case 1662: callsub L_Socket,1,2; //×çÖäÄ§ÕÈ
-			case 1663: callsub L_Socket,2,2; //Ç¿»¯²¨¶û¶àÖ®ÕÈ
-			case 1664: callsub L_Socket,1,2; //ºÚ°µ¾£¼¬ÊÖÕÈ
+			case 1662: callsub L_Socket,1,2; //è¯…å’’é­”æ–
+			case 1663: callsub L_Socket,2,2; //å¼ºåŒ–æ³¢å°”å¤šä¹‹æ–
+			case 1664: callsub L_Socket,1,2; //é»‘æš—è†æ£˜æ‰‹æ–
 		}
 		break;
 	case 23: // New 2-H Staves
@@ -247,7 +243,7 @@ malangdo,213,167,4	script	ß÷ßÏß÷ßÏ#mal	555,{
 			case 2005: callsub L_Socket,1,2; //Dea_Staff
 			case 2001: callsub L_Socket,2,2; //Divine_Cross
 			case 2000: callsub L_Socket,4,2; //Destruction_Rod
-			case 2017: callsub L_Socket,1,2; //Ê¥Ê®×ÖÖ®ÕÈ
+			case 2017: callsub L_Socket,1,2; //åœ£åå­—ä¹‹æ–
 		}
 		break;
 	case 8: // Maces
@@ -265,7 +261,7 @@ malangdo,213,167,4	script	ß÷ßÏß÷ßÏ#mal	555,{
 			case 1526: callsub L_Socket,2,2; //Slash
 			case 1528: callsub L_Socket,4,2; //Grand_Cross
 			case 1540: callsub L_Socket,4,2; //Grand_Cross_
-			case 16022: callsub L_Socket,2,2; //¸´³ğÅ®Éñ
+			case 16022: callsub L_Socket,2,2; //å¤ä»‡å¥³ç¥
 		}
 		break;
 	case 15: // Books
@@ -300,9 +296,9 @@ malangdo,213,167,4	script	ß÷ßÏß÷ßÏ#mal	555,{
 			case 1745: callsub L_Socket,1,2; //Falken_Blitz
 			case 18103: callsub L_Socket,1,2; //Mystic_Bow
 			case 1720: callsub L_Socket,2,2; //Bow_Of_Rudra
-			case 18117: callsub L_Socket,2,2; //»Ê¼ÒÖ®¹­
-			case 18122: callsub L_Socket,2,2; //¾Ş¹­
-			case 18123: callsub L_Socket,2,2; //·ç±©Ö®¹­
+			case 18117: callsub L_Socket,2,2; //çš‡å®¶ä¹‹å¼“
+			case 18122: callsub L_Socket,2,2; //å·¨å¼“
+			case 18123: callsub L_Socket,2,2; //é£æš´ä¹‹å¼“
 		}
 		break;
 	case 13: // Musical Instruments
@@ -332,11 +328,11 @@ malangdo,213,167,4	script	ß÷ßÏß÷ßÏ#mal	555,{
 		}
 		break;
 	}
-	mes "[ß÷ßÏß÷ßÏ]";
+	mes "[å–µå‘¦å–µå‘¦]";
 	if (@mal_enchant_select == 1)
-		mes "Õâ¼ş×°±¸²»ÄÜ¸½Ä§. ÄÑµÀÄãÍü¼ÇÎÒµÄÔ­ÔòÁËÃ´, ÎÒÖ»¶Ô¸ß¼¶ÎäÆ÷¸½Ä§°üº¬4¼¶ÎäÆ÷~";
+		mes "è¿™ä»¶è£…å¤‡ä¸èƒ½é™„é­”. éš¾é“ä½ å¿˜è®°æˆ‘çš„åŸåˆ™äº†ä¹ˆ, æˆ‘åªå¯¹é«˜çº§æ­¦å™¨é™„é­”åŒ…å«4çº§æ­¦å™¨~";
 	else
-		mes "Õâ¼ş×°±¸²»ÄÜ±»ÖØÖÃ¸½Ä§. ÄÑµÀÄãÍü¼ÇÎÒµÄÔ­ÔòÁËÃ´, ÎÒÖ»¶Ô¸ß¼¶ÎäÆ÷¸½Ä§°üº¬4¼¶ÎäÆ÷~";
+		mes "è¿™ä»¶è£…å¤‡ä¸èƒ½è¢«é‡ç½®é™„é­”. éš¾é“ä½ å¿˜è®°æˆ‘çš„åŸåˆ™äº†ä¹ˆ, æˆ‘åªå¯¹é«˜çº§æ­¦å™¨é™„é­”åŒ…å«4çº§æ­¦å™¨~";
 	set @mal_equip_id,0;
 	set @mal_enchant_select,0;
 	close;
@@ -350,8 +346,8 @@ L_Socket:
 	set @mal_enchant_select,0;
 
 	if (.@select == 1) {
-		mes "[ß÷ßÏß÷ßÏ]";
-		mes "^0000ff"+.@equip_name$+"^000000! ÄãÊÇ·ñ×¼±¸¸½Ä§Õâ¼ş×°±¸? ÄãÏëÓÃÊ²Ã´À´Ö§¸¶³êÀÍ?";
+		mes "[å–µå‘¦å–µå‘¦]";
+		mes "^0000ff"+.@equip_name$+"^000000! ä½ æ˜¯å¦å‡†å¤‡é™„é­”è¿™ä»¶è£…å¤‡? ä½ æƒ³ç”¨ä»€ä¹ˆæ¥æ”¯ä»˜é…¬åŠ³?";
 		next;
 
 		.@enccost = getarg(0);
@@ -359,23 +355,23 @@ L_Socket:
 		setarray .@coin[0],6422,6421,6420,6419,6418,6423; // Payment ID
 		setarray .@cost[0],  15,  10,   6,   3,   2,   1; // Payment multiplier
 
-		set .@menu$, "ÔİÍ£:";
+		set .@menu$, "æš‚åœ:";
 		for(set .@i,0; .@i<getarraysize(.@coin); set .@i,.@i+1) {
 			set .@count[.@i], countitem(.@coin[.@i]);
 			set .@total[.@i], .@enccost*.@cost[.@i];
 			if (.@count[.@i] < .@total[.@i])
-				set .@menu$, .@menu$+"^999999"+getitemname(.@coin[.@i])+" (È±ÉÙ "+(.@total[.@i]-.@count[.@i])+")^000000:";
+				set .@menu$, .@menu$+"^999999"+getitemname(.@coin[.@i])+" (ç¼ºå°‘ "+(.@total[.@i]-.@count[.@i])+")^000000:";
 			else
-				set .@menu$, .@menu$+getitemname(.@coin[.@i])+" (ÏÖÓĞ "+.@count[.@i]+", ĞèÒª "+.@total[.@i]+"):";
+				set .@menu$, .@menu$+getitemname(.@coin[.@i])+" (ç°æœ‰ "+.@count[.@i]+", éœ€è¦ "+.@total[.@i]+"):";
 		}
 		set .@coin_select, select(.@menu$)-2;
 		if (.@coin_select == -1) {
-			mes "[ß÷ßÏß÷ßÏ]";
-			mes "µÈÄãÄÃ¶¨Ö÷ÒâµÄÊ±ºòÔÙÀ´ÕÒÎÒ.";
+			mes "[å–µå‘¦å–µå‘¦]";
+			mes "ç­‰ä½ æ‹¿å®šä¸»æ„çš„æ—¶å€™å†æ¥æ‰¾æˆ‘.";
 			close;
 		} else if (.@count[.@coin_select] < .@total[.@coin_select]) {
-			mes "[ß÷ßÏß÷ßÏ]";
-			mes "ÄãÎŞ·¨Ö§¸¶×ã¹»µÄ³êÀÍ. ÎÒÏëÄã×îºÃÔÙÈ·ÈÏÒ»ÏÂ?";
+			mes "[å–µå‘¦å–µå‘¦]";
+			mes "ä½ æ— æ³•æ”¯ä»˜è¶³å¤Ÿçš„é…¬åŠ³. æˆ‘æƒ³ä½ æœ€å¥½å†ç¡®è®¤ä¸€ä¸‹?";
 			close;
 		}
 		switch(.@coin_select) {
@@ -393,13 +389,13 @@ L_Socket:
 			break;
 		case 4: //Agrade_Coin
 		case 5: //Anger_Seagod
-			mes "[ß÷ßÏß÷ßÏ]";
-			mes "µ±ÄãÊ¹ÓÃ "+getitemname(.@coin[.@coin_select])+", Äã¿ÉÒÔÑ¡Ôñ¸½Ä§ÀàĞÍ.";
+			mes "[å–µå‘¦å–µå‘¦]";
+			mes "å½“ä½ ä½¿ç”¨ "+getitemname(.@coin[.@coin_select])+", ä½ å¯ä»¥é€‰æ‹©é™„é­”ç±»å‹.";
 			next;
-			switch(select("- ÔİÍ£:- ½üÕ½ÀàĞÍ:- Ô¶³ÌÀàĞÍ:- Ê©·¨ÀàĞÍ")) {
+			switch(select("- æš‚åœ:- è¿‘æˆ˜ç±»å‹:- è¿œç¨‹ç±»å‹:- æ–½æ³•ç±»å‹")) {
 			case 1:
-				mes "[ß÷ßÏß÷ßÏ]";
-				mes "ºÃ°É. Èç¹ûÄã¸Ä±äÏë·¨ÁË, ¾ÍÀ´ÕÒÎÒ°É.";
+				mes "[å–µå‘¦å–µå‘¦]";
+				mes "å¥½å§. å¦‚æœä½ æ”¹å˜æƒ³æ³•äº†, å°±æ¥æ‰¾æˆ‘å§.";
 				close;
 			case 2:
 				set .@enchant_type,((.@coin_select == 4)?4:1);
@@ -420,16 +416,16 @@ L_Socket:
 			set .@socket,3;
 			set .@str$,"2nd";
 		} else {
-			mes "[ß÷ßÏß÷ßÏ]";
-			mes "Õâ¼ş×°±¸ÒÑ¾­¸½Ä§µ½¼«ÖÂÁË. Ö»ÓĞ³õÊ¼»¯¸½Ä§ºóÄã²ÅÄÜ¹»ÔÙ´Î¶ÔËû½øĞĞ¸½Ä§, »òÕßÖ±½Ó´øÒ»¼şĞÂ×°±¸À´.";
+			mes "[å–µå‘¦å–µå‘¦]";
+			mes "è¿™ä»¶è£…å¤‡å·²ç»é™„é­”åˆ°æè‡´äº†. åªæœ‰åˆå§‹åŒ–é™„é­”åä½ æ‰èƒ½å¤Ÿå†æ¬¡å¯¹ä»–è¿›è¡Œé™„é­”, æˆ–è€…ç›´æ¥å¸¦ä¸€ä»¶æ–°è£…å¤‡æ¥.";
 			close;
 		}
-		mes "[ß÷ßÏß÷ßÏ]";
-		mes "ÎÒÕıÔÚÅ¬Á¦Îª "+.@str$+" ¸½Ä§. ^ff0000ÏÖÔÚ¸½Ä§²»»áËğº¦¿¨Æ¬ºÍ¾«Á¶µÈ¼¶. Í¬Ê±, ÎïÆ·Ò²²»»áËğ»Ù.^000000 ÊÇ·ñ¼ÌĞø?";
+		mes "[å–µå‘¦å–µå‘¦]";
+		mes "æˆ‘æ­£åœ¨åŠªåŠ›ä¸º "+.@str$+" é™„é­”. ^ff0000ç°åœ¨é™„é­”ä¸ä¼šæŸå®³å¡ç‰‡å’Œç²¾ç‚¼ç­‰çº§. åŒæ—¶, ç‰©å“ä¹Ÿä¸ä¼šæŸæ¯.^000000 æ˜¯å¦ç»§ç»­?";
 		next;
-		if(select("- ÎÒÉÔºóÔÙÀ´.:- ÇëÄã, ¼ÌĞø.") == 1) {
-			mes "[ß÷ßÏß÷ßÏ]";
-			mes "ºÃµÄ. Èç¹ûÄã¸Ä±äÏë·¨ÁË, ¾ÍÀ´ÕÒÎÒ°É.";
+		if(select("- æˆ‘ç¨åå†æ¥.:- è¯·ä½ , ç»§ç»­.") == 1) {
+			mes "[å–µå‘¦å–µå‘¦]";
+			mes "å¥½çš„. å¦‚æœä½ æ”¹å˜æƒ³æ³•äº†, å°±æ¥æ‰¾æˆ‘å§.";
 			close;
 		}
 		switch(.@enchant_type) {
@@ -594,8 +590,8 @@ L_Socket:
 			else set .@enchant,9;
 			break;
 		default:
-			mes "[ß÷ßÏß÷ßÏ]";
-			mes "ÓĞµãÁ÷³Ì²»ÕıÈ·. ÇëÖØÊÔÒ»ÏÂ.";
+			mes "[å–µå‘¦å–µå‘¦]";
+			mes "æœ‰ç‚¹æµç¨‹ä¸æ­£ç¡®. è¯·é‡è¯•ä¸€ä¸‹.";
 			close;
 		}
 
@@ -609,25 +605,25 @@ L_Socket:
 		else if (.@equip_card[1] == 0 && .@enclimit < 2) set .@equip_card[1],.@enchant;
 		else if (.@equip_card[0] == 0 && .@enclimit < 1) set .@equip_card[0],.@enchant;
 		else {
-			mes "[ß÷ßÏß÷ßÏ]";
-			mes "Õâ¸ö×°±¸ÒÑ¾­´ïµ½¸½Ä§µÄ¼«ÖÂÁË. Ò»¼ş×°±¸ÎÒÖ»ÄÜ¸½Ä§2´Î.";
+			mes "[å–µå‘¦å–µå‘¦]";
+			mes "è¿™ä¸ªè£…å¤‡å·²ç»è¾¾åˆ°é™„é­”çš„æè‡´äº†. ä¸€ä»¶è£…å¤‡æˆ‘åªèƒ½é™„é­”2æ¬¡.";
 			next;
-			mes "[ß÷ßÏß÷ßÏ]";
-			mes "µ±È»ÎÒÒ²²»»áÔÚ¿¨Æ¬¶´ÉÏ¸½Ä§, Èç¹ûÎäÆ÷ÓĞ3¸ö¶´µÄ»°, ÄÇÖ»ÄÜ¸½Ä§Ò»´Î. ÇëÀÎ¼ÇÕâµã~";
+			mes "[å–µå‘¦å–µå‘¦]";
+			mes "å½“ç„¶æˆ‘ä¹Ÿä¸ä¼šåœ¨å¡ç‰‡æ´ä¸Šé™„é­”, å¦‚æœæ­¦å™¨æœ‰3ä¸ªæ´çš„è¯, é‚£åªèƒ½é™„é­”ä¸€æ¬¡. è¯·ç‰¢è®°è¿™ç‚¹~";
 			close;
 		}
 		if (.@enchant == 9) { // Should never happen.
 			specialeffect2 EF_SUI_EXPLOSION;
-			mes "[ß÷ßÏß÷ßÏ]";
-			mes "ÎÒµÄÌì!";
-			mes "Õâ¼ş×°±¸±»»ÙÁË, ËüÎŞ·¨³ĞÔØÎÒµÄÇ¿´óµÄ¸½Ä§ÄÜÁ¦. Ì«±§Ç¸ÁË.";
+			mes "[å–µå‘¦å–µå‘¦]";
+			mes "æˆ‘çš„å¤©!";
+			mes "è¿™ä»¶è£…å¤‡è¢«æ¯äº†, å®ƒæ— æ³•æ‰¿è½½æˆ‘çš„å¼ºå¤§çš„é™„é­”èƒ½åŠ›. å¤ªæŠ±æ­‰äº†.";
 			delitem .@coin[.@coin_select],.@total[.@coin_select];
 			delequip EQI_HAND_R;
 			close;
 		}
 		specialeffect2 EF_REPAIRWEAPON;
-		mes "[ß÷ßÏß÷ßÏ]";
-		mes "ÎÒÒÑ¾­¸½Ä§ÁË ^990000²å²Û "+.@socket+"^000000 ÔÚÕâ×°±¸ÉÏ.";
+		mes "[å–µå‘¦å–µå‘¦]";
+		mes "æˆ‘å·²ç»é™„é­”äº† ^990000æ’æ§½ "+.@socket+"^000000 åœ¨è¿™è£…å¤‡ä¸Š.";
 		delitem .@coin[.@coin_select],.@total[.@coin_select];
 		set .@equip_refine, getequiprefinerycnt(EQI_HAND_R);
 		delequip EQI_HAND_R;
@@ -637,33 +633,33 @@ L_Socket:
 
 		close;
 	} else if (.@select == 2) {
-		mes "[ß÷ßÏß÷ßÏ]";
-		mes "ÎÒÖ»»á³õÊ¼»¯¸½Ä§Ğ§¹û, ÎÒ»áÓ°ÏìÔ­À´µÄ¾«Á¶ºÍ¿¨Æ¬.";
+		mes "[å–µå‘¦å–µå‘¦]";
+		mes "æˆ‘åªä¼šåˆå§‹åŒ–é™„é­”æ•ˆæœ, æˆ‘ä¼šå½±å“åŸæ¥çš„ç²¾ç‚¼å’Œå¡ç‰‡.";
 		next;
-		if(select("- ÔİÍ£:- ¼ÌĞø") == 1) {
-			mes "[ß÷ßÏß÷ßÏ]";
-			mes "Èç¹ûÄã¸Ä±äÖ÷ÒâÁË, ËæÊ±»¶Ó­.";
+		if(select("- æš‚åœ:- ç»§ç»­") == 1) {
+			mes "[å–µå‘¦å–µå‘¦]";
+			mes "å¦‚æœä½ æ”¹å˜ä¸»æ„äº†, éšæ—¶æ¬¢è¿.";
 			close;
 		}
 		if (countitem(6417) == 0) {
-			mes "[ß÷ßÏß÷ßÏ]";
-			mes "±§Ç¸. ÄãÃ»ÓĞªAºïÌÒ¹ûÊµ. Çë¼ì²éÄãµÄ¿â´æ?";
+			mes "[å–µå‘¦å–µå‘¦]";
+			mes "æŠ±æ­‰. ä½ æ²¡æœ‰ç‹çŒ´æ¡ƒæœå®. è¯·æ£€æŸ¥ä½ çš„åº“å­˜?";
 			close;
 		}
 		if (!getequipisequiped(EQI_HAND_R)) {
-			mes "[ß÷ßÏß÷ßÏ]";
-			mes "ÄãÔõÃ´°Ñ×°±¸ÍÑÁË?";
+			mes "[å–µå‘¦å–µå‘¦]";
+			mes "ä½ æ€ä¹ˆæŠŠè£…å¤‡è„±äº†?";
 			close;
 		}
 		if (.@equip_card[3] == 0) {
-			mes "[ß÷ßÏß÷ßÏ]";
-			mes "Õâ¼ş×°±¸ÎŞ·¨ÖØÖÃ¸½Ä§, »òÕß±¾Éí¾ÍÃ»ÓĞ¸½Ä§Ğ§¹û. ÇëÔÙ¼ì²éÒ»ÏÂ.";
+			mes "[å–µå‘¦å–µå‘¦]";
+			mes "è¿™ä»¶è£…å¤‡æ— æ³•é‡ç½®é™„é­”, æˆ–è€…æœ¬èº«å°±æ²¡æœ‰é™„é­”æ•ˆæœ. è¯·å†æ£€æŸ¥ä¸€ä¸‹.";
 			close;
 		}
 		specialeffect2 EF_REPAIRWEAPON;
-		mes "[ß÷ßÏß÷ßÏ]";
-		mes "ÖØÖÃ×°±¸µÄ¸½Ä§Ğ§¹û.";
-		delitem 6417,1; //ªAºïÌÒ¹ûÊµ
+		mes "[å–µå‘¦å–µå‘¦]";
+		mes "é‡ç½®è£…å¤‡çš„é™„é­”æ•ˆæœ.";
+		delitem 6417,1; //ç‹çŒ´æ¡ƒæœå®
 
 		// anti-hack
 		if (callfunc("F_IsEquipIDHack", EQI_HAND_R, .@equip_id) ||

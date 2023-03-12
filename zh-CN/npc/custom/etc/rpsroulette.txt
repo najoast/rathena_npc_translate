@@ -1,10 +1,7 @@
 //============================================================
-//= rAthenaCN [·è¿ñµÄ±«ÀïË¹]ºº»¯½Å±¾ [ www.rAthenaCN.com ]
+//= rAthenaCN [ç–¯ç‹‚çš„é²é‡Œæ–¯]æ±‰åŒ–è„šæœ¬ 
 //============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
+
 
 //===== Hercules Script ======================================
 //= Rock Scissors Roulette
@@ -19,33 +16,33 @@
 //= 1.2 Fixes by Blackthunder and me [Poki#3]
 //============================================================
 
-cmd_in02,182,126,2	script	·è¿ñµÄ±«ÀïË¹	4_M_03,{
-	mes "·è¿ñµÄ±«ÀïË¹";
+cmd_in02,182,126,2	script	ç–¯ç‹‚çš„é²é‡Œæ–¯	4_M_03,{
+	mes "ç–¯ç‹‚çš„é²é‡Œæ–¯";
 	set @counter,1;
-	mes "ºÙÄã! À´¶ÄÊ¯Í·¼ôµ¶²¼Âğ?";
+	mes "å˜¿ä½ ! æ¥èµŒçŸ³å¤´å‰ªåˆ€å¸ƒå—?";
 	next;
-	menu "- À´ÍæÍæ.",PLAY,"- ËµËµ¹æÔò.",L_Rules,"- Àë¿ª",LEAVE;
+	menu "- æ¥ç©ç©.",PLAY,"- è¯´è¯´è§„åˆ™.",L_Rules,"- ç¦»å¼€",LEAVE;
 	SAME:
-	mes "Æ½ÊÖ! ÔÙÀ´!";
+	mes "å¹³æ‰‹! å†æ¥!";
 	next;
 	goto PLAY;
 
 WIN:
-	mes "¸ÃËÀ, ÄãÓ®ÁË!";
+	mes "è¯¥æ­», ä½ èµ¢äº†!";
 	emotion 19;
 	next;
 	goto OPPPULL;
 
 LOSE:
 	emotion 18;
-	mes "¹ş¹ş! ÄãÊäÁË!";
+	mes "å“ˆå“ˆ! ä½ è¾“äº†!";
 	next;
 	goto YOUPULL;
 
 PLAY:
-	mes "Ê¯Í·... ²¼...";
+	mes "çŸ³å¤´... å¸ƒ...";
 	set @opp,rand (1,3);
-	menu "^0000FFÊ¯Í·!",L_Rock,"^FF0000¼ôµ¶!",SCISSORS,"^00FF00²¼!^000000",PAPER;
+	menu "^0000FFçŸ³å¤´!",L_Rock,"^FF0000å‰ªåˆ€!",SCISSORS,"^00FF00å¸ƒ!^000000",PAPER;
 
 L_Rock:
   	if (@lastchoice == 1) set @opp,rand (1,3);
@@ -136,7 +133,7 @@ FIVE:
 
 SIX:
 	mes "6 / 6";
-	mes "Æíµ»°É";
+	mes "ç¥ˆç¥·å§";
 	set @pull,1;
 	next;
 	if (@pull == 1) goto DIE;
@@ -184,7 +181,7 @@ FIVEa:
 
 SIXa:
 	mes "6 / 6";
-	mes "Æíµ»°É";
+	mes "ç¥ˆç¥·å§";
 	set @pull,1;
 	next;
 	if (@pull == 1) goto KILL;
@@ -192,38 +189,38 @@ SIXa:
 
 SAFE:
 	emotion 32;
-	mes "*^0000FFµã»÷^000000* °¥Ñ½...";
+	mes "*^0000FFç‚¹å‡»^000000* å“å‘€...";
 	goto PLAY;
 
 DIE:
 	specialeffect2 183;
 	emotion 29;
 	percentheal -100,-100;
-	mes "*^0000FFµã»÷^000000* *^FF0000Åé!^000000*";
-	mes "ÄãËÀÁË!";
+	mes "*^0000FFç‚¹å‡»^000000* *^FF0000ç °!^000000*";
+	mes "ä½ æ­»äº†!";
 	close;
 
 KILL:
 	specialeffect 183;
 	emotion 23;
-	mes "*^0000FFµã»÷^000000* *^FF0000Åé!^000000*";
-	mes "OWWW @#$%^!! ÕâÌ«ÌÛÁË!!";
+	mes "*^0000FFç‚¹å‡»^000000* *^FF0000ç °!^000000*";
+	mes "OWWW @#$%^!! è¿™å¤ªç–¼äº†!!";
 	next;
 	goto PRIZE;
 
 L_Rules:
-	mes "¹æÔòÈçÏÂ:";
-	mes "ÎÒÕâÀïÓĞ°Ñ ^FF00006^000000 ·¢×óÂÖÊÖÇ¹ ^FF00001^000000 Ç¹1ÂÖ. Ê×ÏÈÎÒÃÇÍæ ^FF0000¼ôµ¶ ^00FF00Ê¯Í· ^0000FF²¼^000000. ÊäµÄ¶Ô×Ô¼ºÀ´1Ç¹. ×îÖÕ¾ö³öÓ®¼Ò.";
-	mes "Ó®ÎÒ¿ÉÒÔµÃµ½½±Æ·.";
-	menu "- ÈÃÎÒÍæÍæ.",CONT,"- ²»ÁË, Ğ»Ğ».",LEAVE;
+	mes "è§„åˆ™å¦‚ä¸‹:";
+	mes "æˆ‘è¿™é‡Œæœ‰æŠŠ ^FF00006^000000 å‘å·¦è½®æ‰‹æª ^FF00001^000000 æª1è½®. é¦–å…ˆæˆ‘ä»¬ç© ^FF0000å‰ªåˆ€ ^00FF00çŸ³å¤´ ^0000FFå¸ƒ^000000. è¾“çš„å¯¹è‡ªå·±æ¥1æª. æœ€ç»ˆå†³å‡ºèµ¢å®¶.";
+	mes "èµ¢æˆ‘å¯ä»¥å¾—åˆ°å¥–å“.";
+	menu "- è®©æˆ‘ç©ç©.",CONT,"- ä¸äº†, è°¢è°¢.",LEAVE;
 
 CONT:
-	mes "ºÃÎÒÃÇ¿ªÊ¼°É...";
+	mes "å¥½æˆ‘ä»¬å¼€å§‹å§...";
 	next;
 	goto PLAY;
 
 PRIZE:
-	mes "¹§Ï²! Äã»ñÊ¤ÁË...";
+	mes "æ­å–œ! ä½ è·èƒœäº†...";
 	set @prize,rand (1,10);
 	if (@prize == 1) goto P1;
 	if (@prize == 2) goto P2;
@@ -237,56 +234,56 @@ PRIZE:
 	if (@prize == 10) goto P10;
 
 P1:
-	mes "1x ÉñÖ®½ğÊô!";
+	mes "1x ç¥ä¹‹é‡‘å±!";
 	getitem 984,1;
 	close;
 
 P2:
-	mes "1x ÂÁ!";
+	mes "1x é“!";
 	getitem 985,1;
 	close;
 
 P3:
-	mes "30x ±ùä¿ÁÜ!";
+	mes "30x å†°æ·‡æ·‹!";
 	getitem 536,30;
 	close;
 
 P4:
-	mes "2x ÉñÃØÏä×Ó!";
+	mes "2x ç¥ç§˜ç®±å­!";
 	getitem 603,2;
 	close;
 
 P5:
-	mes "1x ÉñÃØ×ÏÏä!";
+	mes "1x ç¥ç§˜ç´«ç®±!";
 	getitem 617,1;
 	close;
 
 P6:
-	mes "1x ÀÏ¾ÉÊÕ¼¯²á!";
+	mes "1x è€æ—§æ”¶é›†å†Œ!";
 	getitem 616,1;
 	close;
 
 P7:
-	mes "3x ¿İÊ÷Ö¦!";
+	mes "3x æ¯æ ‘æ!";
 	getitem 604,3;
 	close;
 
 P8:
-	mes "1x »Æ½ğ!";
+	mes "1x é»„é‡‘!";
 	getitem 969,1;
 	close;
 
 P9:
-	mes "30x °×É«ÏËÏ¸Ò©Ë®!";
+	mes "30x ç™½è‰²çº¤ç»†è¯æ°´!";
 	getitem 547,30;
 	close;
 
 P10:
-	mes "20x À¶É«Ò©Ë®!";
+	mes "20x è“è‰²è¯æ°´!";
 	getitem 505,20;
 	close;
 
 LEAVE:
-	mes "´ôB.";
+	mes "å‘†B.";
 	close;
 }

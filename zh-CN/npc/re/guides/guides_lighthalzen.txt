@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN ½Å±¾ºº»¯ www.rAthenaCN.com ×ª×Ô [ www.99Max.mE ]
-//============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN è„šæœ¬æ±‰åŒ– è½¬è‡ª [ www.99Max.mE ]
 //============================================================
 
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Lighthalzen Guides
 //===== By: ================================================== 
 //= L0ne_W0lf
@@ -22,70 +18,70 @@
 //= 1.1 Optimized. [Euphy]
 //============================================================ 
 
-lighthalzen,207,310,5	script	ÀïÏ£ËşÀÖÕòµ¼ÓÎ#lhz01::GuideLighthazlen	852,{
+lighthalzen,207,310,5	script	é‡Œå¸Œå¡”ä¹é•‡å¯¼æ¸¸#lhz01::GuideLighthazlen	852,{
 	cutin "ein_soldier",2;
-	mes "[ÀïÏ£ËşÀÖÕòµ¼ÓÎ]";
-	mes "»¶Ó­¹âÁÙ ÆóÒµÖ®¶¼^8B4513ÀïÏ£ËşÀÖÕò^000000,";
-	mes "ÎÒÃÇÎªÁËÔì·ÃÀïÏ£ËşÀÖÕòµÄ¸÷Î»ÂÃĞĞ¼ÒÃÇÌá¹©µ¼ÓÎ·şÎñ,";
-	mes "»¶Ó­ËæÊ±Ç¢Ñ¯ÎÒÃÇµÄµ¼ÓÎ";
+	mes "[é‡Œå¸Œå¡”ä¹é•‡å¯¼æ¸¸]";
+	mes "æ¬¢è¿å…‰ä¸´ ä¼ä¸šä¹‹éƒ½^8B4513é‡Œå¸Œå¡”ä¹é•‡^000000,";
+	mes "æˆ‘ä»¬ä¸ºäº†é€ è®¿é‡Œå¸Œå¡”ä¹é•‡çš„å„ä½æ—…è¡Œå®¶ä»¬æä¾›å¯¼æ¸¸æœåŠ¡,";
+	mes "æ¬¢è¿éšæ—¶æ´½è¯¢æˆ‘ä»¬çš„å¯¼æ¸¸";
 	next;
-	mes "[ÀïÏ£ËşÀÖÕòµ¼ÓÎ]";
-	mes "ÎÒ¸ºÔğÀïÏ£ËşÀÖÕò^8B4513×ó²àµØÇø^000000µÄ½éÉÜ,";
-	mes "ÇëÑ¡ÔñÄúÏëÁË½âµÄÑ¡Ïî°É!";
+	mes "[é‡Œå¸Œå¡”ä¹é•‡å¯¼æ¸¸]";
+	mes "æˆ‘è´Ÿè´£é‡Œå¸Œå¡”ä¹é•‡^8B4513å·¦ä¾§åœ°åŒº^000000çš„ä»‹ç»,";
+	mes "è¯·é€‰æ‹©æ‚¨æƒ³äº†è§£çš„é€‰é¡¹å§!";
 	next;
 	while (1) {
-		switch(select("[ Ö÷ÒªÉèÊ© ]:[ ÉÌµê & Ğ¡°ïÊÖ ]:É¾³ıĞ¡µØÍ¼µÄ±ê¼Ç:½áÊø¶Ô»°")) {
+		switch(select("[ ä¸»è¦è®¾æ–½ ]:[ å•†åº— & å°å¸®æ‰‹ ]:åˆ é™¤å°åœ°å›¾çš„æ ‡è®°:ç»“æŸå¯¹è¯")) {
 		case 1:
 			set .@loop,1;
 			while (.@loop) {
-				switch(select("[ ¾Æµê ]:[ ÒøĞĞ ]:[ »ú³¡ ]:[ ÎäÆ÷µê ]:[ °Ù»õ¹«Ë¾ ]:[ ¾¯²ì¾Ö ]:[ Öé±¦µê ]:[ ×¼ËüÆó»®¹«Ë¾ ]:[ ÈË¹¤ÉúÃüÌåÊµÑéÊÒ ]:[ Á¶½ğÊõÊ¦Ğ­»á ]:·µ»ØÉÏÒ»Ñ¡µ¥")) {
+				switch(select("[ é…’åº— ]:[ é“¶è¡Œ ]:[ æœºåœº ]:[ æ­¦å™¨åº— ]:[ ç™¾è´§å…¬å¸ ]:[ è­¦å¯Ÿå±€ ]:[ ç å®åº— ]:[ å‡†å®ƒä¼åˆ’å…¬å¸ ]:[ äººå·¥ç”Ÿå‘½ä½“å®éªŒå®¤ ]:[ ç‚¼é‡‘æœ¯å¸ˆåä¼š ]:è¿”å›ä¸Šä¸€é€‰å•")) {
 				case 1:
-					callsub L_Mark,"^FF0000¾Æµê";
+					callsub L_Mark,"^FF0000é…’åº—";
 					viewpoint 1,160,217,0,0xFF0000;
 					next;
 					break;
 				case 2:
-					callsub L_Mark,"^FF4500ÒøĞĞ";
+					callsub L_Mark,"^FF4500é“¶è¡Œ";
 					viewpoint 1,203,257,1,0xFF4500;
 					next;
 					break;
 				case 3:
-					callsub L_Mark,"^DAA520»ú³¡";
+					callsub L_Mark,"^DAA520æœºåœº";
 					viewpoint 1,262,75,2,0xDAA520;
 					next;
 					break;
 				case 4:
-					callsub L_Mark,"^7B68EEÎäÆ÷µê";
+					callsub L_Mark,"^7B68EEæ­¦å™¨åº—";
 					viewpoint 1,194,35,3,0x7B68EE;
 					next;
 					break;
 				case 5:
-					callsub L_Mark,"^B91A4D°Ù»õ¹«Ë¾";
+					callsub L_Mark,"^B91A4Dç™¾è´§å…¬å¸";
 					viewpoint 1,202,106,4,0xB91A4D;
 					next;
 					break;
 				case 6:
-					callsub L_Mark,"^008000¾¯²ì¾Ö";
+					callsub L_Mark,"^008000è­¦å¯Ÿå±€";
 					viewpoint 1,234,276,5,0x008000;
 					next;
 					break;
 				case 7:
-					callsub L_Mark,"^0000FFÖé±¦µê";
+					callsub L_Mark,"^0000FFç å®åº—";
 					viewpoint 1,96,110,6,0x0000FF;
 					next;
 					break;
 				case 8:
-					callsub L_Mark,"^000080×¼ËüÆó»®¹«Ë¾";
+					callsub L_Mark,"^000080å‡†å®ƒä¼åˆ’å…¬å¸";
 					viewpoint 1,238,217,7,0x000080;
 					next;
 					break;
 				case 9:
-					callsub L_Mark,"^800080ÈË¹¤ÉúÃüÌåÊµÑéÊÒ";
+					callsub L_Mark,"^800080äººå·¥ç”Ÿå‘½ä½“å®éªŒå®¤";
 					viewpoint 1,101,243,8,0x800080;
 					next;
 					break;
 				case 10:
-					callsub L_Mark,"^0A9696Á¶½ğÊõÊ¦Ğ­»á";
+					callsub L_Mark,"^0A9696ç‚¼é‡‘æœ¯å¸ˆåä¼š";
 					viewpoint 1,54,132,9,0x0A9696;
 					next;
 					break;
@@ -98,30 +94,30 @@ lighthalzen,207,310,5	script	ÀïÏ£ËşÀÖÕòµ¼ÓÎ#lhz01::GuideLighthazlen	852,{
 		case 2:
 			set .@loop,1;
 			while (.@loop) {
-				switch(select("[ ¾«Á¶Ê¦ ]:[ ÊÀÑÇ²¼Á¬ ]:[ ÈÏÑø³èÎïÉÌÈË ]:[ ¿¨ÆÕÀ­Ö°Ô± ]:[ ×¼ËüÆó»®¹«Ë¾Ö°Ô± ]:·µ»ØÉÏÒ»Ñ¡µ¥")) {
+				switch(select("[ ç²¾ç‚¼å¸ˆ ]:[ ä¸–äºšå¸ƒè¿ ]:[ è®¤å…»å® ç‰©å•†äºº ]:[ å¡æ™®æ‹‰èŒå‘˜ ]:[ å‡†å®ƒä¼åˆ’å…¬å¸èŒå‘˜ ]:è¿”å›ä¸Šä¸€é€‰å•")) {
 				case 1:
-					callsub L_Mark,"^0A9696¾«Á¶Ê¦";
+					callsub L_Mark,"^0A9696ç²¾ç‚¼å¸ˆ";
 					viewpoint 1,194,35,10,0x0A9696;
 					next;
 					break;
 				case 2:
-					callsub L_Mark,"^4B0082ÊÀÑÇ²¼Á¬";
+					callsub L_Mark,"^4B0082ä¸–äºšå¸ƒè¿";
 					viewpoint 1,194,35,11,0x4B0082;
 					next;
 					break;
 				case 3:
-					callsub L_Mark,"^FF4500ÈÏÑø³èÎïÉÌÈË";
+					callsub L_Mark,"^FF4500è®¤å…»å® ç‰©å•†äºº";
 					viewpoint 1,222,191,12,0xFF4500;
 					next;
 					break;
 				case 4:
-					callsub L_Mark,"^008080¿¨ÆÕÀ­Ö°Ô±";
+					callsub L_Mark,"^008080å¡æ™®æ‹‰èŒå‘˜";
 					viewpoint 1,164,99,13,0x008080;
 					viewpoint 1,164,99,14,0x008080;
 					next;
 					break;
 				case 5:
-					callsub L_Mark,"^FF1493×¼ËüÆó»®¹«Ë¾Ö°Ô±";
+					callsub L_Mark,"^FF1493å‡†å®ƒä¼åˆ’å…¬å¸èŒå‘˜";
 					viewpoint 1,94,247,15,0xFF1493;
 					next;
 					break;
@@ -132,9 +128,9 @@ lighthalzen,207,310,5	script	ÀïÏ£ËşÀÖÕòµ¼ÓÎ#lhz01::GuideLighthazlen	852,{
 			}
 			break;
 		case 3:
-			mes "[ÀïÏ£ËşÀÖÕòµ¼ÓÎ]";
-			mes "±ê¼ÇÒÑÉ¾³ı,";
-			mes "»¹ĞèÒªÆäËü·şÎñÂğ?";
+			mes "[é‡Œå¸Œå¡”ä¹é•‡å¯¼æ¸¸]";
+			mes "æ ‡è®°å·²åˆ é™¤,";
+			mes "è¿˜éœ€è¦å…¶å®ƒæœåŠ¡å—?";
 			viewpoint 2,160,217,0,0xFFFFFF;
 			viewpoint 2,203,257,1,0xFFFFFF;
 			viewpoint 2,262,75,2,0xFFFFFF;
@@ -154,8 +150,8 @@ lighthalzen,207,310,5	script	ÀïÏ£ËşÀÖÕòµ¼ÓÎ#lhz01::GuideLighthazlen	852,{
 			next;
 			break;
 		case 4:
-			mes "[ÀïÏ£ËşÀÖÕòµ¼ÓÎ]";
-			mes "×£ÄãÂÃÍ¾Óä¿ì!";
+			mes "[é‡Œå¸Œå¡”ä¹é•‡å¯¼æ¸¸]";
+			mes "ç¥ä½ æ—…é€”æ„‰å¿«!";
 			close2;
 			cutin "ein_soldier",255;
 			end;
@@ -163,14 +159,14 @@ lighthalzen,207,310,5	script	ÀïÏ£ËşÀÖÕòµ¼ÓÎ#lhz01::GuideLighthazlen	852,{
 	}
 	end;
 L_Mark:
-	mes "[ÀïÏ£ËşÀÖÕòµ¼ÓÎ]";
-	mes "ÈÃÎÒÔÚÄãµÄĞ¡µØÍ¼ÉÏ±ê¼ÇÒ»ÏÂ";
+	mes "[é‡Œå¸Œå¡”ä¹é•‡å¯¼æ¸¸]";
+	mes "è®©æˆ‘åœ¨ä½ çš„å°åœ°å›¾ä¸Šæ ‡è®°ä¸€ä¸‹";
 	mes getarg(0)+"^000000";
-	mes "µÄÎ»ÖÃ.";
-	mes "Äã»¹ĞèÒªÈ·ÈÏÆäËû½¨ÖşÎïµÄÎ»ÖÃÂğ?";
+	mes "çš„ä½ç½®.";
+	mes "ä½ è¿˜éœ€è¦ç¡®è®¤å…¶ä»–å»ºç­‘ç‰©çš„ä½ç½®å—?";
 	return;
 }
 
-lighthalzen,220,310,3	duplicate(GuideLighthazlen)	ÀïÏ£ËşÀÖÕòµ¼ÓÎ#lhz02	852
-lighthalzen,154,100,5	duplicate(GuideLighthazlen)	ÀïÏ£ËşÀÖÕòµ¼ÓÎ#lhz03	852
-lighthalzen,307,224,3	duplicate(GuideLighthazlen)	ÀïÏ£ËşÀÖÕòµ¼ÓÎ#lhz04	852
+lighthalzen,220,310,3	duplicate(GuideLighthazlen)	é‡Œå¸Œå¡”ä¹é•‡å¯¼æ¸¸#lhz02	852
+lighthalzen,154,100,5	duplicate(GuideLighthazlen)	é‡Œå¸Œå¡”ä¹é•‡å¯¼æ¸¸#lhz03	852
+lighthalzen,307,224,3	duplicate(GuideLighthazlen)	é‡Œå¸Œå¡”ä¹é•‡å¯¼æ¸¸#lhz04	852

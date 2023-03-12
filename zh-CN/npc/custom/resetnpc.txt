@@ -1,10 +1,7 @@
 //============================================================
-//= rAthenaCN [ÖØÖÃÖúÊÖ]ºº»¯½Å±¾ [ www.rAthenaCN.com ]
+//= rAthenaCN [é‡ç½®åŠ©æ‰‹]æ±‰åŒ–è„šæœ¬ 
 //============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
+
 
 //===== rAthena Script =======================================
 //= Reset NPC
@@ -23,52 +20,52 @@
 //= 1.3 All statuses removed upon skill reset. [Euphy]
 //============================================================
 
-prontera,150,193,4	script	ÖØÖÃÖúÊÖ	124,{
+prontera,150,193,4	script	é‡ç½®åŠ©æ‰‹	124,{
 
 	.@ResetStat  = 500000;	// Zeny for stat reset
 	.@ResetSkill = 500000;	// Zeny for skill reset
 	.@ResetBoth  = 800000;	// Zeny for resetting both together
 
-	mes "[ÖØÖÃÖúÊÖ]";
-	mes "ÄãºÃ,ÎÒÊÇÖØÖÃÖúÊÖ.";
-	mes "ÊôĞÔµãÖØÖÃ·ÑÓÃ: "  + callfunc("F_InsertComma", .@ResetStat)  + "z";
-	mes "¼¼ÄÜµãÖØÖÃ·ÑÓÃ: " + callfunc("F_InsertComma", .@ResetSkill) + "z";
-	mes "È«²¿µãÖØÖÃ·ÑÓÃ: "   + callfunc("F_InsertComma", .@ResetBoth)  + "z";
-	mes "ÇëÄãÑ¡ÔñĞèÒªµÄ·şÎñ:";
+	mes "[é‡ç½®åŠ©æ‰‹]";
+	mes "ä½ å¥½,æˆ‘æ˜¯é‡ç½®åŠ©æ‰‹.";
+	mes "å±æ€§ç‚¹é‡ç½®è´¹ç”¨: "  + callfunc("F_InsertComma", .@ResetStat)  + "z";
+	mes "æŠ€èƒ½ç‚¹é‡ç½®è´¹ç”¨: " + callfunc("F_InsertComma", .@ResetSkill) + "z";
+	mes "å…¨éƒ¨ç‚¹é‡ç½®è´¹ç”¨: "   + callfunc("F_InsertComma", .@ResetBoth)  + "z";
+	mes "è¯·ä½ é€‰æ‹©éœ€è¦çš„æœåŠ¡:";
 	next;
-	switch(select("^FF3355ÖØÖÃ¼¼ÄÜµã:ÖØÖÃÊôĞÔµã:ÖØÖÃÊôĞÔºÍ¼¼ÄÜµã^000000:È¡Ïû")) {
+	switch(select("^FF3355é‡ç½®æŠ€èƒ½ç‚¹:é‡ç½®å±æ€§ç‚¹:é‡ç½®å±æ€§å’ŒæŠ€èƒ½ç‚¹^000000:å–æ¶ˆ")) {
 	case 1:
-		mes "[ÖØÖÃÖúÊÖ]";
+		mes "[é‡ç½®åŠ©æ‰‹]";
 		if (Zeny < .@ResetSkill) {
-			mes "±§Ç¸, ÄãÃ»ÓĞ×ã¹»µÄZeny.";
+			mes "æŠ±æ­‰, ä½ æ²¡æœ‰è¶³å¤Ÿçš„Zeny.";
 			close;
 		}
 		Zeny -= .@ResetSkill;
 		sc_end SC_ALL;
 		resetskill;
-		mes "¸ã¶¨À²!ÓĞĞèÒªÔÙÀ´ÕÒÎÒ°É~";
+		mes "æå®šå•¦!æœ‰éœ€è¦å†æ¥æ‰¾æˆ‘å§~";
 		close;
 	case 2:
-		mes "[ÖØÖÃÖúÊÖ]";
+		mes "[é‡ç½®åŠ©æ‰‹]";
 		if (Zeny < .@ResetStat) {
-			mes "±§Ç¸, ÄãÃ»ÓĞ×ã¹»µÄZeny.";
+			mes "æŠ±æ­‰, ä½ æ²¡æœ‰è¶³å¤Ÿçš„Zeny.";
 			close;
 		}
 		Zeny -= .@ResetStat;
 		resetstatus;
-		mes "¸ã¶¨À²!ÓĞĞèÒªÔÙÀ´ÕÒÎÒ°É~";
+		mes "æå®šå•¦!æœ‰éœ€è¦å†æ¥æ‰¾æˆ‘å§~";
 		close;
 	case 3:
-		mes "[ÖØÖÃÖúÊÖ]";
+		mes "[é‡ç½®åŠ©æ‰‹]";
 		if (Zeny < .@ResetBoth) {
-			mes "±§Ç¸, ÄãÃ»ÓĞ×ã¹»µÄZeny.";
+			mes "æŠ±æ­‰, ä½ æ²¡æœ‰è¶³å¤Ÿçš„Zeny.";
 			close;
 		}
 		Zeny -= .@ResetBoth;
 		sc_end SC_ALL;
 		resetskill;
 		resetstatus;
-		mes "¸ã¶¨À²!ÓĞĞèÒªÔÙÀ´ÕÒÎÒ°É~";
+		mes "æå®šå•¦!æœ‰éœ€è¦å†æ¥æ‰¾æˆ‘å§~";
 		close;
 	case 4:
 		close;

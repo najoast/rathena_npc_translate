@@ -1,10 +1,7 @@
 //============================================================
-//= rAthenaCN [¹«»áÕ½GVG]ºº»¯½Å±¾ [ www.rAthenaCN.com ]
+//= rAthenaCN [å…¬ä¼šæˆ˜GVG]æ±‰åŒ–è„šæœ¬ 
 //============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
+
 
 //===== rAthena Script =======================================
 //= War of Emperium (Prontera)
@@ -26,30 +23,30 @@
 
 // Guild Flags (Outside Castle)
 //============================================================
--	script	À­×ÈÁ¢¿ËË¹#1::OutsideFlagsPR3	722,{
+-	script	æ‹‰å…¹ç«‹å…‹æ–¯#1::OutsideFlagsPR3	722,{
 
 	set .@GID, GetCastleData("prtg_cas03",1);
 
 	if (.@GID == 0) {
-		mes "[ ÉñÊ¥Â¬¶÷¡¤Ã×µÂ¼Ó×ÈÍõ¹ú·¨Áî ]";
+		mes "[ ç¥åœ£å¢æ©Â·ç±³å¾·åŠ å…¹ç‹å›½æ³•ä»¤ ]";
 		mes " ";
-		mes "1. ×ñÑ­ÉñÊ¥Â¬¶÷¡¤Ã×µÂ¼Ó×ÈÍõ¹ú·¨Áî, ";
-		mes "ÎÒÃÇÕıÊ½ÉùÃ÷";
-		mes "´Ë³Ç±¤Ã»ÓĞÕıÊ½ÓµÓĞÕß.";
+		mes "1. éµå¾ªç¥åœ£å¢æ©Â·ç±³å¾·åŠ å…¹ç‹å›½æ³•ä»¤, ";
+		mes "æˆ‘ä»¬æ­£å¼å£°æ˜";
+		mes "æ­¤åŸå ¡æ²¡æœ‰æ­£å¼æ‹¥æœ‰è€….";
 		mes " ";
-		mes "2. ¾­¹ıËùÓĞÊÔÁ¶,";
-		mes "²¢ÇÒ»÷Ëé»ªÀö½ğÊôµÄÓÂÊ¿.";
-		mes "½«»áµÃµ½¹úÍõµîÏÂµÄÚ¯Êé";
-		mes "±»ÊÚÓè¸Ã³Ç±¤ÓµÓĞÈ¨.";
-		mes "²¢Ò»Í¬ÊØ»¤Â¬¶÷¡¤Ã×µÂ¼Ó×ÈÍõ¹ú!";
+		mes "2. ç»è¿‡æ‰€æœ‰è¯•ç‚¼,";
+		mes "å¹¶ä¸”å‡»ç¢åä¸½é‡‘å±çš„å‹‡å£«.";
+		mes "å°†ä¼šå¾—åˆ°å›½ç‹æ®¿ä¸‹çš„è¯ä¹¦";
+		mes "è¢«æˆäºˆè¯¥åŸå ¡æ‹¥æœ‰æƒ.";
+		mes "å¹¶ä¸€åŒå®ˆæŠ¤å¢æ©Â·ç±³å¾·åŠ å…¹ç‹å›½!";
 		close;
 	}
 	if (getcharid(2) == .@GID) {
-		mes "[ »ØÉù ]";
-		mes "ÓÂÊ¿ÃÇ...";
-		mes "ÏëÒª»Øµ½ÄãÃÇµÄÈÙÒ«Ö®µØÂğ?";
+		mes "[ å›å£° ]";
+		mes "å‹‡å£«ä»¬...";
+		mes "æƒ³è¦å›åˆ°ä½ ä»¬çš„è£è€€ä¹‹åœ°å—?";
 		next;
-		if(select("·µ»Ø¹«»á³Ç±¤.:È¡Ïû.") == 1) {
+		if(select("è¿”å›å…¬ä¼šåŸå ¡.:å–æ¶ˆ.") == 1) {
 			close2;
 			if (getcharid(2) == GetCastleData("prtg_cas03",1)) {
 				warp "prtg_cas03",181,215;
@@ -59,16 +56,16 @@
 		}
 		close;
 	}
-	mes "[ ÉñÊ¥Â¬¶÷¡¤Ã×µÂ¼Ó×ÈÍõ¹ú·¨Áî ]";
+	mes "[ ç¥åœ£å¢æ©Â·ç±³å¾·åŠ å…¹ç‹å›½æ³•ä»¤ ]";
 	mes " ";
-	mes "1. ×ñÑ­ÉñÊ¥Â¬¶÷¡¤Ã×µÂ¼Ó×ÈÍõ¹ú·¨Áî,";
-	mes "ÎÒÃÇÈÏ¿É´Ë´¦Îª.";
-	mes " ^ff0000"+GetGuildName(.@GID)+"^000000¹«»áµÄË½ÈËÁìµØ.";
+	mes "1. éµå¾ªç¥åœ£å¢æ©Â·ç±³å¾·åŠ å…¹ç‹å›½æ³•ä»¤,";
+	mes "æˆ‘ä»¬è®¤å¯æ­¤å¤„ä¸º.";
+	mes " ^ff0000"+GetGuildName(.@GID)+"^000000å…¬ä¼šçš„ç§äººé¢†åœ°.";
 	mes " ";
-	mes "2. ¹«»á ^ff0000"+GetGuildName(.@GID)+"^000000 µÄÁìĞäÎª:";
+	mes "2. å…¬ä¼š ^ff0000"+GetGuildName(.@GID)+"^000000 çš„é¢†è¢–ä¸º:";
 	mes "^ff0000"+GetGuildMaster(.@GID)+"^000000";
-	mes "Èç¹ûÈÎºÎÈË¶Ô´ËÓĞÒìÒé.";
-	mes "ÇëÓÃÊÖÖĞµÄÎäÆ÷À´Ö¤Ã÷×Ô¼ºµÄÓÂÆøºÍÈÙÒ«!";
+	mes "å¦‚æœä»»ä½•äººå¯¹æ­¤æœ‰å¼‚è®®.";
+	mes "è¯·ç”¨æ‰‹ä¸­çš„æ­¦å™¨æ¥è¯æ˜è‡ªå·±çš„å‹‡æ°”å’Œè£è€€!";
 	close;
 
 OnRecvCastlePt03:
@@ -76,14 +73,14 @@ OnRecvCastlePt03:
 	end;
 }
 
-prt_gld,147,140,4	duplicate(OutsideFlagsPR3)	À­×ÈÁ¢¿ËË¹#1-2	722
-prt_gld,147,136,4	duplicate(OutsideFlagsPR3)	À­×ÈÁ¢¿ËË¹#2	722
-prt_gld,158,140,4	duplicate(OutsideFlagsPR3)	À­×ÈÁ¢¿ËË¹#3	722
-prt_gld,158,136,4	duplicate(OutsideFlagsPR3)	À­×ÈÁ¢¿ËË¹#4	722
+prt_gld,147,140,4	duplicate(OutsideFlagsPR3)	æ‹‰å…¹ç«‹å…‹æ–¯#1-2	722
+prt_gld,147,136,4	duplicate(OutsideFlagsPR3)	æ‹‰å…¹ç«‹å…‹æ–¯#2	722
+prt_gld,158,140,4	duplicate(OutsideFlagsPR3)	æ‹‰å…¹ç«‹å…‹æ–¯#3	722
+prt_gld,158,136,4	duplicate(OutsideFlagsPR3)	æ‹‰å…¹ç«‹å…‹æ–¯#4	722
 
 // Guild Flags (Inside Castle)
 //============================================================
--	script	À­×ÈÁ¢¿ËË¹#5::InsideFlagsPR3	722,{
+-	script	æ‹‰å…¹ç«‹å…‹æ–¯#5::InsideFlagsPR3	722,{
 	end;
 
 OnRecvCastlePt03:
@@ -91,24 +88,24 @@ OnRecvCastlePt03:
 	end;
 }
 
-prtg_cas03,168,28,4	duplicate(InsideFlagsPR3)	À­×ÈÁ¢¿ËË¹#5-2	722
-prtg_cas03,182,28,4	duplicate(InsideFlagsPR3)	À­×ÈÁ¢¿ËË¹#6	722
-prtg_cas03,43,50,4	duplicate(InsideFlagsPR3)	À­×ÈÁ¢¿ËË¹#7	722
-prtg_cas03,48,50,4	duplicate(InsideFlagsPR3)	À­×ÈÁ¢¿ËË¹#8	722
-prtg_cas03,43,58,4	duplicate(InsideFlagsPR3)	À­×ÈÁ¢¿ËË¹#9	722
-prtg_cas03,48,58,4	duplicate(InsideFlagsPR3)	À­×ÈÁ¢¿ËË¹#10	722
-prtg_cas03,158,210,4	duplicate(InsideFlagsPR3)	À­×ÈÁ¢¿ËË¹#11	722
-prtg_cas03,169,210,4	duplicate(InsideFlagsPR3)	À­×ÈÁ¢¿ËË¹#12	722
-prtg_cas03,162,201,4	duplicate(InsideFlagsPR3)	À­×ÈÁ¢¿ËË¹#13	722
-prtg_cas03,165,201,4	duplicate(InsideFlagsPR3)	À­×ÈÁ¢¿ËË¹#14	722
+prtg_cas03,168,28,4	duplicate(InsideFlagsPR3)	æ‹‰å…¹ç«‹å…‹æ–¯#5-2	722
+prtg_cas03,182,28,4	duplicate(InsideFlagsPR3)	æ‹‰å…¹ç«‹å…‹æ–¯#6	722
+prtg_cas03,43,50,4	duplicate(InsideFlagsPR3)	æ‹‰å…¹ç«‹å…‹æ–¯#7	722
+prtg_cas03,48,50,4	duplicate(InsideFlagsPR3)	æ‹‰å…¹ç«‹å…‹æ–¯#8	722
+prtg_cas03,43,58,4	duplicate(InsideFlagsPR3)	æ‹‰å…¹ç«‹å…‹æ–¯#9	722
+prtg_cas03,48,58,4	duplicate(InsideFlagsPR3)	æ‹‰å…¹ç«‹å…‹æ–¯#10	722
+prtg_cas03,158,210,4	duplicate(InsideFlagsPR3)	æ‹‰å…¹ç«‹å…‹æ–¯#11	722
+prtg_cas03,169,210,4	duplicate(InsideFlagsPR3)	æ‹‰å…¹ç«‹å…‹æ–¯#12	722
+prtg_cas03,162,201,4	duplicate(InsideFlagsPR3)	æ‹‰å…¹ç«‹å…‹æ–¯#13	722
+prtg_cas03,165,201,4	duplicate(InsideFlagsPR3)	æ‹‰å…¹ç«‹å…‹æ–¯#14	722
 
 // Guild Flag (Town)
 //============================================================
-prontera,143,203,2	duplicate(InsideFlagsPR3)	À­×ÈÁ¢¿ËË¹#15	722
+prontera,143,203,2	duplicate(InsideFlagsPR3)	æ‹‰å…¹ç«‹å…‹æ–¯#15	722
 
 // Kafra Employee
 //============================================================
-prtg_cas03,181,215,4	duplicate(guildkafra)	¿¨ÆÕÀ­ Ö°Ô±#prtg_cas03	117
+prtg_cas03,181,215,4	duplicate(guildkafra)	å¡æ™®æ‹‰ èŒå‘˜#prtg_cas03	117
 
 // Steward
 //============================================================
@@ -119,9 +116,9 @@ prtg_cas03,51,100,4	duplicate(cm)	Sttick#prtg_cas03	55
 prtg_cas03,193,130,0	script	#Lever_PR03	111,{
 
 	mes " ";
-	mes "ÕâÀïÓĞÒ»¸öĞ¡Ğ¡µÄ¿ØÖÆ¸Ë, È¥À­Ò»ÏÂÂğ?";
+	mes "è¿™é‡Œæœ‰ä¸€ä¸ªå°å°çš„æ§åˆ¶æ†, å»æ‹‰ä¸€ä¸‹å—?";
 	next;
-	if(select("ÉÏÇ°À­¸Ë.:ËãÁË.") == 1) {
+	if(select("ä¸Šå‰æ‹‰æ†.:ç®—äº†.") == 1) {
 		close2;
 		warp "prtg_cas03",51,101;
 		end;
@@ -135,7 +132,7 @@ prtg_cas03,5,70,0	duplicate(gdlever)	#prtg_cas03	111
 
 // Guild Treasure Spawns
 //============================================================
-prtg_cas03,189,132,0	duplicate(Gld_Trea_Spawn)	±¦Ïä#prtg_cas03	-1
+prtg_cas03,189,132,0	duplicate(Gld_Trea_Spawn)	å®ç®±#prtg_cas03	-1
 
 // AGIT Manager
 //============================================================
@@ -143,4 +140,4 @@ prtg_cas03,17,221,0	duplicate(Gld_Agit_Manager)	Agit#prtg_cas03	-1
 
 // Guardians
 //============================================================
-prtg_cas03,51,100,4	duplicate(Gld_Guard_Template)	¼à»¤ÈË#prtg_cas03	-1
+prtg_cas03,51,100,4	duplicate(Gld_Guard_Template)	ç›‘æŠ¤äºº#prtg_cas03	-1

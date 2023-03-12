@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN ½Å±¾ºº»¯ www.rAthenaCN.com ×ª×Ô [ www.99Max.mE ]
-//============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN è„šæœ¬æ±‰åŒ– è½¬è‡ª [ www.99Max.mE ]
 //============================================================
 
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Ticket Refiner
 //===== By: ==================================================
 //= Euphy
@@ -26,62 +22,62 @@
 
 // Main NPC :: safety_Ref_NPC
 //============================================================
-prontera,195,173,6	script	¾«Á¶ÑĞ¾¿¼Ò	851,{
+prontera,195,173,6	script	ç²¾ç‚¼ç ”ç©¶å®¶	851,{
 	disable_items;
 	if (countitem(6238) || countitem(6228) || countitem(6229) || countitem(6230) || countitem(6231) || countitem(6456))
 		set .@bWeaponUp,1;
 	if (countitem(6239) || countitem(6232) || countitem(6233) || countitem(6234) || countitem(6235) || countitem(6457))
 		set .@bArmorUp,1;
 	if (!.@bWeaponUp && !.@bArmorUp) {
-		mes "[¾«Á¶ÑĞ¾¿¼Ò]";
-		mes "ÄãºÃ!";
-		mes "ÓĞÊ²Ã´ÊÂÇé?";
-		mes "ÎÒÊÇ×¨¼Ò.";
-		mes "ÔÚÎïÆ·¾«Á¶ÁìÓò,";
-		mes "µ«ÎÒÒÑ¾­ÍËĞİÁË.";
+		mes "[ç²¾ç‚¼ç ”ç©¶å®¶]";
+		mes "ä½ å¥½!";
+		mes "æœ‰ä»€ä¹ˆäº‹æƒ…?";
+		mes "æˆ‘æ˜¯ä¸“å®¶.";
+		mes "åœ¨ç‰©å“ç²¾ç‚¼é¢†åŸŸ,";
+		mes "ä½†æˆ‘å·²ç»é€€ä¼‘äº†.";
 		next;
-		switch(select("- ÄÇÎÒ×ßÁË.:- àÅ......ÕâÈÃÎÒºÃÆæ.")) {
+		switch(select("- é‚£æˆ‘èµ°äº†.:- å—¯......è¿™è®©æˆ‘å¥½å¥‡.")) {
 		case 1:
-			mes "[¾«Á¶ÑĞ¾¿¼Ò]";
-			mes "±£ÖØ, Ì½ÏÕ¼Ò.";
+			mes "[ç²¾ç‚¼ç ”ç©¶å®¶]";
+			mes "ä¿é‡, æ¢é™©å®¶.";
 			close;
 		case 2:
-			mes "[¾«Á¶ÑĞ¾¿¼Ò]";
-			mes "ÊÂÊµÉÏ, ÎÒÓĞÊ±Ã°ÏÕ¼ÒÓëÌá¹©ÍêÉÆ·şÎñ ^006400¾«Á¶ÄÜÁ¦ÌáÉıÈ¯µÄ·şÎñ^000000...";
-			mes "ÔÙ¼û~!";
+			mes "[ç²¾ç‚¼ç ”ç©¶å®¶]";
+			mes "äº‹å®ä¸Š, æˆ‘æœ‰æ—¶å†’é™©å®¶ä¸æä¾›å®Œå–„æœåŠ¡ ^006400ç²¾ç‚¼èƒ½åŠ›æå‡åˆ¸çš„æœåŠ¡^000000...";
+			mes "å†è§~!";
 			close;
 		}
 	}
 	emotion ET_SURPRISE;
-	mes "[¾«Á¶ÑĞ¾¿¼Ò]";
-	mes "ÄãºÃ!";
-	mes "Äã¿ÉÒÔ½«ÄãµÄÎïÆ·¾«Á¶µ½ ^006400Óë¾«Á¶ÄÜÁ¦ÌáÉıÈ¯ÏàÍ¬µÄ¼¶±ğ^000000.";
-	mes "Äú²»±Øµ£ĞÄ! ×°±¸²»»áÓĞ¾«Á¶Ê§°ÜµÄ¿ÉÄÜ.";
+	mes "[ç²¾ç‚¼ç ”ç©¶å®¶]";
+	mes "ä½ å¥½!";
+	mes "ä½ å¯ä»¥å°†ä½ çš„ç‰©å“ç²¾ç‚¼åˆ° ^006400ä¸ç²¾ç‚¼èƒ½åŠ›æå‡åˆ¸ç›¸åŒçš„çº§åˆ«^000000.";
+	mes "æ‚¨ä¸å¿…æ‹…å¿ƒ! è£…å¤‡ä¸ä¼šæœ‰ç²¾ç‚¼å¤±è´¥çš„å¯èƒ½.";
 	next;
-	if(select("- ÎÒÂíÉÏ»ØÀ´.:- ÓÃÈ¯À´¾«Á¶×°±¸.") == 1) {
-		mes "[¾«Á¶ÑĞ¾¿¼Ò]";
-		mes "ºÃµÄ.";
-		mes "µÈÄã»ØÀ´.";
+	if(select("- æˆ‘é©¬ä¸Šå›æ¥.:- ç”¨åˆ¸æ¥ç²¾ç‚¼è£…å¤‡.") == 1) {
+		mes "[ç²¾ç‚¼ç ”ç©¶å®¶]";
+		mes "å¥½çš„.";
+		mes "ç­‰ä½ å›æ¥.";
 		close;
 	}
-	mes "[¾«Á¶ÑĞ¾¿¼Ò]";
-	mes "ÄãÏë¾«Á¶Ê²Ã´×°±¸?";
+	mes "[ç²¾ç‚¼ç ”ç©¶å®¶]";
+	mes "ä½ æƒ³ç²¾ç‚¼ä»€ä¹ˆè£…å¤‡?";
 	next;
 	setarray .@position$[1],"Head upper","Armor","Left hand","Right hand","Robe","Shoes","Accessory 1","Accessory 2","Head middle","Head lower";
 	setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
 	for(set .@i,1; .@i<=10; set .@i,.@i+1)
-		set .@menu$, .@menu$+((getequipisequiped(.@indices[.@i]))?getequipname(.@indices[.@i]):.@position$[.@i]+" - [Î´×°±¸]")+":";
+		set .@menu$, .@menu$+((getequipisequiped(.@indices[.@i]))?getequipname(.@indices[.@i]):.@position$[.@i]+" - [æœªè£…å¤‡]")+":";
 	set .@part, .@indices[ select(.@menu$) ];
 	if (!getequipisequiped(.@part)) {
-		mes "[¾«Á¶ÑĞ¾¿¼Ò]";
-		mes "Äã±ØĞë×°±¸Òª¾«Á¶µÄ×°±¸.";
+		mes "[ç²¾ç‚¼ç ”ç©¶å®¶]";
+		mes "ä½ å¿…é¡»è£…å¤‡è¦ç²¾ç‚¼çš„è£…å¤‡.";
 		close;
 	}
 	if (!getequipisenableref(.@part)) {
 		emotion ET_OTL;
-		mes "[¾«Á¶ÑĞ¾¿¼Ò]";
-		mes "àŞ, ÎÒºÜ±§Ç¸.";
-		mes "Õâ¸öÎïÆ·ÎŞ·¨±»¾«Á¶.";
+		mes "[ç²¾ç‚¼ç ”ç©¶å®¶]";
+		mes "å™¢, æˆ‘å¾ˆæŠ±æ­‰.";
+		mes "è¿™ä¸ªç‰©å“æ— æ³•è¢«ç²¾ç‚¼.";
 		close;
 	}
 	switch(getequipweaponlv(.@part)) {
@@ -104,13 +100,13 @@ prontera,195,173,6	script	¾«Á¶ÑĞ¾¿¼Ò	851,{
 	}
 	if (!.@check) {
 		emotion ET_THINK;
-		mes "[¾«Á¶ÑĞ¾¿¼Ò]";
-		mes "Èç¹ûÄãÏëÒª¾«Á¶Õâ¸ö ^006400"+.@type$+"^000000, Çë´øÉÏ ^006400"+.@type$+"¾«Á¶ÄÜÁ¦ÌáÉıÈ¯^000000.";
-		mes "ÔÙ¼û!";
+		mes "[ç²¾ç‚¼ç ”ç©¶å®¶]";
+		mes "å¦‚æœä½ æƒ³è¦ç²¾ç‚¼è¿™ä¸ª ^006400"+.@type$+"^000000, è¯·å¸¦ä¸Š ^006400"+.@type$+"ç²¾ç‚¼èƒ½åŠ›æå‡åˆ¸^000000.";
+		mes "å†è§!";
 		close;
 	}
-	mes "[¾«Á¶ÑĞ¾¿¼Ò]";
-	mes "ÇëÑ¡ÔñÄãÏë¾«Á¶ ^006400"+.@type$+"^000000 ËùÊ¹ÓÃµÄ¾«Á¶ÄÜÁ¦ÌáÉıÈ¯.";
+	mes "[ç²¾ç‚¼ç ”ç©¶å®¶]";
+	mes "è¯·é€‰æ‹©ä½ æƒ³ç²¾ç‚¼ ^006400"+.@type$+"^000000 æ‰€ä½¿ç”¨çš„ç²¾ç‚¼èƒ½åŠ›æå‡åˆ¸.";
 	next;
 	set .@menu$,"";
 	for(set .@i,0; .@i<getarraysize(.@tickets); set .@i,.@i+1)
@@ -120,53 +116,53 @@ prontera,195,173,6	script	¾«Á¶ÑĞ¾¿¼Ò	851,{
 	set .@ticket_id, .@tickets[.@select];
 	if (countitem(.@ticket_id) == 0) {
 		emotion ET_QUESTION;
-		mes "[¾«Á¶ÑĞ¾¿¼Ò]";
-		mes getitemname(.@ticket_id)+" ²»ÔÙÄãÉíÉÏ, ÄãÊÇ²»ÊÇ°ÑËü·Å²Ö¿âÁË?";
-		mes "Çë¼ì²éÒ»ÏÂ.";
-		mes "ÔÙ¼û!";
+		mes "[ç²¾ç‚¼ç ”ç©¶å®¶]";
+		mes getitemname(.@ticket_id)+" ä¸å†ä½ èº«ä¸Š, ä½ æ˜¯ä¸æ˜¯æŠŠå®ƒæ”¾ä»“åº“äº†?";
+		mes "è¯·æ£€æŸ¥ä¸€ä¸‹.";
+		mes "å†è§!";
 		close;
 	}
 	if (getequiprefinerycnt(.@part) >= .@ticket_lv) {
 		emotion ET_PROFUSELY_SWEAT;
-		mes "[¾«Á¶ÑĞ¾¿¼Ò]";
-		mes "^8B4513Õâ¸öµÀ¾ßÒÑ¾­¾«Á¶µ½¼«ÖÂÁË.^000000";
-		mes "ÇëÄÃÒ»¼ş²»µ½Äã¾«Á¶ÄÜÁ¦ÌáÉıÈ¯¼¶±ğµÄ×°±¸À´.";
+		mes "[ç²¾ç‚¼ç ”ç©¶å®¶]";
+		mes "^8B4513è¿™ä¸ªé“å…·å·²ç»ç²¾ç‚¼åˆ°æè‡´äº†.^000000";
+		mes "è¯·æ‹¿ä¸€ä»¶ä¸åˆ°ä½ ç²¾ç‚¼èƒ½åŠ›æå‡åˆ¸çº§åˆ«çš„è£…å¤‡æ¥.";
 		close;
 	}
-	mes "[¾«Á¶ÑĞ¾¿¼Ò]";
-	mes "ÎÒ½«¾«Á¶ ^006400"+getequipname(.@part)+"^8B4513 ÖÁ +"+.@ticket_lv+" ¼¶±ğ^000000 ÏûºÄ ^006400"+getitemname(.@ticket_id)+"^000000.";
-	mes "ÎÒ¼ÌĞø?";
+	mes "[ç²¾ç‚¼ç ”ç©¶å®¶]";
+	mes "æˆ‘å°†ç²¾ç‚¼ ^006400"+getequipname(.@part)+"^8B4513 è‡³ +"+.@ticket_lv+" çº§åˆ«^000000 æ¶ˆè€— ^006400"+getitemname(.@ticket_id)+"^000000.";
+	mes "æˆ‘ç»§ç»­?";
 	next;
-	if(select("- ·ñ.:- ÊÇ.") == 1) {
+	if(select("- å¦.:- æ˜¯.") == 1) {
 		emotion ET_THINK;
-		mes "[¾«Á¶ÑĞ¾¿¼Ò]";
-		mes "àŞ, Äã¸Ä±äÖ÷ÒâÁË.";
-		mes "ºÃ°É.";
-		mes "ÄãĞèÒªµÄÊ±ºòÔÙÀ´°É.";
+		mes "[ç²¾ç‚¼ç ”ç©¶å®¶]";
+		mes "å™¢, ä½ æ”¹å˜ä¸»æ„äº†.";
+		mes "å¥½å§.";
+		mes "ä½ éœ€è¦çš„æ—¶å€™å†æ¥å§.";
 		close;
 	}
-	mes "[¾«Á¶ÑĞ¾¿¼Ò]";
-	mes "ºÜºÃ.";
-	mes "ÈçÄãËùÔ¸!";
-	mes "ÎÒÓĞÎÒ×Ô¼ºÌØÊâµÄ·½Ê½À´¾«Á¶...";
-	mes ".......ßÇàØ!";
+	mes "[ç²¾ç‚¼ç ”ç©¶å®¶]";
+	mes "å¾ˆå¥½.";
+	mes "å¦‚ä½ æ‰€æ„¿!";
+	mes "æˆ‘æœ‰æˆ‘è‡ªå·±ç‰¹æ®Šçš„æ–¹å¼æ¥ç²¾ç‚¼...";
+	mes ".......å’”å˜­!";
 	specialeffect EF_SUI_EXPLOSION;
 	if (countitem(.@ticket_id))
 		delitem .@ticket_id,1;
 	else {
 		next;
-		mes "´íÎó!";
-		mes "Çë±¨¸øGM.";
+		mes "é”™è¯¯!";
+		mes "è¯·æŠ¥ç»™GM.";
 		close;
 	}
 	successrefitem .@part, .@ticket_lv - getequiprefinerycnt(.@part);
 	next;
 	emotion ET_DELIGHT;
-	mes "[¾«Á¶ÑĞ¾¿¼Ò]";
-	mes "ºÃÁË, ¾ÍÊÇËüÁË~";
-	mes "ºÜºÃ, ^0000FF"+strcharinfo(0)+"^000000!";
-	mes "¹§Ï²ÄãÄÇÉÁÒ«µÄ "+.@type$+".";
-	mes "Äã¿´ÆğÀ´°ô¼«ÁË!";
-	mes "ÔÙ¼û~!";
+	mes "[ç²¾ç‚¼ç ”ç©¶å®¶]";
+	mes "å¥½äº†, å°±æ˜¯å®ƒäº†~";
+	mes "å¾ˆå¥½, ^0000FF"+strcharinfo(0)+"^000000!";
+	mes "æ­å–œä½ é‚£é—ªè€€çš„ "+.@type$+".";
+	mes "ä½ çœ‹èµ·æ¥æ£’æäº†!";
+	mes "å†è§~!";
 	close;
 }

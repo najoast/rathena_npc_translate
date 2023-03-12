@@ -1,10 +1,7 @@
 //============================================================
-//= rAthenaCN [WOE ĞÅÏ¢ÅÆ]ºº»¯½Å±¾ [ www.rAthenaCN.com ]
+//= rAthenaCN [WOE ä¿¡æ¯ç‰Œ]æ±‰åŒ–è„šæœ¬ 
 //============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
+
 
 //===== rAthena Script =======================================
 //= Euphy's WOE Controller
@@ -27,7 +24,7 @@
 
 // Information NPC
 //============================================================
-prontera,149,187,4	script	WOE ĞÅÏ¢ÅÆ	835,{
+prontera,149,187,4	script	WOE ä¿¡æ¯ç‰Œ	835,{
 	doevent "WOE_CONTROL::OnMenu";
 	end;
 OnAgitStart:
@@ -91,8 +88,8 @@ OnInit:
 		"arug_cas01","arug_cas02","arug_cas03","arug_cas04","arug_cas05",
 		"schg_cas01","schg_cas02","schg_cas03","schg_cas04","schg_cas05";
 	setarray .EndLabel$[0],"ar01","ar02","ar03","ar04","ar05","sc01","sc02","sc03","sc04","sc05";
-	setarray .Days$[0],"ÖÜÈÕ","ÖÜÒ»","ÖÜ¶ş","ÖÜÈı","ÖÜËÄ","ÖÜÎå","ÖÜÁù";
-	setarray .Regions$[0],"ÆÕÂ¡µÂÀ­","ì³Ñï","¼ª·Ò","°¬¶ûÅÁÀ¼","°¢Â¬ÄÉ±´×È","Ğã·¢×È·¢µÂ";
+	setarray .Days$[0],"å‘¨æ—¥","å‘¨ä¸€","å‘¨äºŒ","å‘¨ä¸‰","å‘¨å››","å‘¨äº”","å‘¨å…­";
+	setarray .Regions$[0],"æ™®éš†å¾·æ‹‰","æ–æ‰¬","å‰èŠ¬","è‰¾å°”å¸•å…°","é˜¿å¢çº³è´å…¹","ç§€å‘å…¹å‘å¾·";
 	setarray .Map$[0],"prt_gld","pay_gld","gef_fild13","alde_gld","aru_gld","sch_gld";
 	setarray .MapX[0],134,240,153,111,208,121,295,317,140,204,214,308,143,193,305,48, 95,142,239,264,158,83, 68,299,292,293,288, 97,137, 71;
 	setarray .MapY[0], 65,128,137,240,240,233,116,293,160,266, 75,240,240,278, 87,83,249, 85,242, 90,272,47,155,345,107,100,252,196, 90,315;
@@ -159,8 +156,8 @@ OnMinute00:
 
 function Disp_Owner {
 	set .@o, getcastledata(getarg(0),1);
-	if (.@o) announce "["+getcastlename(getarg(0))+"] ³Ç±¤ "+((getarg(1))?"ÒÑ¾­±»":"Ä¿Ç°ÕıÔÚ")+" ±» ["+getguildname(.@o)+"] ¹¤»áÕ¼Áì.",bc_all|bc_woe;
-	else announce "["+getcastlename(getarg(0))+"] ³Ç±¤Ä¿Ç°Î´±»Õ¼Áì.",bc_all|bc_woe;
+	if (.@o) announce "["+getcastlename(getarg(0))+"] åŸå ¡ "+((getarg(1))?"å·²ç»è¢«":"ç›®å‰æ­£åœ¨")+" è¢« ["+getguildname(.@o)+"] å·¥ä¼šå é¢†.",bc_all|bc_woe;
+	else announce "["+getcastlename(getarg(0))+"] åŸå ¡ç›®å‰æœªè¢«å é¢†.",bc_all|bc_woe;
 	return;
 }
 function Add_Zero {
@@ -214,7 +211,7 @@ OnPCLoadMapEvent:
 
 OnMenu:
 while(1) {
-	mes "[WOE ĞÅÏ¢ÅÆ]";
+	mes "[WOE ä¿¡æ¯ç‰Œ]";
 	if (agitcheck() || agitcheck2()) {
 		if (.Active[0]) {
 			for(set .@i,0; .@i<.Size; set .@i,.@i+4)
@@ -227,7 +224,7 @@ while(1) {
 			for(set .@i,0; .@i<6; set .@i,.@i+1)
 				if (.Active[1]&(1<<(.@i+1))) mes " > ^777777"+.Regions$[.@i]+"^000000";
 		} else
-			mes "¹¤»áÕ½(WOE)Ä¿Ç°ÒÑ¾­ ^0055FF¿ªÆô^000000.";
+			mes "å·¥ä¼šæˆ˜(WOE)ç›®å‰å·²ç» ^0055FFå¼€å¯^000000.";
 	} else {
 		for(set .@i,0; .@i<.Size; set .@i,.@i+4)
 			if ((gettime(4) == $WOE_CONTROL[.@i] && gettime(3) <= $WOE_CONTROL[.@i+1]) || gettime(4) < $WOE_CONTROL[.@i]) {
@@ -236,15 +233,15 @@ while(1) {
 			}
 		if (!getarraysize(.@time))
 			setarray .@time[0],$WOE_CONTROL[0],$WOE_CONTROL[1];
-		mes "¹¤»áÕ½(WOE)Ä¿Ç°ÒÑ¾­ ^777777¹Ø±Õ^000000.";
+		mes "å·¥ä¼šæˆ˜(WOE)ç›®å‰å·²ç» ^777777å…³é—­^000000.";
 		if (.Size) {
 			mes " ";
-			mes "ÏÂ¸öÈü¼¾¼´½«¿ªÊ¼";
+			mes "ä¸‹ä¸ªèµ›å­£å³å°†å¼€å§‹";
 			mes "on ^0055FF"+.Days$[.@time[0]]+"^000000 at "+Add_Zero(.@time[1])+"^000000.";
 		}
 	}
 	next;
-	switch(select(""+((.CastleWarp || .Active[1])?" ~ ´«ËÍÖÁ³Ç±¤...":"")+": ~ ¼ì²éÊ±¼ä±í...: ~ ²é¿´³Ç±¤¹éÊô...:"+((getgmlevel()<.GMAccess || !getgmlevel())?"":" ~ ¹ÜÀíWOEÅäÖÃ...")+": ~ ^777777È¡Ïû^000000")) {
+	switch(select(""+((.CastleWarp || .Active[1])?" ~ ä¼ é€è‡³åŸå ¡...":"")+": ~ æ£€æŸ¥æ—¶é—´è¡¨...: ~ æŸ¥çœ‹åŸå ¡å½’å±...:"+((getgmlevel()<.GMAccess || !getgmlevel())?"":" ~ ç®¡ç†WOEé…ç½®...")+": ~ ^777777å–æ¶ˆ^000000")) {
 	case 1:
 		if (.CastleWarp) set .@clr$,"^0055FF";
 		set .@menu$,"";
@@ -264,7 +261,7 @@ while(1) {
 		warp .Map$[.@i],.MapX[(.@i*5)+.@j],.MapY[(.@i*5)+.@j];
 		close;
 	case 2:
-		mes "[WOEÊ±¼ä±í]";
+		mes "[WOEæ—¶é—´è¡¨]";
 		if (.Size) {
 			freeloop(1);
 			for(set .@i,0; .@i<.Size; set .@i,.@i+4) {
@@ -275,17 +272,17 @@ while(1) {
 			}
 			freeloop(0);
 		} else
-			mes "Ã»ÓĞÊ±¼äÅäÖÃ.";
+			mes "æ²¡æœ‰æ—¶é—´é…ç½®.";
 		next;
 		break;
 	case 3:
-		mes "[³Ç±¤¹éÊôµØ]";
+		mes "[åŸå ¡å½’å±åœ°]";
 		for(set .@i,0; .@i<6; set .@i,.@i+1) {
 			set .@k, .@i*5;
 			mes "> ^FF0000"+.Regions$[.@i]+"^000000";
 			for(set .@j,.@k; .@j<(.@k+5); set .@j,.@j+1) { 
 				set .@t, getcastledata(.Castles$[.@j],1);
-				mes "  ~ "+getcastlename(.Castles$[.@j])+": "+((.@t)?"^0055FF"+getguildname(.@t):"^777777Î´±»Õ¼Áì")+"^000000";
+				mes "  ~ "+getcastlename(.Castles$[.@j])+": "+((.@t)?"^0055FF"+getguildname(.@t):"^777777æœªè¢«å é¢†")+"^000000";
 			}
 			if (.@i < 5) mes " ";
 		}
@@ -293,30 +290,30 @@ while(1) {
 		break;
 	case 4:
 	while(1) {
-		mes "[WOEÅäÖÃ¹ÜÀí]";
-		mes "Ä¿Ç°ÓĞ ^0055FF"+(.Size/4)+" Ìõ^000000 ÅäÖÃ.";
-		mes "ÄãÏëÒª×öĞ©Ê²Ã´?";
+		mes "[WOEé…ç½®ç®¡ç†]";
+		mes "ç›®å‰æœ‰ ^0055FF"+(.Size/4)+" æ¡^000000 é…ç½®.";
+		mes "ä½ æƒ³è¦åšäº›ä»€ä¹ˆ?";
 		next;
-		switch(select(" ~ ĞÂÔöÒ»¸öÈü¼¾...: ~ É¾³ıÒ»¸öÈü¼¾...: ~ ÖØ¶ÁWOEÅäÖÃ...:"+((agitcheck() || agitcheck2())?" ~ ½áÊøWOEÈü¼¾...":"")+": ~ ^777777·µ»Ø^000000")) {
+		switch(select(" ~ æ–°å¢ä¸€ä¸ªèµ›å­£...: ~ åˆ é™¤ä¸€ä¸ªèµ›å­£...: ~ é‡è¯»WOEé…ç½®...:"+((agitcheck() || agitcheck2())?" ~ ç»“æŸWOEèµ›å­£...":"")+": ~ ^777777è¿”å›^000000")) {
 		case 1:
-			mes "[ĞÂÈü¼¾]";
+			mes "[æ–°èµ›å­£]";
 			if (.Size > 127) {
-				mes "ÄãÒÑ¾­´ïµ½ÁË×î¶à 32 Èü¼¾.";
+				mes "ä½ å·²ç»è¾¾åˆ°äº†æœ€å¤š 32 èµ›å­£.";
 				next;
 				break;
 			}
-			mes "ÇëÑ¡ÔñÒ»Ìì.";
+			mes "è¯·é€‰æ‹©ä¸€å¤©.";
 			next;
 			set .@Day, select(" ~ "+implode(.Days$,": ~ "))-1;
-			mes "[ĞÂÈü¼¾]";
-			mes "Ñ¡ÔñµÄ¿ªÊ¼Ê±¼äÊÇ ^0055FF"+.Days$[.@Day]+"^000000.";
+			mes "[æ–°èµ›å­£]";
+			mes "é€‰æ‹©çš„å¼€å§‹æ—¶é—´æ˜¯ ^0055FF"+.Days$[.@Day]+"^000000.";
 			next;
 			set .@menu$,"";
 			for(set .@i,0; .@i<23; set .@i,.@i+1)
 				set .@menu$, .@menu$+" ~ "+Add_Zero(.@i,1)+":";
 			set .@Start, select(.@menu$)-1;
-			mes "[ĞÂÈü¼¾]";
-			mes "Ñ¡ÔñµÄ½áÊøÊ±¼äÊÇ ^0055FF"+.Days$[.@Day]+"^000000.";
+			mes "[æ–°èµ›å­£]";
+			mes "é€‰æ‹©çš„ç»“æŸæ—¶é—´æ˜¯ ^0055FF"+.Days$[.@Day]+"^000000.";
 			next;
 			set .@menu$,"";
 			for(set .@i,.@Start+1; .@i<24; set.@i,.@i+1)
@@ -327,8 +324,8 @@ while(1) {
 				   ((.@Start >= $WOE_CONTROL[.@i+1] && .@Start < $WOE_CONTROL[.@i+2]) ||
 				    (.@End > $WOE_CONTROL[.@i+1] && .@End <= $WOE_CONTROL[.@i+2]) ||
 				    (.@Start <= $WOE_CONTROL[.@i+1] && .@End >= $WOE_CONTROL[.@i+2]))) {
-					mes "[ĞÂÈü¼¾]";
-					mes "Ñ¡ÔñµÄÊ±¼äÓëÏÖÓĞÈü¼¾ÖØ¸´.";
+					mes "[æ–°èµ›å­£]";
+					mes "é€‰æ‹©çš„æ—¶é—´ä¸ç°æœ‰èµ›å­£é‡å¤.";
 					next;
 					set .@d,1;
 					break;
@@ -336,25 +333,25 @@ while(1) {
 			if (.@d) { set .@d,0; break; }
 			set .@Castle,0;
 			while(1) {
-				mes "[ĞÂÈü¼¾]";
+				mes "[æ–°èµ›å­£]";
 				mes "^0055FF"+.Days$[.@Day]+" ("+Add_Zero(.@Start)+"-"+Add_Zero(.@End)+")^000000";
-				mes " > ³Ç±¤:";
+				mes " > åŸå ¡:";
 				if (!.@Castle)
-					mes "   ~ ^777777(Î´Ñ¡Ôñ)^000000";
+					mes "   ~ ^777777(æœªé€‰æ‹©)^000000";
 				else for(set .@i,0; .@i<30; set .@i,.@i+1)
 					if (.@Castle&(1<<.@i)) mes "   ~ "+getcastlename(.Castles$[.@i])+" ("+.Castles$[.@i]+")";
 				next;
-				set .@menu$,((.@Castle)?" ~ ^FF0000Íê³É...^000000":"")+":";
+				set .@menu$,((.@Castle)?" ~ ^FF0000å®Œæˆ...^000000":"")+":";
 				for(set .@i,0; .@i<30; set .@i,.@i+1)
 					set .@menu$, .@menu$+" ~ "+((.@Castle&(1<<.@i))?"^0055FF":"")+getcastlename(.Castles$[.@i])+" ("+.Castles$[.@i]+")^000000:";
 				set .@i, select(.@menu$)-1;
 				if (.@i)
 					set .@Castle, .@Castle^(1<<(.@i-1));
 				else {
-					mes "[ĞÂÈü¼¾]";
-					mes "ÄãÈ·¶¨Âğ?";
+					mes "[æ–°èµ›å­£]";
+					mes "ä½ ç¡®å®šå—?";
 					next;
-					switch(select(" ~ ^0055FFÔö¼ÓÈü¼¾...^000000: ~ ¼ÌĞøÑ¡Ôñ³Ç±¤...: ~ ^777777Cancel^000000")) {
+					switch(select(" ~ ^0055FFå¢åŠ èµ›å­£...^000000: ~ ç»§ç»­é€‰æ‹©åŸå ¡...: ~ ^777777Cancel^000000")) {
 					case 1:
 						for(set .@i,0; .@i<.Size; set .@i,.@i+4)
 							if ((.@Day == $WOE_CONTROL[.@i] && .@End <= $WOE_CONTROL[.@i+1]) || .@Day < $WOE_CONTROL[.@i]) {
@@ -366,8 +363,8 @@ while(1) {
 						setarray $WOE_CONTROL[.@i], .@Day, .@Start, .@End, .@Castle;
 						set .Size, getarraysize($WOE_CONTROL);
 					case 3:
-						mes "[ĞÂÈü¼¾]";
-						mes ((.@d)?"Èü¼¾ÒÑÌí¼Ó.":"ÒÑÈ¡Ïû.");
+						mes "[æ–°èµ›å­£]";
+						mes ((.@d)?"èµ›å­£å·²æ·»åŠ .":"å·²å–æ¶ˆ.");
 						next;
 						set .@d,1;
 					case 2:
@@ -378,72 +375,72 @@ while(1) {
 			}
 			break;
 		case 2:
-			mes "[É¾³ıÈü¼¾]";
+			mes "[åˆ é™¤èµ›å­£]";
 			if (!.Size) {
-				mes "Ä¿Ç°Ã»ÓĞÈü¼¾ÅäÖÃ.";
+				mes "ç›®å‰æ²¡æœ‰èµ›å­£é…ç½®.";
 				next;
 				break;
 			}
-			mes "Ñ¡ÔñÒ»ÌõÈü¼¾É¾³ı.";
+			mes "é€‰æ‹©ä¸€æ¡èµ›å­£åˆ é™¤.";
 			next;
 			set .@menu$,"";
 			for(set .@i,0; .@i<.Size; set .@i,.@i+4)
 				set .@menu$, .@menu$+" ~ "+.Days$[$WOE_CONTROL[.@i]]+" ("+Add_Zero($WOE_CONTROL[.@i+1],1)+"-"+Add_Zero($WOE_CONTROL[.@i+2],1)+"):";
-			set .@menu$, .@menu$+" ~ ^777777È¡Ïû^000000";
+			set .@menu$, .@menu$+" ~ ^777777å–æ¶ˆ^000000";
 			set .@i, select(.@menu$)-1;
 			if (.@i == (.Size/4)) break;
-			mes "[É¾³ıÈü¼¾]";
-			mes "É¾³ı ^0055FF"+.Days$[$WOE_CONTROL[.@i*4]]+"^000000 µÄÈü¼¾?";
-			mes "Õâ¸ö²Ù×÷²»ÄÜ±»³·Ïú.";
+			mes "[åˆ é™¤èµ›å­£]";
+			mes "åˆ é™¤ ^0055FF"+.Days$[$WOE_CONTROL[.@i*4]]+"^000000 çš„èµ›å­£?";
+			mes "è¿™ä¸ªæ“ä½œä¸èƒ½è¢«æ’¤é”€.";
 			next;
-			set .@j, select(" ~ ^FF0000É¾³ıÈü¼¾...^000000: ~ ^777777È¡Ïû^000000");
-			mes "[É¾³ıÈü¼¾]";
+			set .@j, select(" ~ ^FF0000åˆ é™¤èµ›å­£...^000000: ~ ^777777å–æ¶ˆ^000000");
+			mes "[åˆ é™¤èµ›å­£]";
 			if (.@j == 2)
-				mes "ÒÑÈ¡Ïû.";
+				mes "å·²å–æ¶ˆ.";
 			else {
 				deletearray $WOE_CONTROL[.@i*4],4;
 				set .Size, getarraysize($WOE_CONTROL);
-				mes "Èü¼¾ÒÑÉ¾³ı.";
+				mes "èµ›å­£å·²åˆ é™¤.";
 			}
 			next;
 			break;
 		case 3:
-			mes "[ÖØ¶ÁÅäÖÃ]";
-			mes "Õâ½«´¥·¢ÓëĞÂÈü¼¾ÅäÖÃÏà¹ØµÄËùÓĞÊÂ¼ş, Èç¹ûÓĞµÄ»°.";
+			mes "[é‡è¯»é…ç½®]";
+			mes "è¿™å°†è§¦å‘ä¸æ–°èµ›å­£é…ç½®ç›¸å…³çš„æ‰€æœ‰äº‹ä»¶, å¦‚æœæœ‰çš„è¯.";
 			if (agitcheck() || agitcheck2()) {
 				mes " ";
-				mes "Õâ½«ÆÆ»µµ±Ç° WOE Èü¼¾.";
+				mes "è¿™å°†ç ´åå½“å‰ WOE èµ›å­£.";
 			}
 			next;
-			set .@i, select(" ~ ^0055FFÖØ¶ÁÅäÖÃ...^000000: ~ ^777777È¡Ïû^000000");
-			mes "[ÖØ¶ÁÅäÖÃ]";
-			if (.@i == 2) mes "ÒÑÈ¡Ïû.";
+			set .@i, select(" ~ ^0055FFé‡è¯»é…ç½®...^000000: ~ ^777777å–æ¶ˆ^000000");
+			mes "[é‡è¯»é…ç½®]";
+			if (.@i == 2) mes "å·²å–æ¶ˆ.";
 			else {
 				set .Init,1;
 				donpcevent "WOE_CONTROL::OnMinute00";
-				mes "±äÁ¿ÒÑ±»ÖØĞÂ³õÊ¼»¯.";
+				mes "å˜é‡å·²è¢«é‡æ–°åˆå§‹åŒ–.";
 			}
 			next;
 			break;
 		case 4:
-			mes "[Ç¿ÖÆ½áÊø¹¤»áÕ½]";
+			mes "[å¼ºåˆ¶ç»“æŸå·¥ä¼šæˆ˜]";
 			if (!agitcheck() && !agitcheck2())  {
-				mes "WOE ÒÑ¾­½áÊø.";
+				mes "WOE å·²ç»ç»“æŸ.";
 				next;
 				break;
 			}
-			mes "ÕâÌõÃüÁî½«»á°²È«µÄ´¦Àí¹¤»áÕ½½áÊøÊÂ¼ş.";
+			mes "è¿™æ¡å‘½ä»¤å°†ä¼šå®‰å…¨çš„å¤„ç†å·¥ä¼šæˆ˜ç»“æŸäº‹ä»¶.";
 			mes " ";
-			mes "½áÊøµ±Ç° WOE Èü¼¾?";
+			mes "ç»“æŸå½“å‰ WOE èµ›å­£?";
 			next;
-			set .@i, select(" ~ ^FF0000½áÊøÈü¼¾...^000000:"+((.Options&1)?" ~ ^FF0000½áÊøÈü¼¾²¢È¡Ïû½±Àø...^000000":"")+": ~ ^777777È¡Ïû^000000");
+			set .@i, select(" ~ ^FF0000ç»“æŸèµ›å­£...^000000:"+((.Options&1)?" ~ ^FF0000ç»“æŸèµ›å­£å¹¶å–æ¶ˆå¥–åŠ±...^000000":"")+": ~ ^777777å–æ¶ˆ^000000");
 			mes "[Force Agit End]";
 			if (.@i == 3)
-				mes "ÒÑÈ¡Ïû.";
+				mes "å·²å–æ¶ˆ.";
 			else {
 				set .ForceEnd, .@i;
 				donpcevent "WOE_CONTROL::OnWOEEnd";
-				mes "WOE Èü¼¾±»ÖÕÖ¹.";
+				mes "WOE èµ›å­£è¢«ç»ˆæ­¢.";
 			}
 			next;
 			break;

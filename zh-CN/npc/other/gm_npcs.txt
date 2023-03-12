@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN 鑴氭湰姹夊寲 杞嚜 [ www.99Max.mE ]
 //============================================================
 
-//===== rAthena Script =======================================  
+//===== rAthena Script ======================================= 
 //= GM Management NPCs
 //===== By: ================================================== 
 //= Euphy
@@ -30,7 +26,7 @@ function	script	F_GM_NPC	{
 	if (getgmlevel() < 99) {
 		// Log the event.
 		getmapxy(.@map$,.@x,.@y,UNITTYPE_NPC);
-		logmes strcharinfo(0)+" 尝试访问GM NPC"+strnpcinfo(0)+" ("+.@map$+","+.@x+","+.@y+").";
+		logmes strcharinfo(0)+" 灏濊瘯璁块棶GM NPC"+strnpcinfo(0)+" ("+.@map$+","+.@x+","+.@y+").";
 		end;
 	}
 

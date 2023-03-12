@@ -83,21 +83,21 @@ payon_in03,117,128,5	script	Fortune Teller	4_M_BIBI,{
 		mes " I see it... I see a sign of love... ";
 		next;
 		.@card_1_love = rand(1,74);
-		if (.@card_1_love < 5) cutin "°¡ÀÌ¾Æ½ºÄ«µå",4;		// Giearth Card
-		else if (.@card_1_love < 10) cutin "´õ½ºÆ¼³×½ºÄ«µå",4;// Dustiness Card
-		else if (.@card_1_love < 18) cutin "µå¶óÅ¥¶óÄ«µå",4;	// Dracula Card
-		else if (.@card_1_love < 26) cutin "¸¶¸®³ªÄ«µå",4;	// Marina Card
-		else if (.@card_1_love < 30) cutin "¸ÞµÎ»çÄ«µå",4;	// Medusa Card
-		else if (.@card_1_love < 35) cutin "¹ÙÆ÷¸ÞÆ®Ä«µå",4;	// Baphomet Card
-		else if (.@card_1_love < 39) cutin "»÷µå¸ÇÄ«µå",4;	// Sandman Card
-		else if (.@card_1_love < 43) cutin "¼ÒÈñÄ«µå",4;		// Sohee Card
-		else if (.@card_1_love < 51) cutin "½ºÄÌ¿öÄ¿Ä«µå",4;	// Skel Worker Card
-		else if (.@card_1_love < 55) cutin "¾Æ´©ºñ½ºÄ«µå",4;	// Anubis Card
-		else if (.@card_1_love < 59) cutin "¿ÀÅ©·ÎµåÄ«µå",4;	// Orc Lord Card
-		else if (.@card_1_love < 63) cutin "ÀèÄ«µå",4;		// Jakk Card
-		else if (.@card_1_love < 67) cutin "Á¶Ä¿Ä«µå",4;		// Joker Card
-		else if (.@card_1_love < 71) cutin "È£µåÄ«µå",4;		// Hode Card
-		else cutin "È²¼ÒÄ«µå",4;// Minorous Card
+		if (.@card_1_love < 5) cutin "å•Šæžé…’èƒ¶å¢¨é›",4;		// Giearth Card
+		else if (.@card_1_love < 10) cutin "æ­¹èƒ¶èåŒ™èƒ¶å¢¨é›",4;// Dustiness Card
+		else if (.@card_1_love < 18) cutin "é›æ‰¼é’®æ‰¼å¢¨é›",4;	// Dracula Card
+		else if (.@card_1_love < 26) cutin "ä»˜åºœå”±å¢¨é›",4;	// Marina Card
+		else if (.@card_1_love < 30) cutin "çš‹æ»´è¤å¢¨é›",4;	// Medusa Card
+		else if (.@card_1_love < 35) cutin "å®˜å™¨çš‹é£˜å¢¨é›",4;	// Baphomet Card
+		else if (.@card_1_love < 39) cutin "å‡»é›ç›–å¢¨é›",4;	// Sandman Card
+		else if (.@card_1_love < 43) cutin "å®¶é”å¢¨é›",4;		// Sohee Card
+		else if (.@card_1_love < 51) cutin "èƒ¶å¥¶å†µç›®å¢¨é›",4;	// Skel Worker Card
+		else if (.@card_1_love < 55) cutin "é…’ç©¿åŽšèƒ¶å¢¨é›",4;	// Anubis Card
+		else if (.@card_1_love < 59) cutin "å·å†œè‚ºé›å¢¨é›",4;	// Orc Lord Card
+		else if (.@card_1_love < 63) cutin "é»Žå¢¨é›",4;		// Jakk Card
+		else if (.@card_1_love < 67) cutin "ç‚¼ç›®å¢¨é›",4;		// Joker Card
+		else if (.@card_1_love < 71) cutin "é¾‹é›å¢¨é›",4;		// Hode Card
+		else cutin "ç‚”å®¶å¢¨é›",4;// Minorous Card
 		
 		mes "[Lhimetorra]";
 		switch(.@card_1_love) {
@@ -583,24 +583,24 @@ payon_in03,117,128,5	script	Fortune Teller	4_M_BIBI,{
 		mes " Ooh... something about your fortune is starting to show... ";
 		next;
 		.@card_1_money = rand(1,73);
-		if (.@card_1_money < 5) cutin "°¡ÀÌ¾Æ½ºÄ«µå",4;			// Giearth Card
-		else if (.@card_1_money < 10) cutin "´õ½ºÆ¼³×½ºÄ«µå",4;	// Dustiness Card
-		else if (.@card_1_money < 13) cutin "µå¶óÅ¥¶óÄ«µå",4;		// Dracula Card
-		else if (.@card_1_money < 16) cutin "µå·¹ÀÌÅ©Ä«µå",4;		// Drake Card
-		else if (.@card_1_money < 20) cutin "¸¶¸®³ªÄ«µå",4;		// Marina Card
-		else if (.@card_1_money < 24) cutin "¸¶¸®¿À³×Æ®Ä«µå",4;	// Marionette Card
-		else if (.@card_1_money < 29) cutin "¸ÞµÎ»çÄ«µå",4;		// Medusa Card
-		else if (.@card_1_money < 33) cutin "¹ÙÆ÷¸ÞÆ®Ä«µå",4;		// Baphomet Card
-		else if (.@card_1_money < 37) cutin "»÷µå¸ÇÄ«µå",4;		// Sandman Card
-		else if (.@card_1_money < 41) cutin "¼ÒÈñÄ«µå",4;		// Sohee Card
-		else if (.@card_1_money < 45) cutin "½ºÄÌ¿öÄ¿Ä«µå",4;		// Skel Worker Card
-		else if (.@card_1_money < 50) cutin "½ºÄÌ³ªÀÌÆ®Ä«µå",4;	// Khalitzburg Card
-		else if (.@card_1_money < 54) cutin "¾Æ´©ºñ½ºÄ«µå",4;		// Anubis Card
-		else if (.@card_1_money < 58) cutin "¿ÀÅ©·ÎµåÄ«µå",4;		// Orc Lord Card
-		else if (.@card_1_money < 62) cutin "ÀèÄ«µå",4;			// Jakk Card
-		else if (.@card_1_money < 66) cutin "Á¶Ä¿Ä«µå",4;		// Joker Card
-		else if (.@card_1_money < 70) cutin "È£µåÄ«µå",4;		// Hode Card
-		else cutin "È²¼ÒÄ«µå",4; // Minorous Card
+		if (.@card_1_money < 5) cutin "å•Šæžé…’èƒ¶å¢¨é›",4;			// Giearth Card
+		else if (.@card_1_money < 10) cutin "æ­¹èƒ¶èåŒ™èƒ¶å¢¨é›",4;	// Dustiness Card
+		else if (.@card_1_money < 13) cutin "é›æ‰¼é’®æ‰¼å¢¨é›",4;		// Dracula Card
+		else if (.@card_1_money < 16) cutin "é›é¥­æžå†œå¢¨é›",4;		// Drake Card
+		else if (.@card_1_money < 20) cutin "ä»˜åºœå”±å¢¨é›",4;		// Marina Card
+		else if (.@card_1_money < 24) cutin "ä»˜åºœå·åŒ™é£˜å¢¨é›",4;	// Marionette Card
+		else if (.@card_1_money < 29) cutin "çš‹æ»´è¤å¢¨é›",4;		// Medusa Card
+		else if (.@card_1_money < 33) cutin "å®˜å™¨çš‹é£˜å¢¨é›",4;		// Baphomet Card
+		else if (.@card_1_money < 37) cutin "å‡»é›ç›–å¢¨é›",4;		// Sandman Card
+		else if (.@card_1_money < 41) cutin "å®¶é”å¢¨é›",4;		// Sohee Card
+		else if (.@card_1_money < 45) cutin "èƒ¶å¥¶å†µç›®å¢¨é›",4;		// Skel Worker Card
+		else if (.@card_1_money < 50) cutin "èƒ¶å¥¶å”±æžé£˜å¢¨é›",4;	// Khalitzburg Card
+		else if (.@card_1_money < 54) cutin "é…’ç©¿åŽšèƒ¶å¢¨é›",4;		// Anubis Card
+		else if (.@card_1_money < 58) cutin "å·å†œè‚ºé›å¢¨é›",4;		// Orc Lord Card
+		else if (.@card_1_money < 62) cutin "é»Žå¢¨é›",4;			// Jakk Card
+		else if (.@card_1_money < 66) cutin "ç‚¼ç›®å¢¨é›",4;		// Joker Card
+		else if (.@card_1_money < 70) cutin "é¾‹é›å¢¨é›",4;		// Hode Card
+		else cutin "ç‚”å®¶å¢¨é›",4; // Minorous Card
 		
 		mes "[Lhimetorra]";
 		switch(.@card_1_money) {
@@ -1061,24 +1061,24 @@ payon_in03,117,128,5	script	Fortune Teller	4_M_BIBI,{
 		mes " Future... the card that sees the future is beginning to speak...... Prepare yourself... ";
 		next;
 		.@card_1_future = rand(1,67);
-		if (.@card_1_future < 5) cutin "°¡ÀÌ¾Æ½ºÄ«µå",4;			// Giearth Card
-		else if (.@card_1_future < 10) cutin "´õ½ºÆ¼³×½ºÄ«µå",4;	// Dustiness Card
-		else if (.@card_1_future < 13) cutin "µå¶óÅ¥¶óÄ«µå",4;	// Dracula Card
-		else if (.@card_1_future < 16) cutin "µå·¹ÀÌÅ©Ä«µå",4;	// Drake Card
-		else if (.@card_1_future < 19) cutin "¸¶¸®³ªÄ«µå",4;		// Marina Card
-		else if (.@card_1_future < 23) cutin "¸¶¸®¿À³×Æ®Ä«µå",4;	// Marionette Card
-		else if (.@card_1_future < 27) cutin "¸ÞµÎ»çÄ«µå",4;		// Medusa Card
-		else if (.@card_1_future < 31) cutin "¹ÙÆ÷¸ÞÆ®Ä«µå",4;	// Baphomet Card
-		else if (.@card_1_future < 35) cutin "»÷µå¸ÇÄ«µå",4;		// Sandman Card
-		else if (.@card_1_future == 35) cutin "¼ÒÈñÄ«µå",4;		// Sohee Card
-		else if (.@card_1_future < 40) cutin "½ºÄÌ¿öÄ¿Ä«µå",4;	// Skel Worker Card
-		else if (.@card_1_future < 44) cutin "½ºÄÌ³ªÀÌÆ®Ä«µå",4;	// Khalitzburg Card
-		else if (.@card_1_future < 48) cutin "¾Æ´©ºñ½ºÄ«µå",4;	// Anubis Card
-		else if (.@card_1_future < 52) cutin "¿ÀÅ©·ÎµåÄ«µå",4;	// Orc Lord Card
-		else if (.@card_1_future < 57) cutin "ÀèÄ«µå",4;			// Jakk Card
-		else if (.@card_1_future < 61) cutin "Á¶Ä¿Ä«µå",4;		// Joker Card
-		else if (.@card_1_future < 63 || .@card_1_future == 67) cutin "È£µåÄ«µå",4;	// Hode Card
-		else cutin "È²¼ÒÄ«µå",4; // Minorous Card
+		if (.@card_1_future < 5) cutin "å•Šæžé…’èƒ¶å¢¨é›",4;			// Giearth Card
+		else if (.@card_1_future < 10) cutin "æ­¹èƒ¶èåŒ™èƒ¶å¢¨é›",4;	// Dustiness Card
+		else if (.@card_1_future < 13) cutin "é›æ‰¼é’®æ‰¼å¢¨é›",4;	// Dracula Card
+		else if (.@card_1_future < 16) cutin "é›é¥­æžå†œå¢¨é›",4;	// Drake Card
+		else if (.@card_1_future < 19) cutin "ä»˜åºœå”±å¢¨é›",4;		// Marina Card
+		else if (.@card_1_future < 23) cutin "ä»˜åºœå·åŒ™é£˜å¢¨é›",4;	// Marionette Card
+		else if (.@card_1_future < 27) cutin "çš‹æ»´è¤å¢¨é›",4;		// Medusa Card
+		else if (.@card_1_future < 31) cutin "å®˜å™¨çš‹é£˜å¢¨é›",4;	// Baphomet Card
+		else if (.@card_1_future < 35) cutin "å‡»é›ç›–å¢¨é›",4;		// Sandman Card
+		else if (.@card_1_future == 35) cutin "å®¶é”å¢¨é›",4;		// Sohee Card
+		else if (.@card_1_future < 40) cutin "èƒ¶å¥¶å†µç›®å¢¨é›",4;	// Skel Worker Card
+		else if (.@card_1_future < 44) cutin "èƒ¶å¥¶å”±æžé£˜å¢¨é›",4;	// Khalitzburg Card
+		else if (.@card_1_future < 48) cutin "é…’ç©¿åŽšèƒ¶å¢¨é›",4;	// Anubis Card
+		else if (.@card_1_future < 52) cutin "å·å†œè‚ºé›å¢¨é›",4;	// Orc Lord Card
+		else if (.@card_1_future < 57) cutin "é»Žå¢¨é›",4;			// Jakk Card
+		else if (.@card_1_future < 61) cutin "ç‚¼ç›®å¢¨é›",4;		// Joker Card
+		else if (.@card_1_future < 63 || .@card_1_future == 67) cutin "é¾‹é›å¢¨é›",4;	// Hode Card
+		else cutin "ç‚”å®¶å¢¨é›",4; // Minorous Card
 
 		mes "[Lhimetorra]";
 		switch(.@card_1_future) {
@@ -1533,24 +1533,24 @@ payon_in03,117,128,5	script	Fortune Teller	4_M_BIBI,{
 		mes " Someone that knows of the dangers you do not, will warn you in the form of cards... so listen carefully-! ";
 		next;
 		.@card_1_warning = rand(1,70);
-		if (.@card_1_warning < 5) cutin "°¡ÀÌ¾Æ½ºÄ«µå",4;			// Giearth Card
-		else if (.@card_1_warning < 9) cutin "´õ½ºÆ¼³×½ºÄ«µå",4;	// Dustiness Card
-		else if (.@card_1_warning < 13) cutin "µå¶óÅ¥¶óÄ«µå",4;	// Dracula Card
-		else if (.@card_1_warning < 16) cutin "µå·¹ÀÌÅ©Ä«µå",4;	// Drake Card
-		else if (.@card_1_warning < 20) cutin "¸¶¸®³ªÄ«µå",4;		// Marina Card
-		else if (.@card_1_warning < 24) cutin "¸¶¸®¿À³×Æ®Ä«µå",4;	// Marionette Card
-		else if (.@card_1_warning < 28) cutin "¸ÞµÎ»çÄ«µå",4;		// Medusa Card
-		else if (.@card_1_warning < 32) cutin "¹ÙÆ÷¸ÞÆ®Ä«µå",4;	// Baphomet Card
-		else if (.@card_1_warning < 36) cutin "»÷µå¸ÇÄ«µå",4;		// Sandman Card
-		else if (.@card_1_warning < 40) cutin "¼ÒÈñÄ«µå",4;		// Sohee Card
-		else if (.@card_1_warning < 44) cutin "½ºÄÌ¿öÄ¿Ä«µå",4;	// Skel Worker Card
-		else if (.@card_1_warning < 48) cutin "½ºÄÌ³ªÀÌÆ®Ä«µå",4;	// Khalitzburg Card
-		else if (.@card_1_warning < 52) cutin "¾Æ´©ºñ½ºÄ«µå",4;	// Anubis Card
-		else if (.@card_1_warning < 56) cutin "¿ÀÅ©·ÎµåÄ«µå",4;	// Orc Lord Card
-		else if (.@card_1_warning < 59) cutin "ÀèÄ«µå",4;		// Jakk Card
-		else if (.@card_1_warning < 63) cutin "Á¶Ä¿Ä«µå",4;		// Joker Card
-		else if (.@card_1_warning < 68) cutin "È£µåÄ«µå",4;		// Hode Card
-		else cutin "È²¼ÒÄ«µå",4; // Minorous Card
+		if (.@card_1_warning < 5) cutin "å•Šæžé…’èƒ¶å¢¨é›",4;			// Giearth Card
+		else if (.@card_1_warning < 9) cutin "æ­¹èƒ¶èåŒ™èƒ¶å¢¨é›",4;	// Dustiness Card
+		else if (.@card_1_warning < 13) cutin "é›æ‰¼é’®æ‰¼å¢¨é›",4;	// Dracula Card
+		else if (.@card_1_warning < 16) cutin "é›é¥­æžå†œå¢¨é›",4;	// Drake Card
+		else if (.@card_1_warning < 20) cutin "ä»˜åºœå”±å¢¨é›",4;		// Marina Card
+		else if (.@card_1_warning < 24) cutin "ä»˜åºœå·åŒ™é£˜å¢¨é›",4;	// Marionette Card
+		else if (.@card_1_warning < 28) cutin "çš‹æ»´è¤å¢¨é›",4;		// Medusa Card
+		else if (.@card_1_warning < 32) cutin "å®˜å™¨çš‹é£˜å¢¨é›",4;	// Baphomet Card
+		else if (.@card_1_warning < 36) cutin "å‡»é›ç›–å¢¨é›",4;		// Sandman Card
+		else if (.@card_1_warning < 40) cutin "å®¶é”å¢¨é›",4;		// Sohee Card
+		else if (.@card_1_warning < 44) cutin "èƒ¶å¥¶å†µç›®å¢¨é›",4;	// Skel Worker Card
+		else if (.@card_1_warning < 48) cutin "èƒ¶å¥¶å”±æžé£˜å¢¨é›",4;	// Khalitzburg Card
+		else if (.@card_1_warning < 52) cutin "é…’ç©¿åŽšèƒ¶å¢¨é›",4;	// Anubis Card
+		else if (.@card_1_warning < 56) cutin "å·å†œè‚ºé›å¢¨é›",4;	// Orc Lord Card
+		else if (.@card_1_warning < 59) cutin "é»Žå¢¨é›",4;		// Jakk Card
+		else if (.@card_1_warning < 63) cutin "ç‚¼ç›®å¢¨é›",4;		// Joker Card
+		else if (.@card_1_warning < 68) cutin "é¾‹é›å¢¨é›",4;		// Hode Card
+		else cutin "ç‚”å®¶å¢¨é›",4; // Minorous Card
 
 		mes "[Lhimetorra]";
 		switch(.@card_1_warning) {
@@ -2604,17 +2604,17 @@ payon_in03,75,129,5	script	Poring Fortune Teller	4_M_BIBI,{
 
 L_displaycutin:
 	.@arg = getarg(0);
-	if (.@arg < 4) cutin "°í½ºÆ®¸µÄ«µå",4;		// Ghostring Card
-	else if (.@arg < 7) cutin "µå·ÓÇÁ½ºÄ«µå",4;	// Drops Card
-	else if (.@arg < 10) cutin "¸ÇÆ¼½ºÄ«µå",4;	// Mantis Card
-	else if (.@arg < 13) cutin "¹«³«Ä«µå",4;		// Munak Card
-	else if (.@arg < 16) cutin "»êÅ¸Æ÷¸µÄ«µå",4;	// Santa Poring Card
-	else if (.@arg < 19) cutin "¼ÖÁ®½ºÄÌÅæÄ«µå",4;// Soldier Skeleton Card
-	else if (.@arg < 22) cutin "½ºÄÌ·¹ÅæÄ«µå",4;	// Skeleton Card
-	else if (.@arg < 25) cutin "¿¡µå°¡Ä«µå",4;	// Eddga Card
-	else if (.@arg < 28) cutin "¿£Á©¸µÄ«µå",4;	// Angeling Card
-	else if (.@arg < 31) cutin "Æ÷¸µÄ«µå",4;		// Poring Card
-	else cutin "Æ÷Æ÷¸µÄ«µå",4;// Poporing Card
+	if (.@arg < 4) cutin "ç»Šèƒ¶é£˜å‚…å¢¨é›",4;		// Ghostring Card
+	else if (.@arg < 7) cutin "é›é…šæ©‡èƒ¶å¢¨é›",4;	// Drops Card
+	else if (.@arg < 10) cutin "ç›–èèƒ¶å¢¨é›",4;	// Mantis Card
+	else if (.@arg < 13) cutin "å…¬å€¡å¢¨é›",4;		// Munak Card
+	else if (.@arg < 16) cutin "é­‚é¸¥å™¨å‚…å¢¨é›",4;	// Santa Poring Card
+	else if (.@arg < 19) cutin "è´¾å»‰èƒ¶å¥¶æ²›å¢¨é›",4;// Soldier Skeleton Card
+	else if (.@arg < 22) cutin "èƒ¶å¥¶é¥­æ²›å¢¨é›",4;	// Skeleton Card
+	else if (.@arg < 25) cutin "ä¿Šé›å•Šå¢¨é›",4;	// Eddga Card
+	else if (.@arg < 28) cutin "æµšä¿©å‚…å¢¨é›",4;	// Angeling Card
+	else if (.@arg < 31) cutin "å™¨å‚…å¢¨é›",4;		// Poring Card
+	else cutin "å™¨å™¨å‚…å¢¨é›",4;// Poporing Card
 	return;
 }
 	

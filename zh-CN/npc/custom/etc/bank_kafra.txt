@@ -1,56 +1,53 @@
 //============================================================
-//= rAthenaCN [ÒøĞĞÖ°Ô±]ºº»¯½Å±¾ [ www.rAthenaCN.com ]
+//= rAthenaCN [é“¶è¡ŒèŒå‘˜]æ±‰åŒ–è„šæœ¬ 
 //============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
+
 
 //===== Hercules Script ======================================
-//= ÆÕÂ¡µÂÀ­µÚ¶şÒøĞĞ (ÈÕÊÕÒæ0.01% !)
+//= æ™®éš†å¾·æ‹‰ç¬¬äºŒé“¶è¡Œ (æ—¥æ”¶ç›Š0.01% !)
 //===== By: ==================================================
 //= Lupus (1.0)
-//===== µ±Ç°°æ±¾: =====================================
+//===== å½“å‰ç‰ˆæœ¬: =====================================
 //= 1.2a
-//===== ÃèÊö: =========================================
-//= ÒøĞĞÀûÂÊ %
-//===== ±¸×¢: =================================
-// Ñ°ÕÒ¹«Ê½²¢ÇÒÉèÖÃÒøĞĞÈÕÀûÂÊ, % ÀûÏ¢
-// #kafrabank/1000 = 0.1% ÈÕÀûÂÊ
-// #kafrabank/100  =  1%  ÈÕÀûÂÊ
-// #kafrabank/10   =  10% of ÈÕÀûÂÊ
+//===== æè¿°: =========================================
+//= é“¶è¡Œåˆ©ç‡ %
+//===== å¤‡æ³¨: =================================
+// å¯»æ‰¾å…¬å¼å¹¶ä¸”è®¾ç½®é“¶è¡Œæ—¥åˆ©ç‡, % åˆ©æ¯
+// #kafrabank/1000 = 0.1% æ—¥åˆ©ç‡
+// #kafrabank/100  =  1%  æ—¥åˆ©ç‡
+// #kafrabank/10   =  10% of æ—¥åˆ©ç‡
 //
-// 1.1 Ìí¼ÓÒøĞĞÒµÎñ¼ÇÂ¼ -> logmes "Ò»Ğ©ĞÅÏ¢";
-// 1.2 ÉèÖÃ×î´óÊÕÒæÎª 100,000z. Õâ½«°ïÖúÄã±ÜÃâ
-//		µ±Äã¸Ä±ä·şÎñÆ÷Ê±¼äµÄÊ±ºò¶ÔZeny µÄÂ©¶´ÀûÓÃ
-// 1.2a ĞŞÕı´íÎóµÄÖØ¸´Ãû³Æ. (bugreport:921) [Samuray22]
+// 1.1 æ·»åŠ é“¶è¡Œä¸šåŠ¡è®°å½• -> logmes "ä¸€äº›ä¿¡æ¯";
+// 1.2 è®¾ç½®æœ€å¤§æ”¶ç›Šä¸º 100,000z. è¿™å°†å¸®åŠ©ä½ é¿å…
+//		å½“ä½ æ”¹å˜æœåŠ¡å™¨æ—¶é—´çš„æ—¶å€™å¯¹Zeny çš„æ¼æ´åˆ©ç”¨
+// 1.2a ä¿®æ­£é”™è¯¯çš„é‡å¤åç§°. (bugreport:921) [Samuray22]
 //============================================================
 
--	script	ÒøĞĞÖ°Ô±::bankg	4_M_ZONDAOYAJI,{
-	mes"[ÂíÄáË¹]";
-	mes strcharinfo(0)+", »¶Ó­À´µ½ÆÕÂ¡µÂÀ­µÚ¶şÒøĞĞ!";
+-	script	é“¶è¡ŒèŒå‘˜::bankg	4_M_ZONDAOYAJI,{
+	mes"[é©¬å°¼æ–¯]";
+	mes strcharinfo(0)+", æ¬¢è¿æ¥åˆ°æ™®éš†å¾·æ‹‰ç¬¬äºŒé“¶è¡Œ!";
 
-	set @kb_int,(gettime(6)*31)+gettime(5); //½ñÈÕÊı×Ö
+	set @kb_int,(gettime(6)*31)+gettime(5); //ä»Šæ—¥æ•°å­—
 	set @income,0;
 	//calculate %
 	if (#kafrabank<=0 || #kb_int>=@kb_int) goto L_NoIncomeToday;
 	set @income,(#kafrabank/1000)*(@kb_int-#kb_int); //@income == % of the sum
-	//×î´óÊÕÒæ³£Êı:
+	//æœ€å¤§æ”¶ç›Šå¸¸æ•°:
 	if (@income>100000) set @income,100000;
 L_NoIncomeToday:
-	set #kb_int,@kb_int; //ÖØÖÃÊ±¼ä¼ÆÊı
+	set #kb_int,@kb_int; //é‡ç½®æ—¶é—´è®¡æ•°
 
-	if(#kafrabank==0) mes "ÎÒÃÇ½«»á´ò¿ªÄãµÄÕË»§.";
-	if(@income>0) mes "½ñÈÕÊÕÒæ: ^135445" + @income + "^000000 Zeny.";
+	if(#kafrabank==0) mes "æˆ‘ä»¬å°†ä¼šæ‰“å¼€ä½ çš„è´¦æˆ·.";
+	if(@income>0) mes "ä»Šæ—¥æ”¶ç›Š: ^135445" + @income + "^000000 Zeny.";
 	set #kafrabank,#kafrabank+@income;
-	if(#kafrabank>0) mes "ÄúµÄÕË»§: ^135445" + #kafrabank + "^000000 Zeny.";
-	mes "ÇëÎÊÄúÓĞºÎĞèÒª?";
+	if(#kafrabank>0) mes "æ‚¨çš„è´¦æˆ·: ^135445" + #kafrabank + "^000000 Zeny.";
+	mes "è¯·é—®æ‚¨æœ‰ä½•éœ€è¦?";
 	next;
-	if(#kafrabank==0) menu "- ´ò¿ªÕË»§",-,"- ÍË³ö",B_EXIT2;
-	if(#kafrabank>0) menu "- »îÆÚ´æ¿î",-,"- È¡Ç®",M_WITHDRAW,"- ÍË³ö",B_EXIT2;
+	if(#kafrabank==0) menu "- æ‰“å¼€è´¦æˆ·",-,"- é€€å‡º",B_EXIT2;
+	if(#kafrabank>0) menu "- æ´»æœŸå­˜æ¬¾",-,"- å–é’±",M_WITHDRAW,"- é€€å‡º",B_EXIT2;
 
-	mes"[ÂíÄáË¹]";
-	mes "Çë¸æËßÎÒÄúµÄÈ¡ÏÖ½ğ¶î.";
+	mes"[é©¬å°¼æ–¯]";
+	mes "è¯·å‘Šè¯‰æˆ‘æ‚¨çš„å–ç°é‡‘é¢.";
 	next;
 	if(input(@kafrabank) == 1) goto L_TOO_BIG_AMOUNT;
 
@@ -58,17 +55,17 @@ L_NoIncomeToday:
 	if(@kafrabank>Zeny) goto L_NOT_ENOUGH;
 	set Zeny,Zeny-@kafrabank;
 	set #kafrabank,#kafrabank+@kafrabank;
-	mes"[ÂíÄáË¹]";
-	mes "Äú½«È¡ÏÖ ^135445" + @kafrabank + "z^000000.";
-	//ÎÒÃÇ»á¼ÇÂ¼ÒµÎñ²Ù×÷µ½ÈÕÖ¾.
+	mes"[é©¬å°¼æ–¯]";
+	mes "æ‚¨å°†å–ç° ^135445" + @kafrabank + "z^000000.";
+	//æˆ‘ä»¬ä¼šè®°å½•ä¸šåŠ¡æ“ä½œåˆ°æ—¥å¿—.
 	logmes "Bank %: " + @income +"z, Deposit: "+ @kafrabank +"z, Final: "+ #kafrabank +"z";
 	goto B_EXIT;
 
 M_WITHDRAW:
 	if(#kafrabank==0) goto L_ZERO_ACCOUNT;
-	mes"[ÂíÄáË¹]";
-	mes "ÄúµÄÕË»§: ^135445" + #kafrabank + "^000000 Zeny.";
-	mes "ÄúĞèÒªÈ¡¶àÉÙÏÖ½ğ?";
+	mes"[é©¬å°¼æ–¯]";
+	mes "æ‚¨çš„è´¦æˆ·: ^135445" + #kafrabank + "^000000 Zeny.";
+	mes "æ‚¨éœ€è¦å–å¤šå°‘ç°é‡‘?";
 	next;
 	if(input(@kafrabank) == 1) goto L_TOO_BIG_AMOUNT;
 
@@ -76,47 +73,47 @@ M_WITHDRAW:
 	if(@kafrabank>#kafrabank) goto L_NOT_ENOUGH;
 	set #kafrabank,#kafrabank-@kafrabank;
 	set Zeny,Zeny+@kafrabank;
-	mes"[ÂíÄáË¹]";
-	mes "ÕâÀïÊÇÄúĞèÒªµÄ ^135445" + @kafrabank + "z^000000, ÇëÇ©Ãû...";
-	//ÎÒÃÇ»á¼ÇÂ¼ÒµÎñ²Ù×÷µ½ÈÕÖ¾
-	logmes "Bank %: " + @income +"È¡Ç®: "+ @kafrabank +"z, Final: "+ #kafrabank +"z";
+	mes"[é©¬å°¼æ–¯]";
+	mes "è¿™é‡Œæ˜¯æ‚¨éœ€è¦çš„ ^135445" + @kafrabank + "z^000000, è¯·ç­¾å...";
+	//æˆ‘ä»¬ä¼šè®°å½•ä¸šåŠ¡æ“ä½œåˆ°æ—¥å¿—
+	logmes "Bank %: " + @income +"å–é’±: "+ @kafrabank +"z, Final: "+ #kafrabank +"z";
 	goto B_EXIT;
 
 L_NOT_ENOUGH:
-	mes"[ÂíÄáË¹]";
-	mes "ÄúÃ»ÓĞ×ã¹»µÄ½ğ¶îÍê³É´Ë´ÎÒµÎñ²Ù×÷.";
+	mes"[é©¬å°¼æ–¯]";
+	mes "æ‚¨æ²¡æœ‰è¶³å¤Ÿçš„é‡‘é¢å®Œæˆæ­¤æ¬¡ä¸šåŠ¡æ“ä½œ.";
 	next;
 	goto B_EXIT2;
 
 L_ZERO_ACCOUNT:
-	mes"[ÂíÄáË¹]";
-	mes "ÄúµÄÕË»§ÀïÃ»ÓĞ´æ¿î!";
+	mes"[é©¬å°¼æ–¯]";
+	mes "æ‚¨çš„è´¦æˆ·é‡Œæ²¡æœ‰å­˜æ¬¾!";
 	next;
 	goto B_EXIT2;
 
 L_TOO_BIG_AMOUNT:
-	mes"[ÂíÄáË¹]";
-	mes "·Ç³£±§Ç¸£¬Ã¿´Î²Ù×÷µÄ×î´óÈ¡¿î½ğ¶îÎª 10,000,000 Zeny.";
+	mes"[é©¬å°¼æ–¯]";
+	mes "éå¸¸æŠ±æ­‰ï¼Œæ¯æ¬¡æ“ä½œçš„æœ€å¤§å–æ¬¾é‡‘é¢ä¸º 10,000,000 Zeny.";
 	next;
 	goto B_EXIT2;
 
 L_LESS_1000:
-	mes"[ÂíÄáË¹]";
-	mes "·Ç³£±§Ç¸,ÂíÄáË¹ÕâÀïµÄ×îµÍÈ¡¿î½ğ¶îÎª 1,000 Zeny.";
+	mes"[é©¬å°¼æ–¯]";
+	mes "éå¸¸æŠ±æ­‰,é©¬å°¼æ–¯è¿™é‡Œçš„æœ€ä½å–æ¬¾é‡‘é¢ä¸º 1,000 Zeny.";
 	next;
 	goto B_EXIT2;
 
 B_EXIT:
-	mes "ºÃµÄ,»¶Ó­ÔÙ´Î¹â¹Ë!";
+	mes "å¥½çš„,æ¬¢è¿å†æ¬¡å…‰é¡¾!";
 	next;
 
 B_EXIT2:
-	mes"[ÂíÄáË¹]";
-	mes "¸ĞĞ»ÄúÊ¹ÓÃ±¾ÒøĞĞ. »¶Ó­ÔÙ´Î¹â¹Ë.";
+	mes"[é©¬å°¼æ–¯]";
+	mes "æ„Ÿè°¢æ‚¨ä½¿ç”¨æœ¬é“¶è¡Œ. æ¬¢è¿å†æ¬¡å…‰é¡¾.";
 	close;
 }
 
-prontera,131,190,1	duplicate(bankg)	ÒøĞĞÖ°Ô±#1-1	4_M_ZONDAOYAJI
-geffen,125,73,3	duplicate(bankg)	ÒøĞĞÖ°Ô±#2-1	4_M_ZONDAOYAJI
-izlude,145,107,1	duplicate(bankg)	ÒøĞĞÖ°Ô±#3-1	4_M_ZONDAOYAJI
-morocc,147,84,7	duplicate(bankg)	ÒøĞĞÖ°Ô±#4-1	4_M_ZONDAOYAJI
+prontera,131,190,1	duplicate(bankg)	é“¶è¡ŒèŒå‘˜#1-1	4_M_ZONDAOYAJI
+geffen,125,73,3	duplicate(bankg)	é“¶è¡ŒèŒå‘˜#2-1	4_M_ZONDAOYAJI
+izlude,145,107,1	duplicate(bankg)	é“¶è¡ŒèŒå‘˜#3-1	4_M_ZONDAOYAJI
+morocc,147,84,7	duplicate(bankg)	é“¶è¡ŒèŒå‘˜#4-1	4_M_ZONDAOYAJI

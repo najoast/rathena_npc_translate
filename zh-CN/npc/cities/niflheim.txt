@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN [³ÇÕòÈËÔ±]ºº»¯½Å±¾ [ www.rAthenaCN.com ]
-//============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN [åŸé•‡äººå‘˜]æ±‰åŒ–è„šæœ¬ 
 //============================================================
 
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Niflheim Script 
 //===== By: ================================================== 
 //= Fyrien, Dizzy, PKGINGO
@@ -36,26 +32,26 @@
 //= 1.5 Added dummy "OnMyMobDead" event to Cursed Spirit. [L0ne_W0lf]
 //============================================================ 
 
-niflheim,52,147,3	script	¿Â×Ê#nif	796,{
-	mes "[¿Â×Ê]";
-	mes "»î×ÅµÄÈË²»×¼½øÀ´";
-	mes "ÕâÀï -! ²»ÔÊĞí";
-	mes "»î×ÅµÄÈËÍ¨ĞĞ-!";
+niflheim,52,147,3	script	æŸ¯èµ„#nif	796,{
+	mes "[æŸ¯èµ„]";
+	mes "æ´»ç€çš„äººä¸å‡†è¿›æ¥";
+	mes "è¿™é‡Œ -! ä¸å…è®¸";
+	mes "æ´»ç€çš„äººé€šè¡Œ-!";
 	close;
 }
 
-niflheim,195,211,6	script	Æä¸ÊÌá°¢#nif	796,3,3,{
+niflheim,195,211,6	script	å…¶ç”˜æé˜¿#nif	796,3,3,{
 	if (isequipped(5038) || isequipped(2257) || isequipped(2256)) {
 		mes "[" + strcharinfo(0) + "]";
 		mes "What's up?";
 		next;
-		mes "[Æä¸ÊÌá°¢]";
+		mes "[å…¶ç”˜æé˜¿]";
 		mes "Just...";
 		mes "Come over here.";
 		mes "I have something";
 		mes "I must do for you.";
 		next;
-		mes "[Æä¸ÊÌá°¢]";
+		mes "[å…¶ç”˜æé˜¿]";
 		mes "Your horn is crooked.";
 		mes "Always make sure your horn";
 		mes "is worn straight and neat.";
@@ -63,145 +59,145 @@ niflheim,195,211,6	script	Æä¸ÊÌá°¢#nif	796,3,3,{
 		mes "looking at you.";
 		close;
 	}
-	mes "[Æä¸ÊÌá°¢]";
-	mes "ËÀÁéÆïÊ¿×ÜÊÇ¿´µÄÒ»Çå¶ş³ş";
+	mes "[å…¶ç”˜æé˜¿]";
+	mes "æ­»çµéª‘å£«æ€»æ˜¯çœ‹çš„ä¸€æ¸…äºŒæ¥š";
 	close;
 
 OnTouch:
 	if (isequipped(5038) || isequipped(2257) || isequipped(2256)) {
-		mes "[Æä¸ÊÌá°¢]";
+		mes "[å…¶ç”˜æé˜¿]";
 		mes "Hey, wait!";
 		close;
 	}
 	end;
 }
 
-nif_in,16,27,1	script	ËÀ¼¦#nif	800,{
-	mes "[Ï¹ÑÛ¼¦]";
-	mes "»î×ÅµÄÊ±ºò±»ÈËÃÇ³ÔµôÁË£¬";
-	mes "ÏÖÔÚ»»ÎÒÀ´³ÔÄãÁË£¬¹¾¹¾¹¾£¬";
-	mes "°¡°¡£¬Ã»Ïëµ½ËÀÁËºó»¹»áÓĞÕâÖÖÊÀ½ç£¬¹¾¹¾¹¾";
+nif_in,16,27,1	script	æ­»é¸¡#nif	800,{
+	mes "[ççœ¼é¸¡]";
+	mes "æ´»ç€çš„æ—¶å€™è¢«äººä»¬åƒæ‰äº†ï¼Œ";
+	mes "ç°åœ¨æ¢æˆ‘æ¥åƒä½ äº†ï¼Œå’•å’•å’•ï¼Œ";
+	mes "å•Šå•Šï¼Œæ²¡æƒ³åˆ°æ­»äº†åè¿˜ä¼šæœ‰è¿™ç§ä¸–ç•Œï¼Œå’•å’•å’•";
 	percentheal -5,0;
 	close;
 }
 
-nif_in,16,30,4	script	ËÀµÄ ÎüÑªòùòğ#nif	799,{
-	mes "[ÅÁ¶¹Âü]";
-	mes "²»¹Ü»î×Å»òËÀÁË£¬ÈËÀàµÄÑª";
-	mes "»¹ÊÇºÜºÃºÈ£¬";
-	mes "Ê²Ã´? ÄãÒ²ÏëÒª";
-	mes "±»ÎÒÎüÑªÂğ?";
+nif_in,16,30,4	script	æ­»çš„ å¸è¡€è™è #nif	799,{
+	mes "[å¸•è±†æ›¼]";
+	mes "ä¸ç®¡æ´»ç€æˆ–æ­»äº†ï¼Œäººç±»çš„è¡€";
+	mes "è¿˜æ˜¯å¾ˆå¥½å–ï¼Œ";
+	mes "ä»€ä¹ˆ? ä½ ä¹Ÿæƒ³è¦";
+	mes "è¢«æˆ‘å¸è¡€å—?";
 	percentheal -5,0;
 	close;
 }
 
-nif_in,156,93,5	script	Ğ¡º¢#nif	793,{
-	mes "[°¢À­¿ËÄÈ °²]";
-	mes "ÕâÀï£¬ÊÇÄÄÀïÄØ...? Ë¯Ò»¾õÆğÀ´£¬";
-	mes "¾ÍÀ´µ½ÕâÀïÁË... ÎÒÂèÂè£¬";
-	mes "Ã»ÓĞ¿´µ½ÎÒÂèÂèÂğ? àÅ...? ÎØÎØÎØ...";
-	mes "ÎÒÏëÒª»Ø¼Ò...";
+nif_in,156,93,5	script	å°å­©#nif	793,{
+	mes "[é˜¿æ‹‰å…‹å¨œ å®‰]";
+	mes "è¿™é‡Œï¼Œæ˜¯å“ªé‡Œå‘¢...? ç¡ä¸€è§‰èµ·æ¥ï¼Œ";
+	mes "å°±æ¥åˆ°è¿™é‡Œäº†... æˆ‘å¦ˆå¦ˆï¼Œ";
+	mes "æ²¡æœ‰çœ‹åˆ°æˆ‘å¦ˆå¦ˆå—? å—¯...? å‘œå‘œå‘œ...";
+	mes "æˆ‘æƒ³è¦å›å®¶...";
 	next;
-	switch(select("¹ØÓÚÄ§Å®...:¹ØÓÚ×çÖä...:Í£Ö¹¶Ô»°")){
+	switch(select("å…³äºé­”å¥³...:å…³äºè¯…å’’...:åœæ­¢å¯¹è¯")){
 	case 1:
-		mes "[°¢À­¿ËÄÈ °²]";
-		mes "Ä§Å®...? ÎÒ²»ÖªµÀËùÎ½µÄÄ§Å®...";
-		mes "ËäÈ»ÔÚÍ¯»°ÊéÀïÓĞ¶Á¹ı£¬";
-		mes "²»¹ı²»ÖªµÀÕæµÄÓĞÃ»ÓĞÄÇÖÖÈË£¬";
-		mes "Èç¹ûÓĞµÄ»°Ò»¶¨ºÜ¿ÉÅÂ°¡...";
+		mes "[é˜¿æ‹‰å…‹å¨œ å®‰]";
+		mes "é­”å¥³...? æˆ‘ä¸çŸ¥é“æ‰€è°“çš„é­”å¥³...";
+		mes "è™½ç„¶åœ¨ç«¥è¯ä¹¦é‡Œæœ‰è¯»è¿‡ï¼Œ";
+		mes "ä¸è¿‡ä¸çŸ¥é“çœŸçš„æœ‰æ²¡æœ‰é‚£ç§äººï¼Œ";
+		mes "å¦‚æœæœ‰çš„è¯ä¸€å®šå¾ˆå¯æ€•å•Š...";
 		next;
-		mes "[°¢À­¿ËÄÈ °²]";
-		mes "¿ÉÊÇÎªÊ²Ã´»áÕâÃ´ÀäÄØ...?";
+		mes "[é˜¿æ‹‰å…‹å¨œ å®‰]";
+		mes "å¯æ˜¯ä¸ºä»€ä¹ˆä¼šè¿™ä¹ˆå†·å‘¢...?";
 		if (sex == 1) 
-			mes "¸ç¸çÄã²»»áÀäÂğ? ºÃÆæ¹Ö... ºôà¡";
+			mes "å“¥å“¥ä½ ä¸ä¼šå†·å—? å¥½å¥‡æ€ª... å‘¼å”·";
 		else
-			mes "æ¢æ¢Äã²»»áÀäÂğ? ºÃÆæ¹Ö... ºôà¡";
-		mes "Ïë»Øµ½ÎÒÎÂÅ¯µÄ¼Ò£¬";
-		mes "°ï°ïÃ¦°É... àÅ...? àÅ...?";
+			mes "å§Šå§Šä½ ä¸ä¼šå†·å—? å¥½å¥‡æ€ª... å‘¼å”·";
+		mes "æƒ³å›åˆ°æˆ‘æ¸©æš–çš„å®¶ï¼Œ";
+		mes "å¸®å¸®å¿™å§... å—¯...? å—¯...?";
 		close;
 	case 2:
-		mes "[°¢À­¿ËÄÈ °²]";
-		mes "×çÖä... ÏëÆğÄÌÄÌÔø¾­";
-		mes "ËùËµ¹ıµÄ»°£¬ËıËµÓĞÖÖ·½·¨";
-		mes "¿ÉÒÔ¶ã±ÜÎŞ·¨ÒÔ×£¸£";
-		mes "½â¿ªµÄºİ¶¾×çÖä";
+		mes "[é˜¿æ‹‰å…‹å¨œ å®‰]";
+		mes "è¯…å’’... æƒ³èµ·å¥¶å¥¶æ›¾ç»";
+		mes "æ‰€è¯´è¿‡çš„è¯ï¼Œå¥¹è¯´æœ‰ç§æ–¹æ³•";
+		mes "å¯ä»¥èº²é¿æ— æ³•ä»¥ç¥ç¦";
+		mes "è§£å¼€çš„ç‹ æ¯’è¯…å’’";
 		next;
-		mes "[°¢À­¿ËÄÈ °²]";
-		mes "¿ËÀ­Í¼(Klaatu)...";
-		mes "±±À­Ëş(Verata).....";
-		mes "ÔÙÀ´ÊÇ... Ê²Ã´... Ê²Ã´µÄ...? ÊÇÊ²Ã´À²?";
-		mes "×îºóÃæ¼Ç²»ÆğÀ´ÁË";
+		mes "[é˜¿æ‹‰å…‹å¨œ å®‰]";
+		mes "å…‹æ‹‰å›¾(Klaatu)...";
+		mes "åŒ—æ‹‰å¡”(Verata).....";
+		mes "å†æ¥æ˜¯... ä»€ä¹ˆ... ä»€ä¹ˆçš„...? æ˜¯ä»€ä¹ˆå•¦?";
+		mes "æœ€åé¢è®°ä¸èµ·æ¥äº†";
 		next;
-		mes "[°¢À­¿ËÄÈ °²]";
-		mes "Ëı»¹Ëµ¹ı°´ÕÕË³ĞòÄîÄÇ3ÖÖÖäÎÄµÄ»°£¬";
-		mes "¿ÉÒÔ´Ó±»×çÖäµÄÃüÔËÖĞÌÓ¹ı£¬";
-		mes "ÏÖÔÚÒÑ²»Ì«¼ÇµÃËıÖ÷ÒªÔÚ";
-		mes "½²Ê²Ã´ÁË... ÎÒÒ²ÍüÁË";
+		mes "[é˜¿æ‹‰å…‹å¨œ å®‰]";
+		mes "å¥¹è¿˜è¯´è¿‡æŒ‰ç…§é¡ºåºå¿µé‚£3ç§å’’æ–‡çš„è¯ï¼Œ";
+		mes "å¯ä»¥ä»è¢«è¯…å’’çš„å‘½è¿ä¸­é€ƒè¿‡ï¼Œ";
+		mes "ç°åœ¨å·²ä¸å¤ªè®°å¾—å¥¹ä¸»è¦åœ¨";
+		mes "è®²ä»€ä¹ˆäº†... æˆ‘ä¹Ÿå¿˜äº†";
 		close;
 	case 3:
-		mes "[°¢À­¿ËÄÈ °²]";
-		mes "ºÃÀä... ºÃÀäà¸... ÏëÒª»Øµ½";
-		mes "¼ÒÀï... ·½±ãµÄ»°´øÎÒÒ»Æğ×ß..";
-		mes "ÕâÀïÌ«¿ÉÅÂÁËÀ².....";
-		mes "°İÍĞÄã°ï°ïÃ¦... ¾È¾ÈÎÒ...";
+		mes "[é˜¿æ‹‰å…‹å¨œ å®‰]";
+		mes "å¥½å†·... å¥½å†·å–”... æƒ³è¦å›åˆ°";
+		mes "å®¶é‡Œ... æ–¹ä¾¿çš„è¯å¸¦æˆ‘ä¸€èµ·èµ°..";
+		mes "è¿™é‡Œå¤ªå¯æ€•äº†å•¦.....";
+		mes "æ‹œæ‰˜ä½ å¸®å¸®å¿™... æ•‘æ•‘æˆ‘...";
 		close;
 	}
 }
 
-niflheim,350,258,1	script	±»×çÖäµÄ Áé»ê#nif	802,{
-	killmonster "niflheim","±»×çÖäµÄ Áé»ê#nif::OnMyMobDead";
-	mes "[°¬Êé ²¼Â·Ë¹]";
-	mes "ÔÚÄãÉíÉÏ¸ĞÊÜµ½Ç¿ÁÒµÄ×çÖä°¡°¡°¡£¬";
-	mes "ÎÒ¾Ü¾øÄãµÄ´æÔÚ°¡°¡°¡°¡£¬";
-	mes "²»ÍË»ØÈ¥·ñÔò»áËÀ°¡°¡°¡£¬";
-	mes "²»×¼¶¯ÎÒµÄÊé°¡°¡°¡";
+niflheim,350,258,1	script	è¢«è¯…å’’çš„ çµé­‚#nif	802,{
+	killmonster "niflheim","è¢«è¯…å’’çš„ çµé­‚#nif::OnMyMobDead";
+	mes "[è‰¾ä¹¦ å¸ƒè·¯æ–¯]";
+	mes "åœ¨ä½ èº«ä¸Šæ„Ÿå—åˆ°å¼ºçƒˆçš„è¯…å’’å•Šå•Šå•Šï¼Œ";
+	mes "æˆ‘æ‹’ç»ä½ çš„å­˜åœ¨å•Šå•Šå•Šå•Šï¼Œ";
+	mes "ä¸é€€å›å»å¦åˆ™ä¼šæ­»å•Šå•Šå•Šï¼Œ";
+	mes "ä¸å‡†åŠ¨æˆ‘çš„ä¹¦å•Šå•Šå•Š";
 	next;
-	switch(select("ÄÃÆğµÚÒ»±¾Êé:ÄÃÆğµÚ¶ş±¾Êé:ÄÃÆğµÚÈı±¾Êé:¹Ô¹ÔµÄÍË»ØÈ¥")) {
+	switch(select("æ‹¿èµ·ç¬¬ä¸€æœ¬ä¹¦:æ‹¿èµ·ç¬¬äºŒæœ¬ä¹¦:æ‹¿èµ·ç¬¬ä¸‰æœ¬ä¹¦:ä¹–ä¹–çš„é€€å›å»")) {
 	case 1:
-		monster "niflheim",349,259,"Rideword",1478,1,"·ÉĞĞÄ§Êé#nif::OnMyMobDead";
-		mes "[°¬Êé ²¼Â·Ë¹]";
-		mes "²»ÒªËæ±ã¶¯ÎÒµÄÊé°¡°¡!!";
-		mes "¿¦¹ş°¡°¡! ×çÖäÄã±»Ò§±»Ëº±»×¥ÉË!!";
-		mes "ÓÀÔ¶±»ÂñÔÚÊø¸¿µÄ×çÖäÀï!!";
+		monster "niflheim",349,259,"Rideword",1478,1,"é£è¡Œé­”ä¹¦#nif::OnMyMobDead";
+		mes "[è‰¾ä¹¦ å¸ƒè·¯æ–¯]";
+		mes "ä¸è¦éšä¾¿åŠ¨æˆ‘çš„ä¹¦å•Šå•Š!!";
+		mes "å–€å“ˆå•Šå•Š! è¯…å’’ä½ è¢«å’¬è¢«æ’•è¢«æŠ“ä¼¤!!";
+		mes "æ°¸è¿œè¢«åŸ‹åœ¨æŸç¼šçš„è¯…å’’é‡Œ!!";
 		close;
 	case 2:
-		mes "[°¬Êé ²¼Â·Ë¹]";
-		mes "ÎÒËµ¹ı²»×¼¶¯ÎÒµÄÊé°¡°¡...";
-		mes "¸øÎÒ¹öÔ¶Ò»µã..";
-		mes "²»Òª·Á°­ÎÒĞİÏ¢°¡°¡°¡!";
+		mes "[è‰¾ä¹¦ å¸ƒè·¯æ–¯]";
+		mes "æˆ‘è¯´è¿‡ä¸å‡†åŠ¨æˆ‘çš„ä¹¦å•Šå•Š...";
+		mes "ç»™æˆ‘æ»šè¿œä¸€ç‚¹..";
+		mes "ä¸è¦å¦¨ç¢æˆ‘ä¼‘æ¯å•Šå•Šå•Š!";
 		close2;
 		warp "niflheim",34,162;
 		end;
 	case 3:
-		mes "[°¬Êé ²¼Â·Ë¹]";
-		mes "¿¦¹ş¹ş°¡°¡.... Ïàµ±ÓĞµ¨Á¿";
-		mes "µÄ¼Ò»ï°¡°¡...!! À´...";
-		mes "¿ªÊ¼ÄîÖäÎÄ°É°¡°¡°¡...!!";
+		mes "[è‰¾ä¹¦ å¸ƒè·¯æ–¯]";
+		mes "å–€å“ˆå“ˆå•Šå•Š.... ç›¸å½“æœ‰èƒ†é‡";
+		mes "çš„å®¶ä¼™å•Šå•Š...!! æ¥...";
+		mes "å¼€å§‹å¿µå’’æ–‡å§å•Šå•Šå•Š...!!";
 		emotion ET_KIK;
 		next;
-		if(select("¿ËÂŞ°Ø(Clover):¿ËÀ­Í¼(Klaatu):¿ËÀ×Ò×ÍĞË¼(Kleitos)")==2)
+		if(select("å…‹ç½—æŸ(Clover):å…‹æ‹‰å›¾(Klaatu):å…‹é›·æ˜“æ‰˜æ€(Kleitos)")==2)
 			set .@spell,.@spell+1;
-		if(select("±±ÀûÌØ(Verit):±±ÀûËşË¾(Veritas):±±À­Ëş (Verata)")==3)
+		if(select("åŒ—åˆ©ç‰¹(Verit):åŒ—åˆ©å¡”å¸(Veritas):åŒ—æ‹‰å¡” (Verata)")==3)
 			set .@spell,.@spell+1;
-		if(select("ÄÚËşÒ×(Necktie):ÄÚ¿ËÀûË¾(Necklace):ÄÚÂŞ(Nero):^FFFFFFÄáÍ¼(Nictu)^000000")==4)
+		if(select("å†…å¡”æ˜“(Necktie):å†…å…‹åˆ©å¸(Necklace):å†…ç½—(Nero):^FFFFFFå°¼å›¾(Nictu)^000000")==4)
 			set .@spell,.@spell+1;
 		if (.@spell == 3) {
 			switch(rand(1,5)) {
 			case 1:
 				if (morison_meat < 15) {
 					set MISC_QUEST,MISC_QUEST | 1;
-					mes "[°¬Êé ²¼Â·Ë¹]";
+					mes "[è‰¾ä¹¦ å¸ƒè·¯æ–¯]";
 					mes "You... You broke the curse!";
 					mes "How did you know that spell?!";
 					next;
-					mes "[°¬Êé ²¼Â·Ë¹]";
+					mes "[è‰¾ä¹¦ å¸ƒè·¯æ–¯]";
 					mes "I suppose you expect for me to";
 					mes "melt in agony about now, don't";
 					mes "you? Well... Sorry to disappoint";
 					mes "you, mortal, but I can never die!";
 					close;
 				}
-				mes "[°¬Êé ²¼Â·Ë¹]";
+				mes "[è‰¾ä¹¦ å¸ƒè·¯æ–¯]";
 				mes "...! You cast the correct spell?!";
 				mes "...!...";
 				mes "But...You're still cursed...";
@@ -210,56 +206,56 @@ niflheim,350,258,1	script	±»×çÖäµÄ Áé»ê#nif	802,{
 			case 2:
 				if (thai_head == 1) {
 					set thai_head,2;
-					mes "[°¬Êé ²¼Â·Ë¹]";
+					mes "[è‰¾ä¹¦ å¸ƒè·¯æ–¯]";
 					mes "What's...";
 					mes "this feeling?";
 					next;
-					mes "[°¬Êé ²¼Â·Ë¹]";
+					mes "[è‰¾ä¹¦ å¸ƒè·¯æ–¯]";
 					mes "No...!";
 					mes "NOOOOOOOOOOOOOOOO!";
 					next;
-					mes "[°¬Êé ²¼Â·Ë¹]";
+					mes "[è‰¾ä¹¦ å¸ƒè·¯æ–¯]";
 					mes "Why did your spell have to work?!";
 					close;
 				}
-				mes "[°¬Êé ²¼Â·Ë¹]";
+				mes "[è‰¾ä¹¦ å¸ƒè·¯æ–¯]";
 				mes "You...";
 				mes "cast the correct spell?!";
 				next;
-				mes "[°¬Êé ²¼Â·Ë¹]";
+				mes "[è‰¾ä¹¦ å¸ƒè·¯æ–¯]";
 				mes "Hoho~";
 				mes "But you're still cursed...";
 				close;
 			case 3:
 				if (thai_head == 8) {
 					set thai_head,7;
-					mes "[°¬Êé ²¼Â·Ë¹]";
+					mes "[è‰¾ä¹¦ å¸ƒè·¯æ–¯]";
 					mes "You... You broke the curse!";
 					mes "Who taught you that spell?!";
 					next;
-					mes "[°¬Êé ²¼Â·Ë¹]";
+					mes "[è‰¾ä¹¦ å¸ƒè·¯æ–¯]";
 					mes "I suppose you expect for me to";
 					mes "melt in agony about now, don't";
 					mes "you? Well... Sorry to disappoint";
 					mes "you, mortal, but I can never die!";
 					next;
-					mes "[°¬Êé ²¼Â·Ë¹]";
+					mes "[è‰¾ä¹¦ å¸ƒè·¯æ–¯]";
 					mes "So long as I'm...";
 					mes "still...";
 					mes "cursed.";
 					next;
-					mes "[°¬Êé ²¼Â·Ë¹]";
+					mes "[è‰¾ä¹¦ å¸ƒè·¯æ–¯]";
 					mes "NOOOOOOOOOO!";
 					close;
 				}
-				mes "[°¬Êé ²¼Â·Ë¹]";
+				mes "[è‰¾ä¹¦ å¸ƒè·¯æ–¯]";
 				mes "...! You cast the correct spell?!";
 				mes "...!...";
 				mes "But...You're still cursed...";
 				mes "Umhaaaaaaaaaaaaaaaaa.....!";
 				close;
 			case 4:
-				mes "[°¬Êé ²¼Â·Ë¹]";
+				mes "[è‰¾ä¹¦ å¸ƒè·¯æ–¯]";
 				mes "...! You cast the correct spell?!";
 				mes "...!...";
 				mes "But...You're still cursed...";
@@ -267,22 +263,22 @@ niflheim,350,258,1	script	±»×çÖäµÄ Áé»ê#nif	802,{
 				close;
 			}
 		}
-		monster "niflheim",345,259,"Orc Skeleton",1462,1,"±»×çÖäµÄ Áé»ê#nif::OnMyMobDead";
-		monster "niflheim",347,261,"Orc Skeleton",1462,1,"±»×çÖäµÄ Áé»ê#nif::OnMyMobDead";
-		monster "niflheim",344,253,"Orc Skeleton",1462,1,"±»×çÖäµÄ Áé»ê#nif::OnMyMobDead";
-		monster "niflheim",346,251,"Orc Skeleton",1462,1,"±»×çÖäµÄ Áé»ê#nif::OnMyMobDead";
-		monster "niflheim",349,249,"Orc Skeleton",1462,1,"±»×çÖäµÄ Áé»ê#nif::OnMyMobDead";
-		monster "niflheim",350,260,"Orc Skeleton",1462,1,"±»×çÖäµÄ Áé»ê#nif::OnMyMobDead";
-		monster "niflheim",353,256,"Orc Skeleton",1462,1,"±»×çÖäµÄ Áé»ê#nif::OnMyMobDead";
-		mes "[°¬Êé ²¼Â·Ë¹]";
-		mes "¹ş¹ş¹ş°¡°¡°¡!!! ÖäÎÄ´íÁË!";
-		mes "Äã¼´½«ÒªÃæÁÙËÀÍöÁËà¸à¸à¸£¬";
-		mes "Ô¸ÄãÒ»±²×Ó¶¼ÊÜµ½×çÖä°É°¡°¡°¡...!!";
+		monster "niflheim",345,259,"Orc Skeleton",1462,1,"è¢«è¯…å’’çš„ çµé­‚#nif::OnMyMobDead";
+		monster "niflheim",347,261,"Orc Skeleton",1462,1,"è¢«è¯…å’’çš„ çµé­‚#nif::OnMyMobDead";
+		monster "niflheim",344,253,"Orc Skeleton",1462,1,"è¢«è¯…å’’çš„ çµé­‚#nif::OnMyMobDead";
+		monster "niflheim",346,251,"Orc Skeleton",1462,1,"è¢«è¯…å’’çš„ çµé­‚#nif::OnMyMobDead";
+		monster "niflheim",349,249,"Orc Skeleton",1462,1,"è¢«è¯…å’’çš„ çµé­‚#nif::OnMyMobDead";
+		monster "niflheim",350,260,"Orc Skeleton",1462,1,"è¢«è¯…å’’çš„ çµé­‚#nif::OnMyMobDead";
+		monster "niflheim",353,256,"Orc Skeleton",1462,1,"è¢«è¯…å’’çš„ çµé­‚#nif::OnMyMobDead";
+		mes "[è‰¾ä¹¦ å¸ƒè·¯æ–¯]";
+		mes "å“ˆå“ˆå“ˆå•Šå•Šå•Š!!! å’’æ–‡é”™äº†!";
+		mes "ä½ å³å°†è¦é¢ä¸´æ­»äº¡äº†å–”å–”å–”ï¼Œ";
+		mes "æ„¿ä½ ä¸€è¾ˆå­éƒ½å—åˆ°è¯…å’’å§å•Šå•Šå•Š...!!";
 		close;
 	case 4:
-		mes "[°¬Êé ²¼Â·Ë¹]";
-		mes "¿¦¹ş°¡°¡! ÏëµÄ²»´í°¡°¡°¡°¡...";
-		mes "ÎÒ»á°ïÄãÆíµ»»î×Å»ØÈ¥°¡°¡°¡....";
+		mes "[è‰¾ä¹¦ å¸ƒè·¯æ–¯]";
+		mes "å–€å“ˆå•Šå•Š! æƒ³çš„ä¸é”™å•Šå•Šå•Šå•Š...";
+		mes "æˆ‘ä¼šå¸®ä½ ç¥ˆç¥·æ´»ç€å›å»å•Šå•Šå•Š....";
 		close;
 	}
 

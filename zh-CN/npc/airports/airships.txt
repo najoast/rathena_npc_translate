@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN [�ɿ�ͧ]�����ű� [ www.rAthenaCN.com ]
-//============================================================
-//= GIT ����� https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ���ⷴ�� https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN [飞空艇]汉化脚本 
 //============================================================
 
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= The Airship System Script
 //===== By: ================================================== 
 //= rAthena Dev Team
@@ -57,124 +53,124 @@ OnInit:
 	initnpctimer;
 	end;
 OnTimer20000:
-	mapannounce "airplane","Ŀǰ���ɿ�ͧ���ڷ��������޿���.",bc_map,"0x00ff00";
+	mapannounce "airplane","目前本飞空艇正在飞向艾音布罗克中.",bc_map,"0x00ff00";
 	end;
 OnTimer50000:
-	mapannounce "airplane","��һ�·ɿ�ͧ��Ҫ�ִﰬ�����޿���.",bc_map,"0x00ff00";
+	mapannounce "airplane","等一下飞空艇就要抵达艾音布罗克了.",bc_map,"0x00ff00";
 	end;
 OnTimer60000:
 	set $@airplanelocation,1;
 	donpcevent "#AirshipWarp-1::OnUnhide";
 	donpcevent "#AirshipWarp-2::OnUnhide";
-	mapannounce "airplane","�����ѵִﰬ�����޿�,�»����ÿ��ټ���.",bc_map,"0x00ff00";
+	mapannounce "airplane","我们已抵达艾音布罗克,下机的旅客再见了.",bc_map,"0x00ff00";
 	end;
 OnTimer70000:
-	mapannounce "airplane","��������ͣ���ڰ������޿���,��һ�����ǵķɿ�ͧ��Ҫ������.",bc_map,"0x00ff00";
+	mapannounce "airplane","我们现在停靠在艾音布罗克中,等一下我们的飞空艇就要出发啰.",bc_map,"0x00ff00";
 	end;
 OnTimer80000:
 	donpcevent "#AirshipWarp-1::OnHide";
 	donpcevent "#AirshipWarp-2::OnHide";
-	mapannounce "airplane","�ɿ�ͧ�����.���ǵ���һ��Ŀ�ĵ�����ϣ������. ",bc_map,"0x70dbdb";
+	mapannounce "airplane","飞空艇已起飞.我们的下一个目的地是里希塔乐镇. ",bc_map,"0x70dbdb";
 	end;
 OnTimer100000:
-	mapannounce "airplane","Ŀǰ���ɿ�ͧ���ڷ�����ϣ��������.",bc_map,"0x70dbdb";
+	mapannounce "airplane","目前本飞空艇正在飞向里希塔乐镇中.",bc_map,"0x70dbdb";
 	end;
 OnTimer130000:
-	mapannounce "airplane","��һ�·ɿ�ͧ��Ҫ�ִ���ϣ��������.",bc_map,"0x70dbdb";
+	mapannounce "airplane","等一下飞空艇就要抵达里希塔乐镇了.",bc_map,"0x70dbdb";
 	end;
 OnTimer140000:
 	set $@airplanelocation,2;
 	donpcevent "#AirshipWarp-1::OnUnhide";
 	donpcevent "#AirshipWarp-2::OnUnhide";
-	mapannounce "airplane","�����ѵִ���ϣ������,�»����ÿ��ټ���.",bc_map,"0x70dbdb";
+	mapannounce "airplane","我们已抵达里希塔乐镇,下机的旅客再见了.",bc_map,"0x70dbdb";
 	end;
 OnTimer150000:
-	mapannounce "airplane","��������ͣ������ϣ��������,��һ�����ǵķɿ�ͧ��Ҫ������.",bc_map,"0x70dbdb";
+	mapannounce "airplane","我们现在停靠在里希塔乐镇中,等一下我们的飞空艇就要出发啰.",bc_map,"0x70dbdb";
 	end;
 OnTimer160000:
 	donpcevent "#AirshipWarp-1::OnHide";
 	donpcevent "#AirshipWarp-2::OnHide";
-	mapannounce "airplane","�ɿ�ͧ�����.���ǵ���һ��Ŀ�ĵ��ǰ������޿�.",bc_map,"0x00ff00";
+	mapannounce "airplane","飞空艇已起飞.我们的下一个目的地是艾音布罗克.",bc_map,"0x00ff00";
 	end;
 OnTimer180000:
-	mapannounce "airplane","Ŀǰ���ɿ�ͧ���ڷ��������޿���.",bc_map,"0x00ff00";
+	mapannounce "airplane","目前本飞空艇正在飞向艾音布罗克中.",bc_map,"0x00ff00";
 	end;
 OnTimer210000:
-	mapannounce "airplane","��һ�·ɿ�ͧ��Ҫ�ִﰬ�����޿���.",bc_map,"0x00FF00";
+	mapannounce "airplane","等一下飞空艇就要抵达艾音布罗克了.",bc_map,"0x00FF00";
 	end;
 OnTimer220000:
 	set $@airplanelocation,1;
 	donpcevent "#AirshipWarp-1::OnUnhide";
 	donpcevent "#AirshipWarp-2::OnUnhide";
-	mapannounce "airplane","�����ѵִﰬ�����޿�,�»����ÿ��ټ���",bc_map,"0x00ff00";
+	mapannounce "airplane","我们已抵达艾音布罗克,下机的旅客再见了",bc_map,"0x00ff00";
 	end;
 OnTimer230000:
-	mapannounce "airplane","��������ͣ���ڰ������޿���,��һ�����ǵķɿ�ͧ��Ҫ������.",bc_map,"0x00ff00";
+	mapannounce "airplane","我们现在停靠在艾音布罗克中,等一下我们的飞空艇就要出发啰.",bc_map,"0x00ff00";
 	end;
 OnTimer240000:
 	donpcevent "#AirshipWarp-1::OnHide";
 	donpcevent "#AirshipWarp-2::OnHide";
-	mapannounce "airplane","�ɿ�ͧ�����.���ǵ���һ��Ŀ�ĵ�����ŵ.",bc_map,"0xff8200";
+	mapannounce "airplane","飞空艇已起飞.我们的下一个目的地是朱诺.",bc_map,"0xff8200";
 	end;
 OnTimer260000:
-	mapannounce "airplane","Ŀǰ���ɿ�ͧ���ڷ�����ŵ��.",bc_map,"0xff8200";
+	mapannounce "airplane","目前本飞空艇正在飞向朱诺中.",bc_map,"0xff8200";
 	end;
 OnTimer290000:
-	mapannounce "airplane","��һ�·ɿ�ͧ��Ҫ�ִ���ŵ��.",bc_map,"0xff8200";
+	mapannounce "airplane","等一下飞空艇就要抵达朱诺了.",bc_map,"0xff8200";
 	end;
 OnTimer300000:
 	set $@airplanelocation,0;
 	donpcevent "#AirshipWarp-1::OnUnhide";
 	donpcevent "#AirshipWarp-2::OnUnhide";
-	mapannounce "airplane","�����ѵִ���ŵ,�»����ÿ��ټ���.",bc_map,"0xff8200";
+	mapannounce "airplane","我们已抵达朱诺,下机的旅客再见了.",bc_map,"0xff8200";
 	end;
 OnTimer310000:
-	mapannounce "airplane","��������ͣ������ŵ��,��һ�����ǵķɿ�ͧ��Ҫ������.",bc_map,"0xff8200";
+	mapannounce "airplane","我们现在停靠在朱诺中,等一下我们的飞空艇就要出发啰.",bc_map,"0xff8200";
 	end;
 OnTimer320000:
 	donpcevent "#AirshipWarp-1::OnHide";
 	donpcevent "#AirshipWarp-2::OnHide";
-	mapannounce "airplane","�ɿ�ͧ�����.���ǵ���һ��Ŀ�ĵ��ǻٸ�.",bc_map,"0xca4bf3";
+	mapannounce "airplane","飞空艇已起飞.我们的下一个目的地是毁葛.",bc_map,"0xca4bf3";
 	end;
 OnTimer340000:
-	mapannounce "airplane","Ŀǰ���ɿ�ͧ���ڷ���ٸ���.",bc_map,"0xca4bf3";
+	mapannounce "airplane","目前本飞空艇正在飞向毁葛中.",bc_map,"0xca4bf3";
 	end;
 OnTimer370000:
-	mapannounce "airplane","��һ�·ɿ�ͧ��Ҫ�ִ�ٸ���.",bc_map,"0xca4bf3";
+	mapannounce "airplane","等一下飞空艇就要抵达毁葛了.",bc_map,"0xca4bf3";
 	end;
 OnTimer380000:
 	set $@airplanelocation,3;
 	donpcevent "#AirshipWarp-1::OnUnhide";
 	donpcevent "#AirshipWarp-2::OnUnhide";
-	mapannounce "airplane","�����ѵִ�ٸ�,�»����ÿ��ټ���.",bc_map,"0xca4bf3";
+	mapannounce "airplane","我们已抵达毁葛,下机的旅客再见了.",bc_map,"0xca4bf3";
 	end;
 OnTimer390000:
-	mapannounce "airplane","��������ͣ���ڻٸ���,��һ�����ǵķɿ�ͧ��Ҫ������.",bc_map,"0xca4bf3";
+	mapannounce "airplane","我们现在停靠在毁葛中,等一下我们的飞空艇就要出发啰.",bc_map,"0xca4bf3";
 	end;
 OnTimer400000:
 	donpcevent "#AirshipWarp-1::OnHide";
 	donpcevent "#AirshipWarp-2::OnHide";
-	mapannounce "airplane","�ɿ�ͧ�����.���ǵ���һ��Ŀ�ĵ�����ŵ.",bc_map,"0xff8200";
+	mapannounce "airplane","飞空艇已起飞.我们的下一个目的地是朱诺.",bc_map,"0xff8200";
 	end;
 OnTimer420000:
-	mapannounce "airplane","Ŀǰ���ɿ�ͧ���ڷ�����ŵ��.",bc_map,"0xff8200";
+	mapannounce "airplane","目前本飞空艇正在飞向朱诺中.",bc_map,"0xff8200";
 	end;
 OnTimer450000:
-	mapannounce "airplane","��һ�·ɿ�ͧ��Ҫ�ִ���ŵ��.",bc_map,"0xff8200";
+	mapannounce "airplane","等一下飞空艇就要抵达朱诺了.",bc_map,"0xff8200";
 	end;
 OnTimer460000:
 	set $@airplanelocation,0;
 	donpcevent "#AirshipWarp-1::OnUnhide";
 	donpcevent "#AirshipWarp-2::OnUnhide";
-	mapannounce "airplane","�����ѵִ���ŵ,�»����ÿ��ټ���.",bc_map,"0xff8200";
+	mapannounce "airplane","我们已抵达朱诺,下机的旅客再见了.",bc_map,"0xff8200";
 	end;
 OnTimer470000:
-	mapannounce "airplane","��������ͣ������ŵ��,��һ�����ǵķɿ�ͧ��Ҫ������.",bc_map,"0xff8200";
+	mapannounce "airplane","我们现在停靠在朱诺中,等一下我们的飞空艇就要出发啰.",bc_map,"0xff8200";
 	end;
 OnTimer480000:
 	donpcevent "#AirshipWarp-1::OnHide";
 	donpcevent "#AirshipWarp-2::OnHide";
-	mapannounce "airplane","�ɿ�ͧ�����.���ǵ���һ��Ŀ�ĵ��ǰ������޿�.",bc_map,"0x00ff00";
+	mapannounce "airplane","飞空艇已起飞.我们的下一个目的地是艾音布罗克.",bc_map,"0x00ff00";
 	stopnpctimer;
 	initnpctimer;
 }
@@ -186,383 +182,383 @@ airplane,247,64,5	duplicate(ExitAirplane)	Exit#airplane1b	857
 airplane,240,40,1	duplicate(ExitAirplane)	Exit#airplane2a	857
 airplane,247,40,1	duplicate(ExitAirplane)	Exit#airplane2b	857
 
-airplane,100,69,3	script	����Ա#ein-1	852,{
-	mes "[����Ա]";
-	mes "������ǵִ���������ȥ��Ŀ�ĵ�,";
-	mes "�������ǰ����¥���»���.";
-	mes "лл��ѡ��ʹ�����ǵķ���.";
-	mes "ף���и����õ�һ��~";
+airplane,100,69,3	script	机组员#ein-1	852,{
+	mes "[机组员]";
+	mes "如果我们抵达了您所想去的目的地,";
+	mes "就请登上前方的楼梯下机吧.";
+	mes "谢谢您选择使用我们的服务.";
+	mes "祝您有个美好的一天~";
 	close;
 }
 
-airplane,64,94,1	script	�������ͯ#ein_p	787,{
+airplane,64,94,1	script	汶巴拉孩童#ein_p	787,{
 	emotion ET_PROFUSELY_SWEAT;
-	mes "[��ͯ]";
+	mes "[孩童]";
 	if (event_umbala >= 3) {
-		mes "��Ŷ,����!";
-		mes "��-��!";
-		mes "�����ڷ�!��-������...";
-		mes "���������ϰ�!";
+		mes "哇哦,麻麻!";
+		mes "看-看!";
+		mes "我们在飞!我-我们在...";
+		mes "我们在天上啊!";
 	}
 	else {
-		mes "����������!";
-		mes "ɢ�� ౽�";
-		mes "���� �� ������ ���.";
-		mes "�����۹�������!";
+		mes "马库马拉古!";
+		mes "散帕 啾金波";
+		mes "卡酷 纳 基恩蒂 飕罗.";
+		mes "波尔哇哈哈哈哈!";
 	}
 	close;
 }
 
-airplane,66,93,3	script	�����Ů��#ein_p	783,{
+airplane,66,93,3	script	汶巴拉女子#ein_p	783,{
 	emotion ET_THINK;
-	mes "[Ůʿ]";
+	mes "[女士]";
 	if (event_umbala >= 3) {
-		mes "��,��...";
-		mes "С����,ע���~";
-		mes "�������ϱ���ô����";
+		mes "嘘,嘘...";
+		mes "小宝贝,注意点~";
+		mes "公共场合别这么激动";
 	}
 	else {
-		mes "��ͼ!";
-		mes "����Ȼ�� ������!";
-		mes "ɰ�� ������η�";
-		mes "��̫�� �����!";
+		mes "超图!";
+		mes "萨克然普 马蹄伊!";
+		mes "砂咖 格尔夫涛飞";
+		mes "杭太吉 慢珠儿!";
 	}
 	close;
 }
 
-airplane,71,91,7	script	���������#ein_p	789,{
+airplane,71,91,7	script	汶巴拉男子#ein_p	789,{
 	if (event_umbala >= 3) {
-		mes "[������ķ]";
-		mes "����ߵ�~";
-		mes "����ı����Ҿ�֪���㶮����˵ʲô��";
-		mes "^333333*����...!*^000000";
+		mes "[科米廉姆]";
+		mes "嗨这边的~";
+		mes "看你的表情我就知道你懂我在说什么了";
+		mes "^333333*呼呼...!*^000000";
 		next;
 		emotion ET_HNG;
-		mes "[������ķ]";
-		mes "����Ϊ�ɿ�ͧ��ҵ��һ��������.";
-		mes "��������Ա���������ѵ���Կ˷����ǵĿָ�֢.";
-		mes "��ʵ�������������ô�򵥵�.";
+		mes "[科米廉姆]";
+		mes "我在为飞空艇事业做一番贡献呢.";
+		mes "帮助机组员在汶巴拉做训练以克服他们的恐高症.";
+		mes "其实本来这事情就这么简单的.";
 		next;
-		mes "[������ķ]";
-		mes "����...";
-		mes "��Щ�˾��ǲ��ܿ˷���,";
-		mes "������һ��������ı��ŵ��� ^333333��ư�ķȥ��^000000.";
+		mes "[科米廉姆]";
+		mes "但是...";
+		mes "有些人就是不能克服哇,";
+		mes "甚至有一部分人真的被吓到了 ^333333尼菲奥姆去了^000000.";
 	}
 	else {
-		mes "[������ķ]";
-		mes "�;� ��";
-		mes "ť��� ��ͧ.";
+		mes "[科米廉姆]";
+		mes "巴就 嘎";
+		mes "钮克嗒 飞艇.";
 		next;
-		mes "[������ķ]";
+		mes "[科米廉姆]";
 		mes "...";
 		mes "......";
 		next;
 		emotion ET_HNG;
-		mes "[������ķ]";
-		mes "ɳ�� ľŷ �ͼ���";
-		mes "��ͧ ������ ������";
-		mes "��³. ����,�����Ŭ";
-		mes "�����. ��, ������ �� �ȿ�!";
+		mes "[科米廉姆]";
+		mes "沙巴 木欧 巴佳马";
+		mes "飞艇 库拉哈 钩钩纳";
+		mes "萨鲁. 达麻,库库纳努";
+		mes "鱼库塔. 嗄, 法树库 那 热库!";
 	}
 	close;
 }
 
-airplane,250,58,2	script	�ɿ�ְͧԱ#airplane	67,{
+airplane,250,58,2	script	飞空艇职员#airplane	67,{
 	// Hugel quest addition
 	if (hg_ma1 == 3) {
-		mes "[�ɿ�ְͧԱ]";
-		mes "��ӭ������ͧ.";
-		mes "��������Ҫʲô������?";
+		mes "[飞空艇职员]";
+		mes "欢迎来到飞艇.";
+		mes "请问您需要什么帮助吗?";
 		next;
-		select("��������ʶһλ���������������?");
-		mes "[�ɿ�ְͧԱ]";
-		mes "��Ǹ,����û�н���������ֵĳ˿���.";
+		select("请问您认识一位叫做西雅提的人吗?");
+		mes "[飞空艇职员]";
+		mes "抱歉,我们没有叫做这个名字的乘客呢.";
 		close;
 	}
 	// Hugel quest end
-	mes "[�ɿ�ְͧԱ]";
-	mes "��ӭ������ͧ��.";
-	mes "��������Ҫʲô������?";
+	mes "[飞空艇职员]";
+	mes "欢迎来到飞艇上.";
+	mes "请问您需要什么帮助吗?";
 	next;
-	switch (select("����ɿ�ͧ������ô����:������������:�ڲ���ʩ����:ȡ��")) {
+	switch (select("这个飞空艇到底怎么用呢:船长室在哪里:内部设施介绍:取消")) {
 	case 1:
-		mes "[�ɿ�ְͧԱ]";
-		mes "�������������Ѿ��ִ����Ŀ�ĵ������Ϣ��ʱ��,";
-		mes "�����÷�ͧ���������ϲ��ĳ����뿪��ͧ�Ϳ�����.";
+		mes "[飞空艇职员]";
+		mes "当您听到我们已经抵达你的目的地这个消息的时候,";
+		mes "请利用飞艇北部或者南部的出口离开飞艇就可以了.";
 		next;
-		mes "[�ɿ�ְͧԱ]";
-		mes "�������С�Ĵ�����Ҳ��,";
-		mes "��ͧ�ǲ���ѭ���ŷɵ�,";
-		mes "��ȵ���һ�εִ�����ȥ��Ŀ�ĵ�֮�����³���.";
+		mes "[飞空艇职员]";
+		mes "如果您不小心错过了也别急,";
+		mes "飞艇是不断循环着飞的,";
+		mes "请等到下一次抵达您想去的目的地之后再下车吧.";
 		close;
 	case 2:
-		mes "[�ɿ�ְͧԱ]";
-		mes "�����Ҿ��ڷ�ͧ��ǰ��.";
-		mes "�����Ժͷ�ͧ�����ͷ���Աȥ����к�.";
+		mes "[飞空艇职员]";
+		mes "船长室就在飞艇的前部.";
+		mes "您可以和飞艇船长和飞行员去打个招呼.";
 		close;
 	case 3:
-		mes "[�ɿ�ְͧԱ]";
-		mes "��ͧ��Ϊ��λ�˿��ṩ�˸�������������Ϸ.";
-		mes "��������������,�����ַ�,���濴��ЩС��Ϸ~";
+		mes "[飞空艇职员]";
+		mes "飞艇上为各位乘客提供了各种迷你娱乐游戏.";
+		mes "您可以试试手气,练练手法,玩玩看这些小游戏~";
 		close;
 	case 4:
-		mes "[�ɿ�ְͧԱ]";
-		mes "��ô,ϣ���������Ƿ�ͧ�ϵ���;���.";
-		mes "лл��ѡ�������ǵķ���.";
-		mes "ף���и����õ�һ��.";
+		mes "[飞空艇职员]";
+		mes "那么,希望您在我们飞艇上的旅途愉快.";
+		mes "谢谢您选择了我们的服务.";
+		mes "祝您有个美好的一天.";
 		close;
 	}
 }
 
-airplane,80,71,2	script	�����#01airplane	834,{
-	mes "[�����]";
-	mes "Ŷ,ð�������.";
-	mes "������������һ�����µ���;,";
-	mes "�뿴��ͬ��¬��-�׵¼��ȴ�½�˵ķݶ���,��������һ�°�.";
+airplane,80,71,2	script	泽尔塔#01airplane	834,{
+	mes "[泽尔塔]";
+	mes "哦,冒险者你好.";
+	mes "我现在陷入了一场可怕的旅途,";
+	mes "请看在同是卢恩-米德加兹大陆人的份儿上,帮我祈祷一下吧.";
 	close;
 }
 
-airplane,65,63,4	script	����#01airplane	714,{
-	mes "[����]";
-	mes "��,��ɿ�ͧȥ��ȥ��������?";
-	mes "�Ҷ�������ô��ʱ����,";
-	mes "���ǻ�û������ʲô���ڽ����ǵ�,";
+airplane,65,63,4	script	麦林#01airplane	714,{
+	mes "[麦林]";
+	mes "啊,这飞空艇去不去姜饼城呢?";
+	mes "我都等了这么长时间了,";
+	mes "但是还没有听到什么关于姜饼城的,";
 	close;
 }
 
-airplane,72,34,6	script	��ŵ˹#01airplane	702,{
-	mes "[��ŵ˹]";
-	mes "Ŷ��Ŷ~";
-	mes "���������¿�,�����˲�ͬ,";
-	mes "���������!";
+airplane,72,34,6	script	阿诺斯#01airplane	702,{
+	mes "[阿诺斯]";
+	mes "哦哇哦~";
+	mes "从这里往下看,天空如此不同,";
+	mes "如此美丽啊!";
 	close;
 }
 
-airplane,221,158,2	script	����Ա#airplane	852,{
+airplane,221,158,2	script	飞行员#airplane	852,{
 	// Hugel quest addition
 	if (hg_ma1 == 3) {
-		mes "[����Ա]";
-		mes "������һ������ơ�ƺ�.";
-		mes "�Ⱦƾ�����������һ����Ȥ�˹���!�Ƹ���������!";
-		mes "�뿪��,��ʲôҲ���ǰ�!";
+		mes "[飞行员]";
+		mes "好想来一杯冰镇啤酒喝.";
+		mes "喝酒就是我人生第一大乐趣了哈哈!酒给予我力量!";
+		mes "离开酒,我什么也不是啊!";
 		next;
-		mes "[����Ա]";
-		mes "����!���Ƽݻ��ǲ����Ե�.";
-		mes "����!��ֻ�����Ҹ�����Ⱦ�!";
+		mes "[飞行员]";
+		mes "但是!醉酒驾机是不可以的.";
+		mes "但是!那只会让我更加想喝酒!";
 		emotion ET_CRY;
 		next;
-		select("��������ʶһλ����������ĳ˿���?");
-		mes "[����Ա]";
-		mes "����Ʒ�����Ư��,";
-		mes "���Ǿ���ôһ·���Ż�����̫�����˰�.";
+		select("请问你认识一位名叫西雅提的乘客吗?");
+		mes "[飞行员]";
+		mes "这件制服真是漂亮,";
+		mes "但是就这么一路穿着还真是太厚重了啊.";
 		next;
-		mes "[����Ա]";
+		mes "[飞行员]";
 		mes "...";
 		mes "......";
-		mes "û����������ô�������������.";
-		mes "������ͷѱ¹.";
-		mes "^FFFFFF ^000000 ��ֻ�ܿ�����Щװ�˹�����.";
+		mes "没有人曾经怎么进来过这个房间.";
+		mes "船长是头驯鹿.";
+		mes "^FFFFFF ^000000 我只能看看那些装运工来着.";
 		next;
 		emotion ET_HUK;
-		mes "[����Ա]";
-		mes "��!?����˭?";
+		mes "[飞行员]";
+		mes "哇!?那是谁?";
 		next;
-		mes "- ...����û������˵��. -";
+		mes "- ...他就没在听你说话. -";
 		close;
 	}
 	// Hugel quest end
 	switch (rand(1,4)) {
 	case 1:
-		mes "[����Ա]";
-		mes "�þ�û�кú�����һ���Ϻõı��������.";
-		mes "�⹤��Ҫ����Ҫʱ�̱������Ѱ�";
+		mes "[飞行员]";
+		mes "好久没有好好享受一份上好的冰镇麦酒了.";
+		mes "这工作要求我要时刻保持清醒啊";
 		next;
-		mes "[����Ա]";
-		mes "�Ⱦ�һ��Ҫ�ʶȰ�!";
-		mes "�һ��Ǽǲ�������ϴηżٻ���������Ϣ��ʲôʱ�������.";
-		mes "�ҾƼ�ƿ,��������,���ӿ���,";
-		mes "������������������Ϣ��ʽ.";
+		mes "[飞行员]";
+		mes "喝酒一定要适度啊!";
+		mes "我还是记不大清楚上次放假或者有天休息是什么时候的事了.";
+		mes "烈酒几瓶,薯条几包,电视看看,";
+		mes "这就是我想像的完美休息方式.";
 		emotion ET_CRY;
 		close;
 	case 2:
-		mes "[����Ա]";
-		mes "��,��������������.";
-		mes "����,��������ձ�֤�˿��Ӷ�,";
-		mes "���л�ܰ�ȫ��.";
+		mes "[飞行员]";
+		mes "嘿,今天天气不错呢.";
+		mes "明亮,开阔的天空保证了可视度,";
+		mes "飞行会很安全的.";
 		close;
 	case 3:
-		mes "[����Ա]";
-		mes "��֪�����ǵĴ�����һ���������𾴵ļһ�.";
-		mes "���������ֵ��ڷ�ͧ��ҵ��ͷ���ĺ�������.";
-		mes "˭��֪����������¹��?";
+		mes "[飞行员]";
+		mes "你知道我们的船长是一个很让人尊敬的家伙.";
+		mes "他和他的兄弟在飞艇行业里头真心很有名气.";
+		mes "谁会知道他们是麋鹿呢?";
 		next;
-		mes "[����Ա]";
-		mes "��,��ͱ���˵��,������֪��,";
-		mes "�������С����.";
-		mes "�Ǹ�ʥ��������ĺ�����,";
-		mes "����Щ����С�������¹��Ϊ������.";
-		mes "��һ���Ǹ����!";
+		mes "[飞行员]";
+		mes "嘿,别和别人说啊,就我俩知道,";
+		mes "告诉你个小秘密.";
+		mes "那个圣诞老人真的很厉害,";
+		mes "让那些淘气小精灵和麋鹿都为他工作.";
+		mes "他一定是个天才!";
 		close;
 	default:
-		mes "[����Ա]";
-		mes "��֪�������������ӷ������¿Ƽ������.";
-		mes "���ǴҴ�ææ�ϳ��������ͧ.";
+		mes "[飞行员]";
+		mes "你知道在天上这样子飞是最新科技产物的.";
+		mes "他们匆匆忙忙赶出来这个飞艇.";
 		next;
 		emotion ET_HUK;
-		mes "[����Ա]";
-		mes "�����ǻ�����ĺ�����������,�����ǰ˼���˺ܶණ��.";
-		mes "�����ڷɿ�ͧ�����з���ʱ��,�Ϳ�ʼѵ��������.";
-		mes "����ţ����,�԰�?!";
+		mes "[飞行员]";
+		mes "但他们还是真的很用心在做的,真的提前思考了很多东西.";
+		mes "他们在飞空艇还在研发的时候,就开始训练我们了.";
+		mes "真是牛掰啊,对吧?!";
 		close;
 	}
 }
 
-airplane,50,66,5	script	ƻ������#airplane	86,{
-	mes "[Ƽ��]";
-	mes "��ӭ����Ƽ����ƻ��С����.";
-	mes "������������ƻ��,Ҳ���԰�ƻ��ե֭.";
+airplane,50,66,5	script	苹果商人#airplane	86,{
+	mes "[萍国]";
+	mes "欢迎来到萍国的苹果小超市.";
+	mes "在这儿你可以买苹果,也可以把苹果榨汁.";
 	next;
-	switch (select("��ƻ��.:եƻ��֭.:����������ʲô?:ȡ��.")) {
+	switch (select("买苹果.:榨苹果汁.:你在这里做什么?:取消.")) {
 	case 1:
-		mes "[Ƽ��]";
-		mes "��������Ҫ�����������.";
-		mes "���� 15 zeny ,һ����๺��500��.";
-		mes "����Ҫ������0�Ϳ�����.";
+		mes "[萍国]";
+		mes "输入你想要购买的数量吧.";
+		mes "单价 15 zeny ,一次最多购买500个.";
+		mes "不想要就输入0就可以了.";
 		next;
 		while (1) {
 			input .@input;
 			set .@pay, .@input * 15;
 			if (.@input == 0) {
-				mes "[Ƽ��]";
-				mes "лл��ע�ҵ�С��,";
-				mes "�ݰ�!";
-				mes "�����������Ҫ��ƻ����ʱ��,";
-				mes "������Ƽ����С���~";
+				mes "[萍国]";
+				mes "谢谢关注我的小店,";
+				mes "拜拜!";
+				mes "当你觉得你想要啃苹果的时候,";
+				mes "就来我萍国的小店吧~";
 				close;
 			}
 			else if (.@input < 1 || .@input > 500) {
-				mes "[Ƽ��]";
-				mes "�������˳���500�������.";
-				mes "��������������Ҫƻ��������.";
+				mes "[萍国]";
+				mes "你输入了超过500的数量喔.";
+				mes "请重新输入你想要苹果的数量.";
 				next;
 			}
 			else {
-				mes "[Ƽ��]";
-				mes "һ�� ^FF0000" + .@input + "^000000 ��ƻ��";
-				mes "���� ^FF0000" + .@pay + " Zeny^000000 zeny.";
-				mes "Ը�������?";
+				mes "[萍国]";
+				mes "一共 ^FF0000" + .@input + "^000000 个苹果";
+				mes "花费 ^FF0000" + .@pay + " Zeny^000000 zeny.";
+				mes "愿意继续吗?";
 				next;
-				if (select("�ǵ�:��Ҫ") == 2) {
-					mes "[Ƽ��]";
-					mes "лл�ݹ��";
-					mes "�ݰ�!";
-					mes "�����������Ҫ��ƻ����ʱ��,";
-					mes "������Ƽ����С���~";
+				if (select("是的:不要") == 2) {
+					mes "[萍国]";
+					mes "谢谢惠顾喔";
+					mes "拜拜!";
+					mes "当你觉得你想要啃苹果的时候,";
+					mes "就来我萍国的小店吧~";
 					close;
 				}
 				break;
 			}
 		}
 		if (Zeny < .@pay) {
-			mes "[Ƽ��]";
-			mes "��Ǹ,������û�д�������Щƻ��Ҫ��Ǯ��.";
-			mes "���һ�����Ǯ��,������.";
+			mes "[萍国]";
+			mes "抱歉,但是你没有带来买这些苹果要的钱呢.";
+			mes "检查一下你的钱包,少买点吧.";
 			close;
 		}
 		else if (checkweight(512,.@input) == 0) {
-			mes "[Ƽ��]";
-			mes "��,�ð�.�������û���㹻��λ����.";
-			mes "������һ����İ���������.";
+			mes "[萍国]";
+			mes "嗯,好吧.你包包里没有足够的位子了.";
+			mes "先清理一下你的包包再来吧.";
 			close;
 		}
 		else {
 			set Zeny, Zeny - .@pay;
 			getitem 512,.@input; //Apple
-			mes "[Ƽ��]";
-			mes "лл�ݹ��~";
-			mes "ϣ��";
-			mes "����Ժú�������Щƻ������ζ~!";
+			mes "[萍国]";
+			mes "谢谢惠顾喔~";
+			mes "希望";
+			mes "你可以好好享受这些苹果的美味~!";
 			close;
 		}
 	case 2:
-		mes "[Ƽ��]";
-		mes "�õ�,����Ҫ";
-		mes "^FF00003 ��ƻ�� �� 1 ��ƿ^000000";
-		mes "�������Ҫ��һƿƻ��֭�Ļ�.";
-		mes "��Ҫ������?";
+		mes "[萍国]";
+		mes "好的,我需要";
+		mes "^FF00003 个苹果 和 1 空瓶^000000";
+		mes "如果你想要做一瓶苹果汁的话.";
+		mes "想要继续吗?";
 		next;
-		switch (select("�ǵ�:��Ҫ")) {
+		switch (select("是的:不要")) {
 		case 1:
 			if (countitem(512) < 3 || countitem(713) < 1) {
-				mes "[Ƽ��]";
-				mes "��,��û������ƻ��֭�Ĳ���";
-				mes "��סŶ 3 ��ƻ��,һ����ƿ.";
+				mes "[萍国]";
+				mes "啊,你没带够做苹果汁的材料";
+				mes "记住哦 3 个苹果,一个空瓶.";
 				close;
 			}
 			else {
-				mes "[Ƽ��]";
-				mes "�õ�,";
-				mes "�Ե�";
+				mes "[萍国]";
+				mes "好的,";
+				mes "稍等";
 				next;
-				mes "^3355FF*ĥ��ĥ��*";
-				mes "*ĥ��ĥ��*";
-				mes "*����...!*^000000";
+				mes "^3355FF*磨啊磨啊*";
+				mes "*磨啊磨啊*";
+				mes "*钶琅...!*^000000";
 				next;
 				delitem 512,3; //Apple
 				delitem 713,1; //Empty_Bottle
 				getitem 531,1; //Apple_Juice
-				mes "[Ƽ��]";
-				mes "��,����~";
-				mes "ϣ����ú�����!";
-				mes "�������Ҫƻ������ƻ��֭�Ļ�,";
-				mes "����,��ʱ��ض�������������~";
+				mes "[萍国]";
+				mes "嘿,给你~";
+				mes "希望你好好享受!";
+				mes "如果你想要苹果或者苹果汁的话,";
+				mes "哈哈,随时随地都可以来找我呦~";
 				close;
 			}
 		case 2:
-			mes "[Ƽ��]";
-			mes "����,лл��ע�ҵ�С��.";
-			mes "�ݰ�!";
-			mes "�����������Ҫ��ƻ����ʱ��,";
-			mes "������Ƽ����С���~";
+			mes "[萍国]";
+			mes "啊哈,谢谢关注我的小店.";
+			mes "拜拜!";
+			mes "当你觉得你想要啃苹果的时候,";
+			mes "就来我萍国的小店吧~";
 			close;
 		}
 	case 3:
-		mes "[Ƽ��]";
-		mes "��������һ�����ε����˺�,";
-		mes "ֱ����һ��,��С˯��ʱ���ж����ҵ����ҵ�ͷ��,";
-		mes "���Ҵ��ҵ������о���.";
+		mes "[萍国]";
+		mes "我曾经是一个漫游的流浪汉,";
+		mes "直到有一天,我小睡的时候有东西砸到了我的头上,";
+		mes "把我从我的美梦中惊醒.";
 		next;
-		mes "[Ƽ��]";
-		mes "ԭ����,������һ��ƻ��������˯��,";
-		mes "һ��ƻ���䵽����ͷ��.";
-		mes "����ʱ����Ķ���,׼����Ҫȥ��ƻ����ʱ��...";
+		mes "[萍国]";
+		mes "原来啊,我是在一棵苹果树下面睡觉,";
+		mes "一颗苹果落到了我头上.";
+		mes "我那时候真的饿死,准备就要去吃苹果的时候...";
 		next;
-		mes "[Ƽ��]";
-		mes "��ʱ�����ڿ�ʱ���ʶ�ĵ������ѿ���,";
-		mes "����ȥ�ɿ�ͧ�ϰ�æ.";
-		mes "�����Ҿ�ȥ��,�ҷ�����Щ������ɫ����Ϸ.";
+		mes "[萍国]";
+		mes "那时候我挖矿时候结识的的老朋友凯恩,";
+		mes "叫我去飞空艇上帮忙.";
+		mes "所以我就去了,我发现有些人在玩色子游戏.";
 		next;
-		mes "[Ƽ��]";
-		mes "��ʵ����̫������,�־����ⶫ��������,";
-		mes "��������Ψһ��ƻ������ע.";
-		mes "��,����˵,�������˸��ҳ������˸�һ��,";
-		mes "һ��ƻ�����������...";
+		mes "[萍国]";
+		mes "我实在是太无聊了,又觉得这东西很新奇,";
+		mes "就拿了我唯一的苹果做赌注.";
+		mes "诶,还别说,好像有人给我唱了幸运歌一样,";
+		mes "一个苹果变成了两个...";
 		next;
-		mes "[Ƽ��]";
-		mes "����������ĸ�...";
-		mes "������ʶ�����׷�����ʲôֵǮ,";
-		mes "��ӵ�е�ƻ�������ﵽ�˿��Կ��̵�ĵز���!";
-		mes "�����Ҿ��ڷɿ�ͧ�Ͽ�չ�����Լ�������.";
-		mes "��,�ܹ����?";
+		mes "[萍国]";
+		mes "两个变成了四个...";
+		mes "在我意识到到底发生了什么值钱,";
+		mes "我拥有的苹果数量达到了可以开商店的地步了!";
+		mes "所以我就在飞空艇上开展了我自己的生意.";
+		mes "哈,很诡异吧?";
 		next;
-		mes "[Ƽ��]";
-		mes "ƻ�����������кô���.";
-		mes "����Ҳ�����Ҵ�æ,��������~!";
+		mes "[萍国]";
+		mes "苹果对你身体有好处的.";
+		mes "他们也帮了我大忙,哈哈哈哈~!";
 		close;
 	case 4:
-		mes "[Ƽ��]";
-		mes "лл�ݷ����ҵ�С��.";
-		mes "�ݰ�~";
+		mes "[萍国]";
+		mes "谢谢拜访了我的小店.";
+		mes "拜拜~";
 		close;
 	}
 }
@@ -608,64 +604,64 @@ OnEnable:
 	initnpctimer;
 	end;
 OnTimer25000:
-	mapannounce "airplane_01","Ŀǰ���ɿ�ͧ���ڷ�����˹³�õ���;�С�",bc_map,"0x00ff00";
+	mapannounce "airplane_01","目前本飞空艇正在飞往依斯鲁得岛的途中。",bc_map,"0x00ff00";
 	end;
 OnTimer50000:
-	mapannounce "airplane_01","��һ�·ɿ�ͧ��Ҫ��������˹³�õ��ˡ�",bc_map,"0x00ff00";
+	mapannounce "airplane_01","等一下飞空艇就要降落在依斯鲁得岛了。",bc_map,"0x00ff00";
 	end;
 OnTimer60000:
 	set $@airplanelocation2,1;
 	donpcevent "#AirshipWarp-3::OnUnhide";
 	donpcevent "#AirshipWarp-4::OnUnhide";
-	mapannounce "airplane_01","��ӭ������˹³�õ���ף������һ�������ó̡�",bc_map,"0x00ff00";
+	mapannounce "airplane_01","欢迎来到依斯鲁得岛，祝你能有一个愉快的旅程。",bc_map,"0x00ff00";
 	end;
 OnTimer70000:
-	mapannounce "airplane_01","����Ŀǰ��ͣ������˹³�õ������������Ҫ��������",bc_map,"0x00ff00";
+	mapannounce "airplane_01","我们目前正停靠在依斯鲁得岛，过会儿即将要出发啦。",bc_map,"0x00ff00";
 	end;
 OnTimer80000:
 	donpcevent "#AirshipWarp-3::OnHide";
 	donpcevent "#AirshipWarp-4::OnHide";
-	mapannounce "airplane_01","�ɿ�ͧ�Ѿ�����ˣ���һ��Ŀ�ĵ�����ŵ��",bc_map,"0x70dbdb";
+	mapannounce "airplane_01","飞空艇已经起飞了，下一个目的地是朱诺。",bc_map,"0x70dbdb";
 	end;
 OnTimer105000:
-	mapannounce "airplane_01","Ŀǰ���ɿ�ͧ���ڷ�����ŵ��;�С�",bc_map,"0x70dbdb";
+	mapannounce "airplane_01","目前本飞空艇正在飞往朱诺的途中。",bc_map,"0x70dbdb";
 	end;
 OnTimer130000:
-	mapannounce "airplane_01","��һ�·ɿ�ͧ��Ҫ��������ŵ�ˡ�",bc_map,"0x70dbdb";
+	mapannounce "airplane_01","等一下飞空艇就要降落在朱诺了。",bc_map,"0x70dbdb";
 	end;
 OnTimer140000:
 	set $@airplanelocation2,2;
 	donpcevent "#AirshipWarp-3::OnUnhide";
 	donpcevent "#AirshipWarp-4::OnUnhide";
-	mapannounce "airplane_01","��ӭ������ŵ��ף������һ�������ó̡�",bc_map,"0x70dbdb";
+	mapannounce "airplane_01","欢迎来到朱诺，祝你能有一个愉快的旅程。",bc_map,"0x70dbdb";
 	end;
 OnTimer150000:
-	mapannounce "airplane_01","����Ŀǰ��ͣ������ŵ�����������Ҫ��������",bc_map,"0x70dbdb";
+	mapannounce "airplane_01","我们目前正停靠在朱诺，过会儿即将要出发啦。",bc_map,"0x70dbdb";
 	end;
 OnTimer160000:
 	donpcevent "#AirshipWarp-3::OnHide";
 	donpcevent "#AirshipWarp-4::OnHide";
-	mapannounce "airplane_01","�ɿ�ͧ�Ѿ��뿪�˵��档������һ��Ŀ�ĵ������ա�",bc_map,"0xFF8200";
+	mapannounce "airplane_01","飞空艇已经离开了地面。我们下一个目的地是拉赫。",bc_map,"0xFF8200";
 	end;
 OnTimer185000:
-	mapannounce "airplane_01","Ŀǰ���ɿ�ͧ���ڷ������յ�;�С�",bc_map,"0xFF8200";
+	mapannounce "airplane_01","目前本飞空艇正在飞往拉赫的途中。",bc_map,"0xFF8200";
 	end;
 OnTimer210000:
-	mapannounce "airplane_01","��һ�·ɿ�ͧ��Ҫ�����������ˡ�",bc_map,"0xFF8200";
+	mapannounce "airplane_01","等一下飞空艇就要降落在拉赫了。",bc_map,"0xFF8200";
 	end;
 OnTimer220000:
 	set $@airplanelocation2,0;
 	donpcevent "#AirshipWarp-3::OnUnhide";
 	donpcevent "#AirshipWarp-4::OnUnhide";
-	mapannounce "airplane_01","��ӭ�������գ�ף������һ�������ó̡�",bc_map,"0xFF8200";
+	mapannounce "airplane_01","欢迎来到拉赫，祝你能有一个愉快的旅程。",bc_map,"0xFF8200";
 	end;
 OnTimer230000:
-	mapannounce "airplane_01","����Ŀǰ��ͣ�������գ����������Ҫ��������",bc_map,"0xFF8200";
+	mapannounce "airplane_01","我们目前正停靠在拉赫，过会儿即将要出发啦。",bc_map,"0xFF8200";
 	end;
 OnTimer240000:
 	donpcevent "#AirshipWarp-3::OnHide";
 	donpcevent "#AirshipWarp-4::OnHide";
-	mapannounce "airplane_01","�ɿ�ͧ�Ѿ�����ˣ���һ��Ŀ�ĵ�����˹³�õ���",bc_map,"0x00ff00";
+	mapannounce "airplane_01","飞空艇已经起飞了，下一个目的地是依斯鲁得岛。",bc_map,"0x00ff00";
 	stopnpctimer;
 	set .moninv, .moninv + 1;
 	if (.moninv == 7) {
@@ -679,225 +675,225 @@ OnTimer240000:
 	end;
 }
 
-airplane_01,240,64,5	script	����#airplane_011a::ExitAirplane01	857,{
+airplane_01,240,64,5	script	出口#airplane_011a::ExitAirplane01	857,{
 	end;
 }
-airplane_01,247,64,5	duplicate(ExitAirplane01)	����#airplane_011b	857
-airplane_01,240,40,1	duplicate(ExitAirplane01)	����#airplane_012a	857
-airplane_01,247,40,1	duplicate(ExitAirplane01)	����#airplane_012b	857
+airplane_01,247,64,5	duplicate(ExitAirplane01)	出口#airplane_011b	857
+airplane_01,240,40,1	duplicate(ExitAirplane01)	出口#airplane_012a	857
+airplane_01,247,40,1	duplicate(ExitAirplane01)	出口#airplane_012b	857
 
-airplane_01,250,58,2	script	�ɿ�ְͧԱ#airplane01	67,{
-	mes "[�ɿ�ְͧԱ]";
-	mes "��ӭ�����ɿ�ͧ��.";
-	mes "����Ҫ��ʲôæ��.";
+airplane_01,250,58,2	script	飞空艇职员#airplane01	67,{
+	mes "[飞空艇职员]";
+	mes "欢迎来到飞空艇上.";
+	mes "请问要帮什么忙吗.";
 	next;
-	switch (select("����ɿ�ͧ������ô����:������������:�ڲ���ʩ����:ȡ��")) {
+	switch (select("这个飞空艇到底怎么用呢:船长室在哪里:内部设施介绍:取消")) {
 	case 1:
-		mes "[�ɿ�ְͧԱ]";
-		mes "�������������Ѿ��ִ����Ŀ�ĵ������Ϣ��ʱ��,";
-		mes "�����÷�ͧ���������ϲ��ĳ����뿪��ͧ�Ϳ�����.";
+		mes "[飞空艇职员]";
+		mes "当您听到我们已经抵达你的目的地这个消息的时候,";
+		mes "请利用飞艇北部或者南部的出口离开飞艇就可以了.";
 		next;
-		mes "[�ɿ�ְͧԱ]";
-		mes "�������С�Ĵ�����Ҳ��,";
-		mes "��ͧ�ǲ���ѭ���ŷɵ�,";
-		mes "��ȵ���һ�εִ�����ȥ��Ŀ�ĵ�֮�����³���.";
+		mes "[飞空艇职员]";
+		mes "如果您不小心错过了也别急,";
+		mes "飞艇是不断循环着飞的,";
+		mes "请等到下一次抵达您想去的目的地之后再下车吧.";
 		close;
 	case 2:
-		mes "[�ɿ�ְͧԱ]";
-		mes "�����Ҿ��ڷ�ͧ��ǰ��.";
-		mes "�����Ժͷ�ͧ�����ͷ���Աȥ����к�.";
+		mes "[飞空艇职员]";
+		mes "船长室就在飞艇的前部.";
+		mes "您可以和飞艇船长和飞行员去打个招呼.";
 		close;
 	case 3:
-		mes "[�ɿ�ְͧԱ]";
-		mes "��ͧ��Ϊ��λ�˿��ṩ�˸�������������Ϸ.";
-		mes "��������������,�����ַ�,���濴��ЩС��Ϸ~";
+		mes "[飞空艇职员]";
+		mes "飞艇上为各位乘客提供了各种迷你娱乐游戏.";
+		mes "您可以试试手气,练练手法,玩玩看这些小游戏~";
 		close;
 	case 4:
-		mes "[�ɿ�ְͧԱ]";
-		mes "��ô,ϣ���������Ƿ�ͧ�ϵ���;���.";
-		mes "лл��ѡ�������ǵķ���.";
-		mes "ף���и����õ�һ��.";
+		mes "[飞空艇职员]";
+		mes "那么,希望您在我们飞艇上的旅途愉快.";
+		mes "谢谢您选择了我们的服务.";
+		mes "祝您有个美好的一天.";
 		close;
 	}
 }
 
-airplane_01,50,66,5	script	ƻ������#air01	86,{
+airplane_01,50,66,5	script	苹果商人#air01	86,{
 	if (checkweight(1201,1) == 0) {
-		mes "- �ԵȰ� !! -";
-		mes "- ����˺öණ���� -";
-		mes "- ���ȼ��������� -";
-		mes "- ������ƻ����. -";
+		mes "- 稍等啊 !! -";
+		mes "- 你带了好多东西诶 -";
+		mes "- 请先减轻下重量 -";
+		mes "- 再来买苹果吧. -";
 		close;
 	}
-	mes "[÷����]";
-	mes "��ӭ����÷����С��.";
-	mes "�������������ƻ��,Ҳ���԰�ƻ��ե֭";
+	mes "[梅尔滋]";
+	mes "欢迎来到梅尔滋小店.";
+	mes "在这里你可以买苹果,也可以把苹果榨汁";
 	next;
-	switch (select("��ƻ��.:եƻ��֭.:����������ʲô?:ȡ��.")) {
+	switch (select("买苹果.:榨苹果汁.:你在这里做什么?:取消.")) {
 	case 1:
-		mes "[÷����]";
-                mes "��������Ҫ�����������.";
-		mes "���� 15 zeny ,һ����๺��500��.";
-		mes "����Ҫ������0�Ϳ�����.";
+		mes "[梅尔滋]";
+                mes "输入你想要购买的数量吧.";
+		mes "单价 15 zeny ,一次最多购买500个.";
+		mes "不想要就输入0就可以了.";
 		next;
 		while (1) {
 			input .@input;
 			set .@pay, .@input * 15;
 			if (.@input == 0) {
-				mes "[÷����]";
-				mes "лл��ע�ҵ�С��,";
-				mes "�ݰ�!";
-				mes "�����������Ҫ��ƻ����ʱ��,";
-				mes "������÷���̵�С���~";
+				mes "[梅尔滋]";
+				mes "谢谢关注我的小店,";
+				mes "拜拜!";
+				mes "当你觉得你想要啃苹果的时候,";
+				mes "就来我梅尔滋的小店吧~";
 				close;
 			}
 			else if (.@input < 1 || .@input > 500) {
-				mes "[÷����]";
-				mes "�������˳���500�������.";
-				mes "��������������Ҫƻ��������.";
+				mes "[梅尔滋]";
+				mes "你输入了超过500的数量喔.";
+				mes "请重新输入你想要苹果的数量.";
 				next;
 			}
 			else {
-				mes "[÷����]";
-				mes "һ�� ^FF0000" + .@input + "^000000 ��ƻ��";
-				mes "���� ^FF0000" + .@pay + " Zeny^000000 zeny.";
-				mes "Ը�������?";
+				mes "[梅尔滋]";
+				mes "一共 ^FF0000" + .@input + "^000000 个苹果";
+				mes "花费 ^FF0000" + .@pay + " Zeny^000000 zeny.";
+				mes "愿意继续吗?";
 				next;
-				if (select("�ǵ�:��Ҫ") == 2) {
-					mes "[÷����]";
-					mes "лл�ݹ��";
-					mes "�ݰ�!";
-					mes "�����������Ҫ��ƻ����ʱ��,";
-					mes "������÷���̵�С���~";
+				if (select("是的:不要") == 2) {
+					mes "[梅尔滋]";
+					mes "谢谢惠顾喔";
+					mes "拜拜!";
+					mes "当你觉得你想要啃苹果的时候,";
+					mes "就来我梅尔滋的小店吧~";
 					close;
 				}
 				break;
 			}
 		}
 		if (Zeny < .@pay) {
-			mes "[÷����]";
-			mes "��Ǹ,������û�д�������Щƻ��Ҫ��Ǯ��.";
-			mes "���һ�����Ǯ��,������.";
+			mes "[梅尔滋]";
+			mes "抱歉,但是你没有带来买这些苹果要的钱呢.";
+			mes "检查一下你的钱包,少买点吧.";
 			close;
 		}
 		else if (checkweight(512,.@input) == 0) {
-			mes "[÷����]";
-			mes "��,�ð�.�������û���㹻��λ����.";
-			mes "������һ����İ���������.";
+			mes "[梅尔滋]";
+			mes "嗯,好吧.你包包里没有足够的位子了.";
+			mes "先清理一下你的包包再来吧.";
 			close;
 		}
 		else {
 			set Zeny, Zeny - .@pay;
 			getitem 512,.@input; //Apple
-			mes "[÷����]";
-			mes "лл�ݹ��~";
-			mes "ϣ��";
-			mes "����Ժú�������Щƻ������ζ~!";
+			mes "[梅尔滋]";
+			mes "谢谢惠顾喔~";
+			mes "希望";
+			mes "你可以好好享受这些苹果的美味~!";
 			close;
 		}
 	case 2:
-		mes "[÷����]";
-		mes "�õ�,����Ҫ";
-		mes "^FF00003 ��ƻ�� �� 1 ��ƿ^000000";
-		mes "�������Ҫ��һƿƻ��֭�Ļ�.";
-		mes "��Ҫ������?";
+		mes "[梅尔滋]";
+		mes "好的,我需要";
+		mes "^FF00003 个苹果 和 1 空瓶^000000";
+		mes "如果你想要做一瓶苹果汁的话.";
+		mes "想要继续吗?";
 		next;
-		switch (select("�ǵ�:��Ҫ")) {
+		switch (select("是的:不要")) {
 		case 1:
 			if (countitem(512) < 3 || countitem(713) < 1) {
-				mes "[÷����]";
-				mes "��,��û������ƻ��֭�Ĳ���";
-				mes "��סŶ 3 ��ƻ��,һ����ƿ.";
+				mes "[梅尔滋]";
+				mes "啊,你没带够做苹果汁的材料";
+				mes "记住哦 3 个苹果,一个空瓶.";
 				close;
 			}
 			else {
-				mes "[÷����]";
-				mes "�õ�,";
-				mes "�Ե�";
+				mes "[梅尔滋]";
+				mes "好的,";
+				mes "稍等";
 				next;
-				mes "^3355FF*ĥ��ĥ��*";
-				mes "*ĥ��ĥ��*";
-				mes "*����...!*^000000";
+				mes "^3355FF*磨啊磨啊*";
+				mes "*磨啊磨啊*";
+				mes "*钶琅...!*^000000";
 				next;
 				delitem 512,3; //Apple
 				delitem 713,1; //Empty_Bottle
 				getitem 531,1; //Apple_Juice
-				mes "[÷����]";
-				mes "��,����~";
-				mes "��ӭ�ٴι���!";
+				mes "[梅尔滋]";
+				mes "嘿,给你~";
+				mes "欢迎再次光临!";
 				close;
 			}
 		case 2:
-			mes "[÷����]";
-			mes "лл��ע�ҵ�С��~";
-			mes "�ӻ�!";
-			mes "��Ҫ��ƻ������������~";
+			mes "[梅尔滋]";
+			mes "谢谢关注我的小店~";
+			mes "挥挥!";
+			mes "想要啃苹果就来找我呦~";
 			close;
 		}
 	case 3:
-		mes "[÷����]";
-		mes "лл��ע�ҵ�С��~";
-		mes "�ӻ�!";
-		mes "��Ҫ��ƻ������������~";
+		mes "[梅尔滋]";
+		mes "谢谢关注我的小店~";
+		mes "挥挥!";
+		mes "想要啃苹果就来找我呦~";
 		close;
 	}
 }
 
-airplane_01,221,158,2	script	����Ա#airplane_01	852,{
+airplane_01,221,158,2	script	飞行员#airplane_01	852,{
 	switch (rand(1,4)) {
 	case 1:
-		mes "[����Ա]";
-		mes "����, 131 ��.";
-		mes "��γ, 37 ��.";
-		mes "���������ǵķ���������.";
+		mes "[飞行员]";
+		mes "东经, 131 °.";
+		mes "北纬, 37 °.";
+		mes "船长！我们的方向正常！.";
 		close;
 	case 2:
-		mes "[����Ա]";
-		mes "����ȥ����һ�����Ƶ������ء�";
-		mes "������������Ҫ�뵼��������Щ�鷳�ġ�";
-		mes "����Ҫ��Ҫ�Ŵ��״�.";
+		mes "[飞行员]";
+		mes "看上去真是一个多云的日子呢。";
+		mes "唉，这种日子要想导航还是有些麻烦的。";
+		mes "我们要需要放大雷达.";
 		close;
 	case 3:
-		mes "[����Ա]";
-		mes "�����Ǹ�����,";
-		mes "��û�б��������ʺ���ָ�����ҷɿ�ͧ����ѡ��.";
-		mes "��Ҳ���Ͽ�,��һ����Ŭ�������ļ�ʻԱ��.";
+		mes "[飞行员]";
+		mes "船长是个好人,";
+		mes "再没有比他更加适合来指挥这艘飞空艇的人选了.";
+		mes "他也很严酷,是一个很努力工作的驾驶员呢.";
 		next;
-		mes "[^ff0000��������^000000]";
-		mes "^ff0000ι...!^000000";
-		mes "^ff0000���г���^000000";
-		mes "^ff0000��ŵ㾫���ڵ����ϰ�!^000000";
+		mes "[^ff0000严厉批评^000000]";
+		mes "^ff0000喂...!^000000";
+		mes "^ff0000少闲扯了^000000";
+		mes "^ff0000多放点精力在导航上吧!^000000";
 		next;
-		mes "[����Ա]";
-		mes "��-�ǵ�,����!";
-		mes "(������û?)";
+		mes "[飞行员]";
+		mes "是-是的,先生!";
+		mes "(明白了没?)";
 		close;
 	default:
-		mes "[����Ա]";
-		mes "����Ʒ���ĺ���,";
-		mes "����������·�϶����ŵĻ�,����̫���˵�.";
+		mes "[飞行员]";
+		mes "这件制服真的很炫,";
+		mes "但是在整个路上都穿着的话,还是太重了点.";
 		next;
-		mes "[����Ա]";
+		mes "[飞行员]";
 		mes "...";
 		mes "......";
-		mes "ûʲô�˽����������ҵ�.";
-		mes "���ǵĴ��� '��' һͷ��¹��..";
-		mes "����װ�˹�ʲô���Ӷ��ܺ�����.";
+		mes "没什么人进来过船长室的.";
+		mes "我们的船长 '是' 一头麋鹿啊..";
+		mes "我连装运工什么样子都很好奇呢.";
 		next;
 		emotion ET_HUK;
-		mes "[����Ա]";
-		mes "Ŷ...! ������������! �Ǳߵ�!";
-		mes "�����-��-��;���ð�?!";
+		mes "[飞行员]";
+		mes "哦...! 啊哈哈啊哈哈! 那边的!";
+		mes "你的旅-旅-旅途还好吧?!";
 		close;
 	}
 }
 
-airplane_01,83,61,2	script	������#01airplane_01	72,2,2,{
-	mes "[������]";
-	mes "���������!";
-	mes "��ȥ�����ң�";
-	mes "����ֻ������һͷ��ֵ���¹��";
-	mes "Ŷ����˵˵���������ֲ�...";
+airplane_01,83,61,2	script	戴安妮#01airplane_01	72,2,2,{
+	mes "[戴安妮]";
+	mes "真是奇怪呢!";
+	mes "我去船长室，";
+	mes "但是只看到了一头奇怪的麋鹿，";
+	mes "哦！你说说这件事情奇怪不...";
 	close;
 
 OnTouch:
@@ -905,41 +901,41 @@ OnTouch:
 	end;
 }
 
-airplane_01,69,63,2	script	�����#01airplane_01	55,{
-	mes "[�����]";
-	mes "��������Ԥ�Ƶ�һ��,";
-	mes "�����ṩ�����ﶥ��Ҳ���Ǹ����Ǽ�.";
-	mes "*��* ��ĸð��ҵĳ�ʦ������,�����Ҳſ��Ժú�����һ����.";
+airplane_01,69,63,2	script	曼铎儿#01airplane_01	55,{
+	mes "[曼铎儿]";
+	mes "就像我所预计的一样,";
+	mes "机内提供的事物顶多也就是个三星级.";
+	mes "*唉* 真的该把我的厨师带来的,这样我才可以好好享受一下呢.";
 	close;
 }
 
-airplane_01,71,31,2	script	��ʿʯ����#air_01	106,{
-	mes "[��ʿʯ����]";
-	mes "�ڵȴ�������֮��...";
-	mes "������ӭ�����ҵĸ���!";
+airplane_01,71,31,2	script	剑士石穆兹#air_01	106,{
+	mes "[剑士石穆兹]";
+	mes "在等待了五年之后...";
+	mes "我终于迎来了我的复仇!";
 	next;
-	mes "[��ʿʯ����]";
-	mes "��ֻ�ǲ�֪����ôȷ����û������վ��.";
-	mes "���Ǻܿ��,�ܿ��,";
-	mes "�ҵĸ����Ҫ��ʼ��!";
+	mes "[剑士石穆兹]";
+	mes "我只是不知道怎么确认我没有落下站点.";
+	mes "但是很快的,很快的,";
+	mes "我的复仇就要开始了!";
 	close;
 }
 
 //============================================================ 
 //= Typing Challenge
 //============================================================ 
-airplane_01,32,61,4	script	���˹#ein	49,1,1,{
-	mes "[���˹]";
-	mes "��ӭ����";
-	mes "^ff0000�ɾ���˵ ��������Ϸ^000000.";
-	mes "��������һ��Ѹ�ٵ�,���Ĵ�����Ϸ��?";
+airplane_01,32,61,4	script	尼尔斯#ein	49,1,1,{
+	mes "[尼尔斯]";
+	mes "欢迎来到";
+	mes "^ff0000仙境传说 疯狂打字游戏^000000.";
+	mes "你想来玩一场迅速的,疯狂的打字游戏吗?";
 	next;
-	switch (select("��һ�� ^ff0000�ɾ���˵ ��������Ϸ^000000��:������֪��һЩ��Ϣ:��ѯ��߼�¼:ȡ��")) {
+	switch (select("玩一场 ^ff0000仙境传说 疯狂打字游戏^000000吧:我想再知道一些信息:查询最高纪录:取消")) {
 	case 1:
-		mes "[���˹]";
-		mes "���գ�����ӭ�����µ�һλ��ս�ߣ�";
-		mes "���������ٶ�������Щ��ĸ�ɣ���Ҫ����Ŷ��";
-		mes "��ʼ��~!";
+		mes "[尼尔斯]";
+		mes "好勒！我们迎来了新的一位挑战者！";
+		mes "用你的最大速度输入这些字母吧！不要犯错哦！";
+		mes "开始吧~!";
 		setarray .@line1_1$[0],	"^3cbcbccallipygian salacius lascivious^000000",
 					"^3cbcbcBy the power of^000000",
 					"^0000ffthkelfkskeldmsiejdlslehfndkelsheidl^000000",
@@ -1017,69 +1013,69 @@ airplane_01,32,61,4	script	���˹#ein	49,1,1,{
 		set .@total_time, .@total_time + (.@start_time - .@end_time);
 		set .@tasoo, (.@letters[.@wordtest] / .@total_time) * 6;
 		if ((.@save1$ == .@word1$[.@wordtest]) && (.@save2$ == .@word2$[.@wordtest])) {
-			mes "[���˹]";
-			mes "��ķ����� ^ff0000" + .@total_time + " ��^000000 Ȼ��";
-			mes "һ���ķ����� " + .@tasoo + ".";
+			mes "[尼尔斯]";
+			mes "你的分数是 ^ff0000" + .@total_time + " 秒^000000 然后";
+			mes "一共的分数是 " + .@tasoo + ".";
 			next;
 			if (.@tasoo >= 1300) {
-				mes "[���˹]";
-				mes "��...";
-				mes "�������...";
-				mes "��������˵Ļ�����ôһ�����˸���ճ����.";
-				mes "�´���ǵò�������.";
+				mes "[尼尔斯]";
+				mes "哼...";
+				mes "这个分数...";
+				mes "如果你是人的话，那么一定用了复制粘贴法.";
+				mes "下次请记得不许作弊.";
 				close;
 			}
 			if (.@tasoo >= $050320_ein_typing) {
-				mes "[���˹]";
-				mes "ǰһ���¼��";
-				mes "�� ^0000ff" + $050320_minus1_typing$ + "^000000�����";
-				mes "һ�������� ^0000ff" + $050320_ein_typing + "^000000 .";
-				mes "����, ^ff0000" + strcharinfo(0) + "^000000,";
-				mes "�㴴������ʷ�¸ߣ�";
-				mes "��ϲ��ϲ��!";
+				mes "[尼尔斯]";
+				mes "前一项纪录是";
+				mes "由 ^0000ff" + $050320_minus1_typing$ + "^000000创造的";
+				mes "一共分数是 ^0000ff" + $050320_ein_typing + "^000000 .";
+				mes "但是, ^ff0000" + strcharinfo(0) + "^000000,";
+				mes "你创造了历史新高！";
+				mes "恭喜恭喜啊!";
 				set $050320_minus1_typing$, strcharinfo(0);
 				set $050320_ein_typing, .@tasoo;
 				close;
 			}
 			else {
-				mes "[���˹]";
+				mes "[尼尔斯]";
 				mes "^0000ff" + $050320_minus1_typing$ + "^000000";
-				mes "���ǵ�ǰ�ļ�¼������.";
-				mes "һ������Ϊ ^0000ff" + $050320_ein_typing + "^000000";
-				mes "���ͣ��´�Ҫ��������~";
+				mes "就是当前的记录持有者.";
+				mes "一共分数为 ^0000ff" + $050320_ein_typing + "^000000";
+				mes "加油！下次要超过他啊~";
 				close;
 			}
 		}
 		else {
-			mes "[���˹]";
-			mes "Ŷ...";
-			mes "��Ǹ����������ı�����...";
+			mes "[尼尔斯]";
+			mes "哦...";
+			mes "抱歉，你输入的文本错误...";
 			close;
 		}
 	case 2:
-		mes "[���˹]";
-		mes "��� ^ff0000�ɾ���˵��������Ϸ^000000";
-		mes "��һ��Ҫ���㾡��������ĸ����Ϸ.";
-		mes "��¼�����ߵ����ֽ��ᱻ���еĺ�������֪��.";
-		mes "��Ҫ������?��������!";
+		mes "[尼尔斯]";
+		mes "这个 ^ff0000仙境传说疯狂打字游戏^000000";
+		mes "是一个要求你尽快输入字母的游戏.";
+		mes "记录持有者的名字将会被所有的后来者所知晓.";
+		mes "想要成名吗?机会来了!";
 		next;
-		mes "[���˹]";
-		mes "������������,�㿴��ÿ������֮��,";
-		mes "Ҫ���������������ж�����������,";
-		mes "���Բ�Ҫ��ENTER��,����OK�Ϳ���.";
+		mes "[尼尔斯]";
+		mes "我想请你明白,你看见每个单行之后,";
+		mes "要把你所看到的所有东西都打下来,";
+		mes "所以不要按ENTER键,请点击OK就可以.";
 		close;
 	case 3:
-		mes "[���˹]";
+		mes "[尼尔斯]";
 		mes "^0000ff" + $050320_minus1_typing$ + "^000000";
-		mes "�ǵ�ǰ�ļ�¼������.";
-		mes "�����ܷ���Ϊ ^0000ff" + $050320_ein_typing + "^000000";
-		mes "���ͣ��´�Ҫ��������~";
+		mes "是当前的记录持有者.";
+		mes "他的总分数为 ^0000ff" + $050320_ein_typing + "^000000";
+		mes "加油！下次要超过他啊~";
 		close;
 	case 4:
-		mes "[���˹]";
-		mes "��,������,";
-		mes "^ff0000�ɾ���˵��������Ϸ^000000";
-		mes "ʲôʱ�򶼿������.���������������~";
+		mes "[尼尔斯]";
+		mes "啊,放轻松,";
+		mes "^ff0000仙境传说疯狂打字游戏^000000";
+		mes "什么时候都可以玩的.我在这里等着你呦~";
 		close;
 	}
 }
@@ -1087,10 +1083,10 @@ airplane_01,32,61,4	script	���˹#ein	49,1,1,{
 //============================================================ 
 //= Apple Gambling
 //============================================================ 
-airplane_01,33,68,4	script	������˹	74,{
-	mes "[������˹]";
-	mes "���,���ǿ�����˹~";
-	mes "����Ҫ���ⳡ�Ѻõ�������Ϸ����Щƻ����ע��?";
+airplane_01,33,68,4	script	克莱雷斯	74,{
+	mes "[克莱雷斯]";
+	mes "你好,我是克莱雷斯~";
+	mes "你想要在这场友好的骰子游戏中下些苹果赌注吗?";
 	next;
 	callfunc "applegamble","Clarice";
 	end;
@@ -1098,92 +1094,92 @@ airplane_01,33,68,4	script	������˹	74,{
 
 function	script	applegamble	{
 
-	switch (select("�Ĳ�!:��ô����?:��Ҫ!")) {
+	switch (select("赌博!:怎么赌呢?:不要!")) {
 	case 3:
 		mes "["+getarg(0)+"]";
-		mes "��ʲôʱ�����涼����������.";
-		mes "������Ҫ����һ���ĳ嶯,";
-		mes "�������Һ���.";
+		mes "你什么时候想玩都可以来找我.";
+		mes "有了想要来赌一场的冲动,";
+		mes "就来找我好了.";
 		close;
 	case 2:
 		mes "["+getarg(0)+"]";
-		mes "���򳬼򵥵�.";
-		mes "����,��ע.";
-		mes "һ�������ע50��ƻ��.";
-		mes "Ϊ������Щ�����ù�ĶĲ�������Ϸ�һ��,";
-		mes "ֻ����ƻ���~";
+		mes "规则超简单的.";
+		mes "首先,下注.";
+		mes "一次最多下注50个苹果.";
+		mes "为了让这些见不得光的赌博玩意儿合法一点,";
+		mes "只接受苹果喔~";
 		next;
 		mes "["+getarg(0)+"]";
-		mes "��������Ҫ��ƻ���Ļ�,";
-		mes "ȥƼ���ط��Ϳ���,��������ٶ����԰�~";
+		mes "但是你想要买苹果的话,";
+		mes "去萍国地方就可以,随你买多少都可以啊~";
 		next;
 		mes "["+getarg(0)+"]";
-		mes "����,�ҿ�ʼͶ��2����������.";
-		mes "Ȼ������,��Ҳ��һ��2D6.";
-		mes "����֮��,���Ƕ�����ѡ��:�Ƿ���Ͷ��һ������";
+		mes "现在,我开始投掷2个六面骰子.";
+		mes "然后你来,你也来一个2D6.";
+		mes "在那之后,我们都会有选择:是否再投掷一次骰子";
 		next;
 		mes "["+getarg(0)+"]";
-		mes "����Ķ���...��ע���,����Ҫ��.";
-		mes "������Ͷ����������12,��ô��ͱ���,Ҳ��������.";
-		mes "Ȼ��,Ͷ������ߵ��˾���Ӯ��.������û?";
+		mes "下面的东西...请注意喔,很重要的.";
+		mes "如果你的投掷总数大于12,那么你就爆了,也就是输了.";
+		mes "然后,投掷数最高的人就是赢家.明白了没?";
 		next;
 		mes "["+getarg(0)+"]";
-		mes "����,�������������Ƿ�Ͷ�����������Ӱ�.";
-		mes "Ȼ��,������Ľ��,�һῴ�����Ƿ���Ͷ�������εı�Ҫ.";
+		mes "现在,你先来决定你是否投掷第三次骰子吧.";
+		mes "然后,根据你的结果,我会看看我是否有投掷第三次的必要.";
 		next;
 		mes "["+getarg(0)+"]";
-		mes "��Ӯ�˵Ļ�,���õ�����ע������ƻ��.";
-		mes "�����������ƽ�ֵĻ�,������ע��ƻ���ͻᱻ�黹.";
-		mes "���㹫ƽ,�԰�?.";
+		mes "你赢了的话,你会得到你下注两倍的苹果.";
+		mes "但是如果我们平手的话,你所下注的苹果就会被归还.";
+		mes "还算公平,对吧?.";
 		close;
 	case 1:
 		break;
 	}
 	mes "["+getarg(0)+"]";
-	mes "Ŷ,��������>-<��Ү!";
-	mes "��ô����Ҫ��ע����ƻ����?һ�����50���.";
-	mes "��Ҫȡ���Ļ����� 0 �Ϳ���";
+	mes "哦,你来玩吗>-<棒耶!";
+	mes "那么你想要下注多少苹果呢?一次最高50个喔.";
+	mes "想要取消的话输入 0 就可以";
 	next;
 	while(1) {
 		input .@amount;
 		if (.@amount == 0) {
 			mes "["+getarg(0)+"]";
-			mes "Ŷ,����������?";
-			mes "��,��ôϣ��������ʱ����һ�����.";
+			mes "哦,变了主意了?";
+			mes "啊,那么希望可以有时间再一起玩吧.";
 			close;
 		}
 		else if (.@amount < 1 || .@amount > 50) {
 			mes "["+getarg(0)+"]";
-			mes "�����³���50��ע!";
-			mes "���ǵ�ע�����Ҫ����,";
-			mes "�벻Ҫ���볬��50������.";
+			mes "不能下超过50的注!";
+			mes "我们的注金必须要合理,";
+			mes "请不要输入超过50的数量.";
 			next;
 			continue;
 		}
 		mes "["+getarg(0)+"]";
-		mes "��ô";
-		mes "��עƻ����ĿΪ ^FF0000"+.@amount+"^000000 .";
-		mes "ȷ��һ��,�Բ���?";
+		mes "那么";
+		mes "下注苹果数目为 ^FF0000"+.@amount+"^000000 .";
+		mes "确认一下,对不对?";
 		next;
-		if (select("����:��...") == 2) {
+		if (select("嗯哪:不...") == 2) {
 			mes "["+getarg(0)+"]";
-			mes "��,��?������?";
-			mes "��ô,��������Ҫ��ע����Ŀ��.";
-			mes "��Ҫȡ���Ļ����� 0 �Ϳ���.";
+			mes "嗯,啊?不对呢?";
+			mes "那么,输入你想要下注的数目吧.";
+			mes "想要取消的话输入 0 就可以.";
 			next;
 			continue;
 		}
 		if (countitem(512) <.@amount) {
-			mes "��Ǹ,����...���ƻ��û����Ŷ.";
-			mes "������ע����ô���ԶĲ���,�԰�?";
+			mes "抱歉,但是...你的苹果没带够哦.";
+			mes "不能下注又怎么可以赌博呢,对吧?";
 			next;
 			continue;
 		}
 		delitem 512,.@amount;
 		mes "["+getarg(0)+"]";
-		mes "��Ү!����!";
-		mes "���ڿ��Կ�ʼ����Ϸ��!";
-		mes "��������,������Ͷ~";
+		mes "棒耶!乌拉!";
+		mes "终于可以开始玩游戏啦!";
+		mes "啦啦啦啦,我先来投~";
 		break;
 	}
 	mes "^3355FF*Rolling and rumbling*^000000";
@@ -1194,11 +1190,11 @@ function	script	applegamble	{
 	set .@tablesub, .@table1 + .@table2;
 	set .@tabletotal, .@tablesub;
 	mes "["+getarg(0)+"]";
-	mes "���� ^0000FF" + .@table1 + "^000000 ���� ^0000FF" + .@table2 + "^000000.";
-	mes "һ������ ^0000FF" + .@tablesub + "^000000.";
-	mes "^FF0000" + strcharinfo(0) + "^000000, ������.";
+	mes "我是 ^0000FF" + .@table1 + "^000000 还有 ^0000FF" + .@table2 + "^000000.";
+	mes "一共就是 ^0000FF" + .@tablesub + "^000000.";
+	mes "^FF0000" + strcharinfo(0) + "^000000, 该你了.";
 	next;
-	select("���ܲ����ۣ���Ͷ�������ӣ�");
+	select("菠萝菠萝蜜！真投掷·骰子！");
 	mes "^3355FF*Rolling and rumbling*^000000";
 	set .@player1, rand(1,6);
 	set .@player2, rand(1,6);
@@ -1211,18 +1207,18 @@ function	script	applegamble	{
 	set .@playertotal, .@playersub;
 	next;
 	mes "["+getarg(0)+"]";
-	mes "^FF0000" + strcharinfo(0) + "^000000, ���� ^FF0000" + .@player1 + "^000000 ���� ^FF0000" + .@player2 + "^000000. ������һ������ ^FF0000" + .@playersub + "^000000 .";
+	mes "^FF0000" + strcharinfo(0) + "^000000, 你是 ^FF0000" + .@player1 + "^000000 还有 ^FF0000" + .@player2 + "^000000. 加起来一共就是 ^FF0000" + .@playersub + "^000000 .";
 	next;
 	mes "["+getarg(0)+"]";
 	if(.@playersub == .@tablesub) {
-		mes "�����ҵ������� ^0000FF" + .@tablesub + "^000000 Ȼ�� ^FF0000" + strcharinfo(0) + "^000000, ��������� ^FF0000" + .@playersub + "^000000. ��ƽ��. ������һ����?";
+		mes "现在我的总数是 ^0000FF" + .@tablesub + "^000000 然后 ^FF0000" + strcharinfo(0) + "^000000, 你的总数是 ^FF0000" + .@playersub + "^000000. 打平咯. 还想来一局吗?";
 	} else if (.@playersub > .@tablesub) {
-		mes "�����ҵ������� ^0000FF" + .@tablesub + "^000000 Ȼ�� ^FF0000" + strcharinfo(0) + "^000000, ��������� ^FF0000" + .@playersub + "^000000. ^FF0000" + strcharinfo(0) + "^000000, ��Ӯ��. ��������һ����?";
+		mes "现在我的总数是 ^0000FF" + .@tablesub + "^000000 然后 ^FF0000" + strcharinfo(0) + "^000000, 你的总数是 ^FF0000" + .@playersub + "^000000. ^FF0000" + strcharinfo(0) + "^000000, 你赢咯. 还想再来一局吗?";
 	} else if(.@tablesub > .@playersub) {
-		mes "�����ҵ������� ^0000FF" + .@tablesub + "^000000 Ȼ�� ^FF0000" + strcharinfo(0) + "^000000, ��������� ^FF0000" + .@playersub + "^000000. ��Ӯ��. ����������һ����?";
+		mes "现在我的总数是 ^0000FF" + .@tablesub + "^000000 然后 ^FF0000" + strcharinfo(0) + "^000000, 你的总数是 ^FF0000" + .@playersub + "^000000. 我赢了. 还想再来玩一局吗?";
 	}
 	next;
-	switch (select("Ͷ������.:ȡ��.")) {
+	switch (select("投掷骰子.:取消.")) {
 	case 1:
 		mes "^3355FF*Rolling and rumbling*^000000";
 		set .@player3, rand(1,6);
@@ -1230,43 +1226,43 @@ function	script	applegamble	{
 		next;
 		mes "["+getarg(0)+"]";
 		if (.@playertotal > 12) {
-			mes "^FF0000" + strcharinfo(0) + "^000000, ��õ��� ^FF0000" + .@player3 + "^000000 ���ڵ������� ^FF0000" + .@playertotal + "^000000. ���俩. ��Ǹ...����һ�ΰ�~�ò���~";
+			mes "^FF0000" + strcharinfo(0) + "^000000, 你得到了 ^FF0000" + .@player3 + "^000000 现在的总数是 ^FF0000" + .@playertotal + "^000000. 你输咯. 抱歉...再来一次吧~好不好~";
 			close;
 		}
 		else if (.@playertotal < .@tablesub) {
-			mes "^FF0000" + strcharinfo(0) + "^000000, ���� ^FF0000" + .@player3 + "^000000 ���������� ^FF0000" + .@playertotal + "^000000. ��Ȼ��Ͷ�˵����Σ����Ǳ��ҵ���...����Ҳû��Ͷ�������εı�Ҫ��,������...������˼�������������������.";
+			mes "^FF0000" + strcharinfo(0) + "^000000, 你是 ^FF0000" + .@player3 + "^000000 现在总数是 ^FF0000" + .@playertotal + "^000000. 虽然你投了第三次，还是比我低呢...那我也没有投掷第三次的必要咯,你输啦...不好意思啊，再来试试手气如何.";
 			close;
 		}
 		else if (.@playertotal == .@tablesub) {
 			if (.@tablesub > 8) {
-				mes "^FF0000" + strcharinfo(0) + "^000000, ���� ^FF0000" + .@player3 + "^000000 ���������� ^FF0000" + .@playertotal + "^000000. �Ҳ���ðʲô����...ƽ�ְ�. ����һ�κð�~";
+				mes "^FF0000" + strcharinfo(0) + "^000000, 你是 ^FF0000" + .@player3 + "^000000 现在总数是 ^FF0000" + .@playertotal + "^000000. 我不想冒什么风险...平局吧. 再来一次好吧~";
 				close2;
 				getitem 512,.@amount; //Apple
 				end;
 			}
 		}
 		else {
-			mes "^FF0000" + strcharinfo(0) + "^000000, ���� ^FF0000" + .@player3 + "^000000 ���������� ^FF0000" + .@playertotal + "^000000. ������.";
+			mes "^FF0000" + strcharinfo(0) + "^000000, 你是 ^FF0000" + .@player3 + "^000000 现在总数是 ^FF0000" + .@playertotal + "^000000. 轮我了.";
 		}
 		break;
 	case 2:
 		mes "["+getarg(0)+"]";
 		if (.@playersub > .@tablesub) {
-			mes "�ҿ������㲻��ð���հ�.��ô�Ҿ�Ͷһ�����Ӱ�.";
+			mes "我看看，你不想冒风险啊.那么我就投一次骰子吧.";
 		}
 		else if (.@playersub == .@tablesub) {
 			if (.@tablesub > 8) {
-				mes "�ҿ������㲻��ð���հ�.��Ҳ������,��ô,ƽ��. �´���������һ����~";
+				mes "我看看，你不想冒风险啊.我也不想呢,那么,平局. 下次再来火拚一次啦~";
 				close2;
 				getitem 512,.@amount; //Apple
 				end;
 			}
-			mes "�ð�.";
-			mes "����Ͷһ������.";
+			mes "好吧.";
+			mes "我再投一次骰子.";
 		}
 		else {
-			mes "��ʱ���ԵĻر��ܷ����...�����Ӯ��..";
-			mes "����,�����İ�,�»�����һ������..";
+			mes "有时候尝试的回报很丰厚呢...这次我赢啦..";
+			mes "嘻嘻,别伤心啊,下回再来一起玩嘛..";
 			close;
 		}
 		break;
@@ -1278,25 +1274,25 @@ function	script	applegamble	{
 	next;
 	mes "["+getarg(0)+"]";
 	if (.@tabletotal > 12) {
-		mes "���� ^0000FF" + .@table3 + "^000000 ���ڵ�����Ϊ ^0000FF" + .@tabletotal + "^000000. ������,��Ϊ�ҵ�����������12. ��ô,�ҵ�ƻ�����㿩.����Ŷ~��ֺ�����˼��.";
+		mes "我是 ^0000FF" + .@table3 + "^000000 现在的总数为 ^0000FF" + .@tabletotal + "^000000. 我输了,因为我的总数超过了12. 那么,我的苹果归你咯.不错哦~这局很有意思呢.";
 		close2;
 		getitem 512,.@giveapple; //Apple
 		end;
 	}
 	else if (.@playertotal > .@tabletotal) {
-		mes "�ҵõ��� ^0000FF" + .@table3 + "^000000 ���ڵ�����Ϊ ^0000FF" + .@tabletotal + "^000000. �������һ�� ^FF0000" + .@playertotal + "^000000 ,����,��Ӯ��, ^FF0000" + strcharinfo(0) + "^000000. �ҵ�ƻ��������.��,������Ȥ,����һ�ΰ�.";
+		mes "我得到了 ^0000FF" + .@table3 + "^000000 现在的总数为 ^0000FF" + .@tabletotal + "^000000. 你好像是一共 ^FF0000" + .@playertotal + "^000000 ,阿喻,你赢了, ^FF0000" + strcharinfo(0) + "^000000. 我的苹果归你了.啊,真是有趣,再来一次吧.";
 		close2;
 		getitem 512,.@giveapple; //Apple
 		end;
 	}
 	else if (.@playertotal == .@tabletotal) {
-		mes "�ҵõ��� ^0000FF" + .@table3 + "^000000 ���ڵ������� ^0000FF" + .@tabletotal + "^000000. һ�� ^FF0000" + .@playertotal + "^000000 ��ô���Ǵ����ƽ����, ^FF0000" + strcharinfo(0) + "^000000. ����,�Ӻ�������ƻ����!�´���һ�������~���Ǻ��ڴ���~.";
+		mes "我得到了 ^0000FF" + .@table3 + "^000000 现在的总数是 ^0000FF" + .@tabletotal + "^000000. 一共 ^FF0000" + .@playertotal + "^000000 那么我们打成了平手呢, ^FF0000" + strcharinfo(0) + "^000000. 呼呼,接好了您的苹果呐!下次再一起来玩吧~真是好期待呦~.";
 		close2;
 		getitem 512,.@amount; //Apple
 		end;
 	}
 	else if (.@playertotal < .@tabletotal) {
-		mes "��Ŷ,���� ^0000FF" + .@table3 + "^000000 ��������Ϊ ^0000FF" + .@tabletotal + "^000000. ���� ^FF0000" + .@playertotal + "^000000 ,Ŷ,������, ^FF0000" + strcharinfo(0) + "^000000. ��Ǹ...��������һ��Ҳ�����кܷ��Ļر���.";
+		mes "哇哦,我是 ^0000FF" + .@table3 + "^000000 现在总数为 ^0000FF" + .@tabletotal + "^000000. 你是 ^FF0000" + .@playertotal + "^000000 ,哦,你输啦, ^FF0000" + strcharinfo(0) + "^000000. 抱歉...但是再来一次也许会有很丰厚的回报呢.";
 		close;
 	}
 }

@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN 鑴氭湰姹夊寲 杞嚜 [ www.99Max.mE ]
 //============================================================
 
-//===== rAthena Script =======================================  
+//===== rAthena Script ======================================= 
 //= Global Functions
 //===== By: ================================================== 
 //= Lupus, kobra_k88
@@ -623,27 +619,27 @@ function	script	F_CanChangeJob	{
 //////////////////////////////////////////////////////////////////////////////////
 function	script	F_getpositionname	{
 	switch( getarg(0,999) ) {
-		case EQI_ACC_L:		return "饰品[右]";
-		case EQI_ACC_R:		return "饰品[左]";
-		case EQI_SHOES:		return "鞋子";
-		case EQI_GARMENT:	return "披肩";
-		case EQI_HEAD_LOW:	return "头下";
-		case EQI_HEAD_MID:	return "头中";
-		case EQI_HEAD_TOP:	return "头上";
-		case EQI_ARMOR:		return "身体";
-		case EQI_HAND_L:	return "左手";
-		case EQI_HAND_R:	return "右手";
-		case EQI_COSTUME_HEAD_TOP:	return "时装头上";
-		case EQI_COSTUME_HEAD_MID:	return "时装头中";
-		case EQI_COSTUME_HEAD_LOW:	return "时装头下";
-		case EQI_COSTUME_GARMENT:	return "时装披肩";
-		case EQI_AMMO:			return "箭失/弹药";
-		case EQI_SHADOW_ARMOR:	return "时装/影子防具";
-		case EQI_SHADOW_WEAPON:	return "时装/影子武器";
-		case EQI_SHADOW_SHIELD:	return "时装/影子盾牌";
-		case EQI_SHADOW_SHOES:	return "时装/影子鞋子";
-		case EQI_SHADOW_ACC_R:	return "时装/影子饰品[左]";
-		case EQI_SHADOW_ACC_L:	return "时装/影子饰品[右]";
+		case EQI_ACC_L:		return "楗板搧[鍙砞";
+		case EQI_ACC_R:		return "楗板搧[宸";
+		case EQI_SHOES:		return "闉嬪瓙";
+		case EQI_GARMENT:	return "鎶偐";
+		case EQI_HEAD_LOW:	return "澶翠笅";
+		case EQI_HEAD_MID:	return "澶翠腑";
+		case EQI_HEAD_TOP:	return "澶翠笂";
+		case EQI_ARMOR:		return "韬綋";
+		case EQI_HAND_L:	return "宸︽墜";
+		case EQI_HAND_R:	return "鍙虫墜";
+		case EQI_COSTUME_HEAD_TOP:	return "鏃惰澶翠笂";
+		case EQI_COSTUME_HEAD_MID:	return "鏃惰澶翠腑";
+		case EQI_COSTUME_HEAD_LOW:	return "鏃惰澶翠笅";
+		case EQI_COSTUME_GARMENT:	return "鏃惰鎶偐";
+		case EQI_AMMO:			return "绠け/寮硅嵂";
+		case EQI_SHADOW_ARMOR:	return "鏃惰/褰卞瓙闃插叿";
+		case EQI_SHADOW_WEAPON:	return "鏃惰/褰卞瓙姝﹀櫒";
+		case EQI_SHADOW_SHIELD:	return "鏃惰/褰卞瓙鐩剧墝";
+		case EQI_SHADOW_SHOES:	return "鏃惰/褰卞瓙闉嬪瓙";
+		case EQI_SHADOW_ACC_R:	return "鏃惰/褰卞瓙楗板搧[宸";
+		case EQI_SHADOW_ACC_L:	return "鏃惰/褰卞瓙楗板搧[鍙砞";
 		default:
 			return "Unknown";
 	}

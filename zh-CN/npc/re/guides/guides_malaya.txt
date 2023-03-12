@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN ½Å±¾ºº»¯ www.rAthenaCN.com ×ª×Ô [ www.99Max.mE ]
-//============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN è„šæœ¬æ±‰åŒ– è½¬è‡ª [ www.99Max.mE ]
 //============================================================
 
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Port Malaya Guides
 //===== By: ================================================== 
 //= Euphy
@@ -21,48 +17,48 @@
 //= 1.1 Navigation system update. [Euphy]
 //============================================================ 
 
-malaya,71,72,4	script	ÂíÀ­ÑÇ¸ÛÏòµ¼#01::GuideMalaya	4_F_BARYO_WOMAN,{
-	mes "[ÂíÀ­ÑÇ¸ÛÏòµ¼]";
-	mes "»¶Ó­À´µ½ ^8B4513ÂíÀ­ÑÇ¸Û^000000, Õâ¸ö³äÂú.";
-	mes "ÒìÓòÎÄ»¯ºÍ´«Ëµ,²¢ÇÒ¿ÕÆøÇåĞÂµÄµØ·½!";
-	mes "ÄúÊÇ·ñĞèÒªÏòµ¼ÄØ?";
-	F_Navi("[ÂíÀ­ÑÇ¸ÛÏòµ¼]");
+malaya,71,72,4	script	é©¬æ‹‰äºšæ¸¯å‘å¯¼#01::GuideMalaya	4_F_BARYO_WOMAN,{
+	mes "[é©¬æ‹‰äºšæ¸¯å‘å¯¼]";
+	mes "æ¬¢è¿æ¥åˆ° ^8B4513é©¬æ‹‰äºšæ¸¯^000000, è¿™ä¸ªå……æ»¡.";
+	mes "å¼‚åŸŸæ–‡åŒ–å’Œä¼ è¯´,å¹¶ä¸”ç©ºæ°”æ¸…æ–°çš„åœ°æ–¹!";
+	mes "æ‚¨æ˜¯å¦éœ€è¦å‘å¯¼å‘¢?";
+	F_Navi("[é©¬æ‹‰äºšæ¸¯å‘å¯¼]");
 	while(1) {
 		next;
-		switch(select("[ ¿¨ÆÕÀ­Ö°Ô± ]:[ ÂÃ¹İ & ¾Æµê ]:[ ÎäÆ÷ & ·À¾ßÉÌµê ]:[ µÀ¾ßµê ]:[ Ò½Ôº ]:[ ¹«Ô° ]:[ ¸Û¿Ú ]:- É¾³ıĞ¡µØÍ¼µÄ±ê¼Ç:- È¡Ïû")) {
+		switch(select("[ å¡æ™®æ‹‰èŒå‘˜ ]:[ æ—…é¦† & é…’åº— ]:[ æ­¦å™¨ & é˜²å…·å•†åº— ]:[ é“å…·åº— ]:[ åŒ»é™¢ ]:[ å…¬å›­ ]:[ æ¸¯å£ ]:- åˆ é™¤å°åœ°å›¾çš„æ ‡è®°:- å–æ¶ˆ")) {
 		case 1:
-			callsub L_Mark, "^0000FF¿¨ÆÕÀ­Ö°Ô±^000000",1;
+			callsub L_Mark, "^0000FFå¡æ™®æ‹‰èŒå‘˜^000000",1;
 			viewpoint 1,71,79,0,0x0A82FF;
 			viewpoint 1,234,204,1,0x0A82FF;
 			break;
 		case 2:
-			callsub L_Mark, F_Navi("ÂÃ¹İ & ¾Æµê","malaya,193,215","^006400");
+			callsub L_Mark, F_Navi("æ—…é¦† & é…’åº—","malaya,193,215","^006400");
 			viewpoint 1,193,215,2,0xAAFF00;
 			break;
 		case 3:
-			callsub L_Mark, F_Navi("ÎäÆ÷ & ·À¾ßÉÌµê","malaya,114,212","^008080");
+			callsub L_Mark, F_Navi("æ­¦å™¨ & é˜²å…·å•†åº—","malaya,114,212","^008080");
 			viewpoint 1,114,212,3,0x4F543C;
 			break;
 		case 4:
-			callsub L_Mark, F_Navi("µÀ¾ßµê","malaya,297,167","^FF1493");
+			callsub L_Mark, F_Navi("é“å…·åº—","malaya,297,167","^FF1493");
 			viewpoint 1,297,167,4,0xFF1493;
 			break;
 		case 5:
-			callsub L_Mark, F_Navi("Ò½Ôº","malaya,50,75","^8B4513");
+			callsub L_Mark, F_Navi("åŒ»é™¢","malaya,50,75","^8B4513");
 			viewpoint 1,50,75,5,0x8B4513;
 			break;
 		case 6:
-			callsub L_Mark, F_Navi("¹«Ô°","malaya,280,371","^8B4513");
+			callsub L_Mark, F_Navi("å…¬å›­","malaya,280,371","^8B4513");
 			viewpoint 1,280,371,6,0x8B4513;
 			break;
 		case 7:
-			callsub L_Mark, F_Navi("¸Û¿Ú","malaya,276,55","^8A2BE2");
+			callsub L_Mark, F_Navi("æ¸¯å£","malaya,276,55","^8A2BE2");
 			viewpoint 1,276,55,7,0x8A2BE2;
 			break;
 		case 8:
-			mes "[ÂíÀ­ÑÇ¸ÛÏòµ¼]";
-			mes "ºÃµÄ, ÎÒ»áÄ¨µôËùÓĞÔÚĞ¡µØÍ¼ÉÏµÄ±ê¼Ç.";
-			mes "»¹ÓĞÊ²Ã´ÄÜÎªÄú·şÎñµÄÂğ?";
+			mes "[é©¬æ‹‰äºšæ¸¯å‘å¯¼]";
+			mes "å¥½çš„, æˆ‘ä¼šæŠ¹æ‰æ‰€æœ‰åœ¨å°åœ°å›¾ä¸Šçš„æ ‡è®°.";
+			mes "è¿˜æœ‰ä»€ä¹ˆèƒ½ä¸ºæ‚¨æœåŠ¡çš„å—?";
 			viewpoint 2,1,1,0,0xFFFFFF;
 			viewpoint 2,1,1,1,0xFFFFFF;
 			viewpoint 2,1,1,2,0xFFFFFF;
@@ -73,19 +69,19 @@ malaya,71,72,4	script	ÂíÀ­ÑÇ¸ÛÏòµ¼#01::GuideMalaya	4_F_BARYO_WOMAN,{
 			viewpoint 2,1,1,7,0xFFFFFF;
 			break;
 		case 9:
-			mes "[ÂíÀ­ÑÇ¸ÛÏòµ¼]";
-			mes "Ï£ÍûÄúÔÚÕâÀïÉú»îÓä¿ì.";
+			mes "[é©¬æ‹‰äºšæ¸¯å‘å¯¼]";
+			mes "å¸Œæœ›æ‚¨åœ¨è¿™é‡Œç”Ÿæ´»æ„‰å¿«.";
 			close;
 		}
 	}
 	end;
 L_Mark:
-	mes "[ÂíÀ­ÑÇ¸ÛÏòµ¼]";
-	mes "¹ØÓÚ "+getarg(0)+" "+((getarg(1,0))?"ÒÑ¾­":"ÒÑ¾­");
-	mes "±ê¼ÇÔÚÄúµÄĞ¡µØÍ¼ÉÏÁË.";
-	mes "Çë²Î¿¼Ğ¡µØÍ¼.";
-	mes "»¹ÓĞÊ²Ã´ÄÜÎªÄú·şÎñµÄÂğ?";
+	mes "[é©¬æ‹‰äºšæ¸¯å‘å¯¼]";
+	mes "å…³äº "+getarg(0)+" "+((getarg(1,0))?"å·²ç»":"å·²ç»");
+	mes "æ ‡è®°åœ¨æ‚¨çš„å°åœ°å›¾ä¸Šäº†.";
+	mes "è¯·å‚è€ƒå°åœ°å›¾.";
+	mes "è¿˜æœ‰ä»€ä¹ˆèƒ½ä¸ºæ‚¨æœåŠ¡çš„å—?";
 	return;
 }
-malaya,250,83,6	duplicate(GuideMalaya)	ÂíÀ­ÑÇ¸ÛÏòµ¼#02	4_F_BARYO_WOMAN
-malaya,224,204,6	duplicate(GuideMalaya)	ÂíÀ­ÑÇ¸ÛÏòµ¼#03	4_F_BARYO_WOMAN
+malaya,250,83,6	duplicate(GuideMalaya)	é©¬æ‹‰äºšæ¸¯å‘å¯¼#02	4_F_BARYO_WOMAN
+malaya,224,204,6	duplicate(GuideMalaya)	é©¬æ‹‰äºšæ¸¯å‘å¯¼#03	4_F_BARYO_WOMAN

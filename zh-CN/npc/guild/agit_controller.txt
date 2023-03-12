@@ -1,10 +1,7 @@
 //============================================================
-//= rAthenaCN [¹«»áÕ½GVG]ºº»¯½Å±¾ [ www.rAthenaCN.com ]
+//= rAthenaCN [å…¬ä¼šæˆ˜GVG]æ±‰åŒ–è„šæœ¬ 
 //============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
+
 
 //===== rAthena Script =======================================
 //= War of Emperium - Auto-Start
@@ -47,7 +44,7 @@ OnClock1600:	//start time for Sat(6)
 OnClock1800:	//end time for Sat(6)
 
 OnAgitInit:
-	// ¿ªÊ¼Ê±¼ä¼ì²é
+	// å¼€å§‹æ—¶é—´æ£€æŸ¥
 	if((gettime(4)==2) && (gettime(3)>=21 && gettime(3)<23) ||
 	   (gettime(4)==4) && (gettime(3)>=21 && gettime(3)<23) ||
 	   (gettime(4)==6) && (gettime(3)>=16 && gettime(3)<18)) {
@@ -58,7 +55,7 @@ OnAgitInit:
 		end;
 	}
 
-	// ½áÊøÊ±¼ä¼ì²é
+	// ç»“æŸæ—¶é—´æ£€æŸ¥
 	if ((gettime(4)==2) && (gettime(3)==23) ||
 	    (gettime(4)==4) && (gettime(3)==23) ||
 	    (gettime(4)==6) && (gettime(3)==18)) { 
@@ -77,10 +74,10 @@ S_DisplayOwners:
 	setarray .@maps$[15],"prtg_cas01","prtg_cas02","prtg_cas03","prtg_cas04","prtg_cas05";
 	for( set .@i, 0; .@i <= 19; set .@i, .@i+1 ) {
 		if (GetCastleData(.@maps$[.@i],1)) {
-			Announce "¹«»á³Ç±¤ [" + GetCastleName(.@maps$[.@i]) + "] ±» [" + GetGuildName(GetCastleData(.@maps$[.@i],1)) + "] ¹«»áÕ¼Áì.",bc_all|bc_woe;
+			Announce "å…¬ä¼šåŸå ¡ [" + GetCastleName(.@maps$[.@i]) + "] è¢« [" + GetGuildName(GetCastleData(.@maps$[.@i],1)) + "] å…¬ä¼šå é¢†.",bc_all|bc_woe;
 		}
 		else {
-			Announce "¹«»á³Ç±¤ [" + GetCastleName(.@maps$[.@i]) + "] ÎŞÈËÕ¼Áì.",bc_all|bc_woe;
+			Announce "å…¬ä¼šåŸå ¡ [" + GetCastleName(.@maps$[.@i]) + "] æ— äººå é¢†.",bc_all|bc_woe;
 		}
 	}
 	end;

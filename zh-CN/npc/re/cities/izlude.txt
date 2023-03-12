@@ -1,10 +1,7 @@
 //============================================================
-//= rAthenaCN [³ÇÕòÈËÔ±]ºº»¯½Å±¾ [ www.rAthenaCN.com ]
+//= rAthenaCN [åŸé•‡äººå‘˜]æ±‰åŒ–è„šæœ¬ 
 //============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
+
 
 //===== Hercules Script ======================================
 //= Izlude Town Renewal
@@ -23,81 +20,81 @@
 
 // Izlude
 //============================================================
-izlude,197,205,1	duplicate(Sailor_izlude)	´¬Ô±#izlude	100
-izlude_a,197,205,1	duplicate(Sailor_izlude)	´¬Ô±#izlude_a	100
-izlude_b,197,205,1	duplicate(Sailor_izlude)	´¬Ô±#izlude_b	100
-izlude_c,197,205,1	duplicate(Sailor_izlude)	´¬Ô±#izlude_c	100
-izlude_d,197,205,1	duplicate(Sailor_izlude)	´¬Ô±#izlude_d	100
+izlude,197,205,1	duplicate(Sailor_izlude)	èˆ¹å‘˜#izlude	100
+izlude_a,197,205,1	duplicate(Sailor_izlude)	èˆ¹å‘˜#izlude_a	100
+izlude_b,197,205,1	duplicate(Sailor_izlude)	èˆ¹å‘˜#izlude_b	100
+izlude_c,197,205,1	duplicate(Sailor_izlude)	èˆ¹å‘˜#izlude_c	100
+izlude_d,197,205,1	duplicate(Sailor_izlude)	èˆ¹å‘˜#izlude_d	100
 
-izlude,71,92,2	duplicate(Bonne_izlude)	²®Äá#izlude	90
-izlude_a,71,92,2	duplicate(Bonne_izlude)	²®Äá#izlude_a	90
-izlude_b,71,92,2	duplicate(Bonne_izlude)	²®Äá#izlude_b	90
-izlude_c,71,92,2	duplicate(Bonne_izlude)	²®Äá#izlude_c	90
-izlude_d,71,92,2	duplicate(Bonne_izlude)	²®Äá#izlude_d	90
+izlude,71,92,2	duplicate(Bonne_izlude)	ä¼¯å°¼#izlude	90
+izlude_a,71,92,2	duplicate(Bonne_izlude)	ä¼¯å°¼#izlude_a	90
+izlude_b,71,92,2	duplicate(Bonne_izlude)	ä¼¯å°¼#izlude_b	90
+izlude_c,71,92,2	duplicate(Bonne_izlude)	ä¼¯å°¼#izlude_c	90
+izlude_d,71,92,2	duplicate(Bonne_izlude)	ä¼¯å°¼#izlude_d	90
 
-izlude,172,215,4	duplicate(Charfri_izlude)	²é¸»Àö#izlude	91
-izlude_a,172,215,4	duplicate(Charfri_izlude)	²é¸»Àö#izlude_a	91
-izlude_b,172,215,4	duplicate(Charfri_izlude)	²é¸»Àö#izlude_b	91
-izlude_c,172,215,4	duplicate(Charfri_izlude)	²é¸»Àö#izlude_c	91
-izlude_d,172,215,4	duplicate(Charfri_izlude)	²é¸»Àö#izlude_d	91
+izlude,172,215,4	duplicate(Charfri_izlude)	æŸ¥å¯Œä¸½#izlude	91
+izlude_a,172,215,4	duplicate(Charfri_izlude)	æŸ¥å¯Œä¸½#izlude_a	91
+izlude_b,172,215,4	duplicate(Charfri_izlude)	æŸ¥å¯Œä¸½#izlude_b	91
+izlude_c,172,215,4	duplicate(Charfri_izlude)	æŸ¥å¯Œä¸½#izlude_c	91
+izlude_d,172,215,4	duplicate(Charfri_izlude)	æŸ¥å¯Œä¸½#izlude_d	91
 
-izlude,174,164,4	duplicate(Cuskoal_izlude)	¿¨Ë¹¿â¶û#izlude	124
-izlude_a,174,164,4	duplicate(Cuskoal_izlude)	¿¨Ë¹¿â¶û#izlude_a	124
-izlude_b,174,164,4	duplicate(Cuskoal_izlude)	¿¨Ë¹¿â¶û#izlude_b	124
-izlude_c,174,164,4	duplicate(Cuskoal_izlude)	¿¨Ë¹¿â¶û#izlude_c	124
-izlude_d,174,164,4	duplicate(Cuskoal_izlude)	¿¨Ë¹¿â¶û#izlude_d	124
+izlude,174,164,4	duplicate(Cuskoal_izlude)	å¡æ–¯åº“å°”#izlude	124
+izlude_a,174,164,4	duplicate(Cuskoal_izlude)	å¡æ–¯åº“å°”#izlude_a	124
+izlude_b,174,164,4	duplicate(Cuskoal_izlude)	å¡æ–¯åº“å°”#izlude_b	124
+izlude_c,174,164,4	duplicate(Cuskoal_izlude)	å¡æ–¯åº“å°”#izlude_c	124
+izlude_d,174,164,4	duplicate(Cuskoal_izlude)	å¡æ–¯åº“å°”#izlude_d	124
 
-izlude,85,103,4	duplicate(Dega_izlude)	µÂ¼Ó#izlude	84
-izlude_a,85,103,4	duplicate(Dega_izlude)	µÂ¼Ó#izlude_a	84
-izlude_b,85,103,4	duplicate(Dega_izlude)	µÂ¼Ó#izlude_b	84
-izlude_c,85,103,4	duplicate(Dega_izlude)	µÂ¼Ó#izlude_c	84
-izlude_d,85,103,4	duplicate(Dega_izlude)	µÂ¼Ó#izlude_d	84
+izlude,85,103,4	duplicate(Dega_izlude)	å¾·åŠ #izlude	84
+izlude_a,85,103,4	duplicate(Dega_izlude)	å¾·åŠ #izlude_a	84
+izlude_b,85,103,4	duplicate(Dega_izlude)	å¾·åŠ #izlude_b	84
+izlude_c,85,103,4	duplicate(Dega_izlude)	å¾·åŠ #izlude_c	84
+izlude_d,85,103,4	duplicate(Dega_izlude)	å¾·åŠ #izlude_d	84
 
-izlude,140,186,4	duplicate(Kylick_izlude)	¼ªÀû¿Ë#izlude	97
-izlude_a,140,186,4	duplicate(Kylick_izlude)	¼ªÀû¿Ë#izlude_a	97
-izlude_b,140,186,4	duplicate(Kylick_izlude)	¼ªÀû¿Ë#izlude_b	97
-izlude_c,140,186,4	duplicate(Kylick_izlude)	¼ªÀû¿Ë#izlude_c	97
-izlude_d,140,186,4	duplicate(Kylick_izlude)	¼ªÀû¿Ë#izlude_d	97
+izlude,140,186,4	duplicate(Kylick_izlude)	å‰åˆ©å…‹#izlude	97
+izlude_a,140,186,4	duplicate(Kylick_izlude)	å‰åˆ©å…‹#izlude_a	97
+izlude_b,140,186,4	duplicate(Kylick_izlude)	å‰åˆ©å…‹#izlude_b	97
+izlude_c,140,186,4	duplicate(Kylick_izlude)	å‰åˆ©å…‹#izlude_c	97
+izlude_d,140,186,4	duplicate(Kylick_izlude)	å‰åˆ©å…‹#izlude_d	97
 
-izlude,57,159,2	duplicate(Red_izlude)	À³µÂ#izlude	85
-izlude_a,57,159,2	duplicate(Red_izlude)	À³µÂ#izlude_a	85
-izlude_b,57,159,2	duplicate(Red_izlude)	À³µÂ#izlude_b	85
-izlude_c,57,159,2	duplicate(Red_izlude)	À³µÂ#izlude_c	85
-izlude_d,57,159,2	duplicate(Red_izlude)	À³µÂ#izlude_d	85
+izlude,57,159,2	duplicate(Red_izlude)	è±å¾·#izlude	85
+izlude_a,57,159,2	duplicate(Red_izlude)	è±å¾·#izlude_a	85
+izlude_b,57,159,2	duplicate(Red_izlude)	è±å¾·#izlude_b	85
+izlude_c,57,159,2	duplicate(Red_izlude)	è±å¾·#izlude_c	85
+izlude_d,57,159,2	duplicate(Red_izlude)	è±å¾·#izlude_d	85
 
-izlude,55,159,2	duplicate(Cebalis_izlude)	Èû°ÍÀïË¹#izlude	98
-izlude_a,55,159,2	duplicate(Cebalis_izlude)	Èû°ÍÀïË¹#izlude_a	98
-izlude_b,55,159,2	duplicate(Cebalis_izlude)	Èû°ÍÀïË¹#izlude_b	98
-izlude_c,55,159,2	duplicate(Cebalis_izlude)	Èû°ÍÀïË¹#izlude_c	98
-izlude_d,55,159,2	duplicate(Cebalis_izlude)	Èû°ÍÀïË¹#izlude_d	98
+izlude,55,159,2	duplicate(Cebalis_izlude)	å¡å·´é‡Œæ–¯#izlude	98
+izlude_a,55,159,2	duplicate(Cebalis_izlude)	å¡å·´é‡Œæ–¯#izlude_a	98
+izlude_b,55,159,2	duplicate(Cebalis_izlude)	å¡å·´é‡Œæ–¯#izlude_b	98
+izlude_c,55,159,2	duplicate(Cebalis_izlude)	å¡å·´é‡Œæ–¯#izlude_c	98
+izlude_d,55,159,2	duplicate(Cebalis_izlude)	å¡å·´é‡Œæ–¯#izlude_d	98
 
-izlude,165,156,2	duplicate(Soldier_izlude)	Ê¿±ø#izlude	105
-izlude_a,165,156,2	duplicate(Soldier_izlude)	Ê¿±ø#izlude_a	105
-izlude_b,165,156,2	duplicate(Soldier_izlude)	Ê¿±ø#izlude_b	105
-izlude_c,165,156,2	duplicate(Soldier_izlude)	Ê¿±ø#izlude_c	105
-izlude_d,165,156,2	duplicate(Soldier_izlude)	Ê¿±ø#izlude_d	105
+izlude,165,156,2	duplicate(Soldier_izlude)	å£«å…µ#izlude	105
+izlude_a,165,156,2	duplicate(Soldier_izlude)	å£«å…µ#izlude_a	105
+izlude_b,165,156,2	duplicate(Soldier_izlude)	å£«å…µ#izlude_b	105
+izlude_c,165,156,2	duplicate(Soldier_izlude)	å£«å…µ#izlude_c	105
+izlude_d,165,156,2	duplicate(Soldier_izlude)	å£«å…µ#izlude_d	105
 
 -	script	::Guard_izlude	-1,{
-	mes "[ÒÁË¹Â³µÂÊØÎÀ]";
-	mes "»¶Ó­À´µ½ÒÁË¹Â³µÂ.";
+	mes "[ä¼Šæ–¯é²å¾·å®ˆå«]";
+	mes "æ¬¢è¿æ¥åˆ°ä¼Šæ–¯é²å¾·.";
 	close;
 }
-prt_fild08,350,219,4	duplicate(Guard_izlude)	ÊØÎÀ#izlude	105
-prt_fild08a,350,219,4	duplicate(Guard_izlude)	ÊØÎÀ#izlude_a	105
-prt_fild08b,350,219,4	duplicate(Guard_izlude)	ÊØÎÀ#izlude_b	105
-prt_fild08c,350,219,4	duplicate(Guard_izlude)	ÊØÎÀ#izlude_c	105
-prt_fild08d,350,219,4	duplicate(Guard_izlude)	ÊØÎÀ#izlude_d	105
+prt_fild08,350,219,4	duplicate(Guard_izlude)	å®ˆå«#izlude	105
+prt_fild08a,350,219,4	duplicate(Guard_izlude)	å®ˆå«#izlude_a	105
+prt_fild08b,350,219,4	duplicate(Guard_izlude)	å®ˆå«#izlude_b	105
+prt_fild08c,350,219,4	duplicate(Guard_izlude)	å®ˆå«#izlude_c	105
+prt_fild08d,350,219,4	duplicate(Guard_izlude)	å®ˆå«#izlude_d	105
 
 // Channel Warper
 //============================================================
 function	script	F_IzludeChannel	{
-	mes "[ÒÁË¹Â³µÂ¸´ÖÆ´«ËÍ]";
-	mes "ÊÇ²»ÊÇ¾õµÃÒÁË¹Â³µÂÊÇÒ»¸ö·Ç³£ÊÊºÏ¾Ó×¡µÄµØ·½?";
-	mes "ÎÒÔÚÕâÀïÊÇÎªÁËÊ¹ÒÁË¹Â³µÂµÄ½»Í¨¸ü±ãÀû!";
-	mes "ÎÒ¿ÉÒÔËÍÄãÈ¥ÈÎÒâÒ»¸öÒÁË¹Â³µÂµÄ¸´ÖÆÇøÓò.";
-	mes "ÄãÊÇ²»ÊÇÏëÈ¥¸´ÖÆÇøÓò?";
+	mes "[ä¼Šæ–¯é²å¾·å¤åˆ¶ä¼ é€]";
+	mes "æ˜¯ä¸æ˜¯è§‰å¾—ä¼Šæ–¯é²å¾·æ˜¯ä¸€ä¸ªéå¸¸é€‚åˆå±…ä½çš„åœ°æ–¹?";
+	mes "æˆ‘åœ¨è¿™é‡Œæ˜¯ä¸ºäº†ä½¿ä¼Šæ–¯é²å¾·çš„äº¤é€šæ›´ä¾¿åˆ©!";
+	mes "æˆ‘å¯ä»¥é€ä½ å»ä»»æ„ä¸€ä¸ªä¼Šæ–¯é²å¾·çš„å¤åˆ¶åŒºåŸŸ.";
+	mes "ä½ æ˜¯ä¸æ˜¯æƒ³å»å¤åˆ¶åŒºåŸŸ?";
 	next;
-	set .@i, select(getarg(0)+":²»ÓÃ");
+	set .@i, select(getarg(0)+":ä¸ç”¨");
 	if (.@i < 6) {
 		setarray .@maps$[1],"izlude","izlude_a","izlude_b","izlude_c","izlude_d";
 		savepoint .@maps$[.@i],128,98;
@@ -106,8 +103,8 @@ function	script	F_IzludeChannel	{
 	}
 	close;
 }
-izlude,122,105,5	script	ÒÁË¹Â³µÂ¸´ÖÆ´«ËÍ	64,{ callfunc "F_IzludeChannel",":È¥¸´ÖÆ 2:È¥¸´ÖÆ 3:È¥¸´ÖÆ 4:È¥¸´ÖÆ 5"; }
-izlude_a,122,105,5	script	ÒÁË¹Â³µÂ¸´ÖÆ´«ËÍ#_a	64,{ callfunc "F_IzludeChannel","È¥¸´ÖÆ 1::È¥¸´ÖÆ 3:È¥¸´ÖÆ 4:È¥¸´ÖÆ 5"; }
-izlude_b,122,105,5	script	ÒÁË¹Â³µÂ¸´ÖÆ´«ËÍ#_b	64,{ callfunc "F_IzludeChannel","È¥¸´ÖÆ 1:È¥¸´ÖÆ 2::È¥¸´ÖÆ 4:È¥¸´ÖÆ 5"; }
-izlude_c,122,105,5	script	ÒÁË¹Â³µÂ¸´ÖÆ´«ËÍ#_c	64,{ callfunc "F_IzludeChannel","È¥¸´ÖÆ 1:È¥¸´ÖÆ 2:È¥¸´ÖÆ 3::È¥¸´ÖÆ 5"; }
-izlude_d,122,105,5	script	ÒÁË¹Â³µÂ¸´ÖÆ´«ËÍ#_d	64,{ callfunc "F_IzludeChannel","È¥¸´ÖÆ 1:È¥¸´ÖÆ 2:È¥¸´ÖÆ 3:È¥¸´ÖÆ 4:"; }
+izlude,122,105,5	script	ä¼Šæ–¯é²å¾·å¤åˆ¶ä¼ é€	64,{ callfunc "F_IzludeChannel",":å»å¤åˆ¶ 2:å»å¤åˆ¶ 3:å»å¤åˆ¶ 4:å»å¤åˆ¶ 5"; }
+izlude_a,122,105,5	script	ä¼Šæ–¯é²å¾·å¤åˆ¶ä¼ é€#_a	64,{ callfunc "F_IzludeChannel","å»å¤åˆ¶ 1::å»å¤åˆ¶ 3:å»å¤åˆ¶ 4:å»å¤åˆ¶ 5"; }
+izlude_b,122,105,5	script	ä¼Šæ–¯é²å¾·å¤åˆ¶ä¼ é€#_b	64,{ callfunc "F_IzludeChannel","å»å¤åˆ¶ 1:å»å¤åˆ¶ 2::å»å¤åˆ¶ 4:å»å¤åˆ¶ 5"; }
+izlude_c,122,105,5	script	ä¼Šæ–¯é²å¾·å¤åˆ¶ä¼ é€#_c	64,{ callfunc "F_IzludeChannel","å»å¤åˆ¶ 1:å»å¤åˆ¶ 2:å»å¤åˆ¶ 3::å»å¤åˆ¶ 5"; }
+izlude_d,122,105,5	script	ä¼Šæ–¯é²å¾·å¤åˆ¶ä¼ é€#_d	64,{ callfunc "F_IzludeChannel","å»å¤åˆ¶ 1:å»å¤åˆ¶ 2:å»å¤åˆ¶ 3:å»å¤åˆ¶ 4:"; }

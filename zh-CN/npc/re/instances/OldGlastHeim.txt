@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN ½Å±¾ºº»¯ www.rAthenaCN.com ×ª×Ô [ www.99Max.mE ]
-//============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN è„šæœ¬æ±‰åŒ– è½¬è‡ª [ www.99Max.mE ]
 //============================================================
 
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Old Glast Heim
 //===== By: ================================================== 
 //= Ziu, Heris (translation)
@@ -23,11 +19,11 @@
 //= 1.1 Bug fixes; removed redundant OnInstanceInit scripts.
 //============================================================ 
 
-glast_01,204,273,6	script	»ª½ğ#ghinstance	755,{
-	mes "^ff0000Çë×¢Òâ, ÕâÀï²»ÊÇÒ»¸öÆÕÍ¨µÄ¸±±¾.^000000";
+glast_01,204,273,6	script	åé‡‘#ghinstance	755,{
+	mes "^ff0000è¯·æ³¨æ„, è¿™é‡Œä¸æ˜¯ä¸€ä¸ªæ™®é€šçš„å‰¯æœ¬.^000000";
 	next;
-	mes "[»ª½ğ]";
-	mes "ßí? Äã¿ÉÄÜ¸Ğ¾õÄãÔÚ±ğ´¦¼û¹ıÎÒ? ÎÒÃ÷°×. ÎÒ»¹ÄÜËµÊ²Ã´ÄØ?";
+	mes "[åé‡‘]";
+	mes "å””? ä½ å¯èƒ½æ„Ÿè§‰ä½ åœ¨åˆ«å¤„è§è¿‡æˆ‘? æˆ‘æ˜ç™½. æˆ‘è¿˜èƒ½è¯´ä»€ä¹ˆå‘¢?";
 	next;
 	set .@ghins_time, checkquest(12317,PLAYTIME);
 	if (.@ghins_time == -1) {
@@ -38,40 +34,40 @@ glast_01,204,273,6	script	»ª½ğ#ghinstance	755,{
 
 		if (!instance_check_party(.@party_id,2)) {
 			//custom
-			mes "[»ª½ğ]";
-			mes "ÄãµÄ¶ÓÓÑÃÇÄØ?";
+			mes "[åé‡‘]";
+			mes "ä½ çš„é˜Ÿå‹ä»¬å‘¢?";
 			close;
 		}
 
 		if (getcharid(0) == getpartyleader(.@party_id,2))
-			set .@menu$, "- ´´½¨¸±±¾½ø¶È.:- ½øÈë¹Å³Ç¸±±¾.:- È¡Ïû.";
+			set .@menu$, "- åˆ›å»ºå‰¯æœ¬è¿›åº¦.:- è¿›å…¥å¤åŸå‰¯æœ¬.:- å–æ¶ˆ.";
 		else
-			set .@menu$, ":- ½øÈë¿ËÀ×Ë¹ÌØººÄ·¹Å³Ç.:- È¡Ïû.";
+			set .@menu$, ":- è¿›å…¥å…‹é›·æ–¯ç‰¹æ±‰å§†å¤åŸ.:- å–æ¶ˆ.";
 		switch(select(.@menu$)) {
 		case 1:
 			if (instance_create(.@md_name$) < 0) {
-				mes "¶ÓÎéÃû³Æ: "+.@p_name$;
-				mes "¶Ó    ³¤: "+strcharinfo(0);
-				mes "^0000ff"+.@md_name$+" ^000000- ±£ÁôÊ§°Ü!";
+				mes "é˜Ÿä¼åç§°: "+.@p_name$;
+				mes "é˜Ÿ    é•¿: "+strcharinfo(0);
+				mes "^0000ff"+.@md_name$+" ^000000- ä¿ç•™å¤±è´¥!";
 				close;
 			}
-			mes "[»ª½ğ]";
-			mes "¸±±¾½ø¶ÈÒÑ¾­½¨Á¢. ÄãÃÇ×¼±¸ºÃµÄÊ±ºò, ÇëÔÙ´ÎÓëÎÒ¶Ô»°.";
+			mes "[åé‡‘]";
+			mes "å‰¯æœ¬è¿›åº¦å·²ç»å»ºç«‹. ä½ ä»¬å‡†å¤‡å¥½çš„æ—¶å€™, è¯·å†æ¬¡ä¸æˆ‘å¯¹è¯.";
 			close;
 		case 2:
 			switch(instance_enter(.@md_name$)) {
 			case 3:
-				mes "·¢ÉúÒ»¸öÎ´Öª´íÎó.";
+				mes "å‘ç”Ÿä¸€ä¸ªæœªçŸ¥é”™è¯¯.";
 				close;
 			case 2:
-				mes "¸±±¾½ø¶È "+.@md_name$+" ²»´æÔÚ.";
-				mes "¶Ó³¤»¹Ã»ÓĞ½¨Á¢¸±±¾½ø¶È.";
+				mes "å‰¯æœ¬è¿›åº¦ "+.@md_name$+" ä¸å­˜åœ¨.";
+				mes "é˜Ÿé•¿è¿˜æ²¡æœ‰å»ºç«‹å‰¯æœ¬è¿›åº¦.";
 				close;
 			case 1:
-				mes "Ö»ÓĞ×¢²á¹ıµÄ³ÉÔ±¿ÉÒÔ½øÈë¸±±¾ "+.@md_name$+".";
+				mes "åªæœ‰æ³¨å†Œè¿‡çš„æˆå‘˜å¯ä»¥è¿›å…¥å‰¯æœ¬ "+.@md_name$+".";
 				close;
 			case 0:
-				mapannounce "glast_01",strcharinfo(0)+", ¶ÓÎé³ÉÔ± "+.@p_name$+" ½øÈëÁË¸±±¾ "+.@md_name$+".",bc_map,"0x00ff99";
+				mapannounce "glast_01",strcharinfo(0)+", é˜Ÿä¼æˆå‘˜ "+.@p_name$+" è¿›å…¥äº†å‰¯æœ¬ "+.@md_name$+".",bc_map,"0x00ff99";
 				setquest 12317;
 				setquest 12318;
 				//warp "1@gl_k",150,20;
@@ -81,15 +77,15 @@ glast_01,204,273,6	script	»ª½ğ#ghinstance	755,{
 			close;
 		}
 	} else if (.@ghins_time == 0 || .@ghins_time == 1) {
-		mes "[»ª½ğ]";
-		mes "àŞ, ÉÏµÛ°¡.";
-		mes "ÄãµÄÉíÉÏ»¹ÓĞ¸±±¾µÄÓ¡¼Ç. ÕâÖÖÇé¿öÏÂ, ÄãÊÇ²»¿ÉÒÔÔÙ´Î½øÈë¸±±¾µÄ.";
+		mes "[åé‡‘]";
+		mes "å™¢, ä¸Šå¸å•Š.";
+		mes "ä½ çš„èº«ä¸Šè¿˜æœ‰å‰¯æœ¬çš„å°è®°. è¿™ç§æƒ…å†µä¸‹, ä½ æ˜¯ä¸å¯ä»¥å†æ¬¡è¿›å…¥å‰¯æœ¬çš„.";
 		next;
-		mes "[»ª½ğ]";
-		mes "ÄãÓ¦¸Ã¶àĞİÏ¢Ò»ÏÂ, ÍíĞ©Ê±ºòÔÙÀ´.";
+		mes "[åé‡‘]";
+		mes "ä½ åº”è¯¥å¤šä¼‘æ¯ä¸€ä¸‹, æ™šäº›æ—¶å€™å†æ¥.";
 		close;
 	} else {
-		mes "^0000ff¿ËÀ×Ë¹ÌØººÄ·¹Å³ÇµÄÓ¡¼ÇÒÑ±»Çå³ı. ÏÖÔÚ¿ÉÒÔÔÙ´ÎÓë»ª½ğ¶Ô»°ÁË.^000000";
+		mes "^0000ffå…‹é›·æ–¯ç‰¹æ±‰å§†å¤åŸçš„å°è®°å·²è¢«æ¸…é™¤. ç°åœ¨å¯ä»¥å†æ¬¡ä¸åé‡‘å¯¹è¯äº†.^000000";
 		erasequest 12317;
 		if (checkquest(12318) > -1) erasequest 12318;
 		if (checkquest(12319) > -1) erasequest 12319;
@@ -99,97 +95,97 @@ glast_01,204,273,6	script	»ª½ğ#ghinstance	755,{
 
 // Floor 1
 //============================================================
-1@gl_k,149,41,6	script	ÍßÃÉÌØ#ghinstance1	654,{
+1@gl_k,149,41,6	script	ç“¦è’™ç‰¹#ghinstance1	654,{
 	if (getcharid(0) == getpartyleader(getcharid(1),2)) {
-		mes "ºÙ ^0000ff»ï¼Æ^000000, ÄãÃÇÊÇ±»ÅÉÀ´Ğ­ÖúÎÒÃÇµÄÂğ?";
-		npctalk "ºÙ »ï¼Æ, ÄãÃÇÊÇ±»ÅÉÀ´Ğ­ÖúÎÒÃÇµÄÂğ?";
+		mes "å˜¿ ^0000ffä¼™è®¡^000000, ä½ ä»¬æ˜¯è¢«æ´¾æ¥ååŠ©æˆ‘ä»¬çš„å—?";
+		npctalk "å˜¿ ä¼™è®¡, ä½ ä»¬æ˜¯è¢«æ´¾æ¥ååŠ©æˆ‘ä»¬çš„å—?";
 		cutin "gl_barmund1",2;
 		next;
-		select("àŞ. ÊÇµÄ, ¹ØÓÚÕâ¸öÊÂÇé...");
+		select("å™¢. æ˜¯çš„, å…³äºè¿™ä¸ªäº‹æƒ…...");
 		mes "["+strcharinfo(0)+"]";
-		mes "àŞÊÇµÄ, ¹ş¹ş¹ş, ÎÒÃÇ±»¸æÖªÒªÀ´ÕÒÒ»¸ö½ĞÍßÃÉÌØµÄ.";
-		unittalk getcharid(3),"àŞÊÇµÄ, ¹ş¹ş¹ş, ÎÒÃÇ±»¸æÖªÒªÀ´ÕÒÒ»¸ö½ĞÍßÃÉÌØµÄ.";
+		mes "å™¢æ˜¯çš„, å“ˆå“ˆå“ˆ, æˆ‘ä»¬è¢«å‘ŠçŸ¥è¦æ¥æ‰¾ä¸€ä¸ªå«ç“¦è’™ç‰¹çš„.";
+		unittalk getcharid(3),"å™¢æ˜¯çš„, å“ˆå“ˆå“ˆ, æˆ‘ä»¬è¢«å‘ŠçŸ¥è¦æ¥æ‰¾ä¸€ä¸ªå«ç“¦è’™ç‰¹çš„.";
 		next;
-		mes "[ÍßÃÉÌØ]";
-		mes "ÄÇ±ğÀË·ÑÊ±¼äÁË. ÎÒÃÇ±ØĞë±¨¸æº£ÒòÀïÏ£³¤¹Ù¹ØÓÚÏ£Ä·Ã·¶ûÃ·×ÈÈëÇÖµÄÊÂÇé.";
-		npctalk "ÄÇ±ğÀË·ÑÊ±¼äÁË. ÎÒÃÇ±ØĞë±¨¸æº£ÒòÀïÏ£³¤¹Ù¹ØÓÚÏ£Ä·Ã·¶ûÃ·×ÈÈëÇÖµÄÊÂÇé.";
+		mes "[ç“¦è’™ç‰¹]";
+		mes "é‚£åˆ«æµªè´¹æ—¶é—´äº†. æˆ‘ä»¬å¿…é¡»æŠ¥å‘Šæµ·å› é‡Œå¸Œé•¿å®˜å…³äºå¸Œå§†æ¢…å°”æ¢…å…¹å…¥ä¾µçš„äº‹æƒ….";
+		npctalk "é‚£åˆ«æµªè´¹æ—¶é—´äº†. æˆ‘ä»¬å¿…é¡»æŠ¥å‘Šæµ·å› é‡Œå¸Œé•¿å®˜å…³äºå¸Œå§†æ¢…å°”æ¢…å…¹å…¥ä¾µçš„äº‹æƒ….";
 		cutin "gl_barmund2",2;
 		next;
-		select("Ê²Ã´Ï£Ä·Ã·¶ûÃ·×È...");
+		select("ä»€ä¹ˆå¸Œå§†æ¢…å°”æ¢…å…¹...");
 		mes "["+strcharinfo(0)+"]";
-		mes "Ï£Ä·Ã·¶ûÃ·×È? ËıÊÇÊ²Ã´ÈË?";
-		unittalk getcharid(3),"Ï£Ä·Ã·¶ûÃ·×È? ËıÊÇÊ²Ã´ÈË?";
+		mes "å¸Œå§†æ¢…å°”æ¢…å…¹? å¥¹æ˜¯ä»€ä¹ˆäºº?";
+		unittalk getcharid(3),"å¸Œå§†æ¢…å°”æ¢…å…¹? å¥¹æ˜¯ä»€ä¹ˆäºº?";
 		next;
-		mes "[ÍßÃÉÌØ]";
-		mes "ÓĞÃ»ÓĞÈË¸æËßÄã¹ıÏà¹ØµÄÇé±¨?";
-		npctalk "ÓĞÃ»ÓĞÈË¸æËßÄã¹ıÏà¹ØµÄÇé±¨?";
+		mes "[ç“¦è’™ç‰¹]";
+		mes "æœ‰æ²¡æœ‰äººå‘Šè¯‰ä½ è¿‡ç›¸å…³çš„æƒ…æŠ¥?";
+		npctalk "æœ‰æ²¡æœ‰äººå‘Šè¯‰ä½ è¿‡ç›¸å…³çš„æƒ…æŠ¥?";
 		cutin "gl_barmund3",2;
 		next;
-		mes "[ÍßÃÉÌØ]";
-		mes "ÕÆ¿ØËÀÍöµÄÕ½Éñ. ËıÔÚÑ°ÕÒÒş²ØÔÚÕâÀïµÄÒÁÃ×¶ûÖ®ĞÄµÄËéÆ¬.";
-		npctalk "ÕÆ¿ØËÀÍöµÄÕ½Éñ. ËıÔÚÑ°ÕÒÒş²ØÔÚÕâÀïµÄÒÁÃ×¶ûÖ®ĞÄµÄËéÆ¬.";
+		mes "[ç“¦è’™ç‰¹]";
+		mes "æŒæ§æ­»äº¡çš„æˆ˜ç¥. å¥¹åœ¨å¯»æ‰¾éšè—åœ¨è¿™é‡Œçš„ä¼Šç±³å°”ä¹‹å¿ƒçš„ç¢ç‰‡.";
+		npctalk "æŒæ§æ­»äº¡çš„æˆ˜ç¥. å¥¹åœ¨å¯»æ‰¾éšè—åœ¨è¿™é‡Œçš„ä¼Šç±³å°”ä¹‹å¿ƒçš„ç¢ç‰‡.";
 		cutin "gl_barmund2",2;
 		next;
-		mes "[ÍßÃÉÌØ]";
-		mes "ËıµÄÄ¿µÄÓ¦¸ÃÊÇÒª´İ»ÙÕû¸ö³Ç±¤, ¿öÇÒËıÒ²¾ß±¸Õâ¸öÄÜÁ¦.";
-		npctalk "ËıµÄÄ¿µÄÓ¦¸ÃÊÇÒª´İ»ÙÕû¸ö³Ç±¤, ¿öÇÒËıÒ²¾ß±¸Õâ¸öÄÜÁ¦.";
+		mes "[ç“¦è’™ç‰¹]";
+		mes "å¥¹çš„ç›®çš„åº”è¯¥æ˜¯è¦æ‘§æ¯æ•´ä¸ªåŸå ¡, å†µä¸”å¥¹ä¹Ÿå…·å¤‡è¿™ä¸ªèƒ½åŠ›.";
+		npctalk "å¥¹çš„ç›®çš„åº”è¯¥æ˜¯è¦æ‘§æ¯æ•´ä¸ªåŸå ¡, å†µä¸”å¥¹ä¹Ÿå…·å¤‡è¿™ä¸ªèƒ½åŠ›.";
 		next;
-		mes "[ÍßÃÉÌØ]";
-		mes "¸Ï¿ì! ¸æËßº£ÒòÀïÏ£³¤¹ÙÏ£Ä·Ã·¶ûÃ·×È¾ÍÒªÀ´ÁË. ÎÒÒ²Òª¿ªÊ¼ÖÆ¶¨Ó¦¶ÔËıµÄÕ½Êõ°²ÅÅÁË!";
-		npctalk "¸Ï¿ì! ¸æËßº£ÒòÀïÏ£³¤¹ÙÏ£Ä·Ã·¶ûÃ·×È¾ÍÒªÀ´ÁË. ÎÒÒ²Òª¿ªÊ¼ÖÆ¶¨Ó¦¶ÔËıµÄÕ½Êõ°²ÅÅÁË!";
+		mes "[ç“¦è’™ç‰¹]";
+		mes "èµ¶å¿«! å‘Šè¯‰æµ·å› é‡Œå¸Œé•¿å®˜å¸Œå§†æ¢…å°”æ¢…å…¹å°±è¦æ¥äº†. æˆ‘ä¹Ÿè¦å¼€å§‹åˆ¶å®šåº”å¯¹å¥¹çš„æˆ˜æœ¯å®‰æ’äº†!";
+		npctalk "èµ¶å¿«! å‘Šè¯‰æµ·å› é‡Œå¸Œé•¿å®˜å¸Œå§†æ¢…å°”æ¢…å…¹å°±è¦æ¥äº†. æˆ‘ä¹Ÿè¦å¼€å§‹åˆ¶å®šåº”å¯¹å¥¹çš„æˆ˜æœ¯å®‰æ’äº†!";
 		close2;
 		cutin "gl_barmund2",255;
-		donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance1")+"::OnDisable2";
+		donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance1")+"::OnDisable2";
 		end;
 	} else {
-		mes "[ÍßÃÉÌØ]";
-		mes "ËûÔÚÄÄÀï?";
-		mes "ÎÒÃÇĞèÒªËûµÄ°ïÖú.";
+		mes "[ç“¦è’™ç‰¹]";
+		mes "ä»–åœ¨å“ªé‡Œ?";
+		mes "æˆ‘ä»¬éœ€è¦ä»–çš„å¸®åŠ©.";
 		cutin "gl_barmund2",2;
 		close2;
 		cutin "gl_barmund2",255;
 		end;
 	}
 OnInstanceInit:
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance1")+"::OnEnable";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance1")+"::OnEnable";
 	end;
 OnDisable:
-	hideonnpc instance_npcname("ÍßÃÉÌØ#ghinstance1");
+	hideonnpc instance_npcname("ç“¦è’™ç‰¹#ghinstance1");
 	end;
 OnDisable2:
-	hideonnpc instance_npcname("ÍßÃÉÌØ#ghinstance1");
+	hideonnpc instance_npcname("ç“¦è’™ç‰¹#ghinstance1");
 
 	for(set .@i,1; .@i<=20; set .@i,.@i+4) {
-		hideoffnpc instance_npcname("Ê¥µîÊ®×Ö¾ü#"+.@i);
-		hideoffnpc instance_npcname("Ê¥µîÊ®×Ö¾ü#"+(.@i+1));
-		hideoffnpc instance_npcname("°×ÒÂÆïÊ¿#"+(.@i+2));
-		hideoffnpc instance_npcname("°×ÒÂÆïÊ¿#"+(.@i+3));
+		hideoffnpc instance_npcname("åœ£æ®¿åå­—å†›#"+.@i);
+		hideoffnpc instance_npcname("åœ£æ®¿åå­—å†›#"+(.@i+1));
+		hideoffnpc instance_npcname("ç™½è¡£éª‘å£«#"+(.@i+2));
+		hideoffnpc instance_npcname("ç™½è¡£éª‘å£«#"+(.@i+3));
 	}
-	hideoffnpc instance_npcname("Ê¥µîÊ®×Ö¾ü#21");
-	hideoffnpc instance_npcname("Ê¥µîÊ®×Ö¾ü#22");
+	hideoffnpc instance_npcname("åœ£æ®¿åå­—å†›#21");
+	hideoffnpc instance_npcname("åœ£æ®¿åå­—å†›#22");
 
-	hideoffnpc instance_npcname("º£ÒòÀïÏ£#ghinstance1");
-	hideoffnpc instance_npcname("ÍßÃÉÌØ#ghinstance2");
+	hideoffnpc instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance1");
+	hideoffnpc instance_npcname("ç“¦è’™ç‰¹#ghinstance2");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("ÍßÃÉÌØ#ghinstance1");
+	hideoffnpc instance_npcname("ç“¦è’™ç‰¹#ghinstance1");
 	end;
 }
 
-1@gl_k,145,54,6	script	Ê¥µîÊ®×Ö¾ü#1	655,{
+1@gl_k,145,54,6	script	åœ£æ®¿åå­—å†›#1	655,{
 	mes "["+strnpcinfo(1)+"]";
 	switch((atoi(strnpcinfo(2)) + 1) / 2) {
-		case 1: mes "ÊÇ²»ÊÇÒªÈÃÎÒÈë¶Ó?"; break;
-		case 2: mes "ĞèÒªÎÒµÄ°ïÖúÂğ?"; break;
+		case 1: mes "æ˜¯ä¸æ˜¯è¦è®©æˆ‘å…¥é˜Ÿ?"; break;
+		case 2: mes "éœ€è¦æˆ‘çš„å¸®åŠ©å—?"; break;
 		case 3: mes "..."; break;
-		case 4: mes "ÎÒ²»Ï²»¶ÔÚ¸ÚÎ»ÉÏÏĞÁÄ."; break;
-		case 5: mes "³Ç±¤µÄ¹â»·ÒÑ¾­¸Ä±äÁË, Äã²»¾õµÃÂğ? ¸Õ²ÅºÃÏñÓĞÒ»¸öÎ´ÖªµÄ´æÔÚ³öÏÖ¹ı."; break;
-		case 6: mes "ÎÒÏëÍßÃÉÌØÖ¸»Ó¹Ù¿ªÊ¼ĞĞ¶¯ÁË. ÎÒÌıµ½Æ½Ãñ³·ÀëµÄÉùÒô..."; break;
-		case 7: mes "Ğê! ±ğ³öÉù."; break;
-		case 8: mes "¿Ö»ÅÕıÔÚÂûÑÓ."; break;
-		case 9: mes "×òÍíµÄØ¬ÃÎÕæµÄÈÃÎÒºÜÀ§»ó. ÎÒÄ¸Ç×³£ËµÕâĞ©Ø¬ÃÎ»á±ä³ÉÏÖÊµ..."; break;
-		case 10: mes "ÄãÊÇºÍÍßÃÉÌØÒ»ÆğÈ¥Âğ? Ö¸»Ó¹Ù´óÈËÕıÔÚµÈÄã."; break;
-		case 11: mes "¸Õ»»ÁË¸Ú. ÎÒ²»Çå³ş¸Õ²ÅµÄÆïÊ¿·¢ÉúÁËÊ²Ã´."; break;
+		case 4: mes "æˆ‘ä¸å–œæ¬¢åœ¨å²—ä½ä¸Šé—²èŠ."; break;
+		case 5: mes "åŸå ¡çš„å…‰ç¯å·²ç»æ”¹å˜äº†, ä½ ä¸è§‰å¾—å—? åˆšæ‰å¥½åƒæœ‰ä¸€ä¸ªæœªçŸ¥çš„å­˜åœ¨å‡ºç°è¿‡."; break;
+		case 6: mes "æˆ‘æƒ³ç“¦è’™ç‰¹æŒ‡æŒ¥å®˜å¼€å§‹è¡ŒåŠ¨äº†. æˆ‘å¬åˆ°å¹³æ°‘æ’¤ç¦»çš„å£°éŸ³..."; break;
+		case 7: mes "å˜˜! åˆ«å‡ºå£°."; break;
+		case 8: mes "ææ…Œæ­£åœ¨è”“å»¶."; break;
+		case 9: mes "æ˜¨æ™šçš„å™©æ¢¦çœŸçš„è®©æˆ‘å¾ˆå›°æƒ‘. æˆ‘æ¯äº²å¸¸è¯´è¿™äº›å™©æ¢¦ä¼šå˜æˆç°å®..."; break;
+		case 10: mes "ä½ æ˜¯å’Œç“¦è’™ç‰¹ä¸€èµ·å»å—? æŒ‡æŒ¥å®˜å¤§äººæ­£åœ¨ç­‰ä½ ."; break;
+		case 11: mes "åˆšæ¢äº†å²—. æˆ‘ä¸æ¸…æ¥šåˆšæ‰çš„éª‘å£«å‘ç”Ÿäº†ä»€ä¹ˆ."; break;
 	}
 	close;
 OnInstanceInit:
@@ -200,89 +196,89 @@ OnEnable:
 	hideoffnpc instance_npcname(strnpcinfo(0));
 	end;
 }
-1@gl_k,154,54,3	duplicate(Ê¥µîÊ®×Ö¾ü#1)	Ê¥µîÊ®×Ö¾ü#2	655
-1@gl_k,145,59,6	duplicate(Ê¥µîÊ®×Ö¾ü#1)	°×ÒÂÆïÊ¿#3	657
-1@gl_k,154,59,3	duplicate(Ê¥µîÊ®×Ö¾ü#1)	°×ÒÂÆïÊ¿#4	657
-1@gl_k,145,64,6	duplicate(Ê¥µîÊ®×Ö¾ü#1)	Ê¥µîÊ®×Ö¾ü#5	655
-1@gl_k,154,64,3	duplicate(Ê¥µîÊ®×Ö¾ü#1)	Ê¥µîÊ®×Ö¾ü#6	655
-1@gl_k,145,69,6	duplicate(Ê¥µîÊ®×Ö¾ü#1)	°×ÒÂÆïÊ¿#7	657
-1@gl_k,154,69,3	duplicate(Ê¥µîÊ®×Ö¾ü#1)	°×ÒÂÆïÊ¿#8	657
-1@gl_k,145,74,6	duplicate(Ê¥µîÊ®×Ö¾ü#1)	Ê¥µîÊ®×Ö¾ü#9	655
-1@gl_k,154,74,3	duplicate(Ê¥µîÊ®×Ö¾ü#1)	Ê¥µîÊ®×Ö¾ü#10	655
-1@gl_k,145,79,6	duplicate(Ê¥µîÊ®×Ö¾ü#1)	°×ÒÂÆïÊ¿#11	657
-1@gl_k,154,79,3	duplicate(Ê¥µîÊ®×Ö¾ü#1)	°×ÒÂÆïÊ¿#12	657
-1@gl_k,145,84,6	duplicate(Ê¥µîÊ®×Ö¾ü#1)	Ê¥µîÊ®×Ö¾ü#13	655
-1@gl_k,154,84,3	duplicate(Ê¥µîÊ®×Ö¾ü#1)	Ê¥µîÊ®×Ö¾ü#14	655
-1@gl_k,145,89,6	duplicate(Ê¥µîÊ®×Ö¾ü#1)	°×ÒÂÆïÊ¿#15	657
-1@gl_k,154,89,3	duplicate(Ê¥µîÊ®×Ö¾ü#1)	°×ÒÂÆïÊ¿#16	657
-1@gl_k,145,94,6	duplicate(Ê¥µîÊ®×Ö¾ü#1)	Ê¥µîÊ®×Ö¾ü#17	655
-1@gl_k,154,94,3	duplicate(Ê¥µîÊ®×Ö¾ü#1)	Ê¥µîÊ®×Ö¾ü#18	655
-1@gl_k,145,99,6	duplicate(Ê¥µîÊ®×Ö¾ü#1)	°×ÒÂÆïÊ¿#19	657
-1@gl_k,154,99,3	duplicate(Ê¥µîÊ®×Ö¾ü#1)	°×ÒÂÆïÊ¿#20	657
-1@gl_k,145,104,6	duplicate(Ê¥µîÊ®×Ö¾ü#1)	Ê¥µîÊ®×Ö¾ü#21	655
-1@gl_k,154,104,3	duplicate(Ê¥µîÊ®×Ö¾ü#1)	Ê¥µîÊ®×Ö¾ü#22	655
+1@gl_k,154,54,3	duplicate(åœ£æ®¿åå­—å†›#1)	åœ£æ®¿åå­—å†›#2	655
+1@gl_k,145,59,6	duplicate(åœ£æ®¿åå­—å†›#1)	ç™½è¡£éª‘å£«#3	657
+1@gl_k,154,59,3	duplicate(åœ£æ®¿åå­—å†›#1)	ç™½è¡£éª‘å£«#4	657
+1@gl_k,145,64,6	duplicate(åœ£æ®¿åå­—å†›#1)	åœ£æ®¿åå­—å†›#5	655
+1@gl_k,154,64,3	duplicate(åœ£æ®¿åå­—å†›#1)	åœ£æ®¿åå­—å†›#6	655
+1@gl_k,145,69,6	duplicate(åœ£æ®¿åå­—å†›#1)	ç™½è¡£éª‘å£«#7	657
+1@gl_k,154,69,3	duplicate(åœ£æ®¿åå­—å†›#1)	ç™½è¡£éª‘å£«#8	657
+1@gl_k,145,74,6	duplicate(åœ£æ®¿åå­—å†›#1)	åœ£æ®¿åå­—å†›#9	655
+1@gl_k,154,74,3	duplicate(åœ£æ®¿åå­—å†›#1)	åœ£æ®¿åå­—å†›#10	655
+1@gl_k,145,79,6	duplicate(åœ£æ®¿åå­—å†›#1)	ç™½è¡£éª‘å£«#11	657
+1@gl_k,154,79,3	duplicate(åœ£æ®¿åå­—å†›#1)	ç™½è¡£éª‘å£«#12	657
+1@gl_k,145,84,6	duplicate(åœ£æ®¿åå­—å†›#1)	åœ£æ®¿åå­—å†›#13	655
+1@gl_k,154,84,3	duplicate(åœ£æ®¿åå­—å†›#1)	åœ£æ®¿åå­—å†›#14	655
+1@gl_k,145,89,6	duplicate(åœ£æ®¿åå­—å†›#1)	ç™½è¡£éª‘å£«#15	657
+1@gl_k,154,89,3	duplicate(åœ£æ®¿åå­—å†›#1)	ç™½è¡£éª‘å£«#16	657
+1@gl_k,145,94,6	duplicate(åœ£æ®¿åå­—å†›#1)	åœ£æ®¿åå­—å†›#17	655
+1@gl_k,154,94,3	duplicate(åœ£æ®¿åå­—å†›#1)	åœ£æ®¿åå­—å†›#18	655
+1@gl_k,145,99,6	duplicate(åœ£æ®¿åå­—å†›#1)	ç™½è¡£éª‘å£«#19	657
+1@gl_k,154,99,3	duplicate(åœ£æ®¿åå­—å†›#1)	ç™½è¡£éª‘å£«#20	657
+1@gl_k,145,104,6	duplicate(åœ£æ®¿åå­—å†›#1)	åœ£æ®¿åå­—å†›#21	655
+1@gl_k,154,104,3	duplicate(åœ£æ®¿åå­—å†›#1)	åœ£æ®¿åå­—å†›#22	655
 
-1@gl_k,149,100,6	script	º£ÒòÀïÏ£#ghinstance1	652,{
+1@gl_k,149,100,6	script	æµ·å› é‡Œå¸Œ#ghinstance1	652,{
 	if (getcharid(0) == getpartyleader(getcharid(1),2)) {
 		cutin "gl_heinrich2",2;
-		select("º£ÒòÀïÏ£´óÈË, ¹ØÓÚ³Ç±¤...");
+		select("æµ·å› é‡Œå¸Œå¤§äºº, å…³äºåŸå ¡...");
 		mes "["+strcharinfo(0)+"]";
-		mes "ÄúÖªµÀÕâÀï½«Òª·¢ÉúÊ²Ã´Âğ, º£ÒòÀïÏ£´óÈË?";
-		unittalk getcharid(3),"ÄúÖªµÀÕâÀï½«Òª·¢ÉúÊ²Ã´Âğ, º£ÒòÀïÏ£´óÈË?";
+		mes "æ‚¨çŸ¥é“è¿™é‡Œå°†è¦å‘ç”Ÿä»€ä¹ˆå—, æµ·å› é‡Œå¸Œå¤§äºº?";
+		unittalk getcharid(3),"æ‚¨çŸ¥é“è¿™é‡Œå°†è¦å‘ç”Ÿä»€ä¹ˆå—, æµ·å› é‡Œå¸Œå¤§äºº?";
 		next;
-		mes "[º£ÒòÀïÏ£]";
-		mes "ÄãÊÇÖ¸»Ó¹ÙÍßÃÉÌØ´øÀ´µÄÃ°ÏÕ¼Ò°É?";
-		npctalk "ÄãÊÇÖ¸»Ó¹ÙÍßÃÉÌØ´øÀ´µÄÃ°ÏÕ¼Ò°É?";
+		mes "[æµ·å› é‡Œå¸Œ]";
+		mes "ä½ æ˜¯æŒ‡æŒ¥å®˜ç“¦è’™ç‰¹å¸¦æ¥çš„å†’é™©å®¶å§?";
+		npctalk "ä½ æ˜¯æŒ‡æŒ¥å®˜ç“¦è’™ç‰¹å¸¦æ¥çš„å†’é™©å®¶å§?";
 		next;
-		mes "[º£ÒòÀïÏ£]";
-		mes "ÓĞÊ²Ã´ĞèÒª°ïÃ¦µÄ? ÕâÀïÓĞÊ²Ã´ÎÊÌâÂğ?";
-		npctalk "ÓĞÊ²Ã´ĞèÒª°ïÃ¦µÄ? ÕâÀïÓĞÊ²Ã´ÎÊÌâÂğ?";
+		mes "[æµ·å› é‡Œå¸Œ]";
+		mes "æœ‰ä»€ä¹ˆéœ€è¦å¸®å¿™çš„? è¿™é‡Œæœ‰ä»€ä¹ˆé—®é¢˜å—?";
+		npctalk "æœ‰ä»€ä¹ˆéœ€è¦å¸®å¿™çš„? è¿™é‡Œæœ‰ä»€ä¹ˆé—®é¢˜å—?";
 		next;
-		select("ÒÁÃ×¶ûÖ®ĞÄ. Ï£Ä·Ã·¶ûÃ·×È...");
+		select("ä¼Šç±³å°”ä¹‹å¿ƒ. å¸Œå§†æ¢…å°”æ¢…å…¹...");
 		mes "["+strcharinfo(0)+"]";
-		mes "Ï£Ä·Ã·¶ûÃ·×È, ÕÆ¿ØËÀÍöµÄÕ½Éñ, ËıÔÚÑ°ÕÒÒş²ØÔÚÕâ×ù³Ç±¤ÄÚµÄÒÁÃ×¶ûÖ®ĞÄµÄËéÆ¬!";
-		unittalk getcharid(3),"Ï£Ä·Ã·¶ûÃ·×È, ÕÆ¿ØËÀÍöµÄÕ½Éñ, ËıÔÚÑ°ÕÒÒş²ØÔÚÕâ×ù³Ç±¤ÄÚµÄÒÁÃ×¶ûÖ®ĞÄµÄËéÆ¬!";
+		mes "å¸Œå§†æ¢…å°”æ¢…å…¹, æŒæ§æ­»äº¡çš„æˆ˜ç¥, å¥¹åœ¨å¯»æ‰¾éšè—åœ¨è¿™åº§åŸå ¡å†…çš„ä¼Šç±³å°”ä¹‹å¿ƒçš„ç¢ç‰‡!";
+		unittalk getcharid(3),"å¸Œå§†æ¢…å°”æ¢…å…¹, æŒæ§æ­»äº¡çš„æˆ˜ç¥, å¥¹åœ¨å¯»æ‰¾éšè—åœ¨è¿™åº§åŸå ¡å†…çš„ä¼Šç±³å°”ä¹‹å¿ƒçš„ç¢ç‰‡!";
 		next;
-		mes "[º£ÒòÀïÏ£]";
-		mes "¹ş¹ş. ÕâÊÇÒ»¸ö²»´íµÄĞ¦»°. ºÃÁË¸æËßÎÒÄãÎªÊ²Ã´À´ÕâÀï.";
-		npctalk "¹ş¹ş. ÕâÊÇÒ»¸ö²»´íµÄĞ¦»°. ºÃÁË¸æËßÎÒÄãÎªÊ²Ã´À´ÕâÀï.";
+		mes "[æµ·å› é‡Œå¸Œ]";
+		mes "å“ˆå“ˆ. è¿™æ˜¯ä¸€ä¸ªä¸é”™çš„ç¬‘è¯. å¥½äº†å‘Šè¯‰æˆ‘ä½ ä¸ºä»€ä¹ˆæ¥è¿™é‡Œ.";
+		npctalk "å“ˆå“ˆ. è¿™æ˜¯ä¸€ä¸ªä¸é”™çš„ç¬‘è¯. å¥½äº†å‘Šè¯‰æˆ‘ä½ ä¸ºä»€ä¹ˆæ¥è¿™é‡Œ.";
 		cutin "gl_heinrich1",2;
 		next;
-		mes "[ÍßÃÉÌØ]";
-		mes "ÎÒ²»ÊÇ¿ªÍæĞ¦, º£ÒòÀïÏ£´óÈË. ÏÖÔÚ, ¼ÙÉèÎÒµÄÅĞ¶ÏÊÇÕıÈ·µÄ, ËıºÜ¿ì¾Í»áÀ´ÁË.";
-		donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance2")+"::OnTalk1";
+		mes "[ç“¦è’™ç‰¹]";
+		mes "æˆ‘ä¸æ˜¯å¼€ç©ç¬‘, æµ·å› é‡Œå¸Œå¤§äºº. ç°åœ¨, å‡è®¾æˆ‘çš„åˆ¤æ–­æ˜¯æ­£ç¡®çš„, å¥¹å¾ˆå¿«å°±ä¼šæ¥äº†.";
+		donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance2")+"::OnTalk1";
 		cutin "gl_barmund2",2;
 		next;
-		mes "[ÍßÃÉÌØ]";
-		mes "ÎÒÏàĞÅ¸ú×ÅÎÒµÄÕâĞ©Ğ¡»ï×ÓÃÇ. ÔÚÏ£Ä·Ã·¶ûÃ·×ÈÕÒµ½ÒÁÃ×¶ûÖ®ĞÄµÄËéÆ¬Ö®Ç°, ÎÒÃÇĞèÒª°ÑËüºÃºÃµÄ²ØÆğÀ´!";
-		donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance2")+"::OnTalk2";
+		mes "[ç“¦è’™ç‰¹]";
+		mes "æˆ‘ç›¸ä¿¡è·Ÿç€æˆ‘çš„è¿™äº›å°ä¼™å­ä»¬. åœ¨å¸Œå§†æ¢…å°”æ¢…å…¹æ‰¾åˆ°ä¼Šç±³å°”ä¹‹å¿ƒçš„ç¢ç‰‡ä¹‹å‰, æˆ‘ä»¬éœ€è¦æŠŠå®ƒå¥½å¥½çš„è—èµ·æ¥!";
+		donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance2")+"::OnTalk2";
 		next;
-		select("¼´Ê¹Äã²»ÏàĞÅ...");
+		select("å³ä½¿ä½ ä¸ç›¸ä¿¡...");
 		mes "["+strcharinfo(0)+"]";
-		mes "¼´Ê¹Äã²»ÏàĞÅ, Ò²µÃ×öĞ©Ê²Ã´. ÎÒÃÇÃ»ÓĞ¶àÉÙÊ±¼äÀË·ÑÁË!";
-		unittalk getcharid(3),"¼´Ê¹Äã²»ÏàĞÅ, Ò²µÃ×öĞ©Ê²Ã´. ÎÒÃÇÃ»ÓĞ¶àÉÙÊ±¼äÀË·ÑÁË!";
+		mes "å³ä½¿ä½ ä¸ç›¸ä¿¡, ä¹Ÿå¾—åšäº›ä»€ä¹ˆ. æˆ‘ä»¬æ²¡æœ‰å¤šå°‘æ—¶é—´æµªè´¹äº†!";
+		unittalk getcharid(3),"å³ä½¿ä½ ä¸ç›¸ä¿¡, ä¹Ÿå¾—åšäº›ä»€ä¹ˆ. æˆ‘ä»¬æ²¡æœ‰å¤šå°‘æ—¶é—´æµªè´¹äº†!";
 		cutin "gl_barmund2",255;
 		next;
-		mes "[º£ÒòÀïÏ£]";
-		mes "Èç¹ûÄã¶à¸øÎÒÁ½·ÖÖÓ, ÎÒ»áºÜÀÖÒâ. ²»¹ı, ÏÖÔÚµÄ¹úÍõËû²»ÔÚ×Ô¼ºµÄ·¿¼ä.";
-		npctalk "Èç¹ûÄã¶à¸øÎÒÁ½·ÖÖÓ, ÎÒ»áºÜÀÖÒâ. ²»¹ı, ÏÖÔÚµÄ¹úÍõËû²»ÔÚ×Ô¼ºµÄ·¿¼ä.";
+		mes "[æµ·å› é‡Œå¸Œ]";
+		mes "å¦‚æœä½ å¤šç»™æˆ‘ä¸¤åˆ†é’Ÿ, æˆ‘ä¼šå¾ˆä¹æ„. ä¸è¿‡, ç°åœ¨çš„å›½ç‹ä»–ä¸åœ¨è‡ªå·±çš„æˆ¿é—´.";
+		npctalk "å¦‚æœä½ å¤šç»™æˆ‘ä¸¤åˆ†é’Ÿ, æˆ‘ä¼šå¾ˆä¹æ„. ä¸è¿‡, ç°åœ¨çš„å›½ç‹ä»–ä¸åœ¨è‡ªå·±çš„æˆ¿é—´.";
 		cutin "gl_heinrich1",2;
 		next;
-		mes "[º£ÒòÀïÏ£]";
-		mes "²»¹ıÎÒÈÏÎª, ¹úÍõµîÏÂÕıÓĞÒ»¸öÖØÒªµÄÊÂÎñĞèÒª´¦Àí, ¿ÉÄÜÎŞÏ¾¼æ¹ËÕâÆğÊÂ¼ş.";
-		npctalk "²»¹ıÎÒÈÏÎª, ¹úÍõµîÏÂÕıÓĞÒ»¸öÖØÒªµÄÊÂÎñĞèÒª´¦Àí, ¿ÉÄÜÎŞÏ¾¼æ¹ËÕâÆğÊÂ¼ş.";
-		donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance1")+"::OnDisable";
-		donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance2")+"::OnEnable";
-		donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance1")+"::OnEnable";
+		mes "[æµ·å› é‡Œå¸Œ]";
+		mes "ä¸è¿‡æˆ‘è®¤ä¸º, å›½ç‹æ®¿ä¸‹æ­£æœ‰ä¸€ä¸ªé‡è¦çš„äº‹åŠ¡éœ€è¦å¤„ç†, å¯èƒ½æ— æš‡å…¼é¡¾è¿™èµ·äº‹ä»¶.";
+		npctalk "ä¸è¿‡æˆ‘è®¤ä¸º, å›½ç‹æ®¿ä¸‹æ­£æœ‰ä¸€ä¸ªé‡è¦çš„äº‹åŠ¡éœ€è¦å¤„ç†, å¯èƒ½æ— æš‡å…¼é¡¾è¿™èµ·äº‹ä»¶.";
+		donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance1")+"::OnDisable";
+		donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance2")+"::OnEnable";
+		donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance1")+"::OnEnable";
 		donpcevent instance_npcname("#talkinstance1")+"::OnEnable";
-		mapannounce instance_mapname("1@gl_k"), "???? ºôº°: àŞ¹ş¹ş~!",bc_map,"0xFFFF00";
+		mapannounce instance_mapname("1@gl_k"), "???? å‘¼å–Š: å™¢å“ˆå“ˆ~!",bc_map,"0xFFFF00";
 		close2;
 		cutin "gl_heinrich1",255;
 		end;
 	} else {
-		mes "[º£ÒòÀïÏ£]";
-		mes "ÄãÃÇµÄ´ú±íÔÚÄÄÀï?";
-		mes "ÎÒĞèÒªºÍËû¶Ô»°.";
+		mes "[æµ·å› é‡Œå¸Œ]";
+		mes "ä½ ä»¬çš„ä»£è¡¨åœ¨å“ªé‡Œ?";
+		mes "æˆ‘éœ€è¦å’Œä»–å¯¹è¯.";
 		cutin "gl_heinrich2",2;
 		close2;
 		cutin "gl_heinrich2",255;
@@ -290,153 +286,153 @@ OnEnable:
 	}
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("º£ÒòÀïÏ£#ghinstance1");
+	hideonnpc instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance1");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("º£ÒòÀïÏ£#ghinstance1");
+	hideoffnpc instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance1");
 	end;
 }
 
-1@gl_k,152,97,3	script	ÍßÃÉÌØ#ghinstance2	654,{
+1@gl_k,152,97,3	script	ç“¦è’™ç‰¹#ghinstance2	654,{
 	end;
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("ÍßÃÉÌØ#ghinstance2");
+	hideonnpc instance_npcname("ç“¦è’™ç‰¹#ghinstance2");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("ÍßÃÉÌØ#ghinstance2");
+	hideoffnpc instance_npcname("ç“¦è’™ç‰¹#ghinstance2");
 	end;
 OnTalk1:
-	npctalk "ÎÒ²»ÊÇ¿ªÍæĞ¦, º£ÒòÀïÏ£´óÈË. ÏÖÔÚ, ¼ÙÉèÎÒµÄÅĞ¶ÏÊÇÕıÈ·µÄ, ËıºÜ¿ì¾Í»áÀ´ÁË.";
+	npctalk "æˆ‘ä¸æ˜¯å¼€ç©ç¬‘, æµ·å› é‡Œå¸Œå¤§äºº. ç°åœ¨, å‡è®¾æˆ‘çš„åˆ¤æ–­æ˜¯æ­£ç¡®çš„, å¥¹å¾ˆå¿«å°±ä¼šæ¥äº†.";
 	end;
 OnTalk2:
-	npctalk "ÎÒÏàĞÅ¸ú×ÅÎÒµÄÕâĞ©Ğ¡»ï×ÓÃÇ. ÔÚÏ£Ä·Ã·¶ûÃ·×ÈÕÒµ½ÒÁÃ×¶ûÖ®ĞÄµÄËéÆ¬Ö®Ç°, ÎÒÃÇĞèÒª°ÑËüºÃºÃµÄ²ØÆğÀ´!";
+	npctalk "æˆ‘ç›¸ä¿¡è·Ÿç€æˆ‘çš„è¿™äº›å°ä¼™å­ä»¬. åœ¨å¸Œå§†æ¢…å°”æ¢…å…¹æ‰¾åˆ°ä¼Šç±³å°”ä¹‹å¿ƒçš„ç¢ç‰‡ä¹‹å‰, æˆ‘ä»¬éœ€è¦æŠŠå®ƒå¥½å¥½çš„è—èµ·æ¥!";
 	end;
 OnTalk3:
-	npctalk "Ï£Ä·Ã·¶ûÃ·×È!! ´©¹ıÁÑ·ì!";
+	npctalk "å¸Œå§†æ¢…å°”æ¢…å…¹!! ç©¿è¿‡è£‚ç¼!";
 	end;
 OnTalk4:
-	npctalk "ÁîÈËÄÑÒÔÖÃĞÅ. ÎÒµÄÈË......ÕâÖÖÊÂÇéÊÇ²»¿ÉÄÜµÄ!";
+	npctalk "ä»¤äººéš¾ä»¥ç½®ä¿¡. æˆ‘çš„äºº......è¿™ç§äº‹æƒ…æ˜¯ä¸å¯èƒ½çš„!";
 	end;
 OnTalk5:
-	npctalk "º£ÒòÀïÏ£´óÈË! ÎÒÃÇĞèÒª¿ì×ö¾ö¶¨.";
+	npctalk "æµ·å› é‡Œå¸Œå¤§äºº! æˆ‘ä»¬éœ€è¦å¿«åšå†³å®š.";
 	end;
 OnTalk6:
-	npctalk "ÎªÁË·ÀÖ¹ÆäËû¹¥»÷, È¥×·Ëı!";
+	npctalk "ä¸ºäº†é˜²æ­¢å…¶ä»–æ”»å‡», å»è¿½å¥¹!";
 	end;
 OnTalk7:
-	npctalk "ÏÖÔÚ, ÎÒÃÇÆÈÇĞĞèÒªÄãÃÇµÄ°ïÖú.";
+	npctalk "ç°åœ¨, æˆ‘ä»¬è¿«åˆ‡éœ€è¦ä½ ä»¬çš„å¸®åŠ©.";
 	end;
 }
 
-1@gl_k,149,97,6	script	º£ÒòÀïÏ£#ghinstance2	652,{
+1@gl_k,149,97,6	script	æµ·å› é‡Œå¸Œ#ghinstance2	652,{
 	end;
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("º£ÒòÀïÏ£#ghinstance2");
+	hideonnpc instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance2");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("º£ÒòÀïÏ£#ghinstance2");
+	hideoffnpc instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance2");
 	end;
 OnTalk1:
-	npctalk "Ë­?!";
+	npctalk "è°?!";
 	end;
 OnTalk2:
-	npctalk "Ö÷µ¼ËÀÍöµÄ¹æÔò? ºÁÎŞÒÉÎÊ, Ò»¸öÃÀÀöµÄ¹ÊÊÂ. ÔÚ´Ë, ÓĞÒ»Ğ©ÕĞ´ıÅ®Ê¿µÄ²èµã. ¿ÉÏ§µÄÊÇ, ÎÒ²»»á...";
+	npctalk "ä¸»å¯¼æ­»äº¡çš„è§„åˆ™? æ¯«æ— ç–‘é—®, ä¸€ä¸ªç¾ä¸½çš„æ•…äº‹. åœ¨æ­¤, æœ‰ä¸€äº›æ‹›å¾…å¥³å£«çš„èŒ¶ç‚¹. å¯æƒœçš„æ˜¯, æˆ‘ä¸ä¼š...";
 	end;
 OnTalk3:
-	npctalk "ÄãÔÚËµÊ²Ã´?";
+	npctalk "ä½ åœ¨è¯´ä»€ä¹ˆ?";
 	end;
 OnTalk4:
-	npctalk "¹úÍõÕıÓ¦Ñû²Î¼ÓÂ¬¶÷.Ã×µÂ¼Ó×ÈÍõÊÒµÄÑç»á, ÏÖÔÚ»¹Ã»»ØÀ´.";
+	npctalk "å›½ç‹æ­£åº”é‚€å‚åŠ å¢æ©.ç±³å¾·åŠ å…¹ç‹å®¤çš„å®´ä¼š, ç°åœ¨è¿˜æ²¡å›æ¥.";
 	end;
 OnTalk5:
-	npctalk "ÔÚÄãÈÇÉÏÂé·³Ö®Ç°»¹ÊÇ¾¡¿ìÀë¿ª°É. ÕâÊÇ¹úÍõµÄÒâÖ¾!";
+	npctalk "åœ¨ä½ æƒ¹ä¸Šéº»çƒ¦ä¹‹å‰è¿˜æ˜¯å°½å¿«ç¦»å¼€å§. è¿™æ˜¯å›½ç‹çš„æ„å¿—!";
 	end;
 OnTalk6:
-	npctalk "¸ÃËÀ! ËıÒÑ¾­¸ĞÖªµ½ÁËÒÁÃ×¶ûÖ®ĞÄËéÆ¬µÄÎ»ÖÃ.";
+	npctalk "è¯¥æ­»! å¥¹å·²ç»æ„ŸçŸ¥åˆ°äº†ä¼Šç±³å°”ä¹‹å¿ƒç¢ç‰‡çš„ä½ç½®.";
 	end;
 OnTalk7:
-	npctalk "ÏÖÔÚ, ÉñµîÊ®×Ö¾üºÍ°×ÒÂÆïÊ¿ÃÇ, ¸úÎÒÀ´...";
+	npctalk "ç°åœ¨, ç¥æ®¿åå­—å†›å’Œç™½è¡£éª‘å£«ä»¬, è·Ÿæˆ‘æ¥...";
 	end;
 OnTalk8:
-	npctalk "ÁîÈËÄÑÒÔÖÃĞÅ. ÎÒµÄÈË......ÕâÖÖÊÂÇéÊÇ²»¿ÉÄÜµÄ!";
+	npctalk "ä»¤äººéš¾ä»¥ç½®ä¿¡. æˆ‘çš„äºº......è¿™ç§äº‹æƒ…æ˜¯ä¸å¯èƒ½çš„!";
 	end;
 OnTalk9:
-	npctalk "ÎÒºÜÒÅº¶...";
+	npctalk "æˆ‘å¾ˆé—æ†¾...";
 	end;
 OnTalk10:
-	npctalk "ÎÒºÜÒÅº¶, ÎÒµÄ¹úÍõ! ²»ÄÜÈÄË¡ÎÒ!";
+	npctalk "æˆ‘å¾ˆé—æ†¾, æˆ‘çš„å›½ç‹! ä¸èƒ½é¥¶æ•æˆ‘!";
 	end;
 }
 
-1@gl_k,149,100,6	script	º£ÒòÀïÏ£#ghinstance3	652,{
+1@gl_k,149,100,6	script	æµ·å› é‡Œå¸Œ#ghinstance3	652,{
 	end;
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("º£ÒòÀïÏ£#ghinstance3");
+	hideonnpc instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance3");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("º£ÒòÀïÏ£#ghinstance3");
+	hideoffnpc instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance3");
 	end;
 OnTalk1:
-	npctalk "²»¸ÒÏàĞÅ, ÎÒ¾¹È»Ç×ÊÖÉ±ÁËÎÒµÄÈË!";
+	npctalk "ä¸æ•¢ç›¸ä¿¡, æˆ‘ç«Ÿç„¶äº²æ‰‹æ€äº†æˆ‘çš„äºº!";
 	end;
 OnTalk2:
-	npctalk "ÍßÃÉÌØËµÖĞÁË, ²»¹ıÏÖÔÚ¿ÉÃ»Ê±¼ä°ÃÄÕ.";
+	npctalk "ç“¦è’™ç‰¹è¯´ä¸­äº†, ä¸è¿‡ç°åœ¨å¯æ²¡æ—¶é—´æ‡Šæ¼.";
 	end;
 OnTalk3:
-	npctalk "ÈËÃÇ, °´ÎÒµÄÃüÁîÔÚÖÜÎ§¼¯ºÏ.";
+	npctalk "äººä»¬, æŒ‰æˆ‘çš„å‘½ä»¤åœ¨å‘¨å›´é›†åˆ.";
 	end;
 OnTalk4:
-	npctalk "Ï£Ä·Ã·¶ûÃ·×È±ä³É¹ÖÎï, ËıÊ¹ËùÓĞÈË¶¼ÏİÈëÁË³ÁË¯.";
+	npctalk "å¸Œå§†æ¢…å°”æ¢…å…¹å˜æˆæ€ªç‰©, å¥¹ä½¿æ‰€æœ‰äººéƒ½é™·å…¥äº†æ²‰ç¡.";
 	end;
 OnTalk5:
-	npctalk "ÎÒ²»ÖªµÀÔÚÕâÀïÊÇ·ñ»¹ÓĞĞÒ´æÕß.";
+	npctalk "æˆ‘ä¸çŸ¥é“åœ¨è¿™é‡Œæ˜¯å¦è¿˜æœ‰å¹¸å­˜è€….";
 	end;
 OnTalk6:
-	npctalk "Èç¹ûÓĞĞÒ´æÕß´ÓÕâ¸öĞ°¶ñµÄ¶«Î÷ÊÖÏÂÉú»¹, Çë¾È¾ÈËûÃÇ.";
+	npctalk "å¦‚æœæœ‰å¹¸å­˜è€…ä»è¿™ä¸ªé‚ªæ¶çš„ä¸œè¥¿æ‰‹ä¸‹ç”Ÿè¿˜, è¯·æ•‘æ•‘ä»–ä»¬.";
 	end;
 OnTalk7:
-	npctalk "ÍßÃÉÌØ¸ú×ÅÎÒ, ÎÒÒªÈ¥×·É±Ï£Ä·Ã·¶ûÃ·×È.";
+	npctalk "ç“¦è’™ç‰¹è·Ÿç€æˆ‘, æˆ‘è¦å»è¿½æ€å¸Œå§†æ¢…å°”æ¢…å…¹.";
 	end;
 OnTalk8:
-	npctalk "¸Ï¿ìÍßÃÉÌØ, ÈÃÎÒÃÇ¸ÉµôËı.";
+	npctalk "èµ¶å¿«ç“¦è’™ç‰¹, è®©æˆ‘ä»¬å¹²æ‰å¥¹.";
 	end;
 }
 
-1@gl_k,149,89,1	script	Ï£Ä·Ã·¶ûÃ·×È#ghinstance1	650,{
+1@gl_k,149,89,1	script	å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance1	650,{
 	end;
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance1");
+	hideonnpc instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance1");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance1");
+	hideoffnpc instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance1");
 	end;
 OnTalk1:
-	npctalk "Õâ~ ÊÇ²»ÊÇÎÒ´òÈÅÄãÃÇÁË? ÊÂÇéÓ¦¸ÃÊÇÕâÑùµÄ, ºÜ¾ÃÒÔÇ°×îºóÒ»Î»·Ã¿Í¿´µ½ÁËÒ»Ğ©...";
+	npctalk "è¿™~ æ˜¯ä¸æ˜¯æˆ‘æ‰“æ‰°ä½ ä»¬äº†? äº‹æƒ…åº”è¯¥æ˜¯è¿™æ ·çš„, å¾ˆä¹…ä»¥å‰æœ€åä¸€ä½è®¿å®¢çœ‹åˆ°äº†ä¸€äº›...";
 	end;
 OnTalk2:
-	npctalk "ÎÒµÄÃû×ÖÊÇ ÀòÈø.¿¨¶÷.Ï£Ä·Ã·¶ûÃ·×È. ±ğÈË³ÆÎÒÎªÕÆ¿ØËÀÍöµÄÕ½Éñ, Ê¦³Ğ¶ÅÀ­º±.";
+	npctalk "æˆ‘çš„åå­—æ˜¯ è‰è¨.å¡æ©.å¸Œå§†æ¢…å°”æ¢…å…¹. åˆ«äººç§°æˆ‘ä¸ºæŒæ§æ­»äº¡çš„æˆ˜ç¥, å¸ˆæ‰¿æœæ‹‰ç½•.";
 	end;
 OnTalk3:
-	npctalk "Ã»ÓĞ±ØÒª¼Ù×°ÇáËÉ, ¹ØÓÚÄãµÄĞĞ×Ù, ²»ÒªĞéÕÅÉùÊÆ±İÏÂ, ÊÂÇé¶¼»áºÃÆğÀ´µÄ.";
+	npctalk "æ²¡æœ‰å¿…è¦å‡è£…è½»æ¾, å…³äºä½ çš„è¡Œè¸ª, ä¸è¦è™šå¼ å£°åŠ¿é™›ä¸‹, äº‹æƒ…éƒ½ä¼šå¥½èµ·æ¥çš„.";
 	end;
 OnTalk4:
-	npctalk "ºÕºÕ, Äã»¹ÓĞÊ²Ã´ÎÊÌâ? Äã¿ÉÕæÊÇ¸ö·Ç³£ÉñÃØµÄÈË.";
+	npctalk "èµ«èµ«, ä½ è¿˜æœ‰ä»€ä¹ˆé—®é¢˜? ä½ å¯çœŸæ˜¯ä¸ªéå¸¸ç¥ç§˜çš„äºº.";
 	end;
 OnTalk5:
-	npctalk "²»Ì°Í¼¹úÍõµÄ±¦×ù, Äã¿ÉÕæÓŞ´À, Ö»ÊÇÉµµÈ×ÅËû»ØÀ´. ÄãÕæµÄ·Ç³£ÖÒ³Ï, ÎÒÏ²»¶Õâµã.";
+	npctalk "ä¸è´ªå›¾å›½ç‹çš„å®åº§, ä½ å¯çœŸæ„šè ¢, åªæ˜¯å‚»ç­‰ç€ä»–å›æ¥. ä½ çœŸçš„éå¸¸å¿ è¯š, æˆ‘å–œæ¬¢è¿™ç‚¹.";
 	end;
 Ontalk6:
-	npctalk "ÎÒÏëÎÒÃÇ¶¼Ã»ÓĞÓöµ½¹ıÕâÖÖÇé¿ö. ÎÒÃÇÕâÑù×öÌ«Ôã¸âÁË.";
+	npctalk "æˆ‘æƒ³æˆ‘ä»¬éƒ½æ²¡æœ‰é‡åˆ°è¿‡è¿™ç§æƒ…å†µ. æˆ‘ä»¬è¿™æ ·åšå¤ªç³Ÿç³•äº†.";
 	end;
 Ontalk7:
-	npctalk "ºÃ°É~ ½ñÌì, ÕâÑùÒ»¸ö·±Ã¦µÄË¾Áî¹Ù, ÎÒÒ²²»Ïë¶àËµÊ²Ã´ÁË, ÎÒ·Ç³£ÌÖÑá½âÊÍ~";
+	npctalk "å¥½å§~ ä»Šå¤©, è¿™æ ·ä¸€ä¸ªç¹å¿™çš„å¸ä»¤å®˜, æˆ‘ä¹Ÿä¸æƒ³å¤šè¯´ä»€ä¹ˆäº†, æˆ‘éå¸¸è®¨åŒè§£é‡Š~";
 	end;
 OnTalk8:
-	npctalk "ÎÒĞèÒª°ÑÊÂÇé×öÍê. ÎªÊ²Ã´²»ÏÈºÍÎÒµÄÈËË£Ë£ÄØ? °¡¹ş¹ş¹ş.";
+	npctalk "æˆ‘éœ€è¦æŠŠäº‹æƒ…åšå®Œ. ä¸ºä»€ä¹ˆä¸å…ˆå’Œæˆ‘çš„äººè€è€å‘¢? å•Šå“ˆå“ˆå“ˆ.";
 	end;
 }
 
@@ -452,76 +448,76 @@ OnEnable:
 	initnpctimer;
 	end;
 OnTimer5000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance2")+"::OnTalk1";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance2")+"::OnTalk1";
 	end;
 OnTimer10000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance1")+"::OnTalk1";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance1")+"::OnTalk1";
 	end;
 OnTimer15000:
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance2")+"::OnTalk3";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance2")+"::OnTalk3";
 	end;
 OnTimer20000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance1")+"::OnTalk2";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance1")+"::OnTalk2";
 	end;
 OnTimer25000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance2")+"::OnTalk2";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance2")+"::OnTalk2";
 	end;
 OnTimer30000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance1")+"::OnTalk3";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance1")+"::OnTalk3";
 	end;
 OnTimer35000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance2")+"::OnTalk3";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance2")+"::OnTalk3";
 	end;
 OnTimer45000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance1")+"::OnTalk4";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance1")+"::OnTalk4";
 	end;	
 OnTimer50000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance1")+"::OnTalk5";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance1")+"::OnTalk5";
 	end;
 OnTimer55000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance1")+"::OnTalk6";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance1")+"::OnTalk6";
 	end;
 OnTimer60000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance2")+"::OnTalk4";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance2")+"::OnTalk4";
 	end;
 OnTimer65000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance2")+"::OnTalk5";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance2")+"::OnTalk5";
 	end;
 OnTimer70000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance1")+"::OnTalk7";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance1")+"::OnTalk7";
 	end;
 OnTimer75000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance1")+"::OnTalk8";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance1")+"::OnTalk8";
 	end;
 OnTimer80000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance2")+"::OnTalk6";
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance1")+"::OnDisable";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance2")+"::OnTalk6";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance1")+"::OnDisable";
 	end;
 OnTimer85000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance2")+"::OnTalk7";
-	hideonnpc instance_npcname("ÍßÃÉÌØ#ghinstance1");
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance2")+"::OnTalk7";
+	hideonnpc instance_npcname("ç“¦è’™ç‰¹#ghinstance1");
 
 	for(set .@i,1; .@i<=20; set .@i,.@i+4) {
-		hideonnpc instance_npcname("Ê¥µîÊ®×Ö¾ü#"+.@i);
-		hideonnpc instance_npcname("Ê¥µîÊ®×Ö¾ü#"+(.@i+1));
-		hideonnpc instance_npcname("°×ÒÂÆïÊ¿#"+(.@i+2));
-		hideonnpc instance_npcname("°×ÒÂÆïÊ¿#"+(.@i+3));
+		hideonnpc instance_npcname("åœ£æ®¿åå­—å†›#"+.@i);
+		hideonnpc instance_npcname("åœ£æ®¿åå­—å†›#"+(.@i+1));
+		hideonnpc instance_npcname("ç™½è¡£éª‘å£«#"+(.@i+2));
+		hideonnpc instance_npcname("ç™½è¡£éª‘å£«#"+(.@i+3));
 	}
-	hideonnpc instance_npcname("Ê¥µîÊ®×Ö¾ü#21");
-	hideonnpc instance_npcname("Ê¥µîÊ®×Ö¾ü#22");
+	hideonnpc instance_npcname("åœ£æ®¿åå­—å†›#21");
+	hideonnpc instance_npcname("åœ£æ®¿åå­—å†›#22");
 
 	set .@map$, instance_mapname("1@gl_k");
 	set .@label$, instance_npcname("#talkinstance1")+"::OnMyMobDead"; 
-	monster .@map$,145,59,"ÉîÔ¨ÆïÊ¿",2470,1,.@label$;
-	monster .@map$,154,59,"ÉîÔ¨ÆïÊ¿",2470,1,.@label$;
-	monster .@map$,145,69,"ÉîÔ¨ÆïÊ¿",2470,1,.@label$;
-	monster .@map$,154,69,"ÉîÔ¨ÆïÊ¿",2470,1,.@label$;
-	monster .@map$,145,79,"ÉîÔ¨ÆïÊ¿",2470,1,.@label$;
-	monster .@map$,154,79,"ÉîÔ¨ÆïÊ¿",2470,1,.@label$;
-	monster .@map$,145,89,"ÉîÔ¨ÆïÊ¿",2470,1,.@label$;
-	monster .@map$,154,89,"ÉîÔ¨ÆïÊ¿",2470,1,.@label$;
-	monster .@map$,145,99,"ÉîÔ¨ÆïÊ¿",2470,1,.@label$;
-	monster .@map$,154,99,"ÉîÔ¨ÆïÊ¿",2470,1,.@label$;
+	monster .@map$,145,59,"æ·±æ¸Šéª‘å£«",2470,1,.@label$;
+	monster .@map$,154,59,"æ·±æ¸Šéª‘å£«",2470,1,.@label$;
+	monster .@map$,145,69,"æ·±æ¸Šéª‘å£«",2470,1,.@label$;
+	monster .@map$,154,69,"æ·±æ¸Šéª‘å£«",2470,1,.@label$;
+	monster .@map$,145,79,"æ·±æ¸Šéª‘å£«",2470,1,.@label$;
+	monster .@map$,154,79,"æ·±æ¸Šéª‘å£«",2470,1,.@label$;
+	monster .@map$,145,89,"æ·±æ¸Šéª‘å£«",2470,1,.@label$;
+	monster .@map$,154,89,"æ·±æ¸Šéª‘å£«",2470,1,.@label$;
+	monster .@map$,145,99,"æ·±æ¸Šéª‘å£«",2470,1,.@label$;
+	monster .@map$,154,99,"æ·±æ¸Šéª‘å£«",2470,1,.@label$;
 
 	for(set .@i,1; .@i<=22; set .@i,.@i+1)
 		hideoffnpc instance_npcname(".#ghinstance"+.@i);
@@ -540,7 +536,7 @@ OnTimer85000:
 	donpcevent instance_npcname(".#ghinstance1")+"::OnTalkK";
 	end;
 OnTimer88000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance2")+"::OnTalk8";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance2")+"::OnTalk8";
 
 	for(set .@i,1; .@i<=20; set .@i,.@i+4) {
 		hideonnpc instance_npcname(".#ghinstance"+.@i);
@@ -553,31 +549,31 @@ OnTimer88000:
 
 	set .@map$, instance_mapname("1@gl_k");
 	set .@label$, instance_npcname("#talkinstance1")+"::OnMyMobDead"; 
-	monster .@map$,145,54,"¿¨ÀûË¹¸ñ",2471,1,.@label$;
-	monster .@map$,154,54,"¿¨ÀûË¹¸ñ",2471,1,.@label$;
-	monster .@map$,145,64,"¿¨ÀûË¹¸ñ",2471,1,.@label$;
-	monster .@map$,154,64,"¿¨ÀûË¹¸ñ",2471,1,.@label$;
-	monster .@map$,145,74,"¿¨ÀûË¹¸ñ",2471,1,.@label$;
-	monster .@map$,154,74,"¿¨ÀûË¹¸ñ",2471,1,.@label$;
-	monster .@map$,145,84,"¿¨ÀûË¹¸ñ",2471,1,.@label$;
-	monster .@map$,154,84,"¿¨ÀûË¹¸ñ",2471,1,.@label$;
-	monster .@map$,145,94,"¿¨ÀûË¹¸ñ",2471,1,.@label$;
-	monster .@map$,154,94,"¿¨ÀûË¹¸ñ",2471,1,.@label$;
-	monster .@map$,145,104,"¿¨ÀûË¹¸ñ",2471,1,.@label$;
-	monster .@map$,154,104,"¿¨ÀûË¹¸ñ",2471,1,.@label$;
+	monster .@map$,145,54,"å¡åˆ©æ–¯æ ¼",2471,1,.@label$;
+	monster .@map$,154,54,"å¡åˆ©æ–¯æ ¼",2471,1,.@label$;
+	monster .@map$,145,64,"å¡åˆ©æ–¯æ ¼",2471,1,.@label$;
+	monster .@map$,154,64,"å¡åˆ©æ–¯æ ¼",2471,1,.@label$;
+	monster .@map$,145,74,"å¡åˆ©æ–¯æ ¼",2471,1,.@label$;
+	monster .@map$,154,74,"å¡åˆ©æ–¯æ ¼",2471,1,.@label$;
+	monster .@map$,145,84,"å¡åˆ©æ–¯æ ¼",2471,1,.@label$;
+	monster .@map$,154,84,"å¡åˆ©æ–¯æ ¼",2471,1,.@label$;
+	monster .@map$,145,94,"å¡åˆ©æ–¯æ ¼",2471,1,.@label$;
+	monster .@map$,154,94,"å¡åˆ©æ–¯æ ¼",2471,1,.@label$;
+	monster .@map$,145,104,"å¡åˆ©æ–¯æ ¼",2471,1,.@label$;
+	monster .@map$,154,104,"å¡åˆ©æ–¯æ ¼",2471,1,.@label$;
 	end;
 OnTimer93000:
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance2")+"::OnTalk4";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance2")+"::OnTalk4";
 	end;
 OnTimer97000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance2")+"::OnTalk9";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance2")+"::OnTalk9";
 	end;
 OnTimer105000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance2")+"::OnTalk10";
-	mapannounce instance_mapname("1@gl_k"), "º£ÒòÀïÏ£´óÉùºôº°: ËÀÈË, ËÀÈËµÄµØ·½!",bc_map,"0xFFFF00";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance2")+"::OnTalk10";
+	mapannounce instance_mapname("1@gl_k"), "æµ·å› é‡Œå¸Œå¤§å£°å‘¼å–Š: æ­»äºº, æ­»äººçš„åœ°æ–¹!",bc_map,"0xFFFF00";
 	end;
 OnTimer107000:
-	mapannounce instance_mapname("1@gl_k"), "º£ÒòÀïÏ£´óÉùºôº°: ËùÓĞÈË, ºóÍË!",bc_map,"0xFFFF00";
+	mapannounce instance_mapname("1@gl_k"), "æµ·å› é‡Œå¸Œå¤§å£°å‘¼å–Š: æ‰€æœ‰äºº, åé€€!",bc_map,"0xFFFF00";
 	end;
 OnTimer110000:
 	donpcevent instance_npcname(".#ghinstance22")+"::OnEffect1";
@@ -642,53 +638,53 @@ OnTimer114750: //custom time
 	disablenpc instance_npcname(".#ghinstance20");
 	end;
 OnTimer115000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance3")+"::OnEnable";
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance2")+"::OnDisable";
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance3")+"::OnTalk1";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance3")+"::OnEnable";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance2")+"::OnDisable";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance3")+"::OnTalk1";
 	donpcevent instance_npcname(".#ghinstance2")+"::OnEffect1";
 	donpcevent instance_npcname(".#ghinstance1")+"::OnEffect1";
 	killmonster instance_mapname("1@gl_k"),instance_npcname("#talkinstance1")+"::OnMyMobDead";
 	end;
 OnTimer120000:
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance2")+"::OnTalk5";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance2")+"::OnTalk5";
 	end;
 OnTimer125000:
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance2")+"::OnTalk6";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance2")+"::OnTalk6";
 	end;
 OnTimer130000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance3")+"::OnTalk2";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance3")+"::OnTalk2";
 	end;
 OnTimer135000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance3")+"::OnTalk3";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance3")+"::OnTalk3";
 	end;
 OnTimer140000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance3")+"::OnTalk4";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance3")+"::OnTalk4";
 	end;
 OnTimer145000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance3")+"::OnTalk5";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance3")+"::OnTalk5";
 	end;
 OnTimer150000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance3")+"::OnTalk6";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance3")+"::OnTalk6";
 	end;
 OnTimer155000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance3")+"::OnTalk7";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance3")+"::OnTalk7";
 	end;
 OnTimer160000:
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance2")+"::OnTalk7";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance2")+"::OnTalk7";
 	end;
 OnTimer165000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance3")+"::OnTalk8";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance3")+"::OnTalk8";
 	end;
 OnTimer167000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance3")+"::OnDisable";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance3")+"::OnDisable";
 	end;
 OnTimer168000:
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance2")+"::OnDisable";
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance3")+"::OnDisable";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance2")+"::OnDisable";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance3")+"::OnDisable";
 	stopnpctimer;
 	donpcevent instance_npcname("#ghinstancewarp1")+"::OnEnable";
 	donpcevent instance_npcname("#ghinstancewarp2")+"::OnEnable";
-	mapannounce instance_mapname("1@gl_k"), "9µãÖÓ·½ÏòÍ¨ÍùµÚ2ÇøÓòµÄ´«ËÍÃÅÒÑ¾­´ò¿ªÁË.",bc_map,"0xFFFF00";
+	mapannounce instance_mapname("1@gl_k"), "9ç‚¹é’Ÿæ–¹å‘é€šå¾€ç¬¬2åŒºåŸŸçš„ä¼ é€é—¨å·²ç»æ‰“å¼€äº†.",bc_map,"0xFFFF00";
 	donpcevent instance_npcname("#talkinstance1")+"::OnDisable";
 	donpcevent instance_npcname("#ghmemorialmob01")+"::OnEnable";
 	end;
@@ -711,18 +707,18 @@ OnEffect1:
 	end;
 OnTalkK:
 	switch(atoi(replacestr(strnpcinfo(2),"ghinstance",""))) {
-		case 1: npctalk "ÎÒ²»ÏëËÀ."; break;
-		case 2: npctalk "ÂèÂè..."; break;
-		case 5: npctalk "¾ÈÃü."; break;
-		case 6: npctalk "ÎÒ¶Ç×ÓÌÛ..."; break;
-		case 9: npctalk "º£ÒòÀïÏ£´óÈË, ¾ÈÃü!"; break;
-		case 10: npctalk "È·ÈÏ....°¦."; break;
-		case 13: npctalk "ÎÒ¿Ú¿ÊµÃºÜ."; break;
-		case 14: npctalk "Å¶... ²»... ÎÒ²»ÄÜËÀ..."; break;
-		case 17: npctalk "ºÃÄÑÊÜ. Eww!"; break;
-		case 18: npctalk "ÎÒÊÇË­..."; break;
-		case 21: npctalk "ßÀ... ÎÒµÄÉíÌå."; break;
-		case 22: npctalk "ÎÒºÜ¿Ê!"; break;
+		case 1: npctalk "æˆ‘ä¸æƒ³æ­»."; break;
+		case 2: npctalk "å¦ˆå¦ˆ..."; break;
+		case 5: npctalk "æ•‘å‘½."; break;
+		case 6: npctalk "æˆ‘è‚šå­ç–¼..."; break;
+		case 9: npctalk "æµ·å› é‡Œå¸Œå¤§äºº, æ•‘å‘½!"; break;
+		case 10: npctalk "ç¡®è®¤....å”‰."; break;
+		case 13: npctalk "æˆ‘å£æ¸´å¾—å¾ˆ."; break;
+		case 14: npctalk "å“¦... ä¸... æˆ‘ä¸èƒ½æ­»..."; break;
+		case 17: npctalk "å¥½éš¾å—. Eww!"; break;
+		case 18: npctalk "æˆ‘æ˜¯è°..."; break;
+		case 21: npctalk "å‘ƒ... æˆ‘çš„èº«ä½“."; break;
+		case 22: npctalk "æˆ‘å¾ˆæ¸´!"; break;
 	}
 	end;
 }
@@ -814,126 +810,126 @@ OnEnable:
 	enablenpc instance_npcname("#ghmemorialmob01");
 	set .@map$, instance_mapname("1@gl_k");
 	set .@label$, instance_npcname("#ghmemorialmob01")+"::OnMyMobDead";
-	areamonster .@map$,76,99,87,10,"Í´¿àÕÅ²®Â×",2466,15,.@label$;
-	areamonster .@map$,67,39,12,6,"¶éÂäĞŞÊ¿",2465,20,.@label$;
-	areamonster .@map$,67,39,12,6,"Í´¿àÕÅ²®Â×",2466,3,.@label$;
-	areamonster .@map$,32,75,51,58,"¸¯Ğà°ÍÌØÀÕ",2464,6,.@label$;
-	areamonster .@map$,45,84,6,137,"¸¯Ğà°ÍÌØÀÕ",2464,12,.@label$;
+	areamonster .@map$,76,99,87,10,"ç—›è‹¦å¼ ä¼¯ä¼¦",2466,15,.@label$;
+	areamonster .@map$,67,39,12,6,"å •è½ä¿®å£«",2465,20,.@label$;
+	areamonster .@map$,67,39,12,6,"ç—›è‹¦å¼ ä¼¯ä¼¦",2466,3,.@label$;
+	areamonster .@map$,32,75,51,58,"è…æœ½å·´ç‰¹å‹’",2464,6,.@label$;
+	areamonster .@map$,45,84,6,137,"è…æœ½å·´ç‰¹å‹’",2464,12,.@label$;
 	end;
 OnMyMobDead:
 	set .@map$, instance_mapname("1@gl_k");
 	set .@label$, instance_npcname("#ghmemorialmob01")+"::OnMyMobDead";
 	set .@mob_dead_num, 56 - mobcount(.@map$,.@label$);
 	if (.@mob_dead_num > 35) {
-		mapannounce .@map$, "ÕâĞ©¿´ÉÏÈ¥ÏñÊÇ±»Ï£Ä·Ã·¶ûÃ·×È¿ØÖÆµÄÁé»ê. ±ØĞë»ÙÃğËüÃÇ.",bc_map,"0xFFFFFF";
+		mapannounce .@map$, "è¿™äº›çœ‹ä¸Šå»åƒæ˜¯è¢«å¸Œå§†æ¢…å°”æ¢…å…¹æ§åˆ¶çš„çµé­‚. å¿…é¡»æ¯ç­å®ƒä»¬.",bc_map,"0xFFFFFF";
 		killmonster .@map$,.@label$;
-		donpcevent instance_npcname("ÓĞ±§¸ºµÄÍÀ·ò#clearGH")+"::OnEnable";
+		donpcevent instance_npcname("æœ‰æŠ±è´Ÿçš„å± å¤«#clearGH")+"::OnEnable";
 		donpcevent instance_npcname("#ghmemorialmob01")+"::OnDisable";
 	}
 	end;
 }
 
-1@gl_k,17,51,3	script	ÓĞ±§¸ºµÄÍÀ·ò#clearGH	706,{
+1@gl_k,17,51,3	script	æœ‰æŠ±è´Ÿçš„å± å¤«#clearGH	706,{
 	if (getcharid(0) == getpartyleader(getcharid(1),2)) {
-		mes "[ÓĞ±§¸ºµÄÍÀ·ò]";
-		mes "¾ÈÃü! ¾ÈÃü!!!";
+		mes "[æœ‰æŠ±è´Ÿçš„å± å¤«]";
+		mes "æ•‘å‘½! æ•‘å‘½!!!";
 		next;
-		select("ºÙ, ĞÑĞÑ! ÓĞÃ»ÓĞÆäËûµÄĞÒ´æÕß?");
+		select("å˜¿, é†’é†’! æœ‰æ²¡æœ‰å…¶ä»–çš„å¹¸å­˜è€…?");
 		mes "["+strcharinfo(0)+"]";
-		mes "ºÙ, ĞÑĞÑ! ÄãÒ»¸öÈË?";
-		unittalk getcharid(3),"ºÙ, ĞÑĞÑ! ÄãÒ»¸öÈË?";
+		mes "å˜¿, é†’é†’! ä½ ä¸€ä¸ªäºº?";
+		unittalk getcharid(3),"å˜¿, é†’é†’! ä½ ä¸€ä¸ªäºº?";
 		next;
-		mes "[ÓĞ±§¸ºµÄÍÀ·ò]";
-		mes "ÕÅ²®Â×... ĞŞÊ¿... ËûÃÇ¶¼±ä³ÉÁË¹ÖÎï. ÎÒÊ²Ã´¶¼×ö²»ÁË.";
-		npctalk "ÕÅ²®Â×... ĞŞÊ¿... ËûÃÇ¶¼±ä³ÉÁË¹ÖÎï. ÎÒÊ²Ã´¶¼×ö²»ÁË.";
+		mes "[æœ‰æŠ±è´Ÿçš„å± å¤«]";
+		mes "å¼ ä¼¯ä¼¦... ä¿®å£«... ä»–ä»¬éƒ½å˜æˆäº†æ€ªç‰©. æˆ‘ä»€ä¹ˆéƒ½åšä¸äº†.";
+		npctalk "å¼ ä¼¯ä¼¦... ä¿®å£«... ä»–ä»¬éƒ½å˜æˆäº†æ€ªç‰©. æˆ‘ä»€ä¹ˆéƒ½åšä¸äº†.";
 		next;
-		mes "[ÓĞ±§¸ºµÄÍÀ·ò]";
-		mes "ÎÒÖ»ÄÜÉµÉµµÄÕ¾ÔÚÄÇÀï... Ê²Ã´¶¼×ö²»ÁË, ÎÒÊ²Ã´¶¼×ö²»ÁË...";
-		npctalk "ÎÒÖ»ÄÜÉµÉµµÄÕ¾ÔÚÄÇÀï... Ê²Ã´¶¼×ö²»ÁË, ÎÒÊ²Ã´¶¼×ö²»ÁË...";
+		mes "[æœ‰æŠ±è´Ÿçš„å± å¤«]";
+		mes "æˆ‘åªèƒ½å‚»å‚»çš„ç«™åœ¨é‚£é‡Œ... ä»€ä¹ˆéƒ½åšä¸äº†, æˆ‘ä»€ä¹ˆéƒ½åšä¸äº†...";
+		npctalk "æˆ‘åªèƒ½å‚»å‚»çš„ç«™åœ¨é‚£é‡Œ... ä»€ä¹ˆéƒ½åšä¸äº†, æˆ‘ä»€ä¹ˆéƒ½åšä¸äº†...";
 		next;
-		select("ĞÑĞÑ!");
+		select("é†’é†’!");
 		mes "["+strcharinfo(0)+"]";
-		mes "ĞÑĞÑº¢×Ó! Íù¶«×ß, ÑØ×ÅÖĞÑëÍ¨µÀµ½ÍâÃæ! ÄÇÌõÂ·ÊÇ°²È«µÄ!";
-		unittalk getcharid(3),"ĞÑĞÑº¢×Ó! Íù¶«×ß, ÑØ×ÅÖĞÑëÍ¨µÀµ½ÍâÃæ! ÄÇÌõÂ·ÊÇ°²È«µÄ!";
+		mes "é†’é†’å­©å­! å¾€ä¸œèµ°, æ²¿ç€ä¸­å¤®é€šé“åˆ°å¤–é¢! é‚£æ¡è·¯æ˜¯å®‰å…¨çš„!";
+		unittalk getcharid(3),"é†’é†’å­©å­! å¾€ä¸œèµ°, æ²¿ç€ä¸­å¤®é€šé“åˆ°å¤–é¢! é‚£æ¡è·¯æ˜¯å®‰å…¨çš„!";
 		next;
-		mes "[ÓĞ±§¸ºµÄÍÀ·ò]";
-		mes "¶«±ßµÄÍ¨µÀ? Ò»¸öÈËÂğ? ÔõÃ´¿ÉÄÜ?";
-		npctalk "¶«±ßµÄÍ¨µÀ? Ò»¸öÈËÂğ? ÔõÃ´¿ÉÄÜ?";
+		mes "[æœ‰æŠ±è´Ÿçš„å± å¤«]";
+		mes "ä¸œè¾¹çš„é€šé“? ä¸€ä¸ªäººå—? æ€ä¹ˆå¯èƒ½?";
+		npctalk "ä¸œè¾¹çš„é€šé“? ä¸€ä¸ªäººå—? æ€ä¹ˆå¯èƒ½?";
 		next;
-		select("ÎÒ¿ÉÒÔÖ¸µ¼ÄãÂ·Ïß.");
+		select("æˆ‘å¯ä»¥æŒ‡å¯¼ä½ è·¯çº¿.");
 		mes "["+strcharinfo(0)+"]";
-		mes "ÎÒ»áÖ¸µ¼Äã, Õâ»òĞí¶ÔÄãÓĞ°ïÖú. Äã±ÕÉÏË«ÑÛ, ¾¡Á¿²»Òª×²µ½ÈÎºÎ¶«Î÷.";
-		unittalk getcharid(3),"ÎÒ»áÖ¸µ¼Äã, Õâ»òĞí¶ÔÄãÓĞ°ïÖú. Äã±ÕÉÏË«ÑÛ, ¾¡Á¿²»Òª×²µ½ÈÎºÎ¶«Î÷.";
+		mes "æˆ‘ä¼šæŒ‡å¯¼ä½ , è¿™æˆ–è®¸å¯¹ä½ æœ‰å¸®åŠ©. ä½ é—­ä¸ŠåŒçœ¼, å°½é‡ä¸è¦æ’åˆ°ä»»ä½•ä¸œè¥¿.";
+		unittalk getcharid(3),"æˆ‘ä¼šæŒ‡å¯¼ä½ , è¿™æˆ–è®¸å¯¹ä½ æœ‰å¸®åŠ©. ä½ é—­ä¸ŠåŒçœ¼, å°½é‡ä¸è¦æ’åˆ°ä»»ä½•ä¸œè¥¿.";
 		next;
-		mes "[ÓĞ±§¸ºµÄÍÀ·ò]";
-		mes "ÓĞ±§¸ºµÄÍÀ·ò: ÎÒÖªµÀÁË, ÎÒ... ÎÒÊÔÊÔ¿´.";
-		npctalk "ÓĞ±§¸ºµÄÍÀ·ò: ÎÒÖªµÀÁË, ÎÒ... ÎÒÊÔÊÔ¿´.";
-		donpcevent instance_npcname("ÓĞ±§¸ºµÄÍÀ·ò#clearGH")+"::OnDisable";
+		mes "[æœ‰æŠ±è´Ÿçš„å± å¤«]";
+		mes "æœ‰æŠ±è´Ÿçš„å± å¤«: æˆ‘çŸ¥é“äº†, æˆ‘... æˆ‘è¯•è¯•çœ‹.";
+		npctalk "æœ‰æŠ±è´Ÿçš„å± å¤«: æˆ‘çŸ¥é“äº†, æˆ‘... æˆ‘è¯•è¯•çœ‹.";
+		donpcevent instance_npcname("æœ‰æŠ±è´Ÿçš„å± å¤«#clearGH")+"::OnDisable";
 		donpcevent instance_npcname("#ghmemorialmob02")+"::OnEnable";
 		close;
 	} else {
-		mes "[ÓĞ±§¸ºµÄÍÀ·ò]";
-		mes "Ë­°ï°ïÎÒ, Ë­°ï°ïÎÒ, ÇóÇóÄãÃÇÁË.";
+		mes "[æœ‰æŠ±è´Ÿçš„å± å¤«]";
+		mes "è°å¸®å¸®æˆ‘, è°å¸®å¸®æˆ‘, æ±‚æ±‚ä½ ä»¬äº†.";
 		close;
 	}
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("ÓĞ±§¸ºµÄÍÀ·ò#clearGH");
+	hideonnpc instance_npcname("æœ‰æŠ±è´Ÿçš„å± å¤«#clearGH");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("ÓĞ±§¸ºµÄÍÀ·ò#clearGH");
+	hideoffnpc instance_npcname("æœ‰æŠ±è´Ÿçš„å± å¤«#clearGH");
 	end;
 }
 
 // Sector 2 Mobs
 //============================================================
-1@gl_k,291,145,3	script	Ä©ÈÕµÄĞÒ´æÕß	726,{
+1@gl_k,291,145,3	script	æœ«æ—¥çš„å¹¸å­˜è€…	726,{
 	if (getcharid(0) == getpartyleader(getcharid(1),2)) {
-		mes "[Ä©ÈÕµÄĞÒ´æÕß]";
-		mes "Yaaa!! ËÀÁË!!!";
-		npctalk "Yaaa!! ËÀÁË!!!";
+		mes "[æœ«æ—¥çš„å¹¸å­˜è€…]";
+		mes "Yaaa!! æ­»äº†!!!";
+		npctalk "Yaaa!! æ­»äº†!!!";
 		specialeffect EF_CRASHEARTH;
 		next;
-		select("²»Òªµ£ĞÄ!");
+		select("ä¸è¦æ‹…å¿ƒ!");
 		mes "["+strcharinfo(0)+"]";
-		mes "²»Òªµ£ĞÄ! ßí. ÄãÒ»¸öÈË? ÓĞÃ»ÓĞÆäËûµÄĞÒ´æÕß?";
-		unittalk getcharid(3),"²»Òªµ£ĞÄ! ßí. ÄãÒ»¸öÈË? ÓĞÃ»ÓĞÆäËûµÄĞÒ´æÕß?";
+		mes "ä¸è¦æ‹…å¿ƒ! å””. ä½ ä¸€ä¸ªäºº? æœ‰æ²¡æœ‰å…¶ä»–çš„å¹¸å­˜è€…?";
+		unittalk getcharid(3),"ä¸è¦æ‹…å¿ƒ! å””. ä½ ä¸€ä¸ªäºº? æœ‰æ²¡æœ‰å…¶ä»–çš„å¹¸å­˜è€…?";
 		next;
-		mes "[Ä©ÈÕµÄĞÒ´æÕß]";
-		mes "ÎÒÊÇÎ¨Ò»ÌÓ³öÀ´µÄĞÒ´æÕß";
-		npctalk "ÎÒÊÇÎ¨Ò»ÌÓ³öÀ´µÄĞÒ´æÕß";
+		mes "[æœ«æ—¥çš„å¹¸å­˜è€…]";
+		mes "æˆ‘æ˜¯å”¯ä¸€é€ƒå‡ºæ¥çš„å¹¸å­˜è€…";
+		npctalk "æˆ‘æ˜¯å”¯ä¸€é€ƒå‡ºæ¥çš„å¹¸å­˜è€…";
 		next;
-		select("ÕâÀïÏÖÔÚ·Ç³£Î£ÏÕ.");
+		select("è¿™é‡Œç°åœ¨éå¸¸å±é™©.");
 		mes "["+strcharinfo(0)+"]";
-		mes "ÕâÀïÏÖÔÚ·Ç³£Î£ÏÕ. ÄãÖªµÀÖĞÑëÍ¨µÀÂğ? Äã¾õµÃÄã»¹ÄÜ²»ÄÜ×ß... È¥±ğµÄ°²È«µØ·½?";
-		unittalk getcharid(3),"ÕâÀïÏÖÔÚ·Ç³£Î£ÏÕ. ÄãÖªµÀÖĞÑëÍ¨µÀÂğ? Äã¾õµÃÄã»¹ÄÜ²»ÄÜ×ß... È¥±ğµÄ°²È«µØ·½?";
+		mes "è¿™é‡Œç°åœ¨éå¸¸å±é™©. ä½ çŸ¥é“ä¸­å¤®é€šé“å—? ä½ è§‰å¾—ä½ è¿˜èƒ½ä¸èƒ½èµ°... å»åˆ«çš„å®‰å…¨åœ°æ–¹?";
+		unittalk getcharid(3),"è¿™é‡Œç°åœ¨éå¸¸å±é™©. ä½ çŸ¥é“ä¸­å¤®é€šé“å—? ä½ è§‰å¾—ä½ è¿˜èƒ½ä¸èƒ½èµ°... å»åˆ«çš„å®‰å…¨åœ°æ–¹?";
 		next;
-		mes "[Ä©ÈÕµÄĞÒ´æÕß]";
-		mes "ÊÇµÄ, ÎÒ»¹×ßµÄ¶¯. ¿´ÔÚÎÒ±¦±¦µÄ·İÉÏ.";
-		npctalk "ÊÇµÄ, ÎÒ»¹×ßµÄ¶¯. ¿´ÔÚÎÒ±¦±¦µÄ·İÉÏ.";
+		mes "[æœ«æ—¥çš„å¹¸å­˜è€…]";
+		mes "æ˜¯çš„, æˆ‘è¿˜èµ°çš„åŠ¨. çœ‹åœ¨æˆ‘å®å®çš„ä»½ä¸Š.";
+		npctalk "æ˜¯çš„, æˆ‘è¿˜èµ°çš„åŠ¨. çœ‹åœ¨æˆ‘å®å®çš„ä»½ä¸Š.";
 		next;
-		select("ÇóÉúµÄµÀÂ·...");
+		select("æ±‚ç”Ÿçš„é“è·¯...");
 		mes "["+strcharinfo(0)+"]";
-		mes "ÄãºÍÄãµÄ±¦±¦°²È«µØ´ÓÕâÀï³öÈ¥. µ«ÎÒºÜ±§Ç¸, ÎÒÎŞ·¨°ïÄã¸ü¶à.";
-		unittalk getcharid(3),"ÄãºÍÄãµÄ±¦±¦°²È«µØ´ÓÕâÀï³öÈ¥. µ«ÎÒºÜ±§Ç¸, ÎÒÎŞ·¨°ïÄã¸ü¶à.";
+		mes "ä½ å’Œä½ çš„å®å®å®‰å…¨åœ°ä»è¿™é‡Œå‡ºå». ä½†æˆ‘å¾ˆæŠ±æ­‰, æˆ‘æ— æ³•å¸®ä½ æ›´å¤š.";
+		unittalk getcharid(3),"ä½ å’Œä½ çš„å®å®å®‰å…¨åœ°ä»è¿™é‡Œå‡ºå». ä½†æˆ‘å¾ˆæŠ±æ­‰, æˆ‘æ— æ³•å¸®ä½ æ›´å¤š.";
 		next;
-		mes "[Ä©ÈÕµÄĞÒ´æÕß]";
-		mes "Ã»ÎÊÌâµÄ. Ğ»Ğ»Äã°ïÖúÎÒÃÇ. ÎÒÒ»¸öÈË¿ÉÒÔµÄ. Ò²×£ÄãÃÇºÃÔË.";
-		npctalk "Ã»ÎÊÌâµÄ. Ğ»Ğ»Äã°ïÖúÎÒÃÇ. ÎÒÒ»¸öÈË¿ÉÒÔµÄ. Ò²×£ÄãÃÇºÃÔË.";
-		donpcevent instance_npcname("Ä©ÈÕµÄĞÒ´æÕß")+"::OnDisable";
+		mes "[æœ«æ—¥çš„å¹¸å­˜è€…]";
+		mes "æ²¡é—®é¢˜çš„. è°¢è°¢ä½ å¸®åŠ©æˆ‘ä»¬. æˆ‘ä¸€ä¸ªäººå¯ä»¥çš„. ä¹Ÿç¥ä½ ä»¬å¥½è¿.";
+		npctalk "æ²¡é—®é¢˜çš„. è°¢è°¢ä½ å¸®åŠ©æˆ‘ä»¬. æˆ‘ä¸€ä¸ªäººå¯ä»¥çš„. ä¹Ÿç¥ä½ ä»¬å¥½è¿.";
+		donpcevent instance_npcname("æœ«æ—¥çš„å¹¸å­˜è€…")+"::OnDisable";
 		donpcevent instance_npcname("#ghmemorialmob03")+"::OnEnable";
 		close;
 	} else {
-		mes "[Ä©ÈÕµÄĞÒ´æÕß]";
-		mes "Ë­°ï°ïÎÒ, Ë­°ï°ïÎÒ, ÇóÇóÄãÃÇÁË";
+		mes "[æœ«æ—¥çš„å¹¸å­˜è€…]";
+		mes "è°å¸®å¸®æˆ‘, è°å¸®å¸®æˆ‘, æ±‚æ±‚ä½ ä»¬äº†";
 		close;
 	}
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("Ä©ÈÕµÄĞÒ´æÕß");
+	hideonnpc instance_npcname("æœ«æ—¥çš„å¹¸å­˜è€…");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("Ä©ÈÕµÄĞÒ´æÕß");
+	hideoffnpc instance_npcname("æœ«æ—¥çš„å¹¸å­˜è€…");
 	end;
 }
 
@@ -948,20 +944,20 @@ OnEnable:
 	donpcevent instance_npcname("#ghinstancewarp4")+"::OnEnable";
 	set .@map$, instance_mapname("1@gl_k");
 	set .@label$, instance_npcname("#ghmemorialmob02")+"::OnMyMobDead";
-	mapannounce .@map$,"3µãÖÓ·½ÏòÍ¨ÍùµÚ3ÇøÓòµÄ´«ËÍÃÅÒÑ¾­´ò¿ªÁË.",bc_map,"0xFFFF00";
-	areamonster .@map$,241,113,291,19,"Í´¿àÕÅ²®Â×",2466,12,.@label$;
-	areamonster .@map$,241,113,291,19,"¶éÂäĞŞÊ¿",2464,12,.@label$;
-	areamonster .@map$,227,217,291,135,"Í´¿àÕÅ²®Â×",2466,12,.@label$;
-	areamonster .@map$,227,217,291,135,"¶éÂäĞŞÊ¿",2464,12,.@label$;
+	mapannounce .@map$,"3ç‚¹é’Ÿæ–¹å‘é€šå¾€ç¬¬3åŒºåŸŸçš„ä¼ é€é—¨å·²ç»æ‰“å¼€äº†.",bc_map,"0xFFFF00";
+	areamonster .@map$,241,113,291,19,"ç—›è‹¦å¼ ä¼¯ä¼¦",2466,12,.@label$;
+	areamonster .@map$,241,113,291,19,"å •è½ä¿®å£«",2464,12,.@label$;
+	areamonster .@map$,227,217,291,135,"ç—›è‹¦å¼ ä¼¯ä¼¦",2466,12,.@label$;
+	areamonster .@map$,227,217,291,135,"å •è½ä¿®å£«",2464,12,.@label$;
 	end;
 OnMyMobDead:
 	set .@map$, instance_mapname("1@gl_k");
 	set .@label$, instance_npcname("#ghmemorialmob02")+"::OnMyMobDead";
 	set .@mob_dead_num, 48 - mobcount(.@map$,.@label$);
 	if (.@mob_dead_num > 28) {
-		mapannounce .@map$, "ÕâĞ©¿´ÉÏÈ¥ÏñÊÇ±»Ï£Ä·Ã·¶ûÃ·×È¿ØÖÆµÄÁé»ê. ±ØĞë»ÙÃğËüÃÇ.",bc_map,"0xFFFFFF";
+		mapannounce .@map$, "è¿™äº›çœ‹ä¸Šå»åƒæ˜¯è¢«å¸Œå§†æ¢…å°”æ¢…å…¹æ§åˆ¶çš„çµé­‚. å¿…é¡»æ¯ç­å®ƒä»¬.",bc_map,"0xFFFFFF";
 		killmonster .@map$,.@label$;
-		donpcevent instance_npcname("Ä©ÈÕµÄĞÒ´æÕß")+"::OnEnable";
+		donpcevent instance_npcname("æœ«æ—¥çš„å¹¸å­˜è€…")+"::OnEnable";
 		donpcevent instance_npcname("#ghmemorialmob02")+"::OnDisable";
 	}
 	end;
@@ -969,7 +965,7 @@ OnMyMobDead:
 
 // Tramp Mobs
 //============================================================
-1@gl_k,221,82,3	script	Æø´­ÓõÓõµÄÈË#GHtramp1	849,4,4,{
+1@gl_k,221,82,3	script	æ°”å–˜ååçš„äºº#GHtramp1	849,4,4,{
 	end;
 OnTouch:
 	set .@i, rand(1,10);
@@ -980,7 +976,7 @@ OnTouch:
 	else set .@mobs,7;
 	getmapxy(.@map$,.@x,.@y,1);
 	specialeffect EF_VENOMDUST;
-	monster .@map$,.@x,.@y,"ÓÙÄàÈä³æ",2467,.@mobs,instance_npcname(strnpcinfo(0))+"::OnMyMobDead";
+	monster .@map$,.@x,.@y,"æ·¤æ³¥è •è™«",2467,.@mobs,instance_npcname(strnpcinfo(0))+"::OnMyMobDead";
 	disablenpc instance_npcname(strnpcinfo(0));
 	end;
 OnMyMobDead:
@@ -993,37 +989,37 @@ OnDisable:
 	disablenpc instance_npcname(strnpcinfo(0));
 	end;
 }
-1@gl_k,213,63,7	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp2	849,4,4
-1@gl_k,230,50,2	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp3	849,4,4
-1@gl_k,222,39,2	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp4	849,4,4
-1@gl_k,214,27,3	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp5	849,4,4
-1@gl_k,223,17,2	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp6	849,4,4
-1@gl_k,235,16,4	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp7	849,4,4
-1@gl_k,251,20,5	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp8	849,4,4
-1@gl_k,240,43,5	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp9	849,4,4
-1@gl_k,271,19,1	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp10	849,4,4
-1@gl_k,246,62,7	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp11	849,4,4
-1@gl_k,282,48,7	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp12	849,4,4
-1@gl_k,285,81,7	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp13	849,4,4
-1@gl_k,241,86,5	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp14	849,4,4
-1@gl_k,249,101,3	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp15	849,4,4
-1@gl_k,276,106,7	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp16	849,4,4
-1@gl_k,252,120,7	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp17	849,4,4
-1@gl_k,258,150,1	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp18	849,4,4
-1@gl_k,255,157,6	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp19	849,4,4
-1@gl_k,261,164,7	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp20	849,4,4
-1@gl_k,269,173,7	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp21	849,4,4
-1@gl_k,280,167,3	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp22	849,4,4
-1@gl_k,293,161,3	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp23	849,4,4
-1@gl_k,226,96,3	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp24	849,4,4
-1@gl_k,222,119,5	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp25	849,4,4
-1@gl_k,233,123,3	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp26	849,4,4
-2@gl_k,147,203,5	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp27	849,4,4
-2@gl_k,141,222,1	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp28	849,4,4
-2@gl_k,167,225,3	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp29	849,4,4
-2@gl_k,145,236,3	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp30	849,4,4
-2@gl_k,143,260,3	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp31	849,4,4
-2@gl_k,173,258,3	duplicate(Æø´­ÓõÓõµÄÈË#GHtramp1)	Æø´­ÓõÓõµÄÈË#GHtramp32	849,4,4
+1@gl_k,213,63,7	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp2	849,4,4
+1@gl_k,230,50,2	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp3	849,4,4
+1@gl_k,222,39,2	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp4	849,4,4
+1@gl_k,214,27,3	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp5	849,4,4
+1@gl_k,223,17,2	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp6	849,4,4
+1@gl_k,235,16,4	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp7	849,4,4
+1@gl_k,251,20,5	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp8	849,4,4
+1@gl_k,240,43,5	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp9	849,4,4
+1@gl_k,271,19,1	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp10	849,4,4
+1@gl_k,246,62,7	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp11	849,4,4
+1@gl_k,282,48,7	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp12	849,4,4
+1@gl_k,285,81,7	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp13	849,4,4
+1@gl_k,241,86,5	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp14	849,4,4
+1@gl_k,249,101,3	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp15	849,4,4
+1@gl_k,276,106,7	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp16	849,4,4
+1@gl_k,252,120,7	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp17	849,4,4
+1@gl_k,258,150,1	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp18	849,4,4
+1@gl_k,255,157,6	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp19	849,4,4
+1@gl_k,261,164,7	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp20	849,4,4
+1@gl_k,269,173,7	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp21	849,4,4
+1@gl_k,280,167,3	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp22	849,4,4
+1@gl_k,293,161,3	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp23	849,4,4
+1@gl_k,226,96,3	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp24	849,4,4
+1@gl_k,222,119,5	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp25	849,4,4
+1@gl_k,233,123,3	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp26	849,4,4
+2@gl_k,147,203,5	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp27	849,4,4
+2@gl_k,141,222,1	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp28	849,4,4
+2@gl_k,167,225,3	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp29	849,4,4
+2@gl_k,145,236,3	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp30	849,4,4
+2@gl_k,143,260,3	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp31	849,4,4
+2@gl_k,173,258,3	duplicate(æ°”å–˜ååçš„äºº#GHtramp1)	æ°”å–˜ååçš„äºº#GHtramp32	849,4,4
 
 // Sector 3 Mobs
 //============================================================
@@ -1038,27 +1034,27 @@ OnEnable:
 	donpcevent instance_npcname("#ghinstancewarp6")+"::OnEnable";
 	set .@map$, instance_mapname("1@gl_k");
 	set .@label$, instance_npcname("#ghmemorialmob03")+"::OnMyMobDead";
-	mapannounce .@map$,"12µãÖÓ·½ÏòÍ¨ÍùµÚ4ÇøÓòµÄ´«ËÍÃÅÒÑ¾­´ò¿ªÁË.",bc_map,"0xFFFF00";
-	areamonster .@map$,17,259,53,180,"¸¯ĞàÎÀ±ø",2468,11,.@label$;
-	areamonster .@map$,17,259,53,180,"ÉñÉäÊÖÓÎÏÀ",2469,14,.@label$;
-	areamonster .@map$,62,281,73,186,"¸¯ĞàÎÀ±ø",2468,11,.@label$;
-	areamonster .@map$,62,281,73,186,"ÉñÉäÊÖÓÎÏÀ",2469,14,.@label$;
-	areamonster .@map$,74,251,109,224,"¸¯ĞàÎÀ±ø",2468,11,.@label$;
-	areamonster .@map$,74,251,109,224,"ÉñÉäÊÖÓÎÏÀ",2469,14,.@label$;
-	areamonster .@map$,108,281,231,234,"¸¯ĞàÎÀ±ø",2468,11,.@label$;
-	areamonster .@map$,108,281,231,234,"ÉñÉäÊÖÓÎÏÀ",2469,14,.@label$;
+	mapannounce .@map$,"12ç‚¹é’Ÿæ–¹å‘é€šå¾€ç¬¬4åŒºåŸŸçš„ä¼ é€é—¨å·²ç»æ‰“å¼€äº†.",bc_map,"0xFFFF00";
+	areamonster .@map$,17,259,53,180,"è…æœ½å«å…µ",2468,11,.@label$;
+	areamonster .@map$,17,259,53,180,"ç¥å°„æ‰‹æ¸¸ä¾ ",2469,14,.@label$;
+	areamonster .@map$,62,281,73,186,"è…æœ½å«å…µ",2468,11,.@label$;
+	areamonster .@map$,62,281,73,186,"ç¥å°„æ‰‹æ¸¸ä¾ ",2469,14,.@label$;
+	areamonster .@map$,74,251,109,224,"è…æœ½å«å…µ",2468,11,.@label$;
+	areamonster .@map$,74,251,109,224,"ç¥å°„æ‰‹æ¸¸ä¾ ",2469,14,.@label$;
+	areamonster .@map$,108,281,231,234,"è…æœ½å«å…µ",2468,11,.@label$;
+	areamonster .@map$,108,281,231,234,"ç¥å°„æ‰‹æ¸¸ä¾ ",2469,14,.@label$;
 	end;
 OnMyMobDead:
 	set .@map$, instance_mapname("1@gl_k");
 	set .@label$, instance_npcname("#ghmemorialmob03")+"::OnMyMobDead";
 	set .@mob_dead_num, 100 - mobcount(.@map$,.@label$);
 	if (.@mob_dead_num > 85) {
-		mapannounce .@map$,"Ï£Ä·Ã·¶ûÃ·×È: Æ¯ÁÁµÄÕĞ¼Ü. ÎÒÏëÄã»áÔÚÎÒËùÕÙ»½µÄËÀÊ¬µÄ°üÎ§ÏÂÂıÂıµÄËÀÈ¥~",bc_map,"0xFFFFFF";
+		mapannounce .@map$,"å¸Œå§†æ¢…å°”æ¢…å…¹: æ¼‚äº®çš„æ‹›æ¶. æˆ‘æƒ³ä½ ä¼šåœ¨æˆ‘æ‰€å¬å”¤çš„æ­»å°¸çš„åŒ…å›´ä¸‹æ…¢æ…¢çš„æ­»å»~",bc_map,"0xFFFFFF";
 		killmonster .@map$,.@label$;
 		donpcevent instance_npcname("#GHMclear3")+"::OnEnable";
-		donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance4")+"::OnEnable";
-		donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance2")+"::OnEnable";
-		donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance3")+"::OnEnable";
+		donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance4")+"::OnEnable";
+		donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance2")+"::OnEnable";
+		donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance3")+"::OnEnable";
 		donpcevent instance_npcname("#ghmemorialmob03")+"::OnDisable";
 	}
 	end;
@@ -1073,17 +1069,17 @@ OnDisable:
 	end;
 OnEnable:
 	enablenpc instance_npcname("#ghmemorialmob04");
-	monster instance_mapname("1@gl_k"),150,258,"¶éÂäÖ®¸ù",2475,1,instance_npcname("#ghmemorialmob04")+"::OnMyMobDead";
+	monster instance_mapname("1@gl_k"),150,258,"å •è½ä¹‹æ ¹",2475,1,instance_npcname("#ghmemorialmob04")+"::OnMyMobDead";
 	end;
 OnMyMobDead:
 	set .@map$, instance_mapname("1@gl_k");
 	if (mobcount(.@map$,instance_npcname("#ghmemorialmob04")+"::OnMyMobDead") < 1) {
-		mapannounce .@map$, "12µãÖÓ·½ÏòÍ¨Íù¶şÂ¥µÄ´«ËÍÃÅÒÑ¾­´ò¿ªÁË.",bc_map,"0xFFFF00";
+		mapannounce .@map$, "12ç‚¹é’Ÿæ–¹å‘é€šå¾€äºŒæ¥¼çš„ä¼ é€é—¨å·²ç»æ‰“å¼€äº†.",bc_map,"0xFFFF00";
 		donpcevent instance_npcname("#ghinstancewarp7")+"::OnEnable";
-		donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance3")+"::OnTalk2";
+		donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance3")+"::OnTalk2";
 		donpcevent instance_npcname("#effectGH01")+"::OnEnable";
-		donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance5")+"::OnEnable";
-		donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance4")+"::OnEnable";
+		donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance5")+"::OnEnable";
+		donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance4")+"::OnEnable";
 		donpcevent instance_npcname("#ghmemorialmob04")+"::OnDisable";
 	}
 	end;
@@ -1105,7 +1101,7 @@ OnEnable:
 	initnpctimer;
 	end;
 OnTimer2000:
-	mapannounce instance_mapname("1@gl_k"), "Ï£Ä·Ã·¶ûÃ·×È: Äã¹´ÆğÁËÎÒ¶Ô2Â¥µÄĞËÈ¤, µ½ÃÅ¿ÚÀ´. ÎÒºÜºÃÆæÄãµÄÔËÆøÄÜÈÃÄã×ß¶àÔ¶.",bc_map,"0xFFFFFF";
+	mapannounce instance_mapname("1@gl_k"), "å¸Œå§†æ¢…å°”æ¢…å…¹: ä½ å‹¾èµ·äº†æˆ‘å¯¹2æ¥¼çš„å…´è¶£, åˆ°é—¨å£æ¥. æˆ‘å¾ˆå¥½å¥‡ä½ çš„è¿æ°”èƒ½è®©ä½ èµ°å¤šè¿œ.",bc_map,"0xFFFFFF";
 	stopnpctimer;
 	end;
 }
@@ -1120,43 +1116,43 @@ OnEnable:
 	initnpctimer;
 	end;
 OnTimer3000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance2")+"::OnTalk1";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance2")+"::OnTalk1";
 	end;
 OnTimer6000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance2")+"::OnTalk2";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance2")+"::OnTalk2";
 	end;
 OnTimer9000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance2")+"::OnTalk3";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance2")+"::OnTalk3";
 	end;
 OnTimer12000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance4")+"::OnTalk1";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance4")+"::OnTalk1";
 	end;
 OnTimer15000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance2")+"::OnTalk4";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance2")+"::OnTalk4";
 	end;
 OnTimer18000:
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance3")+"::OnTalk1";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance3")+"::OnTalk1";
 	end;
 OnTimer21000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance4")+"::OnTalk2";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance4")+"::OnTalk2";
 	end;
 OnTimer24000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance2")+"::OnTalk5";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance2")+"::OnTalk5";
 	end;
 OnTimer27000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance2")+"::OnTalk6";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance2")+"::OnTalk6";
 	end;
 OnTimer28000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance2")+"::OnDisable";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance2")+"::OnDisable";
 	end;
 OnTimer31000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance4")+"::OnTalk3";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance4")+"::OnTalk3";
 	end;
 OnTimer32000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance4")+"::OnDisable";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance4")+"::OnDisable";
 	end;
 OnTimer35000:
-	mapannounce instance_mapname("1@gl_k"), "µ±Äã½Ó½üÊ±¿ÉÒÔÌıµ½´ÓÉî´¦Ò»¸öÁîÈËÃ«¹Çã¤È»µÄ»ØÉù.",bc_map,"0xFFFFFF";
+	mapannounce instance_mapname("1@gl_k"), "å½“ä½ æ¥è¿‘æ—¶å¯ä»¥å¬åˆ°ä»æ·±å¤„ä¸€ä¸ªä»¤äººæ¯›éª¨æ‚šç„¶çš„å›å£°.",bc_map,"0xFFFFFF";
 	end;
 OnTimer38000:
 	donpcevent instance_npcname("#ghmemorialmob04")+"::OnEnable";
@@ -1165,70 +1161,70 @@ OnTimer38000:
 	end;
 }
 
-1@gl_k,144,258,6	script	º£ÒòÀïÏ£#ghinstance4	652,{
-	mes "[º£ÒòÀïÏ£]";
-	mes "Ï£Ä·Ã·¶ûÃ·×È... ÄãÉ±ÁËÎÒµÄÈË, ÕâÈÃÎÒ¿Ì¹ÇÃúĞÄ.";
+1@gl_k,144,258,6	script	æµ·å› é‡Œå¸Œ#ghinstance4	652,{
+	mes "[æµ·å› é‡Œå¸Œ]";
+	mes "å¸Œå§†æ¢…å°”æ¢…å…¹... ä½ æ€äº†æˆ‘çš„äºº, è¿™è®©æˆ‘åˆ»éª¨é“­å¿ƒ.";
 	cutin "gl_heinrich1",2;
 	close2;
 	cutin "gl_heinrich1",255;
 	end;
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("º£ÒòÀïÏ£#ghinstance4");
+	hideonnpc instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance4");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("º£ÒòÀïÏ£#ghinstance4");
+	hideoffnpc instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance4");
 	end;
 OnTalk1:
-	npctalk "Ï£Ä·Ã·¶ûÃ·×È! ÔÚÕâÀïÎÒ²»»áÈÃÄãÄÄÅÂÇ°½øÒ»²½.";
+	npctalk "å¸Œå§†æ¢…å°”æ¢…å…¹! åœ¨è¿™é‡Œæˆ‘ä¸ä¼šè®©ä½ å“ªæ€•å‰è¿›ä¸€æ­¥.";
 	end;
 OnTalk2:
-	npctalk "Õâ.. ÊÇÊ²Ã´!";
+	npctalk "è¿™.. æ˜¯ä»€ä¹ˆ!";
 	end;
 OnTalk3:
-	npctalk "ÍßÃÉÌØÏÈÉú! °ïÖúÕâĞ©Ã°ÏÕÕßÃÇ, ÎÒ»áÈ¥×·Ï£Ä·Ã·¶ûÃ·×È!";
+	npctalk "ç“¦è’™ç‰¹å…ˆç”Ÿ! å¸®åŠ©è¿™äº›å†’é™©è€…ä»¬, æˆ‘ä¼šå»è¿½å¸Œå§†æ¢…å°”æ¢…å…¹!";
 	end;
 }
 
-1@gl_k,150,257,3	script	Ï£Ä·Ã·¶ûÃ·×È#ghinstance2	650,{
-	mes "[Ï£Ä·Ã·¶ûÃ·×È]";
-	mes "²»ÒªÓÃÈç´Ë²»°²µÄÑÛÉñ¿´×ÅÎÒ, ºÜ¿ìËüÃÇ½«»á±äµÃ·ÅËÉ...";
+1@gl_k,150,257,3	script	å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance2	650,{
+	mes "[å¸Œå§†æ¢…å°”æ¢…å…¹]";
+	mes "ä¸è¦ç”¨å¦‚æ­¤ä¸å®‰çš„çœ¼ç¥çœ‹ç€æˆ‘, å¾ˆå¿«å®ƒä»¬å°†ä¼šå˜å¾—æ”¾æ¾...";
 	cutin "gl_himel2",2;
 	close2;
 	cutin "gl_himel2",255;
 	end;
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance2");
+	hideonnpc instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance2");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance2");
+	hideoffnpc instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance2");
 	end;
 OnTalk1:
-	npctalk "Ì«×ßÔËÁË, ÎÒÒ»Â··É±¼¹ıÀ´, ÔÚËûÃÇÖ®ÖĞÓĞÒ»¸öÕæµÄ·Ç³£Ç¿´ó.";
+	npctalk "å¤ªèµ°è¿äº†, æˆ‘ä¸€è·¯é£å¥”è¿‡æ¥, åœ¨ä»–ä»¬ä¹‹ä¸­æœ‰ä¸€ä¸ªçœŸçš„éå¸¸å¼ºå¤§.";
 	end;
 OnTalk2:
-	npctalk "²»¹ıÎÒÒ»µãÒ²Ã»ÊÂ.";
+	npctalk "ä¸è¿‡æˆ‘ä¸€ç‚¹ä¹Ÿæ²¡äº‹.";
 	end;
 OnTalk3:
-	npctalk "ÏÖÔÚ, ÄãÃÇ¶¼ÒªÈ¥ËÀ.";
+	npctalk "ç°åœ¨, ä½ ä»¬éƒ½è¦å»æ­».";
 	end;
 OnTalk4:
-	npctalk "¹ş¹ş¹ş, ÄãÃÇÒÔÎªÎÒ»á¶À×ÔÇ°À´?";
+	npctalk "å“ˆå“ˆå“ˆ, ä½ ä»¬ä»¥ä¸ºæˆ‘ä¼šç‹¬è‡ªå‰æ¥?";
 	end;
 OnTalk5:
-	npctalk "ÔÚÎÒµÄ½ÅÏÂÊÇÎÒµÄĞÂÍæ¾ß. ÎªÊ²Ã´ÄãÃÇ²»Ò»Æğ¼ÓÈëÀ´Ë£Ë£ÄØ?";
+	npctalk "åœ¨æˆ‘çš„è„šä¸‹æ˜¯æˆ‘çš„æ–°ç©å…·. ä¸ºä»€ä¹ˆä½ ä»¬ä¸ä¸€èµ·åŠ å…¥æ¥è€è€å‘¢?";
 	end;
 OnTalk6:
-	npctalk "ÖÔĞÄ? Èç¹ûÎÒÓĞ»ú»á, ÎÒºÜÏëÔÙ´ÎÓëÄã½»ÊÖ, º£ÒòÀïÏ£.";
+	npctalk "è¡·å¿ƒ? å¦‚æœæˆ‘æœ‰æœºä¼š, æˆ‘å¾ˆæƒ³å†æ¬¡ä¸ä½ äº¤æ‰‹, æµ·å› é‡Œå¸Œ.";
 	end;
 }
 
-1@gl_k,156,259,3	script	ÍßÃÉÌØ#ghinstance3	654,{
+1@gl_k,156,259,3	script	ç“¦è’™ç‰¹#ghinstance3	654,{
 	if (checkquest(12318,HUNTING) == 2) {
 		if (checkquest(12319,HUNTING) == -1) {
-			mes "[ÍßÃÉÌØ]";
-			mes "ÓĞÒ»Ğ©ÓĞ¹âÁÁµÄ²»Ñ°³£µÄ¶«Î÷. Ò²ĞíÖÕÓĞÒ»Ìì, ÎÒÃÇ»áÃ÷°×ÕâÒ»ÇĞµÄ±³ºóÊÇÊ²Ã´.";
+			mes "[ç“¦è’™ç‰¹]";
+			mes "æœ‰ä¸€äº›æœ‰å…‰äº®çš„ä¸å¯»å¸¸çš„ä¸œè¥¿. ä¹Ÿè®¸ç»ˆæœ‰ä¸€å¤©, æˆ‘ä»¬ä¼šæ˜ç™½è¿™ä¸€åˆ‡çš„èƒŒåæ˜¯ä»€ä¹ˆ.";
 			cutin "gl_barmund1",2;
 			erasequest 12318;
 			if (checkquest(12319,HUNTING) == -1)
@@ -1242,122 +1238,122 @@ OnTalk6:
 			end;
 		}
 	}
-	mes "[ÍßÃÉÌØ]";
-	mes "¼´Ê¹¾­¹ıÕâÃ´³¤µÄÊ±¼ä, ËüÒÀÈ»ÓµÓĞ²»¿É×èµ²µÄ³¬È»ÒâÖ¾.";
+	mes "[ç“¦è’™ç‰¹]";
+	mes "å³ä½¿ç»è¿‡è¿™ä¹ˆé•¿çš„æ—¶é—´, å®ƒä¾ç„¶æ‹¥æœ‰ä¸å¯é˜»æŒ¡çš„è¶…ç„¶æ„å¿—.";
 	cutin "gl_barmund1",2;
 	close2;
 	cutin "gl_barmund2",255;
 	end;
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("ÍßÃÉÌØ#ghinstance3");
+	hideonnpc instance_npcname("ç“¦è’™ç‰¹#ghinstance3");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("ÍßÃÉÌØ#ghinstance3");
+	hideoffnpc instance_npcname("ç“¦è’™ç‰¹#ghinstance3");
 	end;
 OnTalk1:
-	npctalk "º£ÒòÀïÏ£´óÈË! Î´ÖªµÄ¶«Î÷ÓµÓĞÒ»ÖÖÄªÃûµÄÇ¿´óÁ¦Á¿!";
+	npctalk "æµ·å› é‡Œå¸Œå¤§äºº! æœªçŸ¥çš„ä¸œè¥¿æ‹¥æœ‰ä¸€ç§è«åçš„å¼ºå¤§åŠ›é‡!";
 	end;
 OnTalk2:
-	npctalk "´Ó¹ÖÎïÉíÉÏÎÒµÃµ½Ò»Ğ©²»´íµÄ¶«Î÷. ¶ÔËüÃÇÓĞĞËÈ¤µÄÈËÇëºÍÎÒ¶Ô»°.";
+	npctalk "ä»æ€ªç‰©èº«ä¸Šæˆ‘å¾—åˆ°ä¸€äº›ä¸é”™çš„ä¸œè¥¿. å¯¹å®ƒä»¬æœ‰å…´è¶£çš„äººè¯·å’Œæˆ‘å¯¹è¯.";
 	end;
 }
 
 // Floor 2
 //============================================================
-2@gl_k,148,67,1	script	º£ÒòÀïÏ£#ghinstance5	652,{
-	mes "[º£ÒòÀïÏ£]";
-	mes "ÔÚÕâÀïµ½´¦¶¼ÊÇ";
-	mes "Ï£Ä·Ã·¶ûÃ·×ÈµÄ½á½ç·¨Êõ...";
+2@gl_k,148,67,1	script	æµ·å› é‡Œå¸Œ#ghinstance5	652,{
+	mes "[æµ·å› é‡Œå¸Œ]";
+	mes "åœ¨è¿™é‡Œåˆ°å¤„éƒ½æ˜¯";
+	mes "å¸Œå§†æ¢…å°”æ¢…å…¹çš„ç»“ç•Œæ³•æœ¯...";
 	cutin "gl_heinrich1",2;
 	close2;
 	cutin "gl_heinrich1",255;
 	end;
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("º£ÒòÀïÏ£#ghinstance5");
+	hideonnpc instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance5");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("º£ÒòÀïÏ£#ghinstance5");
+	hideoffnpc instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance5");
 	end;
 OnTalk1:
-	npctalk "ÕâĞ©ÊÂÇé´ÓÎ´ÔÚ³Ç±¤·¢Éú¹ı!";
+	npctalk "è¿™äº›äº‹æƒ…ä»æœªåœ¨åŸå ¡å‘ç”Ÿè¿‡!";
 	end;
 OnTalk2:
-	npctalk "ÎÒÊÔÁËÒ»ÏÂ³£¼ûµÄÎäÆ÷, ¶ÔÕâÖÖÁ¦Á¿ÍêÈ«²»Æğ×÷ÓÃ.";
+	npctalk "æˆ‘è¯•äº†ä¸€ä¸‹å¸¸è§çš„æ­¦å™¨, å¯¹è¿™ç§åŠ›é‡å®Œå…¨ä¸èµ·ä½œç”¨.";
 	end;
 OnTalk3:
-	npctalk "ÕâÊÇ²»¿ÉÈÄË¡µÄ.";
+	npctalk "è¿™æ˜¯ä¸å¯é¥¶æ•çš„.";
 	end;
 OnTalk4:
-	npctalk "ÎÒ, ·¸ÏÂÁËÕâÃğ¾øÖÖ×åµÄ×ïĞĞ. ÔÚÎ´À´½«»áÈçºÎ...";
+	npctalk "æˆ‘, çŠ¯ä¸‹äº†è¿™ç­ç»ç§æ—çš„ç½ªè¡Œ. åœ¨æœªæ¥å°†ä¼šå¦‚ä½•...";
 	end;
 OnTalk5:
 	npctalk "...";
 	end;
 }
 
-2@gl_k,151,71,7	script	ÍßÃÉÌØ#ghinstance4	654,{
-	mes "[ÍßÃÉÌØ]";
-	mes "ÎÒÎªÊ²Ã´ÕâÑù×öÄØ? ËÆºõ²¢²»ÏñµÚÒ»´Î. ÎÒ¸Ğ¾õÎÒ¼û¹ıÕâ¸öµØ·½, ËüÔÚÎÒµÄÃÎÀï·´¸´³öÏÖ¹ıÊıÊ®´Î. ÕâÖÖ¸Ğ¾õ...";
+2@gl_k,151,71,7	script	ç“¦è’™ç‰¹#ghinstance4	654,{
+	mes "[ç“¦è’™ç‰¹]";
+	mes "æˆ‘ä¸ºä»€ä¹ˆè¿™æ ·åšå‘¢? ä¼¼ä¹å¹¶ä¸åƒç¬¬ä¸€æ¬¡. æˆ‘æ„Ÿè§‰æˆ‘è§è¿‡è¿™ä¸ªåœ°æ–¹, å®ƒåœ¨æˆ‘çš„æ¢¦é‡Œåå¤å‡ºç°è¿‡æ•°åæ¬¡. è¿™ç§æ„Ÿè§‰...";
 	cutin "gl_barmund1",2;
 	close2;
 	cutin "gl_barmund1",255;
 	end;
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("ÍßÃÉÌØ#ghinstance4");
+	hideonnpc instance_npcname("ç“¦è’™ç‰¹#ghinstance4");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("ÍßÃÉÌØ#ghinstance4");
+	hideoffnpc instance_npcname("ç“¦è’™ç‰¹#ghinstance4");
 	end;
 OnTalk2:
-	npctalk "Ï£Ä·Ã·¶ûÃ·×ÈµÄÄ§·¨ÒÑ¾­ÍêÈ«·âËøÁËÍ¨µÀ¸÷¸ö²¿·Ö.";
+	npctalk "å¸Œå§†æ¢…å°”æ¢…å…¹çš„é­”æ³•å·²ç»å®Œå…¨å°é”äº†é€šé“å„ä¸ªéƒ¨åˆ†.";
 	end;
 OnTalk3:
-	npctalk "ÉÔµÈÆ¬¿Ì. ÎÒ»á¾¡Á¦ÒÔÄ³ÖÖ·½Ê½´òÆÆÄ§Öä.";
+	npctalk "ç¨ç­‰ç‰‡åˆ». æˆ‘ä¼šå°½åŠ›ä»¥æŸç§æ–¹å¼æ‰“ç ´é­”å’’.";
 	end;
 OnTalk4:
-	npctalk "½á½çËÆºõ±»´òÆÆÁË.";
+	npctalk "ç»“ç•Œä¼¼ä¹è¢«æ‰“ç ´äº†.";
 	end;
 OnTalk5:
-	npctalk "ÎÒ´ÓÀ´Ã»ÓĞ¼û¹ıÕâ¸ö·¨Êõ.";
+	npctalk "æˆ‘ä»æ¥æ²¡æœ‰è§è¿‡è¿™ä¸ªæ³•æœ¯.";
 	end;
 OnTalk6:
-	npctalk "Ï£Ä·Ã·¶ûÃ·×È²¢Ã»ÓĞ²ÉÓÃ·âÓ¡µÄ·½Ê½, À´½«ÈË±ä³ÉÒ»¸öÍöÁé.";
+	npctalk "å¸Œå§†æ¢…å°”æ¢…å…¹å¹¶æ²¡æœ‰é‡‡ç”¨å°å°çš„æ–¹å¼, æ¥å°†äººå˜æˆä¸€ä¸ªäº¡çµ.";
 	end;
 OnTalk7:
-	npctalk "ËıÊ¹ÓÃµÄÊÇÄ§·¨Ê¯ÖÆ×÷µÄ½á½ç, ÕâÑù¿ÉÒÔ³¤Ê±¼äÎ¬³Ö·¨Êõ.";
+	npctalk "å¥¹ä½¿ç”¨çš„æ˜¯é­”æ³•çŸ³åˆ¶ä½œçš„ç»“ç•Œ, è¿™æ ·å¯ä»¥é•¿æ—¶é—´ç»´æŒæ³•æœ¯.";
 	end;
 OnTalk8:
-	npctalk "ÎÒÃÇĞèÒªÉ±ËÀÓĞÄ§·¨Ê¯µÄÈË, ²ÅÄÜ¹»´òÆÆÕâ¸ö½á½ç.";
+	npctalk "æˆ‘ä»¬éœ€è¦æ€æ­»æœ‰é­”æ³•çŸ³çš„äºº, æ‰èƒ½å¤Ÿæ‰“ç ´è¿™ä¸ªç»“ç•Œ.";
 	end;
 OnTalk9:
-	npctalk "È»¶ø, ÎÒÃÇÎŞ·¨Ö±½Ó·Ö±æ³öËüÃÇ. Ö»ÄÜ°ÑËûÃÇÈ«²¿¾»»¯.";
+	npctalk "ç„¶è€Œ, æˆ‘ä»¬æ— æ³•ç›´æ¥åˆ†è¾¨å‡ºå®ƒä»¬. åªèƒ½æŠŠä»–ä»¬å…¨éƒ¨å‡€åŒ–.";
 	end;
 OnTalk10:
-	npctalk "Ö¸»Ó¹Ù...";
+	npctalk "æŒ‡æŒ¥å®˜...";
 	end;
 OnTalk11:
-	npctalk "Ö¸»Ó¹Ù, Õâ¿´ÉÏÈ¥Ì«ËÉÉ¢ÁË.";
+	npctalk "æŒ‡æŒ¥å®˜, è¿™çœ‹ä¸Šå»å¤ªæ¾æ•£äº†.";
 	end;
 OnTalk12:
-	npctalk "ÎÒÃÇºÍÕâĞ©ÈË¶¼ÓĞ¹ØÁª, ²»Ö»ÊÇ¼¸¸ö.";
+	npctalk "æˆ‘ä»¬å’Œè¿™äº›äººéƒ½æœ‰å…³è”, ä¸åªæ˜¯å‡ ä¸ª.";
 	end;
 OnTalk13:
-	npctalk "ÎÒÃÇ²»ÄÜ·ñÈÏ, Õâ²»ÊÇËûÃÇµÄ´í, µ½µ×ÊÇÔõÃ´»ØÊÂ.";
+	npctalk "æˆ‘ä»¬ä¸èƒ½å¦è®¤, è¿™ä¸æ˜¯ä»–ä»¬çš„é”™, åˆ°åº•æ˜¯æ€ä¹ˆå›äº‹.";
 	end;
 OnTalk14:
-	npctalk "ºÃÁË, ÈÃÎÒÃÇ¶¯ÊÖ°É.";
+	npctalk "å¥½äº†, è®©æˆ‘ä»¬åŠ¨æ‰‹å§.";
 	end;
 OnTalk15:
-	npctalk "ÄãÃÇÕâĞ©¼Ò»ïÓ¦¸ÃÄÜ°ïÉÏ²»ÉÙÃ¦. ¾¡Á¿¸úÉÏÎÒÃÇ.";
+	npctalk "ä½ ä»¬è¿™äº›å®¶ä¼™åº”è¯¥èƒ½å¸®ä¸Šä¸å°‘å¿™. å°½é‡è·Ÿä¸Šæˆ‘ä»¬.";
 	end;
 OnTalk16:
-	npctalk "¿ÉÄÜ»áÓĞÒ»³¡¼è¿àµÄÕ½¶·. ¼á³Ö×¡×îºÃÏÈ°Ñ¶Ç×ÓÌî±¥.";
+	npctalk "å¯èƒ½ä¼šæœ‰ä¸€åœºè‰°è‹¦çš„æˆ˜æ–—. åšæŒä½æœ€å¥½å…ˆæŠŠè‚šå­å¡«é¥±.";
 	end;
 OnTalk17:
-	npctalk "»ï¼ÆÃÇ, ÏÖÔÚÊÇÊ±ºò¶¯ÉíÁË, º£ÒòÀïÏ£´óÈË.";
+	npctalk "ä¼™è®¡ä»¬, ç°åœ¨æ˜¯æ—¶å€™åŠ¨èº«äº†, æµ·å› é‡Œå¸Œå¤§äºº.";
 	end;
 }
 
@@ -1393,80 +1389,80 @@ OnEnable:
 	initnpctimer;
 	end;
 OnTimer3000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance5")+"::OnTalk1";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance5")+"::OnTalk1";
 	donpcevent instance_npcname("#ghmemorialmob05")+"::OnEnable";
 	end;
 OnTimer6000:
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance4")+"::OnTalk2";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance4")+"::OnTalk2";
 	end;
 OnTimer9000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance5")+"::OnTalk2";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance5")+"::OnTalk2";
 	end;
 OnTimer12000:
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance4")+"::OnTalk3";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance4")+"::OnTalk3";
 	end;
 OnTimer15000:
 	donpcevent instance_npcname("#effectGH01")+"::OnEffect";
 	end;
 OnTimer18000:
 	donpcevent instance_npcname("#effectGH01")+"::OnDisable";
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance4")+"::OnTalk4";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance4")+"::OnTalk4";
 	end;
 OnTimer21000:
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance4")+"::OnTalk5";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance4")+"::OnTalk5";
 	end;
 OnTimer24000:
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance4")+"::OnTalk6";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance4")+"::OnTalk6";
 	end;
 OnTimer27000:
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance4")+"::OnTalk7";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance4")+"::OnTalk7";
 	end;
 OnTimer30000:
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance4")+"::OnTalk8";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance4")+"::OnTalk8";
 	end;
 OnTimer33000:
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance4")+"::OnTalk9";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance4")+"::OnTalk9";
 	end;
 OnTimer36000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance5")+"::OnTalk3";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance5")+"::OnTalk3";
 	end;
 OnTimer39000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance5")+"::OnTalk4";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance5")+"::OnTalk4";
 	end;
 OnTimer42000:
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance4")+"::OnTalk10";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance4")+"::OnTalk10";
 	end;
 OnTimer45000:
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance4")+"::OnTalk11";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance4")+"::OnTalk11";
 	end;
 OnTimer48000:
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance4")+"::OnTalk12";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance4")+"::OnTalk12";
 	end;
 OnTimer51000:
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance4")+"::OnTalk13";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance4")+"::OnTalk13";
 	end;
 OnTimer54000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance5")+"::OnTalk5";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance5")+"::OnTalk5";
 	end;
 OnTimer57000:
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance4")+"::OnTalk14";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance4")+"::OnTalk14";
 	end;
 OnTimer60000:
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance4")+"::OnTalk15";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance4")+"::OnTalk15";
 	end;
 OnTimer63000:
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance4")+"::OnTalk16";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance4")+"::OnTalk16";
 	end;
 OnTimer66000:
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance4")+"::OnTalk17";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance4")+"::OnTalk17";
 	end;
 OnTimer69000:
-	mapannounce instance_mapname("2@gl_k"), "9µãÖÓ·½ÏòÍ¨ÍùµÚ1ÇøÓòµÄ´«ËÍÃÅÒÑ¾­´ò¿ªÁË, ÔÚÖĞÑë×ßÀÈËÆºõ»á³öÏÖÒ»¸ö½ÓÒ»¸öµÄĞ°¶ñ¹â»·.",bc_map,"0xFFFF00";
+	mapannounce instance_mapname("2@gl_k"), "9ç‚¹é’Ÿæ–¹å‘é€šå¾€ç¬¬1åŒºåŸŸçš„ä¼ é€é—¨å·²ç»æ‰“å¼€äº†, åœ¨ä¸­å¤®èµ°å»Šä¼¼ä¹ä¼šå‡ºç°ä¸€ä¸ªæ¥ä¸€ä¸ªçš„é‚ªæ¶å…‰ç¯.",bc_map,"0xFFFF00";
 	donpcevent instance_npcname("#ghinstancewarp8")+"::OnEnable";
 	donpcevent instance_npcname("#ghinstancewarp9")+"::OnEnable";
 	donpcevent instance_npcname("#ghmemorialmob06")+"::OnEnable";
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance4")+"::OnDisable";
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance5")+"::OnDisable";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance4")+"::OnDisable";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance5")+"::OnDisable";
 	end;
 OnTimer70000:
 	stopnpctimer;
@@ -1483,18 +1479,18 @@ OnEnable:
 	enablenpc instance_npcname("#ghmemorialmob05");
 	set .@map$, instance_mapname("2@gl_k");
 	set .@label$, instance_npcname("#ghmemorialmob05")+"::OnMyMobDead";
-	areamonster .@map$,124,20,31,162,"¸¯ĞàÎÀ±ø",2468,8,.@label$;
-	areamonster .@map$,124,20,31,162,"ÉñÉäÊÖÓÎÏÀ",2469,8,.@label$;
-	areamonster .@map$,124,20,31,162,"¶éÂäÉîÔ¨ÆïÊ¿",2470,8,.@label$;
-	areamonster .@map$,124,20,31,162,"Í´¿à¿¨ÀûË¹¸ñ",2471,8,.@label$;
-	areamonster .@map$,124,20,31,162,"¸¡Ö×µÄÆïÊ¿",2472,8,.@label$;
+	areamonster .@map$,124,20,31,162,"è…æœ½å«å…µ",2468,8,.@label$;
+	areamonster .@map$,124,20,31,162,"ç¥å°„æ‰‹æ¸¸ä¾ ",2469,8,.@label$;
+	areamonster .@map$,124,20,31,162,"å •è½æ·±æ¸Šéª‘å£«",2470,8,.@label$;
+	areamonster .@map$,124,20,31,162,"ç—›è‹¦å¡åˆ©æ–¯æ ¼",2471,8,.@label$;
+	areamonster .@map$,124,20,31,162,"æµ®è‚¿çš„éª‘å£«",2472,8,.@label$;
 	set .MyMobs,80;
 	end;
 OnMyMobDead:
 	set .@map$, instance_mapname("2@gl_k");
 	set .MyMobs, .MyMobs-1;
 	if (.MyMobs == 0) {
-		mapannounce .@map$, "Ò»¸öĞ°¶ñ¹â»·ËÆºõÔÚÕâÒ»µØÇø³öÏÖ.",bc_map,"0xFFFF00";
+		mapannounce .@map$, "ä¸€ä¸ªé‚ªæ¶å…‰ç¯ä¼¼ä¹åœ¨è¿™ä¸€åœ°åŒºå‡ºç°.",bc_map,"0xFFFF00";
 		donpcevent instance_npcname("#ghmemorialmob06")+"::OnDisable2";
 		donpcevent instance_npcname("#ghmemorialmob07")+"::OnEnable";
 		donpcevent instance_npcname("#ghmemorialmob05")+"::OnDisable";
@@ -1502,19 +1498,19 @@ OnMyMobDead:
 		set .@label$, instance_npcname("#ghmemorialmob05")+"::OnMyMobDead";
 		switch(rand(5)) {
 		case 0:
-			areamonster .@map$,124,20,31,162,"¸¯ĞàÎÀ±ø",2468,1,.@label$;
+			areamonster .@map$,124,20,31,162,"è…æœ½å«å…µ",2468,1,.@label$;
 			break;
 		case 1:
-			areamonster .@map$,124,20,31,162,"ÉñÉäÊÖÓÎÏÀ",2469,1,.@label$;
+			areamonster .@map$,124,20,31,162,"ç¥å°„æ‰‹æ¸¸ä¾ ",2469,1,.@label$;
 			break;
 		case 2:
-			areamonster .@map$,124,20,31,162,"¶éÂäÉîÔ¨ÆïÊ¿",2470,1,.@label$;
+			areamonster .@map$,124,20,31,162,"å •è½æ·±æ¸Šéª‘å£«",2470,1,.@label$;
 			break;
 		case 3:
-			areamonster .@map$,124,20,31,162,"Í´¿à¿¨ÀûË¹¸ñ",2471,1,.@label$;
+			areamonster .@map$,124,20,31,162,"ç—›è‹¦å¡åˆ©æ–¯æ ¼",2471,1,.@label$;
 			break;
 		case 4:
-			areamonster .@map$,124,20,31,162,"¸¡Ö×µÄÆïÊ¿",2472,1,.@label$;
+			areamonster .@map$,124,20,31,162,"æµ®è‚¿çš„éª‘å£«",2472,1,.@label$;
 			break;
 		}
 	}
@@ -1549,11 +1545,11 @@ OnTimer90000:
 		69,138,80,127,
 		34,143,39,138;
 	for(set .@i,0; .@i<getarraysize(.@c); set .@i,.@i+4) {
-		areamonster .@map$,.@c[.@i],.@c[.@i+1],.@c[.@i+2],.@c[.@i+3],"¸¯ĞàÎÀ±ø",2468,1,.@label$;
-		areamonster .@map$,.@c[.@i],.@c[.@i+1],.@c[.@i+2],.@c[.@i+3],"ÉñÉäÊÖÓÎÏÀ",2469,1,.@label$;
-		areamonster .@map$,.@c[.@i],.@c[.@i+1],.@c[.@i+2],.@c[.@i+3],"¶éÂäÉîÔ¨ÆïÊ¿",2470,1,.@label$;
-		areamonster .@map$,.@c[.@i],.@c[.@i+1],.@c[.@i+2],.@c[.@i+3],"Í´¿à¿¨ÀûË¹¸ñ",2471,1,.@label$;
-		areamonster .@map$,.@c[.@i],.@c[.@i+1],.@c[.@i+2],.@c[.@i+3],"¸¡Ö×µÄÆïÊ¿",2472,1,.@label$;
+		areamonster .@map$,.@c[.@i],.@c[.@i+1],.@c[.@i+2],.@c[.@i+3],"è…æœ½å«å…µ",2468,1,.@label$;
+		areamonster .@map$,.@c[.@i],.@c[.@i+1],.@c[.@i+2],.@c[.@i+3],"ç¥å°„æ‰‹æ¸¸ä¾ ",2469,1,.@label$;
+		areamonster .@map$,.@c[.@i],.@c[.@i+1],.@c[.@i+2],.@c[.@i+3],"å •è½æ·±æ¸Šéª‘å£«",2470,1,.@label$;
+		areamonster .@map$,.@c[.@i],.@c[.@i+1],.@c[.@i+2],.@c[.@i+3],"ç—›è‹¦å¡åˆ©æ–¯æ ¼",2471,1,.@label$;
+		areamonster .@map$,.@c[.@i],.@c[.@i+1],.@c[.@i+2],.@c[.@i+3],"æµ®è‚¿çš„éª‘å£«",2472,1,.@label$;
 	}
 	end;
 OnTimer92000:
@@ -1569,12 +1565,12 @@ OnDisable:
 	end;
 OnEnable:
 	enablenpc instance_npcname("#ghmemorialmob07");
-	areamonster instance_mapname("2@gl_k"),124,20,31,162,"µÚÒ»¶Ó³¤µÄ»ÙÃğ",2473,1,instance_npcname("#ghmemorialmob07")+"::OnMyMobDead";
+	areamonster instance_mapname("2@gl_k"),124,20,31,162,"ç¬¬ä¸€é˜Ÿé•¿çš„æ¯ç­",2473,1,instance_npcname("#ghmemorialmob07")+"::OnMyMobDead";
 	end;
 OnMyMobDead:
 	set .@map$, instance_mapname("2@gl_k");
 	if (mobcount(.@map$,instance_npcname("#ghmemorialmob07")+"::OnMyMobDead") < 1) {
-		mapannounce .@map$, "3µãÖÓ·½ÏòÍ¨ÍùµÚ2ÇøÓòµÄ´«ËÍÃÅÒÑ¾­´ò¿ªÁË. ÓÉÖĞÑë×ßÀÈ¿ÉÒÔµ½ÄÇÀï.",bc_map,"0xFFFF00";
+		mapannounce .@map$, "3ç‚¹é’Ÿæ–¹å‘é€šå¾€ç¬¬2åŒºåŸŸçš„ä¼ é€é—¨å·²ç»æ‰“å¼€äº†. ç”±ä¸­å¤®èµ°å»Šå¯ä»¥åˆ°é‚£é‡Œ.",bc_map,"0xFFFF00";
 		donpcevent instance_npcname("#ghinstancewarp10")+"::OnEnable";
 		donpcevent instance_npcname("#ghinstancewarp11")+"::OnEnable";
 		donpcevent instance_npcname("#ghmemorialmob08")+"::OnEnable";
@@ -1592,37 +1588,37 @@ OnEnable:
 	enablenpc instance_npcname("#ghmemorialmob08");
 	set .@map$, instance_mapname("2@gl_k");
 	set .@label$, instance_npcname("#ghmemorialmob08")+"::OnMyMobDead";
-	areamonster .@map$,175,163,265,18,"¸¯ĞàÎÀ±ø",2468,7,.@label$;
-	areamonster .@map$,175,163,265,18,"ÉñÉäÊÖÓÎÏÀ",2469,7,.@label$;
-	areamonster .@map$,175,163,265,18,"¶éÂäÉîÔ¨ÆïÊ¿",2470,7,.@label$;
-	areamonster .@map$,175,163,265,18,"Í´¿à¿¨ÀûË¹¸ñ",2471,7,.@label$;
-	areamonster .@map$,175,163,265,18,"¸¡Ö×µÄÆïÊ¿",2472,7,.@label$;
+	areamonster .@map$,175,163,265,18,"è…æœ½å«å…µ",2468,7,.@label$;
+	areamonster .@map$,175,163,265,18,"ç¥å°„æ‰‹æ¸¸ä¾ ",2469,7,.@label$;
+	areamonster .@map$,175,163,265,18,"å •è½æ·±æ¸Šéª‘å£«",2470,7,.@label$;
+	areamonster .@map$,175,163,265,18,"ç—›è‹¦å¡åˆ©æ–¯æ ¼",2471,7,.@label$;
+	areamonster .@map$,175,163,265,18,"æµ®è‚¿çš„éª‘å£«",2472,7,.@label$;
 	set .MyMobs,35;
 	end;
 OnMyMobDead:
 	set .@map$, instance_mapname("2@gl_k");
 	set .MyMobs, .MyMobs-1;
 	if (.MyMobs == 0) {
-		mapannounce .@map$, "Ò»¸öĞ°¶ñ¹â»·ËÆºõÔÚÕâÒ»µØÇø³öÏÖ.",bc_map,"0xFFFF00";
+		mapannounce .@map$, "ä¸€ä¸ªé‚ªæ¶å…‰ç¯ä¼¼ä¹åœ¨è¿™ä¸€åœ°åŒºå‡ºç°.",bc_map,"0xFFFF00";
 		donpcevent instance_npcname("#ghmemorialmob09")+"::OnEnable";
 		donpcevent instance_npcname("#ghmemorialmob08")+"::OnDisable";
 	} else {
 		set .@label$, instance_npcname("#ghmemorialmob08")+"::OnMyMobDead";
 		switch(rand(5)) {
 		case 0:
-			areamonster .@map$,175,163,265,18,"¸¯ĞàÎÀ±ø",2468,1,.@label$;
+			areamonster .@map$,175,163,265,18,"è…æœ½å«å…µ",2468,1,.@label$;
 			break;
 		case 1:
-			areamonster .@map$,175,163,265,18,"ÉñÉäÊÖÓÎÏÀ",2469,1,.@label$;
+			areamonster .@map$,175,163,265,18,"ç¥å°„æ‰‹æ¸¸ä¾ ",2469,1,.@label$;
 			break;
 		case 2:
-			areamonster .@map$,175,163,265,18,"¶éÂäÉîÔ¨ÆïÊ¿",2470,1,.@label$;
+			areamonster .@map$,175,163,265,18,"å •è½æ·±æ¸Šéª‘å£«",2470,1,.@label$;
 			break;
 		case 3:
-			areamonster .@map$,175,163,265,18,"Í´¿à¿¨ÀûË¹¸ñ",2471,1,.@label$;
+			areamonster .@map$,175,163,265,18,"ç—›è‹¦å¡åˆ©æ–¯æ ¼",2471,1,.@label$;
 			break;
 		case 4:
-			areamonster .@map$,175,163,265,18,"¸¡Ö×µÄÆïÊ¿",2472,1,.@label$;
+			areamonster .@map$,175,163,265,18,"æµ®è‚¿çš„éª‘å£«",2472,1,.@label$;
 			break;
 		}
 	}
@@ -1636,12 +1632,12 @@ OnDisable:
 	end;
 OnEnable:
 	enablenpc instance_npcname("#ghmemorialmob09");
-	areamonster instance_mapname("2@gl_k"),175,163,265,18,"µÚ¶ş¶Ó³¤µÄ»ÙÃğ",2474,1,instance_npcname("#ghmemorialmob09")+"::OnMyMobDead";
+	areamonster instance_mapname("2@gl_k"),175,163,265,18,"ç¬¬äºŒé˜Ÿé•¿çš„æ¯ç­",2474,1,instance_npcname("#ghmemorialmob09")+"::OnMyMobDead";
 	end;
 OnMyMobDead:
 	set .@map$, instance_mapname("2@gl_k");
 	if (mobcount(.@map$,instance_npcname("#ghmemorialmob09")+"::OnMyMobDead") < 1) {
-		mapannounce .@map$, "12µãÖÓ·½ÏòÍ¨ÍùµÚ3ÇøÓòµÄ´«ËÍÃÅÒÑ¾­´ò¿ªÁË. ÓÉÖĞÑë×ßÀÈ¿ÉÒÔµ½ÄÇÀï.",bc_map,"0xFFFF00";
+		mapannounce .@map$, "12ç‚¹é’Ÿæ–¹å‘é€šå¾€ç¬¬3åŒºåŸŸçš„ä¼ é€é—¨å·²ç»æ‰“å¼€äº†. ç”±ä¸­å¤®èµ°å»Šå¯ä»¥åˆ°é‚£é‡Œ.",bc_map,"0xFFFF00";
 		donpcevent instance_npcname("#ghinstancewarp12")+"::OnEnable";
 		donpcevent instance_npcname("#controlGH6")+"::OnEnable";
 		donpcevent instance_npcname("#ghmemorialmob08")+"::OnDisable";
@@ -1657,119 +1653,119 @@ OnDisable:
 	end;
 OnEnable:
 	enablenpc instance_npcname("#ghmemorialmob10");
-	donpcevent instance_npcname("¸ñ¹şµÂ#ghinstance1")+"::OnDisable";
+	donpcevent instance_npcname("æ ¼å“ˆå¾·#ghinstance1")+"::OnDisable";
 	monster instance_mapname("2@gl_k"),158,255,"Amdarias",2476,1,instance_npcname("#ghmemorialmob10")+"::OnMyMobDead";
 	end;
 OnMyMobDead:
 	if (mobcount(instance_mapname("2@gl_k"),instance_npcname("#ghmemorialmob10")+"::OnMyMobDead") < 1) {
-		donpcevent instance_npcname("»ª½ğ#ghinstance1")+"::OnEnable";
+		donpcevent instance_npcname("åé‡‘#ghinstance1")+"::OnEnable";
 		donpcevent instance_npcname("#ghmemorialmob10")+"::OnDisable";
 	}
 	end;
 }
 
-2@gl_k,155,250,7	script	º£ÒòÀïÏ£#ghinstance6	652,{
+2@gl_k,155,250,7	script	æµ·å› é‡Œå¸Œ#ghinstance6	652,{
 	end;
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("º£ÒòÀïÏ£#ghinstance6");
+	hideonnpc instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance6");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("º£ÒòÀïÏ£#ghinstance6");
+	hideoffnpc instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance6");
 	end;
 OnTalk1:
-	npctalk "¸ñ¹şµÂ!";
+	npctalk "æ ¼å“ˆå¾·!";
 	end;
 OnTalk2:
-	npctalk "ÎÒµÄÕ½Ê¿ÄãÔÚ¸ÉÂï, Ï£Ä·Ã·¶ûÃ·×È?!";
+	npctalk "æˆ‘çš„æˆ˜å£«ä½ åœ¨å¹²å˜›, å¸Œå§†æ¢…å°”æ¢…å…¹?!";
 	end;
 OnTalk3:
-	npctalk "Ï£Ä·Ã·¶ûÃ·×È! Äã²»ĞèÒªÔÙ×öÎŞÎ½µÄÎşÉüÁË!";
+	npctalk "å¸Œå§†æ¢…å°”æ¢…å…¹! ä½ ä¸éœ€è¦å†åšæ— è°“çš„ç‰ºç‰²äº†!";
 	end;
 OnTalk4:
-	npctalk "ÈÃËû×ß! ÎÒ²»Ï£Íû¸ü¶àÈËÎª´Ë¶øÎşÉü!";
+	npctalk "è®©ä»–èµ°! æˆ‘ä¸å¸Œæœ›æ›´å¤šäººä¸ºæ­¤è€Œç‰ºç‰²!";
 	end;
 OnTalk5:
-	npctalk "ÎÒ²»»áÔ­ÁÂÄã.";
+	npctalk "æˆ‘ä¸ä¼šåŸè°…ä½ .";
 	end;
 OnTalk6:
-	npctalk "ÀëÎÒÃÇÔ¶µã, Ï£Ä·Ã·¶ûÃ·×È!!";
+	npctalk "ç¦»æˆ‘ä»¬è¿œç‚¹, å¸Œå§†æ¢…å°”æ¢…å…¹!!";
 	end;
 }
 
-2@gl_k,162,250,1	script	ÍßÃÉÌØ#ghinstance5	654,{
-	mes "[ÍßÃÉÌØ]";
-	mes "ÎÒÃÇÎŞ·¨ÌÓ±Ü";
-	mes "Õâ¸öÓÀºãµÄ½ûïÀ...";
+2@gl_k,162,250,1	script	ç“¦è’™ç‰¹#ghinstance5	654,{
+	mes "[ç“¦è’™ç‰¹]";
+	mes "æˆ‘ä»¬æ— æ³•é€ƒé¿";
+	mes "è¿™ä¸ªæ°¸æ’çš„ç¦é”¢...";
 	cutin "gl_barmund2",2;
 	close2;
 	cutin "gl_barmund2",255;
 	end;
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("ÍßÃÉÌØ#ghinstance5");
+	hideonnpc instance_npcname("ç“¦è’™ç‰¹#ghinstance5");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("ÍßÃÉÌØ#ghinstance5");
+	hideoffnpc instance_npcname("ç“¦è’™ç‰¹#ghinstance5");
 	end;
 OnTalk1:
-	npctalk "Ê²Ã´? Õâ²»¿ÉÄÜ. ÎÒÃÇ±ØĞë¶¥×¡°¢Ä·´ïÀ³Ë¹µÄ¹¥»÷!";
+	npctalk "ä»€ä¹ˆ? è¿™ä¸å¯èƒ½. æˆ‘ä»¬å¿…é¡»é¡¶ä½é˜¿å§†è¾¾è±æ–¯çš„æ”»å‡»!";
 	end;
 }
 
-2@gl_k,158,252,3	script	Ï£Ä·Ã·¶ûÃ·×È#ghinstance4	650,4,4,{
+2@gl_k,158,252,3	script	å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance4	650,4,4,{
 	end;	
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance4");
+	hideonnpc instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance4");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance4");
+	hideoffnpc instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance4");
 	end;
 OnTalk1:
-	npctalk "ºÜºÃ~ ÎÒ»¹ÒÔÎªÄãµ½²»ÁË½Ó½üÖÕµãµÄµØ·½ÄØ...";
+	npctalk "å¾ˆå¥½~ æˆ‘è¿˜ä»¥ä¸ºä½ åˆ°ä¸äº†æ¥è¿‘ç»ˆç‚¹çš„åœ°æ–¹å‘¢...";
 	end;
 OnTalk2:
-	npctalk "ºôºô, ÎÒÒÑ¾­ÕÒµ½ÁËÒÁÃ×¶ûÖ®ĞÄµÄËéÆ¬, º£ÒòÀïÏ£.";
+	npctalk "å‘¼å‘¼, æˆ‘å·²ç»æ‰¾åˆ°äº†ä¼Šç±³å°”ä¹‹å¿ƒçš„ç¢ç‰‡, æµ·å› é‡Œå¸Œ.";
 	end;
 OnTalk3:
-	npctalk "Èç¹û²»ÔÙÎªÆäËûÊÂÇé·ÖĞÄµÄ»°, ÄÇ»áºÜ¿ì.";
+	npctalk "å¦‚æœä¸å†ä¸ºå…¶ä»–äº‹æƒ…åˆ†å¿ƒçš„è¯, é‚£ä¼šå¾ˆå¿«.";
 	end;
 OnTalk4:
-	npctalk "Äã¾õµÃÄØ? Õâ¿´ÆğÀ´ÏñÒ»¸öÅ¼È»µÄ¼²²¡¸ĞÈ¾¹úÍõºÍÖÜÎ§µÄÈË...";
+	npctalk "ä½ è§‰å¾—å‘¢? è¿™çœ‹èµ·æ¥åƒä¸€ä¸ªå¶ç„¶çš„ç–¾ç—…æ„ŸæŸ“å›½ç‹å’Œå‘¨å›´çš„äºº...";
 	end;
 OnTalk5:
-	npctalk "ÄãÏëÄÇÑù?";
+	npctalk "ä½ æƒ³é‚£æ ·?";
 	end;
 OnTalk6:
-	npctalk "ÕâÊÇÄãµÄ×îºóÒ»´Î»ú»á, º£ÒòÀïÏ£.";
+	npctalk "è¿™æ˜¯ä½ çš„æœ€åä¸€æ¬¡æœºä¼š, æµ·å› é‡Œå¸Œ.";
 	end;
 OnTalk7:
-	npctalk "´«ÎÅ»÷°ÜÎÒĞèÒªÒ»¸ö¶®µÃËùÓĞ¼¼ÄÜµÄÈË.";
+	npctalk "ä¼ é—»å‡»è´¥æˆ‘éœ€è¦ä¸€ä¸ªæ‡‚å¾—æ‰€æœ‰æŠ€èƒ½çš„äºº.";
 	end;
 OnTalk8:
-	npctalk "ÕâËÆºõÊÇ¸ö²»´íµÄÖ÷Òâ, ÈÃÎÒÓ¦ÓÃµ½ÎÒµÄĞÂ¹ÖÎïÉíÉÏ, °¢Ä·´ïÀ³Ë¹.";
+	npctalk "è¿™ä¼¼ä¹æ˜¯ä¸ªä¸é”™çš„ä¸»æ„, è®©æˆ‘åº”ç”¨åˆ°æˆ‘çš„æ–°æ€ªç‰©èº«ä¸Š, é˜¿å§†è¾¾è±æ–¯.";
 	end;
 OnTalk9:
-	npctalk "Booh~ ÎÒºÜº¦ÅÂ.";
+	npctalk "Booh~ æˆ‘å¾ˆå®³æ€•.";
 	end;
 OnTalk10:
-	npctalk "ÎŞÂÛÈçºÎ, ºÍ¸ßĞËÄÜÓëÄã½øĞĞ½»Á÷. Ò²ĞíÎÒÃÇ½«ÓĞ»ú»á½»¼¯ÔÚÎ´À´µÄ¹ÊÊÂÇé½ÚÖĞ.";
+	npctalk "æ— è®ºå¦‚ä½•, å’Œé«˜å…´èƒ½ä¸ä½ è¿›è¡Œäº¤æµ. ä¹Ÿè®¸æˆ‘ä»¬å°†æœ‰æœºä¼šäº¤é›†åœ¨æœªæ¥çš„æ•…äº‹æƒ…èŠ‚ä¸­.";
 	end;
 OnTalk11:
-	npctalk "àÅ, ÏàĞÅÄãÒ»¶¨»áÔÙ»ØÀ´.";
+	npctalk "å—¯, ç›¸ä¿¡ä½ ä¸€å®šä¼šå†å›æ¥.";
 	end;
 }
 
 2@gl_k,150,179,0	script	#controlGH6	111,2,2,{
 	end;
 OnTouch:
-	mapannounce instance_mapname("2@gl_k"), "???: ²»Òª¹ıÀ´! ÕâÀïµ½´¦ÓĞÏİÚå!!!!",bc_map,"0xFF0000";
+	mapannounce instance_mapname("2@gl_k"), "???: ä¸è¦è¿‡æ¥! è¿™é‡Œåˆ°å¤„æœ‰é™·é˜±!!!!",bc_map,"0xFF0000";
 	specialeffect EF_BASH;
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance3")+"::OnEnable";
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance6")+"::OnEnable";
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance5")+"::OnEnable";
-	donpcevent instance_npcname("¸ñ¹şµÂ#ghinstance1")+"::OnEnable";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance3")+"::OnEnable";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance6")+"::OnEnable";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance5")+"::OnEnable";
+	donpcevent instance_npcname("æ ¼å“ˆå¾·#ghinstance1")+"::OnEnable";
 	donpcevent instance_npcname("#controlGH6")+"::OnDisable";
 	end;
 OnInstanceInit:
@@ -1781,40 +1777,40 @@ OnEnable:
 	end;
 }
 
-2@gl_k,158,252,1	script	Ï£Ä·Ã·¶ûÃ·×È#ghinstance3	650,7,7,{
+2@gl_k,158,252,1	script	å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance3	650,7,7,{
 	end;
 OnTouch:
 	specialeffect EF_BASH;
 	donpcevent instance_npcname("#controlGH5")+"::OnEnable";
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance4")+"::OnEnable";
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance3")+"::OnDisable";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance4")+"::OnEnable";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance3")+"::OnDisable";
 	end;
 OnInstanceInit:
 OnDisable:
-	disablenpc instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance3");
+	disablenpc instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance3");
 	end;
 OnEnable:
-	enablenpc instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance3");
+	enablenpc instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance3");
 	end;
 }
 
-2@gl_k,158,255,3	script	¸ñ¹şµÂ#ghinstance1	651,{
+2@gl_k,158,255,3	script	æ ¼å“ˆå¾·#ghinstance1	651,{
 	end;
 OnInstanceInit:
 OnDisable:
-	hideonnpc instance_npcname("¸ñ¹şµÂ#ghinstance1");
+	hideonnpc instance_npcname("æ ¼å“ˆå¾·#ghinstance1");
 	end;
 OnEnable:
-	hideoffnpc instance_npcname("¸ñ¹şµÂ#ghinstance1");
+	hideoffnpc instance_npcname("æ ¼å“ˆå¾·#ghinstance1");
 	end;
 OnTalk1:
-	npctalk "¸ÃËÀµÄ! ÅÜÁË! ÎÒÎŞ·¨½ÓÊÜÕâ¸öÊÂÊµ!";
+	npctalk "è¯¥æ­»çš„! è·‘äº†! æˆ‘æ— æ³•æ¥å—è¿™ä¸ªäº‹å®!";
 	end;
 OnTalk2:
-	npctalk "Ö¸»Ó¹Ù...À´°É, ÄãĞèÒª´ÓÕâÀïÅÜ³öÈ¥...°¡.";
+	npctalk "æŒ‡æŒ¥å®˜...æ¥å§, ä½ éœ€è¦ä»è¿™é‡Œè·‘å‡ºå»...å•Š.";
 	end;
 OnTalk3:
-	npctalk "¼´Ê¹ÄãçèÎÛÁËÎÒµÄÉíÌå, ÎÒµÄÁé»êÒ²²»»áÇü·ş, Ï£Ä·Ã·¶ûÃ·×È!";
+	npctalk "å³ä½¿ä½ ç·æ±¡äº†æˆ‘çš„èº«ä½“, æˆ‘çš„çµé­‚ä¹Ÿä¸ä¼šå±ˆæœ, å¸Œå§†æ¢…å°”æ¢…å…¹!";
 	end;
 OnEffect1:
 	specialeffect EF_BARRIER;
@@ -1843,89 +1839,89 @@ OnEnable:
 	initnpctimer;
 	end;
 OnTimer3000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance4")+"::OnTalk1";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance4")+"::OnTalk1";
 	end;
 OnTimer6000:
-	donpcevent instance_npcname("¸ñ¹şµÂ#ghinstance1")+"::OnTalk1";
+	donpcevent instance_npcname("æ ¼å“ˆå¾·#ghinstance1")+"::OnTalk1";
 	end;
 OnTimer9000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance6")+"::OnTalk1";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance6")+"::OnTalk1";
 	end;
 OnTimer12000:
-	donpcevent instance_npcname("¸ñ¹şµÂ#ghinstance1")+"::OnTalk2";
+	donpcevent instance_npcname("æ ¼å“ˆå¾·#ghinstance1")+"::OnTalk2";
 	end;
 OnTimer15000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance6")+"::OnTalk2";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance6")+"::OnTalk2";
 	end;
 OnTimer18000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance4")+"::OnTalk2";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance4")+"::OnTalk2";
 	end;
 OnTimer21000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance4")+"::OnTalk3";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance4")+"::OnTalk3";
 	end;
 OnTimer24000:
-	donpcevent instance_npcname("¸ñ¹şµÂ#ghinstance1")+"::OnTalk3";
+	donpcevent instance_npcname("æ ¼å“ˆå¾·#ghinstance1")+"::OnTalk3";
 	end;
 OnTimer27000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance4")+"::OnTalk4";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance4")+"::OnTalk4";
 	end;
 OnTimer30000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance6")+"::OnTalk3";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance6")+"::OnTalk3";
 	end;
 OnTimer33000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance6")+"::OnTalk4";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance6")+"::OnTalk4";
 	end;
 OnTimer36000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance4")+"::OnTalk5";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance4")+"::OnTalk5";
 	end;
 OnTimer39000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance4")+"::OnTalk6";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance4")+"::OnTalk6";
 	end;
 OnTimer42000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance4")+"::OnTalk7";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance4")+"::OnTalk7";
 	end;
 OnTimer45000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance4")+"::OnTalk8";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance4")+"::OnTalk8";
 	end;
 OnTimer48000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance6")+"::OnTalk5";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance6")+"::OnTalk5";
 	end;
 OnTimer51000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance4")+"::OnTalk9";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance4")+"::OnTalk9";
 	end;
 OnTimer54000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance4")+"::OnTalk10";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance4")+"::OnTalk10";
 	end;
 OnTimer57000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance4")+"::OnTalk11";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance4")+"::OnTalk11";
 	end;
 OnTimer60000:
-	donpcevent instance_npcname("¸ñ¹şµÂ#ghinstance1")+"::OnEffect1";
+	donpcevent instance_npcname("æ ¼å“ˆå¾·#ghinstance1")+"::OnEffect1";
 	end;
 OnTimer63000:
-	donpcevent instance_npcname("Ï£Ä·Ã·¶ûÃ·×È#ghinstance4")+"::OnDisable";
+	donpcevent instance_npcname("å¸Œå§†æ¢…å°”æ¢…å…¹#ghinstance4")+"::OnDisable";
 	end;
 OnTimer65000:
-	donpcevent instance_npcname("¸ñ¹şµÂ#ghinstance1")+"::OnEffect3";
+	donpcevent instance_npcname("æ ¼å“ˆå¾·#ghinstance1")+"::OnEffect3";
 	end;
 OnTimer66000:
-	donpcevent instance_npcname("¸ñ¹şµÂ#ghinstance1")+"::OnEffect2";
+	donpcevent instance_npcname("æ ¼å“ˆå¾·#ghinstance1")+"::OnEffect2";
 	end;
 OnTimer67000:
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance6")+"::OnTalk6";
-	donpcevent instance_npcname("¸ñ¹şµÂ#ghinstance1")+"::OnEffect4";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance6")+"::OnTalk6";
+	donpcevent instance_npcname("æ ¼å“ˆå¾·#ghinstance1")+"::OnEffect4";
 	end;
 OnTimer70000:
-	donpcevent instance_npcname("¸ñ¹şµÂ#ghinstance1")+"::OnEffect3";
-	donpcevent instance_npcname("¸ñ¹şµÂ#ghinstance1")+"::OnEffect4";
-	donpcevent instance_npcname("º£ÒòÀïÏ£#ghinstance6")+"::OnDisable";
-	donpcevent instance_npcname("ÍßÃÉÌØ#ghinstance5")+"::OnTalk1";
+	donpcevent instance_npcname("æ ¼å“ˆå¾·#ghinstance1")+"::OnEffect3";
+	donpcevent instance_npcname("æ ¼å“ˆå¾·#ghinstance1")+"::OnEffect4";
+	donpcevent instance_npcname("æµ·å› é‡Œå¸Œ#ghinstance6")+"::OnDisable";
+	donpcevent instance_npcname("ç“¦è’™ç‰¹#ghinstance5")+"::OnTalk1";
 	end;
 OnTimer73000:
-	mapannounce instance_mapname("2@gl_k"), "±ä³É¸ñ¹şµÂµÄÉíÌå.",bc_map,"0xFFFFFF";
+	mapannounce instance_mapname("2@gl_k"), "å˜æˆæ ¼å“ˆå¾·çš„èº«ä½“.",bc_map,"0xFFFFFF";
 	end;
 OnTimer76000:
-	donpcevent instance_npcname("¸ñ¹şµÂ#ghinstance1")+"::OnEffect5";
+	donpcevent instance_npcname("æ ¼å“ˆå¾·#ghinstance1")+"::OnEffect5";
 	end;
 OnTimer80000:
 	donpcevent instance_npcname("#ghmemorialmob10")+"::OnEnable";
@@ -1934,10 +1930,10 @@ OnTimer80000:
 	end;
 }
 
-2@gl_k,158,241,1	script	»ª½ğ#ghinstance1	755,{
+2@gl_k,158,241,1	script	åé‡‘#ghinstance1	755,{
 	if (checkquest(12319,HUNTING) == 2) {
-		mes "[»ª½ğ]";
-		mes "ÄãÒ²Ì«»ÄÃıÁË. ³õÑ§ÕßÔõÃ´¿ÉÄÜ»ñµÃ½±ÀøÄØ.";
+		mes "[åé‡‘]";
+		mes "ä½ ä¹Ÿå¤ªè’è°¬äº†. åˆå­¦è€…æ€ä¹ˆå¯èƒ½è·å¾—å¥–åŠ±å‘¢.";
 		erasequest 12319;
 		setquest 12321;
 		setquest 12322;
@@ -1951,40 +1947,40 @@ OnTimer80000:
 			gh_instance = 1;
 		}
 		next;
-		mes "[»ª½ğ]";
-		mes "ÍßÃÉÌØ, ÎÒÖĞÖ¹ÁË¸±±¾½ø¶È. ºÜ¿ì, ¸±±¾Ó¡¼Ç½«»áÏûÊ§.";
+		mes "[åé‡‘]";
+		mes "ç“¦è’™ç‰¹, æˆ‘ä¸­æ­¢äº†å‰¯æœ¬è¿›åº¦. å¾ˆå¿«, å‰¯æœ¬å°è®°å°†ä¼šæ¶ˆå¤±.";
 		specialeffect2 EF_BLIND,AREA;
 		soundeffect "_blind.wav",0;
 		next;
-		mes "[»ª½ğ]";
-		mes "Ã°ÏÕÕßÃÇÃ»Ê²Ã´Ê±¼äÁË.";
-		mes "ËûÃÇ½«ÎŞĞİÖ¹µØÖØÊÔ, ÒÔ×èÖ¹Õâ³¡Ó°ÏìÕâ¸ö³ÇÊĞµÄ±¯¾ç·¢Éú.";
+		mes "[åé‡‘]";
+		mes "å†’é™©è€…ä»¬æ²¡ä»€ä¹ˆæ—¶é—´äº†.";
+		mes "ä»–ä»¬å°†æ— ä¼‘æ­¢åœ°é‡è¯•, ä»¥é˜»æ­¢è¿™åœºå½±å“è¿™ä¸ªåŸå¸‚çš„æ‚²å‰§å‘ç”Ÿ.";
 		next;
-		mes "[»ª½ğ]";
-		mes "µ«ÊÇÄãÃÇµÄĞĞÎª²¢²»»á¼õÉÙ¸±±¾Ó¡¼ÇµÄÊ±¼ä.";
-		mes "Õâ½«ÓÀÔ¶¼ÌĞøÏÂÈ¥...";
+		mes "[åé‡‘]";
+		mes "ä½†æ˜¯ä½ ä»¬çš„è¡Œä¸ºå¹¶ä¸ä¼šå‡å°‘å‰¯æœ¬å°è®°çš„æ—¶é—´.";
+		mes "è¿™å°†æ°¸è¿œç»§ç»­ä¸‹å»...";
 		next;
-		mes "[»ª½ğ]";
-		mes "ÏÖÔÚ, ÎÒ½«»áÉ¾³ıÄãµÄ¼ÇÂ¼. Ò²ĞíÏÂÒ»´Î, Äã½«ÓĞ²»Í¬µÄÃüÔË.";
+		mes "[åé‡‘]";
+		mes "ç°åœ¨, æˆ‘å°†ä¼šåˆ é™¤ä½ çš„è®°å½•. ä¹Ÿè®¸ä¸‹ä¸€æ¬¡, ä½ å°†æœ‰ä¸åŒçš„å‘½è¿.";
 		specialeffect2 EF_FREEZE;
 		close2;
 		getmapxy(.@map$,.@x,.@y,0);
 		warp .@map$,.@x,.@y;
 		end;
 	} else {
-		mes "[»ª½ğ]";
-		mes "Ê±¼äµÄ·ìÏ¶²î²»¶àÅ¤ÇúÁË.";
-		mes "³É¹¦ÁË. Äã¿ÉÒÔ×ßÁË. ¿ì¸úÉÏ!";
-		mes "ÎÒ±ØĞë³öÈ¥ÁË!";
+		mes "[åé‡‘]";
+		mes "æ—¶é—´çš„ç¼éš™å·®ä¸å¤šæ‰­æ›²äº†.";
+		mes "æˆåŠŸäº†. ä½ å¯ä»¥èµ°äº†. å¿«è·Ÿä¸Š!";
+		mes "æˆ‘å¿…é¡»å‡ºå»äº†!";
 		next;
-		select("ÅŞ......²»¾ÃÖ®ºóÄã...");
-		mes "[»ª½ğ]";
-		mes "²»¾ÃÖ®ºó? ÎŞÂÛÈçºÎ...";
-		mes "²»Òª½ô, Ê±¼äµÄ·ìÏ¶ºÜ¿ì½«»á±ÕºÏ, ÎÒ±ØĞëµÃÀë¿ªÕâÀï.";
+		select("å‘¸......ä¸ä¹…ä¹‹åä½ ...");
+		mes "[åé‡‘]";
+		mes "ä¸ä¹…ä¹‹å? æ— è®ºå¦‚ä½•...";
+		mes "ä¸è¦ç´§, æ—¶é—´çš„ç¼éš™å¾ˆå¿«å°†ä¼šé—­åˆ, æˆ‘å¿…é¡»å¾—ç¦»å¼€è¿™é‡Œ.";
 		next;
-		switch(select("- ¼ÈÈ»ÎÒÀ´ÕâÀï. µ±È»ÒªÌ½Ë÷¸ü¶àÇøÓò.:- ÇóÇóÄã, °ÑÎÒËÍ»ØÈ¥.")) {
+		switch(select("- æ—¢ç„¶æˆ‘æ¥è¿™é‡Œ. å½“ç„¶è¦æ¢ç´¢æ›´å¤šåŒºåŸŸ.:- æ±‚æ±‚ä½ , æŠŠæˆ‘é€å›å».")) {
 		case 1:
-			mes "[»ª½ğ]";
+			mes "[åé‡‘]";
 			mes "..................";
 			close;
 		case 2:
@@ -1995,9 +1991,9 @@ OnTimer80000:
 	}
 OnInstanceInit:
 OnDisable:
-	disablenpc instance_npcname("»ª½ğ#ghinstance1");
+	disablenpc instance_npcname("åé‡‘#ghinstance1");
 	end;
 OnEnable:
-	enablenpc instance_npcname("»ª½ğ#ghinstance1");
+	enablenpc instance_npcname("åé‡‘#ghinstance1");
 	end;
 }

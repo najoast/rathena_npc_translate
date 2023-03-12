@@ -1,10 +1,7 @@
 //============================================================
-//= rAthenaCN [¹ÉÆ±ÊĞ³¡]ºº»¯½Å±¾ [ www.rAthenaCN.com ]
+//= rAthenaCN [è‚¡ç¥¨å¸‚åœº]æ±‰åŒ–è„šæœ¬ 
 //============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
+
 
 //===== HerculesScript ======================================
 //= Stock MarketGame
@@ -178,19 +175,19 @@ S_Fluc:
 	end;
 }
 
-prontera,140,181,5	script	¹ÉÆ±ÊĞ³¡::stockmarket	4_M_MANAGER,{
+prontera,140,181,5	script	è‚¡ç¥¨å¸‚åœº::stockmarket	4_M_MANAGER,{
 	// Ensures no trading when default priceshave not been set //
 	set@stotal,$S1+$S2+$S3+$S4+$S5+$S6+$S7+$S8+$S9+$S10;
 	if (@stotal > 0) goto S_Start;
-	mes "[¹ÉÆ±ÊĞ³¡]";
-	mes "ÊĞ³¡Ä¿Ç°ÊÇ¹Ø±ÕµÄ. ";
+	mes "[è‚¡ç¥¨å¸‚åœº]";
+	mes "å¸‚åœºç›®å‰æ˜¯å…³é—­çš„. ";
 	if (getgmlevel() > 90) goto GM_Open;
 	close;
 
 	// Begining of interface //
 S_Start:
-	mes "[¹ÉÆ±ÊĞ³¡]";
-	mes "×îºóÒ»´Î²¨¶¯:" + $S_LastUpd$;
+	mes "[è‚¡ç¥¨å¸‚åœº]";
+	mes "æœ€åä¸€æ¬¡æ³¢åŠ¨:" + $S_LastUpd$;
 
 	// Loss/Gain in price //
 	set @S1Update,$S1-$S1B;
@@ -260,16 +257,16 @@ S_Start:
 
 	// GM Menu link //
 	if (getgmlevel() > 90) goto GM_subMenu;
-	menu "- ×Ê²ú×éºÏ",S_Port,"- ¹ºÂò¹ÉÆ±",S_Buy,"- ³öÊÛ¹ÉÆ±",S_Sell,"- È¡Ïû",S_Quit;
+	menu "- èµ„äº§ç»„åˆ",S_Port,"- è´­ä¹°è‚¡ç¥¨",S_Buy,"- å‡ºå”®è‚¡ç¥¨",S_Sell,"- å–æ¶ˆ",S_Quit;
 
 GM_subMenu:
-	menu "- ×Ê²ú×éºÏ",S_Port,"- ¹ºÂò¹ÉÆ±",S_Buy,"- ³öÊÛ¹ÉÆ±",S_Sell,"- GM Menu",GM_Menu,"- È¡Ïû",S_Quit;
+	menu "- èµ„äº§ç»„åˆ",S_Port,"- è´­ä¹°è‚¡ç¥¨",S_Buy,"- å‡ºå”®è‚¡ç¥¨",S_Sell,"- GM Menu",GM_Menu,"- å–æ¶ˆ",S_Quit;
 
 	// Selling Shares //
 S_Sell:
-	mes "[¹ÉÆ±ÊĞ³¡]";
-	mes "ÊäÈëÄúÒª³öÊÛµÄ¹ÉÆ±Ãû³Æ. ";
-	mes "ĞèÒªÖ§¸¶½»Ò×·ÑÓÃ^FF0000" + $S_Trans + "z^000000 . ";
+	mes "[è‚¡ç¥¨å¸‚åœº]";
+	mes "è¾“å…¥æ‚¨è¦å‡ºå”®çš„è‚¡ç¥¨åç§°. ";
+	mes "éœ€è¦æ”¯ä»˜äº¤æ˜“è´¹ç”¨^FF0000" + $S_Trans + "z^000000 . ";
 	if (#S1 > 0) mes"^0000FF"+$S1N$+"^FF0000" + " x " + #S1 + "[" + $S1 + "z]";
 	if (#S2 > 0) mes"^0000FF"+$S2N$+"^FF0000" + " x " + #S2 + "[" + $S2 + "z]";
 	if (#S3 > 0) mes"^0000FF"+$S3N$+"^FF0000" + " x " + #S3 + "[" + $S3 + "z]";
@@ -295,8 +292,8 @@ SELLS1:
 	set #S1,#S1-@sellamount;
 	set Zeny, Zeny + @price;
 	next;
-	mes "³öÊÛ " + @sellamount + " " + $S1N$ + " ¹É.";
-	mes "»ñµÃ^0000FF"+@price+"z^000000.";
+	mes "å‡ºå”® " + @sellamount + " " + $S1N$ + " è‚¡.";
+	mes "è·å¾—^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -307,8 +304,8 @@ SELLS2:
 	set #S2,#S2-@sellamount;
 	set Zeny,Zeny+@price;
 	next;
-	mes "³öÊÛ " +@sellamount + " " + $S2N$ + " ¹É.";
-	mes "»ñµÃ^0000FF"+@price+"z^000000.";
+	mes "å‡ºå”® " +@sellamount + " " + $S2N$ + " è‚¡.";
+	mes "è·å¾—^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -319,8 +316,8 @@ SELLS3:
 	set #S3,#S3-@sellamount;
 	set Zeny, Zeny + @price;
 	next;
-	mes "³öÊÛ " +@sellamount + " " + $S3N$ + " ¹É.";
-	mes "»ñµÃ^0000FF"+@price+"z^000000.";
+	mes "å‡ºå”® " +@sellamount + " " + $S3N$ + " è‚¡.";
+	mes "è·å¾—^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -331,8 +328,8 @@ SELLS4:
 	set #S4,#S4-@sellamount;
 	set Zeny, Zeny + @price;
 	next;
-	mes "³öÊÛ " +@sellamount + " " + $S4N$ + " ¹É.";
-	mes "»ñµÃ^0000FF"+@price+"z^000000.";
+	mes "å‡ºå”® " +@sellamount + " " + $S4N$ + " è‚¡.";
+	mes "è·å¾—^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -343,8 +340,8 @@ SELLS5:
 	set #S5,#S5-@sellamount;
 	set Zeny, Zeny + @price;
 	next;
-	mes "³öÊÛ " + @sellamount + " " + $S5N$ + " ¹É.";
-	mes "»ñµÃ^0000FF"+@price+"z^000000.";
+	mes "å‡ºå”® " + @sellamount + " " + $S5N$ + " è‚¡.";
+	mes "è·å¾—^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -355,8 +352,8 @@ SELLS6:
 	set #S6,#S6-@sellamount;
 	set Zeny, Zeny + @price;
 	next;
-	mes "³öÊÛ " + @sellamount + " " + $S6N$ + " ¹É.";
-	mes "»ñµÃ^0000FF"+@price+"z^000000.";
+	mes "å‡ºå”® " + @sellamount + " " + $S6N$ + " è‚¡.";
+	mes "è·å¾—^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -367,8 +364,8 @@ SELLS7:
 	set #S7,#S7-@sellamount;
 	set Zeny, Zeny + @price;
 	next;
-	mes "³öÊÛ " + @sellamount + " " + $S7N$ + " ¹É.";
-	mes "»ñµÃ^0000FF"+@price+"z^000000.";
+	mes "å‡ºå”® " + @sellamount + " " + $S7N$ + " è‚¡.";
+	mes "è·å¾—^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -379,8 +376,8 @@ SELLS8:
 	set #S8,#S8-@sellamount;
 	set Zeny, Zeny + @price;
 	next;
-	mes "³öÊÛ " + @sellamount + " " + $S8N$ + " ¹É.";
-	mes "»ñµÃ^0000FF"+@price+"z^000000.";
+	mes "å‡ºå”® " + @sellamount + " " + $S8N$ + " è‚¡.";
+	mes "è·å¾—^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -391,8 +388,8 @@ SELLS9:
 	set #S9,#S9-@sellamount;
 	set Zeny, Zeny + @price;
 	next;
-	mes "³öÊÛ" + @sellamount + " " + $S9N$ + " ¹É.";
-	mes "»ñµÃ^0000FF"+@price+"z^000000.";
+	mes "å‡ºå”®" + @sellamount + " " + $S9N$ + " è‚¡.";
+	mes "è·å¾—^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -403,30 +400,30 @@ SELLS10:
 	set #S10,#S10-@sellamount;
 	set Zeny, Zeny + @price;
 	next;
-	mes "³öÊÛ " + @sellamount + " " + $S10N$ + " ¹É.";
-	mes "»ñµÃ^0000FF"+@price+"z^000000.";
+	mes "å‡ºå”® " + @sellamount + " " + $S10N$ + " è‚¡.";
+	mes "è·å¾—^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
 SELLS11:
-	mes "^FF0000ÎŞĞ§µÄÃû×Ö.^000000";
+	mes "^FF0000æ— æ•ˆçš„åå­—.^000000";
 	next;
 	goto S_Start;
 
 S_SellTooHigh:
-	mes "^FF0000ÄúÃ»ÓĞÄÇÃ´¶à¹É. ^000000";
+	mes "^FF0000æ‚¨æ²¡æœ‰é‚£ä¹ˆå¤šè‚¡. ^000000";
 	next;
 	goto S_Start;
 
 S_SellInv:
-	mes "^FF0000ÎŞĞ§µÄÕûÊı. ^000000";
+	mes "^FF0000æ— æ•ˆçš„æ•´æ•°. ^000000";
 	next;
 	goto S_Start;
 
 	// Buying Shares //
 S_Buy:
-	mes "[¹ÉÆ±ÊĞ³¡]";
-	mes "¿É¹©½»Ò×µÄ¹ÉÆ±ÊıÁ¿:";
+	mes "[è‚¡ç¥¨å¸‚åœº]";
+	mes "å¯ä¾›äº¤æ˜“çš„è‚¡ç¥¨æ•°é‡:";
 	mes $S1N$;
 	mes $S2N$;
 	mes $S3N$;
@@ -438,10 +435,10 @@ S_Buy:
 	mes $S9N$;
 	mes $S10N$;
 	next;
-	menu"- ¼ÌĞø",-,"- È¡Ïû",S_Start;
+	menu"- ç»§ç»­",-,"- å–æ¶ˆ",S_Start;
 	
-	mes "ÊäÈë¹É·İ¹«Ë¾µÄÃû×Ö";
-	mes "ĞèÒªÖ§¸¶µÄ½»Ò×·ÑÓÃ^FF0000" + $S_Trans + "z^000000 . ";
+	mes "è¾“å…¥è‚¡ä»½å…¬å¸çš„åå­—";
+	mes "éœ€è¦æ”¯ä»˜çš„äº¤æ˜“è´¹ç”¨^FF0000" + $S_Trans + "z^000000 . ";
 	set @buyname$,"0";
 	input @buyname$;
 
@@ -462,8 +459,8 @@ PURS1:
 	set #S1,#S1+@buyamount;
 	set @price,@buyamount*$S1;
 	set Zeny, Zeny - @price;
-	mes "Âòµ½ " + @buyamount + " " + $S1N$ + "¹É";
-	mes "»¨·Ñ^0000FF"+@price+"z^000000.";
+	mes "ä¹°åˆ° " + @buyamount + " " + $S1N$ + "è‚¡";
+	mes "èŠ±è´¹^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -473,8 +470,8 @@ PURS2:
 	if (Zeny < @price) goto S_NoZeny;
 	set #S2,#S2+@buyamount;
 	set Zeny, Zeny - @price;
-	mes "Âòµ½" + @buyamount + " " + $S2N$ + "¹É";
-	mes "»¨·Ñ^0000FF"+@price+"z^000000.";
+	mes "ä¹°åˆ°" + @buyamount + " " + $S2N$ + "è‚¡";
+	mes "èŠ±è´¹^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -484,8 +481,8 @@ PURS3:
 	if (Zeny < @price) goto S_NoZeny;
 	set #S3,#S3+@buyamount;
 	set Zeny, Zeny - @price;
-	mes "Âòµ½ " + @buyamount + " " + $S3N$ + " ¹É. ";
-	mes "»¨·Ñ^0000FF"+@price+"z^000000.";
+	mes "ä¹°åˆ° " + @buyamount + " " + $S3N$ + " è‚¡. ";
+	mes "èŠ±è´¹^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -495,8 +492,8 @@ PURS4:
 	if (Zeny < @price) goto S_NoZeny;
 	set #S4,#S4+@buyamount;
 	set Zeny, Zeny - @price;
-	mes "Âòµ½ " + @buyamount + " " + $S4N$ + " ¹É. ";
-	mes "»¨·Ñ^0000FF"+@price+"z^000000.";
+	mes "ä¹°åˆ° " + @buyamount + " " + $S4N$ + " è‚¡. ";
+	mes "èŠ±è´¹^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -506,8 +503,8 @@ PURS5:
 	if (Zeny < @price) goto S_NoZeny;
 	set #S5,#S5+@buyamount;
 	set Zeny, Zeny - @price;
-	mes "Âòµ½" + @buyamount + " " + $S5N$ + "¹É";
-	mes "»¨·Ñ^0000FF"+@price+"z^000000.";
+	mes "ä¹°åˆ°" + @buyamount + " " + $S5N$ + "è‚¡";
+	mes "èŠ±è´¹^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -517,8 +514,8 @@ PURS6:
 	if (Zeny < @price) goto S_NoZeny;
 	set #S6,#S6+@buyamount;
 	set Zeny, Zeny - @price;
-	mes "Âòµ½" + @buyamount + " " + $S6N$ + " ¹É. ";
-	mes "»¨·Ñ^0000FF"+@price+"z^000000.";
+	mes "ä¹°åˆ°" + @buyamount + " " + $S6N$ + " è‚¡. ";
+	mes "èŠ±è´¹^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -528,8 +525,8 @@ PURS7:
 	if (Zeny < @price) goto S_NoZeny;
 	set #S7,#S7+@buyamount;
 	set Zeny, Zeny - @price;
-	mes "Âòµ½ " + @buyamount + " " + $S7N$ + "¹É. ";
-	mes "»¨·Ñ^0000FF"+@price+"z^000000.";
+	mes "ä¹°åˆ° " + @buyamount + " " + $S7N$ + "è‚¡. ";
+	mes "èŠ±è´¹^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -539,8 +536,8 @@ PURS8:
 	if (Zeny < @price) goto S_NoZeny;
 	set #S8,#S8+@buyamount;
 	set Zeny, Zeny - @price;
-	mes "Âòµ½" + @buyamount + " " + $S8N$ + " ¹É. ";
-	mes "»¨·Ñ^0000FF"+@price+"z^000000.";
+	mes "ä¹°åˆ°" + @buyamount + " " + $S8N$ + " è‚¡. ";
+	mes "èŠ±è´¹^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -550,8 +547,8 @@ PURS9:
 	if (Zeny < @price) goto S_NoZeny;
 	set #S9,#S9+@buyamount;
 	set Zeny, Zeny - @price;
-	mes "Âòµ½ " + @buyamount + " " + $S9N$ + " ¹É. ";
-	mes "»¨·Ñ^0000FF"+@price+"z^000000.";
+	mes "ä¹°åˆ° " + @buyamount + " " + $S9N$ + " è‚¡. ";
+	mes "èŠ±è´¹^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -561,8 +558,8 @@ PURS10:
 	if (Zeny < @price) goto S_NoZeny;
 	set #S10,#S10+@buyamount;
 	set Zeny, Zeny - @price;
-	mes "Âòµ½ " +@buyamount + " " + $S10N$ + " ¹É. ";
-	mes "»¨·Ñ^0000FF"+@price+"z^000000.";
+	mes "ä¹°åˆ° " +@buyamount + " " + $S10N$ + " è‚¡. ";
+	mes "èŠ±è´¹^0000FF"+@price+"z^000000.";
 	next;
 	goto S_Start;
 
@@ -571,30 +568,30 @@ PURS11:
 
 	// Number too low //
 S_TooLow:
-	mes "^FF0000×îÉÙ" + $S_BuyMin + " Ò»´ÎÄÜ±»¹ºÂòµÄ×îĞ¡¹ÉÊı. ^000000";
+	mes "^FF0000æœ€å°‘" + $S_BuyMin + " ä¸€æ¬¡èƒ½è¢«è´­ä¹°çš„æœ€å°è‚¡æ•°. ^000000";
 	next;
 	goto S_Start;
 
 	// Number too high //
 S_TooHigh:
-	mes "^FF0000×î´ó" + $S_BuyMax + "Ò»´ÎÄÜ±»¹ºÂòµÄ×î´ó¹ÉÊı. ^000000";
+	mes "^FF0000æœ€å¤§" + $S_BuyMax + "ä¸€æ¬¡èƒ½è¢«è´­ä¹°çš„æœ€å¤§è‚¡æ•°. ^000000";
 	next;
 	goto S_Start;
 
 S_NoZeny:
-	mes "^FF0000ÄúµÄÇ®²»¹». ^000000";
+	mes "^FF0000æ‚¨çš„é’±ä¸å¤Ÿ. ^000000";
 	next;
 	goto S_Start;
 
 	// Sends user to start if name invalid //
 S_InvName:
-	mes "^FF0000ÎŞĞ§µÄ¹ÉÆ±Ãû×Ö. ^000000";
+	mes "^FF0000æ— æ•ˆçš„è‚¡ç¥¨åå­—. ^000000";
 	next;
 	goto S_Start;
 
 	// Displays your total amount //
 S_Port:
-	mes "[¹ÉÆ±ÊĞ³¡]";
+	mes "[è‚¡ç¥¨å¸‚åœº]";
 
 ACCS1:
 	if (#S1 < 1) goto ACCS2;
@@ -649,16 +646,16 @@ ACCS10:
 	// Total //
 ACCS11:
 	set @total,@S1 + @S2 + @S3 + @S4 + @S5 + @S6 + @S7 + @S8 + @S9 + @S10;
-	mes "×ÜÖµ: "+@total+"z";
+	mes "æ€»å€¼: "+@total+"z";
 	next;
 	goto S_Start;
 
 
 	// GM MENU //
 GM_Menu:
-	mes "[¹ÉÆ±ÊĞ³¡]";
-	mes "Ö÷ÈË£¬ÄúÒª¸ÉµãÊ²Ã´ÄØ?";
-	menu "- ÊĞ³¡²¨¶¯",S_Fluc,"- ÖØÖÃ¼Û¸ñ",GM_Open,"- Àë¿ª",S_Start;
+	mes "[è‚¡ç¥¨å¸‚åœº]";
+	mes "ä¸»äººï¼Œæ‚¨è¦å¹²ç‚¹ä»€ä¹ˆå‘¢?";
+	menu "- å¸‚åœºæ³¢åŠ¨",S_Fluc,"- é‡ç½®ä»·æ ¼",GM_Open,"- ç¦»å¼€",S_Start;
 
 S_Fluc:
 	set $fluc,rand (-6,6);
@@ -752,19 +749,19 @@ S_Fluc:
 	if ($S10 < 1) set $S10,1;
 
 	set $S_LastUpd$,"GMFluctuation";
-	mes "¹ÉÊĞ²¨¶¯. ";
+	mes "è‚¡å¸‚æ³¢åŠ¨. ";
 	close;
 
 GM_Open:
-	menu "- ÉèÖÃ¼Û¸ñ...",GM_Set,"- È¡Ïû",-;
-	mes "ÔÙ¼û. ";
+	menu "- è®¾ç½®ä»·æ ¼...",GM_Set,"- å–æ¶ˆ",-;
+	mes "å†è§. ";
 	close;
 
 GM_Set:
-	mes "ÄúÈ·¶¨ÒªÖØÆôÃ´?";
-	mes "^FF0000Í³Ò»ËùÓĞ¹ÉÆ±¼Û¸ñ. ^000000";
+	mes "æ‚¨ç¡®å®šè¦é‡å¯ä¹ˆ?";
+	mes "^FF0000ç»Ÿä¸€æ‰€æœ‰è‚¡ç¥¨ä»·æ ¼. ^000000";
 	next;
-	menu"- ÊÇ",-,"- ·ñ",GM_Menu;
+	menu"- æ˜¯",-,"- å¦",GM_Menu;
 	set @gmset,0;
 	input @gmset;
 	set $S1,@gmset;
@@ -787,11 +784,11 @@ GM_Set:
 	set $S8B,@gmset;
 	set $S9B,@gmset;
 	set $S10B,@gmset;
-	mes "ËùÓĞ¼Û¸ñµ÷ÕûÎª" + @gmset + "z.";
+	mes "æ‰€æœ‰ä»·æ ¼è°ƒæ•´ä¸º" + @gmset + "z.";
 	close;
 
 S_Quit:
-	mes "[¹ÉÆ±ÊĞ³¡]";
-	mes "ÔÙ¼û. ";
+	mes "[è‚¡ç¥¨å¸‚åœº]";
+	mes "å†è§. ";
 	close;
 }

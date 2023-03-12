@@ -1,10 +1,7 @@
 //============================================================
-//= rAthenaCN [×ªÖ°´óÊ¦]ºº»¯½Å±¾ [ www.rAthenaCN.com ]
+//= rAthenaCN [è½¬èŒå¤§å¸ˆ]æ±‰åŒ–è„šæœ¬ 
 //============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
+
 
 //===== rAthena Script =======================================
 //= Job Master
@@ -24,25 +21,25 @@
 //= 1.4 Rebellion added.
 //============================================================
 
-prontera,153,193,6	script	×ªÖ°´óÊ¦	123,{
+prontera,153,193,6	script	è½¬èŒå¤§å¸ˆ	123,{
 function Job_Menu;
 
-	mes "[×ªÖ°´óÊ¦]";
+	mes "[è½¬èŒå¤§å¸ˆ]";
 	if (Class > Job_Soul_Linker) {
-		mes "Ã»ÓĞ¸ü¶àµÄÖ°Òµ¿É¹©Ñ¡Ôñ.";
+		mes "æ²¡æœ‰æ›´å¤šçš„èŒä¸šå¯ä¾›é€‰æ‹©.";
 		close;
 	}
 	if (checkfalcon() || checkcart() || checkriding() || ismounting()) {
-		mes "ÇëÏÈÒÆ³ıÄúµÄ " +
-			((checkfalcon()) ? "ÁÔÓ¥" : "") +
-			((checkcart()) ? "ÊÖÍÆ³µ" : "") +
-			((checkriding()) ? "´ó×ìÄñ" : "") +
-			((ismounting()) ? "×øÆï" : "") +
-			" È»ºó¼ÌĞø×ªÖ°.";
+		mes "è¯·å…ˆç§»é™¤æ‚¨çš„ " +
+			((checkfalcon()) ? "çŒé¹°" : "") +
+			((checkcart()) ? "æ‰‹æ¨è½¦" : "") +
+			((checkriding()) ? "å¤§å˜´é¸Ÿ" : "") +
+			((ismounting()) ? "åéª‘" : "") +
+			" ç„¶åç»§ç»­è½¬èŒ.";
 		close;
 	}
 	if (.SkillPointCheck && SkillPoint) {
-		mes "ÇëÊ¹ÓÃÍêËùÓĞµÄ¼¼ÄÜµãÊı²ÅÄÜ¼ÌĞø×ªÖ°.";
+		mes "è¯·ä½¿ç”¨å®Œæ‰€æœ‰çš„æŠ€èƒ½ç‚¹æ•°æ‰èƒ½ç»§ç»­è½¬èŒ.";
 		close;
 	}
 
@@ -52,28 +49,28 @@ function Job_Menu;
 		if (BaseLevel < .Rebirth[0] || JobLevel < .Rebirth[1]) {
 			.@blvl = .Rebirth[0] - BaseLevel;
 			.@jlvl = .Rebirth[1] - JobLevel;
-			mes "ÄúµÄ " +
-				((.@blvl > 0) ? ("»ù±¾µÈ¼¶»¹²î " + .@blvl + " ¼¶ĞèÒªÌáÉı") + ((.@jlvl > 0) ? "/ " : "") : "") + 
-				((.@jlvl > 0) ? ("Ö°ÒµµÈ¼¶»¹²î " + .@jlvl + " ¼¶ĞèÒªÌáÉı") : "") + "²ÅÄÜ¼ÌĞø×ªÖ°.";
+			mes "æ‚¨çš„ " +
+				((.@blvl > 0) ? ("åŸºæœ¬ç­‰çº§è¿˜å·® " + .@blvl + " çº§éœ€è¦æå‡") + ((.@jlvl > 0) ? "/ " : "") : "") + 
+				((.@jlvl > 0) ? ("èŒä¸šç­‰çº§è¿˜å·® " + .@jlvl + " çº§éœ€è¦æå‡") : "") + "æ‰èƒ½ç»§ç»­è½¬èŒ.";
 			close;
 		}
 		if (Class > Job_Crusader2) {
-			mes "×ªÖ°³ÉÈı×ªÖ°Òµ?";
+			mes "è½¬èŒæˆä¸‰è½¬èŒä¸š?";
 			next;
 			Job_Menu(roclass(.@eac|EAJL_THIRD));
 			close;
 		}
 		while(1) {
-			mes "ÇëÑ¡ÔñÒ»Ïî.";
+			mes "è¯·é€‰æ‹©ä¸€é¡¹.";
 			next;
-			.@i = select(" ~ ^0055FF×ªÉú^000000:" + ((.ThirdClass) ? roclass(.@eac|EAJL_UPPER)==-1 ? " ~ ^FF0000Èı×ªÖ°Òµ^000000" : "" : "") + ": ~ ^777777È¡Ïû^000000");
+			.@i = select(" ~ ^0055FFè½¬ç”Ÿ^000000:" + ((.ThirdClass) ? roclass(.@eac|EAJL_UPPER)==-1 ? " ~ ^FF0000ä¸‰è½¬èŒä¸š^000000" : "" : "") + ": ~ ^777777å–æ¶ˆ^000000");
 			if (.@i == 3)
 				close;
-			mes "[×ªÖ°´óÊ¦]";
-			mes "ÄúÈ·¶¨ÁËÂğ?";
+			mes "[è½¬èŒå¤§å¸ˆ]";
+			mes "æ‚¨ç¡®å®šäº†å—?";
 			next;
 			Job_Menu(((.@i == 1) ? Job_Novice_High : roclass(.@eac|EAJL_THIRD)));
-			mes "[×ªÖ°´óÊ¦]";
+			mes "[è½¬èŒå¤§å¸ˆ]";
 		}
 	}
 	.@j1 = roclass(.@eac|EAJL_2_1);
@@ -86,26 +83,26 @@ function Job_Menu;
 		if (BaseLevel < .Rebirth[0] || JobLevel < .@exp[1]) {
 			.@blvl = .Rebirth[0] - BaseLevel;
 			.@jlvl = .@exp[1] - JobLevel;
-			mes "ÄúµÄ " + 
-				((.@blvl > 0) ? ("»ù±¾µÈ¼¶»¹²î " + .@blvl + " ¼¶ĞèÒªÌáÉı") + ((.@jlvl > 0) ? "/ " : "") : "") +
-				((.@jlvl > 0) ? ("Ö°ÒµµÈ¼¶»¹²î " + .@jlvl + " ¼¶ĞèÒªÌáÉı") : "") + "²ÅÄÜ¼ÌĞø.";
+			mes "æ‚¨çš„ " + 
+				((.@blvl > 0) ? ("åŸºæœ¬ç­‰çº§è¿˜å·® " + .@blvl + " çº§éœ€è¦æå‡") + ((.@jlvl > 0) ? "/ " : "") : "") +
+				((.@jlvl > 0) ? ("èŒä¸šç­‰çº§è¿˜å·® " + .@jlvl + " çº§éœ€è¦æå‡") : "") + "æ‰èƒ½ç»§ç»­.";
 			close;
 		}
-		mes "×ªÖ°Îª " + jobname(.@exp[0]) + "?";
+		mes "è½¬èŒä¸º " + jobname(.@exp[0]) + "?";
 		next;
 		Job_Menu(.@exp[0]);
 		close;
 	}
 	if (.@eac&EAJL_2)
 		if (.@eac&(EAJL_UPPER|EAJL_BABY) || roclass(.@eac|EAJL_UPPER) == -1) {
-			mes "Ã»ÓĞ¸ü¶àµÄÖ°Òµ¿É¹©Ñ¡Ôñ.";
+			mes "æ²¡æœ‰æ›´å¤šçš„èŒä¸šå¯ä¾›é€‰æ‹©.";
 			close;
 		}
 	if ((.@eac&EAJ_BASEMASK) == EAJ_NOVICE) {
 		if (JobLevel < .JobReq[0])
-			mes "ÄúµÄÖ°ÒµµÈ¼¶ĞèÒªÌá¸ßµ½ " + .JobReq[0] + " ¼¶,²ÅÄÜ×ªÖ°ÎªÒ»×ªÖ°Òµ.";
+			mes "æ‚¨çš„èŒä¸šç­‰çº§éœ€è¦æé«˜åˆ° " + .JobReq[0] + " çº§,æ‰èƒ½è½¬èŒä¸ºä¸€è½¬èŒä¸š.";
 		else if (Class == Job_Novice_High && .LastJob && lastJob) {
-			mes "ÇëÑ¡ÔñÒª×ªÖ°µÄÖ°Òµ.";
+			mes "è¯·é€‰æ‹©è¦è½¬èŒçš„èŒä¸š.";
 			next;
 			Job_Menu(roclass((eaclass(lastJob)&EAJ_BASEMASK)|EAJL_UPPER));
 		} else {
@@ -147,18 +144,18 @@ function Job_Menu;
 				);
 				break;
 			default:
-				mes "·¢ÉúÁË´íÎó.";
+				mes "å‘ç”Ÿäº†é”™è¯¯.";
 				break;
 			}
 		}
 		close;
 	}
 	if (roclass(.@eac|EAJL_2_1) == -1 || roclass(.@eac|EAJL_2_2) == -1)
-		mes "Ã»ÓĞ¸ü¶àµÄÖ°Òµ¿É¹©Ñ¡Ôñ.";
+		mes "æ²¡æœ‰æ›´å¤šçš„èŒä¸šå¯ä¾›é€‰æ‹©.";
 	else if (!(.@eac&EAJL_2) && JobLevel < .JobReq[1])
-		mes "ÄúµÄÖ°ÒµµÈ¼¶ĞèÒªÌá¸ßµ½ " + .JobReq[1] + " ¼¶,²ÅÄÜ×ªÖ°Îª¶ş×ªÖ°Òµ.";
+		mes "æ‚¨çš„èŒä¸šç­‰çº§éœ€è¦æé«˜åˆ° " + .JobReq[1] + " çº§,æ‰èƒ½è½¬èŒä¸ºäºŒè½¬èŒä¸š.";
 	else if (.LastJob && lastJob && (.@eac&EAJL_UPPER)) {
-		mes "ÄúÈ·¶¨ÁËÂğ?";
+		mes "æ‚¨ç¡®å®šäº†å—?";
 		next;
 		Job_Menu(lastJob + Job_Novice_High);
 	} else
@@ -168,28 +165,28 @@ function Job_Menu;
 function Job_Menu {
 	while(1) {
 		if (getargcount() > 1) {
-			mes "ÇëÑ¡ÔñÒª×ªÖ°µÄÖ°Òµ.";
+			mes "è¯·é€‰æ‹©è¦è½¬èŒçš„èŒä¸š.";
 			.@menu$ = "";
 			for (.@i = 0; .@i < getargcount(); .@i++)
 				.@menu$ = .@menu$ + " ~ " + jobname(getarg(.@i)) + ":";
-			.@menu$ = .@menu$+" ~ ^777777È¡Ïû^000000";
+			.@menu$ = .@menu$+" ~ ^777777å–æ¶ˆ^000000";
 			next;
 			.@i = getarg(select(.@menu$) - 1, 0);
 			if (!.@i)
 				close;
 			if ((.@i == Job_SuperNovice || .@i == Job_Super_Baby) && BaseLevel < .SNovice) {
-				mes "[×ªÖ°´óÊ¦]";
-				mes "ĞèÒª»ù±¾µÈ¼¶´ïµ½ " + .SNovice + " ¼¶²ÅÄÜ×ªÖ°Îª " + jobname(.@i) + ".";
+				mes "[è½¬èŒå¤§å¸ˆ]";
+				mes "éœ€è¦åŸºæœ¬ç­‰çº§è¾¾åˆ° " + .SNovice + " çº§æ‰èƒ½è½¬èŒä¸º " + jobname(.@i) + ".";
 				close;
 			}
-			mes "[×ªÖ°´óÊ¦]";
-			mes "ÄúÈ·¶¨ÁËÂğ?";
+			mes "[è½¬èŒå¤§å¸ˆ]";
+			mes "æ‚¨ç¡®å®šäº†å—?";
 			next;
 		} else
 			.@i = getarg(0);
-		if (select(" ~ ×ªÖ°Îª ^0055FF" + jobname(.@i) + "^000000 Ö°Òµ: ~ ^777777" + ((getargcount() > 1) ? "·µ»Ø" : "È¡Ïû") + "^000000") == 1) {
-			mes "[×ªÖ°´óÊ¦]";
-			mes "ÄúÏÖÔÚÊÇÒ»Ãû " + jobname(.@i) + " ÁË!";
+		if (select(" ~ è½¬èŒä¸º ^0055FF" + jobname(.@i) + "^000000 èŒä¸š: ~ ^777777" + ((getargcount() > 1) ? "è¿”å›" : "å–æ¶ˆ") + "^000000") == 1) {
+			mes "[è½¬èŒå¤§å¸ˆ]";
+			mes "æ‚¨ç°åœ¨æ˜¯ä¸€å " + jobname(.@i) + " äº†!";
 			if (.@i == Job_Novice_High && .LastJob)
 				lastJob = Class;
 			jobchange .@i;
@@ -210,50 +207,50 @@ function Job_Menu {
 		}
 		if (getargcount() == 1)
 			return;
-		mes "[×ªÖ°´óÊ¦]";
+		mes "[è½¬èŒå¤§å¸ˆ]";
 	}
 	end;
 }
 
 Get_3rdJobItem:
 	switch (Class) {
-		case 4054:	getitem 5746,1;	break;	//Â¬¶÷ÆïÊ¿
+		case 4054:	getitem 5746,1;	break;	//å¢æ©éª‘å£«
 		case 4060:	getitem 5746,1;	break;
 		
-		case 4055:	getitem 5753,1;	break;	//´ó·¨Ê¦
+		case 4055:	getitem 5753,1;	break;	//å¤§æ³•å¸ˆ
 		case 4061:	getitem 5753,1;	break;
 		
-		case 4056:	getitem 5748,1;	break;	//ÓÎÏÀ
+		case 4056:	getitem 5748,1;	break;	//æ¸¸ä¾ 
 		case 4062:	getitem 5748,1;	break;
 		
-		case 4057:	getitem 5747,1;	break;	//´óÖ÷½Ì
+		case 4057:	getitem 5747,1;	break;	//å¤§ä¸»æ•™
 		case 4063:	getitem 5747,1;	break;
 		
-		case 4058:	getitem 5749,1;	getitem 5760,1; break;	//»ú½³
+		case 4058:	getitem 5749,1;	getitem 5760,1; break;	//æœºåŒ 
 		case 4064:	getitem 5749,1; getitem 5760,1;	break;
 		
-		case 4059:	getitem 5755,1;	break;	//Ê®×ÖÇĞ¸î
+		case 4059:	getitem 5755,1;	break;	//åå­—åˆ‡å‰²
 		case 4065:	getitem 5755,1;	break;
 		
-		case 4066:	getitem 5757,1;	break;	//»Ê¼ÒÎÀÊ¿
+		case 4066:	getitem 5757,1;	break;	//çš‡å®¶å«å£«
 		case 4073:	getitem 5757,1;	break;
 		
-		case 4067:	getitem 5756,1;	break;	//ÔªËØ
+		case 4067:	getitem 5756,1;	break;	//å…ƒç´ 
 		case 4074:	getitem 5756,1;	break;
 		
-		case 4068:	getitem 5751,1;	break;	//¹¬Í¢
+		case 4068:	getitem 5751,1;	break;	//å®«å»·
 		case 4075:	getitem 5751,1;	break;
 		
-		case 4069:	getitem 5758,1;	break;	//ÂşÓÎ
+		case 4069:	getitem 5758,1;	break;	//æ¼«æ¸¸
 		case 4076:	getitem 5758,1;	break;
 		
-		case 4070:	getitem 5754,1;	break;	//ĞŞÂŞ
+		case 4070:	getitem 5754,1;	break;	//ä¿®ç½—
 		case 4077:	getitem 5754,1;	break;
 		
-		case 4071:	getitem 5752,1;	break;	//»ùÒò
+		case 4071:	getitem 5752,1;	break;	//åŸºå› 
 		case 4078:	getitem 5752,1;	break;
 		
-		case 4072:	getitem 5750,1;	break;	//ÖğÓ°
+		case 4072:	getitem 5750,1;	break;	//é€å½±
 		case 4079:	getitem 5750,1;	break;
 	}
 return;

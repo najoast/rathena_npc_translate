@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN ½Å±¾ºº»¯ www.rAthenaCN.com ×ª×Ô [ www.99Max.mE ]
-//============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN è„šæœ¬æ±‰åŒ– è½¬è‡ª [ www.99Max.mE ]
 //============================================================
 
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Geffen Guides
 //===== By: ================================================== 
 //= L0ne_W0lf
@@ -22,69 +18,69 @@
 //= 1.1 Fixed and optimized. [Euphy]
 //============================================================ 
 
-geffen,203,116,4	script	µ¼ÓÎ#01geffen::GuideGeffen	705,{
+geffen,203,116,4	script	å¯¼æ¸¸#01geffen::GuideGeffen	705,{
 	cutin "gef_soldier",2;
-	mes "[¼ª·Òµ¼ÓÎ]";
-	mes "»¶Ó­¹âÁÙ Ä§·¨Ö®¶¼^8B4513¼ª·Ò^000000,";
-	mes "ĞèÒªÎªÄú½éÉÜÂğ?";
+	mes "[å‰èŠ¬å¯¼æ¸¸]";
+	mes "æ¬¢è¿å…‰ä¸´ é­”æ³•ä¹‹éƒ½^8B4513å‰èŠ¬^000000,";
+	mes "éœ€è¦ä¸ºæ‚¨ä»‹ç»å—?";
 	next;
 	while (1) {
-		switch(select("[ Ö÷ÒªÉèÊ© ]:[ ÉÌµê & Ğ¡°ïÊÖ ]:É¾³ıĞ¡µØÍ¼µÄ±ê¼Ç:½áÊø¶Ô»°")) {
+		switch(select("[ ä¸»è¦è®¾æ–½ ]:[ å•†åº— & å°å¸®æ‰‹ ]:åˆ é™¤å°åœ°å›¾çš„æ ‡è®°:ç»“æŸå¯¹è¯")) {
 		case 1:
 			set .@loop,1;
 			while (.@loop) {
-				switch(select("[ Ä§·¨Ñ§Ğ£ ]:[ ¼ª·ÒËş ]:[ ÅçË®³Ø ]:[ µÀ¾ßµê ]:[ ×°±¸Î¬ĞŞ¼°¹ºÂò ]:[ ÂÃ¹İ ]:[ ¾Æµê ]:[ ¿ËÀïË¹¶à·òÌú¹¤³§ ]:·µ»ØÉÏÒ»Ñ¡µ¥")) {
+				switch(select("[ é­”æ³•å­¦æ ¡ ]:[ å‰èŠ¬å¡” ]:[ å–·æ°´æ±  ]:[ é“å…·åº— ]:[ è£…å¤‡ç»´ä¿®åŠè´­ä¹° ]:[ æ—…é¦† ]:[ é…’åº— ]:[ å…‹é‡Œæ–¯å¤šå¤«é“å·¥å‚ ]:è¿”å›ä¸Šä¸€é€‰å•")) {
 				case 1:
-					mes "[¼ª·Òµ¼ÓÎ]";
-					mes "^B9062FÄ§·¨Ñ§Ğ£^000000ÊÇ";
-					mes "¸ºÔğÄ§·¨Ê¦";
-					mes "×ªÖ°µÈµÄ¹¤×÷,";
-					mes "Î»ÖÃÒÑ¾­±ê¼ÇÔÚ";
-					mes "Ğ¡µØÍ¼ÉÏÁË,	";
-					mes "»¹ĞèÒªÆäËü·şÎñÂğ?";
+					mes "[å‰èŠ¬å¯¼æ¸¸]";
+					mes "^B9062Fé­”æ³•å­¦æ ¡^000000æ˜¯";
+					mes "è´Ÿè´£é­”æ³•å¸ˆ";
+					mes "è½¬èŒç­‰çš„å·¥ä½œ,";
+					mes "ä½ç½®å·²ç»æ ‡è®°åœ¨";
+					mes "å°åœ°å›¾ä¸Šäº†,	";
+					mes "è¿˜éœ€è¦å…¶å®ƒæœåŠ¡å—?";
 					viewpoint 1,61,180,0,0xFF0000;
 					next;
 					break;
 				case 2:
-					callsub L_Mark,"^0000FF¼ª·ÒËş";
+					callsub L_Mark,"^0000FFå‰èŠ¬å¡”";
 					viewpoint 1,120,114,1,0x0000FF;
 					next;
 					break;
 				case 3:
-					callsub L_Mark,"^FF5400ÅçË®³Ø";
+					callsub L_Mark,"^FF5400å–·æ°´æ± ";
 					viewpoint 1,126,48,2,0xFFB400;
 					next;
 					break;
 				case 4:
-					callsub L_Mark,"^006400µÀ¾ßµê";
+					callsub L_Mark,"^006400é“å…·åº—";
 					viewpoint 1,44,86,3,0xAAFF00;
 					next;
 					break;
 				case 5:
-					mes "[¼ª·Òµ¼ÓÎ]";
-					mes "^7F3300×°±¸Î¬ĞŞ¼°¹ºÂò^000000";
-					mes "Î»ÖÃÒÑ¾­±ê¼ÇÔÚ";
-					mes "Ğ¡µØÍ¼ÉÏÁË,";
-					mes "»¹ĞèÒªÆäËü·şÎñÂğ?";
+					mes "[å‰èŠ¬å¯¼æ¸¸]";
+					mes "^7F3300è£…å¤‡ç»´ä¿®åŠè´­ä¹°^000000";
+					mes "ä½ç½®å·²ç»æ ‡è®°åœ¨";
+					mes "å°åœ°å›¾ä¸Šäº†,";
+					mes "è¿˜éœ€è¦å…¶å®ƒæœåŠ¡å—?";
 					viewpoint 1,99,140,4,0xD2691E;
 					next;
 					break;
 				case 6:
-					callsub L_Mark,"^800080ÂÃ¹İ";
+					callsub L_Mark,"^800080æ—…é¦†";
 					viewpoint 1,172,174,5,0xDA70D6;
 					next;
 					break;
 				case 7:
-					callsub L_Mark,"^B9062F¾Æµê";
+					callsub L_Mark,"^B9062Fé…’åº—";
 					viewpoint 1,138,138,6,0xFF0000;
 					next;
 					break;
 				case 8:
-					mes "[¼ª·Òµ¼ÓÎ]";
-					mes "^0000FF¿ËÀïË¹¶à·òÌú¹¤³§^000000ÊÇ";
-					mes "³öÊÛ¸÷ÖÖ¾«Á¶";
-					mes "µÀ¾ßµÄµØ·½,";
-					mes "¾İËµÒÔÇ°ÄÇÀïÔøÊÇÌú½³¹¤»á.";
+					mes "[å‰èŠ¬å¯¼æ¸¸]";
+					mes "^0000FFå…‹é‡Œæ–¯å¤šå¤«é“å·¥å‚^000000æ˜¯";
+					mes "å‡ºå”®å„ç§ç²¾ç‚¼";
+					mes "é“å…·çš„åœ°æ–¹,";
+					mes "æ®è¯´ä»¥å‰é‚£é‡Œæ›¾æ˜¯é“åŒ å·¥ä¼š.";
 					viewpoint 1,182,59,6,0x0000FF;
 					next;
 					break;
@@ -97,31 +93,31 @@ geffen,203,116,4	script	µ¼ÓÎ#01geffen::GuideGeffen	705,{
 		case 2:
 			set .@loop,1;
 			while (.@loop) {
-				switch(select("[ ÒÁµéÔ°´«ËÍÊ¦ ]:[ ¿¨ÆÕÀ­Ö°Ô± ]:[ ÈÏÑø³èÎïÉÌÈË ]:[ ÁÏÀí²ÄÁÏÉÌ ]:[ Òì´ÎÔªÊõÊ¿½âËµÔ± ]:·µ»ØÉÏÒ»Ñ¡µ¥")) {
+				switch(select("[ ä¼Šç”¸å›­ä¼ é€å¸ˆ ]:[ å¡æ™®æ‹‰èŒå‘˜ ]:[ è®¤å…»å® ç‰©å•†äºº ]:[ æ–™ç†ææ–™å•† ]:[ å¼‚æ¬¡å…ƒæœ¯å£«è§£è¯´å‘˜ ]:è¿”å›ä¸Šä¸€é€‰å•")) {
 				case 1:
-					callsub L_Mark,"^B9062FÒÁµéÔ°´«ËÍÊ¦";
+					callsub L_Mark,"^B9062Fä¼Šç”¸å›­ä¼ é€å¸ˆ";
 					viewpoint 1,61,180,7,0xFF0000;
 					viewpoint 1,132,66,8,0xFF0000;
 					next;
 					break;
 				case 2:
-					callsub L_Mark,"^FF5400¿¨ÆÕÀ­Ö°Ô±";
+					callsub L_Mark,"^FF5400å¡æ™®æ‹‰èŒå‘˜";
 					viewpoint 1,203,123,10,0xFFB400;
 					viewpoint 1,120,62,11,0xFFB400;
 					next;
 					break;
 				case 3:
-					callsub L_Mark,"^006400ÈÏÑø³èÎïÉÌÈË";
+					callsub L_Mark,"^006400è®¤å…»å® ç‰©å•†äºº";
 					viewpoint 1,193,152,12,0xAAFF00;
 					next;
 					break;
 				case 4:
-					callsub L_Mark,"^7F3300ÁÏÀí²ÄÁÏÉÌ";
+					callsub L_Mark,"^7F3300æ–™ç†ææ–™å•†";
 					viewpoint 1,196,111,13,0xD2691E;
 					next;
 					break;
 				case 5:
-					callsub L_Mark,"^800080Òì´ÎÔªÊõÊ¿½âËµÔ±";
+					callsub L_Mark,"^800080å¼‚æ¬¡å…ƒæœ¯å£«è§£è¯´å‘˜";
 					viewpoint 1,140,196,14,0xDA70D6;
 					next;
 					break;
@@ -132,9 +128,9 @@ geffen,203,116,4	script	µ¼ÓÎ#01geffen::GuideGeffen	705,{
 			}
 			break;
 		case 3:
-			mes "[¼ª·Òµ¼ÓÎ]";
-			mes "±ê¼ÇÒÑÉ¾³ı,";
-			mes "»¹ĞèÒªÆäËü·şÎñÂğ?";
+			mes "[å‰èŠ¬å¯¼æ¸¸]";
+			mes "æ ‡è®°å·²åˆ é™¤,";
+			mes "è¿˜éœ€è¦å…¶å®ƒæœåŠ¡å—?";
 			viewpoint 2,1,1,0,0xFFFF00;
 			viewpoint 2,1,1,1,0x000000;
 			viewpoint 2,1,1,2,0xFF0000;
@@ -153,8 +149,8 @@ geffen,203,116,4	script	µ¼ÓÎ#01geffen::GuideGeffen	705,{
 			next;
 			break;
 		case 4:
-			mes "[¼ª·Òµ¼ÓÎ]";
-			mes "×£ÄãÂÃÍ¾Óä¿ì!";
+			mes "[å‰èŠ¬å¯¼æ¸¸]";
+			mes "ç¥ä½ æ—…é€”æ„‰å¿«!";
 			close2;
 			cutin "gef_soldier",255;
 			end;
@@ -162,14 +158,14 @@ geffen,203,116,4	script	µ¼ÓÎ#01geffen::GuideGeffen	705,{
 	}
 	end;
 L_Mark:
-	mes "[¼ª·Òµ¼ÓÎ]";
-	mes "ÈÃÎÒÔÚÄãµÄĞ¡µØÍ¼ÉÏ±ê¼ÇÒ»ÏÂ";
+	mes "[å‰èŠ¬å¯¼æ¸¸]";
+	mes "è®©æˆ‘åœ¨ä½ çš„å°åœ°å›¾ä¸Šæ ‡è®°ä¸€ä¸‹";
 	mes getarg(0)+"^000000";
-	mes "µÄÎ»ÖÃ.";
-	mes "Äã»¹ĞèÒªÈ·ÈÏÆäËû½¨ÖşÎïµÄÎ»ÖÃÂğ?";
+	mes "çš„ä½ç½®.";
+	mes "ä½ è¿˜éœ€è¦ç¡®è®¤å…¶ä»–å»ºç­‘ç‰©çš„ä½ç½®å—?";
 	return;
 }
 
-geffen,118,62,0	duplicate(GuideGeffen)	µ¼ÓÎ#02geffen	705
-geffen,36,123,6	duplicate(GuideGeffen)	µ¼ÓÎ#03geffen	705
-geffen,123,203,4	duplicate(GuideGeffen)	µ¼ÓÎ#04geffen	705
+geffen,118,62,0	duplicate(GuideGeffen)	å¯¼æ¸¸#02geffen	705
+geffen,36,123,6	duplicate(GuideGeffen)	å¯¼æ¸¸#03geffen	705
+geffen,123,203,4	duplicate(GuideGeffen)	å¯¼æ¸¸#04geffen	705

@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN [³ÇÕòÈËÔ±]ºº»¯½Å±¾ [ www.rAthenaCN.com ]
-//============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN [åŸé•‡äººå‘˜]æ±‰åŒ–è„šæœ¬ 
 //============================================================
 
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Dewata Town
 //===== By: ================================================== 
 //= Gennosuke Kouga, Muad_Dib
@@ -24,97 +20,97 @@
 //= 1.3 Updated to match the official script. [Lemongrass/Euphy]
 //============================================================
 
-dewata,221,237,5	script	×ØÀ¸¹ûÊµÇàÄê#dew-1	536,{
-	mes "[×ØÀ¸¹ûÊµÇàÄê]";
+dewata,221,237,5	script	æ£•æ æœå®é’å¹´#dew-1	536,{
+	mes "[æ£•æ æœå®é’å¹´]";
 	mes "What's wrong with your faaaaaace? You must really be clueless!";
 	next;
-	mes "[×ØÀ¸¹ûÊµÇàÄê]";
+	mes "[æ£•æ æœå®é’å¹´]";
 	mes "Let me drop some knowledge on ya.";
 	next;
-	mes "[×ØÀ¸¹ûÊµÇàÄê]";
+	mes "[æ£•æ æœå®é’å¹´]";
 	mes "I may be a youngling, but no one knows more than I do about ^777700Palm fruit^000000. All right! What do you want to know?";
 	next;
 	switch(select("About the shell...:About the pulp...:About the palm kernel...:No thanks.")) {
 	case 1:
-		mes "[×ØÀ¸¹ûÊµÇàÄê]";
+		mes "[æ£•æ æœå®é’å¹´]";
 		mes "So you want to know about Palm fruit's pulp? Let me explain.";
 		next;
-		mes "[×ØÀ¸¹ûÊµÇàÄê]";
+		mes "[æ£•æ æœå®é’å¹´]";
 		mes "Normally Palm fruit shell is used for making oil. Palm Oil is a useful ingredient for many dishes.";
 		next;
-		mes "[×ØÀ¸¹ûÊµÇàÄê]";
+		mes "[æ£•æ æœå®é’å¹´]";
 		if (dew_drink > 0)
 			mes "Hmm... Have you met Memo already? Then it should be easy for you to understand.";
 		else
 			mes "If you want to know how to use Palm Oil, go find Memo on the north side of Dewata island. Everyday, he makes traditional drinks with Palm Oil.";
 		next;
-		mes "[×ØÀ¸¹ûÊµÇàÄê]";
+		mes "[æ£•æ æœå®é’å¹´]";
 		mes "Anyways, we refer to the oil that comes from the Palm fruit as Palm oil or Coconut oil, which is well known for it's quality.";
 		next;
-		mes "[×ØÀ¸¹ûÊµÇàÄê]";
+		mes "[æ£•æ æœå®é’å¹´]";
 		mes "The leftovers from oil production gets dried, and used for fuel in cooking or heating.";
 		next;
-		mes "[×ØÀ¸¹ûÊµÇàÄê]";
+		mes "[æ£•æ æœå®é’å¹´]";
 		mes "It burns well and has a good smell, can't get better than that.";
 		next;
-		mes "[×ØÀ¸¹ûÊµÇàÄê]";
+		mes "[æ£•æ æœå®é’å¹´]";
 		mes "Ok!! That is all about the pulp, it takes too long to explain all those useful effects for Palm fruit shells.";
 		next;
-		mes "[×ØÀ¸¹ûÊµÇàÄê]";
+		mes "[æ£•æ æœå®é’å¹´]";
 		mes "It's not like this is the extent of my knowledge. Don't get me wrong!";
 		close;
 	case 2:
-		mes "[×ØÀ¸¹ûÊµÇàÄê]";
+		mes "[æ£•æ æœå®é’å¹´]";
 		mes "So you want to know about the Palm interior? Let me explain.";
 		next;
-		mes "[×ØÀ¸¹ûÊµÇàÄê]";
+		mes "[æ£•æ æœå®é’å¹´]";
 		mes "Palm tree fruit has 2 layers of pulp. Outside is very rough, and the inside is smooth...";
 		next;
-		mes "[×ØÀ¸¹ûÊµÇàÄê]";
+		mes "[æ£•æ æœå®é’å¹´]";
 		mes "Hmm... Yes! the pulp of Palm tree fruit is a little bit harder than a walnut shell, must be the water it contains inside.";
 		next;
-		mes "[×ØÀ¸¹ûÊµÇàÄê]";
+		mes "[æ£•æ æœå®é’å¹´]";
 		mes "Inside of the shell, there's about 300cc water which is useful in quenching people's thirst since Dewata island has very hot weather.";
 		next;
-		mes "[×ØÀ¸¹ûÊµÇàÄê]";
+		mes "[æ£•æ æœå®é’å¹´]";
 		mes "And it's not like we just throw it away once we drink the water inside!!";
 		next;
-		mes "[×ØÀ¸¹ûÊµÇàÄê]";
+		mes "[æ£•æ æœå®é’å¹´]";
 		mes "We also can make a quality canteen out of it! Like I said, it has really thick outer shell enough and can act as a water bottle.";
 		next;
-		mes "[×ØÀ¸¹ûÊµÇàÄê]";
+		mes "[æ£•æ æœå®é’å¹´]";
 		mes "It is also great to make charcoal. Charcoal made out of palm fruit is well known for long lasting and quality fire,";
 		next;
-		mes "[×ØÀ¸¹ûÊµÇàÄê]";
+		mes "[æ£•æ æœå®é’å¹´]";
 		mes "People love to cook seafoods and chicken with Palm fruit charcoal..";
 		next;
-		mes "[×ØÀ¸¹ûÊµÇàÄê]";
+		mes "[æ£•æ æœå®é’å¹´]";
 		mes "It has the extra bonus of being burning with a pleasant palm smell";
 		next;
-		mes "[×ØÀ¸¹ûÊµÇàÄê]";
+		mes "[æ£•æ æœå®é’å¹´]";
 		mes "Ok!! That is all for pulp information, it takes too long to explain all those useful effects.";
 		next;
-		mes "[×ØÀ¸¹ûÊµÇàÄê]";
+		mes "[æ£•æ æœå®é’å¹´]";
 		mes "It's not like this is all I know. Don't get me wrong!";
 		close;
 	case 3:
-		mes "[×ØÀ¸¹ûÊµÇàÄê]";
+		mes "[æ£•æ æœå®é’å¹´]";
 		mes "So, you want to know about tender kernel inside? Let me explain for you";
 		next;
-		mes "[×ØÀ¸¹ûÊµÇàÄê]";
+		mes "[æ£•æ æœå®é’å¹´]";
 		mes "The kernel inside of the hard pulp is used as a natural digestive.";
 		next;
-		mes "[×ØÀ¸¹ûÊµÇàÄê]";
+		mes "[æ£•æ æœå®é’å¹´]";
 		mes "Not much to say about the kernel inside..";
 		next;
-		mes "[×ØÀ¸¹ûÊµÇàÄê]";
+		mes "[æ£•æ æœå®é’å¹´]";
 		mes "but we do make sure to use every part of the palm fruit.";
 		next;
-		mes "[×ØÀ¸¹ûÊµÇàÄê]";
+		mes "[æ£•æ æœå®é’å¹´]";
 		mes "Wouldn't you agree?";
 		close;
 	case 4:
-		mes "[×ØÀ¸¹ûÊµÇàÄê]";
+		mes "[æ£•æ æœå®é’å¹´]";
 		mes "Arrgg! You have no interest in the world!";
 		close;
 	}
@@ -166,133 +162,133 @@ OnTouch:
 	end;
 }
 
-dewata,159,81,4	script	¹Û¹â¿Í#dew-1	881,{
-	mes "[¹Û¹â¿Í]";
-	mes "ÍÛw~ ´¿¾»µÄº£Ñó, ÎÂÅ¯µÄº£Ì²...";
-	mes "ÓëÅ®ÓÑÔ¼»áµÄÍêÃÀ¾°µã..";
+dewata,159,81,4	script	è§‚å…‰å®¢#dew-1	881,{
+	mes "[è§‚å…‰å®¢]";
+	mes "å“‡w~ çº¯å‡€çš„æµ·æ´‹, æ¸©æš–çš„æµ·æ»©...";
+	mes "ä¸å¥³å‹çº¦ä¼šçš„å®Œç¾æ™¯ç‚¹..";
 	next;
-	mes "[¹Û¹â¿Í]";
-	mes "Èç¹ûÎÒÓĞÅ®ÓÑµÄ»°...";
+	mes "[è§‚å…‰å®¢]";
+	mes "å¦‚æœæˆ‘æœ‰å¥³å‹çš„è¯...";
 	emotion ET_CRY;
 	next;
-	mes "[¹Û¹â¿Í]";
-	mes "²»ÖªºÎÊ±£¬ÎÒµÄ¹«Ö÷²Å»á³öÏÖ£¿..";
+	mes "[è§‚å…‰å®¢]";
+	mes "ä¸çŸ¥ä½•æ—¶ï¼Œæˆ‘çš„å…¬ä¸»æ‰ä¼šå‡ºç°ï¼Ÿ..";
 	emotion ET_OHNO;
 	close;
 }
 
-dewata,146,109,5	script	²Í¹İÀÏ°å#dew	886,{
+dewata,146,109,5	script	é¤é¦†è€æ¿#dew	886,{
 	if (checkweight(11532,1) == 0 || checkweight(11533,1) == 0 || MaxWeight - Weight < 500) {
-		mes "[²Í¹İÀÏ°å]";
-		mes "ÄãÏë³¢³¢ÎÒµÄ³øÒÕÂğ? µ±Äã¶Ç×Ó¶öµÄÊ±ºò»á¾õµÃ¸üºÃ³Ô.";
+		mes "[é¤é¦†è€æ¿]";
+		mes "ä½ æƒ³å°å°æˆ‘çš„å¨è‰ºå—? å½“ä½ è‚šå­é¥¿çš„æ—¶å€™ä¼šè§‰å¾—æ›´å¥½åƒ.";
 		close;
 	}
-	mes "[²Í¹İÀÏ°å]";
-	mes "»¶Ó­À´µÀµÂÍßËûµº.";
-	mes "ÄúÊÇ·Ç³£¸ßÉĞÓĞË®×¼µÄÂÃ¿Í";
-	mes "²»ÏñÆäËûÒ»Ğ©Ã»Ë®×¼µÄÈË,";
-	mes "ÍğÈçĞ¡»ì»ìÒ»Ñù...";
+	mes "[é¤é¦†è€æ¿]";
+	mes "æ¬¢è¿æ¥é“å¾·ç“¦ä»–å²›.";
+	mes "æ‚¨æ˜¯éå¸¸é«˜å°šæœ‰æ°´å‡†çš„æ—…å®¢";
+	mes "ä¸åƒå…¶ä»–ä¸€äº›æ²¡æ°´å‡†çš„äºº,";
+	mes "å®›å¦‚å°æ··æ··ä¸€æ ·...";
 	next;
-	switch(select("¹ØÓÚµÂÍßËû²Ë:½ñÈÕ²Ëµ¥ÊÇ?:Ã»ÊÂ.")) {
+	switch(select("å…³äºå¾·ç“¦ä»–èœ:ä»Šæ—¥èœå•æ˜¯?:æ²¡äº‹.")) {
 	case 1:
-		mes "[²Í¹İÀÏ°å]";
-		mes "ÏëÒªÖªµÀ¸ü¶à¹ØÓÚÊ³ÎïµÄ×ÊÑ¶?... ºÃ°É, ÎÒÃ»ËµÊ²Ã´£¬Èç¹ûÄãÏëÖªµÀµÄ»°.";
+		mes "[é¤é¦†è€æ¿]";
+		mes "æƒ³è¦çŸ¥é“æ›´å¤šå…³äºé£Ÿç‰©çš„èµ„è®¯?... å¥½å§, æˆ‘æ²¡è¯´ä»€ä¹ˆï¼Œå¦‚æœä½ æƒ³çŸ¥é“çš„è¯.";
 		next;
-		mes "[²Í¹İÀÏ°å]";
-		mes "ÄÇÃ´ÈÃÎÒ¿ªÊ¼½éÉÜ°É.";
+		mes "[é¤é¦†è€æ¿]";
+		mes "é‚£ä¹ˆè®©æˆ‘å¼€å§‹ä»‹ç»å§.";
 		next;
-		mes "[²Í¹İÀÏ°å]";
-		mes "Ê×ÏÈ, Ã¿ÖÖÅëâ¿·½Ê½¶¼ÓĞÆäÌØÊâµÄÃû³Æ,";
+		mes "[é¤é¦†è€æ¿]";
+		mes "é¦–å…ˆ, æ¯ç§çƒ¹é¥ªæ–¹å¼éƒ½æœ‰å…¶ç‰¹æ®Šçš„åç§°,";
 		next;
-		mes "[²Í¹İÀÏ°å]";
-		mes "Èç¹ûÃûÎª '³´·¹' ¾ÍÊÇĞèÒª½Á°è»ò¾­¹ıÓÍÕ¨µÄÊ³Îï.";
+		mes "[é¤é¦†è€æ¿]";
+		mes "å¦‚æœåä¸º 'ç‚’é¥­' å°±æ˜¯éœ€è¦æ…æ‹Œæˆ–ç»è¿‡æ²¹ç‚¸çš„é£Ÿç‰©.";
 		next;
-		mes "[²Í¹İÀÏ°å]";
-		mes "Èç¹ûÊÇ 'ÉÕ¿¾'ÀàĞÍ, Ëû¾ÍÊÇÉÕ¿¾Ê³Îï.";
+		mes "[é¤é¦†è€æ¿]";
+		mes "å¦‚æœæ˜¯ 'çƒ§çƒ¤'ç±»å‹, ä»–å°±æ˜¯çƒ§çƒ¤é£Ÿç‰©.";
 		next;
-		mes "[²Í¹İÀÏ°å]";
-		mes "Èç¹ûÊÇ 'É³àÇ', ¾ÍÊÇ´®ÉÕÊ³Îï.";
+		mes "[é¤é¦†è€æ¿]";
+		mes "å¦‚æœæ˜¯ 'æ²™å—²', å°±æ˜¯ä¸²çƒ§é£Ÿç‰©.";
 		next;
-		mes "[²Í¹İÀÏ°å]";
-		mes "µÚ¶ş, ÎÒÃÇ²ËëÈµÄ»ù±¾³É·Ö,";
+		mes "[é¤é¦†è€æ¿]";
+		mes "ç¬¬äºŒ, æˆ‘ä»¬èœè‚´çš„åŸºæœ¬æˆåˆ†,";
 		next;
-		mes "[²Í¹İÀÏ°å]";
-		mes "ÔÚµÂÍßËûµº, ÎÒÃÇ³ÆÃ×Îª Nasi, ÃæÌõÎª Mie, Ãæ°üÎª Roti, ¼¦ÈâÎª Ayam, ÓãÎª Ikan, ºÍ ÓñÃ×Îª Jagung.";
+		mes "[é¤é¦†è€æ¿]";
+		mes "åœ¨å¾·ç“¦ä»–å²›, æˆ‘ä»¬ç§°ç±³ä¸º Nasi, é¢æ¡ä¸º Mie, é¢åŒ…ä¸º Roti, é¸¡è‚‰ä¸º Ayam, é±¼ä¸º Ikan, å’Œ ç‰ç±³ä¸º Jagung.";
 		next;
-		mes "[²Í¹İÀÏ°å]";
-		mes "Òò´Ë, Èç¹ûÃ×±»ÓÍÕ¨ÎÒÃÇ³ÆËüÎª '³´·¹', ÓÍÕ¨ÃæÌõÎª '³´Ãæ'.";
+		mes "[é¤é¦†è€æ¿]";
+		mes "å› æ­¤, å¦‚æœç±³è¢«æ²¹ç‚¸æˆ‘ä»¬ç§°å®ƒä¸º 'ç‚’é¥­', æ²¹ç‚¸é¢æ¡ä¸º 'ç‚’é¢'.";
 		next;
-		mes "[²Í¹İÀÏ°å]";
-		mes "¾¡ÇéÏíÊÜµÂÍßËûµÄÃÀÊ³!! Èç¹ûÄã¶öÁË, ÎÒÃÇÓĞÌØ±ğÉè¼ÆµÄ²ËÉ« Ö»Òª^0000FF5000^000000 Zeny.";
+		mes "[é¤é¦†è€æ¿]";
+		mes "å°½æƒ…äº«å—å¾·ç“¦ä»–çš„ç¾é£Ÿ!! å¦‚æœä½ é¥¿äº†, æˆ‘ä»¬æœ‰ç‰¹åˆ«è®¾è®¡çš„èœè‰² åªè¦^0000FF5000^000000 Zeny.";
 		close;
 	case 2:
-		mes "[²Í¹İÀÏ°å]";
-		mes "ÎÒÃÇÓĞ£²µÀ²ËÉ«, Ó¡ÄáÊ²½õ³´·¹'ºÍ'É³àÇ'. ÄãÒªÆ·³¢ÄÄÒ»µÀ?";
+		mes "[é¤é¦†è€æ¿]";
+		mes "æˆ‘ä»¬æœ‰ï¼’é“èœè‰², å°å°¼ä»€é”¦ç‚’é¥­'å’Œ'æ²™å—²'. ä½ è¦å“å°å“ªä¸€é“?";
 		next;
-		switch(select("Ó¡ÄáÊ²½õ³´·¹:É³àÇ")) {
+		switch(select("å°å°¼ä»€é”¦ç‚’é¥­:æ²™å—²")) {
 		case 1:
-			mes "[²Í¹İÀÏ°å]";
-			mes "ÕâµÀÓ¡ÄáÊ²½õ³´·¹,ÓĞÌØÖÆµÄ½´Ö­ºÍ¶¥¼¶ÃÀÎ¶µÄ¼¦µ°. Ö»Òª ^0000FF5000^000000 Zeny.";
+			mes "[é¤é¦†è€æ¿]";
+			mes "è¿™é“å°å°¼ä»€é”¦ç‚’é¥­,æœ‰ç‰¹åˆ¶çš„é…±æ±å’Œé¡¶çº§ç¾å‘³çš„é¸¡è›‹. åªè¦ ^0000FF5000^000000 Zeny.";
 			set .@food,11532;
 			break;
 		case 2:
-			mes "[²Í¹İÀÏ°å]";
-			mes "ÕâÊÇÉ³àÇ,Èâ´®ÉÕÓÃ¹ûÏãÎ¶Ä¾Ì¿ÉÕ¿¾¹ı. Ö»Òª ^0000FF5000^000000 Zeny.";
+			mes "[é¤é¦†è€æ¿]";
+			mes "è¿™æ˜¯æ²™å—²,è‚‰ä¸²çƒ§ç”¨æœé¦™å‘³æœ¨ç‚­çƒ§çƒ¤è¿‡. åªè¦ ^0000FF5000^000000 Zeny.";
 			set .@food,11533;
 			break;
 		}
 		next;
-		switch(select("Æ·³¢:Àë¿ª")) {
+		switch(select("å“å°:ç¦»å¼€")) {
 		case 1:
 			if (Zeny < 5000) {
-				mes "[²Í¹İÀÏ°å]";
-				mes "º¢×Ó, Ç®ÄØ? ßõ! ÕâÀïÃ»ÓĞÃâ·ÑµÄÊ³Îï!?";
+				mes "[é¤é¦†è€æ¿]";
+				mes "å­©å­, é’±å‘¢? å•§! è¿™é‡Œæ²¡æœ‰å…è´¹çš„é£Ÿç‰©!?";
 				close;
 			}
-			mes "[²Í¹İÀÏ°å]";
-			mes "ÕâÊÇÄãµÄ "+getitemname(.@food)+", Äã¾ø²»»áÊ§ÍûµÄ!";
+			mes "[é¤é¦†è€æ¿]";
+			mes "è¿™æ˜¯ä½ çš„ "+getitemname(.@food)+", ä½ ç»ä¸ä¼šå¤±æœ›çš„!";
 			set Zeny, Zeny - 5000;
 			getitem .@food,1;
 			close;
 		case 2:
-			mes "[²Í¹İÀÏ°å]";
-			mes "²»Æ·³¢ÕâÃ´°ôµÄ²Ë¼òÖ±ÊÇÒ»¸ö³ÜÈè...";
+			mes "[é¤é¦†è€æ¿]";
+			mes "ä¸å“å°è¿™ä¹ˆæ£’çš„èœç®€ç›´æ˜¯ä¸€ä¸ªè€»è¾±...";
 			close;
 		}
 	case 3:
-		mes "[²Í¹İÀÏ°å]";
-		mes "ÄãÊÇÈÏÕæµÄÂğ? ÕâÒ»µã¶¼²»ºÃĞ¦.";
+		mes "[é¤é¦†è€æ¿]";
+		mes "ä½ æ˜¯è®¤çœŸçš„å—? è¿™ä¸€ç‚¹éƒ½ä¸å¥½ç¬‘.";
 		close;
 	}
 }
 
-dewata,147,107,6	script	ÃÀÊ³¼Ò#dew	85,{
-	mes "[ÃÀÊ³¼Ò]";
-	mes "ºÇºÇ..ÎÒ³£½ÓÊÜ¸÷µØÍÅÌåµÄÑûÇë";
-	mes "³¢ÊÔ²»Í¬ÃÀÊ³²¢ÇÒ×ö³öÆÀÂÛ!";
+dewata,147,107,6	script	ç¾é£Ÿå®¶#dew	85,{
+	mes "[ç¾é£Ÿå®¶]";
+	mes "å‘µå‘µ..æˆ‘å¸¸æ¥å—å„åœ°å›¢ä½“çš„é‚€è¯·";
+	mes "å°è¯•ä¸åŒç¾é£Ÿå¹¶ä¸”åšå‡ºè¯„è®º!";
 	emotion ET_CRY;
 	next;
-	mes "[ÃÀÊ³¼Ò]";
-	mes "ÀÏ°å~ ÇëÔÚ¸øÎÒÒ»¸ö~";
+	mes "[ç¾é£Ÿå®¶]";
+	mes "è€æ¿~ è¯·åœ¨ç»™æˆ‘ä¸€ä¸ª~";
 	emotion ET_BEST;
-	emotion ET_OK, getnpcid(0, "²Í¹İÀÏ°å#dew");
+	emotion ET_OK, getnpcid(0, "é¤é¦†è€æ¿#dew");
 	next;
-	mes "[ÃÀÊ³¼Ò]";
-	mes "ÄãÒ»¶¨Òª³¢³¢¿´! ÕâÊ³ÎïÕæÊÇÏÊÃÀ¶àÖ­~";
+	mes "[ç¾é£Ÿå®¶]";
+	mes "ä½ ä¸€å®šè¦å°å°çœ‹! è¿™é£Ÿç‰©çœŸæ˜¯é²œç¾å¤šæ±~";
 	close;
 }
 
-dewata,154,107,4	script	ÏĞ¹äÖĞµÄ¹Û¹â¿Í#dew	86,{
-	mes "[¹Û¹â¿Í]";
-	mes "ÍÛ...";
-	mes "Ëûµ½µ×³ÔÁË¶àÉÙ¶«Î÷?";
+dewata,154,107,4	script	é—²é€›ä¸­çš„è§‚å…‰å®¢#dew	86,{
+	mes "[è§‚å…‰å®¢]";
+	mes "å“‡...";
+	mes "ä»–åˆ°åº•åƒäº†å¤šå°‘ä¸œè¥¿?";
 	emotion ET_SCRATCH;
 	next;
-	mes "[¹Û¹â¿Í]";
-	mes "ËûÒ»¶¨ÊÇ´óÎ¸Íõ¶ø²»ÊÇÃÀÊ³¼Ò...";
+	mes "[è§‚å…‰å®¢]";
+	mes "ä»–ä¸€å®šæ˜¯å¤§èƒƒç‹è€Œä¸æ˜¯ç¾é£Ÿå®¶...";
 	next;
-	mes "[¹Û¹â¿Í]";
-	mes "ÄãÔøÈ¥¹ıÆÕÂ¡µÂÀ­Âğ? ÎÒÏëÎÒÒÑ¾­ÖªµÀËüÔÚÊ²Ã´µØ·½..";
+	mes "[è§‚å…‰å®¢]";
+	mes "ä½ æ›¾å»è¿‡æ™®éš†å¾·æ‹‰å—? æˆ‘æƒ³æˆ‘å·²ç»çŸ¥é“å®ƒåœ¨ä»€ä¹ˆåœ°æ–¹..";
 	close;
 }
 
@@ -312,7 +308,7 @@ dewata,95,203,6	script	Travel Guide#dew	536,{
 	emotion ET_PROFUSELY_SWEAT;
 	next;
 	mes "[Guide]";
-	mes "Even in modern times Borobudur temple is a pilgimage site for many É®ÂÂs worshiping the Buddha. It's also a major tourist attraction, as you can imagine.";
+	mes "Even in modern times Borobudur temple is a pilgimage site for many åƒ§ä¾£s worshiping the Buddha. It's also a major tourist attraction, as you can imagine.";
 	emotion ET_PROFUSELY_SWEAT;
 	next;
 	mes "[Guide]";
@@ -321,108 +317,108 @@ dewata,95,203,6	script	Travel Guide#dew	536,{
 	close;
 }
 
-dewata,97,207,4	script	¹Û¹â¿Í#dew1	803,{
-	mes "[¹Û¹â¿Í]";
+dewata,97,207,4	script	è§‚å…‰å®¢#dew1	803,{
+	mes "[è§‚å…‰å®¢]";
 	mes "Oh, dag-nabbit... I've gone and";
 	mes "picked the wrong tour guide...";
 	next;
-	mes "[¹Û¹â¿Í]";
+	mes "[è§‚å…‰å®¢]";
 	mes "This hombre is a real snooze...";
 	mes "Why make it longer..";
 	emotion ET_CONFUSE;
 	next;
-	mes "[¹Û¹â¿Í]";
+	mes "[è§‚å…‰å®¢]";
 	mes "I need to change my travel agent...";
 	emotion ET_OHNO;
 	close;
 }
 
-dewata,100,206,4	script	¹Û¹â¿Í#dew2	59,{
-	mes "[¹Û¹â¿Í]";
-	mes "ºÙ, ÎÒÃÇÈ¥ÄÇÀï!,";
-	mes "Ìıµ¼ÓÎ½²½â~";
+dewata,100,206,4	script	è§‚å…‰å®¢#dew2	59,{
+	mes "[è§‚å…‰å®¢]";
+	mes "å˜¿, æˆ‘ä»¬å»é‚£é‡Œ!,";
+	mes "å¬å¯¼æ¸¸è®²è§£~";
 	next;
-	mes "[¹Û¹â¿Í]";
-	mes "¹ıÀ´... ÌıÆğÀ´";
-	mes "Ó¦¸Ã²»»áºÜ¿ì½áÊø.";
+	mes "[è§‚å…‰å®¢]";
+	mes "è¿‡æ¥... å¬èµ·æ¥";
+	mes "åº”è¯¥ä¸ä¼šå¾ˆå¿«ç»“æŸ.";
 	close;
 }
 
-dewata,101,206,4	script	¹Û¹â¿Í#dew3	90,{
-	mes "[¹Û¹â¿Í]";
-	mes "ÎÒÃÇÊÇ²»ÊÇÃ»ÓĞµ¼ÓÎ´øÁì²ÅÃÔÂ·µÄ?";
+dewata,101,206,4	script	è§‚å…‰å®¢#dew3	90,{
+	mes "[è§‚å…‰å®¢]";
+	mes "æˆ‘ä»¬æ˜¯ä¸æ˜¯æ²¡æœ‰å¯¼æ¸¸å¸¦é¢†æ‰è¿·è·¯çš„?";
 	next;
-	mes "[¹Û¹â¿Í]";
-	mes "WÏ£ÍûÕâÊÇ×îºóÒ»´ÎÃÔÂ·...";
+	mes "[è§‚å…‰å®¢]";
+	mes "Wå¸Œæœ›è¿™æ˜¯æœ€åä¸€æ¬¡è¿·è·¯...";
 	close;
 }
 
-dewata,99,203,4	script	¹Û¹â¿Í#dew4	755,{
-	mes "[¹Û¹â¿Í]";
+dewata,99,203,4	script	è§‚å…‰å®¢#dew4	755,{
+	mes "[è§‚å…‰å®¢]";
 	mes "Oh~ This is very interesting. A";
 	mes "temple that worships the Buddha...";
 	emotion ET_OK;
 	next;
-	mes "[¹Û¹â¿Í]";
+	mes "[è§‚å…‰å®¢]";
 	mes "But I don't really get all the";
 	mes "symbology here.";
 	next;
-	mes "[¹Û¹â¿Í]";
+	mes "[è§‚å…‰å®¢]";
 	mes "So beautiful... I wonder who built";
 	mes "this place?";
 	close;
 }
 
-dewata,67,186,8	script	É®ÂÂ#dew1	834,{
-	mes "[É®ÂÂ]";
-	mes "I am a É®ÂÂ, content to spend my days in religious study.";
+dewata,67,186,8	script	åƒ§ä¾£#dew1	834,{
+	mes "[åƒ§ä¾£]";
+	mes "I am a åƒ§ä¾£, content to spend my days in religious study.";
 	next;
-	mes "[É®ÂÂ]";
-	mes "I've just returned from a pilgrimage to Borobudur temple with my fellow É®ÂÂs...";
+	mes "[åƒ§ä¾£]";
+	mes "I've just returned from a pilgrimage to Borobudur temple with my fellow åƒ§ä¾£s...";
 	next;
-	mes "[É®ÂÂ]";
+	mes "[åƒ§ä¾£]";
 	mes "Borobudur temple has many pilgrims visiting, since it is one of few temples left for worshipping the Great Buddha.";
 	close;
 }
 
-dewata,65,188,8	script	É®ÂÂ#dew2	834,{
-	mes "[É®ÂÂ]";
+dewata,65,188,8	script	åƒ§ä¾£#dew2	834,{
+	mes "[åƒ§ä¾£]";
 	mes "Borobudur temple is one of few temples left for worshiping the Great Buddha.";
 	next;
-	mes "[É®ÂÂ]";
+	mes "[åƒ§ä¾£]";
 	mes "I don't understand why there are only few temples left that follow our ways...";
 	close;
 }
 
-dewata,63,190,8	script	É®ÂÂ#dew3	834,{
-	mes "[É®ÂÂ]";
+dewata,63,190,8	script	åƒ§ä¾£#dew3	834,{
+	mes "[åƒ§ä¾£]";
 	mes "Are you a Tourist? You can make an offering and a wish to one of the shrines.";
 	next;
-	mes "[É®ÂÂ]";
+	mes "[åƒ§ä¾£]";
 	mes "Our great Buddha may grant your wish..";
 	close;
 }
 
-dewata,62,192,8	script	É®ÂÂ#dew4	834,{
-	mes "[É®ÂÂ]";
+dewata,62,192,8	script	åƒ§ä¾£#dew4	834,{
+	mes "[åƒ§ä¾£]";
 	mes "Our great Buddha is the king of souls and the leader of all good Gods.";
 	next;
-	mes "[É®ÂÂ]";
+	mes "[åƒ§ä¾£]";
 	mes "The Dewata tribes believes in Buddha, the strange thing is they all describe Buddha as different creatures.";
 	next;
-	mes "[É®ÂÂ]";
+	mes "[åƒ§ä¾£]";
 	mes "I'm not really sure about the reason for that. Maybe because there are many different tribes in Dewata with different characteristics.";
 	close;
 }
 
-dewata,89,191,6	script	Ğ¡Éñíè#dew1	844,{
-	mes "ÕâÀïÓĞÒ»¸öĞ¡Éñíè. ÓĞºÜ¶àÈËĞíÔ¸.";
+dewata,89,191,6	script	å°ç¥é¾›#dew1	844,{
+	mes "è¿™é‡Œæœ‰ä¸€ä¸ªå°ç¥é¾›. æœ‰å¾ˆå¤šäººè®¸æ„¿.";
 	next;
-	switch(select("¾è¿î.:Ğí¸öÔ¸.:Àë¿ª.")) {
+	switch(select("ææ¬¾.:è®¸ä¸ªæ„¿.:ç¦»å¼€.")) {
 	case 1:
-		mes "¾è¿îµÄÑ¶Ï¢ÈçÏÂ:";
+		mes "ææ¬¾çš„è®¯æ¯å¦‚ä¸‹:";
 		mes "^FF00001,000 ~ 100,000 Zeny^000000";
-		mes "ÄãÏë¾è¶àÉÙ?";
+		mes "ä½ æƒ³æå¤šå°‘?";
 		next;
 		input .@input,0,100000;
 		if (.@input < 1000) {
@@ -433,10 +429,10 @@ dewata,89,191,6	script	Ğ¡Éñíè#dew1	844,{
 		else
 			set .@good_luck, rand(1,5000);
 		if (.@input > Zeny) {
-			mes "- Ã»ÓĞ×ã¹»½ğÇ®. -";
+			mes "- æ²¡æœ‰è¶³å¤Ÿé‡‘é’±. -";
 			close;
 		}
-		mes "ÄãµÄÔ¸ÍûÊÇÊ²Ã´?";
+		mes "ä½ çš„æ„¿æœ›æ˜¯ä»€ä¹ˆ?";
 		next;
 		input(.@wish$);
 
@@ -461,7 +457,7 @@ dewata,89,191,6	script	Ğ¡Éñíè#dew1	844,{
 			}
 		}
 
-		mes "Äã¶ÔÉñíèĞíÁËÒ»¸ö ^0000FF" + .@wish$ + "^000000 Ô¸Íû.";
+		mes "ä½ å¯¹ç¥é¾›è®¸äº†ä¸€ä¸ª ^0000FF" + .@wish$ + "^000000 æ„¿æœ›.";
 		next;
 		callsub L_Wish;
 		set Zeny, Zeny - .@input;
@@ -479,312 +475,312 @@ dewata,89,191,6	script	Ğ¡Éñíè#dew1	844,{
 			consumeitem 12068; //Luk_Dish03
 		else if (.@stat & 64) {
 			specialeffect2 EF_ANGEL;
-			mes "- Äú»ñµÃÉñÉçµÄ×£¸£. -";
+			mes "- æ‚¨è·å¾—ç¥ç¤¾çš„ç¥ç¦. -";
 			next;
 		} else if (.@stat & 128) {
-			mes "- ÄãÔÚÉñÉç±»³äÂú°®µÄ¹â»·°üÎ§×Å. -";
+			mes "- ä½ åœ¨ç¥ç¤¾è¢«å……æ»¡çˆ±çš„å…‰ç¯åŒ…å›´ç€. -";
 			if ((Sex == 0 && compare(.@wish$,.@wishes$[26])) || (Sex == 1 && compare(.@wish$,.@wishes$[27])))
 				specialeffect2 EF_LIGHTSPHERE;
 			next;
 		}
-		mes "¸Ğ¾õ¾ÍÏñÕâ¸öÔ¸Íû¿ÉÒÔ³ÉÕæ.";
+		mes "æ„Ÿè§‰å°±åƒè¿™ä¸ªæ„¿æœ›å¯ä»¥æˆçœŸ.";
 		close;
 	case 2:
-		mes "ÄãµÄÔ¸ÍûÊÇÊ²Ã´?";
+		mes "ä½ çš„æ„¿æœ›æ˜¯ä»€ä¹ˆ?";
 		next;
 		input .@wish$;
-		mes "ÄãÒÑ¾­ÏñÉñíèĞíÁË ^0000FF" + .@wish$ + "^000000 Ô¸Íû.";
+		mes "ä½ å·²ç»åƒç¥é¾›è®¸äº† ^0000FF" + .@wish$ + "^000000 æ„¿æœ›.";
 		next;
 		callsub L_Wish;
-		mes "¸Ğ¾õ¾ÍÏñÕâ¸öÔ¸Íû¿ÉÒÔ³ÉÕæ.";
+		mes "æ„Ÿè§‰å°±åƒè¿™ä¸ªæ„¿æœ›å¯ä»¥æˆçœŸ.";
 		close;
 	case 3:
 		close;
 	}
 
 L_Wish:
-	mes "ÉñÉçÉ¢·¢³öÉñÃØÄÜÁ¿.";
+	mes "ç¥ç¤¾æ•£å‘å‡ºç¥ç§˜èƒ½é‡.";
 	specialeffect EF_FLASHER,AREA,"Small Shrine#dew1";
 	specialeffect EF_FLASHER,AREA,"Small Shrine#dew2";
 	specialeffect EF_FLASHER,AREA,"Small Shrine#dew3";
 	specialeffect EF_FLASHER,AREA,"Small Shrine#dew4";
 	next;
-	mes "Äú»ñµÃÉñÉçµÄ×£¸£.";
+	mes "æ‚¨è·å¾—ç¥ç¤¾çš„ç¥ç¦.";
 	specialeffect2 EF_BLESSING;
 	next;
 	return;
 }
-dewata,89,212,6	duplicate(Ğ¡Éñíè#dew1)	Ğ¡Éñíè#dew2	844
-dewata,68,212,6	duplicate(Ğ¡Éñíè#dew1)	Ğ¡Éñíè#dew3	844
-dewata,68,191,6	duplicate(Ğ¡Éñíè#dew1)	Ğ¡Éñíè#dew4	844
+dewata,89,212,6	duplicate(å°ç¥é¾›#dew1)	å°ç¥é¾›#dew2	844
+dewata,68,212,6	duplicate(å°ç¥é¾›#dew1)	å°ç¥é¾›#dew3	844
+dewata,68,191,6	duplicate(å°ç¥é¾›#dew1)	å°ç¥é¾›#dew4	844
 
-dewata,75,122,6	script	É®ÂÂ#dewt1	834,{
-	mes "[É®ÂÂ]";
-	mes "ÄãÔõÃ´ÏëÀ´ÕâÀï. Ê²Ã´ÀíÓÉÈÃÄãÏëÀ´ÕâÄş¾²µÄµØ·½?";
+dewata,75,122,6	script	åƒ§ä¾£#dewt1	834,{
+	mes "[åƒ§ä¾£]";
+	mes "ä½ æ€ä¹ˆæƒ³æ¥è¿™é‡Œ. ä»€ä¹ˆç†ç”±è®©ä½ æƒ³æ¥è¿™å®é™çš„åœ°æ–¹?";
 	next;
-	switch(select("ÎÒÀ´¹Û¹âµÄ.:Ã»ÊÂ.")) {
+	switch(select("æˆ‘æ¥è§‚å…‰çš„.:æ²¡äº‹.")) {
 	case 1:
-		mes "[É®ÂÂ]";
-		mes "à¸, ÄãÊÇÓÎ¿Í. ÕâÊÇÒ»×ùÀñ°İ·ğ×æµÄ '^0000FF±¦Ëş^000000' Çë×ğÕıÔÚÕâÀïÆí¸£µÄÉ®ÂÂÃÇ.";
+		mes "[åƒ§ä¾£]";
+		mes "å–”, ä½ æ˜¯æ¸¸å®¢. è¿™æ˜¯ä¸€åº§ç¤¼æ‹œä½›ç¥–çš„ '^0000FFå®å¡”^000000' è¯·å°Šæ­£åœ¨è¿™é‡Œç¥ˆç¦çš„åƒ§ä¾£ä»¬.";
 		close;
 	case 2:
-		mes "[É®ÂÂ]";
-		mes "½ñÈÕÊÇÄãµÄĞÒÔËÈÕ...";
+		mes "[åƒ§ä¾£]";
+		mes "ä»Šæ—¥æ˜¯ä½ çš„å¹¸è¿æ—¥...";
 		close;
 	}
 }
 
-dewata,69,101,6	script	É®ÂÂ#dewt2	834,{
-	mes "[É®ÂÂ]";
-	mes "ÎÒÃÇ±¦ËşÓĞ·ğµÄÀñ°İ. Ã¿×ùËÂÃí¶¼ÓĞÒ»×ùËş, À´ÕâÀïµÄÈË²»¶à³ıÁËÉ®ÂÂÃÇ.";
+dewata,69,101,6	script	åƒ§ä¾£#dewt2	834,{
+	mes "[åƒ§ä¾£]";
+	mes "æˆ‘ä»¬å®å¡”æœ‰ä½›çš„ç¤¼æ‹œ. æ¯åº§å¯ºåº™éƒ½æœ‰ä¸€åº§å¡”, æ¥è¿™é‡Œçš„äººä¸å¤šé™¤äº†åƒ§ä¾£ä»¬.";
 	next;
-	switch(select("ÎÒÃ÷°×...:¹ØÓÚ·ğµÄ×ÊÑ¶:ºÇ, ¸Ğ¾õºÜ²»´í.")) {
+	switch(select("æˆ‘æ˜ç™½...:å…³äºä½›çš„èµ„è®¯:å‘µ, æ„Ÿè§‰å¾ˆä¸é”™.")) {
 	case 1:
-		mes "[É®ÂÂ]";
-		mes "ÄãÒ»¶¨ÄÜ¸Ğ¾õµ½ÎÒ·ğµÄ´È±¯!";
+		mes "[åƒ§ä¾£]";
+		mes "ä½ ä¸€å®šèƒ½æ„Ÿè§‰åˆ°æˆ‘ä½›çš„æ…ˆæ‚²!";
 		close;
 	case 2:
-		mes "[É®ÂÂ]";
-		mes "·ğÊÇµÂÍßËûµÄÉñ, ËûÊÇ¹úÍõµÄÁé»êÒ²ÊÇÁìµ¼Õß.";
+		mes "[åƒ§ä¾£]";
+		mes "ä½›æ˜¯å¾·ç“¦ä»–çš„ç¥, ä»–æ˜¯å›½ç‹çš„çµé­‚ä¹Ÿæ˜¯é¢†å¯¼è€….";
 		next;
-		mes "[É®ÂÂ]";
-		mes "·ğÊÇÁé»êµÄÊØ»¤ÈË£¬°ÍÁúÎèÊÇ±íÏÖ»÷°Ü¶ñÉñ(ÈÃÌØ)µÄÒ»ÖÖÎèµ¸.";
+		mes "[åƒ§ä¾£]";
+		mes "ä½›æ˜¯çµé­‚çš„å®ˆæŠ¤äººï¼Œå·´é¾™èˆæ˜¯è¡¨ç°å‡»è´¥æ¶ç¥(è®©ç‰¹)çš„ä¸€ç§èˆè¹ˆ.";
 		next;
-		mes "[É®ÂÂ]";
-		mes "ÔÚµÂÍßËûÎÒÃÇÏàĞÅ×ÅÓĞĞí¶àÉñ±£»¤×Å¸÷¸öµºÓìºÍ²¿ÂäµÄÎÄÃ÷»·¾³,";
+		mes "[åƒ§ä¾£]";
+		mes "åœ¨å¾·ç“¦ä»–æˆ‘ä»¬ç›¸ä¿¡ç€æœ‰è®¸å¤šç¥ä¿æŠ¤ç€å„ä¸ªå²›å±¿å’Œéƒ¨è½çš„æ–‡æ˜ç¯å¢ƒ,";
 		next;
-		mes "[É®ÂÂ]";
-		mes "Òò´ËÎÒÃÇµÄ·ğÓĞ¸÷ÖÖ²»Í¬µÄĞÎÏó±íÕ÷, Í¨³£±»ÃèÊöÎªÒ»Ö», ĞÜ£¬»¢£¬Áú£¬Éß, »òÊ¨×Ó";
+		mes "[åƒ§ä¾£]";
+		mes "å› æ­¤æˆ‘ä»¬çš„ä½›æœ‰å„ç§ä¸åŒçš„å½¢è±¡è¡¨å¾, é€šå¸¸è¢«æè¿°ä¸ºä¸€åª, ç†Šï¼Œè™ï¼Œé¾™ï¼Œè›‡, æˆ–ç‹®å­";
 		next;
-		mes "[É®ÂÂ]";
-		mes "Ê¨×ÓÊÇÒ»¸öÖøÃûµÄ·ğÏñ¹©·îÔÚµÂÍßËû.";
+		mes "[åƒ§ä¾£]";
+		mes "ç‹®å­æ˜¯ä¸€ä¸ªè‘—åçš„ä½›åƒä¾›å¥‰åœ¨å¾·ç“¦ä»–.";
 		next;
-		mes "[É®ÂÂ]";
-		mes "Ï£ÍûÕâĞ©×ÊÑ¶ÄÜÈÃÄã¸üÁË½â. Èç¹û»¹ÏëÖªµÀÊ²Ã´¾Í¸æËßÎÒ.";
+		mes "[åƒ§ä¾£]";
+		mes "å¸Œæœ›è¿™äº›èµ„è®¯èƒ½è®©ä½ æ›´äº†è§£. å¦‚æœè¿˜æƒ³çŸ¥é“ä»€ä¹ˆå°±å‘Šè¯‰æˆ‘.";
 		close;
 	case 3:
-		mes "[É®ÂÂ]";
-		mes "½ñÈÕÊÇÄãµÄĞÒÔËÈÕ...";
+		mes "[åƒ§ä¾£]";
+		mes "ä»Šæ—¥æ˜¯ä½ çš„å¹¸è¿æ—¥...";
 		close;
 	}
 }
 
-dewata,71,79,6	script	É®ÂÂ#dewt3	834,{
-	mes "[É®ÂÂ]";
-	mes "ÕâÀïµÄËşÔÚº£°¶ĞüÑÂµÄ±ßÔµÉÏ½¨Ôì. Á¹Ë¬µÄº£·çÇá¸§×ÅÄãµÄĞã·¢Ò»ÆğÆíµ»×Å.";
+dewata,71,79,6	script	åƒ§ä¾£#dewt3	834,{
+	mes "[åƒ§ä¾£]";
+	mes "è¿™é‡Œçš„å¡”åœ¨æµ·å²¸æ‚¬å´–çš„è¾¹ç¼˜ä¸Šå»ºé€ . å‡‰çˆ½çš„æµ·é£è½»æŠšç€ä½ çš„ç§€å‘ä¸€èµ·ç¥ˆç¥·ç€.";
 	next;
-	mes "[É®ÂÂ]";
-	mes "À´°É, ÔÚÕâÒËÈËµÄÆøºòÖĞÄãÓ¦¸ÃÄÜ¸Ğ¾õµ½ÎÒ·ğµÄ´È±¯ĞÄ";
+	mes "[åƒ§ä¾£]";
+	mes "æ¥å§, åœ¨è¿™å®œäººçš„æ°”å€™ä¸­ä½ åº”è¯¥èƒ½æ„Ÿè§‰åˆ°æˆ‘ä½›çš„æ…ˆæ‚²å¿ƒ";
 	close;
 }
 
-dewata,211,272,4	script	ÃñËŞÖ÷ÈË#dew	534,2,3,{
+dewata,211,272,4	script	æ°‘å®¿ä¸»äºº#dew	534,2,3,{
 OnTouch:
-	mes "[ÃñËŞÖ÷ÈË]";
-	mes "×î½üÕâ¶ÎÊ±¼ä, ÓĞĞí¶àÃÛÔÂĞÂÈË²Î¹ÛÎÒÃÇµÄÍøÕ¾.";
+	mes "[æ°‘å®¿ä¸»äºº]";
+	mes "æœ€è¿‘è¿™æ®µæ—¶é—´, æœ‰è®¸å¤šèœœæœˆæ–°äººå‚è§‚æˆ‘ä»¬çš„ç½‘ç«™.";
 	next;
-	mes "[ÃñËŞÖ÷ÈË]";
-	mes "·ç¾°ºÜÃÀÀö, ¶Ô°É?";
+	mes "[æ°‘å®¿ä¸»äºº]";
+	mes "é£æ™¯å¾ˆç¾ä¸½, å¯¹å§?";
 	next;
-	mes "[ÃñËŞÖ÷ÈË]";
-	mes "ÎÒºÜ¸ßĞËÉúÒâĞËÂ¡Ï£Íû¸ü¶àµÄÓÎ¿ÍÏ²»¶..";
+	mes "[æ°‘å®¿ä¸»äºº]";
+	mes "æˆ‘å¾ˆé«˜å…´ç”Ÿæ„å…´éš†å¸Œæœ›æ›´å¤šçš„æ¸¸å®¢å–œæ¬¢..";
 	next;
-	mes "[ÃñËŞÖ÷ÈË]";
-	mes "°¢! ÄãÓ¦¸Ã´øÄãµÄ°®ÈËÀ´µÂÍßËûÃÛÔÂ.";
-	mes "ÎÒ¸øÄãÒ»¸öÌØ±ğÓÅ»İ-";
+	mes "[æ°‘å®¿ä¸»äºº]";
+	mes "é˜¿! ä½ åº”è¯¥å¸¦ä½ çš„çˆ±äººæ¥å¾·ç“¦ä»–èœœæœˆ.";
+	mes "æˆ‘ç»™ä½ ä¸€ä¸ªç‰¹åˆ«ä¼˜æƒ -";
 	close;
 }
 
-dewata,245,244,4	script	ÃñËŞ·şÎñÔ±#dew	536,2,3,{
+dewata,245,244,4	script	æ°‘å®¿æœåŠ¡å‘˜#dew	536,2,3,{
 OnTouch:
-	mes "[ÃñËŞ·şÎñÔ±]";
-	mes "ºß~ ÕâÊÇÔÚÔğ±¸ÎÒ!";
+	mes "[æ°‘å®¿æœåŠ¡å‘˜]";
+	mes "å“¼~ è¿™æ˜¯åœ¨è´£å¤‡æˆ‘!";
 	emotion ET_FRET;
 	next;
-	mes "[ÃñËŞ·şÎñÔ±]";
-	mes "ÔõÃ´»áÓĞÔ½À´Ô½¶àµÄ·òÆŞÀ´Õâ×¡ÄØ?";
+	mes "[æ°‘å®¿æœåŠ¡å‘˜]";
+	mes "æ€ä¹ˆä¼šæœ‰è¶Šæ¥è¶Šå¤šçš„å¤«å¦»æ¥è¿™ä½å‘¢?";
 	next;
-	mes "[ÃñËŞ·şÎñÔ±]";
+	mes "[æ°‘å®¿æœåŠ¡å‘˜]";
 	mes "And why do they have act so lovey-dovey? What's up with that?";
 	next;
-	mes "[ÃñËŞ·şÎñÔ±]";
+	mes "[æ°‘å®¿æœåŠ¡å‘˜]";
 	mes "C'mon, show some respect to the people who work here...";
 	close;
 }
 
-dewata,233,263,8	script	ĞÂ»é·òÆŞ#1	828,2,3,{
+dewata,233,263,8	script	æ–°å©šå¤«å¦»#1	828,2,3,{
 OnTouch:
-	mes "[ĞÂ»éÏÈÉú]";
-	mes "ÄãÊÇÊÀ½çÉÏ×îÃÀÀöµÄÈËà¸, ±¦±´~~";
+	mes "[æ–°å©šå…ˆç”Ÿ]";
+	mes "ä½ æ˜¯ä¸–ç•Œä¸Šæœ€ç¾ä¸½çš„äººå–”, å®è´~~";
 	emotion ET_CHUP;
 	next;
-	mes "[ĞÂ»éÌ«Ì«]";
-	mes "ÕæµÄÂğ? ÎÒÆ¯ÁÁÂğ? °®ÄãÓ´, Ç×°®µÄ~";
-	emotion ET_CHUP2, getnpcid(0, "ĞÂ»é·òÆŞ#dew2");
+	mes "[æ–°å©šå¤ªå¤ª]";
+	mes "çœŸçš„å—? æˆ‘æ¼‚äº®å—? çˆ±ä½ å“Ÿ, äº²çˆ±çš„~";
+	emotion ET_CHUP2, getnpcid(0, "æ–°å©šå¤«å¦»#dew2");
 	next;
-	mes "[ĞÂ»é·òÆŞ]";
+	mes "[æ–°å©šå¤«å¦»]";
 	mes "Hahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahaha";
 	mes "Hohohohohohohohohohohohohohohohohohohohohohohohohohohohohohohohohohohoho";
 	emotion ET_SMILE;
-	emotion ET_SMILE, getnpcid(0, "ĞÂ»é·òÆŞ#dew2");
+	emotion ET_SMILE, getnpcid(0, "æ–°å©šå¤«å¦»#dew2");
 	next;
-	mes "À´°É, ±¦±´. Ç×Ò»ÏÂ.";
+	mes "æ¥å§, å®è´. äº²ä¸€ä¸‹.";
 	close;
 }
 
-dewata,234,263,8	script	ĞÂ»é·òÆŞ#2	727,2,3,{
+dewata,234,263,8	script	æ–°å©šå¤«å¦»#2	727,2,3,{
 OnTouch:
-	mes "[ĞÂ»é·òÆŞ]";
+	mes "[æ–°å©šå¤«å¦»]";
 	mes "Baby~ You know what flower that is~?";
 	emotion ET_QUESTION;
 	next;
-	mes "[ĞÂ»éÏÈÉú]";
+	mes "[æ–°å©šå…ˆç”Ÿ]";
 	mes "Hmm? I don't know. But it's really pretty.";
 	next;
-	mes "[ĞÂ»é·òÆŞ]";
+	mes "[æ–°å©šå¤«å¦»]";
 	mes "Baby~ Who's prettier, me or the flower?";
 	emotion ET_QUESTION;
 	next;
-	mes "[ĞÂ»éÏÈÉú]";
+	mes "[æ–°å©šå…ˆç”Ÿ]";
 	mes "No matter how pretty the flower is, you are always more beautiful~";
 	emotion ET_CHUP, getnpcid(0, "Sweet Married Couple#dew1");
 	next;
-	mes "[ĞÂ»é·òÆŞ]";
+	mes "[æ–°å©šå¤«å¦»]";
 	mes "Really? I'm that pretty? I love you, sweetie~";
 	emotion ET_CHUP2;
 	next;
-	mes "[ĞÂ»é·òÆŞ]";
+	mes "[æ–°å©šå¤«å¦»]";
 	mes "Hahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahaha";
 	mes "Hohohohohohohohohohohohohohohohohohohohohohohohohohohohohohohohohohohoho";
-	emotion ET_SMILE, getnpcid(0, "ĞÂ»é·òÆŞ#dew1");
+	emotion ET_SMILE, getnpcid(0, "æ–°å©šå¤«å¦»#dew1");
 	emotion ET_SMILE;
 	next;
 	mes "Come on now, this bores me. Let's move on.";
 	close;
 }
 
-dewata,279,213,4	script	¹Û¹â¿Í#dew-2	887,2,3,{
+dewata,279,213,4	script	è§‚å…‰å®¢#dew-2	887,2,3,{
 OnTouch:
-	mes "[¹Û¹â¿Í]";
-	mes "ÍÛ~ ÕâÕæÊÇÊæ·ş~";
+	mes "[è§‚å…‰å®¢]";
+	mes "å“‡~ è¿™çœŸæ˜¯èˆ’æœ~";
 	next;
-	mes "[¹Û¹â¿Í]";
-	mes "ÕâÊÇÒ»¸ö·ÅËÉµÄÊ±¿Ì.";
+	mes "[è§‚å…‰å®¢]";
+	mes "è¿™æ˜¯ä¸€ä¸ªæ”¾æ¾çš„æ—¶åˆ».";
 	next;
-	mes "ÄãÓ¦¸ÃÀ´ÌÉÒ»ÏÂ.";
-	mes "µÈÄãÌÉÏÂÁË, ¾Í²»»áÏëÔÙÆğÀ´ÁË.";
+	mes "ä½ åº”è¯¥æ¥èººä¸€ä¸‹.";
+	mes "ç­‰ä½ èººä¸‹äº†, å°±ä¸ä¼šæƒ³å†èµ·æ¥äº†.";
 	next;
-	mes "[¹Û¹â¿Í]";
-	mes "Õâ¾ÍÊÇÎªºÎÎÒÕû¸öĞÇÆÚ¶¼ÌÉÔÚÕâµÄÔ­Òò! ¹ş¹ş¹ş¹ş!";
+	mes "[è§‚å…‰å®¢]";
+	mes "è¿™å°±æ˜¯ä¸ºä½•æˆ‘æ•´ä¸ªæ˜ŸæœŸéƒ½èººåœ¨è¿™çš„åŸå› ! å“ˆå“ˆå“ˆå“ˆ!";
 	emotion ET_SMILE;
 	close;
 }
 
-dewata,269,208,4	script	ÉçÇøĞ¡ÅóÓÑ#dew	538,2,3,{
+dewata,269,208,4	script	ç¤¾åŒºå°æœ‹å‹#dew	538,2,3,{
 OnTouch:
-	mes "[Ğ¡ÅóÓÑ]";
-	mes "ºÙ "+((Sex)?"bro":"sis")+", ¿´ÄÇ¸öÄĞÈË!";
+	mes "[å°æœ‹å‹]";
+	mes "å˜¿ "+((Sex)?"bro":"sis")+", çœ‹é‚£ä¸ªç”·äºº!";
 	next;
-	mes "[Ğ¡ÅóÓÑ]";
-	mes "ËûÒÑ¾­ÌÉÔÚÄÇÒ»ĞÇÆÚ' Ê²Ã´¶¼²»×ö'...";
+	mes "[å°æœ‹å‹]";
+	mes "ä»–å·²ç»èººåœ¨é‚£ä¸€æ˜ŸæœŸ' ä»€ä¹ˆéƒ½ä¸åš'...";
 	next;
-	mes "[Ğ¡ÅóÓÑ]";
-	mes "ÄÇÄĞÈËÊÇË­?";
+	mes "[å°æœ‹å‹]";
+	mes "é‚£ç”·äººæ˜¯è°?";
 	emotion ET_QUESTION;
 	next;
-	mes "[Ğ¡ÅóÓÑ]";
-	mes "µÈÎÒ³¤´ó¿Ï¶¨²»Òª±ä³ÉÏñËûÒ»ÑùÀÁµÃÈË.";
+	mes "[å°æœ‹å‹]";
+	mes "ç­‰æˆ‘é•¿å¤§è‚¯å®šä¸è¦å˜æˆåƒä»–ä¸€æ ·æ‡’å¾—äºº.";
 	close;
 }
 
-dewata,227,129,4	script	ÏÄÀÕ#dew	538,2,3,{
+dewata,227,129,4	script	å¤å‹’#dew	538,2,3,{
 OnTouch:
-	mes "[ÏÄÀÕ]";
-	mes "ËûÃÇ¶ãÆğÀ´ÁË, ÎÒÕıÔÚÑ°ÕÒ.";
-	mes "ÎÒ¿Ï¶¨»áÕÒµ½ËûÃÇ!~";
+	mes "[å¤å‹’]";
+	mes "ä»–ä»¬èº²èµ·æ¥äº†, æˆ‘æ­£åœ¨å¯»æ‰¾.";
+	mes "æˆ‘è‚¯å®šä¼šæ‰¾åˆ°ä»–ä»¬!~";
 	next;
-	mes "[ÏÄÀÕ]";
-	mes "Ò»~";
+	mes "[å¤å‹’]";
+	mes "ä¸€~";
 	next;
-	mes "[ÏÄÀÕ]";
-	mes "¶ş~ Èı~";
+	mes "[å¤å‹’]";
+	mes "äºŒ~ ä¸‰~";
 	next;
-	mes "[ÏÄÀÕ]";
-	mes "ËÄ~ Îå~ Áù~";
+	mes "[å¤å‹’]";
+	mes "å››~ äº”~ å…­~";
 	next;
-	mes "[ÏÄÀÕ]";
+	mes "[å¤å‹’]";
 	mes "... ... ... ...";
 	next;
-	mes "[ÏÄÀÕ]";
-	mes "¾Å¾Å~ Ò»°Ù!!! ÎÒÀ´ÁË~";
+	mes "[å¤å‹’]";
+	mes "ä¹ä¹~ ä¸€ç™¾!!! æˆ‘æ¥äº†~";
 	close;
 }
 
-dewata,239,140,4	script	Ë¹Èô#dew	539,2,3,{
+dewata,239,140,4	script	æ–¯è‹¥#dew	539,2,3,{
 OnTouch:
-	mes "[Ë¹Èô]";
-	mes "àË À´Õâ, À´ÕâÀï~ ÎÒ»áÕÒµ½Ëû~~";
+	mes "[æ–¯è‹¥]";
+	mes "å—¨ æ¥è¿™, æ¥è¿™é‡Œ~ æˆ‘ä¼šæ‰¾åˆ°ä»–~~";
 	next;
-	mes "[Ë¹Èô]";
-	mes "ÎÒ·¢ÏÖ Ë¹²¨!! ³öÀ´, ³öÀ´!!";
+	mes "[æ–¯è‹¥]";
+	mes "æˆ‘å‘ç° æ–¯æ³¢!! å‡ºæ¥, å‡ºæ¥!!";
 	emotion ET_KIK, getnpcid(0, "Sarr#dew");
 	emotion ET_HUK;
 	emotion ET_KIK, getnpcid(0, "Sipo#dew");
 	emotion ET_HUK,1;
 	next;
-	mes "[Ë¹Èô]";
-	mes "ºß!! Õâ¶¼ÊÇÄãµÄ´í~!!";
+	mes "[æ–¯è‹¥]";
+	mes "å“¼!! è¿™éƒ½æ˜¯ä½ çš„é”™~!!";
 	emotion ET_FRET;
 	close;
 }
 
-dewata,193,145,4	script	Ë¹²¨#dew	538,2,3,{
+dewata,193,145,4	script	æ–¯æ³¢#dew	538,2,3,{
 OnTouch:
-	mes "[Ë¹²¨]";
-	mes "ÏÄÀÕ²»»á·¢ÏÖÎÒÔÚÕâ, ¶Ô°É?";
+	mes "[æ–¯æ³¢]";
+	mes "å¤å‹’ä¸ä¼šå‘ç°æˆ‘åœ¨è¿™, å¯¹å§?";
 	next;
-	mes "[Ë¹²¨]";
-	mes "ÎÒ·¢ÏÖË¹Èô!! ¿ì³öÀ´, ¿ì³öÀ´!!";
+	mes "[æ–¯æ³¢]";
+	mes "æˆ‘å‘ç°æ–¯è‹¥!! å¿«å‡ºæ¥, å¿«å‡ºæ¥!!";
 	emotion ET_KIK, getnpcid(0, "Sarr#dew");
 	emotion ET_HUK, getnpcid(0, "Siyak#dew");
 	emotion ET_KIK;
 	emotion ET_HUK,1;
 	next;
-	mes "[Ë¹²¨]";
-	mes "ºÙºÙ~ Èç¹ûË¹Èôµ±¹í~ ÎÒ¾Í¶ãÔÚÕâÀï.";
+	mes "[æ–¯æ³¢]";
+	mes "å˜¿å˜¿~ å¦‚æœæ–¯è‹¥å½“é¬¼~ æˆ‘å°±èº²åœ¨è¿™é‡Œ.";
 	close;
 }
 
-dewata,228,177,4	script	Äª²é#dew	538,2,3,{
+dewata,228,177,4	script	è«æŸ¥#dew	538,2,3,{
 OnTouch:
-	mes "[Äª²é]";
-	mes "ÎÒÍæ×½ÃÔ²Ø²¢ÇÒÑ°ÕÒÎÒµÄÅóÓÑÃÇ...";
+	mes "[è«æŸ¥]";
+	mes "æˆ‘ç©æ‰è¿·è—å¹¶ä¸”å¯»æ‰¾æˆ‘çš„æœ‹å‹ä»¬...";
 	next;
-	mes "[Äª²é]";
-	mes "ÎÒÒ»Ö±ÔÚÕâÀï, ËûÃÇÒÑ¾­ÕÒÁË£³Ğ¡Ê±»¹Ã»ÕÒµ½ÎÒ...";
+	mes "[è«æŸ¥]";
+	mes "æˆ‘ä¸€ç›´åœ¨è¿™é‡Œ, ä»–ä»¬å·²ç»æ‰¾äº†ï¼“å°æ—¶è¿˜æ²¡æ‰¾åˆ°æˆ‘...";
 	emotion ET_SCRATCH;
 	next;
-	mes "[Äª²é]";
-	mes "ÎÒ¸ÃÔõÃ´°ì? ³öÀ´Âğ? ÎÒ²»Ïëµ±¹í...";
+	mes "[è«æŸ¥]";
+	mes "æˆ‘è¯¥æ€ä¹ˆåŠ? å‡ºæ¥å—? æˆ‘ä¸æƒ³å½“é¬¼...";
 	close;
 }
 
-dewata,278,100,4	script	ÃÔÂ·µÄº¢×Ó#dew	703,2,3,{
+dewata,278,100,4	script	è¿·è·¯çš„å­©å­#dew	703,2,3,{
 OnTouch:
-	mes "[ÃÔÂ·µÄº¢×Ó]";
-	mes "ÎØ~ÍÛ~ÎØ~ÎØ~ÍÛ~ÎØ..ÎØ~ÍÛ~ÎØ..~";
+	mes "[è¿·è·¯çš„å­©å­]";
+	mes "å‘œ~å“‡~å‘œ~å‘œ~å“‡~å‘œ..å‘œ~å“‡~å‘œ..~";
 	emotion ET_CRY;
 	emotion ET_PROFUSELY_SWEAT;
 	next;
 	mes "["+strcharinfo(0)+"]";
 	mes "Hey, kid...";
 	next;
-	mes "[ÃÔÂ·µÄº¢×Ó]";
-	mes "ÎØ~ÍÛ~ÎØÎØÎØÎØÎØ~ÍÛ~ÎØÎØ~ÍÛ~ÎØÎØ~ÍÛ~ÎØ..~";
+	mes "[è¿·è·¯çš„å­©å­]";
+	mes "å‘œ~å“‡~å‘œå‘œå‘œå‘œå‘œ~å“‡~å‘œå‘œ~å“‡~å‘œå‘œ~å“‡~å‘œ..~";
 	emotion ET_CRY;
 	next;
-	mes "[ÃÔÂ·µÄº¢×Ó]";
-	mes "ÂèÂè~ °Ö°Ö~ ÄãÃÇÔÚÄÄ~ ÎØ~";
+	mes "[è¿·è·¯çš„å­©å­]";
+	mes "å¦ˆå¦ˆ~ çˆ¸çˆ¸~ ä½ ä»¬åœ¨å“ª~ å‘œ~";
 	emotion ET_CRY;
 	emotion ET_PROFUSELY_SWEAT;
 	next;
@@ -794,79 +790,79 @@ OnTouch:
 	close;
 }
 
-dewata,249,87,4	script	ÓÅ¼ÍµÄÂè#dew	101,2,3,{
+dewata,249,87,4	script	ä¼˜çºªçš„å¦ˆ#dew	101,2,3,{
 OnTouch:
-	mes "[ÓÅ¼ÍµÄÂè]";
-	mes "ÓÅ¼Í~ ÓÅ¼Í~ ËıÈ¥ÄÄÁË?";
+	mes "[ä¼˜çºªçš„å¦ˆ]";
+	mes "ä¼˜çºª~ ä¼˜çºª~ å¥¹å»å“ªäº†?";
 	emotion ET_KEK;
 	next;
-	mes "[ÓÅ¼ÍµÄÂè]";
-	mes "²ÅÒ»×ªÑÛËı¾Í²»¼ûÁË...";
+	mes "[ä¼˜çºªçš„å¦ˆ]";
+	mes "æ‰ä¸€è½¬çœ¼å¥¹å°±ä¸è§äº†...";
 	next;
-	mes "[ÓÅ¼ÍµÄÂè]";
-	mes "ÓÅ¼Í~";
+	mes "[ä¼˜çºªçš„å¦ˆ]";
+	mes "ä¼˜çºª~";
 	emotion ET_KEK;
 	close;
 }
 
-dewata,251,85,6	script	ÓÅ¼ÍµÄ°Ö#dew	97,2,3,{
+dewata,251,85,6	script	ä¼˜çºªçš„çˆ¸#dew	97,2,3,{
 OnTouch:
-	mes "[ÓÅ¼ÍµÄ°Ö]";
-	mes "Ç×°®µÄ, ÓÅ¼ÍÓÖ²»¼ûÁËÂğ?";
+	mes "[ä¼˜çºªçš„çˆ¸]";
+	mes "äº²çˆ±çš„, ä¼˜çºªåˆä¸è§äº†å—?";
 	emotion ET_QUESTION;
 	next;
-	mes "[ÓÅ¼ÍµÄ°Ö]";
-	mes "°¦... ²»ÊÇËµ¹ıºÜ¶à´Î... ²»ÒªËæ±ãÂÒÅÜÂğ?";
+	mes "[ä¼˜çºªçš„çˆ¸]";
+	mes "å”‰... ä¸æ˜¯è¯´è¿‡å¾ˆå¤šæ¬¡... ä¸è¦éšä¾¿ä¹±è·‘å—?";
 	emotion ET_PROFUSELY_SWEAT;
 	next;
-	mes "[ÓÅ¼ÍµÄ°Ö]";
-	mes "ËıÒÑ¾­ÔÚ ÂåÑô, Ìì½òî®, ÄªË¹¿Æ±ÈÑÇ, °ÍÎ÷, À¥ÂØ,ÃÔ¹ıÂ·";
-	mes "ÔÚ °¥Ó´Ì©ÑÅ...Ò²Ò»Ñù";
+	mes "[ä¼˜çºªçš„çˆ¸]";
+	mes "å¥¹å·²ç»åœ¨ æ´›é˜³, å¤©æ´¥ç”º, è«æ–¯ç§‘æ¯”äºš, å·´è¥¿, æ˜†ä»‘,è¿·è¿‡è·¯";
+	mes "åœ¨ å“å“Ÿæ³°é›…...ä¹Ÿä¸€æ ·";
 	emotion ET_PROFUSELY_SWEAT;
 	next;
-	mes "[ÓÅ¼ÍµÄ°Ö]";
-	mes "Ê²Ã´!! ÒÑ¾­ 7´ÎÁË£¬ °üÀ¨Õâ´ÎÔÚµÂÍßËû... 7 ´ÎÁË!!!!!!";
+	mes "[ä¼˜çºªçš„çˆ¸]";
+	mes "ä»€ä¹ˆ!! å·²ç» 7æ¬¡äº†ï¼Œ åŒ…æ‹¬è¿™æ¬¡åœ¨å¾·ç“¦ä»–... 7 æ¬¡äº†!!!!!!";
 	emotion ET_OTL;
 	close;
 }
 
-dewata,278,281,4	script	Çé±È½ğ¼áµÄÀÏÒ¯Ò¯	534,{
-	mes "[Çé±È½ğ¼áµÄÀÏÒ¯Ò¯]";
-	mes "½ñÌì, ÎÒ°ïÎÒÌ«Ì«";
-	mes "³´Ò»Ğ© ^006400³´·¹^000000.";
+dewata,278,281,4	script	æƒ…æ¯”é‡‘åšçš„è€çˆ·çˆ·	534,{
+	mes "[æƒ…æ¯”é‡‘åšçš„è€çˆ·çˆ·]";
+	mes "ä»Šå¤©, æˆ‘å¸®æˆ‘å¤ªå¤ª";
+	mes "ç‚’ä¸€äº› ^006400ç‚’é¥­^000000.";
 	next;
-	mes "[Çé±È½ğ¼áµÄÀÏÒ¯Ò¯]";
-	mes "ÎÒÌ«Ì«×ÜÊÇ¾õµÃÎÒµÄ ";
-	mes " ^006400³´·¹^000000ºÜÌØ±ğ!";
+	mes "[æƒ…æ¯”é‡‘åšçš„è€çˆ·çˆ·]";
+	mes "æˆ‘å¤ªå¤ªæ€»æ˜¯è§‰å¾—æˆ‘çš„ ";
+	mes " ^006400ç‚’é¥­^000000å¾ˆç‰¹åˆ«!";
 	next;
-	mes "[Çé±È½ğ¼áµÄÀÏÒ¯Ò¯]";
-	mes "ÕâÈÃÎÒ¸ü°®Ëı.";
-	mes "ÕâÊÇÄãÎŞ·¨ÏëÏñµÄÃÀÎ¶Î¶µÀ!";
+	mes "[æƒ…æ¯”é‡‘åšçš„è€çˆ·çˆ·]";
+	mes "è¿™è®©æˆ‘æ›´çˆ±å¥¹.";
+	mes "è¿™æ˜¯ä½ æ— æ³•æƒ³åƒçš„ç¾å‘³å‘³é“!";
 	emotion ET_THROB;
 	close;
 }
 
-dewata,280,277,4	script	Çé±È½ğ¼áµÄÀÏÄÌÄÌ	535,{
-	mes "[Çé±È½ğ¼áµÄÀÏÄÌÄÌ]";
-	mes "ÔÚÎÒÄêÇáµÄÊ±ºò,";
-	mes "Óöµ½Ğí¶à»µÈË£¬";
-	mes "²¢ÇÒÏë¸æÎÒ.";
+dewata,280,277,4	script	æƒ…æ¯”é‡‘åšçš„è€å¥¶å¥¶	535,{
+	mes "[æƒ…æ¯”é‡‘åšçš„è€å¥¶å¥¶]";
+	mes "åœ¨æˆ‘å¹´è½»çš„æ—¶å€™,";
+	mes "é‡åˆ°è®¸å¤šåäººï¼Œ";
+	mes "å¹¶ä¸”æƒ³å‘Šæˆ‘.";
 	emotion ET_PROFUSELY_SWEAT;
 	next;
-	mes "[Çé±È½ğ¼áµÄÀÏÄÌÄÌ]";
-	mes "µ«ÊÇ, ÎÒÓö¼ûÁËËû,";
-	mes "²¢ÇÒ½á»éÁË.";
+	mes "[æƒ…æ¯”é‡‘åšçš„è€å¥¶å¥¶]";
+	mes "ä½†æ˜¯, æˆ‘é‡è§äº†ä»–,";
+	mes "å¹¶ä¸”ç»“å©šäº†.";
 	mes "I asked what he likes best";
 	mes "about me, he said it was";
 	mes "my homemade ^006400fried rice^000000";
 	next;
-	mes "[Çé±È½ğ¼áµÄÀÏÄÌÄÌ]";
+	mes "[æƒ…æ¯”é‡‘åšçš„è€å¥¶å¥¶]";
 	mes "And since then, he only asks me";
 	mes "to make ^006400fried rice^000000 for dinner.";
 	mes "Over 40 years of marriage";
 	mes "and he still doesn't get tired ot it.";
 	next;
-	mes "[Çé±È½ğ¼áµÄÀÏÄÌÄÌ]";
+	mes "[æƒ…æ¯”é‡‘åšçš„è€å¥¶å¥¶]";
 	mes "I always think it was lucky";
 	mes "to be growing old with a guy";
 	mes "who loves what I cook.";
@@ -874,208 +870,208 @@ dewata,280,277,4	script	Çé±È½ğ¼áµÄÀÏÄÌÄÌ	535,{
 	close;
 }
 
-dewata,165,103,6	script	Ã°ÏÕ¼Ò¡¡Ê·ÍôÌØ#dew	534,{
-	mes "[Ã°ÏÕ¼Ò¡¡Ê·ÍôÌØ]";
-	mes "ÎÒÄêÇáµÄÊ±ºòÏñÄãÒ»Ñù,";
-	mes "ÔÚÊÀ½ç¸÷µØÂÃĞĞ.";
-	mes "^FF0000ºï×Ó, ÎÚÔô^000000";
-	mes "^FF0000Ó¥, ºÍÉß^000000,";
-	mes "ËùÓĞÆæ¹ÖÊÂÇéºÍÉúÎï";
-	mes "ÔÚÂÃ³ÌÖĞ¶¼Óöµ½ÁË.";
+dewata,165,103,6	script	å†’é™©å®¶ã€€å²æ±ªç‰¹#dew	534,{
+	mes "[å†’é™©å®¶ã€€å²æ±ªç‰¹]";
+	mes "æˆ‘å¹´è½»çš„æ—¶å€™åƒä½ ä¸€æ ·,";
+	mes "åœ¨ä¸–ç•Œå„åœ°æ—…è¡Œ.";
+	mes "^FF0000çŒ´å­, ä¹Œè´¼^000000";
+	mes "^FF0000é¹°, å’Œè›‡^000000,";
+	mes "æ‰€æœ‰å¥‡æ€ªäº‹æƒ…å’Œç”Ÿç‰©";
+	mes "åœ¨æ—…ç¨‹ä¸­éƒ½é‡åˆ°äº†.";
 	next;
-	mes "[Ã°ÏÕ¼Ò¡¡Ê·ÍôÌØ]";
-	mes "ÎÒÈÔÈ»ÈÈÖÔÂÃĞĞºÍÃ°ÏÕ£¬";
-	mes "µ«ÊÇ,";
-	mes "ÎÒ²»ÄÜ×ÜÊÇÒ»Ö±";
-	mes "½«ĞÄ°®µÄÌ«Ì«ÓëËï×ÓÁôÏÂ...";
+	mes "[å†’é™©å®¶ã€€å²æ±ªç‰¹]";
+	mes "æˆ‘ä»ç„¶çƒ­è¡·æ—…è¡Œå’Œå†’é™©ï¼Œ";
+	mes "ä½†æ˜¯,";
+	mes "æˆ‘ä¸èƒ½æ€»æ˜¯ä¸€ç›´";
+	mes "å°†å¿ƒçˆ±çš„å¤ªå¤ªä¸å­™å­ç•™ä¸‹...";
 	next;
-	mes "[Ã°ÏÕ¼Ò¡¡Ê·ÍôÌØ]";
-	mes "Ä³Ìì£¬";
-	mes "Ò²»áÓĞÄ³Ğ©ÈËÊÂÎï£¬";
-	mes "ÔÚÄãµÄĞÄÖĞÕä²ØÏ¸Êı×Å.";
+	mes "[å†’é™©å®¶ã€€å²æ±ªç‰¹]";
+	mes "æŸå¤©ï¼Œ";
+	mes "ä¹Ÿä¼šæœ‰æŸäº›äººäº‹ç‰©ï¼Œ";
+	mes "åœ¨ä½ çš„å¿ƒä¸­çè—ç»†æ•°ç€.";
 	close;
 }
 
-dewata,139,114,6	script	Ê·ÍôÌØµÄÌ«Ì«#dew	535,{
-	mes "[Ê·ÍôÌØµÄÌ«Ì«]";
-	mes "ÄÇ¸öÀÏÍ·";
-	mes "µ½ÄÄÈ¥ÁË?";
-	mes "ÄãÓĞ¿´¼ûÎÒÏÈÉúÂğ?";
+dewata,139,114,6	script	å²æ±ªç‰¹çš„å¤ªå¤ª#dew	535,{
+	mes "[å²æ±ªç‰¹çš„å¤ªå¤ª]";
+	mes "é‚£ä¸ªè€å¤´";
+	mes "åˆ°å“ªå»äº†?";
+	mes "ä½ æœ‰çœ‹è§æˆ‘å…ˆç”Ÿå—?";
 	next;
-	switch(select("ÎÒËÆºõ¿´¼ûËûÔÚÄÇÀï..:²», ÎÒÃ»ÓĞ..")) {
+	switch(select("æˆ‘ä¼¼ä¹çœ‹è§ä»–åœ¨é‚£é‡Œ..:ä¸, æˆ‘æ²¡æœ‰..")) {
 	case 1:
-		mes "[Ê·ÍôÌØµÄÌ«Ì«]";
-		mes "ÎÒÒ»Ö±ÔÚÑ°ÕÒËû";
-		mes "ËûÓ¦¸ÃÏñÍù³£Ò»Ñù.";
-		mes "ÔÚÄ³¸öµØ·½";
-		mes "ÏòÂÃ¿ÍÃÇ½²Êö×ÅËûµÄ»Äµ®¹ÊÊÂ.";
+		mes "[å²æ±ªç‰¹çš„å¤ªå¤ª]";
+		mes "æˆ‘ä¸€ç›´åœ¨å¯»æ‰¾ä»–";
+		mes "ä»–åº”è¯¥åƒå¾€å¸¸ä¸€æ ·.";
+		mes "åœ¨æŸä¸ªåœ°æ–¹";
+		mes "å‘æ—…å®¢ä»¬è®²è¿°ç€ä»–çš„è’è¯æ•…äº‹.";
 		next;
-		mes "[Ê·ÍôÌØµÄÌ«Ì«]";
-		mes "ÎÒ´úÎÒÕÉ·òµÀÇ¸£®";
-		mes "Çë²»ÒªÏàĞÅËûÓŞ´ÀµÄ¹ÊÊÂ£®";
-		mes "ËµËûÓö¼ûÁË,";
-		mes "^FF0000ºï×ÓºÍÉß^000000";
-		mes "»òËµËûºÍ ^FF0000ÎÚÔô^000000Ò»Æğ²¢¼ç×÷Õ½.";
+		mes "[å²æ±ªç‰¹çš„å¤ªå¤ª]";
+		mes "æˆ‘ä»£æˆ‘ä¸ˆå¤«é“æ­‰ï¼";
+		mes "è¯·ä¸è¦ç›¸ä¿¡ä»–æ„šè ¢çš„æ•…äº‹ï¼";
+		mes "è¯´ä»–é‡è§äº†,";
+		mes "^FF0000çŒ´å­å’Œè›‡^000000";
+		mes "æˆ–è¯´ä»–å’Œ ^FF0000ä¹Œè´¼^000000ä¸€èµ·å¹¶è‚©ä½œæˆ˜.";
 		next;
-		mes "[Ê·ÍôÌØµÄÌ«Ì«]";
-		mes "ËûÒ»Ö±ÔÚÕâÀïÉú»î£®";
-		mes "È»¶ø.";
-		mes "Ëû×ÜÄÜÕÒµ½Ò»Ğ©ÂÃ¿Í";
-		mes "ÌıËû»Äµ®µÄ¹ÊÊÂ.";
+		mes "[å²æ±ªç‰¹çš„å¤ªå¤ª]";
+		mes "ä»–ä¸€ç›´åœ¨è¿™é‡Œç”Ÿæ´»ï¼";
+		mes "ç„¶è€Œ.";
+		mes "ä»–æ€»èƒ½æ‰¾åˆ°ä¸€äº›æ—…å®¢";
+		mes "å¬ä»–è’è¯çš„æ•…äº‹.";
 		close;
 	case 2:
-		mes "[Ê·ÍôÌØµÄÌ«Ì«]";
-		mes "Èç¹ûÄã¿´¼ûËûÔÚÄÄ.";
-		mes "à¸. ÈÃÎÒÖªµÀ";
+		mes "[å²æ±ªç‰¹çš„å¤ªå¤ª]";
+		mes "å¦‚æœä½ çœ‹è§ä»–åœ¨å“ª.";
+		mes "å–”. è®©æˆ‘çŸ¥é“";
 		close;
 	}
 }
 
-dewata,181,88,6	script	µÂÍßËûÇàÄê#dew-2	536,{
-	mes "[µÂÍßËûÇàÄê]";
-	mes "^8B4513µÂÍßËû^000000 º£Ì²";
-	mes "ÕæµÄºÜÆ¯ÁÁÂğ?";
-	mes "º¢×ÓÃÇ£¬";
-	mes "×ÜÊÇÔÚÕâÆ¬º£Ì²ÍæË£";
-	mes "ËüÈÃÎÒÏëÆğÎÒÄêÇáµÄÊ±ºò.";
+dewata,181,88,6	script	å¾·ç“¦ä»–é’å¹´#dew-2	536,{
+	mes "[å¾·ç“¦ä»–é’å¹´]";
+	mes "^8B4513å¾·ç“¦ä»–^000000 æµ·æ»©";
+	mes "çœŸçš„å¾ˆæ¼‚äº®å—?";
+	mes "å­©å­ä»¬ï¼Œ";
+	mes "æ€»æ˜¯åœ¨è¿™ç‰‡æµ·æ»©ç©è€";
+	mes "å®ƒè®©æˆ‘æƒ³èµ·æˆ‘å¹´è½»çš„æ—¶å€™.";
 	next;
-	mes "[µÂÍßËûÇàÄê]";
-	mes "Ò¹Íí£¬ÄãÄÜ¼ûµ½£¬";
-	mes "º£Ì²ÉÏµÄÑÌ»ğ¡£";
-	mes "Ëæ×Åº£·ç¡¢ÅÄ´òÉÏ°¶µÄÀË»¨,";
-	mes "ºÍÑæ»ğÕÕÁÁÁËÒ¹¿Õ,";
-	mes "Ò¹ÍíÊÇ×îÃÀÀöµÄÊ±¿Ì!";
+	mes "[å¾·ç“¦ä»–é’å¹´]";
+	mes "å¤œæ™šï¼Œä½ èƒ½è§åˆ°ï¼Œ";
+	mes "æµ·æ»©ä¸Šçš„çƒŸç«ã€‚";
+	mes "éšç€æµ·é£ã€æ‹æ‰“ä¸Šå²¸çš„æµªèŠ±,";
+	mes "å’Œç„°ç«ç…§äº®äº†å¤œç©º,";
+	mes "å¤œæ™šæ˜¯æœ€ç¾ä¸½çš„æ—¶åˆ»!";
 	close;
 }
 
-dewata,179,204,4	script	µÂÍßËûÉÙÅ®#dew	537,{
-	mes "[µÂÍßËûÉÙÅ®]";
-	mes "µ±ÄúÀë¿ª³ÇÕòÊ±,";
-	mes "Çë¾¡Á¿µÄÔ¶Àë ^FF0000ÀÏ»¢, ºï×Ó, »òÖí^000000,";
-	mes "±ÜÃâ³ÉÎªËûÃÇÏÂÊÖµÄ¶ÔÏó.";
+dewata,179,204,4	script	å¾·ç“¦ä»–å°‘å¥³#dew	537,{
+	mes "[å¾·ç“¦ä»–å°‘å¥³]";
+	mes "å½“æ‚¨ç¦»å¼€åŸé•‡æ—¶,";
+	mes "è¯·å°½é‡çš„è¿œç¦» ^FF0000è€è™, çŒ´å­, æˆ–çŒª^000000,";
+	mes "é¿å…æˆä¸ºä»–ä»¬ä¸‹æ‰‹çš„å¯¹è±¡.";
 	next;
-	select("ÄãµÄÒâË¼ÊÇ?");
-	mes "[µÂÍßËûÉÙÅ®]";
-	mes "ÎÒ»¹Ã»¼û¹ı,";
-	mes "µ«´«ËµÖĞ";
-	mes "ÓĞÖÖĞ×²ĞµÄ¹ÖÎï";
-	mes "^FF0000ÈÃÌØ^000000";
-	mes "»á±ä³É¶¯ÎïÅ°É±ÈËÀà.";
+	select("ä½ çš„æ„æ€æ˜¯?");
+	mes "[å¾·ç“¦ä»–å°‘å¥³]";
+	mes "æˆ‘è¿˜æ²¡è§è¿‡,";
+	mes "ä½†ä¼ è¯´ä¸­";
+	mes "æœ‰ç§å‡¶æ®‹çš„æ€ªç‰©";
+	mes "^FF0000è®©ç‰¹^000000";
+	mes "ä¼šå˜æˆåŠ¨ç‰©è™æ€äººç±».";
 	next;
-	mes "[µÂÍßËûÉÙÅ®]";
-	mes "ÄãÓ¦¸ÃÒªÖªµÀÎ£ÏÕ.";
-	mes "¼´Ê¹ÊÇ¸ö³ÇÊĞ´«Ëµ,";
-	mes "Ò²ÒªĞ¡ĞÄÄÄÌì´«Ëµ³ÉÕæ¶øÊÜµ½ÉËº¦.";
+	mes "[å¾·ç“¦ä»–å°‘å¥³]";
+	mes "ä½ åº”è¯¥è¦çŸ¥é“å±é™©.";
+	mes "å³ä½¿æ˜¯ä¸ªåŸå¸‚ä¼ è¯´,";
+	mes "ä¹Ÿè¦å°å¿ƒå“ªå¤©ä¼ è¯´æˆçœŸè€Œå—åˆ°ä¼¤å®³.";
 	//emotion ET_SCRATCH; //TODO
 	close;
 }
 
-dewata,280,236,4	script	¶¨¾ÓµÄÂÃĞĞ¼Ò#dew	726,{
-	mes "[¶¨¾ÓµÄÂÃĞĞ¼Ò]";
-	mes "ÎÒ´Ó²»ÖªÓĞ ^8B4513µÂÍßËû^000000.";
-	mes "µ«ÔÚÒ»´ÎµÄÂÃÍ¾ÖĞ,";
-	mes "ÎÒ·¢ÏÖÁËÕâÀï...";
-	mes "ÎÒ¾ö¶¨ÔÚÕâ¸öÃÀÀöµÄ³ÇÊĞ";
-	mes "¶¨¾ÓÏÂÀ´.";
+dewata,280,236,4	script	å®šå±…çš„æ—…è¡Œå®¶#dew	726,{
+	mes "[å®šå±…çš„æ—…è¡Œå®¶]";
+	mes "æˆ‘ä»ä¸çŸ¥æœ‰ ^8B4513å¾·ç“¦ä»–^000000.";
+	mes "ä½†åœ¨ä¸€æ¬¡çš„æ—…é€”ä¸­,";
+	mes "æˆ‘å‘ç°äº†è¿™é‡Œ...";
+	mes "æˆ‘å†³å®šåœ¨è¿™ä¸ªç¾ä¸½çš„åŸå¸‚";
+	mes "å®šå±…ä¸‹æ¥.";
 	next;
-	mes "[¶¨¾ÓµÄÂÃĞĞ¼Ò]";
-	mes "ÎÒÔÚÕâÀïÒ»Ö±ĞÒ¸£µÄÉú»î×Å,";
-	mes "·¢¾òºÍÌåÑéÕâĞ©ËùÓĞ";
-	mes "ÃÀÀöµÄÃÔÈË¾°É«.";
-	mes "ÎÒµÄÃÎÏë³ÉÕæÁË!";
+	mes "[å®šå±…çš„æ—…è¡Œå®¶]";
+	mes "æˆ‘åœ¨è¿™é‡Œä¸€ç›´å¹¸ç¦çš„ç”Ÿæ´»ç€,";
+	mes "å‘æ˜å’Œä½“éªŒè¿™äº›æ‰€æœ‰";
+	mes "ç¾ä¸½çš„è¿·äººæ™¯è‰².";
+	mes "æˆ‘çš„æ¢¦æƒ³æˆçœŸäº†!";
 	next;
-	mes "[¶¨¾ÓµÄÂÃĞĞ¼Ò]";
-	mes "Äã²»ÔøÏë¹ı£¬";
-	mes "À´ÕâÀï¶¨¾ÓÂğ?";
+	mes "[å®šå±…çš„æ—…è¡Œå®¶]";
+	mes "ä½ ä¸æ›¾æƒ³è¿‡ï¼Œ";
+	mes "æ¥è¿™é‡Œå®šå±…å—?";
 	close;
 }
 
-dewata,204,230,6	script	¼õ·ÊÖĞµÄÅ®ÈË#dew	537,{
+dewata,204,230,6	script	å‡è‚¥ä¸­çš„å¥³äºº#dew	537,{
 	if (countitem(11533) == 0) {
-		mes "[¼õ·ÊÖĞµÄÅ®ÈË]";
-		mes "°¢~ ÎÒ¶öÁË!!";
-		mes "ÎÒ²Å¸Õ³ÔÁË¶«Î÷.";
-		mes "ÎªÊ²Ã´ÓÖ¶öÁË?";
+		mes "[å‡è‚¥ä¸­çš„å¥³äºº]";
+		mes "é˜¿~ æˆ‘é¥¿äº†!!";
+		mes "æˆ‘æ‰åˆšåƒäº†ä¸œè¥¿.";
+		mes "ä¸ºä»€ä¹ˆåˆé¥¿äº†?";
 		next;
-		mes "[¼õ·ÊÖĞµÄÅ®ÈË]";
-		mes "ºÍÎÒËµ»°±ğÌ«¹ı·Ö!!";
-		mes "ÎÒ·Ç³£Ïë³¢¿¾µÄ ^006400É³àÇ^000000";
+		mes "[å‡è‚¥ä¸­çš„å¥³äºº]";
+		mes "å’Œæˆ‘è¯´è¯åˆ«å¤ªè¿‡åˆ†!!";
+		mes "æˆ‘éå¸¸æƒ³å°çƒ¤çš„ ^006400æ²™å—²^000000";
 		mes "so much~!!!!!";
 		close;
 	}
-	mes "[¼õ·ÊÖĞµÄÅ®ÈË]";
-	mes "ÕâÁîÈË´¹ÏÑµÄ";
-	mes "^006400É³àÇ^000000 Òª¸øÎÒ?";
+	mes "[å‡è‚¥ä¸­çš„å¥³äºº]";
+	mes "è¿™ä»¤äººå‚æ¶çš„";
+	mes "^006400æ²™å—²^000000 è¦ç»™æˆ‘?";
 	next;
-	switch(select("ÊÇµÄ, Ïë³¢³¢Âğ?:²»Òª, ÕâÊÇÎÒµÄ!")) {
+	switch(select("æ˜¯çš„, æƒ³å°å°å—?:ä¸è¦, è¿™æ˜¯æˆ‘çš„!")) {
 	case 1:
 		delitem 11533,1; //Satay
-		mes "[¼õ·ÊÖĞµÄÅ®ÈË]";
-		mes "·Ç³£Ğ»Ğ»Äã!!";
-		mes "ÎÒÊµÔÚÊÇÌ«¶öÁË~!!";
-		mes "Õâ ^006400É³àÇ^000000µÄÎ¶µÀ";
-		mes "ÊÇÄÇÃ´µÄ°ô~!";
+		mes "[å‡è‚¥ä¸­çš„å¥³äºº]";
+		mes "éå¸¸è°¢è°¢ä½ !!";
+		mes "æˆ‘å®åœ¨æ˜¯å¤ªé¥¿äº†~!!";
+		mes "è¿™ ^006400æ²™å—²^000000çš„å‘³é“";
+		mes "æ˜¯é‚£ä¹ˆçš„æ£’~!";
 		next;
 		getitem 11533,1; //Satay
-		mes "[¼õ·ÊÖĞµÄÅ®ÈË]";
-		mes "°¢... ²»ĞĞÔÚÕâÑùÏÂÈ¥.";
-		mes "ÕâÊµÔÚ²»ÊÇÒ»¸öºÃÖ÷Òâ...";
-		mes "ÎÒÒª¼á³Ö¼ÌĞø¼õ·Ê.";
-		mes "±§Ç¸, É³àÇ»¹Äã.";
+		mes "[å‡è‚¥ä¸­çš„å¥³äºº]";
+		mes "é˜¿... ä¸è¡Œåœ¨è¿™æ ·ä¸‹å».";
+		mes "è¿™å®åœ¨ä¸æ˜¯ä¸€ä¸ªå¥½ä¸»æ„...";
+		mes "æˆ‘è¦åšæŒç»§ç»­å‡è‚¥.";
+		mes "æŠ±æ­‰, æ²™å—²è¿˜ä½ .";
 			emotion ET_CRY;
 		close;
 	case 2:
-		mes "[¼õ·ÊÖĞµÄÅ®ÈË]";
-		mes "°¢... ÄãÕâÃ´Ì°ĞÄ!";
-		mes "¼ÈÈ»Äã²»Ïë·Ö¸øÎÒ...";
-		mes "¼´Ê¹ÎÅÆğÀ´ÊÇÈç´ËÃÀÎ¶";
-		mes "ÄãÒ²²»Ó¦¸ÃÕâÑùµÄÏ·ÅªÎÒ";
+		mes "[å‡è‚¥ä¸­çš„å¥³äºº]";
+		mes "é˜¿... ä½ è¿™ä¹ˆè´ªå¿ƒ!";
+		mes "æ—¢ç„¶ä½ ä¸æƒ³åˆ†ç»™æˆ‘...";
+		mes "å³ä½¿é—»èµ·æ¥æ˜¯å¦‚æ­¤ç¾å‘³";
+		mes "ä½ ä¹Ÿä¸åº”è¯¥è¿™æ ·çš„æˆå¼„æˆ‘";
 		emotion ET_HNG;
 		close;
 	}
 }
 
-dewata,117,156,6	script	ÃÎÏëĞÒ¸£µÄº¢×Ó#dew	538,{
-	mes "[ÃÎÏëĞÒ¸£µÄº¢×Ó]";
-	mes "ÎÒÄÌÄÌËµ";
-	mes "Ôø¾­ÓĞÒ»ÖÖÄñÃûÎª ^FF0000½ğ³áÄñ^000000";
-	mes "·ÉÀ´¹ıÕâ¸öĞ¡Õò.";
-	mes "ºóÀ´ÎÒÃÇµÄÊÕ»ñ´ó·áÊÕ";
-	mes "´ó¼ÒÉú»îµÄºÜ¿ìÀÖ.";
+dewata,117,156,6	script	æ¢¦æƒ³å¹¸ç¦çš„å­©å­#dew	538,{
+	mes "[æ¢¦æƒ³å¹¸ç¦çš„å­©å­]";
+	mes "æˆ‘å¥¶å¥¶è¯´";
+	mes "æ›¾ç»æœ‰ä¸€ç§é¸Ÿåä¸º ^FF0000é‡‘ç¿…é¸Ÿ^000000";
+	mes "é£æ¥è¿‡è¿™ä¸ªå°é•‡.";
+	mes "åæ¥æˆ‘ä»¬çš„æ”¶è·å¤§ä¸°æ”¶";
+	mes "å¤§å®¶ç”Ÿæ´»çš„å¾ˆå¿«ä¹.";
 	next;
-	mes "[ÃÎÏëĞÒ¸£µÄº¢×Ó]";
-	mes "ÎÒÏ£ÍûÄÜ¿´µ½";
-	mes "½ğ³áÄñÔÚ³ÇÊĞÉÏ¿Õ·ÉĞĞ!";
-	mes "ÈÃÎÒµÄÂèÂè¡¢°Ö°Ö";
-	mes "ÄÌÄÌ,¡¢Ò¯Ò¯";
-	mes "ÄÜÏñµ±Ê±Ò»ÑùµÄÔÙ´Î¸Ğµ½ĞÒ¸£¿ìÀÖ.";
-	mes "Äã¾õµÃÄØ?";
+	mes "[æ¢¦æƒ³å¹¸ç¦çš„å­©å­]";
+	mes "æˆ‘å¸Œæœ›èƒ½çœ‹åˆ°";
+	mes "é‡‘ç¿…é¸Ÿåœ¨åŸå¸‚ä¸Šç©ºé£è¡Œ!";
+	mes "è®©æˆ‘çš„å¦ˆå¦ˆã€çˆ¸çˆ¸";
+	mes "å¥¶å¥¶,ã€çˆ·çˆ·";
+	mes "èƒ½åƒå½“æ—¶ä¸€æ ·çš„å†æ¬¡æ„Ÿåˆ°å¹¸ç¦å¿«ä¹.";
+	mes "ä½ è§‰å¾—å‘¢?";
 	close;
 }
 
-dewata,144,216,4	script	Âú»³ÃÎÏëµÄº¢×Ó#dew	538,{
-	mes "[Âú»³ÃÎÏëµÄº¢×Ó]";
-	mes "ÎÒµÄ¸¸Ä¸Ôø¾­¸æËßÎÒ...";
+dewata,144,216,4	script	æ»¡æ€€æ¢¦æƒ³çš„å­©å­#dew	538,{
+	mes "[æ»¡æ€€æ¢¦æƒ³çš„å­©å­]";
+	mes "æˆ‘çš„çˆ¶æ¯æ›¾ç»å‘Šè¯‰æˆ‘...";
 	next;
-	mes "- ^006400¶ù×Ó,^000000 -";
-	mes "- ^006400ÄãÓ¦¸ÃÅ¬Á¦Ñ§Ï°.^000000 -";
-	mes "- ^006400²¢¿ìÀÖ.^000000 -";
-	mes "- ^006400ÏíÊÜÈËÉú^000000 -";
-	mes "- ^006400Æ·Î¶Éú»î.^000000 -";
-	mes "- ^006400ÓÀÔ¶»áÔÚÉ½µÄÁíÒ»Í·^000000 -";
-	mes "- ^006400µÈ´ıÄã.^000000 -";
+	mes "- ^006400å„¿å­,^000000 -";
+	mes "- ^006400ä½ åº”è¯¥åŠªåŠ›å­¦ä¹ .^000000 -";
+	mes "- ^006400å¹¶å¿«ä¹.^000000 -";
+	mes "- ^006400äº«å—äººç”Ÿ^000000 -";
+	mes "- ^006400å“å‘³ç”Ÿæ´».^000000 -";
+	mes "- ^006400æ°¸è¿œä¼šåœ¨å±±çš„å¦ä¸€å¤´^000000 -";
+	mes "- ^006400ç­‰å¾…ä½ .^000000 -";
 	next;
-	mes "[Âú»³ÃÎÏëµÄº¢×Ó]";
-	mes "ÊÇ²»ÊÇºÜÓĞÕÜÀí?";
-	mes "ÎÒÏëÒªÕâÑùÉú»î";
-	mes "²¢³ÉÎªÁË²»ÆğµÄÈË,";
-	mes "°ïÖú³ÇÊĞÀïËùÓĞĞèÒª°ïÖúµÄÈË";
-	mes "¹ıÉÏĞÒ¸£µÄÉú»î!";
+	mes "[æ»¡æ€€æ¢¦æƒ³çš„å­©å­]";
+	mes "æ˜¯ä¸æ˜¯å¾ˆæœ‰å“²ç†?";
+	mes "æˆ‘æƒ³è¦è¿™æ ·ç”Ÿæ´»";
+	mes "å¹¶æˆä¸ºäº†ä¸èµ·çš„äºº,";
+	mes "å¸®åŠ©åŸå¸‚é‡Œæ‰€æœ‰éœ€è¦å¸®åŠ©çš„äºº";
+	mes "è¿‡ä¸Šå¹¸ç¦çš„ç”Ÿæ´»!";
 	close;
 }
 
-dewata,127,248,6	script	Ïë±ä´óÈËµÄº¢×Ó#dew	539,{
-	mes "[Ïë±ä´óÈËµÄº¢×Ó]";
+dewata,127,248,6	script	æƒ³å˜å¤§äººçš„å­©å­#dew	539,{
+	mes "[æƒ³å˜å¤§äººçš„å­©å­]";
 	mes "My family has been brewing";
 	mes "traditional Dewata wine for ages.";
 	mes "I want to drink it myself,";
@@ -1083,7 +1079,7 @@ dewata,127,248,6	script	Ïë±ä´óÈËµÄº¢×Ó#dew	539,{
 	mes "He said I can drink it";
 	mes "only after I sleep for over ^FF0000100 days^000000.";
 	next;
-	mes "[Ïë±ä´óÈËµÄº¢×Ó]";
+	mes "[æƒ³å˜å¤§äººçš„å­©å­]";
 	mes "All grown-ups love to drink";
 	mes "my dad's wine.";
 	mes "I want to try some so bad.";

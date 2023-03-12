@@ -1,10 +1,7 @@
 //============================================================
-//= rAthenaCN [µÀ¾ß×âÓÃÊ¦]ºº»¯½Å±¾ [ www.rAthenaCN.com ]
+//= rAthenaCN [é“å…·ç§Ÿç”¨å¸ˆ]æ±‰åŒ–è„šæœ¬ 
 //============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
+
 
 //===== rAthena Script =======================================
 //= Universal Rental NPC
@@ -18,18 +15,18 @@
 //= One-click automatic mount rentals.
 //============================================================
 
-prontera,124,201,1	script	µÀ¾ß×âÓÃÊ¦	726,{
+prontera,124,201,1	script	é“å…·ç§Ÿç”¨å¸ˆ	726,{
 	if (ismounting()) {
-		message strcharinfo(0),"Äú±ØĞëÏÈĞ¶³ıÄúµÄ×øÆï.";
+		message strcharinfo(0),"æ‚¨å¿…é¡»å…ˆå¸é™¤æ‚¨çš„åéª‘.";
 		end;
 	} else if ((eaclass()&EAJ_THIRDMASK==EAJ_RANGER) && !countitem(6124)) {
 		if (!checkfalcon() && getskilllv("HT_FALCON") && !checkwug()) {
-			if(select(" ~ ÁÔÓ¥: ~ ÀÇ")==1) setfalcon;
+			if(select(" ~ çŒé¹°: ~ ç‹¼")==1) setfalcon;
 			else getitem 6124,1; //Wolf's_Flute
 		} else getitem 6124,1; //Wolf's_Flute
 	} else if ((eaclass()&EAJ_THIRDMASK==EAJ_MECHANIC) && !checkcart() && getskilllv("MC_PUSHCART")) {
 		if (!checkmadogear() && getskilllv("NC_MADOLICENCE")) {
-			if(select(" ~ ÊÖÍÆ³µ: ~ Mado")==1) setcart;
+			if(select(" ~ æ‰‹æ¨è½¦: ~ Mado")==1) setcart;
 			else setmadogear;
 		} else setcart;
 	} else if (!checkcart() && getskilllv("MC_PUSHCART")) setcart;
@@ -39,7 +36,7 @@ prontera,124,201,1	script	µÀ¾ß×âÓÃÊ¦	726,{
 		else setriding;
 	} else if (!checkmadogear() && getskilllv("NC_MADOLICENCE")) setmadogear;
 	else {
-		message strcharinfo(0),"Äú²»·ûºÏ×âÓÃµÄÌõ¼ş.";
+		message strcharinfo(0),"æ‚¨ä¸ç¬¦åˆç§Ÿç”¨çš„æ¡ä»¶.";
 		end;
 	}
 	specialeffect2 EF_TEIHIT3;

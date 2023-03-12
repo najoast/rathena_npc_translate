@@ -1,10 +1,7 @@
 //============================================================
-//= rAthenaCN [È¾É«´óÊ¦]ºº»¯½Å±¾ [ www.rAthenaCN.com ]
+//= rAthenaCN [æŸ“è‰²å¤§å¸ˆ]æ±‰åŒ–è„šæœ¬ 
 //============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
+
 
 //===== rAthena Script =======================================
 //= Stylist
@@ -21,7 +18,7 @@
 //= 1.1 Switched to 'getbattleflag', credits to Saithis. [Euphy]
 //============================================================
 
-prontera,170,180,1	script	È¾É«´óÊ¦#custom_stylist	122,{
+prontera,170,180,1	script	æŸ“è‰²å¤§å¸ˆ#custom_stylist	122,{
 	setarray .@Styles[1],
 		getbattleflag("max_cloth_color"),
 		getbattleflag("max_hair_style"),
@@ -30,13 +27,13 @@ prontera,170,180,1	script	È¾É«´óÊ¦#custom_stylist	122,{
 		LOOK_CLOTHES_COLOR,
 		LOOK_HAIR,
 		LOOK_HAIR_COLOR;
-	set .@s, select(" ~ ÒÂ·şÑÕÉ«: ~ ·¢ĞÍ: ~ ·¢É«:");
+	set .@s, select(" ~ è¡£æœé¢œè‰²: ~ å‘å‹: ~ å‘è‰²:");
 	set .@Revert, getlook(.@Look[.@s]);
 	set .@Style,1;
 	while(1) {
 		setlook .@Look[.@s], .@Style;
-		message strcharinfo(0),"Íâ¹Û #"+.@Style+".";
-		set .@menu$, " ~ ÏÂÒ»¸ö (^0055FF"+((.@Style!=.@Styles[.@s])?.@Style+1:1)+"^000000): ~ ÉÏÒ»¸ö (^0055FF"+((.@Style!=1)?.@Style-1:.@Styles[.@s])+"^000000): ~ ×ªµ½...: ~ »Ö¸´Ä¬ÈÏ (^0055FF"+.@Revert+"^000000) : ~ È·¶¨";
+		message strcharinfo(0),"å¤–è§‚ #"+.@Style+".";
+		set .@menu$, " ~ ä¸‹ä¸€ä¸ª (^0055FF"+((.@Style!=.@Styles[.@s])?.@Style+1:1)+"^000000): ~ ä¸Šä¸€ä¸ª (^0055FF"+((.@Style!=1)?.@Style-1:.@Styles[.@s])+"^000000): ~ è½¬åˆ°...: ~ æ¢å¤é»˜è®¤ (^0055FF"+.@Revert+"^000000) : ~ ç¡®å®š";
 		switch(select(.@menu$)) {
 		case 1:
 			set .@Style, ((.@Style != .@Styles[.@s]) ? .@Style+1 : 1);
@@ -45,7 +42,7 @@ prontera,170,180,1	script	È¾É«´óÊ¦#custom_stylist	122,{
 			set .@Style, ((.@Style != 1) ? .@Style-1 : .@Styles[.@s]);
 			break;
 		case 3:
-			message strcharinfo(0),"ÇëÑ¡Ôñ 1 - "+.@Styles[.@s]+".";
+			message strcharinfo(0),"è¯·é€‰æ‹© 1 - "+.@Styles[.@s]+".";
 			input .@Style,0,.@Styles[.@s];
 			if (!.@Style)
 				set .@Style, rand(1,.@Styles[.@s]);

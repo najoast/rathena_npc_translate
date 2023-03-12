@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN ½Å±¾ºº»¯ www.rAthenaCN.com ×ª×Ô [ www.99Max.mE ]
-//============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN è„šæœ¬æ±‰åŒ– è½¬è‡ª [ www.99Max.mE ]
 //============================================================
 
-//===== rAthena Script =======================================  
+//===== rAthena Script ======================================= 
 //= Cash Shop Functions
 //===== By: ================================================== 
 //= L0ne_W0lf
@@ -38,26 +34,26 @@
 //= 2.0 Moved VIP_Third_Class function into other/re/CashShop_Functions. [Capuche]
 //============================================================ 
 
-// ËæµØ²Ö¿âÊ¹ÓÃÈ¯
+// éšåœ°ä»“åº“ä½¿ç”¨åˆ¸
 //============================================================ 
-// - ËæÊ±ËæµØ´ò¿ª²Ö¿â
-// - ÎŞ²ÎÊı
+// - éšæ—¶éšåœ°æ‰“å¼€ä»“åº“
+// - æ— å‚æ•°
 function	script	F_CashStore	{
 	cutin "kafra_01",2;
-	mes "[¿¨ÆÕÀ­ Ö°Ô±]";
-	mes "ÄúºÃ,»¶Ó­ºô½Ğ¿¨ÆÕÀ­¹«Ë¾!";
-	mes "ÏÖÔÚ½«°´ÕÕÄúµÄÇëÇó¿ªÆô²Ö¿â.";
+	mes "[å¡æ™®æ‹‰ èŒå‘˜]";
+	mes "æ‚¨å¥½,æ¬¢è¿å‘¼å«å¡æ™®æ‹‰å…¬å¸!";
+	mes "ç°åœ¨å°†æŒ‰ç…§æ‚¨çš„è¯·æ±‚å¼€å¯ä»“åº“.";
 	close2;
 	openstorage;
 	cutin "",255;
 	return;
 }
 
-// ¾Ş´ó²ÔÓ¬³á°ò
+// å·¨å¤§è‹è‡ç¿…è†€
 //============================================================ 
 // - Warp party leader to random spot on the map.
-// - Ëæ×ÅµØÍ¼ÉÏµÄ¶Ó³¤Ò»ÆğË²¼äÒÆ¶¯
-// - ÎŞ²ÎÊı.
+// - éšç€åœ°å›¾ä¸Šçš„é˜Ÿé•¿ä¸€èµ·ç¬é—´ç§»åŠ¨
+// - æ— å‚æ•°.
 function	script	F_CashPartyCall	{
 	warp "Random",0,0;
 	if(getpartyleader(getcharid(1),2) == getcharid(0)) {
@@ -67,10 +63,10 @@ function	script	F_CashPartyCall	{
 	return;
 }
 
-// ÖØÖÃ¼¼ÄÜ°ô
+// é‡ç½®æŠ€èƒ½æ£’
 //============================================================ 
-// - ¸ºÖØÎª0,ÇÒÀÏÓ¥¡¢ÊÖÍÆ³µĞë·ÅÆú
-// - ÎŞ²ÎÊı
+// - è´Ÿé‡ä¸º0,ä¸”è€é¹°ã€æ‰‹æ¨è½¦é¡»æ”¾å¼ƒ
+// - æ— å‚æ•°
 function	script	F_CashReset	{
 	if (Class != Job_Novice && Weight == 0 && !checkriding() && !checkfalcon() && !checkcart() && !ismounting() && !checkdragon()) {
 		resetskill;
@@ -80,37 +76,37 @@ function	script	F_CashReset	{
 	return;
 }
 
-// ¶´Ñ¨Ë²¼äÒÆ¶¯ ¾íÖá
+// æ´ç©´ç¬é—´ç§»åŠ¨ å·è½´
 //============================================================ 
 // - Warp player to the selected dungeon.
 // - Arg(0) = type of scroll.
 function	script	F_CashDungeon	{
 	switch(getarg(0)) {
 	case 1:
-		switch(select("Åµ¿ÉÂŞµÂ:ÃîÀÕÄá ·ÏÆú¿ó³¡:"+((checkre(0))?"":"Ê÷Ä¾ÀïµÄ Òì½çÍ¨Â·")+":°¬Òô²¼ÂŞ¿Ë¿óÉ½¶´Ñ¨:ì³ÑïµØÏÂ·ÏÆú´åÂä:Íæ¾ß¹¤³§²Ö¿â:¿ËÀ×Ë¹ÌØººÄ· µØÏÂ¼àÓü1Â¥:ÁúÖ®³ÇÉóÁ¼¹¬:À¥ÂØÉñÏÉµÄÎ§ÆåÌ¨:ÒÀË¹Â³µÃµºº£µÁµØ¶´ÃÜÑ¨:ÎÚ¹êµºÃÜÑ¨:ÖÓËş µØÏÂ3Â¥:ÖÓËş µØÉÏ3Â¥:¹Å³Ç µØÏÂË®µÀ2Â¥:Ê··Ò¿ËË¹ ÃÜÑ¨4Â¥:½ğ×ÖËş ÃÔ¹¬4Â¥:ÆÕÂ¡µÂÀ­ µØÏÂË®µÀ3Â¥:Ìì½òî® é½é½Ã× ÃÔ¹¬1Â¥:ÉúÌåÊÔÑé ÑĞ¾¿Ëù1Â¥:°¥Ó´Ì©ÑÅ ¹Å´úÉñµî2Â¥")) {
-		case 1: warp "mag_dun01",125,71; end;	// Åµ¿ÉÂŞµÂ
-		case 2: warp "mjo_dun02",80,297; end;	// ÃîÀÕÄá ·ÏÆú¿ó³¡
-		case 3: warp "um_dun02",125,122; end;	// Ê÷Ä¾ÀïµÄÒì½çÍ¨Â· (Pre-Renewal only)
-		case 4: warp "ein_dun01",261,262; end;	// °¬Òô²¼ÂŞ¿Ë¿óÉ½¶´Ñ¨
-		case 5: warp "pay_dun03",155,150; end;	// ì³ÑïµØÏÂ·ÏÆú´åÂä
-		case 6: warp "xmas_dun01",133,130; end;	// Íæ¾ß¹¤³§²Ö¿â
-		case 7: warp "gl_prison",140,15; end;	// ¿ËÀ×Ë¹ÌØººÄ· µØÏÂ¼àÓü1Â¥
-		case 8: warp "lou_dun03",165,38; end;	// ÁúÖ®³ÇÉóÁ¼¹¬
-		case 9: warp "gon_dun02",251,263; end;	// À¥ÂØÉñÏÉµÄÎ§ÆåÌ¨
-		case 10: warp "iz_dun02",350,335; end;	// ÒÀË¹Â³µÃµºº£µÁµØ¶´ÃÜÑ¨
-		case 11: warp "tur_dun02",165,30; end;	// ÎÚ¹êµºÃÜÑ¨
-		case 12: warp "alde_dun03",275,180; end;	// ÖÓËş µØÏÂ3Â¥
-		case 13: warp "c_tower3",34,42; end;	// ÖÓËş µØÉÏ3Â¥
-		case 14: warp "gl_sew02",292,295; end;	// ¹Å³Ç µØÏÂË®µÀ2Â¥
-		case 15: warp "in_sphinx4",120,120; end;	// Ê··Ò¿ËË¹ ÃÜÑ¨4Â¥
-		case 16: warp "moc_pryd04",195,4; end;	// ½ğ×ÖËş ÃÔ¹¬4Â¥
-		case 17: warp "prt_sewb3",20,175; end;	// ÆÕÂ¡µÂÀ­ µØÏÂË®µÀ3Â¥
-		case 18: warp "ama_dun01",222,144; end;	// Ìì½òî® é½é½Ã× ÃÔ¹¬1Â¥
-		case 19: warp "lhz_dun01",19,153; end;	// ÉúÌåÊÔÑé ÑĞ¾¿Ëù1Â¥
-		case 20: warp "ayo_dun02",70,240; end;	// °¥Ó´Ì©ÑÅ ¹Å´úÉñµî2Â¥
+		switch(select("è¯ºå¯ç½—å¾·:å¦™å‹’å°¼ åºŸå¼ƒçŸ¿åœº:"+((checkre(0))?"":"æ ‘æœ¨é‡Œçš„ å¼‚ç•Œé€šè·¯")+":è‰¾éŸ³å¸ƒç½—å…‹çŸ¿å±±æ´ç©´:æ–æ‰¬åœ°ä¸‹åºŸå¼ƒæ‘è½:ç©å…·å·¥å‚ä»“åº“:å…‹é›·æ–¯ç‰¹æ±‰å§† åœ°ä¸‹ç›‘ç‹±1æ¥¼:é¾™ä¹‹åŸå®¡è‰¯å®«:æ˜†ä»‘ç¥ä»™çš„å›´æ£‹å°:ä¾æ–¯é²å¾—å²›æµ·ç›—åœ°æ´å¯†ç©´:ä¹Œé¾Ÿå²›å¯†ç©´:é’Ÿå¡” åœ°ä¸‹3æ¥¼:é’Ÿå¡” åœ°ä¸Š3æ¥¼:å¤åŸ åœ°ä¸‹æ°´é“2æ¥¼:å²èŠ¬å…‹æ–¯ å¯†ç©´4æ¥¼:é‡‘å­—å¡” è¿·å®«4æ¥¼:æ™®éš†å¾·æ‹‰ åœ°ä¸‹æ°´é“3æ¥¼:å¤©æ´¥ç”º æ¦»æ¦»ç±³ è¿·å®«1æ¥¼:ç”Ÿä½“è¯•éªŒ ç ”ç©¶æ‰€1æ¥¼:å“å“Ÿæ³°é›… å¤ä»£ç¥æ®¿2æ¥¼")) {
+		case 1: warp "mag_dun01",125,71; end;	// è¯ºå¯ç½—å¾·
+		case 2: warp "mjo_dun02",80,297; end;	// å¦™å‹’å°¼ åºŸå¼ƒçŸ¿åœº
+		case 3: warp "um_dun02",125,122; end;	// æ ‘æœ¨é‡Œçš„å¼‚ç•Œé€šè·¯ (Pre-Renewal only)
+		case 4: warp "ein_dun01",261,262; end;	// è‰¾éŸ³å¸ƒç½—å…‹çŸ¿å±±æ´ç©´
+		case 5: warp "pay_dun03",155,150; end;	// æ–æ‰¬åœ°ä¸‹åºŸå¼ƒæ‘è½
+		case 6: warp "xmas_dun01",133,130; end;	// ç©å…·å·¥å‚ä»“åº“
+		case 7: warp "gl_prison",140,15; end;	// å…‹é›·æ–¯ç‰¹æ±‰å§† åœ°ä¸‹ç›‘ç‹±1æ¥¼
+		case 8: warp "lou_dun03",165,38; end;	// é¾™ä¹‹åŸå®¡è‰¯å®«
+		case 9: warp "gon_dun02",251,263; end;	// æ˜†ä»‘ç¥ä»™çš„å›´æ£‹å°
+		case 10: warp "iz_dun02",350,335; end;	// ä¾æ–¯é²å¾—å²›æµ·ç›—åœ°æ´å¯†ç©´
+		case 11: warp "tur_dun02",165,30; end;	// ä¹Œé¾Ÿå²›å¯†ç©´
+		case 12: warp "alde_dun03",275,180; end;	// é’Ÿå¡” åœ°ä¸‹3æ¥¼
+		case 13: warp "c_tower3",34,42; end;	// é’Ÿå¡” åœ°ä¸Š3æ¥¼
+		case 14: warp "gl_sew02",292,295; end;	// å¤åŸ åœ°ä¸‹æ°´é“2æ¥¼
+		case 15: warp "in_sphinx4",120,120; end;	// å²èŠ¬å…‹æ–¯ å¯†ç©´4æ¥¼
+		case 16: warp "moc_pryd04",195,4; end;	// é‡‘å­—å¡” è¿·å®«4æ¥¼
+		case 17: warp "prt_sewb3",20,175; end;	// æ™®éš†å¾·æ‹‰ åœ°ä¸‹æ°´é“3æ¥¼
+		case 18: warp "ama_dun01",222,144; end;	// å¤©æ´¥ç”º æ¦»æ¦»ç±³ è¿·å®«1æ¥¼
+		case 19: warp "lhz_dun01",19,153; end;	// ç”Ÿä½“è¯•éªŒ ç ”ç©¶æ‰€1æ¥¼
+		case 20: warp "ayo_dun02",70,240; end;	// å“å“Ÿæ³°é›… å¤ä»£ç¥æ®¿2æ¥¼
 		}
 	case 2: // Menu names are not official.
-		switch(select("ÍĞ¶û»ğÉ½ 2f:±ù¶´Èë¿Ú:ÎŞÃûµºÈë¿Ú:Äá·Æº£Ä·:ÃÔ¹¬É­ÁÖ 2f:ÓÅÅäÀŞË¹¶´Ñ¨Èë¿Ú:ÂìÒÏµØÓü 2f:»ù¶ûÑ§Ôº:´ïÄÉÍĞË¹ËşÈë¿Ú:ÉîÔ¨ºşË®Èë¿Ú:·ÆÁ¦ÑÇ´óÉñµîÈë¿Ú:°ÂµÏÉñµî 2f")) {
+		switch(select("æ‰˜å°”ç«å±± 2f:å†°æ´å…¥å£:æ— åå²›å…¥å£:å°¼è²æµ·å§†:è¿·å®«æ£®æ— 2f:ä¼˜é…æ“‚æ–¯æ´ç©´å…¥å£:èš‚èšåœ°ç‹± 2f:åŸºå°”å­¦é™¢:è¾¾çº³æ‰˜æ–¯å¡”å…¥å£:æ·±æ¸Šæ¹–æ°´å…¥å£:è²åŠ›äºšå¤§ç¥æ®¿å…¥å£:å¥¥è¿ªç¥æ®¿ 2f")) {
 		case 1: warp "thor_v02",77,208; end;	// Thor Volcano 2F
 		case 2: warp "ra_fild01",237,333; end;	// Ice Dungeon
 		case 3: warp "ve_fild07",127,131; end;	// Nameless Island
@@ -125,13 +121,13 @@ function	script	F_CashDungeon	{
 		case 12: warp "odin_tem02",257,374; end;	// Odin Temple F2
 		}
 	case 3:
-		switch(select("ÉúÌåÊÔÑé ÑĞ¾¿Ëù (2Â¥):±ù¶´Ñ¨ (3Â¥):°Â¶¡Éñµî (3Â¥):ÍĞ¶û»ğÉ½ ¶´Ñ¨ (3Â¥):ÉîÔ¨ºşË® µØÏÂ¶´Ñ¨ (3Â¥):ÓÅÅäÀŞË¹ ·ÏĞæ (2Â¥)")) {
-		case 1: warp "lhz_dun02",145,149; end;	// ÉúÌåÊÔÑé ÑĞ¾¿Ëù 2Â¥
-		case 2: warp "ice_dun03",150,176; end;	// ±ù¶´Ñ¨ 3Â¥
-		case 3: warp "odin_tem03",278,235; end;	// °Â¶¡Éñµî 3Â¥
-		case 4: warp "thor_v03",144,170; end;	// ÍĞ¶û»ğÉ½ ¶´Ñ¨ 3Â¥
-		case 5: warp "abyss_03",97,104; end;	// ÉîÔ¨ºşË® µØÏÂ¶´Ñ¨ 3Â¥
-		case 6: warp "juperos_02",130,159; end;	// ÓÅÅäÀŞË¹ ·ÏĞæ 2Â¥
+		switch(select("ç”Ÿä½“è¯•éªŒ ç ”ç©¶æ‰€ (2æ¥¼):å†°æ´ç©´ (3æ¥¼):å¥¥ä¸ç¥æ®¿ (3æ¥¼):æ‰˜å°”ç«å±± æ´ç©´ (3æ¥¼):æ·±æ¸Šæ¹–æ°´ åœ°ä¸‹æ´ç©´ (3æ¥¼):ä¼˜é…æ“‚æ–¯ åºŸå¢Ÿ (2æ¥¼)")) {
+		case 1: warp "lhz_dun02",145,149; end;	// ç”Ÿä½“è¯•éªŒ ç ”ç©¶æ‰€ 2æ¥¼
+		case 2: warp "ice_dun03",150,176; end;	// å†°æ´ç©´ 3æ¥¼
+		case 3: warp "odin_tem03",278,235; end;	// å¥¥ä¸ç¥æ®¿ 3æ¥¼
+		case 4: warp "thor_v03",144,170; end;	// æ‰˜å°”ç«å±± æ´ç©´ 3æ¥¼
+		case 5: warp "abyss_03",97,104; end;	// æ·±æ¸Šæ¹–æ°´ åœ°ä¸‹æ´ç©´ 3æ¥¼
+		case 6: warp "juperos_02",130,159; end;	// ä¼˜é…æ“‚æ–¯ åºŸå¢Ÿ 2æ¥¼
 		}
 	}
 	return;
@@ -144,7 +140,7 @@ function	script	F_CashDungeon	{
 function	script	F_CashCity	{
 	switch(getarg(0)) {
 	case 1: // Yellow - Rune-Midgart
-		switch(select("ÆÕÂ¡µÂÀ­:ÒÀË¹Â³µÃµº:¼ª·Ò:ì³Ñï:ÃÎÂŞ¿Ë:°¬¶ûÅÁÀ¼:°¬¶û±´Ëş")) {
+		switch(select("æ™®éš†å¾·æ‹‰:ä¾æ–¯é²å¾—å²›:å‰èŠ¬:æ–æ‰¬:æ¢¦ç½—å…‹:è‰¾å°”å¸•å…°:è‰¾å°”è´å¡”")) {
 			case 1: warp "prontera",122,87; end;
 			case 2: if (checkre(0)) warp "izlude",130,90; else warp "izlude",91,105; end;
 			case 3: warp "geffen",128,48; end;
@@ -154,7 +150,7 @@ function	script	F_CashCity	{
 			case 7: warp "aldebaran",140,110; end;
 		}
 	case 2: // Green - Schwartzvalt
-		switch(select("ÖìÅµ:ÀïÏ£ËşÀÖÕò:°¬Òô²¼ÂŞ¿Ë:°¬Òô±´ºÕ:»Ù¸ğ")) {
+		switch(select("æœ±è¯º:é‡Œå¸Œå¡”ä¹é•‡:è‰¾éŸ³å¸ƒç½—å…‹:è‰¾éŸ³è´èµ«:æ¯è‘›")) {
 			case 1: warp "yuno",160,170; end;
 			case 2: warp "lighthalzen",190,310; end;
 			case 3: warp "einbroch",230,190; end;
@@ -162,19 +158,19 @@ function	script	F_CashCity	{
 			case 5: warp "hugel",92,165; end;
 		}
 	case 3: // Red - Arunafeltz
-		switch(select("À­ºÕ:²®ÈÊË¹")) {
+		switch(select("æ‹‰èµ«:ä¼¯ä»æ–¯")) {
 			case 1: warp "rachel",120,125; end;
 			case 2: warp "veins",215,105; end;
 		}
 	case 4: // Blue - Islands
-		switch(select("Ìì½òî®:À¥ÂØ:°¥Ó´Ì©ÑÅ:ÁúÖ®³Ç")) {
+		switch(select("å¤©æ´¥ç”º:æ˜†ä»‘:å“å“Ÿæ³°é›…:é¾™ä¹‹åŸ")) {
 			case 1: warp "amatsu",110,140; end;
 			case 2: warp "gonryun",160,115; end;
 			case 3: warp "ayothaya",220,170; end;
 			case 4: warp "louyang",217,95; end;
 		}
 	case 5: // Blue - Islands (Renewal)
-		switch(select("Ìì½òî®:À¥ÂØ:°¥Ó´Ì©ÑÅ:ÁúÖ®³Ç:ÄªË¹¿Æ±ÈÑÇ:µÂÍßËş:°ÍÎ÷ÀûÑÇË¹")) {
+		switch(select("å¤©æ´¥ç”º:æ˜†ä»‘:å“å“Ÿæ³°é›…:é¾™ä¹‹åŸ:è«æ–¯ç§‘æ¯”äºš:å¾·ç“¦å¡”:å·´è¥¿åˆ©äºšæ–¯")) {
 			case 1: warp "amatsu",110,140; end;
 			case 2: warp "gonryun",160,115; end;
 			case 3: warp "ayothaya",220,170; end;
@@ -187,14 +183,14 @@ function	script	F_CashCity	{
 	return;
 }
 
-// ¿Õ¼äÒÆ¶¯¾íÖá
+// ç©ºé—´ç§»åŠ¨å·è½´
 //============================================================ 
-// - ½«Ê¹ÓÃÕß´«ËÍµ½´æµã»òÊÇÑ¡ÏîÀïµÄ³ÇÊĞ.
+// - å°†ä½¿ç”¨è€…ä¼ é€åˆ°å­˜ç‚¹æˆ–æ˜¯é€‰é¡¹é‡Œçš„åŸå¸‚.
 // - Arg(0) = type of scroll.
 function	script	F_CashTele	{
 	switch(getarg(0)) {
 	case 1:
-		switch(select("ÆÕÂ¡µÂÀ­:¼ª·Ò:°¬¶ûÅÁÀ¼:ÒÀË¹Â³µÃµº:´¢´æµã")) {
+		switch(select("æ™®éš†å¾·æ‹‰:å‰èŠ¬:è‰¾å°”å¸•å…°:ä¾æ–¯é²å¾—å²›:å‚¨å­˜ç‚¹")) {
 		case 1: warp "prontera",119,77; end;
 		case 2: warp "geffen",119,39; end;
 		case 3: warp "aldebaran",165,107; end;
@@ -202,7 +198,7 @@ function	script	F_CashTele	{
 		case 5: warp "SavePoint",0,0; end;
 		}
 	case 2:
-		switch(select("ì³Ñï:°®¶û±´Ëş:ÃÎÂŞ¿Ë:¿ËÄ§µº:´¢´æµã")) {
+		switch(select("æ–æ‰¬:çˆ±å°”è´å¡”:æ¢¦ç½—å…‹:å…‹é­”å²›:å‚¨å­˜ç‚¹")) {
 		case 1: warp "payon",158,55; end;
 		case 2: warp "alberta",115,57; end;
 		case 3: warp "morocc",158,48; end;
@@ -210,7 +206,7 @@ function	script	F_CashTele	{
 		case 5: warp "SavePoint",0,0; end;
 		}
 	case 3:
-		switch(select("ÁúÖ®³Ç:Ìì½òî®:À¥ÂØ:°¥Ó´Ì©ÑÅ:´¢´æµã")) {
+		switch(select("é¾™ä¹‹åŸ:å¤©æ´¥ç”º:æ˜†ä»‘:å“å“Ÿæ³°é›…:å‚¨å­˜ç‚¹")) {
 		case 1: warp "louyang",214,101; end;
 		case 2: warp "amatsu",112,145; end;
 		case 3: warp "gonryun",160,118; end;
@@ -218,14 +214,14 @@ function	script	F_CashTele	{
 		case 5: warp "SavePoint",0,0; end;
 		}
 	case 4:
-		switch(select("½ª±ı³Ç:ãë°ÍÀ­:ÄáÜ½·ÆÄ·:´¢´æµã")) {
+		switch(select("å§œé¥¼åŸ:æ±¶å·´æ‹‰:å°¼èŠ™è²å§†:å‚¨å­˜ç‚¹")) {
 		case 1: warp "xmas",148,131; end;
 		case 2: warp "umbala",93,154; end;
 		case 3: warp "niflheim",187,189; end;
 		case 4: warp "SavePoint",0,0; end;
 		}
 	case 5:
-		switch(select("ÖìÅµ:°¬Òô²¼ÂŞ¿Ë:ÀïÏ£ËşÀÖÕò:»Ù¸ğ:´¢´æµã")) {
+		switch(select("æœ±è¯º:è‰¾éŸ³å¸ƒç½—å…‹:é‡Œå¸Œå¡”ä¹é•‡:æ¯è‘›:å‚¨å­˜ç‚¹")) {
 		case 1: warp "yuno",157,124; end;
 		case 2: warp "einbroch",230,192; end;
 		case 3: warp "lighthalzen",158,94; end;
@@ -233,7 +229,7 @@ function	script	F_CashTele	{
 		case 5: warp "SavePoint",0,0; end;
 		}
 	case 6:
-		switch(select("À­ºÕ:²®ÈÊË¹:´¢´æµã")) {
+		switch(select("æ‹‰èµ«:ä¼¯ä»æ–¯:å‚¨å­˜ç‚¹")) {
 		case 1: warp "rachel",118,132; end;
 		case 2: warp "veins",214,125; end;
 		case 3: warp "SavePoint",0,0; end;
@@ -247,7 +243,7 @@ function	script	F_CashTele	{
 // - Warp player to selected guild castle.
 // - No arguments.
 function	script	F_CashSiegeTele	{
-	switch(select("Â¶ÒÀÄÉ ¹¤»á (aldeg_cas01):Â¶ÒÀÄÉ ¹¤»á (aldeg_cas02):Â¶ÒÀÄÉ ¹¤»á (aldeg_cas03):Â¶ÒÀÄÉ ¹¤»á (aldeg_cas04):Â¶ÒÀÄÉ¹¤»á (aldeg_cas05):…ùÁ¨Í×ÀûÑÇ ¹¤»á (gefg_cas01):…ùÁ¨Í×ÀûÑÇ ¹¤»á (gefg_cas02):…ùÁ¨Í×ÀûÑÇ ¹¤»á (gefg_cas03):…ùÁ¨Í×ÀûÑÇ ¹¤»á (gefg_cas04):…ùÁ¨Í×ÀûÑÇ ¹¤»á (gefg_cas05):ÇàÁÖºş²´ ¹¤»á (payg_cas01):ÇàÁÖºş²´ ¹¤»á (payg_cas02):ÇàÁÖºş²´ ¹¤»á (payg_cas03):ÇàÁÖºş²´ ¹¤»á (payg_cas04):ÇàÁÖºş²´ ¹¤»á (payg_cas05):Kriemhild (prtg_cas01):°Í»ùÁ¦À×¶÷ ¹¤»á (prtg_cas02):°Í»ùÁ¦À×¶÷ ¹¤»á (prtg_cas03):°Í»ùÁ¦À×¶÷ ¹¤»á (prtg_cas04):°Í»ùÁ¦À×¶÷ ¹¤»á (prtg_cas05)")) {
+	switch(select("éœ²ä¾çº³ å·¥ä¼š (aldeg_cas01):éœ²ä¾çº³ å·¥ä¼š (aldeg_cas02):éœ²ä¾çº³ å·¥ä¼š (aldeg_cas03):éœ²ä¾çº³ å·¥ä¼š (aldeg_cas04):éœ²ä¾çº³å·¥ä¼š (aldeg_cas05):å’˜å“©å¦¥åˆ©äºš å·¥ä¼š (gefg_cas01):å’˜å“©å¦¥åˆ©äºš å·¥ä¼š (gefg_cas02):å’˜å“©å¦¥åˆ©äºš å·¥ä¼š (gefg_cas03):å’˜å“©å¦¥åˆ©äºš å·¥ä¼š (gefg_cas04):å’˜å“©å¦¥åˆ©äºš å·¥ä¼š (gefg_cas05):é’æ—æ¹–æ³Š å·¥ä¼š (payg_cas01):é’æ—æ¹–æ³Š å·¥ä¼š (payg_cas02):é’æ—æ¹–æ³Š å·¥ä¼š (payg_cas03):é’æ—æ¹–æ³Š å·¥ä¼š (payg_cas04):é’æ—æ¹–æ³Š å·¥ä¼š (payg_cas05):Kriemhild (prtg_cas01):å·´åŸºåŠ›é›·æ© å·¥ä¼š (prtg_cas02):å·´åŸºåŠ›é›·æ© å·¥ä¼š (prtg_cas03):å·´åŸºåŠ›é›·æ© å·¥ä¼š (prtg_cas04):å·´åŸºåŠ›é›·æ© å·¥ä¼š (prtg_cas05)")) {
 	case 1: warp "alde_gld",48,91; end;
 	case 2: warp "alde_gld",103,245; end;
 	case 3: warp "alde_gld",142,87; end;
@@ -278,33 +274,33 @@ function	script	F_CashSiegeTele	{
 // - No arguments.
 function	script	F_Snowball	{
 	cutin "rutie_snownow03",2;
-	mes "[Ñ©ÈË]";
-	mes "Ê¥µ®½Ú¿ìÀÖ!";
-	switch(select("»Ö¸´Ò»Ğ© HP/SP:Ç¿»¯ÎÒµÄÉíÌå×´Ì¬!:SPÍêÈ«»Ø¸´.:·µ»Ø´¢´æµã")) {
+	mes "[é›ªäºº]";
+	mes "åœ£è¯èŠ‚å¿«ä¹!";
+	switch(select("æ¢å¤ä¸€äº› HP/SP:å¼ºåŒ–æˆ‘çš„èº«ä½“çŠ¶æ€!:SPå®Œå…¨å›å¤.:è¿”å›å‚¨å­˜ç‚¹")) {
 	case 1:
-		mes "°¢¹ş!";
-		mes "Äş¾²µÄÒ¹Íí~";
+		mes "é˜¿å“ˆ!";
+		mes "å®é™çš„å¤œæ™š~";
 		percentheal 70,70;
 		close2;
 		cutin "",255;
 		break;
 	case 2:
-		mes "×£¸£Õâ.";
-		mes "ÉñÊ¥Ö®Ò¹~";
+		mes "ç¥ç¦è¿™.";
+		mes "ç¥åœ£ä¹‹å¤œ~";
 		unitskilluseid getcharid(3),"SM_ENDURE",10;
 		close2;
 		cutin "",255;
 		break;
 	case 3:
-		mes "°¢¹ş!";
-		mes "°×É«Ò®µ®~";
+		mes "é˜¿å“ˆ!";
+		mes "ç™½è‰²è€¶è¯~";
 		percentheal 0,100;
 		close2;
 		cutin "",255;
 		break;
 	case 4:
-		mes "Áå¶ùÏì¶£µ±~";
-		mes "Áå¶ùÏì¶£µ±~ Áå¶ùÏì¶£µ±!";
+		mes "é“ƒå„¿å“å®å½“~";
+		mes "é“ƒå„¿å“å®å½“~ é“ƒå„¿å“å®å½“!";
 		close2;
 		cutin "",255;
 		warp "SavePoint",0,0;

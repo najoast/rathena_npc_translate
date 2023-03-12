@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN ½Å±¾ºº»¯ www.rAthenaCN.com ×ª×Ô [ www.99Max.mE ]
-//============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN è„šæœ¬æ±‰åŒ– è½¬è‡ª [ www.99Max.mE ]
 //============================================================
 
-//===== rAthena Script =======================================  
+//===== rAthena Script ======================================= 
 //= Quest NPCs related to Izlude
 //===== By: ================================================== 
 //= Daegaladh, Masao
@@ -22,8 +18,8 @@
 //= 1.1 Added Izlude duplicates. [Euphy]
 //============================================================
 
-izlude,179,219,2	duplicate(Edgar_izlude)	°®µÂ¼Î#izlude	49
-izlude_a,179,219,2	duplicate(Edgar_izlude)	°®µÂ¼Î#izlude_a	49
-izlude_b,179,219,2	duplicate(Edgar_izlude)	°®µÂ¼Î#izlude_b	49
-izlude_c,179,219,2	duplicate(Edgar_izlude)	°®µÂ¼Î#izlude_c	49
-izlude_d,179,219,2	duplicate(Edgar_izlude)	°®µÂ¼Î#izlude_d	49
+izlude,179,219,2	duplicate(Edgar_izlude)	çˆ±å¾·å˜‰#izlude	49
+izlude_a,179,219,2	duplicate(Edgar_izlude)	çˆ±å¾·å˜‰#izlude_a	49
+izlude_b,179,219,2	duplicate(Edgar_izlude)	çˆ±å¾·å˜‰#izlude_b	49
+izlude_c,179,219,2	duplicate(Edgar_izlude)	çˆ±å¾·å˜‰#izlude_c	49
+izlude_d,179,219,2	duplicate(Edgar_izlude)	çˆ±å¾·å˜‰#izlude_d	49

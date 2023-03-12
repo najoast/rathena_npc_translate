@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN ½Å±¾ºº»¯ www.rAthenaCN.com ×ª×Ô [ www.99Max.mE ]
-//============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN è„šæœ¬æ±‰åŒ– è½¬è‡ª [ www.99Max.mE ]
 //============================================================
 
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Mail Boxes
 //===== By: ==================================================
 //= L0ne_W0lf
@@ -32,119 +28,119 @@
 
 // Floating mailbox npc that all NPCs duplicate from.
 //============================================================
--	script	ÓÊÕşËÙµİ#dummy::MailBox	-1,{
-	mes "- ^cc6600ÓÊÕşËÙµİ^000000 - ^ccccccÓÊÏäÏµÍ³^000000";
+-	script	é‚®æ”¿é€Ÿé€’#dummy::MailBox	-1,{
+	mes "- ^cc6600é‚®æ”¿é€Ÿé€’^000000 - ^ccccccé‚®ç®±ç³»ç»Ÿ^000000";
 	mes "---------------------------";
-	mes "Ê¹ÓÃÓÊÕşËÙµİ·şÎñ,";
-	mes "ÄúĞèÒªÖ§¸¶ 130 Zeny.";
-	mes "ÇëÎÊÊÇ·ñĞèÒªÊ¹ÓÃ¸Ã·şÎñ?";
+	mes "ä½¿ç”¨é‚®æ”¿é€Ÿé€’æœåŠ¡,";
+	mes "æ‚¨éœ€è¦æ”¯ä»˜ 130 Zeny.";
+	mes "è¯·é—®æ˜¯å¦éœ€è¦ä½¿ç”¨è¯¥æœåŠ¡?";
 	next;
-	switch(select("- ÊÇ.:- ·ñ.")) {
+	switch(select("- æ˜¯.:- å¦.")) {
 	case 1:
-		mes "- ^cc6600ÓÊÕşËÙµİ^000000 - ^ccccccÓÊÏäÏµÍ³^000000";
+		mes "- ^cc6600é‚®æ”¿é€Ÿé€’^000000 - ^ccccccé‚®ç®±ç³»ç»Ÿ^000000";
 		mes "---------------------------";
 		if (Zeny < 130) {
-			mes "·Ç³£±§Ç¸, ÄúÉíÉÏµÄ Zeny ²»¹».";
-			mes "Ê¹ÓÃÓÊÕşËÙµİ·şÎñ,";
-			mes "ÄúĞèÒªÖ§¸¶ 130 Zeny.";
+			mes "éå¸¸æŠ±æ­‰, æ‚¨èº«ä¸Šçš„ Zeny ä¸å¤Ÿ.";
+			mes "ä½¿ç”¨é‚®æ”¿é€Ÿé€’æœåŠ¡,";
+			mes "æ‚¨éœ€è¦æ”¯ä»˜ 130 Zeny.";
 			close;
 		}
-		mes "Ğ»Ğ»Ê¹ÓÃ.";
+		mes "è°¢è°¢ä½¿ç”¨.";
 		Zeny -= 130;
 		close2;
 		openmail;
 		end;
 	case 2:
-		mes "- ^cc6600ÓÊÕşËÙµİ^000000 - ^ccccccÓÊÏäÏµÍ³^000000";
+		mes "- ^cc6600é‚®æ”¿é€Ÿé€’^000000 - ^ccccccé‚®ç®±ç³»ç»Ÿ^000000";
 		mes "---------------------------";
-		mes "Ğ»Ğ», ÔÙ¼û.";
+		mes "è°¢è°¢, å†è§.";
 		close;
 	}
 }
 
 // Prontera
 //============================================================
-prontera,146,86,0	duplicate(MailBox)	ÓÊÕşËÙµİ#prt	2_POSTBOX
-prontera,275,213,0	duplicate(MailBox)	ÓÊÕşËÙµİ#2prt	2_POSTBOX
-prontera,34,212,0	duplicate(MailBox)	ÓÊÕşËÙµİ#3prt	2_POSTBOX
+prontera,146,86,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#prt	2_POSTBOX
+prontera,275,213,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#2prt	2_POSTBOX
+prontera,34,212,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#3prt	2_POSTBOX
 
 // Izlude
 //============================================================
-izlude,136,94,0	duplicate(MailBox)	ÓÊÕşËÙµİ#iz	2_POSTBOX
+izlude,136,94,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#iz	2_POSTBOX
 
 // Morroc
 //============================================================
-moc_ruins,72,166,0	duplicate(MailBox)	ÓÊÕşËÙµİ#1moc	2_POSTBOX
-moc_ruins,156,52,0	duplicate(MailBox)	ÓÊÕşËÙµİ#2moc	2_POSTBOX
+moc_ruins,72,166,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#1moc	2_POSTBOX
+moc_ruins,156,52,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#2moc	2_POSTBOX
 
 // Geffen
 //============================================================
-geffen,115,67,0	duplicate(MailBox)	ÓÊÕşËÙµİ#gef	2_POSTBOX
-geffen,199,125,0	duplicate(MailBox)	ÓÊÕşËÙµİ#2gef	2_POSTBOX
+geffen,115,67,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#gef	2_POSTBOX
+geffen,199,125,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#2gef	2_POSTBOX
 
 // Payon
 //============================================================
-payon,191,104,0	duplicate(MailBox)	ÓÊÕşËÙµİ#pay	2_POSTBOX
-payon,171,226,0	duplicate(MailBox)	ÓÊÕşËÙµİ#2pay	2_POSTBOX
-pay_arche,55,127,0	duplicate(MailBox)	ÓÊÕşËÙµİ#3pay	2_POSTBOX
+payon,191,104,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#pay	2_POSTBOX
+payon,171,226,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#2pay	2_POSTBOX
+pay_arche,55,127,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#3pay	2_POSTBOX
 
 // Alberta
 //============================================================
-alberta,90,60,0	duplicate(MailBox)	ÓÊÕşËÙµİ#alb	2_POSTBOX
-alberta,30,240,0	duplicate(MailBox)	ÓÊÕşËÙµİ#2alb	2_POSTBOX
+alberta,90,60,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#alb	2_POSTBOX
+alberta,30,240,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#2alb	2_POSTBOX
 
 // Al De Baran
 //============================================================
-aldebaran,135,122,0	duplicate(MailBox)	ÓÊÕşËÙµİ#alde	2_POSTBOX
+aldebaran,135,122,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#alde	2_POSTBOX
 
 // Juno
 //============================================================
-yuno,148,187,0	duplicate(MailBox)	ÓÊÕşËÙµİ#yuno	2_POSTBOX
-yuno,332,108,0	duplicate(MailBox)	ÓÊÕşËÙµİ#2yuno	2_POSTBOX
+yuno,148,187,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#yuno	2_POSTBOX
+yuno,332,108,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#2yuno	2_POSTBOX
 
 // Lightalzen
 //============================================================
-lighthalzen,164,85,0	duplicate(MailBox)	ÓÊÕşËÙµİ#lht	2_POSTBOX
-lighthalzen,196,320,0	duplicate(MailBox)	ÓÊÕşËÙµİ#2lht	2_POSTBOX
+lighthalzen,164,85,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#lht	2_POSTBOX
+lighthalzen,196,320,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#2lht	2_POSTBOX
 
 // Einbroch and Einbech
 //============================================================
-einbroch,231,215,0	duplicate(MailBox)	ÓÊÕşËÙµİ#ein	2_POSTBOX
-einbroch,77,202,0	duplicate(MailBox)	ÓÊÕşËÙµİ#2ein	2_POSTBOX
-einbech,182,124,0	duplicate(MailBox)	ÓÊÕşËÙµİ#3ein	2_POSTBOX
+einbroch,231,215,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#ein	2_POSTBOX
+einbroch,77,202,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#2ein	2_POSTBOX
+einbech,182,124,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#3ein	2_POSTBOX
 
 // Comodo
 //============================================================
-comodo,200,150,0	duplicate(MailBox)	ÓÊÕşËÙµİ#cmd	2_POSTBOX
+comodo,200,150,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#cmd	2_POSTBOX
 
 // Umbala
 //============================================================
-umbala,104,155,0	duplicate(MailBox)	ÓÊÕşËÙµİ#um	2_POSTBOX
+umbala,104,155,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#um	2_POSTBOX
 
 // Amatsu
 //============================================================
-amatsu,102,146,0	duplicate(MailBox)	ÓÊÕşËÙµİ#ama	2_POSTBOX
+amatsu,102,146,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#ama	2_POSTBOX
 
 // Gonryun
 //============================================================
-gonryun,152,117,0	duplicate(MailBox)	ÓÊÕşËÙµİ#gon	2_POSTBOX
+gonryun,152,117,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#gon	2_POSTBOX
 
 // Ayothaya
 //============================================================
-ayothaya,205,169,0	duplicate(MailBox)	ÓÊÕşËÙµİ#ayo	2_POSTBOX
+ayothaya,205,169,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#ayo	2_POSTBOX
 
 // Louyang
 //============================================================
-louyang,204,100,0	duplicate(MailBox)	ÓÊÕşËÙµİ#lou	2_POSTBOX
+louyang,204,100,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#lou	2_POSTBOX
 
 // Hugel
 //============================================================
-hugel,86,168,0	duplicate(MailBox)	ÓÊÕşËÙµİ#hu	HIDDEN_NPC
+hugel,86,168,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#hu	HIDDEN_NPC
 
 // Rachel
 //============================================================
-rachel,122,146,0	duplicate(MailBox)	ÓÊÕşËÙµİ#ra	2_POSTBOX
+rachel,122,146,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#ra	2_POSTBOX
 
 // Veins
 //============================================================
-veins,218,123,0	duplicate(MailBox)	ÓÊÕşËÙµİ#ve	2_POSTBOX
+veins,218,123,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#ve	2_POSTBOX

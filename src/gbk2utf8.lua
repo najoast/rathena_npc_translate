@@ -1,18 +1,27 @@
--- #/bin/sh
+-- iconv -f gbk -t utf-8 "$1" -o "build/$1"
 
--- # first argument is the folder to search
--- # second argument is output folder
+local lfs = require "lfs"
 
--- SEARCH_FOLDER=$1
--- OUTPUT_FOLDER=$2
+local inputDir, outputDir = ...
 
--- for f in $SEARCH_FOLDER
--- do
---     if [ -d "$f" ]; then
---         for ff in $f/*
--- 		do
---             echo "Processing $ff"
--- 			iconv -f gbk -t utf-8 "$ff" -o "${OUTPUT_FOLDER}${ff}"
---         done
---     fi
--- done
+-- 递归遍历 inputDir, 对每个文件执行 func
+local function traverse(dir, func)
+	for file in lfs.dir(dir) do
+		if file ~= "." and file ~= ".." then
+			local path = dir .. "/" .. file
+			local attr = lfs.attributes(path)
+			assert(type(attr) == "table")
+			if attr.mode == "directory" then
+				traverse(path)
+			else
+				func(path)
+			end
+		end
+	end
+end
+
+traverse(inputDir, function(path)
+	local cmd = string.format([[iconv -f gbk -t utf-8 "%s" -o "%s/%s"]], path, outputDir, file)
+	print(cmd)
+	os.execute(cmd)
+end)

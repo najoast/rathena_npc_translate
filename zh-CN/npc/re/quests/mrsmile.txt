@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN 鑴氭湰姹夊寲 杞嚜 [ www.99Max.mE ]
 //============================================================
 
-//===== rAthena Script =======================================  
+//===== rAthena Script ======================================= 
 //= Mr. Smile Quest
 //===== By: ================================================== 
 //= Daegaladh, Masao
@@ -22,8 +18,8 @@
 //= 1.1 Added Izlude duplicates. [Euphy]
 //============================================================ 
 
-izlude,125,175,4	duplicate(SmileHelper)	微笑小姐#iz	4_F_03
-izlude_a,125,175,4	duplicate(SmileHelper)	微笑小姐#iz_a	4_F_03
-izlude_b,125,175,4	duplicate(SmileHelper)	微笑小姐#iz_b	4_F_03
-izlude_c,125,175,4	duplicate(SmileHelper)	微笑小姐#iz_c	4_F_03
-izlude_d,125,175,4	duplicate(SmileHelper)	微笑小姐#iz_d	4_F_03
+izlude,125,175,4	duplicate(SmileHelper)	寰瑧灏忓#iz	4_F_03
+izlude_a,125,175,4	duplicate(SmileHelper)	寰瑧灏忓#iz_a	4_F_03
+izlude_b,125,175,4	duplicate(SmileHelper)	寰瑧灏忓#iz_b	4_F_03
+izlude_c,125,175,4	duplicate(SmileHelper)	寰瑧灏忓#iz_c	4_F_03
+izlude_d,125,175,4	duplicate(SmileHelper)	寰瑧灏忓#iz_d	4_F_03

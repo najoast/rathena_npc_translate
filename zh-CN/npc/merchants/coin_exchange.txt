@@ -1,10 +1,7 @@
 //============================================================
-//= rAthenaCN ½Å±¾ºº»¯ www.rAthenaCN.com ×ª×Ô [ www.99Max.mE ]
+//= rAthenaCN è„šæœ¬æ±‰åŒ– è½¬è‡ª [ www.99Max.mE ]
 //============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
+
 
 //===== rAthena Script =======================================
 //= Coin Merchants
@@ -30,47 +27,47 @@
 	mes .@n$;
 	if (isequipped(2782) && ep13_2_rhea == 100) {
 		if (!checkweight(1201,1)) {
-			mes "ÄúĞ¯´øÁËÌ«¶àµÄÎïÆ·.";
-			mes "ÇëÉÔÎ¢´¦ÀíÒ»ÏÂÔÙÀ´?";
+			mes "æ‚¨æºå¸¦äº†å¤ªå¤šçš„ç‰©å“.";
+			mes "è¯·ç¨å¾®å¤„ç†ä¸€ä¸‹å†æ¥?";
 			close;
 		}
-		mes "ÄãºÃ.";
-		mes "ÄãĞèÒªÊ²Ã´?";
+		mes "ä½ å¥½.";
+		mes "ä½ éœ€è¦ä»€ä¹ˆ?";
 		next;
-		if (strnpcinfo(1) == "ÂíÅ¬¿ËÉÌÈË") {
+		if (strnpcinfo(1) == "é©¬åŠªå…‹å•†äºº") {
 			setarray .@items[2],12342,12343,12348;
 			set .@Book,11019; //Manuk_Selling_Item
 			set .@coin,6080; //Manuk_Coin
-			set .@i, select("- ²é¿´ÎïÆ·½éÉÜ:- ÂíÅ¬¿ËµÄ»ú»á:- ÂíÅ¬¿ËµÄÓÂÆø:- ÂíÅ¬¿ËµÄĞÅĞÄ:- È¡Ïû");
+			set .@i, select("- æŸ¥çœ‹ç‰©å“ä»‹ç»:- é©¬åŠªå…‹çš„æœºä¼š:- é©¬åŠªå…‹çš„å‹‡æ°”:- é©¬åŠªå…‹çš„ä¿¡å¿ƒ:- å–æ¶ˆ");
 		}
 		else {
 			setarray .@items[2],12344,12345,12349;
 			set .@Book,11018; //Splendide_Selling_Item
 			set .@coin,6081; //Splendide_Coin
-			set .@i, select("- ²é¿´ÎïÆ·½éÉÜ:- ¹ºÂò Pinguicula's ¹û½´:- ¹ºÂò Luciola's ·äÃÛ¹û½´:- ¹ºÂòÉ½ÜïİÇÖ®Àá:- È¡Ïû");
+			set .@i, select("- æŸ¥çœ‹ç‰©å“ä»‹ç»:- è´­ä¹° Pinguicula's æœé…±:- è´­ä¹° Luciola's èœ‚èœœæœé…±:- è´­ä¹°å±±èŒ±è¸ä¹‹æ³ª:- å–æ¶ˆ");
 		}
 		mes .@n$;
 		if (.@i == 1) {
-			mes "ÕâÊÇÎïÆ·½éÉÜ.";
+			mes "è¿™æ˜¯ç‰©å“ä»‹ç».";
 			close2;
 			readbook .@Book,1;
 			end;
 		}
 		else if (.@i < 5) {
-			mes "ÎÒ¿ÉÒÔÂò¸øÄã 3 "+getitemname(.@items[.@i])+" ¸ö»» ^3131FF1 Ó²±Ò^000000.";
+			mes "æˆ‘å¯ä»¥ä¹°ç»™ä½  3 "+getitemname(.@items[.@i])+" ä¸ªæ¢ ^3131FF1 ç¡¬å¸^000000.";
 			next;
-			switch(select("- ¹ºÂò:- È¡Ïû")) {
+			switch(select("- è´­ä¹°:- å–æ¶ˆ")) {
 			case 1:
 				if (countitem(.@coin)) {
 					mes .@n$;
-					mes "Ğ»Ğ»»İ¹Ë.";
+					mes "è°¢è°¢æƒ é¡¾.";
 					delitem .@coin,1;
 					getitem .@items[.@i],3;
 					close;
 				}
 				else {
 					mes .@n$;
-					mes "ÄãµÄÓ²±Ò²»¹».";
+					mes "ä½ çš„ç¡¬å¸ä¸å¤Ÿ.";
 					close;
 				}
 			case 2:
@@ -78,11 +75,11 @@
 				break;
 			}
 		}
-		mes "Èç¹ûÄã¸Ä±äÖ÷ÒâÁËÇëÀ´ÕÒÎÒ.";
+		mes "å¦‚æœä½ æ”¹å˜ä¸»æ„äº†è¯·æ¥æ‰¾æˆ‘.";
 		close;
 	}
 	else {
-		if (strnpcinfo(1) == "ÂíÅ¬¿ËÉÌÈË") {
+		if (strnpcinfo(1) == "é©¬åŠªå…‹å•†äºº") {
 			mes "Rtt od d";
 			mes "Qwo hd is d irr";
 		}
@@ -93,5 +90,5 @@
 		close;
 	}
 }
-man_in01,286,16,1	duplicate(merchant_13_2)	ÂíÅ¬¿ËÉÌÈË	4_MAN_PIOM
-spl_in01,110,326,5	duplicate(merchant_13_2)	»Ô»ÍÁìÓòÉÌÈË	4_F_FAIRYKID4
+man_in01,286,16,1	duplicate(merchant_13_2)	é©¬åŠªå…‹å•†äºº	4_MAN_PIOM
+spl_in01,110,326,5	duplicate(merchant_13_2)	è¾‰ç…Œé¢†åŸŸå•†äºº	4_F_FAIRYKID4

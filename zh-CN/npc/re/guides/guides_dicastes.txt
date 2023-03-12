@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN �ű����� www.rAthenaCN.com ת�� [ www.99Max.mE ]
-//============================================================
-//= GIT ����� https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ���ⷴ�� https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN 脚本汉化 转自 [ www.99Max.mE ]
 //============================================================
 
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= El Dicastes Guide
 //===== By: ================================================== 
 //= Muad_Dib
@@ -23,73 +19,73 @@
 //= 1.2 Navigation system update. [Euphy]
 //============================================================ 
 
-dicastes01,181,191,5	script	ð�ռ� ����#info	4_M_SHADOWCHASER,2,2,{
-	mes "[ð�ռ� ����]";
-	mes "��!! ����һ��İ����!";
-	mes "���ǰ���, �ǵ�һ�����ﰣ��˹��˹��ð�ռ�!";
+dicastes01,181,191,5	script	冒险家 阿苏#info	4_M_SHADOWCHASER,2,2,{
+	mes "[冒险家 阿苏]";
+	mes "噢!! 你是一个陌生人!";
+	mes "我是阿苏, 是第一个到达埃迪斯特斯的冒险家!";
 	next;
-	mes "[ð�ռ� ����]";
-	mes "��һ������̽�ն����������ǵ�һ��,����֧ð�ն����ҵ�.��������.";
+	mes "[冒险家 阿苏]";
+	mes "有一个人在探险队声称他们是第一个,但那支冒险队是我的.就是这样.";
 	next;
-	mes "[ð�ռ� ����]";
-	mes "�����Ϊʲô�һ���׵¼��ȶ�����ð�ռ����ṩԮ��.";
-	mes "�����˽�Щʲô?";
-	mes "<NAVI>[ð�ռ� ����]<INFO>dicastes01,181,191,</INFO></NAVI>";
+	mes "[冒险家 阿苏]";
+	mes "这就是为什么我会对米德加兹而来的冒险家们提供援手.";
+	mes "你想了解些什么?";
+	mes "<NAVI>[冒险家 阿苏]<INFO>dicastes01,181,191,</INFO></NAVI>";
 	next;
-	switch(select("- ��˹��˹������:- ��ס��:- ѵ����:- ����:- �ư�:- è��Ӫ��")) {
+	switch(select("- 迪斯特斯议政厅:- 居住区:- 训练室:- 工厂:- 酒吧:- 猫手营地")) {
 	case 1:
-		mes "[ð�ռ� ����]";
-		mes "��~ ����һ�������Ľ���.";
-		mes "��˵����������Ҫ������...";
+		mes "[冒险家 阿苏]";
+		mes "啊~ 这是一个美丽的建筑.";
+		mes "据说他们讨论重要的事情...";
 		next;
-		mes "[ð�ռ� ����]";
-		mes "��ȷ������<NAVI>[������]<INFO>dicastes01,198,351,</INFO></NAVI>,�������뾳����,������������鷳.";
-		mes "ֱ�Ӵ�������,�㲻�������.";
+		mes "[冒险家 阿苏]";
+		mes "请确保你在<NAVI>[议政厅]<INFO>dicastes01,198,351,</INFO></NAVI>,办理过入境手续,否则你会惹上麻烦.";
+		mes "直接从这里向北,你不会错过的.";
 		viewpoint 1,198,351,0,0x00FF00;
 		close;
 	case 2:
-		mes "[ð�ռ� ����]";
-		mes "ɳ����������˵Ĺ���.�����ֵط�,������ô˯����?";
+		mes "[冒险家 阿苏]";
+		mes "沙帕部落是如此的怪异.在这种地方,他们怎么睡得着?";
 		next;
-		mes "[ð�ռ� ����]";
-		mes "�㲻������?";
-		mes "�㲻��������,ֱ�������ۿ���֮ǰ! �Լ�ȥ������!";
+		mes "[冒险家 阿苏]";
+		mes "你不能理解?";
+		mes "你不用相信我,直到你亲眼看到之前! 自己去看看吧!";
 		next;
-		mes "[ð�ռ� ����]";
-		mes "��ס����Ϊ2������.";
-		mes "<NAVI>[�ϵͼ��ľ�����]<INFO>dicastes01,136,106,</INFO></NAVI>, ��Լ��7���ӷ���, Ȼ�� ";
-		mes "<NAVI>[�߼�������]<INFO>dicastes01,280,283,</INFO></NAVI>�Ǵ�Լ1���ӷ���.";
+		mes "[冒险家 阿苏]";
+		mes "居住区分为2个区域.";
+		mes "<NAVI>[较低级的居民区]<INFO>dicastes01,136,106,</INFO></NAVI>, 大约在7点钟方向, 然后 ";
+		mes "<NAVI>[高级的区域]<INFO>dicastes01,280,283,</INFO></NAVI>是大约1点钟方向.";
 		viewpoint 1,280,283,1,0x01FF01;
 		viewpoint 1,136,106,2,0x0066FF;
 		close;
 	case 3:
-		mes "[ð�ռ� ����]";
-		mes "��Ϊ�����Σ��,������Ҫ�����ע�ⰲȫ..";
-		mes "������ȥ������ѵ��? ";
-		mes "<NAVI>[��ѵ��]<INFO>dicastes01,255,172,</INFO></NAVI>���ѵ��Ա�ƺ�������˯��!";
+		mes "[冒险家 阿苏]";
+		mes "因为这里很危险,我们需要更多的注意安全..";
+		mes "你曾经去过的培训室? ";
+		mes "<NAVI>[培训室]<INFO>dicastes01,255,172,</INFO></NAVI>里的训练员似乎从来不睡觉!";
 		viewpoint 1,255,172,3,0xFFCCCC;
 		close;
 	case 4:
-		mes "[ð�ռ� ����]";
-		mes "�����Ϊʲô����ס����������Ҫ��ԭ��֮һ.";
-		mes "�����ȥ<NAVI>[����]<INFO>dicastes01,97,256,</INFO></NAVI>,����Կ������µľ���ħ��֮ʯ.";
+		mes "[冒险家 阿苏]";
+		mes "这就是为什么他们住在这里最重要的原因之一.";
+		mes "如果你去<NAVI>[工厂]<INFO>dicastes01,97,256,</INFO></NAVI>,你可以看到最新的精炼魔力之石.";
 		viewpoint 1,97,256,4,0x0066FF;
 		close;
 	case 5:
-		mes "[ð�ռ� ����]";
-		mes "��Ȼ����������ĵ�һ��ð�ռ�, �ưɵ�����ȴ������ĵ�һ��.";
-		mes "<NAVI>[���Ÿ����ֵľư�]<INFO>dicastes01,136,106,</INFO></NAVI>�ڽϵͼ���סլ����λ�ڵ���.";
-		mes "��������һЩ�м�ֵ����Ϣ����.";
+		mes "[冒险家 阿苏]";
+		mes "虽然我来到这里的第一个冒险家, 酒吧的主人却是这里的第一人.";
+		mes "<NAVI>[布门弗洛林的酒吧]<INFO>dicastes01,136,106,</INFO></NAVI>在较低级的住宅区里位于地下.";
+		mes "他可能有一些有价值的信息给你.";
 		viewpoint 1,136,106,5,0xFF3300;
 		close;
 	case 6:
-		mes "[ð�ռ� ����]";
-		mes "��Щ<NAVI>[è]<INFO>dicastes01,199,39,</INFO></NAVI>�ƺ�û����ɳ��������������һ�������ù�ϵ.";
-		mes "Ҳ������Ϊ���뽻��.";
-		mes "������è.���ǿ϶���Ϊ����ĺ����ɪɪ����.";
+		mes "[冒险家 阿苏]";
+		mes "那些<NAVI>[猫]<INFO>dicastes01,199,39,</INFO></NAVI>似乎没有与沙帕建立起与我们一样的良好关系.";
+		mes "也许是因为参与交易.";
+		mes "可怜的猫.他们肯定因为外面的寒冷而瑟瑟发抖.";
 		next;
-		mes "[ð�ռ� ����]";
-		mes "������ҵ����ǵ��̶Ӿ�������.";
+		mes "[冒险家 阿苏]";
+		mes "你可以找到他们的商队就在门外.";
 		viewpoint 1,199,39,6,0x9933FF;
 		close;
 	}

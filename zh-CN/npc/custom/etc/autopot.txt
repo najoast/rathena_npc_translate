@@ -1,10 +1,7 @@
 //============================================================
-//= rAthenaCN [×Ô¶¯³ÔÒ©]ºº»¯½Å±¾ [ www.rAthenaCN.com ]
+//= rAthenaCN [è‡ªåŠ¨åƒè¯]æ±‰åŒ–è„šæœ¬ 
 //============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
+
 
 //===== rAthena Script =======================================
 //= Auto-Potion
@@ -27,8 +24,8 @@ OnInit:
 	end;
 
 L_Help:
-	dispbottom "¿ÉÓÃµÄÖ¸Áî:";
-	dispbottom "    @autopot <Ò©ÎïID> {<×îµÍHP % [1..100]> {<ÑÓ³Ù [50..1000]>}}";
+	dispbottom "å¯ç”¨çš„æŒ‡ä»¤:";
+	dispbottom "    @autopot <è¯ç‰©ID> {<æœ€ä½HP % [1..100]> {<å»¶è¿Ÿ [50..1000]>}}";
 	dispbottom "    @autopot <on|off>";
 	dispbottom "    @autopot list";
 	dispbottom "    @autopot info";
@@ -36,10 +33,10 @@ L_Help:
 	return;
 
 L_Info:
-	dispbottom "------ ×Ô¶¯³ÔÒ©Ïà¹ØĞÅÏ¢ ------";
-	dispbottom "Ò©Îï  :  " + getitemname(@autopot_id) + " (" + @autopot_id + ")";
-	dispbottom "×îµÍHP:   " + @autopot_min + " %";
-	dispbottom "ÑÓ³Ù  :    " + @autopot_delay + " ms";
+	dispbottom "------ è‡ªåŠ¨åƒè¯ç›¸å…³ä¿¡æ¯ ------";
+	dispbottom "è¯ç‰©  :  " + getitemname(@autopot_id) + " (" + @autopot_id + ")";
+	dispbottom "æœ€ä½HP:   " + @autopot_min + " %";
+	dispbottom "å»¶è¿Ÿ  :    " + @autopot_delay + " ms";
 	dispbottom "---------------------------------------------";
 	return;
 
@@ -79,7 +76,7 @@ L_Start:
 	}
 
 	if (BaseLevel < getiteminfo(.@potion,12)) {
-		message strcharinfo(0), "ÄúµÄ»ù±¾µÈ¼¶²»¹»ÎŞ·¨Ê¹ÓÃ '" + getitemname(.@potion) + "'.";
+		message strcharinfo(0), "æ‚¨çš„åŸºæœ¬ç­‰çº§ä¸å¤Ÿæ— æ³•ä½¿ç”¨ '" + getitemname(.@potion) + "'.";
 		end;
 	}
 
@@ -90,13 +87,13 @@ L_Start:
 	@autopot_none  = 0;
 	bonus_script "{ callfunc \"start_autopot\"; }",86400,8,0,SI_INCHEALRATE;
 
-	message strcharinfo(0), "¿ªÊ¼×Ô¶¯³ÔÒ©.";
+	message strcharinfo(0), "å¼€å§‹è‡ªåŠ¨åƒè¯.";
 	callsub L_Info;
 	return;
 
 OnCommand:
 	if (!getarraysize(.@atcmd_parameters$)) {
-		message strcharinfo(0), "Óï·¨´íÎó.";
+		message strcharinfo(0), "è¯­æ³•é”™è¯¯.";
 		callsub L_Help;
 		end;
 	}
@@ -105,24 +102,24 @@ OnCommand:
 
 	if (.@command$ == "on") {
 		if (@autopot_min)
-			message strcharinfo(0), "×Ô¶¯³ÔÒ©¹¦ÄÜÒÑ´¦ÓÚ¼¤»î×´Ì¬.";
+			message strcharinfo(0), "è‡ªåŠ¨åƒè¯åŠŸèƒ½å·²å¤„äºæ¿€æ´»çŠ¶æ€.";
 		else if (@autopot_min_) {
 			@autopot_min  = @autopot_min_;
 			@autopot_min_ = 0;
-			message strcharinfo(0), "×Ô¶¯³ÔÒ©¹¦ÄÜÒÑ¾­¼¤»î.";
+			message strcharinfo(0), "è‡ªåŠ¨åƒè¯åŠŸèƒ½å·²ç»æ¿€æ´».";
 			callsub L_Info;
 		} else {
-			message strcharinfo(0), "×Ô¶¯³ÔÒ©¹¦ÄÜÉĞÎ´ÅäÖÃ.";
+			message strcharinfo(0), "è‡ªåŠ¨åƒè¯åŠŸèƒ½å°šæœªé…ç½®.";
 			callsub L_Help;
 		}
 		end;
 	} else if (.@command$ == "off") {
 		if (!@autopot_min)
-			message strcharinfo(0), "×Ô¶¯³ÔÒ©¹¦ÄÜÒÑ´¦ÓÚ½ûÓÃ×´Ì¬.";
+			message strcharinfo(0), "è‡ªåŠ¨åƒè¯åŠŸèƒ½å·²å¤„äºç¦ç”¨çŠ¶æ€.";
 		else {
 			@autopot_min_ = @autopot_min;
 			@autopot_min  = 0;
-			message strcharinfo(0), "×Ô¶¯³ÔÒ©¹¦ÄÜÒÑ¾­½ûÓÃ.";
+			message strcharinfo(0), "è‡ªåŠ¨åƒè¯åŠŸèƒ½å·²ç»ç¦ç”¨.";
 		}
 		end;
 	} else if (.@command$ == "list") {  // credits to AnnieRuru
@@ -136,29 +133,29 @@ OnCommand:
 		}
 		if (.@count) {	// 'mes' window needed if player is hit during selection
 			mes "[ Auto-Potion ]";
-			mes "ÇëÑ¡ÔñÒ»¸öÖÎÁÆÀàµÀ¾ß.";
-			.@select = select(.@menu$ + "   ^777777È¡Ïû^000000") - 1;
+			mes "è¯·é€‰æ‹©ä¸€ä¸ªæ²»ç–—ç±»é“å…·.";
+			.@select = select(.@menu$ + "   ^777777å–æ¶ˆ^000000") - 1;
 			if (.@select != .@count)
 				callsub L_Start, .@items[.@select], 0, 0;
 			close2;
 		} else
-			message strcharinfo(0), "ÄúµÄ±³°üÖĞÃ»ÓĞÈÎºÎÖÎÁÆÀàµÀ¾ß.";
+			message strcharinfo(0), "æ‚¨çš„èƒŒåŒ…ä¸­æ²¡æœ‰ä»»ä½•æ²»ç–—ç±»é“å…·.";
 		end;
 	} else if (.@command$ == "info") {
 		if (@autopot_min) {
-			message strcharinfo(0), "×Ô¶¯³ÔÒ©ĞÅÏ¢ÏÔÊ¾ÈçÏÂ.";
+			message strcharinfo(0), "è‡ªåŠ¨åƒè¯ä¿¡æ¯æ˜¾ç¤ºå¦‚ä¸‹.";
 			callsub L_Info;
 		} else
-			message strcharinfo(0), "×Ô¶¯³ÔÒ©¹¦ÄÜÉĞÎ´ÆôÓÃ.";
+			message strcharinfo(0), "è‡ªåŠ¨åƒè¯åŠŸèƒ½å°šæœªå¯ç”¨.";
 		end;
 	} else if (.@command$ == "help") {
-		message strcharinfo(0), "¹¦ÄÜµÄÃüÁîÁĞ±íÈçÏÂÏÔÊ¾.";
+		message strcharinfo(0), "åŠŸèƒ½çš„å‘½ä»¤åˆ—è¡¨å¦‚ä¸‹æ˜¾ç¤º.";
 		callsub L_Help;
 		end;
 	} else {
 		.@potion = atoi(.@atcmd_parameters$[0]);
 		if (getiteminfo(.@potion,2) != IT_HEALING) {
-			message strcharinfo(0), getitemname(.@potion) + " ²»ÊÇÖÎÁÆµÀ¾ß.";
+			message strcharinfo(0), getitemname(.@potion) + " ä¸æ˜¯æ²»ç–—é“å…·.";
 			end;
 		}
 		callsub L_Start, .@potion, atoi(.@atcmd_parameters$[1]), atoi(.@atcmd_parameters$[2]);
@@ -173,7 +170,7 @@ function	script	start_autopot	{
 		if (!countitem(@autopot_id)) {
 			if (@autopot_none <= gettimetick(2)) {
 				@autopot_none = gettimetick(2) + 10;
-				dispbottom "Äú±³°üÖĞµÄ '" + getitemname(@autopot_id) + "' ÒÑ¾­ÓÃÍê.";
+				dispbottom "æ‚¨èƒŒåŒ…ä¸­çš„ '" + getitemname(@autopot_id) + "' å·²ç»ç”¨å®Œ.";
 			}
 			break;
 		}

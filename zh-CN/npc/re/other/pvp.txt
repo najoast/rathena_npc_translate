@@ -1,9 +1,9 @@
 //============================================================
-//= rAthenaCN �ű����� www.rAthenaCN.com ת�� [ www.99Max.mE ]
+//= rAthenaCN �ű��com ת�� [ www.99Max.mE ]
 //============================================================
-//= GIT ����� https://github.com/rAthenaCN/rAthenaCN.git
+//= GIT ����� https://github.com/rAthenaCN/rAthenaCN.git
 //============================================================
-//= ���ⷴ�� https://github.com/rAthenaCN/rAthenaCN/issues
+//= ���ⷴ�� https://github.com/rAthenaCN/rAthenaCN/issues
 //============================================================
 
 //===== rAthena Script =======================================  
@@ -59,28 +59,12 @@ OnInit:
 	end;
 }
 
-pvp_y_room,62,85,4	script	Fight Square Reception#4	105,{
-	//if (ADVJOB > 0) {
-	if (Upper == 1) {
-		mes "[PVP战斗广场接待人员]";
-		mes "您已经被超越,";
-		mes "不允许进入.";
-		close;
-	}
-	callfunc "F_PVP_FSRS";
-	end;
-
-OnInit:
-	waitingroom "Normal Jobs Only",0;
-	end;
-}
-
 pvp_y_room,70,85,4	script	Fight Square Reception#5	105,{
 	//if (ADVJOB == 0) {
 	if (Upper != 1) {
-		mes "[PVP战斗广场接待人员]";
-		mes "您还没有超越,";
-		mes "不允许进入.";
+		mes "[PVPս���㳡�Ӵ���Ա]";
+		mes "����û�г�Խ,";
+		mes "����������.";
 		close;
 	}
 	callfunc "F_PVP_FSRS";

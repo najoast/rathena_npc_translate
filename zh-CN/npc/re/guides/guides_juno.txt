@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN ½Å±¾ºº»¯ www.rAthenaCN.com ×ª×Ô [ www.99Max.mE ]
-//============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN è„šæœ¬æ±‰åŒ– è½¬è‡ª [ www.99Max.mE ]
 //============================================================
 
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Juno Guides
 //===== By: ================================================== 
 //= L0ne_W0lf
@@ -22,79 +18,79 @@
 //= 1.1 Fixed and optimized. [Euphy]
 //============================================================ 
 
-yuno,59,212,4	script	ÖìÅµµ¼ÓÎ#yuno01::GuideJuno	700,{
-	mes "[ÖìÅµµ¼ÓÎ]";
-	mes "»¶Ó­¹âÁÙ ÏÍÕßÖ®¶¼^8B4513ÖìÅµ^000000";
-	mes "ĞèÒªÎªÄú½éÉÜÂğ?";
+yuno,59,212,4	script	æœ±è¯ºå¯¼æ¸¸#yuno01::GuideJuno	700,{
+	mes "[æœ±è¯ºå¯¼æ¸¸]";
+	mes "æ¬¢è¿å…‰ä¸´ è´¤è€…ä¹‹éƒ½^8B4513æœ±è¯º^000000";
+	mes "éœ€è¦ä¸ºæ‚¨ä»‹ç»å—?";
 	next;
 	while (1) {
-		switch(select("[ Ö÷ÒªÉèÊ© ]:[ ÉÌµê & Ğ¡°ïÊÖ ]:É¾³ıĞ¡µØÍ¼µÄ±ê¼Ç:½áÊø¶Ô»°")) {
+		switch(select("[ ä¸»è¦è®¾æ–½ ]:[ å•†åº— & å°å¸®æ‰‹ ]:åˆ é™¤å°åœ°å›¾çš„æ ‡è®°:ç»“æŸå¯¹è¯")) {
 		case 1:
 			set .@loop,1;
 			while (.@loop) {
-				switch(select("[ µÀ¾ßµê ]:[ Ìú¹¤³§ ]:[ »ú³¡ ]:[ Õş¸®´óÂ¥ ]:[ Êéµê½Ö ]:[ ÂÃ¹İ & ¾Æµê ]:[ ÏÍÕß¹¤»á ]:[ ¹ÖÎïÑ§»á ]:[ ÖìÅµÍ¼Êé¹İ ]:[ ÎäÆ÷·À¾ßµê ]:[ ÓÅÅäÀ×´ó¹ã³¡ ]:[ ¹ÖÎï²©Îï¹İ ]:[ ĞŞ°ÍÒÀ²ÉÀÕ±ÈÄ§·¨Ñ§Ğ£ ]:·µ»ØÉÏÒ»Ñ¡µ¥")) {
+				switch(select("[ é“å…·åº— ]:[ é“å·¥å‚ ]:[ æœºåœº ]:[ æ”¿åºœå¤§æ¥¼ ]:[ ä¹¦åº—è¡— ]:[ æ—…é¦† & é…’åº— ]:[ è´¤è€…å·¥ä¼š ]:[ æ€ªç‰©å­¦ä¼š ]:[ æœ±è¯ºå›¾ä¹¦é¦† ]:[ æ­¦å™¨é˜²å…·åº— ]:[ ä¼˜é…é›·å¤§å¹¿åœº ]:[ æ€ªç‰©åšç‰©é¦† ]:[ ä¿®å·´ä¾é‡‡å‹’æ¯”é­”æ³•å­¦æ ¡ ]:è¿”å›ä¸Šä¸€é€‰å•")) {
 				case 1:
-					callsub L_Mark,"^FF0000µÀ¾ßµê";
+					callsub L_Mark,"^FF0000é“å…·åº—";
 					viewpoint 1,194,140,0,0xFF0000;
 					next;
 					break;
 				case 2:
-					callsub L_Mark,"^FF4500Ìú¹¤³§";
+					callsub L_Mark,"^FF4500é“å·¥å‚";
 					viewpoint 1,120,137,1,0xFF4500;
 					next;
 					break;
 				case 3:
-					callsub L_Mark,"^DAA520»ú³¡";
+					callsub L_Mark,"^DAA520æœºåœº";
 					viewpoint 1,16,261,2,0xDAA520;
 					next;
 					break;
 				case 4:
-					callsub L_Mark,"^008000Õş¸®´óÂ¥";
+					callsub L_Mark,"^008000æ”¿åºœå¤§æ¥¼";
 					viewpoint 1,157,317,3,0x008000;
 					next;
 					break;
 				case 5:
-					callsub L_Mark,"^0000FFÊéµê½Ö";
+					callsub L_Mark,"^0000FFä¹¦åº—è¡—";
 					viewpoint 1,172,100,4,0x0000FF;
 					next;
 					break;
 				case 6:
-					callsub L_Mark,"^000080ÂÃ¹İ & ¾Æµê";
+					callsub L_Mark,"^000080æ—…é¦† & é…’åº—";
 					viewpoint 1,51,105,5,0x000080;
 					next;
 					break;
 				case 7:
-					callsub L_Mark,"^800080ÏÍÕß¹¤»á";
+					callsub L_Mark,"^800080è´¤è€…å·¥ä¼š";
 					viewpoint 1,90,318,6,0x800080;
 					next;
 					break;
 				case 8:
-					callsub L_Mark,"^834683¹ÖÎïÑ§»á";
+					callsub L_Mark,"^834683æ€ªç‰©å­¦ä¼š";
 					viewpoint 1,95,184,7,0x834683;
 					next;
 					break;
 				case 9:
-					callsub L_Mark,"^4B0082ÖìÅµÍ¼Êé¹İ";
+					callsub L_Mark,"^4B0082æœ±è¯ºå›¾ä¹¦é¦†";
 					viewpoint 1,338,203,8,0x4B0082;
 					next;
 					break;
 				case 10:
-					callsub L_Mark,"^008080ÎäÆ÷·À¾ßµê";
+					callsub L_Mark,"^008080æ­¦å™¨é˜²å…·åº—";
 					viewpoint 1,120,137,9,0x008080;
 					next;
 					break;
 				case 11:
-					callsub L_Mark,"^FF1493ÓÅÅäÀ×´ó¹ã³¡";
+					callsub L_Mark,"^FF1493ä¼˜é…é›·å¤§å¹¿åœº";
 					viewpoint 1,115,157,10,0xFF1493;
 					next;
 					break;
 				case 12:
-					callsub L_Mark,"^DA70D6¹ÖÎï²©Îï¹İ";
+					callsub L_Mark,"^DA70D6æ€ªç‰©åšç‰©é¦†";
 					viewpoint 1,278,290,11,0xDA70D6;
 					next;
 					break;
 				case 13:
-					callsub L_Mark,"^CD1039ĞŞ°ÍÒÀ²ÉÀÕ±ÈÄ§·¨Ñ§Ğ£";
+					callsub L_Mark,"^CD1039ä¿®å·´ä¾é‡‡å‹’æ¯”é­”æ³•å­¦æ ¡";
 					viewpoint 1,323,280,12,0xCD1039;
 					next;
 					break;
@@ -107,16 +103,16 @@ yuno,59,212,4	script	ÖìÅµµ¼ÓÎ#yuno01::GuideJuno	700,{
 		case 2:
 			set .@loop,1;
 			while (.@loop) {
-				switch(select("[ ¿¨ÆÕÀ­Ö°Ô± ]:[ ÒÁµéÔ°´«ËÍÊ¦ ]:·µ»ØÉÏÒ»Ñ¡µ¥")) {
+				switch(select("[ å¡æ™®æ‹‰èŒå‘˜ ]:[ ä¼Šç”¸å›­ä¼ é€å¸ˆ ]:è¿”å›ä¸Šä¸€é€‰å•")) {
 				case 1:
-					callsub L_Mark,"^FA8072¿¨ÆÕÀ­Ö°Ô±";
+					callsub L_Mark,"^FA8072å¡æ™®æ‹‰èŒå‘˜";
 					viewpoint 1,152,187,13,0xFA8072;
 					viewpoint 1,277,221,14,0xFA8072;
 					viewpoint 1,327,108,15,0xFA8072;
 					next;
 					break;
 				case 2:
-					callsub L_Mark,"^803232ÒÁµéÔ°´«ËÍÊ¦";
+					callsub L_Mark,"^803232ä¼Šç”¸å›­ä¼ é€å¸ˆ";
 					viewpoint 1,144,189,16,0x803232;
 					next;
 					break;
@@ -127,9 +123,9 @@ yuno,59,212,4	script	ÖìÅµµ¼ÓÎ#yuno01::GuideJuno	700,{
 			}
 			break;
 		case 3:
-			mes "[ÖìÅµµ¼ÓÎ]";
-			mes "±ê¼ÇÒÑÉ¾³ı,";
-			mes "»¹ĞèÒªÆäËü·şÎñÂğ?";
+			mes "[æœ±è¯ºå¯¼æ¸¸]";
+			mes "æ ‡è®°å·²åˆ é™¤,";
+			mes "è¿˜éœ€è¦å…¶å®ƒæœåŠ¡å—?";
 			viewpoint 2,194,140,0,0xFFFFFF;
 			viewpoint 2,120,137,1,0xFFFFFF;
 			viewpoint 2,16,261,2,0xFFFFFF;
@@ -150,18 +146,18 @@ yuno,59,212,4	script	ÖìÅµµ¼ÓÎ#yuno01::GuideJuno	700,{
 			next;
 			break;
 		case 4:
-			mes "[ÖìÅµµ¼ÓÎ]";
-			mes "×£ÄãÂÃÍ¾Óä¿ì!";
+			mes "[æœ±è¯ºå¯¼æ¸¸]";
+			mes "ç¥ä½ æ—…é€”æ„‰å¿«!";
 			close;
 		}
 	}
 	end;
 L_Mark:
-	mes "[ÖìÅµµ¼ÓÎ]";
-	mes "ÈÃÎÒÔÚÄãµÄĞ¡µØÍ¼ÉÏ±ê¼ÇÒ»ÏÂ";
-	mes getarg(0)+"^000000µÄÎ»ÖÃ.";
-	mes "Äã»¹ĞèÒªÈ·ÈÏÆäËû½¨ÖşÎïµÄÎ»ÖÃÂğ?";
+	mes "[æœ±è¯ºå¯¼æ¸¸]";
+	mes "è®©æˆ‘åœ¨ä½ çš„å°åœ°å›¾ä¸Šæ ‡è®°ä¸€ä¸‹";
+	mes getarg(0)+"^000000çš„ä½ç½®.";
+	mes "ä½ è¿˜éœ€è¦ç¡®è®¤å…¶ä»–å»ºç­‘ç‰©çš„ä½ç½®å—?";
 	return;
 }
 
-yuno,153,47,4	duplicate(GuideJuno)	ÖìÅµµ¼ÓÎ#yuno02	700
+yuno,153,47,4	duplicate(GuideJuno)	æœ±è¯ºå¯¼æ¸¸#yuno02	700

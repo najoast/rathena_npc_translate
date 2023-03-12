@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN [ս��]�����ű� [ www.rAthenaCN.com ]
-//============================================================
-//= GIT ����� https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ���ⷴ�� https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN [战场]汉化脚本 
 //============================================================
 
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= BattleGround System - KvM Entrance NPCs
 //===== By: ================================================== 
 //= L0ne_W0lf
@@ -27,31 +23,31 @@
 
 // KvM Officer - Guillaume
 //============================================================
-bat_room,164,178,5	script	5V5��Ӷ������#1	418,{
+bat_room,164,178,5	script	5V5雇佣军军官#1	418,{
 	/*
 	set .@kvm,checkquest(6026,PLAYTIME);
 	if ((.@kvm == 0) || (.@kvm == 1)) {
-		mes "[5V5��Ӷ������]";
-		mes "��֪�����Ѿ��ڶ��汨������ȥ�������ǵĶ��顣���ǲ�������ѹ���Ϊ���Ƕ�ս��";
+		mes "[5V5雇佣军军官]";
+		mes "我知道你已经在对面报了名。去加入他们的队伍。我们不会接受叛国者为我们而战。";
 		close;
 	}
 	else if (.@kvm == 2) erasequest 6026;
 	*/
 	set .@permit,checkquest(6025,PLAYTIME);
 	if ((.@permit == 0) || (.@permit == 1)) {
-		mes "[5V5��Ӷ������]";
-		mes "����������μ���5V5��ս���������ȴ�5������ǩԼ��";
+		mes "[5V5雇佣军军官]";
+		mes "看来你最近参加了5V5的战斗。你必须等待5分钟再签约。";
 		close;
 	}
 	else if (.@permit == 2) erasequest 6025;
-	mes "[5V5��Ӷ������]";
-	mes "Ϊ������������ս��";
+	mes "[5V5雇佣军军官]";
+	mes "为马洛尔的明天而战！";
 	next;
-	switch(select("�һ���㲢����ս.:����̸��.")) {
+	switch(select("我会和你并肩作战.:结束谈话.")) {
 	case 1:
-		mes "[5V5��Ӷ������]";
-		mes "����ʤ���߾��������ǣ�";
-		mes "���죬ÿ���˶�������ʤ��Ů�������������֣�";
+		mes "[5V5雇佣军军官]";
+		mes "最后的胜利者绝对是我们！";
+		mes "今天，每个人都会听到胜利女神在向我们招手！";
 		close2;
 		//setquest 6025;
 		if (BaseLevel > 79)  warp "bat_room",169,223;
@@ -59,67 +55,67 @@ bat_room,164,178,5	script	5V5��Ӷ������#1	418,{
 		else warp "bat_room",225,223;
 		close;
 	case 2:
-		mes "[5V5��Ӷ������]";
-		mes "���ǻ�Ӯ�ģ�";
+		mes "[5V5雇佣军军官]";
+		mes "我们会赢的！";
 		close;
 	}
 }
 
 // Guillaume Knight - KvM
 //============================================================
-bat_room,167,178,5	script	�������ʿ#kvm	417,{
-	mes "[�������ʿ]";
-	mes "���á�";
-	mes "����֪��ʲô��";
+bat_room,167,178,5	script	马洛尔骑士#kvm	417,{
+	mes "[马洛尔骑士]";
+	mes "您好。";
+	mes "你想知道什么？";
 	next;
-	switch(select("����5V5��:5V5��ʲô��:����β���5V5��:����֪���ҵ�KVM������")) {
+	switch(select("申请5V5。:5V5是什么？:我如何参与5V5？:我想知道我的KVM点数。")) {
 	case 1:
-		mes "[�������ʿ]";
-		mes "��á�";
-		mes "����5V5������Ҫȥ5V5��Ӷ�����١�";
+		mes "[马洛尔骑士]";
+		mes "你好。";
+		mes "申请5V5，你需要去5V5雇佣军军官。";
 		close;
 	case 2:
-		mes "[�������ʿ]";
-		mes "5V5���� 5����Կ�5���顣";
-		mes "ս�����������KVM���� ������KVMս�����ڹ�����һ���Ʒ";
+		mes "[马洛尔骑士]";
+		mes "5V5就是 5人组对抗5人组。";
+		mes "战斗结束后会获得KVM点数 可以在KVM战场后勤官那里兑换物品";
 		next;
-		mes "[�������ʿ]";
-		mes "�����Ѿ���ǰһЩ���¼ƻ���";
-		mes "��ǲ��μ�5V5�Կ���������֮һ��";
+		mes "[马洛尔骑士]";
+		mes "我们已经提前一些军事计划。";
+		mes "派遣你参加5V5对抗就是其中之一。";
 		next;
-		mes "[�������ʿ]";
-		mes "�μӴ�ս�۵������Բ�ͬ�Ĺ��ң�";
-		mes "ӵ��һ֧�������ʹ�Ӳ�Ķ��� ��ʤ���Ĺؼ�";
+		mes "[马洛尔骑士]";
+		mes "参加此战役的人来自不同的国家，";
+		mes "拥有一支军事素质过硬的队伍 是胜利的关键";
 		next;
-		mes "[�������ʿ]";
-		mes "��ˣ�ѡ����ѵ�ð�ռң�����5V5�Կ���";
-		mes "���Ǵ�����ð�ռ��н���ѡ�Ρ�";
+		mes "[马洛尔骑士]";
+		mes "因此，选择最佳的冒险家，进行5V5对抗。";
+		mes "我们从许多冒险家中进行选拔。";
 		next;
-		mes "[�������ʿ]";
-		mes "���ǽ����轱����";
-		mes "��Ϊ�ر�������ϵKVM���ھ��١�";
+		mes "[马洛尔骑士]";
+		mes "我们将给予奖励！";
+		mes "作为回报，请联系KVM后勤军官。";
 		close;
 	case 3:
-		mes "[�������ʿ]";
-		mes "��Ӻ�5���ˡ�";
-		mes "Ȼ���5V5��Ӷ����������Ի����볡�ء�";
+		mes "[马洛尔骑士]";
+		mes "组队好5个人。";
+		mes "然后和5V5雇佣军军官那里对话进入场地。";
 		next;
-		mes "[�������ʿ]";
-		mes "����ȴ���ͼ֮��";
-		mes "������ӳ�Ա���뱨��NPC������Ƶ��";
+		mes "[马洛尔骑士]";
+		mes "进入等待地图之后";
+		mes "所有组队成员进入报名NPC的聊天频道";
 		next;
-		mes "[�������ʿ]";
-		mes "������������ ���Զ����͵�Ŀ�ĵ�";
+		mes "[马洛尔骑士]";
+		mes "所有条件满足 会自动传送到目的地";
 		next;
-		mes "[�������ʿ]";
-		mes "Ȼ��ע��ս���ϵ�ָʾ��";
+		mes "[马洛尔骑士]";
+		mes "然后注意战场上的指示。";
 		next;
-		mes "[�������ʿ]";
-		mes "��ע�⣬����㲻�ڱ���NPC������Ƶ������Ķ��齫�޷���ս��";
+		mes "[马洛尔骑士]";
+		mes "请注意，如果你不在报名NPC的聊天频道，你的队伍将无法参战。";
 		close;
 	case 4:
-		mes "[�������ʿ]";
-		mes "���KVM��:";
+		mes "[马洛尔骑士]";
+		mes "你的KVM点:";
 		mes ""+kvm_point+".";
 		close;
 	}
@@ -127,31 +123,31 @@ bat_room,167,178,5	script	�������ʿ#kvm	417,{
 
 // KvM Officer - Croix
 //============================================================
-bat_room,164,121,1	script	5V5��Ӷ������#2	414,{
+bat_room,164,121,1	script	5V5雇佣军军官#2	414,{
 	/*
 	set .@kvm,checkquest(6025,PLAYTIME);
 	if ((.@kvm == 0) || (.@kvm == 1)) {
-		mes "[5V5��Ӷ������]";
-		mes "��֪�����Ѿ��ڶ��汨������ȥ�������ǵĶ��顣���ǲ�������ѹ���Ϊ���Ƕ�ս��";
+		mes "[5V5雇佣军军官]";
+		mes "我知道你已经在对面报了名。去加入他们的队伍。我们不会接受叛国者为我们而战。";
 		close;
 	}
 	else if (.@kvm == 2) erasequest 6025;
 	*/
 	set .@permit,checkquest(6025,PLAYTIME);
 	if ((.@permit == 0) || (.@permit == 1)) {
-		mes "[5V5��Ӷ������]";
-		mes "����������μ���5V5��ս���������ȴ�5������ǩԼ��";
+		mes "[5V5雇佣军军官]";
+		mes "看来你最近参加了5V5的战斗。你必须等待5分钟再签约。";
 		close;
 	}
 	else if (.@permit == 2) erasequest 6025;
-	mes "[5V5��Ӷ������]";
-	mes "Ϊ������������ս��";
+	mes "[5V5雇佣军军官]";
+	mes "为马洛尔的明天而战！";
 	next;
-	switch(select("�һ���㲢����ս.:����̸��.")) {
+	switch(select("我会和你并肩作战.:结束谈话.")) {
 	case 1:
-		mes "[5V5��Ӷ������]";
-		mes "����ʤ���߾��������ǣ�";
-		mes "���죬ÿ���˶�������ʤ��Ů�������������֣�";
+		mes "[5V5雇佣军军官]";
+		mes "最后的胜利者绝对是我们！";
+		mes "今天，每个人都会听到胜利女神在向我们招手！";
 		close2;
 		//setquest 6026;
 		if (BaseLevel > 79) warp "bat_room",169,207;
@@ -159,67 +155,67 @@ bat_room,164,121,1	script	5V5��Ӷ������#2	414,{
 		else warp "bat_room",225,207;
 		close;
 	case 2:
-		mes "[5V5��Ӷ������]";
-		mes "���ǻ�Ӯ�ģ�";
+		mes "[5V5雇佣军军官]";
+		mes "我们会赢的！";
 		close;
 	}
 }
 
 // Croix Knight - KvM
 //============================================================
-bat_room,167,121,1	script	ʮ����ʿ#kvm	413,{
-	mes "[ʮ����ʿ]";
-	mes "���á�";
-	mes "����֪��ʲô��";
+bat_room,167,121,1	script	十字骑士#kvm	413,{
+	mes "[十字骑士]";
+	mes "您好。";
+	mes "你想知道什么？";
 	next;
-	switch(select("����5V5��:5V5��ʲô��:����β���5V5��:����֪���ҵ�KVM������")) {
+	switch(select("申请5V5。:5V5是什么？:我如何参与5V5？:我想知道我的KVM点数。")) {
 	case 1:
-		mes "[ʮ����ʿ]";
-		mes "��á�";
-		mes "����5V5������Ҫȥ5V5��Ӷ�����١�";
+		mes "[十字骑士]";
+		mes "你好。";
+		mes "申请5V5，你需要去5V5雇佣军军官。";
 		close;
 	case 2:
-		mes "[ʮ����ʿ]";
-		mes "5V5���� 5����Կ�5���顣";
-		mes "ս�����������KVM���� ������KVMս�����ڹ�����һ���Ʒ";
+		mes "[十字骑士]";
+		mes "5V5就是 5人组对抗5人组。";
+		mes "战斗结束后会获得KVM点数 可以在KVM战场后勤官那里兑换物品";
 		next;
-		mes "[ʮ����ʿ]";
-		mes "�����Ѿ���ǰһЩ���¼ƻ���";
-		mes "��ǲ��μ�5V5�Կ���������֮һ��";
+		mes "[十字骑士]";
+		mes "我们已经提前一些军事计划。";
+		mes "派遣你参加5V5对抗就是其中之一。";
 		next;
-		mes "[ʮ����ʿ]";
-		mes "�μӴ�ս�۵������Բ�ͬ�Ĺ��ң�";
-		mes "ӵ��һ֧�������ʹ�Ӳ�Ķ��� ��ʤ���Ĺؼ�";
+		mes "[十字骑士]";
+		mes "参加此战役的人来自不同的国家，";
+		mes "拥有一支军事素质过硬的队伍 是胜利的关键";
 		next;
-		mes "[ʮ����ʿ]";
-		mes "��ˣ�ѡ����ѵ�ð�ռң�����5V5�Կ���";
-		mes "���Ǵ�����ð�ռ��н���ѡ�Ρ�";
+		mes "[十字骑士]";
+		mes "因此，选择最佳的冒险家，进行5V5对抗。";
+		mes "我们从许多冒险家中进行选拔。";
 		next;
-		mes "[ʮ����ʿ]";
-		mes "���ǽ����轱����";
-		mes "��Ϊ�ر�������ϵKVM���ھ��١�";
+		mes "[十字骑士]";
+		mes "我们将给予奖励！";
+		mes "作为回报，请联系KVM后勤军官。";
 		close;
 	case 3:
-		mes "[ʮ����ʿ]";
-		mes "��Ӻ�5���ˡ�";
-		mes "Ȼ���5V5��Ӷ����������Ի����볡�ء�";
+		mes "[十字骑士]";
+		mes "组队好5个人。";
+		mes "然后和5V5雇佣军军官那里对话进入场地。";
 		next;
-		mes "[ʮ����ʿ]";
-		mes "����ȴ���ͼ֮��";
-		mes "������ӳ�Ա���뱨��NPC������Ƶ��";
+		mes "[十字骑士]";
+		mes "进入等待地图之后";
+		mes "所有组队成员进入报名NPC的聊天频道";
 		next;
-		mes "[ʮ����ʿ]";
-		mes "������������ ���Զ����͵�Ŀ�ĵ�";
+		mes "[十字骑士]";
+		mes "所有条件满足 会自动传送到目的地";
 		next;
-		mes "[ʮ����ʿ]";
-		mes "Ȼ��ע��ս���ϵ�ָʾ��";
+		mes "[十字骑士]";
+		mes "然后注意战场上的指示。";
 		next;
-		mes "[ʮ����ʿ]";
-		mes "��ע�⣬����㲻�ڱ���NPC������Ƶ������Ķ��齫�޷���ս��";
+		mes "[十字骑士]";
+		mes "请注意，如果你不在报名NPC的聊天频道，你的队伍将无法参战。";
 		close;
 	case 4:
-		mes "[ʮ����ʿ]";
-		mes "���KVM��:";
+		mes "[十字骑士]";
+		mes "你的KVM点:";
 		mes ""+kvm_point+".";
 		close;
 	}

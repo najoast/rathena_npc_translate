@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN [Õ½³¡]ºº»¯½Å±¾ [ www.rAthenaCN.com ]
-//============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN [æˆ˜åœº]æ±‰åŒ–è„šæœ¬ 
 //============================================================
 
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= BattleGround System - Flavius Second
 //===== By: ================================================== 
 //= L0ne_W0lf
@@ -33,10 +29,10 @@
 
 // Waiting Room NPCs
 //============================================================
-bat_room,142,227,4	script	Õ½³¡Ö¸»Ó¹Ù#niumowang1	418,{
+bat_room,142,227,4	script	æˆ˜åœºæŒ‡æŒ¥å®˜#niumowang1	418,{
 	end;
 OnInit:
-	waitingroom "½øÈë¶Ô¿¹ĞèÒª×éÖ¯Ê¿±ø",11,"start#bat_b02::OnReadyCheck",1,0,80;
+	waitingroom "è¿›å…¥å¯¹æŠ—éœ€è¦ç»„ç»‡å£«å…µ",11,"start#bat_b02::OnReadyCheck",1,0,80;
 	end;
 OnEnterBG:
 	set $@FlaviusBG2_id1, waitingroom2bg("bat_b02",10,290,"start#bat_b02::OnGuillaumeQuit","");
@@ -46,7 +42,7 @@ OnEnterBG:
 bat_room,142,204,0	script	Lieutenant Yukon	414,{
 	end;
 OnInit:
-	waitingroom "½øÈë¶Ô¿¹ĞèÒª×éÖ¯Ê¿±ø",11,"start#bat_b02::OnReadyCheck",1,0,80;
+	waitingroom "è¿›å…¥å¯¹æŠ—éœ€è¦ç»„ç»‡å£«å…µ",11,"start#bat_b02::OnReadyCheck",1,0,80;
 	end;
 OnEnterBG:
 	set $@FlaviusBG2_id2, waitingroom2bg("bat_b02",390,10,"start#bat_b02::OnCroixQuit","");

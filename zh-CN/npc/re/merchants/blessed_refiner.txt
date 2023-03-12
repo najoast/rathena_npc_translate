@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN ½Å±¾ºº»¯ www.rAthenaCN.com ×ª×Ô [ www.99Max.mE ]
-//============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN è„šæœ¬æ±‰åŒ– è½¬è‡ª [ www.99Max.mE ]
 //============================================================
 
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Blessed Refiner
 //===== By: ==================================================
 //= Euphy
@@ -29,62 +25,62 @@
 //============================================================
 -	script	::BlacksmithDister	-1,{
 	disable_items;
-	mes "[Ìú½³µÏË¹ÌØ]";
-	mes "ÔÚÕâ¸ö¾ºÕù¼¤ÁÒµÄÉç»á, ÎÒÃÇ±ØĞëÎªÁËÉú´æ!";
-	mes "ÎÒÖ»¸ºÔğ¾«Á¶ +6 ~ 12 µÄ×°±¸.";
+	mes "[é“åŒ è¿ªæ–¯ç‰¹]";
+	mes "åœ¨è¿™ä¸ªç«äº‰æ¿€çƒˆçš„ç¤¾ä¼š, æˆ‘ä»¬å¿…é¡»ä¸ºäº†ç”Ÿå­˜!";
+	mes "æˆ‘åªè´Ÿè´£ç²¾ç‚¼ +6 ~ 12 çš„è£…å¤‡.";
 	next;
-	mes "[Ìú½³µÏË¹ÌØ]";
-	mes "ÎÒĞèÒª ^ff9999ÊÜ×£¸£µÄÎäÆ÷¿óÊ¯^000000 À´¾«Á¶ÎäÆ÷, »òÕß ^ff9999ÊÜ×£¸£µÄ·À¾ß¿óÊ¯^000000 À´¾«Á¶·À¾ß.";
-	mes "¾«Á¶Ê§°Ü ^FF0000²»»áÆÆ»µ»ò¼õÉÙ¾«Á¶¼¶^000000.";
+	mes "[é“åŒ è¿ªæ–¯ç‰¹]";
+	mes "æˆ‘éœ€è¦ ^ff9999å—ç¥ç¦çš„æ­¦å™¨çŸ¿çŸ³^000000 æ¥ç²¾ç‚¼æ­¦å™¨, æˆ–è€… ^ff9999å—ç¥ç¦çš„é˜²å…·çŸ¿çŸ³^000000 æ¥ç²¾ç‚¼é˜²å…·.";
+	mes "ç²¾ç‚¼å¤±è´¥ ^FF0000ä¸ä¼šç ´åæˆ–å‡å°‘ç²¾ç‚¼çº§^000000.";
 	next;
-	mes "[Ìú½³µÏË¹ÌØ]";
-	mes "ÈçºÎ? Òª²»Òª¾«Á¶?";
+	mes "[é“åŒ è¿ªæ–¯ç‰¹]";
+	mes "å¦‚ä½•? è¦ä¸è¦ç²¾ç‚¼?";
 	next;
 	setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
 	for(set .@i,1; .@i<=10; set .@i,.@i+1)
-		set .@menu$, .@menu$ + ( getequipisequiped(.@indices[.@i]) ? getequipname(.@indices[.@i]) : F_getpositionname(.@indices[.@i]) +" - [Î´×°±¸]" ) +":";
+		set .@menu$, .@menu$ + ( getequipisequiped(.@indices[.@i]) ? getequipname(.@indices[.@i]) : F_getpositionname(.@indices[.@i]) +" - [æœªè£…å¤‡]" ) +":";
 	set .@part, .@indices[ select(.@menu$) ];
 	if (!getequipisequiped(.@part)) {
-		mes "[Ìú½³µÏË¹ÌØ]";
+		mes "[é“åŒ è¿ªæ–¯ç‰¹]";
 		switch(.@part) {
 		case 1:
-			mes "ÎÒÊÇÒ»¸öÌú½³, ²»ÊÇÃÀÈİÊ¦.";
+			mes "æˆ‘æ˜¯ä¸€ä¸ªé“åŒ , ä¸æ˜¯ç¾å®¹å¸ˆ.";
 			break;
 		case 2:
-			mes "ÎÒµÄ´¸×Ó, »áÈÃÄã³ÉÎªÌì¿ÕÖĞµÄÒ»¿ÅÃ÷ĞÇ.";
+			mes "æˆ‘çš„é”¤å­, ä¼šè®©ä½ æˆä¸ºå¤©ç©ºä¸­çš„ä¸€é¢—æ˜æ˜Ÿ.";
 			break;
 		case 3:
 		case 4:
-			mes "ÓÃ¿ÕÊÖÖÆ×÷ÊÇ²»ÊÇÎÒµÄ×¨³¤.";
+			mes "ç”¨ç©ºæ‰‹åˆ¶ä½œæ˜¯ä¸æ˜¯æˆ‘çš„ä¸“é•¿.";
 			break;
 		case 5:
-			mes "ÎÒÎŞ·¨¾«Á¶ÍÑµôµÄ×°±¸!";
+			mes "æˆ‘æ— æ³•ç²¾ç‚¼è„±æ‰çš„è£…å¤‡!";
 			break;
 		case 6:
-			mes "Õâ¸öÆæ¹ÖµÄÆøÎ¶À´×ÔÄÄÀï?";
+			mes "è¿™ä¸ªå¥‡æ€ªçš„æ°”å‘³æ¥è‡ªå“ªé‡Œ?";
 			break;
 		case 7:
 		case 8:
-			mes "×°ÊÎÆ·ÔÚÄÄÀï?";
+			mes "è£…é¥°å“åœ¨å“ªé‡Œ?";
 			break;
 		case 9:
-			mes "ÄãÏëÈÃÎÒ¾«Á¶Ê²Ã´?";
+			mes "ä½ æƒ³è®©æˆ‘ç²¾ç‚¼ä»€ä¹ˆ?";
 			break;
 		case 10:
-			mes "ºô? ÄãÏëÈÃÎÒÔõÃ´×ö?";
+			mes "å‘¼? ä½ æƒ³è®©æˆ‘æ€ä¹ˆåš?";
 			break;
 		}
 		close;
 	}
 	if (!getequipisenableref(.@part)) {
-		mes "[Ìú½³µÏË¹ÌØ]";
-		mes "Õâ¸öÎïÆ·ÎŞ·¨¾«Á¶.";
+		mes "[é“åŒ è¿ªæ–¯ç‰¹]";
+		mes "è¿™ä¸ªç‰©å“æ— æ³•ç²¾ç‚¼.";
 		close;
 	}
 	set .@equip_refine, getequiprefinerycnt(.@part);
 	if (.@equip_refine < 6 || .@equip_refine > 12) {
-		mes "[Ìú½³µÏË¹ÌØ]";
-		mes "Õâ¸ö×°±¸ÒÑ¾­±»¾«Á¶µ½ "+.@equip_refine+". ÎÒÖ»ÄÜ¹»¾«Á¶ +6 µ½ +12µÄ×°±¸!";
+		mes "[é“åŒ è¿ªæ–¯ç‰¹]";
+		mes "è¿™ä¸ªè£…å¤‡å·²ç»è¢«ç²¾ç‚¼åˆ° "+.@equip_refine+". æˆ‘åªèƒ½å¤Ÿç²¾ç‚¼ +6 åˆ° +12çš„è£…å¤‡!";
 		close;
 	}
 	set .@equip_lv, getequipweaponlv(.@part);
@@ -92,91 +88,91 @@
 	default:
 	case 0:
 		set .@price,20000;
-		set .@material,6439; //ÊÜ×£¸£µÄ·À¾ß¿óÊ¯
-		set .@type$,"·À¾ß";
+		set .@material,6439; //å—ç¥ç¦çš„é˜²å…·çŸ¿çŸ³
+		set .@type$,"é˜²å…·";
 		break;
 	case 1:
 		set .@price,1000;
-		set .@material,6438; //ÊÜ×£¸£µÄÎäÆ÷¿óÊ¯
-		set .@type$,"ÎäÆ÷";
+		set .@material,6438; //å—ç¥ç¦çš„æ­¦å™¨çŸ¿çŸ³
+		set .@type$,"æ­¦å™¨";
 		break;
 	case 2:
 		set .@price,2000;
-		set .@material,6438; //ÊÜ×£¸£µÄÎäÆ÷¿óÊ¯
-		set .@type$,"ÎäÆ÷";
+		set .@material,6438; //å—ç¥ç¦çš„æ­¦å™¨çŸ¿çŸ³
+		set .@type$,"æ­¦å™¨";
 		break;
 	case 3:
 		set .@price,20000;
-		set .@material,6438; //ÊÜ×£¸£µÄÎäÆ÷¿óÊ¯
-		set .@type$,"ÎäÆ÷";
+		set .@material,6438; //å—ç¥ç¦çš„æ­¦å™¨çŸ¿çŸ³
+		set .@type$,"æ­¦å™¨";
 		break;
 	case 4:
 		set .@price,40000;
-		set .@material,6438; //ÊÜ×£¸£µÄÎäÆ÷¿óÊ¯
-		set .@type$,"ÎäÆ÷";
+		set .@material,6438; //å—ç¥ç¦çš„æ­¦å™¨çŸ¿çŸ³
+		set .@type$,"æ­¦å™¨";
 		break;
 	}
-	set .@ore$,"^ff9999ÊÜ´Í¸£µÄ"+.@type$+" ¿óÊ¯^000000";
-	mes "[Ìú½³µÏË¹ÌØ]";
-	mes "Õâ¸ö "+.@type$+" ÒÑ¾­±»¾«Á¶µ½ "+.@equip_refine+". Èç¹ûÏë¼ÌĞø¾«Á¶, ÎÒĞèÒª "+.@ore$+" ºÍ "+(.@price/1000)+",000 zeny µÄ¾«Á¶·ÑÓÃ.";
-	mes "ÄãÏë¼ÌĞø?";
+	set .@ore$,"^ff9999å—èµç¦çš„"+.@type$+" çŸ¿çŸ³^000000";
+	mes "[é“åŒ è¿ªæ–¯ç‰¹]";
+	mes "è¿™ä¸ª "+.@type$+" å·²ç»è¢«ç²¾ç‚¼åˆ° "+.@equip_refine+". å¦‚æœæƒ³ç»§ç»­ç²¾ç‚¼, æˆ‘éœ€è¦ "+.@ore$+" å’Œ "+(.@price/1000)+",000 zeny çš„ç²¾ç‚¼è´¹ç”¨.";
+	mes "ä½ æƒ³ç»§ç»­?";
 	next;
-	if(select("- ÊÇ:- ·ñ") == 2) {
-		mes "[Ìú½³µÏË¹ÌØ]";
-		mes "ÎÒºÜÃ¦, ±ğºÍÎÒ¿ªÍæĞ¦!";
+	if(select("- æ˜¯:- å¦") == 2) {
+		mes "[é“åŒ è¿ªæ–¯ç‰¹]";
+		mes "æˆ‘å¾ˆå¿™, åˆ«å’Œæˆ‘å¼€ç©ç¬‘!";
 		close;
 	}
 	if (getequippercentrefinery(.@part) < 100) {
-		mes "[Ìú½³µÏË¹ÌØ]";
-		mes "Õâ¸ö "+.@type$+" ÒÑ¾­±»¶à´Î¾«Á¶. ËäÈ»Ëü²»»áÊ§°ÜÊ±Ëğ»Ù, µ«ÊÇ "+.@ore$+" »áÏûÊ§!";
+		mes "[é“åŒ è¿ªæ–¯ç‰¹]";
+		mes "è¿™ä¸ª "+.@type$+" å·²ç»è¢«å¤šæ¬¡ç²¾ç‚¼. è™½ç„¶å®ƒä¸ä¼šå¤±è´¥æ—¶æŸæ¯, ä½†æ˜¯ "+.@ore$+" ä¼šæ¶ˆå¤±!";
 		next;
-		mes "[Ìú½³µÏË¹ÌØ]";
-		mes "µ±È», ¾«Á¶·Ñ½«²»ÓèÍË»¹! ÄãÏë¼ÌĞø?";
+		mes "[é“åŒ è¿ªæ–¯ç‰¹]";
+		mes "å½“ç„¶, ç²¾ç‚¼è´¹å°†ä¸äºˆé€€è¿˜! ä½ æƒ³ç»§ç»­?";
 		next;
-		if(select("- ÊÇ:- ·ñ") == 2) {
-			mes "[Ìú½³µÏË¹ÌØ]";
-			mes "ºÜºÃ. Èç¹ûÊ§°ÜÎÒÒ²»áºÜÉËĞÄµÄ.";
+		if(select("- æ˜¯:- å¦") == 2) {
+			mes "[é“åŒ è¿ªæ–¯ç‰¹]";
+			mes "å¾ˆå¥½. å¦‚æœå¤±è´¥æˆ‘ä¹Ÿä¼šå¾ˆä¼¤å¿ƒçš„.";
 			close;
 		}
 	}
 	if (countitem(.@material) == 0 || Zeny < .@price) {
-		mes "[Ìú½³µÏË¹ÌØ]";
-		mes "²ÄÁÏ²»×ã.";
-		mes "Òª¾«Á¶ "+((.@equip_lv)?"ÎªµÈ¼¶ "+.@equip_lv+" ÎäÆ÷":"·À¾ß")+", ÎÒĞèÒª "+.@ore$+" ºÍ "+(.@price/1000)+",000 zeny µÄ¾«Á¶·ÑÓÃ.";
+		mes "[é“åŒ è¿ªæ–¯ç‰¹]";
+		mes "ææ–™ä¸è¶³.";
+		mes "è¦ç²¾ç‚¼ "+((.@equip_lv)?"ä¸ºç­‰çº§ "+.@equip_lv+" æ­¦å™¨":"é˜²å…·")+", æˆ‘éœ€è¦ "+.@ore$+" å’Œ "+(.@price/1000)+",000 zeny çš„ç²¾ç‚¼è´¹ç”¨.";
 		close;
 	}
 	delitem .@material,1;
 	set Zeny, Zeny-.@price;
-	mes "[Ìú½³µÏË¹ÌØ]";
-	mes "Î÷Ëş! Î÷Ëş! Î÷Ëş!";
+	mes "[é“åŒ è¿ªæ–¯ç‰¹]";
+	mes "è¥¿å¡”! è¥¿å¡”! è¥¿å¡”!";
 	if (getequippercentrefinery(.@part) > rand(100) || getequippercentrefinery(.@part) > rand(100)) {
 		specialeffect EF_BLESSING;
 		successrefitem .@part;
 		next;
-		mes "[Ìú½³µÏË¹ÌØ]";
-		mes "¹ş¹ş¹ş¹ş¹ş!!!";
+		mes "[é“åŒ è¿ªæ–¯ç‰¹]";
+		mes "å“ˆå“ˆå“ˆå“ˆå“ˆ!!!";
 		next;
-		mes "[Ìú½³µÏË¹ÌØ]";
-		mes "¾«Á¶·Ç³£³É¹¦~ ¹ş¹ş¹ş!";
+		mes "[é“åŒ è¿ªæ–¯ç‰¹]";
+		mes "ç²¾ç‚¼éå¸¸æˆåŠŸ~ å“ˆå“ˆå“ˆ!";
 		close;
 	}
 	specialeffect EF_CURSEATTACK;
 	specialeffect2 EF_SUI_EXPLOSION;
 	next;
 	emotion (!rand(5))?ET_ANGER:ET_HUK;
-	mes "[Ìú½³µÏË¹ÌØ]";
-	mes "ÌìÄÅ!!!!";
+	mes "[é“åŒ è¿ªæ–¯ç‰¹]";
+	mes "å¤©å‘!!!!";
 	next;
-	mes "[Ìú½³µÏË¹ÌØ]";
-	mes "àŞ! ËäÈ» "+.@ore$+" ÉÏ±»´ÍÓèÁË×£¸£...";
+	mes "[é“åŒ è¿ªæ–¯ç‰¹]";
+	mes "å™¢! è™½ç„¶ "+.@ore$+" ä¸Šè¢«èµäºˆäº†ç¥ç¦...";
 	next;
-	mes "[Ìú½³µÏË¹ÌØ]";
-	mes "µ±ÎÒÊ§°ÜµÄÊ±ºòĞÄÇéºÜÔã!!";
+	mes "[é“åŒ è¿ªæ–¯ç‰¹]";
+	mes "å½“æˆ‘å¤±è´¥çš„æ—¶å€™å¿ƒæƒ…å¾ˆç³Ÿ!!";
 	close;
 }
-prt_in,52,56,3	duplicate(BlacksmithDister)	Ìú½³µÏË¹ÌØ#prt	826
-payon,148,172,3	duplicate(BlacksmithDister)	Ìú½³µÏË¹ÌØ#pay	826
-alberta_in,20,56,3	duplicate(BlacksmithDister)	Ìú½³µÏË¹ÌØ#alb	826
-yuno_in01,175,18,3	duplicate(BlacksmithDister)	Ìú½³µÏË¹ÌØ#yuno	826
-ein_in01,26,82,3	duplicate(BlacksmithDister)	Ìú½³µÏË¹ÌØ#ein	826
-lhz_in02,280,15,3	duplicate(BlacksmithDister)	Ìú½³µÏË¹ÌØ#lhz	826
+prt_in,52,56,3	duplicate(BlacksmithDister)	é“åŒ è¿ªæ–¯ç‰¹#prt	826
+payon,148,172,3	duplicate(BlacksmithDister)	é“åŒ è¿ªæ–¯ç‰¹#pay	826
+alberta_in,20,56,3	duplicate(BlacksmithDister)	é“åŒ è¿ªæ–¯ç‰¹#alb	826
+yuno_in01,175,18,3	duplicate(BlacksmithDister)	é“åŒ è¿ªæ–¯ç‰¹#yuno	826
+ein_in01,26,82,3	duplicate(BlacksmithDister)	é“åŒ è¿ªæ–¯ç‰¹#ein	826
+lhz_in02,280,15,3	duplicate(BlacksmithDister)	é“åŒ è¿ªæ–¯ç‰¹#lhz	826

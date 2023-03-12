@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN ½Å±¾ºº»¯ www.rAthenaCN.com ×ª×Ô [ www.99Max.mE ]
-//============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN è„šæœ¬æ±‰åŒ– è½¬è‡ª [ www.99Max.mE ]
 //============================================================
 
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Izlude Guides
 //===== By: ================================================== 
 //= L0ne_W0lf
@@ -28,79 +24,79 @@
 
 -	script	::GuideIzlude	-1,{
 	cutin "prt_soldier",2;
-	mes "[ÒÀË¹Â³µÃµ¼ÓÎ]";
-	mes "»¶Ó­¹âÁÙ ÆÕÂ¡µÂÀ­µÄ";
-	mes "ÎÀÐÇ³ÇÊÐ^8B4513ÒÀË¹Â³µÃ^000000.";
-	mes "ÐèÒªÎªÄú½éÉÜÂð?";
-	F_Navi("[ÒÀË¹Â³µÃµ¼ÓÎ]");
+	mes "[ä¾æ–¯é²å¾—å¯¼æ¸¸]";
+	mes "æ¬¢è¿Žå…‰ä¸´ æ™®éš†å¾·æ‹‰çš„";
+	mes "å«æ˜ŸåŸŽå¸‚^8B4513ä¾æ–¯é²å¾—^000000.";
+	mes "éœ€è¦ä¸ºæ‚¨ä»‹ç»å—?";
+	F_Navi("[ä¾æ–¯é²å¾—å¯¼æ¸¸]");
 	next;
 	set .@map$, strnpcinfo(4);
 	while (1) {
-		switch(select("[ Ö÷ÒªÉèÊ© ]:[ ÉÌµê & Ð¡°ïÊÖ ]:- É¾³ýÐ¡µØÍ¼µÄ±ê¼Ç:- ½áÊø¶Ô»°")) {
+		switch(select("[ ä¸»è¦è®¾æ–½ ]:[ å•†åº— & å°å¸®æ‰‹ ]:- åˆ é™¤å°åœ°å›¾çš„æ ‡è®°:- ç»“æŸå¯¹è¯")) {
 		case 1:
 			set .@loop,1;
 			while (.@loop) {
-				switch(select("[ ÂëÍ· ]:[ ¹ú¼Ê»ú³¡ ]:[ ¾º¼¼³¡ ]:[ µÀ¾ßµê ]:[ ÎäÆ÷ & ·À¾ßµê ]:[ ½£Ê¿¹¤»á ]:[ ½£Ê¿Ð­»á ]:·µ»ØÉÏÒ»Ñ¡µ¥")) {
+				switch(select("[ ç å¤´ ]:[ å›½é™…æœºåœº ]:[ ç«žæŠ€åœº ]:[ é“å…·åº— ]:[ æ­¦å™¨ & é˜²å…·åº— ]:[ å‰‘å£«å·¥ä¼š ]:[ å‰‘å£«åä¼š ]:è¿”å›žä¸Šä¸€é€‰å•")) {
 				case 1:
-					mes "[ÒÀË¹Â³µÃµ¼ÓÎ]";
-					mes "¿ÉÍ¸¹ýÎ÷±±·½µÄ^B9062FÂëÍ·^000000";
-					mes "µ½´ï^8B4513°¬¶û±´Ëþ^000000»ò^8B4513°ØÒÁÑÇá°µº^000000";
-					mes "µÈµØ.";
-					mes "»¹ÐèÒªÆäËü·þÎñÂð?";
+					mes "[ä¾æ–¯é²å¾—å¯¼æ¸¸]";
+					mes "å¯é€è¿‡è¥¿åŒ—æ–¹çš„^B9062Fç å¤´^000000";
+					mes "åˆ°è¾¾^8B4513è‰¾å°”è´å¡”^000000æˆ–^8B4513æŸä¼Šäºšå²šå²›^000000";
+					mes "ç­‰åœ°.";
+					mes "è¿˜éœ€è¦å…¶å®ƒæœåŠ¡å—?";
 					viewpoint 1,197,205,0,0xFF0000;
 					next;
 					break;
 				case 2:
-					mes "[ÒÀË¹Â³µÃµ¼ÓÎ]";
-					mes "¶«ÄÏ·½µÄ^0000FF¹ú¼Ê»ú³¡^000000";
-					mes "¿ÉÇ°Íù^8B4513ÖìÅµ^000000 and ^8B4513À­ºÕ^000000";
-					mes "µÈµØ,";
-					mes "»¹ÐèÒªÆäËü·þÎñÂð?";
+					mes "[ä¾æ–¯é²å¾—å¯¼æ¸¸]";
+					mes "ä¸œå—æ–¹çš„^0000FFå›½é™…æœºåœº^000000";
+					mes "å¯å‰å¾€^8B4513æœ±è¯º^000000 and ^8B4513æ‹‰èµ«^000000";
+					mes "ç­‰åœ°,";
+					mes "è¿˜éœ€è¦å…¶å®ƒæœåŠ¡å—?";
 					viewpoint 1,204,75,1,0x0A82FF;
 					next;
 					break;
 				case 3:
-					mes "[ÒÀË¹Â³µÃµ¼ÓÎ]";
-					mes "Î»ÓÚ±±±ßµÄ^FF5400¾º¼¼³¡^000000";
-					mes "ÊÇ²âÊÔ×Ô¼ºÕ½¶·ÊµÁ¦µÄ";
-					mes "×î¼Ñ³¡µØ,";
-					mes "Î»ÖÃÒÑ¾­±ê¼ÇÔÚ";
-					mes "Ð¡µØÍ¼ÉÏÁË,";
-					mes "»¹ÐèÒªÆäËü·þÎñÂð?";
+					mes "[ä¾æ–¯é²å¾—å¯¼æ¸¸]";
+					mes "ä½äºŽåŒ—è¾¹çš„^FF5400ç«žæŠ€åœº^000000";
+					mes "æ˜¯æµ‹è¯•è‡ªå·±æˆ˜æ–—å®žåŠ›çš„";
+					mes "æœ€ä½³åœºåœ°,";
+					mes "ä½ç½®å·²ç»æ ‡è®°åœ¨";
+					mes "å°åœ°å›¾ä¸Šäº†,";
+					mes "è¿˜éœ€è¦å…¶å®ƒæœåŠ¡å—?";
 					viewpoint 1,128,255,2,0xFF5400;
 					next;
 					break;
 				case 4:
-					mes "[ÒÀË¹Â³µÃµ¼ÓÎ]";
-					mes "^006400µÀ¾ßµê^000000µÄÎ»ÖÃÒÑ¾­±ê¼ÇÔÚ";
-					mes "Ð¡µØÍ¼ÉÏÁË,";
-					mes "»¹ÐèÒªÆäËü·þÎñÂð?";
+					mes "[ä¾æ–¯é²å¾—å¯¼æ¸¸]";
+					mes "^006400é“å…·åº—^000000çš„ä½ç½®å·²ç»æ ‡è®°åœ¨";
+					mes "å°åœ°å›¾ä¸Šäº†,";
+					mes "è¿˜éœ€è¦å…¶å®ƒæœåŠ¡å—?";
 					viewpoint 1,160,125,3,0xAAFF00;
 					next;
 					break;
 				case 5:
-					mes "[ÒÀË¹Â³µÃµ¼ÓÎ]";
-					mes "^7F3300ÎäÆ÷ & ·À¾ßµê^000000µÄÎ»ÖÃÒÑ¾­±ê¼ÇÔÚ";
-					mes "Ð¡µØÍ¼ÉÏÁË,";
-					mes "»¹ÐèÒªÆäËü·þÎñÂð?";
+					mes "[ä¾æ–¯é²å¾—å¯¼æ¸¸]";
+					mes "^7F3300æ­¦å™¨ & é˜²å…·åº—^000000çš„ä½ç½®å·²ç»æ ‡è®°åœ¨";
+					mes "å°åœ°å›¾ä¸Šäº†,";
+					mes "è¿˜éœ€è¦å…¶å®ƒæœåŠ¡å—?";
 					viewpoint 1,109,182,4,0xD2691E;
 					next;
 					break;
 				case 6:
-					mes "[ÒÀË¹Â³µÃµ¼ÓÎ]";
-					mes "^800080½£Ê¿¹¤»á^000000ÊÇ¸ºÔð½£Ê¿×ªÖ°µÄµØ·½,";
-					mes "Î»ÖÃÒÑ¾­±ê¼ÇÔÚ";
-					mes "Ð¡µØÍ¼ÉÏÁË,";
-					mes "»¹ÐèÒªÆäËü·þÎñÂð?";
+					mes "[ä¾æ–¯é²å¾—å¯¼æ¸¸]";
+					mes "^800080å‰‘å£«å·¥ä¼š^000000æ˜¯è´Ÿè´£å‰‘å£«è½¬èŒçš„åœ°æ–¹,";
+					mes "ä½ç½®å·²ç»æ ‡è®°åœ¨";
+					mes "å°åœ°å›¾ä¸Šäº†,";
+					mes "è¿˜éœ€è¦å…¶å®ƒæœåŠ¡å—?";
 					viewpoint 1,52,175,5,0xDA70D6;
 					next;
 					break;
 				case 7:
-					mes "[ÒÀË¹Â³µÃµ¼ÓÎ]";
-					mes "^B9062F½£Ê¿Ð­»á^000000";
-					mes "Î»ÖÃÒÑ¾­±ê¼ÇÔÚ";
-					mes "Ð¡µØÍ¼ÉÏÁË,";
-					mes "»¹ÐèÒªÆäËü·þÎñÂð?";
+					mes "[ä¾æ–¯é²å¾—å¯¼æ¸¸]";
+					mes "^B9062Få‰‘å£«åä¼š^000000";
+					mes "ä½ç½®å·²ç»æ ‡è®°åœ¨";
+					mes "å°åœ°å›¾ä¸Šäº†,";
+					mes "è¿˜éœ€è¦å…¶å®ƒæœåŠ¡å—?";
 					viewpoint 1,212,161,6,0xFF0000;
 					next;
 					break;
@@ -113,51 +109,51 @@
 		case 2:
 			set .@loop,1;
 			while (.@loop) {
-				switch(select("[ ÒÁµéÔ°´«ËÍÊ¦ ]:[ ¿¨ÆÕÀ­Ö°Ô± ]:[ ÐÂ»éÃØÊé ]:[ ×Óµ¯ÉÌÈË ]:[ Ó¶±ø¹¤»á¹ÜÀíÔ± ]:·µ»ØÉÏÒ»Ñ¡µ¥")) {
+				switch(select("[ ä¼Šç”¸å›­ä¼ é€å¸ˆ ]:[ å¡æ™®æ‹‰èŒå‘˜ ]:[ æ–°å©šç§˜ä¹¦ ]:[ å­å¼¹å•†äºº ]:[ ä½£å…µå·¥ä¼šç®¡ç†å‘˜ ]:è¿”å›žä¸Šä¸€é€‰å•")) {
 				case 1:
-					mes "[ÒÀË¹Â³µÃµ¼ÓÎ]";
-					mes "^0000FFÒÁµéÔ°´«ËÍÊ¦^000000";
-					mes "Î»ÖÃÒÑ¾­±ê¼ÇÔÚ";
-					mes "Ð¡µØÍ¼ÉÏÁË,";
-					mes "»¹ÐèÒªÆäËü·þÎñÂð?";
+					mes "[ä¾æ–¯é²å¾—å¯¼æ¸¸]";
+					mes "^0000FFä¼Šç”¸å›­ä¼ é€å¸ˆ^000000";
+					mes "ä½ç½®å·²ç»æ ‡è®°åœ¨";
+					mes "å°åœ°å›¾ä¸Šäº†,";
+					mes "è¿˜éœ€è¦å…¶å®ƒæœåŠ¡å—?";
 					viewpoint 1,131,148,7,0x0A82FF;
 					next;
 					break;
 				case 2:
-					mes "[ÒÀË¹Â³µÃµ¼ÓÎ]";
-					mes "^FF5400¿¨ÆÕÀ­Ö°Ô±^000000";
-					mes "Î»ÖÃÒÑ¾­±ê¼ÇÔÚ";
-					mes "Ð¡µØÍ¼ÉÏÁË,";
-					mes "»¹ÐèÒªÆäËü·þÎñÂð?";
+					mes "[ä¾æ–¯é²å¾—å¯¼æ¸¸]";
+					mes "^FF5400å¡æ™®æ‹‰èŒå‘˜^000000";
+					mes "ä½ç½®å·²ç»æ ‡è®°åœ¨";
+					mes "å°åœ°å›¾ä¸Šäº†,";
+					mes "è¿˜éœ€è¦å…¶å®ƒæœåŠ¡å—?";
 					viewpoint 1,128,148,8,0xFF5400;
 					next;
 					break;
 				case 3:
-					mes "[ÒÀË¹Â³µÃµ¼ÓÎ]";
-					mes "ÏëÒªµ½·ò¸¾ÃÇµÄ¶È¼ÙÊ¤µØ";
-					mes "^8B4513×¦ÍÛßÞ^000000µÄ»°,";
-					mes "ÇëÏò^B9062FÐÂ»éÃØÊé^000000";
-					mes "×ÉÑ¯°É!";
-					mes "»¹ÐèÒªÆäËü·þÎñÂð?";
+					mes "[ä¾æ–¯é²å¾—å¯¼æ¸¸]";
+					mes "æƒ³è¦åˆ°å¤«å¦‡ä»¬çš„åº¦å‡èƒœåœ°";
+					mes "^8B4513çˆªå“‡å’¿^000000çš„è¯,";
+					mes "è¯·å‘^B9062Fæ–°å©šç§˜ä¹¦^000000";
+					mes "å’¨è¯¢å§!";
+					mes "è¿˜éœ€è¦å…¶å®ƒæœåŠ¡å—?";
 					viewpoint 1,180,224,9,0xFF0000;
 					next;
 					break;
 				case 4:
-					mes "[ÒÀË¹Â³µÃµ¼ÓÎ]";
-					mes "^7F3300ÉñÇ¹ÊÖ^000000Ã°ÏÕ¼ÒÃÇ";
-					mes "×¨ÊôµÄ^7F3300×Óµ¯ÉÌÈË^000000";
-					mes "Î»ÖÃÒÑ¾­±ê¼ÇÔÚ";
-					mes "Ð¡µØÍ¼ÉÏÁË,";
-					mes "»¹ÐèÒªÆäËü·þÎñÂð?";
+					mes "[ä¾æ–¯é²å¾—å¯¼æ¸¸]";
+					mes "^7F3300ç¥žæžªæ‰‹^000000å†’é™©å®¶ä»¬";
+					mes "ä¸“å±žçš„^7F3300å­å¼¹å•†äºº^000000";
+					mes "ä½ç½®å·²ç»æ ‡è®°åœ¨";
+					mes "å°åœ°å›¾ä¸Šäº†,";
+					mes "è¿˜éœ€è¦å…¶å®ƒæœåŠ¡å—?";
 					viewpoint 1,158,130,10,0xD2691E;
 					next;
 					break;
 				case 5:
-					mes "[ÒÀË¹Â³µÃµ¼ÓÎ]";
-					mes "^0000FF½£Ê¿Ó¶±ø¹¤»á¹ÜÀíÔ±^000000ºÍ^0000FFÓ¶±øÉÌÆ·ÉÌÈË^000000";
-					mes "Î»ÖÃÒÑ¾­±ê¼ÇÔÚ";
-					mes "Ð¡µØÍ¼ÉÏÁË,";
-					mes "»¹ÐèÒªÆäËü·þÎñÂð?";
+					mes "[ä¾æ–¯é²å¾—å¯¼æ¸¸]";
+					mes "^0000FFå‰‘å£«ä½£å…µå·¥ä¼šç®¡ç†å‘˜^000000å’Œ^0000FFä½£å…µå•†å“å•†äºº^000000";
+					mes "ä½ç½®å·²ç»æ ‡è®°åœ¨";
+					mes "å°åœ°å›¾ä¸Šäº†,";
+					mes "è¿˜éœ€è¦å…¶å®ƒæœåŠ¡å—?";
 					viewpoint 1,56,169,11,0xDA70D6;
 					next;
 					break;
@@ -168,9 +164,9 @@
 			}
 			break;
 		case 3:
-			mes "[ÒÀË¹Â³µÃµ¼ÓÎ]";
-			mes "±ê¼ÇÒÑÉ¾³ý,";
-			mes "»¹ÐèÒªÆäËü·þÎñÂð?";
+			mes "[ä¾æ–¯é²å¾—å¯¼æ¸¸]";
+			mes "æ ‡è®°å·²åˆ é™¤,";
+			mes "è¿˜éœ€è¦å…¶å®ƒæœåŠ¡å—?";
 			viewpoint 2,1,1,0,0xFFFF00;
 			viewpoint 2,1,1,1,0x000000;
 			viewpoint 2,1,1,2,0xFF0000;
@@ -186,8 +182,8 @@
 			next;
 			break;
 		case 4:
-			mes "[ÒÀË¹Â³µÃµ¼ÓÎ]";
-			mes "×£ÄãÂÃÍ¾Óä¿ì!";
+			mes "[ä¾æ–¯é²å¾—å¯¼æ¸¸]";
+			mes "ç¥ä½ æ—…é€”æ„‰å¿«!";
 			close2;
 			cutin "prt_soldier",255;
 			end;
@@ -195,6 +191,6 @@
 	}
 }
 
-izlude,129,175,4	duplicate(GuideIzlude)	µ¼ÓÎ#02izlude	105
-izlude,133,113,4	duplicate(GuideIzlude)	µ¼ÓÎ#03izlude	105
-izlude,120,206,4	duplicate(GuideIzlude)	µ¼ÓÎ#04izlude	105
+izlude,129,175,4	duplicate(GuideIzlude)	å¯¼æ¸¸#02izlude	105
+izlude,133,113,4	duplicate(GuideIzlude)	å¯¼æ¸¸#03izlude	105
+izlude,120,206,4	duplicate(GuideIzlude)	å¯¼æ¸¸#04izlude	105

@@ -1,10 +1,7 @@
 //============================================================
-//= rAthenaCN [ʥ����ָ����]�����ű� [ www.rAthenaCN.com ]
+//= rAthenaCN [圣诞戒指任务]汉化脚本 
 //============================================================
-//= GIT ����� https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ���ⷴ�� https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
+
 
 //===== Hercules Script ======================================
 //= Karachun Event (Xmas Rings Quest)
@@ -20,63 +17,63 @@
 //= 1.2 Fixed double quotes not being escaped [brianluau]
 //============================================================
 
-prontera,156,174,4	script	ѩŵ��	4_M_06,{
-	mes "[ѩŵ��]";
+prontera,156,174,4	script	雪诺尔	4_M_06,{
+	mes "[雪诺尔]";
 	if(Q_XMSRINGS==2){
-		mes "Ŷ...���������? ��������ҵĽ���ѩ��? лл.";
+		mes "哦...这是真的吗? 你帮助了我的姐妹雪伊? 谢谢.";
 	}else if(Q_XMSRINGS==3){
-		mes "ѩŵ���Ѿ�������С�����������������æ��������...";
-		mes "������������һ��ħ�������.";
+		mes "雪诺伊已经让她的小鸟送信来告诉我你帮忙的事情了...";
+		mes "让我来告诉你一个魔戒的秘密.";
 		emotion ET_BEST;
 		next;
-		mes "[ѩŵ��]";
-		mes "���ǵ�ħ��ֻ����12��8�յ�1��8��֮��Ŵ���.";
+		mes "[雪诺尔]";
+		mes "它们的魔力只有在12月8日到1月8日之间才存在.";
 		next;
-		mes "[ѩŵ��]";
-		mes "˳�������, ֻҪ��ʥ��ñ��������ܷ�������������ħ����.";
+		mes "[雪诺尔]";
+		mes "顺便告诉你, 只要把圣诞帽带上你就能发现它们真正的魔力了.";
 		next;
-		mes "[ѩŵ��]";
-		mes "������������ָ������, ���ǵ�ħ��Ҳ��ӱ�.";
-		mes "ף�������Ŀ���!";
+		mes "[雪诺尔]";
+		mes "如果你把两个戒指都带上, 他们的魔力也会加倍.";
+		mes "祝你今天过的开心!";
 		close;
 	}else{
-		mes "���! �Һ��ҵ�������������Ϊȫ����������׼������!";
+		mes "你好! 我和我的两个姐妹正在为全部三个节日准备礼物!";
 	}
 	emotion ET_CRY;
 	next;
-	menu "- ��Ľ���������?",-, "- ʲô����?",M_PR,"- ʲô����?",M_WRAP,"- �ҿ��԰�ʲô��?",M_QUEST;
+	menu "- 你的姐妹在哪里?",-, "- 什么节日?",M_PR,"- 什么礼物?",M_WRAP,"- 我可以帮什么吗?",M_QUEST;
 
-	mes "[ѩŵ��]";
-	mes "�ҵ�����ѩ��ȥ��һ��ңԶ�ĵط�Ϊ��������׼��������... ��Ҳ��֪��������. �����ȥ�����ҵĽ�������С����.";
+	mes "[雪诺尔]";
+	mes "我的妹妹雪伊去了一个遥远的地方为那里的穷孩子准备礼物了... 我也不知道在哪里. 你可以去问问我的姐姐和她的小鸟们.";
 	next;
-	mes "[ѩŵ��]";
-	mes "�ҵĽ��? ����������ѩŵ��. ������ȥ��ĳ����ɫ��С��... ���ƺ������ҪΪ�¶���׼��һЩ����...";
+	mes "[雪诺尔]";
+	mes "我的姐姐? 她的名字是雪诺伊. 她航海去了某个绿色的小岛... 她似乎提起过要为孤儿们准备一些礼物...";
 	close;
 
 M_PR:
-	mes "[ѩŵ��]";
-	mes "����������? �ð�, ����һ������һ��!";
-	mes "^000080ʥ����^000000, ^FF0000Karachun^000000 �� ^008000����ǰϦ^000000!";
+	mes "[雪诺尔]";
+	mes "那三个节日? 好吧, 它们一个接着一个!";
+	mes "^000080圣诞节^000000, ^FF0000Karachun^000000 和 ^008000新年前夕^000000!";
 	next;
-	mes "[ѩŵ��]";
-	mes "^FF0000Karachun^000000? ��... ����һ�����ϵ����ͽ�Ľ���. ��֪��, �������ǻ���ʥ�������굽��֮ǰ��ף��.";
+	mes "[雪诺尔]";
+	mes "^FF0000Karachun^000000? 嘿... 这是一个古老的异教徒的节日. 你知道, 曾经他们会在圣诞和新年到来之前庆祝它.";
 	next;
 	goto M_QUEST;
 
 M_WRAP:
-	mes "[ѩŵ��]";
-	mes "�ҵĽ���˵���е����ﶼӦ�ÿ�����һģһ��, ��Ȼ��Щ���ӿ��ܻ�ȥ����ЩƯ����!";
+	mes "[雪诺尔]";
+	mes "我的姐妹说所有的礼物都应该看起来一模一样, 不然有些孩子可能会去抢那些漂亮的!";
 	next;
-	mes "[ѩŵ��]";
-	mes "����Ҫ�Ұ������Ư������������û�ֽ��������?";
+	mes "[雪诺尔]";
+	mes "你想要我帮你把你漂亮的礼物盒子用灰纸包起来吗?";
 	next;
-	menu "- ���������!",-, "- ����, лл.",M_QUEST;
+	menu "- 请包起来吧!",-, "- 不用, 谢谢.",M_QUEST;
 
 	set @prizes, countitem(664)+countitem(665)+countitem(666)+countitem(667);
 	if( @prizes == 0){
-		mes "[ѩŵ��]";
-		mes "��û������������ʲô������Ư��������...";
-		if(countitem(644))mes "��ֻ�л�ɫ�ĺ���.";
+		mes "[雪诺尔]";
+		mes "我没发现你身上有什么礼物在漂亮盒子里...";
+		if(countitem(644))mes "你只有灰色的盒子.";
 		close;
 	}
 	delitem 664,countitem(664);
@@ -85,13 +82,13 @@ M_WRAP:
 	delitem 667,countitem(667);
 	getitem 644,@prizes;
 
-	mes "[ѩŵ��]";
-	mes "*���˻�* ����.";
+	mes "[雪诺尔]";
+	mes "*晃了晃* 给你.";
 	next;
 
 M_QUEST:
-	mes "[ѩŵ��]";
-	mes "ϣ�����ܾ����ҵ��ҵĽ�����, ������Ҫ��İ���.";
+	mes "[雪诺尔]";
+	mes "希望你能尽快找到我的姐妹们, 他们需要你的帮助.";
 	if(Q_XMSRINGS==0) set Q_XMSRINGS,1;
 	close;
 
@@ -105,25 +102,25 @@ OnInit:
 	end;
 }
 
-louyang,224,249,4	script	ѩ��	4_F_KID3,{
-	mes "[ѩ��]";
+louyang,224,249,4	script	雪伊	4_F_KID3,{
+	mes "[雪伊]";
 	if(Q_XMSRINGS==0){
-		mes "���! �����ڵ��ҽ���С�����Ź���...";
+		mes "你好! 我正在等我姐姐的小鸟送信过来...";
 		emotion ET_CRY;
 		close;
 	}
 	if(Q_XMSRINGS==1){
-		mes "����ϣ���һ�����4����ɫ����и����صĺ�����...";
+		mes "我真希望我还能有4个灰色礼物盒给当地的孩子们...";
 		emotion ET_CRY;
 		next;
-		mes "[ѩ��]";
-		mes "��, ���. �ҵĸ��ѩŵ�������鶼����������?";
+		mes "[雪伊]";
+		mes "噢, 你好. 我的哥哥雪诺尔把事情都告诉你了吗?";
 		next;
-		menu "�������4�������",-, "�Ҳ���ʶʲôѩ...ʲôʲô",M_End;
+		menu "这是你的4个礼物盒",-, "我不认识什么雪...什么什么",M_End;
 
-		mes "[ѩ��]";
+		mes "[雪伊]";
 		if(countitem(644)<4){
-			mes "����4�������͸�����ǰ�... �ȵ�, �㻹����4��!";
+			mes "给我4个礼物送给穷孩子们吧... 等等, 你还不满4个!";
 			emotion ET_SORRY;
 			close;
 		}
@@ -131,51 +128,51 @@ louyang,224,249,4	script	ѩ��	4_F_KID3,{
 		delitem 644,4;
 		getnameditem 2637,strcharinfo(0);
 		emotion ET_CHUPCHUP;
-		mes "лл! �����������һ��СС����!";
+		mes "谢谢! 这是我送你的一点小小心意!";
 		next;
-		mes "[ѩ��]";
-		mes "����, ��������2����ͬ�Ľ�ָ, ��Ľ��յȼ������������!";
+		mes "[雪伊]";
+		mes "对了, 如果你带上2个不同的戒指, 你的节日等级提升会更容易!";
 		close;
 	}
 	emotion ET_THANKS;
-	mes "�ٴθ�л! ���еĺ����Ƕ����н���������!";
+	mes "再次感谢! 所有的孩子们都会有节日礼物啦!";
 	close;
 
 M_End:
-	mes "[ѩ��]";
-	mes "���ϧ... ����һ��ʥ�����˵�ħ����ָ... ������������4�������...";
+	mes "[雪伊]";
+	mes "真可惜... 我有一个圣诞老人的魔力戒指... 我想用它来换4个礼物盒...";
 	emotion ET_SWEAT;
 	close;
 }
 
-izlu2dun,133,160,2	script	ѩŵ��	4_F_06,{
-	mes "[ѩŵ��]";
+izlu2dun,133,160,2	script	雪诺伊	4_F_06,{
+	mes "[雪诺伊]";
 	if(Q_XMSRINGS==0){
-		mes "���Ŷ! ����ʶ�ҵĵܵܺ�������? ����ʶ? �ҵĵܵ�ѩŵ������¡��������������!! ����Ҹ��Ǳߵĺ������ʾ�֪����.";
+		mes "你好哦! 你认识我的弟弟和妹妹吗? 不认识? 我的弟弟雪诺尔在普隆德拉很有名气的!! 随便找个那边的孩子问问就知道了.";
 		emotion ET_SCRATCH;
 		close;
 	}
 	if(Q_XMSRINGS==1){
-		mes "�ɶ�... �������ô���ܱȺ����Ǹ���Ҫ��.. �Ҵ�����?";
+		mes "可恶... 穷孩子们怎么可能比海军们更重要呢.. 我错了吗?";
 		next;
-		mes "[ѩŵ��]";
-		mes "��. ���. �ҵ�����ѩ��������С������һ����. �������Ѿ�ʪ����������ݶ���������, ��ֻ�ֱܷ�����ĵ�ַ����󼸸���ĸ...";
+		mes "[雪诺伊]";
+		mes "呃. 你好. 我的妹妹雪伊让她的小鸟送来一封信. 可是信已经湿了里面的内容都看不清了, 我只能分辨出她的地址的最后几个字母...";
 		next;
-		mes "[ѩŵ��]";
-		mes "����, ��������'��'ʲô��... ��... ��һ���ǰ�'����'ƴ����...";
+		mes "[雪诺伊]";
+		mes "看吧, 最后好像是'杨'什么的... 嗯... 她一定是把'洛阳'拼错了...";
 		close;
 	}
 	if(Q_XMSRINGS==2){
-		mes "��������ҵ�����? ̫����!";
+		mes "你帮助了我的妹妹? 太好了!";
 		next;
-		mes "[ѩŵ��]";
-		mes "�����һ���Ҫ3��������ҵĺ���������...";
+		mes "[雪诺伊]";
+		mes "但是我还需要3个礼物给我的海军朋友们...";
 		next;
-		menu "������Щ����!",-, "����ҪһЩСС�ı���",M_End;
+		menu "拿下这些礼物!",-, "我需要一些小小的报酬",M_End;
 
-		mes "[ѩŵ��]";
+		mes "[雪诺伊]";
 		if(countitem(644)<3){
-			mes "��!! �㻹û���ռ�ȫ3����ɫ�����.";
+			mes "噢!! 你还没有收集全3个灰色礼物盒.";
 			emotion ET_SORRY;
 			close;
 		}
@@ -183,17 +180,17 @@ izlu2dun,133,160,2	script	ѩŵ��	4_F_06,{
 		delitem 644,3;
 		getnameditem 2636,strcharinfo(0);
 		emotion ET_CHUP;
-		mes "лл! �������ħ����ָ��!";
+		mes "谢谢! 收下这个魔力戒指吧!";
 		close;
 	}
 	emotion ET_THANKS;
-	mes "��... ȫ�庣����Ա�Ƕ��ܸ�л��! ���Ƿǳ�ϲ����Щ����!!!";
-	if(rand(2))mes "�㲻�᲻֪��ʥ��ñ�ܹ����ֳ���ָ����ʵħ����?";
+	mes "噢... 全体海军队员们都很感谢你! 他们非常喜欢这些礼物!!!";
+	if(rand(2))mes "你不会不知道圣诞帽能够显现出戒指的真实魔力吧?";
 	close;
 
 M_End:
-	mes "[ѩŵ��]";
-	mes "������һ����ɫ��ħ����ָ������3�������...";
+	mes "[雪诺伊]";
+	mes "我想用一个金色的魔力戒指来交换3个礼物盒...";
 	emotion ET_SWEAT;
 	close;
 }

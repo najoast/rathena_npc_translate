@@ -1195,7 +1195,7 @@ ein_in01,117,80,5	script	Unidentified Machine#as	HIDDEN_NPC,{
 //----------------------------------------------------------------------------
 // Monsters Attack :: lght_air
 //----------------------------------------------------------------------------
-airplane_01,1,1,0	script	·É¿ÕÍ§#airplane02	-1,{
+airplane_01,1,1,0	script	é£ç©ºè‰‡#airplane02	-1,{
 	end;
 OnEnable:
 	initnpctimer;
@@ -1204,90 +1204,90 @@ OnTimer25000:
 	mapannounce "airplane_01","We are heading to Izlude.",bc_map,0x00FF00;
 	end;
 OnTimer30000:
-	mapannounce "airplane_01","´¬³¤: Attention, all passengers.",bc_map,0x00FF00;
+	mapannounce "airplane_01","èˆ¹é•¿: Attention, all passengers.",bc_map,0x00FF00;
 	end;
 OnTimer34000:
-	mapannounce "airplane_01","´¬³¤: We are being approached by a group of unidentified creatures.",bc_map,0x00ff00;
+	mapannounce "airplane_01","èˆ¹é•¿: We are being approached by a group of unidentified creatures.",bc_map,0x00ff00;
 	end;
 OnTimer38000:
-	mapannounce "airplane_01", "´¬³¤: All passengers on deck, please find shelter inside the ship!",bc_map,0x00ff00;
-	hideonnpc "·É¿ÕÍ§Ö°Ô±#airplane01";
+	mapannounce "airplane_01", "èˆ¹é•¿: All passengers on deck, please find shelter inside the ship!",bc_map,0x00ff00;
+	hideonnpc "é£ç©ºè‰‡èŒå‘˜#airplane01";
 	end;
 OnTimer48000:
-	monster "airplane_01",245,57,"Gremlin",1632,1,"·É¿ÕÍ§#airplane02::OnMyMobDead";
-	monster "airplane_01",247,59,"Gremlin",1632,1,"·É¿ÕÍ§#airplane02::OnMyMobDead";
-	monster "airplane_01",249,52,"Gremlin",1632,1,"·É¿ÕÍ§#airplane02::OnMyMobDead";
-	monster "airplane_01",243,62,"Gremlin",1632,1,"·É¿ÕÍ§#airplane02::OnMyMobDead";
-	monster "airplane_01",239,52,"Beholder",1633,1,"·É¿ÕÍ§#airplane02::OnMyMobDead";
-	monster "airplane_01",234,56,"Beholder",1633,1,"·É¿ÕÍ§#airplane02::OnMyMobDead";
-	monster "airplane_01",227,49,"Beholder",1633,1,"·É¿ÕÍ§#airplane02::OnMyMobDead";
-	monster "airplane_01",233,41,"Beholder",1633,1,"·É¿ÕÍ§#airplane02::OnMyMobDead";
+	monster "airplane_01",245,57,"Gremlin",1632,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead";
+	monster "airplane_01",247,59,"Gremlin",1632,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead";
+	monster "airplane_01",249,52,"Gremlin",1632,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead";
+	monster "airplane_01",243,62,"Gremlin",1632,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead";
+	monster "airplane_01",239,52,"Beholder",1633,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead";
+	monster "airplane_01",234,56,"Beholder",1633,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead";
+	monster "airplane_01",227,49,"Beholder",1633,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead";
+	monster "airplane_01",233,41,"Beholder",1633,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead";
 	switch(rand(1,5)) {
-	case 1: monster "airplane_01",251,47,"Drainliar",1111,1,"·É¿ÕÍ§#airplane02::OnMyMobDead"; break;
-	case 2: monster "airplane_01",251,47,"Rotar Zairo",1392,1,"·É¿ÕÍ§#airplane02::OnMyMobDead"; break;
-	case 3: monster "airplane_01",251,47,"Farmiliar",1005,1,"·É¿ÕÍ§#airplane02::OnMyMobDead"; break;
-	case 4: monster "airplane_01",251,47,"Picky",1049,1,"·É¿ÕÍ§#airplane02::OnMyMobDead"; break;
-	case 5: monster "airplane_01",251,47,"Steel Chonchon",1042,1,"·É¿ÕÍ§#airplane02::OnMyMobDead"; break;
+	case 1: monster "airplane_01",251,47,"Drainliar",1111,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead"; break;
+	case 2: monster "airplane_01",251,47,"Rotar Zairo",1392,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead"; break;
+	case 3: monster "airplane_01",251,47,"Farmiliar",1005,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead"; break;
+	case 4: monster "airplane_01",251,47,"Picky",1049,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead"; break;
+	case 5: monster "airplane_01",251,47,"Steel Chonchon",1042,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead"; break;
 	}
 	switch(rand(1,5)) {
-	case 1: monster "airplane_01",245,53,"Drainliar",1111,1,"·É¿ÕÍ§#airplane02::OnMyMobDead"; break;
-	case 2: monster "airplane_01",245,53,"Rotar Zairo",1392,1,"·É¿ÕÍ§#airplane02::OnMyMobDead"; break;
-	case 3: monster "airplane_01",245,53,"Farmiliar",1005,1,"·É¿ÕÍ§#airplane02::OnMyMobDead"; break;
-	case 4: monster "airplane_01",245,53,"Picky",1049,1,"·É¿ÕÍ§#airplane02::OnMyMobDead"; break;
-	case 5: monster "airplane_01",245,53,"Steel Chonchon",1042,1,"·É¿ÕÍ§#airplane02::OnMyMobDead"; break;
+	case 1: monster "airplane_01",245,53,"Drainliar",1111,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead"; break;
+	case 2: monster "airplane_01",245,53,"Rotar Zairo",1392,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead"; break;
+	case 3: monster "airplane_01",245,53,"Farmiliar",1005,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead"; break;
+	case 4: monster "airplane_01",245,53,"Picky",1049,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead"; break;
+	case 5: monster "airplane_01",245,53,"Steel Chonchon",1042,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead"; break;
 	}
 	switch(rand(1,5)) {
-	case 1: monster "airplane_01",234,46,"Drainliar",1111,1,"·É¿ÕÍ§#airplane02::OnMyMobDead"; break;
-	case 2: monster "airplane_01",234,46,"Rotar Zairo",1392,1,"·É¿ÕÍ§#airplane02::OnMyMobDead"; break;
-	case 3: monster "airplane_01",234,46,"Farmiliar",1005,1,"·É¿ÕÍ§#airplane02::OnMyMobDead"; break;
-	case 4: monster "airplane_01",234,46,"Picky",1049,1,"·É¿ÕÍ§#airplane02::OnMyMobDead"; break;
-	case 5: monster "airplane_01",234,46,"Steel Chonchon",1042,1,"·É¿ÕÍ§#airplane02::OnMyMobDead"; break;
+	case 1: monster "airplane_01",234,46,"Drainliar",1111,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead"; break;
+	case 2: monster "airplane_01",234,46,"Rotar Zairo",1392,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead"; break;
+	case 3: monster "airplane_01",234,46,"Farmiliar",1005,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead"; break;
+	case 4: monster "airplane_01",234,46,"Picky",1049,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead"; break;
+	case 5: monster "airplane_01",234,46,"Steel Chonchon",1042,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead"; break;
 	}
 	switch(rand(1,5)) {
-	case 1: monster "airplane_01",233,58,"Drainliar",1111,1,"·É¿ÕÍ§#airplane02::OnMyMobDead"; break;
-	case 2: monster "airplane_01",233,58,"Rotar Zairo",1392,1,"·É¿ÕÍ§#airplane02::OnMyMobDead"; break;
-	case 3: monster "airplane_01",233,58,"Farmiliar",1005,1,"·É¿ÕÍ§#airplane02::OnMyMobDead"; break;
-	case 4: monster "airplane_01",233,58,"Picky",1049,1,"·É¿ÕÍ§#airplane02::OnMyMobDead"; break;
-	case 5: monster "airplane_01",233,58,"Steel Chonchon",1042,1,"·É¿ÕÍ§#airplane02::OnMyMobDead"; break;
+	case 1: monster "airplane_01",233,58,"Drainliar",1111,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead"; break;
+	case 2: monster "airplane_01",233,58,"Rotar Zairo",1392,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead"; break;
+	case 3: monster "airplane_01",233,58,"Farmiliar",1005,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead"; break;
+	case 4: monster "airplane_01",233,58,"Picky",1049,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead"; break;
+	case 5: monster "airplane_01",233,58,"Steel Chonchon",1042,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead"; break;
 	}
 	// it's possible this is an error, but in aegis it stops resetting the random var.
 	switch(rand(1,5)) {
 	case 1:
-		monster "airplane_01",243,60,"Drainliar",1111,1,"·É¿ÕÍ§#airplane02::OnMyMobDead";
-		monster "airplane_01",228,54,"Drainliar",1111,1,"·É¿ÕÍ§#airplane02::OnMyMobDead";
-		monster "airplane_01",232,41,"Drainliar",1111,1,"·É¿ÕÍ§#airplane02::OnMyMobDead";
+		monster "airplane_01",243,60,"Drainliar",1111,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead";
+		monster "airplane_01",228,54,"Drainliar",1111,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead";
+		monster "airplane_01",232,41,"Drainliar",1111,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead";
 		break;
 	case 2:
-		monster "airplane_01",243,60,"Rotar Zairo",1392,1,"·É¿ÕÍ§#airplane02::OnMyMobDead";
-		monster "airplane_01",228,54,"Rotar Zairo",1392,1,"·É¿ÕÍ§#airplane02::OnMyMobDead";
-		monster "airplane_01",232,41,"Rotar Zairo",1392,1,"·É¿ÕÍ§#airplane02::OnMyMobDead";
+		monster "airplane_01",243,60,"Rotar Zairo",1392,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead";
+		monster "airplane_01",228,54,"Rotar Zairo",1392,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead";
+		monster "airplane_01",232,41,"Rotar Zairo",1392,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead";
 		break;
 	case 3:
-		monster "airplane_01",243,60,"Farmiliar",1005,1,"·É¿ÕÍ§#airplane02::OnMyMobDead";
-		monster "airplane_01",228,54,"Farmiliar",1005,1,"·É¿ÕÍ§#airplane02::OnMyMobDead";
-		monster "airplane_01",232,41,"Farmiliar",1005,1,"·É¿ÕÍ§#airplane02::OnMyMobDead";
+		monster "airplane_01",243,60,"Farmiliar",1005,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead";
+		monster "airplane_01",228,54,"Farmiliar",1005,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead";
+		monster "airplane_01",232,41,"Farmiliar",1005,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead";
 		break;
 	case 4:
-		monster "airplane_01",243,60,"Picky",1049,1,"·É¿ÕÍ§#airplane02::OnMyMobDead";
-		monster "airplane_01",228,54,"Picky",1049,1,"·É¿ÕÍ§#airplane02::OnMyMobDead";
-		monster "airplane_01",232,41,"Picky",1049,1,"·É¿ÕÍ§#airplane02::OnMyMobDead";
+		monster "airplane_01",243,60,"Picky",1049,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead";
+		monster "airplane_01",228,54,"Picky",1049,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead";
+		monster "airplane_01",232,41,"Picky",1049,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead";
 		break;
 	case 5:
-		monster "airplane_01",243,60,"Steel Chonchon",1042,1,"·É¿ÕÍ§#airplane02::OnMyMobDead";
-		monster "airplane_01",228,54,"Steel Chonchon",1042,1,"·É¿ÕÍ§#airplane02::OnMyMobDead";
-		monster "airplane_01",232,41,"Steel Chonchon",1042,1,"·É¿ÕÍ§#airplane02::OnMyMobDead";
+		monster "airplane_01",243,60,"Steel Chonchon",1042,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead";
+		monster "airplane_01",228,54,"Steel Chonchon",1042,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead";
+		monster "airplane_01",232,41,"Steel Chonchon",1042,1,"é£ç©ºè‰‡#airplane02::OnMyMobDead";
 		break;
 	}
 	end;
 OnTimer48010:
-	monster "airplane_01",238,56,"Gremlin",1632,1,"·É¿ÕÍ§#airplane02::OnCaptainMobDead";
-	monster "airplane_01",239,56,"Gremlin",1632,1,"·É¿ÕÍ§#airplane02::OnCaptainMobDead";
-	monster "airplane_01",240,50,"Gremlin",1632,1,"·É¿ÕÍ§#airplane02::OnCaptainMobDead";
-	monster "airplane_01",241,56,"Gremlin",1632,1,"·É¿ÕÍ§#airplane02::OnCaptainMobDead";
-	monster "airplane_01",247,51,"Gremlin",1632,1,"·É¿ÕÍ§#airplane02::OnCaptainMobDead";
-	monster "airplane_01",237,44,"Beholder",1633,1,"·É¿ÕÍ§#airplane02::OnCaptainMobDead";
-	monster "airplane_01",233,54,"Beholder",1633,1,"·É¿ÕÍ§#airplane02::OnCaptainMobDead";
-	monster "airplane_01",237,62,"Beholder",1633,1,"·É¿ÕÍ§#airplane02::OnCaptainMobDead";
+	monster "airplane_01",238,56,"Gremlin",1632,1,"é£ç©ºè‰‡#airplane02::OnCaptainMobDead";
+	monster "airplane_01",239,56,"Gremlin",1632,1,"é£ç©ºè‰‡#airplane02::OnCaptainMobDead";
+	monster "airplane_01",240,50,"Gremlin",1632,1,"é£ç©ºè‰‡#airplane02::OnCaptainMobDead";
+	monster "airplane_01",241,56,"Gremlin",1632,1,"é£ç©ºè‰‡#airplane02::OnCaptainMobDead";
+	monster "airplane_01",247,51,"Gremlin",1632,1,"é£ç©ºè‰‡#airplane02::OnCaptainMobDead";
+	monster "airplane_01",237,44,"Beholder",1633,1,"é£ç©ºè‰‡#airplane02::OnCaptainMobDead";
+	monster "airplane_01",233,54,"Beholder",1633,1,"é£ç©ºè‰‡#airplane02::OnCaptainMobDead";
+	monster "airplane_01",237,62,"Beholder",1633,1,"é£ç©ºè‰‡#airplane02::OnCaptainMobDead";
 	end;
 OnTimer53000:
 	mapannounce "airplane_01", "Attendant: Captain Tarlock, we're in trouble! The monsters are heading to the propellers!",bc_map,0x00FF00;
@@ -1296,216 +1296,216 @@ OnTimer58000:
 	mapannounce "airplane_01", "Captain Tarlock: What?! I've got to stop them!",bc_map,0x70DBDB;
 	end;
 OnTimer63000:
-	hideonnpc "·É¿ÕÍ§´¬³¤#01";
-	hideoffnpc "·É¿ÕÍ§´¬³¤#02";
+	hideonnpc "é£ç©ºè‰‡èˆ¹é•¿#01";
+	hideoffnpc "é£ç©ºè‰‡èˆ¹é•¿#02";
 	end;
 OnTimer68000:
-	emotion ET_ANGER, getnpcid(0, "·É¿ÕÍ§´¬³¤#02");
+	emotion ET_ANGER, getnpcid(0, "é£ç©ºè‰‡èˆ¹é•¿#02");
 	mapannounce "airplane_01", "Captain Tarlock: You ugly, godforsaken creatures... Get off my ship!",bc_map,0x70DBDB;
 	end;
 OnTimer73000:
 	mapannounce "airplane_01", "*Kzzz...Drrrr...Boom! CRASH!*",bc_map,0x00FF00;
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯6#airplane";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹6#airplane";
 	end;
 OnTimer73500:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯7#airplane";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹7#airplane";
 	end;
 OnTimer74000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯8#airplane";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹8#airplane";
 	end;
 OnTimer74500:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯9#airplane";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹9#airplane";
 	end;
 OnTimer75000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯10#airplane";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹10#airplane";
 	end;
 OnTimer75500:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯6#airplane";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹6#airplane";
 	end;
 OnTimer76000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯7#airplane";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹7#airplane";
 	end;
 OnTimer76500:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯8#airplane";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹8#airplane";
 	end;
 OnTimer77000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯9#airplane";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹9#airplane";
 	end;
 OnTimer77500:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯10#airplane";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹10#airplane";
 	end;
 OnTimer78000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯6#airplane";
-	mapannounce "airplane_01", "¹¤³ÌÊ¦: Oh no! We've got a problem with the Number One Rear Engine!",bc_map,0x00FF00;
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹6#airplane";
+	mapannounce "airplane_01", "å·¥ç¨‹å¸ˆ: Oh no! We've got a problem with the Number One Rear Engine!",bc_map,0x00FF00;
 	end;
 OnTimer79000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯7#airplane";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹7#airplane";
 	end;
 OnTimer80000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯8#airplane";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹8#airplane";
 	end;
 OnTimer81000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯9#airplane";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹9#airplane";
 	end;
 OnTimer82000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯10#airplane";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹10#airplane";
 	end;
 OnTimer83000:
 	mapannounce "airplane_01", "Pilot: Hurry! Get the women, old people and children somewhere safe first! Hurry!",bc_map,0x00FF00;
 	end;
 OnTimer84000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯6#airplane";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹6#airplane";
 	end;
 OnTimer85000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯7#airplane";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹7#airplane";
 	end;
 OnTimer86000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯8#airplane";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹8#airplane";
 	end;
 OnTimer87000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯7#airplane";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹7#airplane";
 	end;
 OnTimer88000:
-	emotion ET_ANGER, getnpcid(0, "·É¿ÕÍ§´¬³¤#02");
+	emotion ET_ANGER, getnpcid(0, "é£ç©ºè‰‡èˆ¹é•¿#02");
 	mapannounce "airplane_01", "Captain Tarlock: You dirty monsters are dealing with this ship's captain...",bc_map,0x70DBDB;
 	end;
 OnTimer93000:
-	emotion ET_ANGER, getnpcid(0, "·É¿ÕÍ§´¬³¤#02");
+	emotion ET_ANGER, getnpcid(0, "é£ç©ºè‰‡èˆ¹é•¿#02");
 	mapannounce "airplane_01", "Captain Tarlock: I'll protect this ship and my crew with my life!",bc_map,0x70DBDB;
 	end;
 OnTimer98000:
-	emotion ET_HNG, getnpcid(0, "·É¿ÕÍ§´¬³¤#02");
+	emotion ET_HNG, getnpcid(0, "é£ç©ºè‰‡èˆ¹é•¿#02");
 	mapannounce "airplane_01", "Captain Tarlock: Here goes! Special Exodus Joker XIII Doom Rifle!",bc_map,0x70DBDB;
 	end;
 OnTimer103000:
 	mapannounce "airplane_01", "*Bang! Bang Bang! Bang Bang! Bang Bang Bang!*",bc_map,0x00FF00;
-	specialeffect EF_HIT5,AREA,"·É¿ÕÍ§´¬³¤#02";
+	specialeffect EF_HIT5,AREA,"é£ç©ºè‰‡èˆ¹é•¿#02";
 	end;
 OnTimer103500:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯1#airplane";
-	specialeffect EF_HIT5,AREA,"·É¿ÕÍ§´¬³¤#02";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹1#airplane";
+	specialeffect EF_HIT5,AREA,"é£ç©ºè‰‡èˆ¹é•¿#02";
 	end;
 OnTimer104000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯2#airplane";
-	specialeffect EF_HIT5,AREA,"·É¿ÕÍ§´¬³¤#02";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹2#airplane";
+	specialeffect EF_HIT5,AREA,"é£ç©ºè‰‡èˆ¹é•¿#02";
 	end;
 OnTimer104500:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯3#airplane";
-	specialeffect EF_HIT5,AREA,"·É¿ÕÍ§´¬³¤#02";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹3#airplane";
+	specialeffect EF_HIT5,AREA,"é£ç©ºè‰‡èˆ¹é•¿#02";
 	end;
 OnTimer105000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯4#airplane";
-	specialeffect EF_HIT5,AREA,"·É¿ÕÍ§´¬³¤#02";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹4#airplane";
+	specialeffect EF_HIT5,AREA,"é£ç©ºè‰‡èˆ¹é•¿#02";
 	end;
 OnTimer105500:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯5#airplane";
-	specialeffect EF_HIT5,AREA,"·É¿ÕÍ§´¬³¤#02";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹5#airplane";
+	specialeffect EF_HIT5,AREA,"é£ç©ºè‰‡èˆ¹é•¿#02";
 	end;
 OnTimer106000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯0#airplane";
-	specialeffect EF_HIT5,AREA,"·É¿ÕÍ§´¬³¤#02";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹0#airplane";
+	specialeffect EF_HIT5,AREA,"é£ç©ºè‰‡èˆ¹é•¿#02";
 	end;
 OnTimer106500:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯1#airplane";
-	specialeffect EF_HIT5,AREA,"·É¿ÕÍ§´¬³¤#02";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹1#airplane";
+	specialeffect EF_HIT5,AREA,"é£ç©ºè‰‡èˆ¹é•¿#02";
 	end;
 OnTimer107000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯2#airplane";
-	specialeffect EF_HIT5,AREA,"·É¿ÕÍ§´¬³¤#02";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹2#airplane";
+	specialeffect EF_HIT5,AREA,"é£ç©ºè‰‡èˆ¹é•¿#02";
 	end;
 OnTimer107500:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯4#airplane";
-	specialeffect EF_HIT5,AREA,"·É¿ÕÍ§´¬³¤#02";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹4#airplane";
+	specialeffect EF_HIT5,AREA,"é£ç©ºè‰‡èˆ¹é•¿#02";
 	end;
 OnTimer108000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯5#airplane";
-	killmonster "airplane_01","·É¿ÕÍ§#airplane02::OnCaptainMobDead";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹5#airplane";
+	killmonster "airplane_01","é£ç©ºè‰‡#airplane02::OnCaptainMobDead";
 	end;
 OnTimer113000:
-	emotion ET_HNG, getnpcid(0, "·É¿ÕÍ§´¬³¤#02");
+	emotion ET_HNG, getnpcid(0, "é£ç©ºè‰‡èˆ¹é•¿#02");
 	mapannounce "airplane_01","Captain Tarlock: Filthy animals! Stop ruining my ship!",bc_map,0x70DBDB;
 	end;
 OnTimer118000:
 	mapannounce "airplane_01", "*Bang! Bang Bang! Bang Bang! Bang Bang Bang!*",bc_map,0x00FF00;
-	specialeffect EF_HIT5,AREA,"·É¿ÕÍ§´¬³¤#02";
+	specialeffect EF_HIT5,AREA,"é£ç©ºè‰‡èˆ¹é•¿#02";
 	end;
 OnTimer118500:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯6#airplane";
-	specialeffect EF_HIT5,AREA,"·É¿ÕÍ§´¬³¤#02";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹6#airplane";
+	specialeffect EF_HIT5,AREA,"é£ç©ºè‰‡èˆ¹é•¿#02";
 	end;
 OnTimer119000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯7#airplane";
-	specialeffect EF_HIT5,AREA,"·É¿ÕÍ§´¬³¤#02";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹7#airplane";
+	specialeffect EF_HIT5,AREA,"é£ç©ºè‰‡èˆ¹é•¿#02";
 	end;
 OnTimer119500:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯8#airplane";
-	specialeffect EF_HIT5,AREA,"·É¿ÕÍ§´¬³¤#02";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹8#airplane";
+	specialeffect EF_HIT5,AREA,"é£ç©ºè‰‡èˆ¹é•¿#02";
 	end;
 OnTimer120000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯9#airplane";
-	specialeffect EF_HIT5,AREA,"·É¿ÕÍ§´¬³¤#02";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹9#airplane";
+	specialeffect EF_HIT5,AREA,"é£ç©ºè‰‡èˆ¹é•¿#02";
 	end;
 OnTimer120500:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯10#airplane";
-	specialeffect EF_HIT5,AREA,"·É¿ÕÍ§´¬³¤#02";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹10#airplane";
+	specialeffect EF_HIT5,AREA,"é£ç©ºè‰‡èˆ¹é•¿#02";
 	end;
 OnTimer121000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯6#airplane";
-	specialeffect EF_HIT5,AREA,"·É¿ÕÍ§´¬³¤#02";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹6#airplane";
+	specialeffect EF_HIT5,AREA,"é£ç©ºè‰‡èˆ¹é•¿#02";
 	end;
 OnTimer121500:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯7#airplane";
-	specialeffect EF_HIT5,AREA,"·É¿ÕÍ§´¬³¤#02";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹7#airplane";
+	specialeffect EF_HIT5,AREA,"é£ç©ºè‰‡èˆ¹é•¿#02";
 	end;
 OnTimer122000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯8#airplane";
-	specialeffect EF_HIT5,AREA,"·É¿ÕÍ§´¬³¤#02";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹8#airplane";
+	specialeffect EF_HIT5,AREA,"é£ç©ºè‰‡èˆ¹é•¿#02";
 	end;
 OnTimer122500:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯9#airplane";
-	specialeffect EF_HIT5,AREA,"·É¿ÕÍ§´¬³¤#02";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹9#airplane";
+	specialeffect EF_HIT5,AREA,"é£ç©ºè‰‡èˆ¹é•¿#02";
 	end;
 OnTimer123000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯8#airplane";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹8#airplane";
 	mapannounce "airplane_01", "*Boom! Boom Boom! Boom Boom! Boom!*",bc_map,0x00FF00;
 	end;
 OnTimer124000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯9#airplane";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹9#airplane";
 	end;
 OnTimer125000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯10#airplane";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹10#airplane";
 	end;
 OnTimer126000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯6#airplane";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹6#airplane";
 	end;
 OnTimer127000:
-	specialeffect EF_SUI_EXPLOSION,AREA,"Õ¨µ¯7#airplane";
+	specialeffect EF_SUI_EXPLOSION,AREA,"ç‚¸å¼¹7#airplane";
 	end;
 OnTimer128000:
-	emotion ET_FRET, getnpcid(0, "·É¿ÕÍ§´¬³¤#02");
+	emotion ET_FRET, getnpcid(0, "é£ç©ºè‰‡èˆ¹é•¿#02");
 	mapannounce "airplane_01", "Captain Tarlock: There's... Too many to handle!",bc_map,0x70DBDB;
 	end;
 OnTimer133000:
 	mapannounce "airplane_01", "Pilot: Captain, sir, the situation is getting critical!",bc_map,0x00FF00;
 	end;
 OnTimer138000:
-	emotion ET_SWEAT, getnpcid(0, "·É¿ÕÍ§´¬³¤#02");
+	emotion ET_SWEAT, getnpcid(0, "é£ç©ºè‰‡èˆ¹é•¿#02");
 	mapannounce "airplane_01", "Captain Tarlock: We'll need all the help we can get!",bc_map,0x70DBDB;
 	end;
 OnTimer143000:
-	emotion ET_SORRY, getnpcid(0, "·É¿ÕÍ§´¬³¤#02");
+	emotion ET_SORRY, getnpcid(0, "é£ç©ºè‰‡èˆ¹é•¿#02");
 	mapannounce "airplane_01", "Captain Tarlock: All hands and any passenger who can fight! We've got to drive away these monsters!",bc_map,0x70DBDB;
 	end;
 OnTimer148000:
-	hideonnpc "·É¿ÕÍ§´¬³¤#02";
-	hideoffnpc "·É¿ÕÍ§´¬³¤#01";
+	hideonnpc "é£ç©ºè‰‡èˆ¹é•¿#02";
+	hideoffnpc "é£ç©ºè‰‡èˆ¹é•¿#01";
 	end;
 OnTimer400000:
-	killmonster "airplane_01","·É¿ÕÍ§#airplane02::OnMyMobDead";
+	killmonster "airplane_01","é£ç©ºè‰‡#airplane02::OnMyMobDead";
 	end;
 OnTimer405000:
 	mapannounce "airplane_01","Monster threat eliminated. The Airship is now returning to normal operation.",bc_map,0x00FF00;
-	hideoffnpc "·É¿ÕÍ§Ö°Ô±#airplane01";
+	hideoffnpc "é£ç©ºè‰‡èŒå‘˜#airplane01";
 	end;
 OnTimer410000:
 	mapannounce "airplane_01","We will arrive in Izlude shortly.",bc_map,"0x00ff00";
@@ -1573,7 +1573,7 @@ OnCaptainMobDead:
 	end;
 }
 
-airplane_01,246,54,3	script	·É¿ÕÍ§´¬³¤#02	4_M_REINDEER,{
+airplane_01,246,54,3	script	é£ç©ºè‰‡èˆ¹é•¿#02	4_M_REINDEER,{
 	cutin "fly_felrock",2;
 	mes "[Tarlock]";
 	mes "I am Tarlock,";
@@ -1586,26 +1586,26 @@ airplane_01,246,54,3	script	·É¿ÕÍ§´¬³¤#02	4_M_REINDEER,{
 	end;
 	
 OnInit:
-	hideonnpc "·É¿ÕÍ§´¬³¤#02";
+	hideonnpc "é£ç©ºè‰‡èˆ¹é•¿#02";
 	end;
 }
 
-airplane_01,249,50,0	script	Õ¨µ¯0#airplane	HIDDEN_WARP_NPC,{ end; }
-airplane_01,239,62,0	script	Õ¨µ¯1#airplane	HIDDEN_WARP_NPC,{ end; }
-airplane_01,244,55,0	script	Õ¨µ¯2#airplane	HIDDEN_WARP_NPC,{ end; }
-airplane_01,239,50,0	script	Õ¨µ¯3#airplane	HIDDEN_WARP_NPC,{ end; }
-airplane_01,245,59,0	script	Õ¨µ¯4#airplane	HIDDEN_WARP_NPC,{ end; }
-airplane_01,245,48,0	script	Õ¨µ¯5#airplane	HIDDEN_WARP_NPC,{ end; }
-airplane_01,235,39,0	script	Õ¨µ¯6#airplane	HIDDEN_WARP_NPC,{ end; }
-airplane_01,252,41,0	script	Õ¨µ¯7#airplane	HIDDEN_WARP_NPC,{ end; }
-airplane_01,252,63,0	script	Õ¨µ¯8#airplane	HIDDEN_WARP_NPC,{ end; }
-airplane_01,234,65,0	script	Õ¨µ¯9#airplane	HIDDEN_WARP_NPC,{ end; }
-airplane_01,227,67,0	script	Õ¨µ¯10#airplane	HIDDEN_WARP_NPC,{ end; }
+airplane_01,249,50,0	script	ç‚¸å¼¹0#airplane	HIDDEN_WARP_NPC,{ end; }
+airplane_01,239,62,0	script	ç‚¸å¼¹1#airplane	HIDDEN_WARP_NPC,{ end; }
+airplane_01,244,55,0	script	ç‚¸å¼¹2#airplane	HIDDEN_WARP_NPC,{ end; }
+airplane_01,239,50,0	script	ç‚¸å¼¹3#airplane	HIDDEN_WARP_NPC,{ end; }
+airplane_01,245,59,0	script	ç‚¸å¼¹4#airplane	HIDDEN_WARP_NPC,{ end; }
+airplane_01,245,48,0	script	ç‚¸å¼¹5#airplane	HIDDEN_WARP_NPC,{ end; }
+airplane_01,235,39,0	script	ç‚¸å¼¹6#airplane	HIDDEN_WARP_NPC,{ end; }
+airplane_01,252,41,0	script	ç‚¸å¼¹7#airplane	HIDDEN_WARP_NPC,{ end; }
+airplane_01,252,63,0	script	ç‚¸å¼¹8#airplane	HIDDEN_WARP_NPC,{ end; }
+airplane_01,234,65,0	script	ç‚¸å¼¹9#airplane	HIDDEN_WARP_NPC,{ end; }
+airplane_01,227,67,0	script	ç‚¸å¼¹10#airplane	HIDDEN_WARP_NPC,{ end; }
 
 //----------------------------------------------------------------------------
 // Captain Tarlock :: lght_air
 //----------------------------------------------------------------------------
-airplane_01,238,154,3	script	·É¿ÕÍ§´¬³¤#01	4_M_REINDEER,{
+airplane_01,238,154,3	script	é£ç©ºè‰‡èˆ¹é•¿#01	4_M_REINDEER,{
 	cutin "fly_felrock",2;
 	mes "[Tarlock]";
 	mes "I am Tarlock,";
@@ -1708,7 +1708,7 @@ airplane_01,238,154,3	script	·É¿ÕÍ§´¬³¤#01	4_M_REINDEER,{
 						mes "already! Alright, here's";
 						mes "the deal. I have a younger";
 						mes "brother who I rarely see since";
-						mes "he's also an ·É¿ÕÍ§´¬³¤";
+						mes "he's also an é£ç©ºè‰‡èˆ¹é•¿";
 						mes "that's always traveling.";
 						next;
 						mes "[Tarlock]";
@@ -1888,7 +1888,7 @@ airplane_01,238,154,3	script	·É¿ÕÍ§´¬³¤#01	4_M_REINDEER,{
 //----------------------------------------------------------------------------
 // Captain Ferlock :: lght_ymir
 //----------------------------------------------------------------------------
-airplane,236,163,5	script	·É¿ÕÍ§´¬³¤#03	4_M_REINDEER,{
+airplane,236,163,5	script	é£ç©ºè‰‡èˆ¹é•¿#03	4_M_REINDEER,{
 	cutin "fly_trock.bmp",2;
 	if (hg_ma1 == 3 || hg_ma1 == 4) {
 		mes "[Ferlock]";
@@ -2664,7 +2664,7 @@ airplane,236,63,4	script	Hallen	4_M_KID1,{
 			mes "about the Airship yet, huh?";
 			mes "Maybe Captain Ferlock might";
 			mes "know something, or any one";
-			mes "of the other ·É¿ÕÍ§´¬³¤s.";
+			mes "of the other é£ç©ºè‰‡èˆ¹é•¿s.";
 			mes "Hopefully, one will tell you...";
 			next;
 			mes "[Hallen]";

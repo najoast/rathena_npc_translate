@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN ½Å±¾ºº»¯ www.rAthenaCN.com ×ª×Ô [ www.99Max.mE ]
-//============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN è„šæœ¬æ±‰åŒ– è½¬è‡ª [ www.99Max.mE ]
 //============================================================
 
-//===== rAthena Script =======================================  
+//===== rAthena Script ======================================= 
 //= Player Marriage
 //===== By: ================================================== 
 //= L0ne_W0lf
@@ -32,342 +28,342 @@
 //= 1.4 Added GM management function. [Euphy]
 //============================================================
 
-prt_church,97,100,4	script	¿ìÀÖµÄÂêÀö#w	1_F_LIBRARYGIRL,{
+prt_church,97,100,4	script	å¿«ä¹çš„çŽ›ä¸½#w	1_F_LIBRARYGIRL,{
 	cutin "wedding_marry01",2;
 	if (Upper == 2) {
-		mes "[¿ìÀÖµÄÂêÀö]";
-		mes "ÄãºÃ~";
-		mes "ÎÒ½ÐÂêÀö";
-		mes "ÎÒÔÚ´ËÎªÄú½â´ð";
-		mes "½á»éÏà¹ØµÄÎÊÌâ!";
-		mes "ºÃÁË, ";
-		mes "ÄúÓÐÊ²Ã´ÏëÖªµÀµÄÃ´?";
+		mes "[å¿«ä¹çš„çŽ›ä¸½]";
+		mes "ä½ å¥½~";
+		mes "æˆ‘å«çŽ›ä¸½";
+		mes "æˆ‘åœ¨æ­¤ä¸ºæ‚¨è§£ç­”";
+		mes "ç»“å©šç›¸å…³çš„é—®é¢˜!";
+		mes "å¥½äº†, ";
+		mes "æ‚¨æœ‰ä»€ä¹ˆæƒ³çŸ¥é“çš„ä¹ˆ?";
 		next;
-		if (select("- ÎÒÏë½á»é.:- Ð»Ð»ÄãµÄºÃÒâ!") == 1) {
-			mes "[¿ìÀÖµÄÂêÀö]";
-			mes "à¸, ÎÒºÜ±§Ç¸, ";
-			mes "²»¹ý±»ÊÕÑøµÄÐ¡º¢";
-			mes "ÊÇÎÞ·¨½á»éµÄ";
-			mes "ÏÖÔÚ";
-			mes "ÄãÎªÊ²Ã´²»ÏíÊÜÏÂ";
-			mes "µ¥´¿ÓÖÃÀÀöµÄÓ×ÄêÊ±¼äÄØ?";
+		if (select("- æˆ‘æƒ³ç»“å©š.:- è°¢è°¢ä½ çš„å¥½æ„!") == 1) {
+			mes "[å¿«ä¹çš„çŽ›ä¸½]";
+			mes "å–”, æˆ‘å¾ˆæŠ±æ­‰, ";
+			mes "ä¸è¿‡è¢«æ”¶å…»çš„å°å­©";
+			mes "æ˜¯æ— æ³•ç»“å©šçš„";
+			mes "çŽ°åœ¨";
+			mes "ä½ ä¸ºä»€ä¹ˆä¸äº«å—ä¸‹";
+			mes "å•çº¯åˆç¾Žä¸½çš„å¹¼å¹´æ—¶é—´å‘¢?";
 			goto L_End;
 		}
-		mes "[¿ìÀÖµÄÂêÀö]";
-		mes "à¸, µ±È»Äã²»ÊÇ";
-		mes "Ò»¸öÐ¡ÅèÓë¡«";
-		mes "²»¹ýÄã»¹ÊÇ²»ÄÜ½á»é";
-		mes "ÕâÀïÓÐÌ«¶àµÄ·¨ÂÉºÍÂ×Àí";
-		mes "ÎÊÌâ×èµ²×ÅÄã";
-		mes "¿É°®µÄÐ¡ÅèÓë?";
+		mes "[å¿«ä¹çš„çŽ›ä¸½]";
+		mes "å–”, å½“ç„¶ä½ ä¸æ˜¯";
+		mes "ä¸€ä¸ªå°ç›†ä¸Žï½ž";
+		mes "ä¸è¿‡ä½ è¿˜æ˜¯ä¸èƒ½ç»“å©š";
+		mes "è¿™é‡Œæœ‰å¤ªå¤šçš„æ³•å¾‹å’Œä¼¦ç†";
+		mes "é—®é¢˜é˜»æŒ¡ç€ä½ ";
+		mes "å¯çˆ±çš„å°ç›†ä¸Ž?";
 		goto L_End;
 	}
-	mes "[¿ìÀÖµÄÂêÀö]";
-	mes "½á»éÊÇÁ½¸öÁé»ê×î";
-	mes "ÃÀÃîµÄ½áºÏ";
-	mes "Ñ¡ÔñÔÚÒ»ÆðÏíÊÜ,";
-	mes "ÃÀÃîµÄÈËÉú.";
-	mes "ÔÚÁµ°®ÖÐÃ¿¸öÈËÉú¶øÆ½µÈ";
-	mes "²»¹ýÊÇ·ñÓÐÐ©ÈËÔÚÄãÉúÃüÖÐ¸üÆ½µÈ?";
+	mes "[å¿«ä¹çš„çŽ›ä¸½]";
+	mes "ç»“å©šæ˜¯ä¸¤ä¸ªçµé­‚æœ€";
+	mes "ç¾Žå¦™çš„ç»“åˆ";
+	mes "é€‰æ‹©åœ¨ä¸€èµ·äº«å—,";
+	mes "ç¾Žå¦™çš„äººç”Ÿ.";
+	mes "åœ¨æ‹çˆ±ä¸­æ¯ä¸ªäººç”Ÿè€Œå¹³ç­‰";
+	mes "ä¸è¿‡æ˜¯å¦æœ‰äº›äººåœ¨ä½ ç”Ÿå‘½ä¸­æ›´å¹³ç­‰?";
 	next;
-	switch(select("- Ñ¯ÎÊÓÐ¹Ø½á»éµäÀñ:- Ñ¯ÎÊÓÐ¹Ø³ÌÐò:- ÉêÇë»éÀñ:- ÎÒÃÇÊÇ²»¿ÉÕ½Ê¤µÄ¹âÍ·Ò»×å!")) {
+	switch(select("- è¯¢é—®æœ‰å…³ç»“å©šå…¸ç¤¼:- è¯¢é—®æœ‰å…³ç¨‹åº:- ç”³è¯·å©šç¤¼:- æˆ‘ä»¬æ˜¯ä¸å¯æˆ˜èƒœçš„å…‰å¤´ä¸€æ—!")) {
 	case 1:
-		mes "[¿ìÀÖµÄÂêÀö]";
-		mes "Ã÷ÖÇÇÒ²©Ñ§µÄ¹úÍõ";
-		mes "Ôø¾­×éÖ¯¹ý½á»éÒÇÊ½";
-		mes "²»¹ýËûÔÙÒ²²»ÕâÑù×öÁË";
-		mes "ÏÖÔÚµÄËûÕýÃ¦ÓÚ";
-		mes "ËûµÄ¹ú¼Ò´óÊÂ! ²¢ÇÒ,";
-		mes "Ëû»¹ÓÐÒ»·ÝÅÅÂúµÄÈÕ³Ì±í.";
+		mes "[å¿«ä¹çš„çŽ›ä¸½]";
+		mes "æ˜Žæ™ºä¸”åšå­¦çš„å›½çŽ‹";
+		mes "æ›¾ç»ç»„ç»‡è¿‡ç»“å©šä»ªå¼";
+		mes "ä¸è¿‡ä»–å†ä¹Ÿä¸è¿™æ ·åšäº†";
+		mes "çŽ°åœ¨çš„ä»–æ­£å¿™äºŽ";
+		mes "ä»–çš„å›½å®¶å¤§äº‹! å¹¶ä¸”,";
+		mes "ä»–è¿˜æœ‰ä¸€ä»½æŽ’æ»¡çš„æ—¥ç¨‹è¡¨.";
 		next;
-		mes "[¿ìÀÖµÄÂêÀö]";
-		mes "Ö÷½ÌÎÖÂê³à, ÊÇ¸ºÔð°®ÇéµÄÖ÷½Ì";
-		mes "ËûÏÖÔÚÊÇ½á»éµäÀñ";
-		mes "µÄÖ÷ÒªË¾ÒÇ.";
-		mes "ËûÊÇÎÒÃÇÊ¥Ã×µÂ¼ÓµÂÍõ¹ú";
-		mes "×îÖØÒªµÄ±¦²Ø.";
+		mes "[å¿«ä¹çš„çŽ›ä¸½]";
+		mes "ä¸»æ•™æ²ƒçŽ›èµ¤, æ˜¯è´Ÿè´£çˆ±æƒ…çš„ä¸»æ•™";
+		mes "ä»–çŽ°åœ¨æ˜¯ç»“å©šå…¸ç¤¼";
+		mes "çš„ä¸»è¦å¸ä»ª.";
+		mes "ä»–æ˜¯æˆ‘ä»¬åœ£ç±³å¾·åŠ å¾·çŽ‹å›½";
+		mes "æœ€é‡è¦çš„å®è—.";
 		next;
-		mes "[¿ìÀÖµÄÂêÀö]";
-		mes "µ±ÄãÓëÄ³ÈË½á»éµÄÊ±ºò,";
-		mes "ÕâÊÇ¹ØÏµµ½ÄãÒ»±²×ÓµÄÊÂÇé, ËùÒÔ";
-		mes "ÇëÔÚÇ©¶©½á»éÐ­ÒéÊ±×ÐÏ¸¿¼ÂÇ.";
-		mes "µ±È», ÄãÒªÖªµÀÕâÊÇ¸öÒìÐÔÁµµÄ¹ú¶È";
-		mes "Í¬ÐÔÖ®¼äµÄ¸ÐÇéÊÇ²»ÔÊÐíµÄ.";
+		mes "[å¿«ä¹çš„çŽ›ä¸½]";
+		mes "å½“ä½ ä¸ŽæŸäººç»“å©šçš„æ—¶å€™,";
+		mes "è¿™æ˜¯å…³ç³»åˆ°ä½ ä¸€è¾ˆå­çš„äº‹æƒ…, æ‰€ä»¥";
+		mes "è¯·åœ¨ç­¾è®¢ç»“å©šåè®®æ—¶ä»”ç»†è€ƒè™‘.";
+		mes "å½“ç„¶, ä½ è¦çŸ¥é“è¿™æ˜¯ä¸ªå¼‚æ€§æ‹çš„å›½åº¦";
+		mes "åŒæ€§ä¹‹é—´çš„æ„Ÿæƒ…æ˜¯ä¸å…è®¸çš„.";
 		next;
-		mes "[¿ìÀÖµÄÂêÀö]";
-		mes "Èç¹ûÄãÕæµÄÐÒÔËµ½";
-		mes "ÕÒµ½ÁËÒ»Î»Ô¸ÒâÓëÄãÏà°éÓàÉú";
-		mes "µÄÈËµÄ»°, ÄÇÄã¾ÍÒª¿ªÊ¼Çó»éÁË.";
-		mes "ÎÒÏ£ÍûÃ¿¸öÈË¶¼ÄÜÕÒµ½";
-		mes "Ëû×î¼ÑµÄ°éÂÂ~";
+		mes "[å¿«ä¹çš„çŽ›ä¸½]";
+		mes "å¦‚æžœä½ çœŸçš„å¹¸è¿åˆ°";
+		mes "æ‰¾åˆ°äº†ä¸€ä½æ„¿æ„ä¸Žä½ ç›¸ä¼´ä½™ç”Ÿ";
+		mes "çš„äººçš„è¯, é‚£ä½ å°±è¦å¼€å§‹æ±‚å©šäº†.";
+		mes "æˆ‘å¸Œæœ›æ¯ä¸ªäººéƒ½èƒ½æ‰¾åˆ°";
+		mes "ä»–æœ€ä½³çš„ä¼´ä¾£~";
 		break;
 
 	case 2:
-		mes "[¿ìÀÖµÄÂêÀö]";
-		mes "½á»é³ÌÐòµÄ";
-		mes "µÚÒ»²½ÊÇÍêÉÆµÄ×éÖ¯.";
-		mes "ÐÂÀÉºÍÐÂÄïÒªÏëÍê³ÉÉêÇë";
-		mes "ËûÃÇ±ØÐë×é³ÉÒ»¸ö¶ÓÎé.";
-		mes "·½Ê½·½·¨";
-		mes "ÓëÆ½Ê±×é¶ÓÍêÈ«ÏàÍ¬.";
+		mes "[å¿«ä¹çš„çŽ›ä¸½]";
+		mes "ç»“å©šç¨‹åºçš„";
+		mes "ç¬¬ä¸€æ­¥æ˜¯å®Œå–„çš„ç»„ç»‡.";
+		mes "æ–°éƒŽå’Œæ–°å¨˜è¦æƒ³å®Œæˆç”³è¯·";
+		mes "ä»–ä»¬å¿…é¡»ç»„æˆä¸€ä¸ªé˜Ÿä¼.";
+		mes "æ–¹å¼æ–¹æ³•";
+		mes "ä¸Žå¹³æ—¶ç»„é˜Ÿå®Œå…¨ç›¸åŒ.";
 		next;
-		mes "[¿ìÀÖµÄÂêÀö]";
-		mes "ÔÚ×é¶ÓÖ®ºó,";
-		mes "Á½Î»ÐÂÈËÒªÓë";
-		mes "Ö÷½ÌÎÖÂê³à¶Ô»°. ÐÂÀËÒª";
-		mes "ÏÈÓëÖ÷½Ì¶Ô»°";
-		mes "²¢ÇÒ±ØÐë×¼È·µÄËµ³öÐÂÄïµÄÃû×Ö. ·ñÔò, µäÀñ½«»áÍ£Ö¹.";
+		mes "[å¿«ä¹çš„çŽ›ä¸½]";
+		mes "åœ¨ç»„é˜Ÿä¹‹åŽ,";
+		mes "ä¸¤ä½æ–°äººè¦ä¸Ž";
+		mes "ä¸»æ•™æ²ƒçŽ›èµ¤å¯¹è¯. æ–°æµªè¦";
+		mes "å…ˆä¸Žä¸»æ•™å¯¹è¯";
+		mes "å¹¶ä¸”å¿…é¡»å‡†ç¡®çš„è¯´å‡ºæ–°å¨˜çš„åå­—. å¦åˆ™, å…¸ç¤¼å°†ä¼šåœæ­¢.";
 		next;
-		mes "[¿ìÀÖµÄÂêÀö]";
-		mes "È»ºó, ÐÂÄïÒªÓë";
-		mes "Ö÷½Ì¶Ô»°";
-		mes "¸æËßËûÐÂÀÉµÄÃû×Ö.";
-		mes "Èç¹ûËûÃÇ¸æËßÖ÷½ÌµÄ";
-		mes "Ãû×Ö¶¼ÕýÈ·µÄ»°, ËûÃÇ¾ÍÄÜ";
-		mes "¿ªÊ¼½Ð»½½äÖ¸ÁË.";
+		mes "[å¿«ä¹çš„çŽ›ä¸½]";
+		mes "ç„¶åŽ, æ–°å¨˜è¦ä¸Ž";
+		mes "ä¸»æ•™å¯¹è¯";
+		mes "å‘Šè¯‰ä»–æ–°éƒŽçš„åå­—.";
+		mes "å¦‚æžœä»–ä»¬å‘Šè¯‰ä¸»æ•™çš„";
+		mes "åå­—éƒ½æ­£ç¡®çš„è¯, ä»–ä»¬å°±èƒ½";
+		mes "å¼€å§‹å«å”¤æˆ’æŒ‡äº†.";
 		next;
-		mes "[¿ìÀÖµÄÂêÀö]";
-		mes "µ±½á»é½äÖ¸½»»»ºó";
-		mes "Ë«·½¾ÍÕýÊ½³ÉÎªÁµÈËÁË. µ±È»,";
-		mes "ÔÚ´ËÖ®Ç°, Äã»¹ÓÐºÜ¶à»ú»áÈ¥·´»Ú,ËùÒÔ...";
+		mes "[å¿«ä¹çš„çŽ›ä¸½]";
+		mes "å½“ç»“å©šæˆ’æŒ‡äº¤æ¢åŽ";
+		mes "åŒæ–¹å°±æ­£å¼æˆä¸ºæ‹äººäº†. å½“ç„¶,";
+		mes "åœ¨æ­¤ä¹‹å‰, ä½ è¿˜æœ‰å¾ˆå¤šæœºä¼šåŽ»åæ‚”,æ‰€ä»¥...";
 		next;
-		mes "[¿ìÀÖµÄÂêÀö]";
-		mes "Èç¹ûÍ¬Ê±ÓÐÌ«¶à";
-		mes "µÄÐÂÈËÏë½á»éµÄ»°";
-		mes "ÇëÅÅ¶Ó, Ò»¶Ô¶ÔµÄ";
-		mes "ÓëÖ÷½Ì½»Ì¸";
-		mes "ÎÖÂê³àÒ»´ÎÖ»ÄÜ½Ó´ýÒ»¶ÔÐÂÈË.";
+		mes "[å¿«ä¹çš„çŽ›ä¸½]";
+		mes "å¦‚æžœåŒæ—¶æœ‰å¤ªå¤š";
+		mes "çš„æ–°äººæƒ³ç»“å©šçš„è¯";
+		mes "è¯·æŽ’é˜Ÿ, ä¸€å¯¹å¯¹çš„";
+		mes "ä¸Žä¸»æ•™äº¤è°ˆ";
+		mes "æ²ƒçŽ›èµ¤ä¸€æ¬¡åªèƒ½æŽ¥å¾…ä¸€å¯¹æ–°äºº.";
 		next;
-		mes "[¿ìÀÖµÄÂêÀö]";
-		mes "×îºóÇëÈ·¶¨¸æËßÎÖÂê³à";
-		mes "ÄãÁµÈËµÄÕýÊ½Ãû×Ö";
-		mes "Çë²»ÒªÀË·ÑÌ«¶àµÄÃû×Ö. Èç¹ûÄãÓÃµÄÊ±¼äÌ«¾Ã,";
-		mes "µäÀñ¾Í»á×Ô¶¯Í£Ö¹, Äã¾ÍÒªÖØÀ´Ò»´ÎÁË.";
+		mes "[å¿«ä¹çš„çŽ›ä¸½]";
+		mes "æœ€åŽè¯·ç¡®å®šå‘Šè¯‰æ²ƒçŽ›èµ¤";
+		mes "ä½ æ‹äººçš„æ­£å¼åå­—";
+		mes "è¯·ä¸è¦æµªè´¹å¤ªå¤šçš„åå­—. å¦‚æžœä½ ç”¨çš„æ—¶é—´å¤ªä¹…,";
+		mes "å…¸ç¤¼å°±ä¼šè‡ªåŠ¨åœæ­¢, ä½ å°±è¦é‡æ¥ä¸€æ¬¡äº†.";
 		next;
-		mes "[¿ìÀÖµÄÂêÀö]";
-		mes "ÐÂÄïÐèÒª¼Ç×Å";
-		mes "ÄãÖ»ÓÐ3·ÖÖÓÀ´Íê³ÉÓë";
-		mes "Ö÷½ÌµÄ¶Ô»°";
-		mes "ÔÚÕâÖ®ºó";
-		mes "ÇëÐÂÀÉÔÙ´ÎÓëÖ÷½Ì¶Ô»°ÒÔÍê³É»éÀñ.";
+		mes "[å¿«ä¹çš„çŽ›ä¸½]";
+		mes "æ–°å¨˜éœ€è¦è®°ç€";
+		mes "ä½ åªæœ‰3åˆ†é’Ÿæ¥å®Œæˆä¸Ž";
+		mes "ä¸»æ•™çš„å¯¹è¯";
+		mes "åœ¨è¿™ä¹‹åŽ";
+		mes "è¯·æ–°éƒŽå†æ¬¡ä¸Žä¸»æ•™å¯¹è¯ä»¥å®Œæˆå©šç¤¼.";
 		next;
-		if (select("Ê®·Ö¸ÐÐ»ÄãµÄ°ïÖú!:ÓÐÊ²Ã´¼òµ¥µÄ·½Ê½À´ËµÎÒÐÂÀÉµÄÃû×ÖÃ´?") == 1) {
-			mes "[¿ìÀÖµÄÂêÀö]";
-			mes "ºÃ°É, ÎÒ»á°ïÄã";
-			mes "Íê³ÉÄãµÄ»éÀñ";
-			mes "¾¡¿ÉÄÜµÄË³Àû.";
-			mes "Èç¹ûÓÐÊ²Ã´¶«Î÷";
-			mes "Äã»¹Ã»Àí½âµÄ»°,";
-			mes "ÇëÔÙÏòÎÒÑ¯ÎÊ.";
+		if (select("ååˆ†æ„Ÿè°¢ä½ çš„å¸®åŠ©!:æœ‰ä»€ä¹ˆç®€å•çš„æ–¹å¼æ¥è¯´æˆ‘æ–°éƒŽçš„åå­—ä¹ˆ?") == 1) {
+			mes "[å¿«ä¹çš„çŽ›ä¸½]";
+			mes "å¥½å§, æˆ‘ä¼šå¸®ä½ ";
+			mes "å®Œæˆä½ çš„å©šç¤¼";
+			mes "å°½å¯èƒ½çš„é¡ºåˆ©.";
+			mes "å¦‚æžœæœ‰ä»€ä¹ˆä¸œè¥¿";
+			mes "ä½ è¿˜æ²¡ç†è§£çš„è¯,";
+			mes "è¯·å†å‘æˆ‘è¯¢é—®.";
 			goto L_End;
 		}
-		mes "[¿ìÀÖµÄÂêÀö]";
-		mes "×î¼òµ¥µÄ·½·¨ÊÇ½«";
-		mes "Äú°®ÈËµÄÃû×Ö·¢ËÍ¸øÖ÷½Ì´óÈË.";
-		mes "Ö÷½Ì´óÈË»á»Ø¸´Ò»ÌõÏûÏ¢¸øÄã.";
-		mes "È»ºó×ó¼üµã»÷ÁµÈËµÄÃû×Ö.";
-		mes "¼¤»î¶Ô·½µÄÈËÎïÐÅÏ¢´°¿Ú.";
+		mes "[å¿«ä¹çš„çŽ›ä¸½]";
+		mes "æœ€ç®€å•çš„æ–¹æ³•æ˜¯å°†";
+		mes "æ‚¨çˆ±äººçš„åå­—å‘é€ç»™ä¸»æ•™å¤§äºº.";
+		mes "ä¸»æ•™å¤§äººä¼šå›žå¤ä¸€æ¡æ¶ˆæ¯ç»™ä½ .";
+		mes "ç„¶åŽå·¦é”®ç‚¹å‡»æ‹äººçš„åå­—.";
+		mes "æ¿€æ´»å¯¹æ–¹çš„äººç‰©ä¿¡æ¯çª—å£.";
 		next;
-		mes "[¿ìÀÖµÄÂêÀö]";
-		mes "È»ºó°´'Ctrl'ºÍ'C'";
-		mes "À´¸´ÖÆÃû×Ö.";
-		mes "È»ºóÄã¿ÉÒÔÍ¨¹ý°´'Insert'Óë'Shift'";
-		mes "À´Õ³ÌùÄãÁµÈËµÄÃû×Ö";
-		mes "Çå³þÁËÃ´?";
+		mes "[å¿«ä¹çš„çŽ›ä¸½]";
+		mes "ç„¶åŽæŒ‰'Ctrl'å’Œ'C'";
+		mes "æ¥å¤åˆ¶åå­—.";
+		mes "ç„¶åŽä½ å¯ä»¥é€šè¿‡æŒ‰'Insert'ä¸Ž'Shift'";
+		mes "æ¥ç²˜è´´ä½ æ‹äººçš„åå­—";
+		mes "æ¸…æ¥šäº†ä¹ˆ?";
 		next;
-		mes "[¿ìÀÖµÄÂêÀö]";
-		mes "ºÃµÄ, ÏÖÔÚÈÃÎÒÃÇ";
-		mes "À´ÊÔÊÔÎÒ¸øÄãËµµÄ·½·¨°É";
-		mes "°ÑÄãÁµÈËµÄÃû×ÖÍ¨¹ý";
-		mes "ÎÒ¸Õ²ÅËµµÄ·½·¨¸æËßÎÒ°É.";
+		mes "[å¿«ä¹çš„çŽ›ä¸½]";
+		mes "å¥½çš„, çŽ°åœ¨è®©æˆ‘ä»¬";
+		mes "æ¥è¯•è¯•æˆ‘ç»™ä½ è¯´çš„æ–¹æ³•å§";
+		mes "æŠŠä½ æ‹äººçš„åå­—é€šè¿‡";
+		mes "æˆ‘åˆšæ‰è¯´çš„æ–¹æ³•å‘Šè¯‰æˆ‘å§.";
 		next;
 		input .@partner$;
-		mes "[¿ìÀÖµÄÂêÀö]";
-		mes "ºÃÁË, µ±Äã¾ö¶¨";
-		mes "Òª½á»éÁË,";
-		mes "¾ÍÀ´ÕÒÎÒ, ²¢Ìá½»ÉêÇë°É";
-		mes "Ï£ÍûÄÜÔÙ¼ûµ½Äã, Ã°ÏÕÕß~";
-		mes "×£¸£Äã~";
+		mes "[å¿«ä¹çš„çŽ›ä¸½]";
+		mes "å¥½äº†, å½“ä½ å†³å®š";
+		mes "è¦ç»“å©šäº†,";
+		mes "å°±æ¥æ‰¾æˆ‘, å¹¶æäº¤ç”³è¯·å§";
+		mes "å¸Œæœ›èƒ½å†è§åˆ°ä½ , å†’é™©è€…~";
+		mes "ç¥ç¦ä½ ~";
 		break;
 
 	case 3:
 		cutin "wedding_marry02",2;
 		if (Sex) {
-			mes "[¿ìÀÖµÄÂêÀö]";
-			mes "Äã×¼±¸½á»éÁË?";
-			mes "×÷Îª¸öÐÂÀÉ, ÄãÐèÒª×¼±¸";
-			mes "^3377FF1 ½á»éÀñ·þ^000000 ²¢ÇÒÖ§¸¶ ^3377FF1,300,000 Zeny^000000.";
-			mes "ÐÂÄïµÄ»°Ó¦¸ÃÒª×¼±¸×Ô¼ºµÄÀñ·þ, ²¢ÇÒÖ§¸¶";
+			mes "[å¿«ä¹çš„çŽ›ä¸½]";
+			mes "ä½ å‡†å¤‡ç»“å©šäº†?";
+			mes "ä½œä¸ºä¸ªæ–°éƒŽ, ä½ éœ€è¦å‡†å¤‡";
+			mes "^3377FF1 ç»“å©šç¤¼æœ^000000 å¹¶ä¸”æ”¯ä»˜ ^3377FF1,300,000 Zeny^000000.";
+			mes "æ–°å¨˜çš„è¯åº”è¯¥è¦å‡†å¤‡è‡ªå·±çš„ç¤¼æœ, å¹¶ä¸”æ”¯ä»˜";
 			mes "1,200,000 zeny.";
 		}
 		else {
-			mes "[¿ìÀÖµÄÂêÀö]";
-			mes "ËùÒÔ, Äã×¼±¸½á»éÁË?";
-			mes "×÷Îª¸öÐÂÄïÄãÐèÒª×¼±¸";
-			mes "1 ½á»éÀñ·þ²¢ÇÒÖ§¸¶";
-			mes "1,200,000 zeny. ÐÂÀË±ØÐë";
-			mes "´©ÉÏ½á»éÀñ·þ²¢Ö§¸¶ 1,300,000 zeny²ÅÄÜ½á»é.";
+			mes "[å¿«ä¹çš„çŽ›ä¸½]";
+			mes "æ‰€ä»¥, ä½ å‡†å¤‡ç»“å©šäº†?";
+			mes "ä½œä¸ºä¸ªæ–°å¨˜ä½ éœ€è¦å‡†å¤‡";
+			mes "1 ç»“å©šç¤¼æœå¹¶ä¸”æ”¯ä»˜";
+			mes "1,200,000 zeny. æ–°æµªå¿…é¡»";
+			mes "ç©¿ä¸Šç»“å©šç¤¼æœå¹¶æ”¯ä»˜ 1,300,000 zenyæ‰èƒ½ç»“å©š.";
 		}
 		next;
-		mes "[¿ìÀÖµÄÂêÀö]";
-		mes "ÐÂÀËºÍÐÂÄï¶¼Òª×¼±¸";
-		mes " ^3377FF1 ×êÊ¯½äÖ¸^000000 ";
-		mes "ÕâÑùÄãÃÇ²ÅÄÜ½»»»½äÖ¸.";
-		mes "ÄãÐèÒª×¼±¸ºÃÕâÐ©¶«Î÷";
-		mes "ÕâÑùÄã²ÅÄÜÌá½»ÄãµÄ";
-		mes "½á»éµäÀñÉêÇë.";
+		mes "[å¿«ä¹çš„çŽ›ä¸½]";
+		mes "æ–°æµªå’Œæ–°å¨˜éƒ½è¦å‡†å¤‡";
+		mes " ^3377FF1 é’»çŸ³æˆ’æŒ‡^000000 ";
+		mes "è¿™æ ·ä½ ä»¬æ‰èƒ½äº¤æ¢æˆ’æŒ‡.";
+		mes "ä½ éœ€è¦å‡†å¤‡å¥½è¿™äº›ä¸œè¥¿";
+		mes "è¿™æ ·ä½ æ‰èƒ½æäº¤ä½ çš„";
+		mes "ç»“å©šå…¸ç¤¼ç”³è¯·.";
 		next;
-		mes "[¿ìÀÖµÄÂêÀö]";
-		mes "Î´À´µÄÐÂÀÉÓëÐÂÄï";
-		mes "¶¼±ØÐëÍê³ÉÁËÉêÇë";
-		mes "ÔÚËûÃÇ½øÐÐ½á»éÖ®Ç°";
-		mes "ÏÖÔÚ, Äã×¼±¸Òª½á»é,";
-		mes "²¢ÇÒÂíÉÏ¿ªÊ¼½øÐÐ";
-		mes "½á»éÒÇÊ½Âð?";
+		mes "[å¿«ä¹çš„çŽ›ä¸½]";
+		mes "æœªæ¥çš„æ–°éƒŽä¸Žæ–°å¨˜";
+		mes "éƒ½å¿…é¡»å®Œæˆäº†ç”³è¯·";
+		mes "åœ¨ä»–ä»¬è¿›è¡Œç»“å©šä¹‹å‰";
+		mes "çŽ°åœ¨, ä½ å‡†å¤‡è¦ç»“å©š,";
+		mes "å¹¶ä¸”é©¬ä¸Šå¼€å§‹è¿›è¡Œ";
+		mes "ç»“å©šä»ªå¼å—?";
 		next;
-		if (select("- ÊÇµÄ:- ²»") == 1) {
+		if (select("- æ˜¯çš„:- ä¸") == 1) {
 			if (getpartnerid()) {
 				cutin "wedding_marry02",2;
-				mes "[¿ìÀÖµÄÂêÀö]";
-				mes "ÎÒºÜ±§Ç¸, ²»¹ý";
-				mes "Äã²»ÄÜÉêÇë½á»é!";
-				mes "ÎÒ²»ÄÜÔÊÐíÄã³öÂô";
-				mes "ÄãµÄÅäÅ¼, ";
-				mes "Í¬Ê±, Ò»·ò¶àÆÞÖÆ";
-				mes "ÔÚÃ×µÂ¼ÓµÂÊÇÎ¥·¨µÄ.";
+				mes "[å¿«ä¹çš„çŽ›ä¸½]";
+				mes "æˆ‘å¾ˆæŠ±æ­‰, ä¸è¿‡";
+				mes "ä½ ä¸èƒ½ç”³è¯·ç»“å©š!";
+				mes "æˆ‘ä¸èƒ½å…è®¸ä½ å‡ºå–";
+				mes "ä½ çš„é…å¶, ";
+				mes "åŒæ—¶, ä¸€å¤«å¤šå¦»åˆ¶";
+				mes "åœ¨ç±³å¾·åŠ å¾·æ˜¯è¿æ³•çš„.";
 				break;
 			}
 			else if (wedding_sign == 1) {
-				mes "[¿ìÀÖµÄÂêÀö]";
-				mes "ÄãÕæµÄÒÑ¾­Íê³É";
-				mes "ÕâÐ©ÉêÇëÁËÃ´?";
-				mes "ßí, È¥ÎÊÎÊÄãµÄÁµÈËÊÇ·ñ";
-				mes "Ò²Íê³ÉÁËÍ¬ÑùÉêÇë³ÌÐò";
-				mes "È»ºóÔÙÈ¥ÕÒÖ÷½Ì½»Ì¸.";
-				mes "¼ÌÐøÍê³É»éÀñ.";
+				mes "[å¿«ä¹çš„çŽ›ä¸½]";
+				mes "ä½ çœŸçš„å·²ç»å®Œæˆ";
+				mes "è¿™äº›ç”³è¯·äº†ä¹ˆ?";
+				mes "å””, åŽ»é—®é—®ä½ çš„æ‹äººæ˜¯å¦";
+				mes "ä¹Ÿå®Œæˆäº†åŒæ ·ç”³è¯·ç¨‹åº";
+				mes "ç„¶åŽå†åŽ»æ‰¾ä¸»æ•™äº¤è°ˆ.";
+				mes "ç»§ç»­å®Œæˆå©šç¤¼.";
 				break;
 			}
 			else if (BaseLevel < 45) {
-				mes "[¿ìÀÖµÄÂêÀö]";
-				mes "ßí, ÄãÐèÒª±äµÃ¸ü¼ÓÇ¿×³";
-				mes "²ÅÄÜ±£»¤ÄãËµ°®µÄÈË";
-				mes "ÔÚÄãµÄµÈ¼¶ÌáÉýÖ®ºó.";
-				mes "Èç¹ûÍ¬Ê±ÄúÓÖÓÐÐÒ";
-				mes "ÕÒµ½ÐÄÉÏÈËµÄ»°.";
-				mes "ÔÙÀ´ÕÒÎÒ°É";
+				mes "[å¿«ä¹çš„çŽ›ä¸½]";
+				mes "å””, ä½ éœ€è¦å˜å¾—æ›´åŠ å¼ºå£®";
+				mes "æ‰èƒ½ä¿æŠ¤ä½ è¯´çˆ±çš„äºº";
+				mes "åœ¨ä½ çš„ç­‰çº§æå‡ä¹‹åŽ.";
+				mes "å¦‚æžœåŒæ—¶æ‚¨åˆæœ‰å¹¸";
+				mes "æ‰¾åˆ°å¿ƒä¸Šäººçš„è¯.";
+				mes "å†æ¥æ‰¾æˆ‘å§";
 				goto L_End;
 			}
 			else if (countitem(2613) < 1) {
-				mes "[¿ìÀÖµÄÂêÀö]";
-				mes "ßí? ÄãÊÇ²»ÊÇÍü¼ÇÁË";
-				mes "´ø×êÊ¯½äÖ¸ÁË?";
-				mes "ºÃºÃÈ¥ÕÒÕÒ°É";
-				mes "Ëµ²»¶¨¾ÍµôÔÚ¸½½ü";
-				mes "µÈÄãÕÒµ½ÁËÔÙÀ´ÕÒÎÒºÃÃ´?";
-				mes "Çë·ÅËÉàÞ.";
+				mes "[å¿«ä¹çš„çŽ›ä¸½]";
+				mes "å””? ä½ æ˜¯ä¸æ˜¯å¿˜è®°äº†";
+				mes "å¸¦é’»çŸ³æˆ’æŒ‡äº†?";
+				mes "å¥½å¥½åŽ»æ‰¾æ‰¾å§";
+				mes "è¯´ä¸å®šå°±æŽ‰åœ¨é™„è¿‘";
+				mes "ç­‰ä½ æ‰¾åˆ°äº†å†æ¥æ‰¾æˆ‘å¥½ä¹ˆ?";
+				mes "è¯·æ”¾æ¾å™¢.";
 				goto L_End;
 			}
 			else if (Sex) {
 				if (Zeny < 1300000) {
-					mes "[¿ìÀÖµÄÂêÀö]";
-					mes "ÎÒºÜ±§Ç¸, ²»¹ýÄãÃ»ÓÐ";
+					mes "[å¿«ä¹çš„çŽ›ä¸½]";
+					mes "æˆ‘å¾ˆæŠ±æ­‰, ä¸è¿‡ä½ æ²¡æœ‰";
 					mes "1,300,000 zeny";
-					mes "ËùÓÐµÄÐÂÀË¶¼±ØÐë";
-					mes "ÎªËûµÄ½á»éµäÀñ¸¶Ç®.";
-					mes "ÄãÊÇ²»ÊÇ·¸´í¿Ú´üÁË?";
+					mes "æ‰€æœ‰çš„æ–°æµªéƒ½å¿…é¡»";
+					mes "ä¸ºä»–çš„ç»“å©šå…¸ç¤¼ä»˜é’±.";
+					mes "ä½ æ˜¯ä¸æ˜¯çŠ¯é”™å£è¢‹äº†?";
 					goto L_End;
 				}
 				else if (countitem(7170) < 1) {
-					mes "[¿ìÀÖµÄÂêÀö]";
-					mes "ÄãµÄ½á»éÀñ·þÄØ?";
-					mes "ÔÚÄã½á»éµÄÈ«³ÌÄã¶¼±ØÐë";
-					mes "´©×ÅËü!";
-					mes "¸Ï¿ìÈ¥°ÑÄãµÄÀñ·þÕÒ³öÀ´";
-					mes "È»ºóÎÒÃÇ²ÅÄÜ¿ªÊ¼ÄãµÄ½á»éµäÀñ";
-					mes "¶®Ã´?";
+					mes "[å¿«ä¹çš„çŽ›ä¸½]";
+					mes "ä½ çš„ç»“å©šç¤¼æœå‘¢?";
+					mes "åœ¨ä½ ç»“å©šçš„å…¨ç¨‹ä½ éƒ½å¿…é¡»";
+					mes "ç©¿ç€å®ƒ!";
+					mes "èµ¶å¿«åŽ»æŠŠä½ çš„ç¤¼æœæ‰¾å‡ºæ¥";
+					mes "ç„¶åŽæˆ‘ä»¬æ‰èƒ½å¼€å§‹ä½ çš„ç»“å©šå…¸ç¤¼";
+					mes "æ‡‚ä¹ˆ?";
 					goto L_End;
 				}
 			}
 			else if (Sex == 0) {
 				if (Zeny < 1200000) {
-					mes "[¿ìÀÖµÄÂêÀö]";
-					mes "ÎÒºÜ±§Ç¸, ²»¹ýËùÓÐµÄÐÂÄï±ØÐë";
-					mes "Ö§¸¶1,200,000";
-					mes "À´¼ÌÐøÕâ½á»éµäÀñ";
-					mes "»òÐíÄã¿ÉÒÔÕÒ";
-					mes "ÄãµÄÀÏ¹«À´Ö§¸¶Õâ±ÊÇ®";
+					mes "[å¿«ä¹çš„çŽ›ä¸½]";
+					mes "æˆ‘å¾ˆæŠ±æ­‰, ä¸è¿‡æ‰€æœ‰çš„æ–°å¨˜å¿…é¡»";
+					mes "æ”¯ä»˜1,200,000";
+					mes "æ¥ç»§ç»­è¿™ç»“å©šå…¸ç¤¼";
+					mes "æˆ–è®¸ä½ å¯ä»¥æ‰¾";
+					mes "ä½ çš„è€å…¬æ¥æ”¯ä»˜è¿™ç¬”é’±";
 					goto L_End;
 				}
 				else if (countitem(2338) < 1) {
-					mes "[¿ìÀÖµÄÂêÀö]";
-					mes "Ç×, ²»ÒªÍü¼Ç";
-					mes "ÄãµÄ½á»éÀñ·þ?";
-					mes "¿ìÕÒ³öÀ´,";
-					mes "È»ºó´øÀ´¸øÎÒ--";
-					mes "Äã±ØÐë´©×Å";
-					mes "²Î¼Ó»éÀñ!";
+					mes "[å¿«ä¹çš„çŽ›ä¸½]";
+					mes "äº², ä¸è¦å¿˜è®°";
+					mes "ä½ çš„ç»“å©šç¤¼æœ?";
+					mes "å¿«æ‰¾å‡ºæ¥,";
+					mes "ç„¶åŽå¸¦æ¥ç»™æˆ‘--";
+					mes "ä½ å¿…é¡»ç©¿ç€";
+					mes "å‚åŠ å©šç¤¼!";
 					goto L_End;
 				}
 			}
-			mes "[¿ìÀÖµÄÂêÀö]";
-			mes "ºÃ°É, ¿´ÆðÀ´Äã";
-			mes "ÒÑ¾­×¼±¸ºÃËùÓÐµÄ¶«Î÷ÁË.";
-			mes "¾¡¹ÜÎÒ¶¼²»ÖªµÀÄãµÄÁµÈËÊÇË­";
-			mes "ÈÃÎÒ³ÉÎªµÚÒ»Î»ÎªÄãÃÇ";
-			mes "¼´½«µ½À´µÄ»éÀñ×£ºØµÄÈË°É¡«";
+			mes "[å¿«ä¹çš„çŽ›ä¸½]";
+			mes "å¥½å§, çœ‹èµ·æ¥ä½ ";
+			mes "å·²ç»å‡†å¤‡å¥½æ‰€æœ‰çš„ä¸œè¥¿äº†.";
+			mes "å°½ç®¡æˆ‘éƒ½ä¸çŸ¥é“ä½ çš„æ‹äººæ˜¯è°";
+			mes "è®©æˆ‘æˆä¸ºç¬¬ä¸€ä½ä¸ºä½ ä»¬";
+			mes "å³å°†åˆ°æ¥çš„å©šç¤¼ç¥è´ºçš„äººå§ï½ž";
 			next;
-			mes "[¿ìÀÖµÄÂêÀö]";
-			mes "ÏÖÔÚ, ÈÃÎÒÃÇ¿ªÊ¼";
-			mes "ÉêÇë°É. ÇëÐ´ÏÂÄãµÄ";
-			mes "µÄÕýÊ½ÐÕÃû°É.";
+			mes "[å¿«ä¹çš„çŽ›ä¸½]";
+			mes "çŽ°åœ¨, è®©æˆ‘ä»¬å¼€å§‹";
+			mes "ç”³è¯·å§. è¯·å†™ä¸‹ä½ çš„";
+			mes "çš„æ­£å¼å§“åå§.";
 			next;
 			while(1) {
 				input .@name$;
 				if (.@name$ != strcharinfo(0)) {
-					mes "[¿ìÀÖµÄÂêÀö]";
-					mes "ßí, Äã±ØÐëÐ´ÏÂ";
-					mes "ÄãµÄÕýÊ½ÐÕÃû¾Í";
-					mes "ÈçÍ¬ÏÔÊ¾µÄÄÇÑù. ";
-					mes "»òÐíÄãÒª¸´ÖÆºÍÕ³ÌùÒ»ÏÂ?";
-					mes "²»¹ÜÔõÑù, ÈÃÎÒÃÇÔÙÊÔÒ»´Î.";
+					mes "[å¿«ä¹çš„çŽ›ä¸½]";
+					mes "å””, ä½ å¿…é¡»å†™ä¸‹";
+					mes "ä½ çš„æ­£å¼å§“åå°±";
+					mes "å¦‚åŒæ˜¾ç¤ºçš„é‚£æ ·. ";
+					mes "æˆ–è®¸ä½ è¦å¤åˆ¶å’Œç²˜è´´ä¸€ä¸‹?";
+					mes "ä¸ç®¡æ€Žæ ·, è®©æˆ‘ä»¬å†è¯•ä¸€æ¬¡.";
 					next;
 				}
 				else 
 					break;
 			}
-			mes "[¿ìÀÖµÄÂêÀö]";
-			mes "Ì«°ôÁË, ¿´ÆðÀ´";
-			mes "ÎÒÃÇÒÑ¾­Íê³ÉÁËÄãµÄÉêÇë.";
-			mes "Çë¼Ç×¡ÄãÒªÐ´ÏÂÄã";
-			mes "µÄ°éÂÂµÄÕýÊ½ÐÕÃû";
-			mes "µ±ÄãºÍÖ÷½Ì½»Ì¸Ò»»á";
-			mes "Ö®ºó, ¶®ÁËÂð?";
+			mes "[å¿«ä¹çš„çŽ›ä¸½]";
+			mes "å¤ªæ£’äº†, çœ‹èµ·æ¥";
+			mes "æˆ‘ä»¬å·²ç»å®Œæˆäº†ä½ çš„ç”³è¯·.";
+			mes "è¯·è®°ä½ä½ è¦å†™ä¸‹ä½ ";
+			mes "çš„ä¼´ä¾£çš„æ­£å¼å§“å";
+			mes "å½“ä½ å’Œä¸»æ•™äº¤è°ˆä¸€ä¼š";
+			mes "ä¹‹åŽ, æ‡‚äº†å—?";
 			next;
-			mes "[¿ìÀÖµÄÂêÀö]";
-			mes "µ±ÄãµÄÁµÈËÒ²";
-			mes "Íê³ÉÁËÉêÇëÖ®ºó";
-			mes "ÄãÃÇ¶¼ÐèÒªÓëÖ÷½Ì¶Ô»°";
-			mes "²ÅÄÜ¿ªÊ¼ÄãÃÇÕýÈ·µÄ";
-			mes "½á»éµäÀñ.";
+			mes "[å¿«ä¹çš„çŽ›ä¸½]";
+			mes "å½“ä½ çš„æ‹äººä¹Ÿ";
+			mes "å®Œæˆäº†ç”³è¯·ä¹‹åŽ";
+			mes "ä½ ä»¬éƒ½éœ€è¦ä¸Žä¸»æ•™å¯¹è¯";
+			mes "æ‰èƒ½å¼€å§‹ä½ ä»¬æ­£ç¡®çš„";
+			mes "ç»“å©šå…¸ç¤¼.";
 			emotion ET_THROB;
 			next;
-			mes "[¿ìÀÖµÄÂêÀö]";
+			mes "[å¿«ä¹çš„çŽ›ä¸½]";
 			if (Sex) {
-				mes "ÒòÎªÄãÊÇÐÂÀÉ,";
-				mes "ËùÒÔÄãÒªÏÈÓë½ÌÖ÷¶Ô»°";
-				mes "µ±Äã½áÊø¶Ô»°Ö®ºó";
-				mes "ÄÇ¾ÍÂÖµ½ÄãµÄÁµÈË";
-				mes "Óë½ÌÖ÷¶Ô»°ÁË";
+				mes "å› ä¸ºä½ æ˜¯æ–°éƒŽ,";
+				mes "æ‰€ä»¥ä½ è¦å…ˆä¸Žæ•™ä¸»å¯¹è¯";
+				mes "å½“ä½ ç»“æŸå¯¹è¯ä¹‹åŽ";
+				mes "é‚£å°±è½®åˆ°ä½ çš„æ‹äºº";
+				mes "ä¸Žæ•™ä¸»å¯¹è¯äº†";
 				mes "^ ^";
 				set Zeny, Zeny - 1300000;
 				delitem 7170,1; //Tuxedo
 			}
 			else {
-				mes "ÒòÎªÄãÊÇÐÂÄï,";
-				mes "ËùÒÔÄãÒªÏÈµÈÄãµÄÄÐÓÑ";
-				mes "Óë½ÌÖ÷´óÈË¶Ô»°Ö®ºó";
-				mes "È»ºó²ÅÂÖµ½ÄãÓë½ÌÖ÷";
-				mes "¶Ô»°";
+				mes "å› ä¸ºä½ æ˜¯æ–°å¨˜,";
+				mes "æ‰€ä»¥ä½ è¦å…ˆç­‰ä½ çš„ç”·å‹";
+				mes "ä¸Žæ•™ä¸»å¤§äººå¯¹è¯ä¹‹åŽ";
+				mes "ç„¶åŽæ‰è½®åˆ°ä½ ä¸Žæ•™ä¸»";
+				mes "å¯¹è¯";
 				mes "^ ^";
 				set Zeny, Zeny - 1200000;
 				delitem 2338,1; //Wedding_Dress
@@ -376,69 +372,69 @@ prt_church,97,100,4	script	¿ìÀÖµÄÂêÀö#w	1_F_LIBRARYGIRL,{
 			set wedding_sign,1;
 			goto L_End;
 		}
-		mes "[¿ìÀÖµÄÂêÀö]";
-		mes "²»...?";
-		mes "ºÃ°É, µ±Äã×¼±¸ºÃ";
-		mes "Òª½á»éÁË,";
-		mes "ÔÙÀ´ÕÒÎÒÌá½»ÉêÇëºÃÃ´?";
-		mes "×£ÄãÒ»Ìì¹ýµÄÓä¿ì";
+		mes "[å¿«ä¹çš„çŽ›ä¸½]";
+		mes "ä¸...?";
+		mes "å¥½å§, å½“ä½ å‡†å¤‡å¥½";
+		mes "è¦ç»“å©šäº†,";
+		mes "å†æ¥æ‰¾æˆ‘æäº¤ç”³è¯·å¥½ä¹ˆ?";
+		mes "ç¥ä½ ä¸€å¤©è¿‡çš„æ„‰å¿«";
 		break;
 
 	case 4:
 		cutin "wedding_marry02",2;
-		donpcevent "Ò»Ãû¾üÈË#Prontera::OnEnable";
-		donpcevent "Ò»Ãû¾üÈË#Geffen::OnEnable";
-		donpcevent "Ò»Ãû¾üÈË#Morocc::OnEnable";
-		donpcevent "Ò»Ãû¾üÈË#Payon::OnEnable";
-		donpcevent "Ò»Ãû¾üÈË#Amatsu::OnEnable";
-		donpcevent "Ò»Ãû¾üÈË#Gonryun::OnEnable";
+		donpcevent "ä¸€åå†›äºº#Prontera::OnEnable";
+		donpcevent "ä¸€åå†›äºº#Geffen::OnEnable";
+		donpcevent "ä¸€åå†›äºº#Morocc::OnEnable";
+		donpcevent "ä¸€åå†›äºº#Payon::OnEnable";
+		donpcevent "ä¸€åå†›äºº#Amatsu::OnEnable";
+		donpcevent "ä¸€åå†›äºº#Gonryun::OnEnable";
 		emotion ET_HUK;
-		mes "[FFFÍÅ]";
-		mes "^CC9933Äã±ØÐë¾«Á¶";
-		mes "ÄãËùÓµÓÐµÄ×°±¸";
-		mes "Ê¹Ëû±äµÃ¸ü¼«Æ·!^000000";
-		emotion ET_ROCK, getnpcid(0, "Ò»Ãû¾üÈË#Prontera");
+		mes "[FFFå›¢]";
+		mes "^CC9933ä½ å¿…é¡»ç²¾ç‚¼";
+		mes "ä½ æ‰€æ‹¥æœ‰çš„è£…å¤‡";
+		mes "ä½¿ä»–å˜å¾—æ›´æžå“!^000000";
+		emotion ET_ROCK, getnpcid(0, "ä¸€åå†›äºº#Prontera");
 		next;
-		mes "[FFFÍÅ]";
-		mes "^330099ÔÚ¸±±¾ÀïÁ·¼¶";
-		mes "¼òÖ±¾ÍÊÇÔÚÀË·ÑÊ±¼ä";
-		mes "ÎÒ×Ô¼ºß£ß£¾ÍÄÜ";
-		mes "Á·¼¶ÁË!^000000";
-		emotion ET_ROCK, getnpcid(0, "Ò»Ãû¾üÈË#Geffen");
+		mes "[FFFå›¢]";
+		mes "^330099åœ¨å‰¯æœ¬é‡Œç»ƒçº§";
+		mes "ç®€ç›´å°±æ˜¯åœ¨æµªè´¹æ—¶é—´";
+		mes "æˆ‘è‡ªå·±æ’¸æ’¸å°±èƒ½";
+		mes "ç»ƒçº§äº†!^000000";
+		emotion ET_ROCK, getnpcid(0, "ä¸€åå†›äºº#Geffen");
 		next;
-		mes "[FFFÍÅ]";
-		mes "^666666¸ÃËÀ,";
-		mes "ÎÒ´Ó³öÉú¿ªÊ¼¾ÍÔÚ²»¶ÏµÄ";
-		mes "ÑµÁ·ÎÒ×Ô¼º, Ö»ÎªÁË";
-		mes "ÄÜ¹»´ì³ö»ðÇò!^000000";
-		emotion ET_ROCK, getnpcid(0, "Ò»Ãû¾üÈË#Morocc");
+		mes "[FFFå›¢]";
+		mes "^666666è¯¥æ­»,";
+		mes "æˆ‘ä»Žå‡ºç”Ÿå¼€å§‹å°±åœ¨ä¸æ–­çš„";
+		mes "è®­ç»ƒæˆ‘è‡ªå·±, åªä¸ºäº†";
+		mes "èƒ½å¤ŸæŒ«å‡ºç«çƒ!^000000";
+		emotion ET_ROCK, getnpcid(0, "ä¸€åå†›äºº#Morocc");
 		next;
-		mes "[FFFÍÅ]";
-		mes "^666600ÎÒÑ¡Ôñ»¨·Ñ";
-		mes "¹Âµ¥µÄÊ¥µ®Ò¹...";
-		mes "ÍæÍæÖ½ÅÆ";
-		mes "ÍæÍæÌî×ÖÓÎÏ·, ß£ß£Ë¯ÁË!^000000";
-		emotion ET_ROCK, getnpcid(0, "Ò»Ãû¾üÈË#Payon");
+		mes "[FFFå›¢]";
+		mes "^666600æˆ‘é€‰æ‹©èŠ±è´¹";
+		mes "å­¤å•çš„åœ£è¯žå¤œ...";
+		mes "çŽ©çŽ©çº¸ç‰Œ";
+		mes "çŽ©çŽ©å¡«å­—æ¸¸æˆ, æ’¸æ’¸ç¡äº†!^000000";
+		emotion ET_ROCK, getnpcid(0, "ä¸€åå†›äºº#Payon");
 		next;
-		mes "[FFFÍÅ]";
-		mes "^CC9966Ê¦¸µËµ";
-		mes "É½ÏÂµÄÅ®ÈËÊÇÀÏ»¢, ÄÜ³ÔÁËÄãµÄÁé»ê";
-		mes "²»¹ýËûÃÇ¾ø¶Ô²»ÄÜ´ø×ßÎÒµÄ×ÔÓÉ!^000000";
-		emotion ET_ROCK, getnpcid(0, "Ò»Ãû¾üÈË#Amatsu");
+		mes "[FFFå›¢]";
+		mes "^CC9966å¸ˆå‚…è¯´";
+		mes "å±±ä¸‹çš„å¥³äººæ˜¯è€è™Ž, èƒ½åƒäº†ä½ çš„çµé­‚";
+		mes "ä¸è¿‡ä»–ä»¬ç»å¯¹ä¸èƒ½å¸¦èµ°æˆ‘çš„è‡ªç”±!^000000";
+		emotion ET_ROCK, getnpcid(0, "ä¸€åå†›äºº#Amatsu");
 		next;
-		mes "[FFFÍÅ]";
-		mes "^669900...ÎÒÃÇÊÇ×ÔÓÉµÄ! ";
-		mes "ÎÒÃÇÊÇÒ»Ö»ÎÞ·¨±»´òµ¹µÄ¾ü¶Ó!^000000";
-		emotion ET_ROCK, getnpcid(0, "Ò»Ãû¾üÈË#Gonryun");
+		mes "[FFFå›¢]";
+		mes "^669900...æˆ‘ä»¬æ˜¯è‡ªç”±çš„! ";
+		mes "æˆ‘ä»¬æ˜¯ä¸€åªæ— æ³•è¢«æ‰“å€’çš„å†›é˜Ÿ!^000000";
+		emotion ET_ROCK, getnpcid(0, "ä¸€åå†›äºº#Gonryun");
 		close2;
 		cutin "wedding_marry01",255;
 		emotion ET_SWEAT;
-		donpcevent "Ò»Ãû¾üÈË#Prontera::OnInit";
-		donpcevent "Ò»Ãû¾üÈË#Geffen::OnInit";
-		donpcevent "Ò»Ãû¾üÈË#Morocc::OnInit";
-		donpcevent "Ò»Ãû¾üÈË#Payon::OnInit";
-		donpcevent "Ò»Ãû¾üÈË#Amatsu::OnInit";
-		donpcevent "Ò»Ãû¾üÈË#Gonryun::OnInit";
+		donpcevent "ä¸€åå†›äºº#Prontera::OnInit";
+		donpcevent "ä¸€åå†›äºº#Geffen::OnInit";
+		donpcevent "ä¸€åå†›äºº#Morocc::OnInit";
+		donpcevent "ä¸€åå†›äºº#Payon::OnInit";
+		donpcevent "ä¸€åå†›äºº#Amatsu::OnInit";
+		donpcevent "ä¸€åå†›äºº#Gonryun::OnInit";
 		end;
 	}
 	close2;
@@ -451,117 +447,117 @@ L_End:
 	end;
 }
 
-prt_church,97,102,0	script	Ò»Ãû¾üÈË#Prontera	8W_SOLDIER,{
-	mes "[FFFÍÅ]";
-	mes "^CC9933Äã±ØÐë¾«Á¶";
-	mes "ÄãËùÓµÓÐµÄ×°±¸";
-	mes "Ê¹Ëû±äµÃ¸ü¼«Æ·!^000000";
+prt_church,97,102,0	script	ä¸€åå†›äºº#Prontera	8W_SOLDIER,{
+	mes "[FFFå›¢]";
+	mes "^CC9933ä½ å¿…é¡»ç²¾ç‚¼";
+	mes "ä½ æ‰€æ‹¥æœ‰çš„è£…å¤‡";
+	mes "ä½¿ä»–å˜å¾—æ›´æžå“!^000000";
 	close;
 
 OnInit:
-	hideonnpc "Ò»Ãû¾üÈË#Prontera";
+	hideonnpc "ä¸€åå†›äºº#Prontera";
 	end;
 
 OnEnable:
-	hideoffnpc "Ò»Ãû¾üÈË#Prontera";
+	hideoffnpc "ä¸€åå†›äºº#Prontera";
 	emotion ET_GO;
 	end;
 }
 
-prt_church,98,102,0	script	Ò»Ãû¾üÈË#Geffen	4_M_GEF_SOLDIER,{
-	mes "[FFFÍÅ]";
-	mes "^330099ÔÚ¸±±¾ÀïÁ·¼¶";
-	mes "¼òÖ±¾ÍÊÇÔÚÀË·ÑÊ±¼ä";
-	mes "ÎÒ×Ô¼ºß£ß£¾ÍÄÜ";
-	mes "Á·¼¶ÁË!^000000";
+prt_church,98,102,0	script	ä¸€åå†›äºº#Geffen	4_M_GEF_SOLDIER,{
+	mes "[FFFå›¢]";
+	mes "^330099åœ¨å‰¯æœ¬é‡Œç»ƒçº§";
+	mes "ç®€ç›´å°±æ˜¯åœ¨æµªè´¹æ—¶é—´";
+	mes "æˆ‘è‡ªå·±æ’¸æ’¸å°±èƒ½";
+	mes "ç»ƒçº§äº†!^000000";
 	close;
 
 OnInit:
-	hideonnpc "Ò»Ãû¾üÈË#Geffen";
+	hideonnpc "ä¸€åå†›äºº#Geffen";
 	end;
 
 OnEnable:
-	hideoffnpc "Ò»Ãû¾üÈË#Geffen";
+	hideoffnpc "ä¸€åå†›äºº#Geffen";
 	emotion ET_GO;
 	end;
 }
 
-prt_church,99,102,0	script	Ò»Ãû¾üÈË#Morocc	4_M_MOC_SOLDIER,{
-	mes "[FFFÍÅ]";
-	mes "ÎÒ´Ó³öÉú¿ªÊ¼¾ÍÔÚ²»¶ÏµÄ";
-	mes "ÑµÁ·ÎÒ×Ô¼º, Ö»ÎªÁË";
-	mes "ÄÜ¹»´ì³ö»ðÇò!^000000";
+prt_church,99,102,0	script	ä¸€åå†›äºº#Morocc	4_M_MOC_SOLDIER,{
+	mes "[FFFå›¢]";
+	mes "æˆ‘ä»Žå‡ºç”Ÿå¼€å§‹å°±åœ¨ä¸æ–­çš„";
+	mes "è®­ç»ƒæˆ‘è‡ªå·±, åªä¸ºäº†";
+	mes "èƒ½å¤ŸæŒ«å‡ºç«çƒ!^000000";
 	close;
 
 OnInit:
-	hideonnpc "Ò»Ãû¾üÈË#Morocc";
+	hideonnpc "ä¸€åå†›äºº#Morocc";
 	end;
 
 OnEnable:
-	hideoffnpc "Ò»Ãû¾üÈË#Morocc";
+	hideoffnpc "ä¸€åå†›äºº#Morocc";
 	emotion ET_GO;
 	end;
 }
 
-prt_church,100,102,0	script	Ò»Ãû¾üÈË#Payon	4_M_PAY_SOLDIER,{
-	mes "[FFFÍÅ]";
-	mes "^666600ÎÒÑ¡Ôñ";
-	mes "¹Âµ¥µÄÊ¥µ®Ò¹...";
-	mes "ÍæÍæÖ½ÅÆ";
-	mes "ÍæÍæÌî×ÖÓÎÏ·, ß£ß£Ë¯ÁË!^000000";
+prt_church,100,102,0	script	ä¸€åå†›äºº#Payon	4_M_PAY_SOLDIER,{
+	mes "[FFFå›¢]";
+	mes "^666600æˆ‘é€‰æ‹©";
+	mes "å­¤å•çš„åœ£è¯žå¤œ...";
+	mes "çŽ©çŽ©çº¸ç‰Œ";
+	mes "çŽ©çŽ©å¡«å­—æ¸¸æˆ, æ’¸æ’¸ç¡äº†!^000000";
 	close;
 
 OnInit:
-	hideonnpc "Ò»Ãû¾üÈË#Payon";
+	hideonnpc "ä¸€åå†›äºº#Payon";
 	end;
 
 OnEnable:
-	hideoffnpc "Ò»Ãû¾üÈË#Payon";
+	hideoffnpc "ä¸€åå†›äºº#Payon";
 	emotion ET_GO;
 	end;
 }
 
-prt_church,101,102,0	script	Ò»Ãû¾üÈË#Amatsu	8_M_JPNSOLDIER,{
-	mes "[FFFÍÅ]";
-	mes "^CC9966Ê¦¸µËµ";
-	mes "É½ÏÂµÄÅ®ÈËÊÇÀÏ»¢, ÄÜ³ÔÁËÄãµÄÁé»ê";
-	mes "²»¹ýËûÃÇ¾ø¶Ô²»ÄÜ´ø×ßÎÒµÄ×ÔÓÉ!^000000";
+prt_church,101,102,0	script	ä¸€åå†›äºº#Amatsu	8_M_JPNSOLDIER,{
+	mes "[FFFå›¢]";
+	mes "^CC9966å¸ˆå‚…è¯´";
+	mes "å±±ä¸‹çš„å¥³äººæ˜¯è€è™Ž, èƒ½åƒäº†ä½ çš„çµé­‚";
+	mes "ä¸è¿‡ä»–ä»¬ç»å¯¹ä¸èƒ½å¸¦èµ°æˆ‘çš„è‡ªç”±!^000000";
 	close;
 
 OnInit:
-	hideonnpc "Ò»Ãû¾üÈË#Amatsu";
+	hideonnpc "ä¸€åå†›äºº#Amatsu";
 	end;
 
 OnEnable:
-	hideoffnpc "Ò»Ãû¾üÈË#Amatsu";
+	hideoffnpc "ä¸€åå†›äºº#Amatsu";
 	emotion ET_GO;
 	end;
 }
 
-prt_church,102,102,0	script	Ò»Ãû¾üÈË#Gonryun	8_M_TWSOLDIER,{
-	mes "[FFFÍÅ]";
-	mes "^669900...ÎÒÃÇÊÇ×ÔÓÉµÄ! ";
-	mes "ÎÒÃÇÊÇÒ»Ö»ÎÞ·¨±»´òµ¹µÄ¾ü¶Ó!^000000";
+prt_church,102,102,0	script	ä¸€åå†›äºº#Gonryun	8_M_TWSOLDIER,{
+	mes "[FFFå›¢]";
+	mes "^669900...æˆ‘ä»¬æ˜¯è‡ªç”±çš„! ";
+	mes "æˆ‘ä»¬æ˜¯ä¸€åªæ— æ³•è¢«æ‰“å€’çš„å†›é˜Ÿ!^000000";
 	close;
 
 OnInit:
-	hideonnpc "Ò»Ãû¾üÈË#Gonryun";
+	hideonnpc "ä¸€åå†›äºº#Gonryun";
 	end;
 
 OnEnable:
-	hideoffnpc "Ò»Ãû¾üÈË#Gonryun";
+	hideoffnpc "ä¸€åå†›äºº#Gonryun";
 	emotion ET_GO;
 	end;
 }
 
-prt_church,100,128,4	script	ÄÁÊ¦#w	1_M_PASTOR,{
+prt_church,100,128,4	script	ç‰§å¸ˆ#w	1_M_PASTOR,{
 	cutin "wedding_bomars01",2;
 	if (Upper == 2) {
-		mes "[ÎÖÂê³à]";
-		mes "ÄãºÃ°¡, º¢×Ó.";
-		mes "ÃÔÂ·ÁËÃ´? ßí.";
-		mes "ÄãÖªµÀÄãµÄ°Ö°ÖºÍ";
-		mes "ÂèÂèÔÚÄÄÀïÃ´?";
+		mes "[æ²ƒçŽ›èµ¤]";
+		mes "ä½ å¥½å•Š, å­©å­.";
+		mes "è¿·è·¯äº†ä¹ˆ? å””.";
+		mes "ä½ çŸ¥é“ä½ çš„çˆ¸çˆ¸å’Œ";
+		mes "å¦ˆå¦ˆåœ¨å“ªé‡Œä¹ˆ?";
 		close2;
 		cutin "wedding_bomars01",255;
 		end;
@@ -576,66 +572,66 @@ prt_church,100,128,4	script	ÄÁÊ¦#w	1_M_PASTOR,{
 					if (Sex) {
 						set $@wedding,1;
 						initnpctimer;
-						mes "[ÎÖÂê³à]";
-						mes "ÄêÇáµÄÁµÈË°¡, Çë";
-						mes "¼Ç×¡½ÓÏÂÀ´µÄÊ±¿Ì";
-						mes "ÔÚÄãÓàÏÂµÄÉúÃüÖÐ. ÄãµÄÎ´À´½«»á±»Äþ¾²Ëù±£ÓÓ";
-						mes "Ï£ÍûÄãµÄ°éÂÂÄÜ";
-						mes "ÔÚÄãÃÇÉúÃüÖÐµÄÃ¿Ò»Ìì¶¼ÓëÄãÒ»Í¬³É³¤.";
+						mes "[æ²ƒçŽ›èµ¤]";
+						mes "å¹´è½»çš„æ‹äººå•Š, è¯·";
+						mes "è®°ä½æŽ¥ä¸‹æ¥çš„æ—¶åˆ»";
+						mes "åœ¨ä½ ä½™ä¸‹çš„ç”Ÿå‘½ä¸­. ä½ çš„æœªæ¥å°†ä¼šè¢«å®é™æ‰€ä¿ä½‘";
+						mes "å¸Œæœ›ä½ çš„ä¼´ä¾£èƒ½";
+						mes "åœ¨ä½ ä»¬ç”Ÿå‘½ä¸­çš„æ¯ä¸€å¤©éƒ½ä¸Žä½ ä¸€åŒæˆé•¿.";
 						next;
-						mapannounce "prt_church","ÏÖÔÚÕýÔÚ¾ÙÐÐ½á»éµäÀñ, Mr. " + strcharinfo(0) + "...",bc_map;
-						mes "[ÎÖÂê³à]";
-						mes "Ö±µ½ÊÀ½çµÄÖÕ½á";
-						mes "ÎÒÒ²Ï£ÍûÄãÃÇÄÜ";
-						mes "ÊÖÇ£×ÅÊÖÒ»Æð×ßÏÂÈ¥";
-						mes "¹ÄÀøËý, ±£»¤Ëý";
-						mes "ÏÖÔÚ, ÎÒÄÜÖªµÀÐÂÄï";
-						mes "µÄÃû×ÖÁËÃ´?";
+						mapannounce "prt_church","çŽ°åœ¨æ­£åœ¨ä¸¾è¡Œç»“å©šå…¸ç¤¼, Mr. " + strcharinfo(0) + "...",bc_map;
+						mes "[æ²ƒçŽ›èµ¤]";
+						mes "ç›´åˆ°ä¸–ç•Œçš„ç»ˆç»“";
+						mes "æˆ‘ä¹Ÿå¸Œæœ›ä½ ä»¬èƒ½";
+						mes "æ‰‹ç‰µç€æ‰‹ä¸€èµ·èµ°ä¸‹åŽ»";
+						mes "é¼“åŠ±å¥¹, ä¿æŠ¤å¥¹";
+						mes "çŽ°åœ¨, æˆ‘èƒ½çŸ¥é“æ–°å¨˜";
+						mes "çš„åå­—äº†ä¹ˆ?";
 						next;
 						input $@wed_bride$;
-						mes "[ÎÖÂê³à]";
+						mes "[æ²ƒçŽ›èµ¤]";
 						mes "Mr. " + strcharinfo(0) + "...";
-						mes "ÄãÄÜ·¢ÊÄÔÚÄãÉúÃüÖÐ";
-						mes "Äã»áÓÀÔ¶Õä°®²¢ÇÒ";
-						mes "¹ØÐÄÄãµÄÐÂÄïÃ´,";
+						mes "ä½ èƒ½å‘èª“åœ¨ä½ ç”Ÿå‘½ä¸­";
+						mes "ä½ ä¼šæ°¸è¿œççˆ±å¹¶ä¸”";
+						mes "å…³å¿ƒä½ çš„æ–°å¨˜ä¹ˆ,";
 						mes "Miss " + $@wed_bride$ + "?";
 						next;
 						select("I do.");
 						set $@wed_groom$,strcharinfo(0);
-						mes "[ÎÖÂê³à]";
-						mes "ÏÖÔÚÎÒÒªÀ´ÎÊÎÊ";
-						mes "ÐÂÄïÀ´Ëµ³öËýµÄ";
-						mes "½á»éÊÄÑÔ.";
-						mes "ÎÒÃÇÒªÇëÐÂÄïÏòÇ°Ò»²½...";
+						mes "[æ²ƒçŽ›èµ¤]";
+						mes "çŽ°åœ¨æˆ‘è¦æ¥é—®é—®";
+						mes "æ–°å¨˜æ¥è¯´å‡ºå¥¹çš„";
+						mes "ç»“å©šèª“è¨€.";
+						mes "æˆ‘ä»¬è¦è¯·æ–°å¨˜å‘å‰ä¸€æ­¥...";
 						close2;
-						mapannounce "prt_church","ÐÂÀÉ, Mr. " + strcharinfo(0) + ", ÒÑ¾­ÓëËûµÄÐÂÄï Miss " + $wed_bride$ + "...",bc_map;
+						mapannounce "prt_church","æ–°éƒŽ, Mr. " + strcharinfo(0) + ", å·²ç»ä¸Žä»–çš„æ–°å¨˜ Miss " + $wed_bride$ + "...",bc_map;
 						cutin "",255;
 						end;
 					}
-					mes "[ÎÖÂê³à]";
-					mes "ÎÒºÜ±§Ç¸, ²»¹ýÎÒÐèÒª";
-					mes "ÐÂÄïÏÈÀ´ºÍÎÒ¶Ô»°";
-					mes "ÎÒÃÇ²ÅÄÜ¼ÌÐø»éÀñ.";
-					mes "ÕâËäÈ»ÊÇºÜÀÏµÄ¹æ¾Ø,";
-					mes "²»¹ý¹æ¶¨ÉÏ¾ÍÊÇÕâÐ©Ð´µÄ";
-					mes "²¢ÇÒÕâÑùÊ¹ÊÂÇé±äµÃºÜË³Àû.";
+					mes "[æ²ƒçŽ›èµ¤]";
+					mes "æˆ‘å¾ˆæŠ±æ­‰, ä¸è¿‡æˆ‘éœ€è¦";
+					mes "æ–°å¨˜å…ˆæ¥å’Œæˆ‘å¯¹è¯";
+					mes "æˆ‘ä»¬æ‰èƒ½ç»§ç»­å©šç¤¼.";
+					mes "è¿™è™½ç„¶æ˜¯å¾ˆè€çš„è§„çŸ©,";
+					mes "ä¸è¿‡è§„å®šä¸Šå°±æ˜¯è¿™äº›å†™çš„";
+					mes "å¹¶ä¸”è¿™æ ·ä½¿äº‹æƒ…å˜å¾—å¾ˆé¡ºåˆ©.";
 					goto L_End;
 				}
-				mes "[ÎÖÂê³à]";
-				mes "ÔÚÄã½á»éÖ®Ç°";
-				mes "Äã±ØÐëÖØÐÂÓëÄãµÄÁµÈË";
-				mes "×é¶Ó, È»ºóÀ´ÕÒÎÒ";
-				mes "ÕâÑù, ¾ÍÄÜ¼ÌÐøÄãµÄ.";
-				mes "½á»éµäÀñÁË";
+				mes "[æ²ƒçŽ›èµ¤]";
+				mes "åœ¨ä½ ç»“å©šä¹‹å‰";
+				mes "ä½ å¿…é¡»é‡æ–°ä¸Žä½ çš„æ‹äºº";
+				mes "ç»„é˜Ÿ, ç„¶åŽæ¥æ‰¾æˆ‘";
+				mes "è¿™æ ·, å°±èƒ½ç»§ç»­ä½ çš„.";
+				mes "ç»“å©šå…¸ç¤¼äº†";
 				goto L_End;
 			}
-			mes "[ÎÖÂê³à]";
-			mes "Äã±ØÐëÏÈÓë";
-			mes "¿ìÀÖµÄÂêÀö Ìá½»½á»éÉêÇë";
-			mes "È»ºóÄã²ÅÄÜ¹ýÀ´½á»é.";
-			mes "¿ìÀÖµÄÂêÀö»á¸æËßÄã";
-			mes "ËùÓÐµÄ½á»éÁ÷³Ì";
-			mes "²¢ÇÒ¸æËßÄãÐèÒª×¼±¸Ê²Ã´.";
+			mes "[æ²ƒçŽ›èµ¤]";
+			mes "ä½ å¿…é¡»å…ˆä¸Ž";
+			mes "å¿«ä¹çš„çŽ›ä¸½ æäº¤ç»“å©šç”³è¯·";
+			mes "ç„¶åŽä½ æ‰èƒ½è¿‡æ¥ç»“å©š.";
+			mes "å¿«ä¹çš„çŽ›ä¸½ä¼šå‘Šè¯‰ä½ ";
+			mes "æ‰€æœ‰çš„ç»“å©šæµç¨‹";
+			mes "å¹¶ä¸”å‘Šè¯‰ä½ éœ€è¦å‡†å¤‡ä»€ä¹ˆ.";
 			goto L_End;
 		}
 		else if ($@wedding == 1) {
@@ -645,42 +641,42 @@ prt_church,100,128,4	script	ÄÁÊ¦#w	1_M_PASTOR,{
 				if (.@partymembercount == 2) {
 					if (Sex == 0) {
 						if (strcharinfo(0) == $@wed_bride$) {
-							mes "[ÎÖÂê³à]";
-							mes "ÄêÇáµÄÁµÈË°¡, Çë";
-						        mes "¼Ç×¡½ÓÏÂÀ´µÄÊ±¿Ì";
-						        mes "ÔÚÄãÓàÏÂµÄÉúÃüÖÐ. ÄãµÄÎ´À´½«»á±»Äþ¾²Ëù±£ÓÓ";
-						        mes "Ï£ÍûÄãµÄ°éÂÂÄÜ";
-						        mes "ÔÚÄãÃÇÉúÃüÖÐµÄÃ¿Ò»Ìì¶¼ÓëÄãÒ»Í¬³É³¤.";
+							mes "[æ²ƒçŽ›èµ¤]";
+							mes "å¹´è½»çš„æ‹äººå•Š, è¯·";
+						        mes "è®°ä½æŽ¥ä¸‹æ¥çš„æ—¶åˆ»";
+						        mes "åœ¨ä½ ä½™ä¸‹çš„ç”Ÿå‘½ä¸­. ä½ çš„æœªæ¥å°†ä¼šè¢«å®é™æ‰€ä¿ä½‘";
+						        mes "å¸Œæœ›ä½ çš„ä¼´ä¾£èƒ½";
+						        mes "åœ¨ä½ ä»¬ç”Ÿå‘½ä¸­çš„æ¯ä¸€å¤©éƒ½ä¸Žä½ ä¸€åŒæˆé•¿.";
 							next;
-							mapannounce "prt_church","ÈÃÎÒÃÇÌýÌýÐÂÄï, Miss "+$@wed_bride$+", Ëµ...",bc_map;
-							mes "[ÎÖÂê³à]";
-							mes "Ð¡½ã "+$@wed_bride$+"...";
-							mes "ÄãÊÇ·ñ·¢ÊÄÄã½«°ÑÄã¸öÕæÐÄ";
-							mes "½»¸ø "+$@wed_groom$+",";
-							mes "Ïà°éÓëËûÉí±ß, ÎÞÂÛ";
-							mes "¶àÎ£ÏÕµÄÇé¿ö¶¼ÓëËû¶È¹ý?";
+							mapannounce "prt_church","è®©æˆ‘ä»¬å¬å¬æ–°å¨˜, Miss "+$@wed_bride$+", è¯´...",bc_map;
+							mes "[æ²ƒçŽ›èµ¤]";
+							mes "å°å§ "+$@wed_bride$+"...";
+							mes "ä½ æ˜¯å¦å‘èª“ä½ å°†æŠŠä½ ä¸ªçœŸå¿ƒ";
+							mes "äº¤ç»™ "+$@wed_groom$+",";
+							mes "ç›¸ä¼´ä¸Žä»–èº«è¾¹, æ— è®º";
+							mes "å¤šå±é™©çš„æƒ…å†µéƒ½ä¸Žä»–åº¦è¿‡?";
 							next;
-							if (select("^FF0000²».^000000:I do.") == 1) {
+							if (select("^FF0000ä¸.^000000:I do.") == 1) {
 								cutin "wedding_bomars03",2;
-								mapannounce "prt_church","ÏÂÒ»¶Ô, È¥×¼±¸...",bc_map;
-								mes "[ÎÖÂê³à]";
-								mes "ÕâÑù "+$@wed_groom$;
-								mes "Ëû²¢²»ÊÇ";
-								mes "ÄãÏëÓëÖ®½á»éµÄÈË? ßí.";
-								mes "ÎÒÕæ³ÏµÄµÀÇ¸";
-								mes "Ò»¶¨ÊÇÄÄÀïÅª´íÁË...";
+								mapannounce "prt_church","ä¸‹ä¸€å¯¹, åŽ»å‡†å¤‡...",bc_map;
+								mes "[æ²ƒçŽ›èµ¤]";
+								mes "è¿™æ · "+$@wed_groom$;
+								mes "ä»–å¹¶ä¸æ˜¯";
+								mes "ä½ æƒ³ä¸Žä¹‹ç»“å©šçš„äºº? å””.";
+								mes "æˆ‘çœŸè¯šçš„é“æ­‰";
+								mes "ä¸€å®šæ˜¯å“ªé‡Œå¼„é”™äº†...";
 								set $@wedding,0;
 								close2;
 								stopnpctimer;
 								cutin "",255;
 								end;
 							}
-							mes "[ÎÖÂê³à]";
-							mes "ÄãÊÇ·ñÕæÐÄ·¢ÊÄ";
-							mes "ÄãµÄÖÒ³ÏÓëÄÍÐÄ?";
-							mes "ÄãÊÇ·ñÔ¸ÒâÓë½á»é "+$@wed_groom$+"?";
+							mes "[æ²ƒçŽ›èµ¤]";
+							mes "ä½ æ˜¯å¦çœŸå¿ƒå‘èª“";
+							mes "ä½ çš„å¿ è¯šä¸Žè€å¿ƒ?";
+							mes "ä½ æ˜¯å¦æ„¿æ„ä¸Žç»“å©š "+$@wed_groom$+"?";
 							next;
-							if (select("ÊÇ, ÎÒÔ¸Òâ.:^FF0000²».^000000") == 1) {
+							if (select("æ˜¯, æˆ‘æ„¿æ„.:^FF0000ä¸.^000000") == 1) {
 								if (isloggedin(getcharid(3,$@wed_groom$))) {
 									if (marriage($@wed_groom$)) {
 										//Call Wedding effect
@@ -696,19 +692,19 @@ prt_church,100,128,4	script	ÄÁÊ¦#w	1_M_PASTOR,{
 										//Switch Script progression back to Bride
 										attachrid(getcharid(3,$@wed_bride$));
 										cutin "wedding_bomars02",2;
-										mapannounce "prt_church","ÎÒÏÖÔÚÐû²¼ÄãÃÇ, "+$@wed_groom$+" ºÍ "+$@wed_bride$+", ½áÎª·ò¸¾.",bc_map;
-										mes "[ÎÖÂê³à]";
-										mes "×÷ÎªÌì´ÍµÄÃ×µÂ¼ÓµÂµÛ¹úµÄ´óÖ÷½Ì";
-										mes "ÎÒÏÖÔÚ·Ç³£ÈÙÒ«µÄ";
-										mes "Ðû²¼ÄãÃÇÕýÊ½µÄÔÚÕâ¿é";
-										mes "ÃÀÀöµÄ´óµØÉÏÕýÊ½½áÎª·òÆÞ";
-										mes "Ô¸ÄãÃÇÎ´À´µÄÉú»îÖÐ";
-										mes "ÃÀÂúÓëÓäÔÃ.";
+										mapannounce "prt_church","æˆ‘çŽ°åœ¨å®£å¸ƒä½ ä»¬, "+$@wed_groom$+" å’Œ "+$@wed_bride$+", ç»“ä¸ºå¤«å¦‡.",bc_map;
+										mes "[æ²ƒçŽ›èµ¤]";
+										mes "ä½œä¸ºå¤©èµçš„ç±³å¾·åŠ å¾·å¸å›½çš„å¤§ä¸»æ•™";
+										mes "æˆ‘çŽ°åœ¨éžå¸¸è£è€€çš„";
+										mes "å®£å¸ƒä½ ä»¬æ­£å¼çš„åœ¨è¿™å—";
+										mes "ç¾Žä¸½çš„å¤§åœ°ä¸Šæ­£å¼ç»“ä¸ºå¤«å¦»";
+										mes "æ„¿ä½ ä»¬æœªæ¥çš„ç”Ÿæ´»ä¸­";
+										mes "ç¾Žæ»¡ä¸Žæ„‰æ‚¦.";
 										next;
-										mes "[ÎÖÂê³à]";
-										mes "×îºó...";
-										mes "ÇëÓÀÔ¶ÐÒ¸£,";
-										mes "Ç×°®µÄ "+$@wed_bride$+"...";
+										mes "[æ²ƒçŽ›èµ¤]";
+										mes "æœ€åŽ...";
+										mes "è¯·æ°¸è¿œå¹¸ç¦,";
+										mes "äº²çˆ±çš„ "+$@wed_bride$+"...";
 										set $@wed_groom$,"";
 										set $@wed_bride$,"";
 										set $@wedding,0;
@@ -720,24 +716,24 @@ prt_church,100,128,4	script	ÄÁÊ¦#w	1_M_PASTOR,{
 									}
 								}
 								cutin "wedding_bomars03",2;
-								mes "[ÎÖÂê³à]";
-								mes "ßí. ¿´ÉÏÈ¥";
-								mes "ÄãµÄÐÂÀÉ";
-								mes "ÔÚÒÇÊ½»¹Ã»½áÊø¾ÍÀë¿ªÁË";
-								mes "µÈËû»ØÀ´Ö®ºó";
-								mes "ÔÙÊÔÒ»´Î°É.";
+								mes "[æ²ƒçŽ›èµ¤]";
+								mes "å””. çœ‹ä¸ŠåŽ»";
+								mes "ä½ çš„æ–°éƒŽ";
+								mes "åœ¨ä»ªå¼è¿˜æ²¡ç»“æŸå°±ç¦»å¼€äº†";
+								mes "ç­‰ä»–å›žæ¥ä¹‹åŽ";
+								mes "å†è¯•ä¸€æ¬¡å§.";
 								goto L_End;
 							}
 							else {
 								cutin "wedding_bomars03",2;
-								mapannounce "prt_church","°¦! "+$@wed_bride$+" ¾Ü¾øÁË "+$@wed_groom$+"µÄÇó»é!",bc_map;
-								mes "[ÎÖÂê³à]";
-								mes "ßí.Õâ¿´ÆðÀ´";
-								mes "ÄãºÃÏñ¸Ä±äÁËÄãµÄÖ÷Òâ";
-								mes "¶ÔÓÚÐÂÀÉÎÒºÜ±§Ç¸";
-								mes "Äã±ØÐë·þ´ÓÄãµÄÄÚÐÄ";
-								mes "¸æËßÄã×Ô¼ºÕâÑùÊÇÕýÈ·µÄ";
-								mes "ºÃÁË, ¹ö°É!";
+								mapannounce "prt_church","å”‰! "+$@wed_bride$+" æ‹’ç»äº† "+$@wed_groom$+"çš„æ±‚å©š!",bc_map;
+								mes "[æ²ƒçŽ›èµ¤]";
+								mes "å””.è¿™çœ‹èµ·æ¥";
+								mes "ä½ å¥½åƒæ”¹å˜äº†ä½ çš„ä¸»æ„";
+								mes "å¯¹äºŽæ–°éƒŽæˆ‘å¾ˆæŠ±æ­‰";
+								mes "ä½ å¿…é¡»æœä»Žä½ çš„å†…å¿ƒ";
+								mes "å‘Šè¯‰ä½ è‡ªå·±è¿™æ ·æ˜¯æ­£ç¡®çš„";
+								mes "å¥½äº†, æ»šå§!";
 							}
 							set $@wed_groom$,"";
 							set $@wed_bride$,"";
@@ -754,26 +750,26 @@ prt_church,100,128,4	script	ÄÁÊ¦#w	1_M_PASTOR,{
 				callsub S_Busy;
 			}
 			if (strcharinfo(0) == $@wed_bride$) {
-				mes "[ÎÖÂê³à]";
-				mes "ßí? ¿´ÆðÀ´ËÆºõÊÇ";
-				mes "»¶ÀÖµÄÂêÀö";
-				mes "²¢Ã»ÓÐÊÕµ½ÄãµÄ½á»éÉêÇë";
-				mes "ÇëÏòËýÌá½»ÉêÇë";
-				mes "ÕâÑùÄã²ÅÄÜ";
-				mes "¿ªÊ¼½á»é³ÌÐòÁË.";
+				mes "[æ²ƒçŽ›èµ¤]";
+				mes "å””? çœ‹èµ·æ¥ä¼¼ä¹Žæ˜¯";
+				mes "æ¬¢ä¹çš„çŽ›ä¸½";
+				mes "å¹¶æ²¡æœ‰æ”¶åˆ°ä½ çš„ç»“å©šç”³è¯·";
+				mes "è¯·å‘å¥¹æäº¤ç”³è¯·";
+				mes "è¿™æ ·ä½ æ‰èƒ½";
+				mes "å¼€å§‹ç»“å©šç¨‹åºäº†.";
 				goto L_End;
 			}
 			callsub S_Busy;
 		}
 		callsub S_Busy;
 	}
-	mes "[ÎÖÂê³à]";
-	mes "ÎÒÏ£ÍûÄãÄÜ±£³ÖÕâ·Ý»¶ÀÖ";
-	mes "ÎÞÂÛÎ´À´µÄµÀÂ·ÓÐ¶àºÚ°µ";
-	mes "ÄãµÄ°éÂÂ¶¼Ò»Ö±ÄÜ";
-	mes "Åã°éÔÚËûµÄÉí±ß";
-	mes "²¢ÇÒ×ÅÑÛÎ´À´";
-	mes "ÄãÃÇµÄÐÒ¸£Ò²ÄÜ¼ÌÐøÏÂÈ¥.";
+	mes "[æ²ƒçŽ›èµ¤]";
+	mes "æˆ‘å¸Œæœ›ä½ èƒ½ä¿æŒè¿™ä»½æ¬¢ä¹";
+	mes "æ— è®ºæœªæ¥çš„é“è·¯æœ‰å¤šé»‘æš—";
+	mes "ä½ çš„ä¼´ä¾£éƒ½ä¸€ç›´èƒ½";
+	mes "é™ªä¼´åœ¨ä»–çš„èº«è¾¹";
+	mes "å¹¶ä¸”ç€çœ¼æœªæ¥";
+	mes "ä½ ä»¬çš„å¹¸ç¦ä¹Ÿèƒ½ç»§ç»­ä¸‹åŽ».";
 
 L_End:
 	close2;
@@ -782,18 +778,18 @@ L_End:
 
 S_Busy:
 	if ($@wed_groom$ != "" && $@wed_bride$ != "") {
-		mes "[ÎÖÂê³à]";
-		mes "»éÀñ";
-		mes "Ð¡½ã "+ $@wed_bride$ +" ºÍ";
-		mes "µÄ½á»éµäÀñÕýÔÚ½øÐÐ.";
-		mes "ÇëÐ¡Éù.";
+		mes "[æ²ƒçŽ›èµ¤]";
+		mes "å©šç¤¼";
+		mes "å°å§ "+ $@wed_bride$ +" å’Œ";
+		mes "çš„ç»“å©šå…¸ç¤¼æ­£åœ¨è¿›è¡Œ.";
+		mes "è¯·å°å£°.";
 		goto L_End;
 	}
-	mes "[ÎÖÂê³à]";
-	mes "ÎÒÕýÔÚÎªÁíÒ»¶Ô";
-	mes "ÐÂÈË×éÖ¯»éÀñ";
-	mes "ÇëµÈ´ýµ½ÄãÃÇµÄÊ±ºò";
-	mes "Ð»Ð»ÄãµÄÀí½â... ^FFFFFF ^000000";
+	mes "[æ²ƒçŽ›èµ¤]";
+	mes "æˆ‘æ­£åœ¨ä¸ºå¦ä¸€å¯¹";
+	mes "æ–°äººç»„ç»‡å©šç¤¼";
+	mes "è¯·ç­‰å¾…åˆ°ä½ ä»¬çš„æ—¶å€™";
+	mes "è°¢è°¢ä½ çš„ç†è§£... ^FFFFFF ^000000";
 	goto L_End;
 
 OnStop:
@@ -807,38 +803,38 @@ OnReset:
 	end;
 
 OnTimer180000:
-	mapannounce "prt_church","ÄãµÄ·´Ó¦Í¦ÂýµÄ... ÏÂÒ»¶Ô, Çë¿ªÊ¼°É.",bc_map;
+	mapannounce "prt_church","ä½ çš„ååº”æŒºæ…¢çš„... ä¸‹ä¸€å¯¹, è¯·å¼€å§‹å§.",bc_map;
 	donpcevent "Bishop#w::OnReset";
 	stopnpctimer;
 	end;
 }
 
-prt_church,28,178,4	script	Ã×µÂ¼Ó×È¹úÍõµîÏÂ	1_M_PRON_KING,{
+prt_church,28,178,4	script	ç±³å¾·åŠ å…¹å›½çŽ‹æ®¿ä¸‹	1_M_PRON_KING,{
 	callfunc "F_GM_NPC";
-	mes "[ÎÖÂê³à]";
-	mes "ÄãÊÇË­?";
-	mes "Äã±ØÐëÒªÓÐ";
-	mes "ÃÜÂë²ÅÄÜ¹»";
-	mes "½èÖúÎÒµÄÁ¦Á¿.";
+	mes "[æ²ƒçŽ›èµ¤]";
+	mes "ä½ æ˜¯è°?";
+	mes "ä½ å¿…é¡»è¦æœ‰";
+	mes "å¯†ç æ‰èƒ½å¤Ÿ";
+	mes "å€ŸåŠ©æˆ‘çš„åŠ›é‡.";
 	next;
 	if (callfunc("F_GM_NPC",1854,0) < 1) {
-		mes "[ÎÖÂê³à]";
-		mes "ÕâÀï";
-		mes "¿ÉÃ»µØ·½";
-		mes "¿ÉÒÔ¹í»ì.";
+		mes "[æ²ƒçŽ›èµ¤]";
+		mes "è¿™é‡Œ";
+		mes "å¯æ²¡åœ°æ–¹";
+		mes "å¯ä»¥é¬¼æ··.";
 		close2;
 		warp "prt_church",101,102;
 		end;
 	}
-	mes "[½á»é¿ª¹Ø]";
-	mes "»éÀñ¹ý³ÌÊÇ·ñ";
-	mes "·¢ÉúÁËÎÊÌâ?";
-	mes "ÎÒ¿ÉÒÔÖØÖÃÄÁÊ¦";
-	mes "ÎÖÂê³à NPC.";
+	mes "[ç»“å©šå¼€å…³]";
+	mes "å©šç¤¼è¿‡ç¨‹æ˜¯å¦";
+	mes "å‘ç”Ÿäº†é—®é¢˜?";
+	mes "æˆ‘å¯ä»¥é‡ç½®ç‰§å¸ˆ";
+	mes "æ²ƒçŽ›èµ¤ NPC.";
 	next;
-	switch(select("²»ÓÃÐ»Ð»!:ÖØÖÃ")) {
+	switch(select("ä¸ç”¨è°¢è°¢!:é‡ç½®")) {
 	case 1:
-		mes "[½á»é¿ª¹Ø]";
+		mes "[ç»“å©šå¼€å…³]";
 		mes "Alright, then.";
 		mes "However, if the";
 		mes "Bishop Vomars";
@@ -846,9 +842,9 @@ prt_church,28,178,4	script	Ã×µÂ¼Ó×È¹úÍõµîÏÂ	1_M_PRON_KING,{
 		mes "be best to reset it.";
 		close;
 	case 2:
-		donpcevent "ÄÁÊ¦#w::OnStop";
-		donpcevent "ÄÁÊ¦#w::OnReset";
-		mapannounce "prt_church","ÄãµÄ¶¯×÷Ò²Ì«ÂýÁË...ÏÂÒ»¶Ô, Çë¼ÌÐø.",bc_map;
+		donpcevent "ç‰§å¸ˆ#w::OnStop";
+		donpcevent "ç‰§å¸ˆ#w::OnReset";
+		mapannounce "prt_church","ä½ çš„åŠ¨ä½œä¹Ÿå¤ªæ…¢äº†...ä¸‹ä¸€å¯¹, è¯·ç»§ç»­.",bc_map;
 		mes "[Wedding Switch]";
 		mes "The Bishop Vomars NPC";
 		mes "has now been reactivated.";
@@ -858,7 +854,7 @@ prt_church,28,178,4	script	Ã×µÂ¼Ó×È¹úÍõµîÏÂ	1_M_PRON_KING,{
 	}
 }
 
-prt_church,20,179,4	script	Àë»éÖ°Ô±	1_F_LIBRARYGIRL,{
+prt_church,20,179,4	script	ç¦»å©šèŒå‘˜	1_F_LIBRARYGIRL,{
 	callfunc "F_GM_NPC";
 	mes "[Bad Ending]";
 	mes "Uh oh...";
@@ -905,7 +901,7 @@ prt_church,20,179,4	script	Àë»éÖ°Ô±	1_F_LIBRARYGIRL,{
 	}
 }
 
-prt_church,22,179,4	script	ÔÙ»éÖ°Ô±	1_F_LIBRARYGIRL,{
+prt_church,22,179,4	script	å†å©šèŒå‘˜	1_F_LIBRARYGIRL,{
 	callfunc "F_GM_NPC";
 	mes "[Wedding Again]";
 	mes "Hmm...?";

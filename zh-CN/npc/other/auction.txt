@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN ½Å±¾ºº»¯ www.rAthenaCN.com ×ª×Ô [ www.99Max.mE ]
-//============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN è„šæœ¬æ±‰åŒ– è½¬è‡ª [ www.99Max.mE ]
 //============================================================
 
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Auction system
 //===== By: ==================================================
 //= L0ne_W0lf
@@ -26,37 +22,37 @@
 
 // Auction House warpers
 //============================================================
-moc_ruins,78,173,6	script	ÅÄÂôĞĞ½Ó´ı#moc	98,{
+moc_ruins,78,173,6	script	æ‹å–è¡Œæ¥å¾…#moc	98,{
 	callfunc "F_AuctionWarper",1;
 }
 
-prontera,218,120,4	script	ÅÄÂôĞĞ½Ó´ı#prt	117,{
+prontera,218,120,4	script	æ‹å–è¡Œæ¥å¾…#prt	117,{
 	callfunc "F_AuctionWarper",2;
 }
 
-yuno,129,116,0	script	ÅÄÂôĞĞ½Ó´ı#yuno	90,{
+yuno,129,116,0	script	æ‹å–è¡Œæ¥å¾…#yuno	90,{
 	callfunc "F_AuctionWarper",3;
 }
 
-lighthalzen,205,169,6	script	ÅÄÂôĞĞ½Ó´ı#lhz	833,{
+lighthalzen,205,169,6	script	æ‹å–è¡Œæ¥å¾…#lhz	833,{
 	callfunc "F_AuctionWarper",4;
 }
 
 function	script	F_AuctionWarper	{
-	mes "[ÅÄÂôĞĞ½Ó´ı]";
-	mes "ÄúºÃ!×ğ¾´µÄÃ°ÏÕ¼Ò";
-	mes "ÄúÏë½øÈë";
-	mes "ÅÄÂô´óÌüÂğ?";
+	mes "[æ‹å–è¡Œæ¥å¾…]";
+	mes "æ‚¨å¥½!å°Šæ•¬çš„å†’é™©å®¶";
+	mes "æ‚¨æƒ³è¿›å…¥";
+	mes "æ‹å–å¤§å…å—?";
 	next;
-	if (select("ÏëÈ¥:²»Ïë") == 1) {
+	if (select("æƒ³å»:ä¸æƒ³") == 1) {
 		if (getarg(0) == 1 || getarg(0) == 4) {
-			mes "[ÅÄÂôĞĞ½Ó´ı]";
-			mes "Ì«ºÃÁË.ÄÇºÃ.";
-			mes "ÎÒÏ£ÍûÄúÍæµÃ¿ªĞÄ";
-			mes "×£ÄúÓä¿ì~";
+			mes "[æ‹å–è¡Œæ¥å¾…]";
+			mes "å¤ªå¥½äº†.é‚£å¥½.";
+			mes "æˆ‘å¸Œæœ›æ‚¨ç©å¾—å¼€å¿ƒ";
+			mes "ç¥æ‚¨æ„‰å¿«~";
 		} else {
-			mes "[ÅÄÂôĞĞ½Ó´ı]";
-			mes "ÇëÉÏ³µ.";
+			mes "[æ‹å–è¡Œæ¥å¾…]";
+			mes "è¯·ä¸Šè½¦.";
 		}
 		close2;
 		switch(getarg(0)) {
@@ -70,27 +66,27 @@ function	script	F_AuctionWarper	{
 			warp "auction_02",43,24; end;
 		}
 	}
-	mes "[ÅÄÂôĞĞ½Ó´ı]";
-	mes "ÄÇÃ´ºÃ°É,";
-	mes "ÔÙ¼û.";
-	mes "Èç¹ûÄú¸Ä±äÁËÖ÷Òâ";
-	mes "ÇëËæÊ±À´ÕÒÎÒ";
-	mes "Ğ»Ğ»ÄúµÄÖ§³Ö~";
+	mes "[æ‹å–è¡Œæ¥å¾…]";
+	mes "é‚£ä¹ˆå¥½å§,";
+	mes "å†è§.";
+	mes "å¦‚æœæ‚¨æ”¹å˜äº†ä¸»æ„";
+	mes "è¯·éšæ—¶æ¥æ‰¾æˆ‘";
+	mes "è°¢è°¢æ‚¨çš„æ”¯æŒ~";
 	close;
 }
 
 // Sign posts
 //============================================================
--	script	ÅÄÂôĞĞ¹ã¸æÅÆ#dum::AuctionSign	-1,{
-	mes "[ÅÄÂôĞĞ¹ã¸æÅÆ]";
-	mes "ÅÄÂôÎïÆ·»áÈÃÄãµÄÉú»î¸Ä±ä";
+-	script	æ‹å–è¡Œå¹¿å‘Šç‰Œ#dum::AuctionSign	-1,{
+	mes "[æ‹å–è¡Œå¹¿å‘Šç‰Œ]";
+	mes "æ‹å–ç‰©å“ä¼šè®©ä½ çš„ç”Ÿæ´»æ”¹å˜";
 	close;
 }
 
-moc_ruins,76,176,6	duplicate(AuctionSign)	ÅÄÂôĞĞ¹ã¸æÅÆ#moc	837
-prontera,216,120,4	duplicate(AuctionSign)	ÅÄÂôĞĞ¹ã¸æÅÆ#prt	837
-yuno,131,116,0	duplicate(AuctionSign)	ÅÄÂôĞĞ¹ã¸æÅÆ#yuno	837
-lighthalzen,207,169,6	duplicate(AuctionSign)	ÅÄÂôĞĞ¹ã¸æÅÆ#lhz	837
+moc_ruins,76,176,6	duplicate(AuctionSign)	æ‹å–è¡Œå¹¿å‘Šç‰Œ#moc	837
+prontera,216,120,4	duplicate(AuctionSign)	æ‹å–è¡Œå¹¿å‘Šç‰Œ#prt	837
+yuno,131,116,0	duplicate(AuctionSign)	æ‹å–è¡Œå¹¿å‘Šç‰Œ#yuno	837
+lighthalzen,207,169,6	duplicate(AuctionSign)	æ‹å–è¡Œå¹¿å‘Šç‰Œ#lhz	837
 
 // Warps
 //============================================================
@@ -101,40 +97,40 @@ auction_02,43,17,0	warp	auction_enterance_lhz	1,1,lighthalzen,209,169
 
 // Auction House NPCs
 //============================================================
--	script	ÅÄÂôĞĞ´óÌÃ¾­Àí#dum::AuctionBroker	-1,{
-	mes "[ÅÄÂôĞĞ´óÌÃ¾­Àí]";
-	mes "»¶Ó­À´µ½ÅÄÂô´óÌü.";
-	mes "Òª²é¿´Ê²Ã´»õÎï?";
+-	script	æ‹å–è¡Œå¤§å ‚ç»ç†#dum::AuctionBroker	-1,{
+	mes "[æ‹å–è¡Œå¤§å ‚ç»ç†]";
+	mes "æ¬¢è¿æ¥åˆ°æ‹å–å¤§å….";
+	mes "è¦æŸ¥çœ‹ä»€ä¹ˆè´§ç‰©?";
 	next;
-	if (select("²é¿´:½áÊø") == 1) {
-		mes "[ÅÄÂôĞĞ´óÌÃ¾­Àí]";
-		mes "×ğ¾´µÄ¿Í»§";
-		mes "ÒÑ¾­°ïÄú´ò¿ªÅÄÂôÏµÍ³";
-		mes "ÇëÄú×ÔĞĞÌí¼ÓÌí¼ÓÄúÒªÂôµÄÎïÆ·";
-		mes "Ò²¿ÉÒÔ²éÑ¯µ½ÆäËû¿Í»§ÊÛÂôµÄÎïÆ· Ğ»Ğ»ÄúµÄÖ§³Ö~";
+	if (select("æŸ¥çœ‹:ç»“æŸ") == 1) {
+		mes "[æ‹å–è¡Œå¤§å ‚ç»ç†]";
+		mes "å°Šæ•¬çš„å®¢æˆ·";
+		mes "å·²ç»å¸®æ‚¨æ‰“å¼€æ‹å–ç³»ç»Ÿ";
+		mes "è¯·æ‚¨è‡ªè¡Œæ·»åŠ æ·»åŠ æ‚¨è¦å–çš„ç‰©å“";
+		mes "ä¹Ÿå¯ä»¥æŸ¥è¯¢åˆ°å…¶ä»–å®¢æˆ·å”®å–çš„ç‰©å“ è°¢è°¢æ‚¨çš„æ”¯æŒ~";
 		openauction;
 		close;
 	}
-	mes "[ÅÄÂôĞĞ´óÌÃ¾­Àí]";
-	mes "Ğ»Ğ»ÄúµÄÖ§³Ö.";
-	mes "»¶Ó­ÄúÏÂ´Î¹âÁÙ";
-	mes "ÈçÓĞÈÎºÎÒâ¼ûºÍ½¨Òé";
-	mes "Çë·´À¡¸øÎÒÃÇµÄÊÛºó·şÎñ²¿ÃÅ";
-	mes "½«»áµÚÒ»Ê±¼ä¸øÄú´¦ÀíÄúµÄÎÊÌâ~";
+	mes "[æ‹å–è¡Œå¤§å ‚ç»ç†]";
+	mes "è°¢è°¢æ‚¨çš„æ”¯æŒ.";
+	mes "æ¬¢è¿æ‚¨ä¸‹æ¬¡å…‰ä¸´";
+	mes "å¦‚æœ‰ä»»ä½•æ„è§å’Œå»ºè®®";
+	mes "è¯·åé¦ˆç»™æˆ‘ä»¬çš„å”®åæœåŠ¡éƒ¨é—¨";
+	mes "å°†ä¼šç¬¬ä¸€æ—¶é—´ç»™æ‚¨å¤„ç†æ‚¨çš„é—®é¢˜~";
 	close;
 }
 
-auction_01,182,68,6	duplicate(AuctionBroker)	ÅÄÂôĞĞ´óÌÃ¾­Àí#moc1	98
-auction_01,182,75,0	duplicate(AuctionBroker)	ÅÄÂôĞĞ´óÌÃ¾­Àí#moc2	99
-auction_01,177,75,2	duplicate(AuctionBroker)	ÅÄÂôĞĞ´óÌÃ¾­Àí#moc3	98
-auction_01,177,68,4	duplicate(AuctionBroker)	ÅÄÂôĞĞ´óÌÃ¾­Àí#moc4	99
-auction_01,21,74,4	duplicate(AuctionBroker)	ÅÄÂôĞĞ´óÌÃ¾­Àí#prt1	117
-auction_01,27,78,4	duplicate(AuctionBroker)	ÅÄÂôĞĞ´óÌÃ¾­Àí#prt2	116
-auction_01,16,78,4	duplicate(AuctionBroker)	ÅÄÂôĞĞ´óÌÃ¾­Àí#prt3	115
-auction_02,158,47,6	duplicate(AuctionBroker)	ÅÄÂôĞĞ´óÌÃ¾­Àí#yuno1	90
-auction_02,145,47,2	duplicate(AuctionBroker)	ÅÄÂôĞĞ´óÌÃ¾­Àí#yuno2	90
-auction_02,151,54,0	duplicate(AuctionBroker)	ÅÄÂôĞĞ´óÌÃ¾­Àí#yuno3	90
-auction_02,152,41,4	duplicate(AuctionBroker)	ÅÄÂôĞĞ´óÌÃ¾­Àí#yuno4	90
-auction_02,57,46,2	duplicate(AuctionBroker)	ÅÄÂôĞĞ´óÌÃ¾­Àí#lhz1	874
-auction_02,31,46,6	duplicate(AuctionBroker)	ÅÄÂôĞĞ´óÌÃ¾­Àí#lhz2	874
-auction_02,43,65,4	duplicate(AuctionBroker)	ÅÄÂôĞĞ´óÌÃ¾­Àí#lhz3	833
+auction_01,182,68,6	duplicate(AuctionBroker)	æ‹å–è¡Œå¤§å ‚ç»ç†#moc1	98
+auction_01,182,75,0	duplicate(AuctionBroker)	æ‹å–è¡Œå¤§å ‚ç»ç†#moc2	99
+auction_01,177,75,2	duplicate(AuctionBroker)	æ‹å–è¡Œå¤§å ‚ç»ç†#moc3	98
+auction_01,177,68,4	duplicate(AuctionBroker)	æ‹å–è¡Œå¤§å ‚ç»ç†#moc4	99
+auction_01,21,74,4	duplicate(AuctionBroker)	æ‹å–è¡Œå¤§å ‚ç»ç†#prt1	117
+auction_01,27,78,4	duplicate(AuctionBroker)	æ‹å–è¡Œå¤§å ‚ç»ç†#prt2	116
+auction_01,16,78,4	duplicate(AuctionBroker)	æ‹å–è¡Œå¤§å ‚ç»ç†#prt3	115
+auction_02,158,47,6	duplicate(AuctionBroker)	æ‹å–è¡Œå¤§å ‚ç»ç†#yuno1	90
+auction_02,145,47,2	duplicate(AuctionBroker)	æ‹å–è¡Œå¤§å ‚ç»ç†#yuno2	90
+auction_02,151,54,0	duplicate(AuctionBroker)	æ‹å–è¡Œå¤§å ‚ç»ç†#yuno3	90
+auction_02,152,41,4	duplicate(AuctionBroker)	æ‹å–è¡Œå¤§å ‚ç»ç†#yuno4	90
+auction_02,57,46,2	duplicate(AuctionBroker)	æ‹å–è¡Œå¤§å ‚ç»ç†#lhz1	874
+auction_02,31,46,6	duplicate(AuctionBroker)	æ‹å–è¡Œå¤§å ‚ç»ç†#lhz2	874
+auction_02,43,65,4	duplicate(AuctionBroker)	æ‹å–è¡Œå¤§å ‚ç»ç†#lhz3	833

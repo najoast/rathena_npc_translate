@@ -1,10 +1,7 @@
 //============================================================
-//= rAthenaCN ½Å±¾ºº»¯ www.rAthenaCN.com ×ª×Ô [ www.99Max.mE ]
+//= rAthenaCN è„šæœ¬æ±‰åŒ– è½¬è‡ª [ www.99Max.mE ]
 //============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
+
 
 //===== Hercules Script ======================================
 //= Renters
@@ -22,132 +19,132 @@
 
 // Dragon Breeder
 //============================================================
-job3_rune01,88,62,5	script	×øÆïÁúËÇÑøÔ±	8W_SOLDIER,{
-	mes "[×øÆïÁúËÇÑøÔ±]";
+job3_rune01,88,62,5	script	åéª‘é¾™é¥²å…»å‘˜	8W_SOLDIER,{
+	mes "[åéª‘é¾™é¥²å…»å‘˜]";
 	if (Class == Job_Rune_Knight || Class == Job_Rune_Knight_T || Class == Job_Baby_Rune) {
-		mes "ÄúºÃ°¡, Ã°ÏÕÕß, ÏëÅªÌõÁúÀ´ÆïÆïÂğ?";
+		mes "æ‚¨å¥½å•Š, å†’é™©è€…, æƒ³å¼„æ¡é¾™æ¥éª‘éª‘å—?";
 		next;
-		switch(select("ÊÇ:·ñ")) {
+		switch(select("æ˜¯:å¦")) {
 		case 1:
 			//if (!getskilllv("RK_DRAGONTRAINING")) {
 			if (!getskilllv("KN_RIDING")) {
-				mes "[×øÆïÁúËÇÑøÔ±]";
-				mes "ÄúµÃÄÃÁË¼İÊ»Ö´ÕÕ(ÑµÁúÊõ)ÎÒ²Å¸Ò¸øÄú×âÁú°¡!";
+				mes "[åéª‘é¾™é¥²å…»å‘˜]";
+				mes "æ‚¨å¾—æ‹¿äº†é©¾é©¶æ‰§ç…§(è®­é¾™æœ¯)æˆ‘æ‰æ•¢ç»™æ‚¨ç§Ÿé¾™å•Š!";
 				close;
 			}
 			else if (checkriding()) {
-				mes "[×øÆïÁúËÇÑøÔ±]";
-				mes "ÄúÕâ¿èÏÂ²»Æï×ÅÒ»Í·Âğ?";
+				mes "[åéª‘é¾™é¥²å…»å‘˜]";
+				mes "æ‚¨è¿™èƒ¯ä¸‹ä¸éª‘ç€ä¸€å¤´å—?";
 				close;
 			}
 			else if(ismounting()) {
-				mes "[×øÆïÁúËÇÑøÔ±]";
-				mes "Ã°ÏÕÕß, ÎÒÕâĞ¡±¾ÉúÒâ, ²»ÉŞÕË!";
+				mes "[åéª‘é¾™é¥²å…»å‘˜]";
+				mes "å†’é™©è€…, æˆ‘è¿™å°æœ¬ç”Ÿæ„, ä¸èµŠè´¦!";
 				close;
 			}
 			setdragon;
 			close;
 		case 2:
-			mes "[×øÆïÁúËÇÑøÔ±]";
-			mes "Ã»ÊÂ¶ù, ×ö²»³ÉÉúÒâ×öÅóÓÑÂï, ÏÂ´ÎÔÙÀ´ºÙ!";
+			mes "[åéª‘é¾™é¥²å…»å‘˜]";
+			mes "æ²¡äº‹å„¿, åšä¸æˆç”Ÿæ„åšæœ‹å‹å˜›, ä¸‹æ¬¡å†æ¥å˜¿!";
 			close;
 		}
 	}
-	mes "ÕâÎ»¿Í¹Ù, ÓĞÊ²Ã´ÊÂ¶ùÄÜ°ïÄúÂğ?";
-	mes "ÁúºÜ±©ÔêµÄ, Ö»ÓĞ·ûÎÄÆïÊ¿²ÅÄÜ¼İÔ¦µÃÁË°¡!";
+	mes "è¿™ä½å®¢å®˜, æœ‰ä»€ä¹ˆäº‹å„¿èƒ½å¸®æ‚¨å—?";
+	mes "é¾™å¾ˆæš´èºçš„, åªæœ‰ç¬¦æ–‡éª‘å£«æ‰èƒ½é©¾é©­å¾—äº†å•Š!";
 	close;
 }
 
 // Dragon/Gryphon Master
 //============================================================
-prontera,130,213,5	script	ÊŞÆï¹ÜÀíÔ±	8W_SOLDIER,{
-	mes "[ÊŞÆï¹ÜÀíÔ±]";
+prontera,130,213,5	script	å…½éª‘ç®¡ç†å‘˜	8W_SOLDIER,{
+	mes "[å…½éª‘ç®¡ç†å‘˜]";
 	if (Class == Job_Rune_Knight || Class == Job_Rune_Knight_T || Class == Job_Baby_Rune) {
-		mes "ÄãºÃ°¡, Ã°ÏÕ¼Ò, Ïë×âÓÃÒ»Í·×øÆïÂğ?";
+		mes "ä½ å¥½å•Š, å†’é™©å®¶, æƒ³ç§Ÿç”¨ä¸€å¤´åéª‘å—?";
 		next;
-		switch(select("- ÊÇ:- ·ñ")) {
+		switch(select("- æ˜¯:- å¦")) {
 		case 1:
 			//if (!getskilllv("RK_DRAGONTRAINING")) {
 			if (!getskilllv("KN_RIDING")) {
-				mes "[ÊŞÆï¹ÜÀíÔ±]";
-				mes "ÇëÏÈÑ§»á³ËÆïÊõ, ºÃÂğ?";
+				mes "[å…½éª‘ç®¡ç†å‘˜]";
+				mes "è¯·å…ˆå­¦ä¼šä¹˜éª‘æœ¯, å¥½å—?";
 				close;
 			}
 			else if (checkriding()) {
-				mes "[ÊŞÆï¹ÜÀíÔ±]";
-				mes "ÄãÒÑ¾­Æï×ÅÒ»Í·ÁËºÙ......";
+				mes "[å…½éª‘ç®¡ç†å‘˜]";
+				mes "ä½ å·²ç»éª‘ç€ä¸€å¤´äº†å˜¿......";
 				close;
 			}
 			else if(ismounting()) {
-				mes "[ÊŞÆï¹ÜÀíÔ±]";
-				mes "ÎÒÃÇ²»´ò°×Ìõ, Ğ»Ğ»!";
+				mes "[å…½éª‘ç®¡ç†å‘˜]";
+				mes "æˆ‘ä»¬ä¸æ‰“ç™½æ¡, è°¢è°¢!";
 				close;
 			}
 			setdragon;
 			close;
 		case 2:
-			mes "[ÊŞÆï¹ÜÀíÔ±]";
-			mes "ÎÒÖªµÀÁË. ÄÇÃ´, ×£ÄãºÃÔË!";
+			mes "[å…½éª‘ç®¡ç†å‘˜]";
+			mes "æˆ‘çŸ¥é“äº†. é‚£ä¹ˆ, ç¥ä½ å¥½è¿!";
 			close;
 		}
 	}
 	if (Class == Job_Royal_Guard || Class == Job_Royal_Guard_T || Class == Job_Baby_Guard) {
-		mes "ÄãºÃ°¡, É§Äê, Ïë×âÓÃÒ»Í·Ê¨ğÕÂğ?";
+		mes "ä½ å¥½å•Š, éªšå¹´, æƒ³ç§Ÿç”¨ä¸€å¤´ç‹®é¹«å—?";
 		next;
-		switch(select("ÊÇ:·ñ")) {
+		switch(select("æ˜¯:å¦")) {
 		case 1:
 			if(!getskilllv("KN_RIDING")) {
-				mes "[ÊŞÆï¹ÜÀíÔ±]";
-				mes "ÇëÏÈÑ§»á³ËÆïÊõ, ºÃÂğ?";
+				mes "[å…½éª‘ç®¡ç†å‘˜]";
+				mes "è¯·å…ˆå­¦ä¼šä¹˜éª‘æœ¯, å¥½å—?";
 				close;
 			}
 			else if (checkriding()) {
-				mes "[ÊŞÆï¹ÜÀíÔ±]";
-				mes "ÄãÒÑ¾­Æï×ÅÒ»Í·ÁËºÙ......";
+				mes "[å…½éª‘ç®¡ç†å‘˜]";
+				mes "ä½ å·²ç»éª‘ç€ä¸€å¤´äº†å˜¿......";
 				close;
 			}
 			else if(ismounting()) {
-				mes "[ÊŞÆï¹ÜÀíÔ±]";
-				mes "ÎÒÃÇ²»´ò°×Ìõ, Ğ»Ğ»!";
+				mes "[å…½éª‘ç®¡ç†å‘˜]";
+				mes "æˆ‘ä»¬ä¸æ‰“ç™½æ¡, è°¢è°¢!";
 				close;
 			}
 			setriding;
 			close;
 		case 2:
-			mes "[Ê¨ğÕ¹ÜÀíÔ±]";
-			mes "ÎÒÖªµÀÁË. ÄÇÃ´, ×£ÄãºÃÔË!";
+			mes "[ç‹®é¹«ç®¡ç†å‘˜]";
+			mes "æˆ‘çŸ¥é“äº†. é‚£ä¹ˆ, ç¥ä½ å¥½è¿!";
 			close;
 		}
 	}
-	mes "ÎÒ¾ÍÊÇÎª ·ûÎÄÆïÊ¿ ºÍ »Ê¼ÒÎÀÊ¿ Ìá¹©×øÆïµÄ¹ÜÀíÔ±À²!";
+	mes "æˆ‘å°±æ˜¯ä¸º ç¬¦æ–‡éª‘å£« å’Œ çš‡å®¶å«å£« æä¾›åéª‘çš„ç®¡ç†å‘˜å•¦!";
 	close;
 }
 
 // Peco removing NPC
 //============================================================
-prontera,125,208,5	script	´ó×ìÄñ¹ÜÀíÔ±	8W_SOLDIER,{
-	mes "[ÎÀ±ø]";
-	mes "Èç¹ûÄã¿àÄÕÓÚÕâÖ»´ó×ìÄñÓ²ÊÇÒªÄãÆïËû,";
-	mes "²»ÈÃÄãÏÂÀ´, ";
-	mes "ÄÇÃ´À´ÕÒÎÒ¾Í¶ÔÀ²!";
+prontera,125,208,5	script	å¤§å˜´é¸Ÿç®¡ç†å‘˜	8W_SOLDIER,{
+	mes "[å«å…µ]";
+	mes "å¦‚æœä½ è‹¦æ¼äºè¿™åªå¤§å˜´é¸Ÿç¡¬æ˜¯è¦ä½ éª‘ä»–,";
+	mes "ä¸è®©ä½ ä¸‹æ¥, ";
+	mes "é‚£ä¹ˆæ¥æ‰¾æˆ‘å°±å¯¹å•¦!";
 	if (checkriding()) {
 		next;
-		mes "[ÎÀ±ø]";
-		mes "ÄãÕıÆï×ÅÒ»Ö»´ó×ìÄñºÙ,";
-		mes "²»ÏëÔÙÆïÁËÂğ?";
+		mes "[å«å…µ]";
+		mes "ä½ æ­£éª‘ç€ä¸€åªå¤§å˜´é¸Ÿå˜¿,";
+		mes "ä¸æƒ³å†éª‘äº†å—?";
 		next;
-		switch(select("- ÊÇ:- ·ñ")) {
+		switch(select("- æ˜¯:- å¦")) {
 		case 1:
 			setriding 0;
-			mes "[ÎÀ±ø]";
-			mes "ÔõÃ´Ñù, ";
-			mes "½ÅÌ¤ÊµµØµÄ¸Ğ¾õ?";
-			mes "HOLD×¡Âğ?";
+			mes "[å«å…µ]";
+			mes "æ€ä¹ˆæ ·, ";
+			mes "è„šè¸å®åœ°çš„æ„Ÿè§‰?";
+			mes "HOLDä½å—?";
 			close;
 		case 2:
-			mes "[ÎÀ±ø]";
-			mes "È°Äã±ğ¶ºÎÒÍæ,";
-			mes "ÎÒ·¢ÆğÅ­À´×Ô¼º¶¼ÅÂ.";
+			mes "[å«å…µ]";
+			mes "åŠä½ åˆ«é€—æˆ‘ç©,";
+			mes "æˆ‘å‘èµ·æ€’æ¥è‡ªå·±éƒ½æ€•.";
 			close;
 		}
 	}
@@ -157,58 +154,58 @@ prontera,125,208,5	script	´ó×ìÄñ¹ÜÀíÔ±	8W_SOLDIER,{
 // Magic Gear Renter
 //============================================================
 -	script	::mgm	-1,{
-	mes "[»úĞµÊ¦]";
+	mes "[æœºæ¢°å¸ˆ]";
 	if (Class == Job_Mechanic || Class == Job_Mechanic_T || Class == Job_Baby_Mechanic) {
-		mes "ÄãºÃ°¡, »ú½³!";
-		mes "Ïë×âÓÃÒ»Ì¨ÊÖÍÆ³µ, »¹ÊÇ";
-		mes "×âÓÃÒ»Ì¨¸ß´ï?";
+		mes "ä½ å¥½å•Š, æœºåŒ !";
+		mes "æƒ³ç§Ÿç”¨ä¸€å°æ‰‹æ¨è½¦, è¿˜æ˜¯";
+		mes "ç§Ÿç”¨ä¸€å°é«˜è¾¾?";
 		next;
-		switch(select("- ÊÖÍÆ³µ:- »ú¼×:- È¡Ïû")) {
+		switch(select("- æ‰‹æ¨è½¦:- æœºç”²:- å–æ¶ˆ")) {
 		case 1:
 			if (checkcart()) {
-				mes "[»úĞµÊ¦]";
-				mes "ÄãÒÑ¾­ÓĞÊÖÍÆ³µÁË.";
+				mes "[æœºæ¢°å¸ˆ]";
+				mes "ä½ å·²ç»æœ‰æ‰‹æ¨è½¦äº†.";
 				close;
 			}
 			setcart;
-			mes "[»úĞµÊ¦]";
-			mes "Ã»ÊÂ¶ù±ğ·³ÎÒ. ";
+			mes "[æœºæ¢°å¸ˆ]";
+			mes "æ²¡äº‹å„¿åˆ«çƒ¦æˆ‘. ";
 			close;
 		case 2:
 			if (checkmadogear()) {
-				mes "[»úĞµÊ¦]";
-				mes "ÄãÒÑ¾­×øÔÚ»ú¼×ÀïÃæÁË.";
+				mes "[æœºæ¢°å¸ˆ]";
+				mes "ä½ å·²ç»ååœ¨æœºç”²é‡Œé¢äº†.";
 				close;
 			}
 			else if (!getskilllv("NC_MADOLICENCE")) {
-				mes "[»úĞµÊ¦]";
-				mes "ÄÃµ½ÁË¼İÊ»Ö´ÕÕÔÙÀ´¼ûÎÒ!";
+				mes "[æœºæ¢°å¸ˆ]";
+				mes "æ‹¿åˆ°äº†é©¾é©¶æ‰§ç…§å†æ¥è§æˆ‘!";
 				close;
 			}
 			else if(ismounting()) {
-				mes "[»úĞµÊ¦]";
-				mes "×îÎªÉÌÈËÏµÇ®²»¹»ÊÇ³ÜÈè?";
+				mes "[æœºæ¢°å¸ˆ]";
+				mes "æœ€ä¸ºå•†äººç³»é’±ä¸å¤Ÿæ˜¯è€»è¾±?";
 				close;
 			}
 			setmadogear;
-			mes "[»úĞµÊ¦]";
-			mes "ÖÊ±£ÈıÄê, ¼ÇµÃ´ø·¢Æ±À´ÕÒÎÒ!";
+			mes "[æœºæ¢°å¸ˆ]";
+			mes "è´¨ä¿ä¸‰å¹´, è®°å¾—å¸¦å‘ç¥¨æ¥æ‰¾æˆ‘!";
 			close;
 		case 3:
 			close;
 		}
 	}
-	mes "ÎÒÄÜ°ïµ½ÄãÂğ?";
-	mes "»ú¼×Ö»¸ø»ú½³ÓÃ, ¼Ç×¡ÁË!";
+	mes "æˆ‘èƒ½å¸®åˆ°ä½ å—?";
+	mes "æœºç”²åªç»™æœºåŒ ç”¨, è®°ä½äº†!";
 	close;
 }
-prontera,163,178,3	duplicate(mgm)	Ä§µ¼»úĞµ¹ÜÀíÔ±#prt	8W_SOLDIER
-geffen,103,55,5	duplicate(mgm)	Ä§µ¼»úĞµ¹ÜÀíÔ±#gef	8W_SOLDIER
-payon,166,106,5	duplicate(mgm)	Ä§µ¼»úĞµ¹ÜÀíÔ±#pay	8W_SOLDIER
-aldebaran,133,112,5	duplicate(mgm)	Ä§µ¼»úĞµ¹ÜÀíÔ±#alde	8W_SOLDIER
-yuno,167,187,3	duplicate(mgm)	Ä§µ¼»úĞµ¹ÜÀíÔ±#yuno	8W_SOLDIER
-rachel,106,134,5	duplicate(mgm)	Ä§µ¼»úĞµ¹ÜÀíÔ±#ra	8W_SOLDIER
-dicastes01,187,207,3	duplicate(mgm)	Ä§µ¼»úĞµ¹ÜÀíÔ±#dic	8W_SOLDIER
-manuk,273,212,5	duplicate(mgm)	Ä§µ¼»úĞµ¹ÜÀíÔ±#man	8W_SOLDIER
-splendide,180,174,5	duplicate(mgm)	Ä§µ¼»úĞµ¹ÜÀíÔ±#spl	8W_SOLDIER
-mid_camp,242,243,3	duplicate(mgm)	Ä§µ¼»úĞµ¹ÜÀíÔ±#mid	8W_SOLDIER
+prontera,163,178,3	duplicate(mgm)	é­”å¯¼æœºæ¢°ç®¡ç†å‘˜#prt	8W_SOLDIER
+geffen,103,55,5	duplicate(mgm)	é­”å¯¼æœºæ¢°ç®¡ç†å‘˜#gef	8W_SOLDIER
+payon,166,106,5	duplicate(mgm)	é­”å¯¼æœºæ¢°ç®¡ç†å‘˜#pay	8W_SOLDIER
+aldebaran,133,112,5	duplicate(mgm)	é­”å¯¼æœºæ¢°ç®¡ç†å‘˜#alde	8W_SOLDIER
+yuno,167,187,3	duplicate(mgm)	é­”å¯¼æœºæ¢°ç®¡ç†å‘˜#yuno	8W_SOLDIER
+rachel,106,134,5	duplicate(mgm)	é­”å¯¼æœºæ¢°ç®¡ç†å‘˜#ra	8W_SOLDIER
+dicastes01,187,207,3	duplicate(mgm)	é­”å¯¼æœºæ¢°ç®¡ç†å‘˜#dic	8W_SOLDIER
+manuk,273,212,5	duplicate(mgm)	é­”å¯¼æœºæ¢°ç®¡ç†å‘˜#man	8W_SOLDIER
+splendide,180,174,5	duplicate(mgm)	é­”å¯¼æœºæ¢°ç®¡ç†å‘˜#spl	8W_SOLDIER
+mid_camp,242,243,3	duplicate(mgm)	é­”å¯¼æœºæ¢°ç®¡ç†å‘˜#mid	8W_SOLDIER

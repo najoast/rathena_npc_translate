@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN [¿¨ÆÕÀ­ÈËÔ±]ºº»¯ [ www.rAthenaCN.com ]
-//============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN [å¡æ™®æ‹‰äººå‘˜]æ±‰åŒ– 
 //============================================================
 
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Kafras (Cities/Dungeons/Fields)
 //===== By: ================================================== 
 //= Joseph
@@ -37,16 +33,16 @@
 
 // Brasilis
 //============================================================
-brasilis,197,221,4	script	¿¨ÆÕÀ­Ö°Ô±::kaf_bra	117,{
+brasilis,197,221,4	script	å¡æ™®æ‹‰èŒå‘˜::kaf_bra	117,{
 	cutin "kafra_01",2;
 	callfunc "F_Kafra",0,3,0,80,700;
 	savepoint "brasilis",195,259;
-	callfunc "F_KafEnd",0,1,"ÔÚ°ÍÎ÷³ÇÊĞ";
+	callfunc "F_KafEnd",0,1,"åœ¨å·´è¥¿åŸå¸‚";
 }
 
 // Dewata
 //============================================================
-dewata,202,184,6	script	¿¨ÆÕÀ­Ö°Ô±::kaf_dewata	117,{
+dewata,202,184,6	script	å¡æ™®æ‹‰èŒå‘˜::kaf_dewata	117,{
 	cutin "kafra_01",2;
 	callfunc "F_Kafra",0,10,1,40,700;
 	savepoint "dewata",206,174;
@@ -55,18 +51,18 @@ dewata,202,184,6	script	¿¨ÆÕÀ­Ö°Ô±::kaf_dewata	117,{
 
 // Glastheim
 //============================================================
-glast_01,200,275,5	script	¿¨ÆÕÀ­Ö°Ô±::kaf_glast	115,{
+glast_01,200,275,5	script	å¡æ™®æ‹‰èŒå‘˜::kaf_glast	115,{
 	cutin "kafra_03",2;
 	callfunc "F_Kafra",0,3,2,500,700;
 	savepoint "glast_01",200,272;
-	callfunc "F_KafEnd",0,1,"ÔÚ¿ËÀ×Ë¹ÌØººÄ·¹Å³Ç";
+	callfunc "F_KafEnd",0,1,"åœ¨å…‹é›·æ–¯ç‰¹æ±‰å§†å¤åŸ";
 }
 
 // Eden Group
 //============================================================
-moc_para01,10,185,4	script	¿¨ÆÕÀ­Ö°Ô±::kaf_eden	721,{
+moc_para01,10,185,4	script	å¡æ™®æ‹‰èŒå‘˜::kaf_eden	721,{
 	cutin "kafra_07",2;
-	mes "[¿¨ÆÕÀ­Ö°Ô±]";
+	mes "[å¡æ™®æ‹‰èŒå‘˜]";
 	mes "Welcome to the";
 	mes "Kafra Corporation.";
 	mes "I only offer Storage!";
@@ -75,21 +71,21 @@ moc_para01,10,185,4	script	¿¨ÆÕÀ­Ö°Ô±::kaf_eden	721,{
 
 // Izlude
 //============================================================
-izlude,128,148,6	duplicate(kaf_izlude)	¿¨ÆÕÀ­Ö°Ô±#iz	117
-izlude_a,128,148,6	duplicate(kaf_izlude)	¿¨ÆÕÀ­Ö°Ô±#iz_a	117
-izlude_b,128,148,6	duplicate(kaf_izlude)	¿¨ÆÕÀ­Ö°Ô±#iz_b	117
-izlude_c,128,148,6	duplicate(kaf_izlude)	¿¨ÆÕÀ­Ö°Ô±#iz_c	117
-izlude_d,128,148,6	duplicate(kaf_izlude)	¿¨ÆÕÀ­Ö°Ô±#iz_d	117
+izlude,128,148,6	duplicate(kaf_izlude)	å¡æ™®æ‹‰èŒå‘˜#iz	117
+izlude_a,128,148,6	duplicate(kaf_izlude)	å¡æ™®æ‹‰èŒå‘˜#iz_a	117
+izlude_b,128,148,6	duplicate(kaf_izlude)	å¡æ™®æ‹‰èŒå‘˜#iz_b	117
+izlude_c,128,148,6	duplicate(kaf_izlude)	å¡æ™®æ‹‰èŒå‘˜#iz_c	117
+izlude_d,128,148,6	duplicate(kaf_izlude)	å¡æ™®æ‹‰èŒå‘˜#iz_d	117
 
 // Port Malaya
 //============================================================
-malaya,71,79,4	script	¿¨ÆÕÀ­Ö°Ô±::kaf_malaya1	581,{
+malaya,71,79,4	script	å¡æ™®æ‹‰èŒå‘˜::kaf_malaya1	581,{
 	callfunc "F_Kafra",0,3,2,500,700;
 	savepoint "malaya",44,56;
 	callfunc "F_KafEnd",0,1,"in Port Malaya";
 }
 
-malaya,234,204,4	script	¿¨ÆÕÀ­Ö°Ô±::kaf_malaya2	581,{
+malaya,234,204,4	script	å¡æ™®æ‹‰èŒå‘˜::kaf_malaya2	581,{
 	callfunc "F_Kafra",0,3,2,500,700;
 	savepoint "malaya",281,212;
 	callfunc "F_KafEnd",0,1,"in Port Malaya";
@@ -97,7 +93,7 @@ malaya,234,204,4	script	¿¨ÆÕÀ­Ö°Ô±::kaf_malaya2	581,{
 
 // Rune Knight
 //============================================================
-job3_rune01,92,62,3	script	¿¨ÆÕÀ­Ö°Ô±::kaf_rune	114,{
+job3_rune01,92,62,3	script	å¡æ™®æ‹‰èŒå‘˜::kaf_rune	114,{
 	cutin "kafra_04",2;
 	callfunc "F_KafSet";
 	callfunc "F_Kafra",0,9,2,80,700;

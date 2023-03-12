@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN ½Å±¾ºº»¯ www.rAthenaCN.com ×ª×Ô [ www.99Max.mE ]
-//============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN è„šæœ¬æ±‰åŒ– è½¬è‡ª [ www.99Max.mE ]
 //============================================================
 
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Mail Boxes
 //===== By: ==================================================
 //= Euphy
@@ -23,7 +19,7 @@
 
 // Izlude
 //============================================================
-izlude_a,136,94,0	duplicate(MailBox)	ÓÊÕþËÙµÝ#iz_a	888
-izlude_b,136,94,0	duplicate(MailBox)	ÓÊÕþËÙµÝ#iz_b	888
-izlude_c,136,94,0	duplicate(MailBox)	ÓÊÕþËÙµÝ#iz_c	888
-izlude_d,136,94,0	duplicate(MailBox)	ÓÊÕþËÙµÝ#iz_d	888
+izlude_a,136,94,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#iz_a	888
+izlude_b,136,94,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#iz_b	888
+izlude_c,136,94,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#iz_c	888
+izlude_d,136,94,0	duplicate(MailBox)	é‚®æ”¿é€Ÿé€’#iz_d	888

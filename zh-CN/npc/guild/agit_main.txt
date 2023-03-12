@@ -1,10 +1,7 @@
 //============================================================
-//= rAthenaCN [¹«»áÕ½GVG]ºº»¯½Å±¾ [ www.rAthenaCN.com ]
+//= rAthenaCN [å…¬ä¼šæˆ˜GVG]æ±‰åŒ–è„šæœ¬ 
 //============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
+
 
 //===== rAthena Script =======================================
 //= War of Emperium Guild Template File
@@ -102,7 +99,7 @@ OnStartArena:
 		end;
 	}
 	if (!mobcount(strnpcinfo(2),"Agit#"+strnpcinfo(2)+"::OnAgitBreak")) {
-		monster strnpcinfo(2),.@emproom[0],.@emproom[1],"»ªÀö½ğÊô",1288,1,"Agit#"+strnpcinfo(2)+"::OnAgitBreak";
+		monster strnpcinfo(2),.@emproom[0],.@emproom[1],"åä¸½é‡‘å±",1288,1,"Agit#"+strnpcinfo(2)+"::OnAgitBreak";
 	}
 	end;
 
@@ -111,7 +108,7 @@ OnAgitBreak:
 	set .@GID,getcharid(2);
 	// Show and log error if an unguilded player breaks the Emperium. (Should NEVER happen)
 	if (.@GID <= 0) {
-		set .@notice$,"Íæ¼Ò "+strcharinfo(0)+" ("+getcharid(0)+") »÷ËéÁË»ªÀö½ğÊô: "+strnpcinfo(2)+" while guildless. No data will be saved and Emperium respawned.";
+		set .@notice$,"ç©å®¶ "+strcharinfo(0)+" ("+getcharid(0)+") å‡»ç¢äº†åä¸½é‡‘å±: "+strnpcinfo(2)+" while guildless. No data will be saved and Emperium respawned.";
  		logmes .@notice$; debugmes .@notice$;
 		donpcevent "Agit#"+strnpcinfo(2)+"::OnStartArena";
 		end;
@@ -129,12 +126,12 @@ OnAgitBreak:
 	SetCastleData strnpcinfo(2),1, .@GID;
 
 	// Announce that the Emperium is destroyed, and respawn all but new castle-occupants.
-	mapannounce strnpcinfo(2),"»ªÀö½ğÊô±»»÷ËéÁË.",bc_map|bc_woe,"0x00CCFF",FW_NORMAL,12;
+	mapannounce strnpcinfo(2),"åä¸½é‡‘å±è¢«å‡»ç¢äº†.",bc_map|bc_woe,"0x00CCFF",FW_NORMAL,12;
 	MapRespawnGuildID strnpcinfo(2),.@GID,6;
 
 	// Refresh castle data, disable Kafra and reset Invest information.
 	donpcevent strnpcinfo(0)+"::OnRecvCastle";
-	disablenpc "¿¨ÆÕÀ­ Ö°Ô±#"+strnpcinfo(2);
+	disablenpc "å¡æ™®æ‹‰ èŒå‘˜#"+strnpcinfo(2);
 	for( set .@i, 4; .@i <= 9; set .@i, .@i+1 ) {
 		SetCastleData strnpcinfo(2), .@i, 0;
 	}
@@ -149,7 +146,7 @@ OnAgitBreak:
 	if( agitcheck() )
 		donpcevent "Agit#"+strnpcinfo(2)+"::OnStartArena";
 	sleep 7000;
-	announce "¹«»á³Ç±¤ [" + getcastlename(strnpcinfo(2)) + "] ±» [" + getguildName(.@GID) + "] ¹«»áÕ¼Áì.",bc_all|bc_woe;
+	announce "å…¬ä¼šåŸå ¡ [" + getcastlename(strnpcinfo(2)) + "] è¢« [" + getguildName(.@GID) + "] å…¬ä¼šå é¢†.",bc_all|bc_woe;
 	end;
 
 // War of Emperium has ended.
@@ -166,12 +163,12 @@ OnAgitEnd:
 OnGuildBreak:
 	if (strnpcinfo(0) == "Gld_Agit_Manager") end;
 	// Kill guardians, disable the Kafra, and set owner to 0.
-	killmonster strnpcinfo(2),"¼à»¤ÈË#"+strnpcinfo(2)+"::OnGuardianDied";
-	disablenpc "¿¨ÆÕÀ­ Ö°Ô±#"+strnpcinfo(2);
+	killmonster strnpcinfo(2),"ç›‘æŠ¤äºº#"+strnpcinfo(2)+"::OnGuardianDied";
+	disablenpc "å¡æ™®æ‹‰ èŒå‘˜#"+strnpcinfo(2);
 	SetCastleData strnpcinfo(2),1,0;
 	// Wait before refreshing guild information.
 	sleep 7000;
-	Announce "¹«»á³Ç±¤ [" + GetCastleName(strnpcinfo(2)) + "] ±»Õ¼ÁìÁË.",0;
+	Announce "å…¬ä¼šåŸå ¡ [" + GetCastleName(strnpcinfo(2)) + "] è¢«å é¢†äº†.",0;
 	donpcevent strnpcinfo(0)+"::OnRecvCastle";
 	end;
 
@@ -184,100 +181,100 @@ OnRecvCastle:
 		killmonsterall strnpcinfo(2);
 		if (compare(strnpcinfo(2),"aldeg")) {
 			// Normal Spawns
-			monster strnpcinfo(2),0,0,"éœÉñ¹Ù",1117,10;
-			monster strnpcinfo(2),0,0,"¿¨ÀûË¹¸ñ",1132,4;
-			monster strnpcinfo(2),0,0,"ÉîÔ¨ÆïÊ¿",1219,2;
-			monster strnpcinfo(2),0,0,"ĞĞĞÌÕß",1205,1;
-			monster strnpcinfo(2),0,0,"Ã·ÄÉº£¿û",1216,10;
-			monster strnpcinfo(2),0,0,"ÖÓ¹Ö",1193,18;
-			monster strnpcinfo(2),0,0,"¹ÅÖÓÄ§",1269,9;
-			monster strnpcinfo(2),0,0,"ÓÄÁé¹­¼ıÊÖ",1276,7;
-			monster strnpcinfo(2),0,0,"Ğ°º¡ÀËÈË",1208,3;
-			monster strnpcinfo(2),0,0,"°®ÀöË¿Å®ÆÍ",1275,1;
-			monster strnpcinfo(2),0,0,"ÑªĞÈÆïÊ¿",1268,1;
-			//monster strnpcinfo(2),0,0,"ºÚ°µÖ®Íõ",1272,1;
+			monster strnpcinfo(2),0,0,"é—‡ç¥å®˜",1117,10;
+			monster strnpcinfo(2),0,0,"å¡åˆ©æ–¯æ ¼",1132,4;
+			monster strnpcinfo(2),0,0,"æ·±æ¸Šéª‘å£«",1219,2;
+			monster strnpcinfo(2),0,0,"è¡Œåˆ‘è€…",1205,1;
+			monster strnpcinfo(2),0,0,"æ¢…çº³æµ·è‘µ",1216,10;
+			monster strnpcinfo(2),0,0,"é’Ÿæ€ª",1193,18;
+			monster strnpcinfo(2),0,0,"å¤é’Ÿé­”",1269,9;
+			monster strnpcinfo(2),0,0,"å¹½çµå¼“ç®­æ‰‹",1276,7;
+			monster strnpcinfo(2),0,0,"é‚ªéª¸æµªäºº",1208,3;
+			monster strnpcinfo(2),0,0,"çˆ±ä¸½ä¸å¥³ä»†",1275,1;
+			monster strnpcinfo(2),0,0,"è¡€è…¥éª‘å£«",1268,1;
+			//monster strnpcinfo(2),0,0,"é»‘æš—ä¹‹ç‹",1272,1;
 			// Set Emperium room spawn coordinates and spawn monsters.
 			if (strnpcinfo(2) == "aldeg_cas01") { setarray .@emproom[0],216,23; }
 			else if (strnpcinfo(2) == "aldeg_cas02") { setarray .@emproom[0],213,23; }
 			else if (strnpcinfo(2) == "aldeg_cas03") { setarray .@emproom[0],205,31; }
 			else if (strnpcinfo(2) == "aldeg_cas04") { setarray .@emproom[0],36,217; }
 			else if (strnpcinfo(2) == "aldeg_cas05") { setarray .@emproom[0],27,101; }
-			//monster strnpcinfo(2),.@emproom[0],.@emproom[1],"ºÚ°µÖ®Íõ",1272,1;
-			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"ÖÓËşÊØ»¤Õß",1270,4;
-			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"ÑªĞÈÆïÊ¿",1268,1;
-			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"ÉîÔ¨ÆïÊ¿",1219,1;
-			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"ÓÄÁé¹­¼ıÊÖ",1276,5;
+			//monster strnpcinfo(2),.@emproom[0],.@emproom[1],"é»‘æš—ä¹‹ç‹",1272,1;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"é’Ÿå¡”å®ˆæŠ¤è€…",1270,4;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"è¡€è…¥éª‘å£«",1268,1;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"æ·±æ¸Šéª‘å£«",1219,1;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"å¹½çµå¼“ç®­æ‰‹",1276,5;
 		}
 		else if (compare(strnpcinfo(2),"gefg")) {
 			// Normal Spawns
-			monster strnpcinfo(2),0,0,"éœÉñ¹Ù",1117,10;
-			monster strnpcinfo(2),0,0,"·çÄ§Î×Ê¦",1263,11;
-			monster strnpcinfo(2),0,0,"Î×ÆÅ",1102,10;
-			monster strnpcinfo(2),0,0,"ÄÏ¹ÏÏÈÉú",1130,10;
-			monster strnpcinfo(2),0,0,"Âí¶û¶Å¿Ë",1140,20;
-			monster strnpcinfo(2),0,0,"ÓÄÁé½£Ê¿",1163,9;
-			monster strnpcinfo(2),0,0,"°®ÀöË¿Å®ÆÍ",1275,1;
-			monster strnpcinfo(2),0,0,"ÉîÔ¨ÆïÊ¿",1219,1;
-			//monster strnpcinfo(2),0,0,"ÔÂÒ¹Ã¨",1150,1;
-			//monster strnpcinfo(2),0,0,"Æ¤Àï¶÷",1159,1;
+			monster strnpcinfo(2),0,0,"é—‡ç¥å®˜",1117,10;
+			monster strnpcinfo(2),0,0,"é£é­”å·«å¸ˆ",1263,11;
+			monster strnpcinfo(2),0,0,"å·«å©†",1102,10;
+			monster strnpcinfo(2),0,0,"å—ç“œå…ˆç”Ÿ",1130,10;
+			monster strnpcinfo(2),0,0,"é©¬å°”æœå…‹",1140,20;
+			monster strnpcinfo(2),0,0,"å¹½çµå‰‘å£«",1163,9;
+			monster strnpcinfo(2),0,0,"çˆ±ä¸½ä¸å¥³ä»†",1275,1;
+			monster strnpcinfo(2),0,0,"æ·±æ¸Šéª‘å£«",1219,1;
+			//monster strnpcinfo(2),0,0,"æœˆå¤œçŒ«",1150,1;
+			//monster strnpcinfo(2),0,0,"çš®é‡Œæ©",1159,1;
 			// Set Emperium room spawn coordinates and spawn monsters.
 			if (strnpcinfo(2) == "gefg_cas01") { setarray .@emproom[0],197,181; }
 			else if (strnpcinfo(2) == "gefg_cas02") { setarray .@emproom[0],176,178; }
 			else if (strnpcinfo(2) == "gefg_cas03") { setarray .@emproom[0],244,166; }
 			else if (strnpcinfo(2) == "gefg_cas04") { setarray .@emproom[0],174,177; }
 			else if (strnpcinfo(2) == "gefg_cas05") { setarray .@emproom[0],194,184; }
-			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"ß±ÉñÕß",1203,1;
-			//monster strnpcinfo(2),.@emproom[0],.@emproom[1],"ÊŞÈËÓ¢ĞÛ",1087,1;
-			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"ÊŞÈËÕ½Ê¿³¤",1213,10;
-			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"ÊŞÈË¹­¼ıÊÖ",1189,10;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"å¼‘ç¥è€…",1203,1;
+			//monster strnpcinfo(2),.@emproom[0],.@emproom[1],"å…½äººè‹±é›„",1087,1;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"å…½äººæˆ˜å£«é•¿",1213,10;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"å…½äººå¼“ç®­æ‰‹",1189,10;
 		}
 		else if (compare(strnpcinfo(2),"payg")) {
 			// Normal Spawns
-			monster strnpcinfo(2),0,0,"½«¾üÄ§±®",1277,9;
-			monster strnpcinfo(2),0,0,"Ğ°º¡ÀËÈË",1208,10;
-			monster strnpcinfo(2),0,0,"°ëÁúÈË",1262,5;
-			monster strnpcinfo(2),0,0,"Î×ÆÅ",1102,5;
-			//monster strnpcinfo(2),0,0,"ÔÂÒ¹Ã¨",1150,1;
-			//monster strnpcinfo(2),0,0,"»¢Íõ",1115,1;
-			monster strnpcinfo(2),0,0,"¹í»ğ",1129,11;
-			monster strnpcinfo(2),0,0,"ÓÄÁé¹­¼ıÊÖ",1276,5;
-			monster strnpcinfo(2),0,0,"È®Ñı¹­¼ıÊÖ",1282,4;
-			monster strnpcinfo(2),0,0,"òùòğ¹­¼ıÊÖ",1253,5;
+			monster strnpcinfo(2),0,0,"å°†å†›é­”ç¢‘",1277,9;
+			monster strnpcinfo(2),0,0,"é‚ªéª¸æµªäºº",1208,10;
+			monster strnpcinfo(2),0,0,"åŠé¾™äºº",1262,5;
+			monster strnpcinfo(2),0,0,"å·«å©†",1102,5;
+			//monster strnpcinfo(2),0,0,"æœˆå¤œçŒ«",1150,1;
+			//monster strnpcinfo(2),0,0,"è™ç‹",1115,1;
+			monster strnpcinfo(2),0,0,"é¬¼ç«",1129,11;
+			monster strnpcinfo(2),0,0,"å¹½çµå¼“ç®­æ‰‹",1276,5;
+			monster strnpcinfo(2),0,0,"çŠ¬å¦–å¼“ç®­æ‰‹",1282,4;
+			monster strnpcinfo(2),0,0,"è™è å¼“ç®­æ‰‹",1253,5;
 			// Set Emperium room spawn coordinates and spawn monsters.
 			if (strnpcinfo(2) == "payg_cas01") { setarray .@emproom[0],139,139; }
 			else if (strnpcinfo(2) == "payg_cas02") { setarray .@emproom[0],38,25; }
 			else if (strnpcinfo(2) == "payg_cas03") { setarray .@emproom[0],269,265; }
 			else if (strnpcinfo(2) == "payg_cas04") { setarray .@emproom[0],270,28; }
 			else if (strnpcinfo(2) == "payg_cas05") { setarray .@emproom[0],30,30; }
-			//monster strnpcinfo(2),.@emproom[0],.@emproom[1],"ÔÂÒ¹Ã¨",1150,1;
-			//monster strnpcinfo(2),.@emproom[0],.@emproom[1],"»¢Íõ",1115,1;
-			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Ğ°º¡ÀËÈË",1208,6;
-			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"ÓÄÁé¹­¼ıÊÖ",1276,5;
+			//monster strnpcinfo(2),.@emproom[0],.@emproom[1],"æœˆå¤œçŒ«",1150,1;
+			//monster strnpcinfo(2),.@emproom[0],.@emproom[1],"è™ç‹",1115,1;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"é‚ªéª¸æµªäºº",1208,6;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"å¹½çµå¼“ç®­æ‰‹",1276,5;
 		}
 		else if (compare(strnpcinfo(2),"prtg")) {
 			// Normal Spawns
-			monster strnpcinfo(2),0,0,"ÓÄÁé½£Ê¿",1163,1;
-			monster strnpcinfo(2),0,0,"¿¨ÀûË¹¸ñ",1132,10;
-			monster strnpcinfo(2),0,0,"ÉîÔ¨ÆïÊ¿",1219,5;
-			monster strnpcinfo(2),0,0,"ÑªĞÈÆïÊ¿",1268,5;
-			//monster strnpcinfo(2),0,0,"±ù±©ÆïÊ¿",1251,1;
-			//monster strnpcinfo(2),0,0,"¿¨ÂØ",1252,1;
-			monster strnpcinfo(2),0,0,"ÓÄÁé¹­¼ıÊÖ",1276,5;
-			monster strnpcinfo(2),0,0,"Ê¨ğÕÊŞ",1259,2;
-			monster strnpcinfo(2),0,0,"¿­ÃÀÀ­",1283,3;
-			monster strnpcinfo(2),0,0,"°®ÀöË¿Å®ÆÍ",1275,1;
-			monster strnpcinfo(2),0,0,"°¬Ë¹¶÷Ä§Å®",1200,1;
+			monster strnpcinfo(2),0,0,"å¹½çµå‰‘å£«",1163,1;
+			monster strnpcinfo(2),0,0,"å¡åˆ©æ–¯æ ¼",1132,10;
+			monster strnpcinfo(2),0,0,"æ·±æ¸Šéª‘å£«",1219,5;
+			monster strnpcinfo(2),0,0,"è¡€è…¥éª‘å£«",1268,5;
+			//monster strnpcinfo(2),0,0,"å†°æš´éª‘å£«",1251,1;
+			//monster strnpcinfo(2),0,0,"å¡ä»‘",1252,1;
+			monster strnpcinfo(2),0,0,"å¹½çµå¼“ç®­æ‰‹",1276,5;
+			monster strnpcinfo(2),0,0,"ç‹®é¹«å…½",1259,2;
+			monster strnpcinfo(2),0,0,"å‡¯ç¾æ‹‰",1283,3;
+			monster strnpcinfo(2),0,0,"çˆ±ä¸½ä¸å¥³ä»†",1275,1;
+			monster strnpcinfo(2),0,0,"è‰¾æ–¯æ©é­”å¥³",1200,1;
 			// Set Emperium room spawn coordinates and spawn monsters.
 			if (strnpcinfo(2) == "prtg_cas01") { setarray .@emproom[0],197,197; }
 			else if (strnpcinfo(2) == "prtg_cas02") { setarray .@emproom[0],157,174; }
 			else if (strnpcinfo(2) == "prtg_cas03") { setarray .@emproom[0],16,220; }
 			else if (strnpcinfo(2) == "prtg_cas04") { setarray .@emproom[0],291,14; }
 			else if (strnpcinfo(2) == "prtg_cas05") { setarray .@emproom[0],266,266; }
-			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"ÑªĞÈÆïÊ¿",1268,1;
-			//monster strnpcinfo(2),.@emproom[0],.@emproom[1],"±ù±©ÆïÊ¿",1251,1;
-			//monster strnpcinfo(2),.@emproom[0],.@emproom[1],"¿¨ÂØ",1252,1;
-			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"ÉîÔ¨ÆïÊ¿",1219,1;
-			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"ÓÄÁé¹­¼ıÊÖ",1276,5;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"è¡€è…¥éª‘å£«",1268,1;
+			//monster strnpcinfo(2),.@emproom[0],.@emproom[1],"å†°æš´éª‘å£«",1251,1;
+			//monster strnpcinfo(2),.@emproom[0],.@emproom[1],"å¡ä»‘",1252,1;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"æ·±æ¸Šéª‘å£«",1219,1;
+			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"å¹½çµå¼“ç®­æ‰‹",1276,5;
 		}
 		// Add custom Guild Castles here.
 		else {
@@ -285,7 +282,7 @@ OnRecvCastle:
 		}
 		donpcevent "Agit#"+strnpcinfo(2)+"::OnStartArena";
 		// Disable Kafra Staff...
-		disablenpc "¿¨ÆÕÀ­ Ö°Ô±#"+strnpcinfo(2);
+		disablenpc "å¡æ™®æ‹‰ èŒå‘˜#"+strnpcinfo(2);
 		end;
 	}
 	else {
@@ -315,33 +312,33 @@ OnRecvCastle:
 			end;
 		}
 		// And load purchased Guardian in castles.
-		donpcevent "¼à»¤ÈË#"+strnpcinfo(2)+"::OnSpawnGuardians";
+		donpcevent "ç›‘æŠ¤äºº#"+strnpcinfo(2)+"::OnSpawnGuardians";
 		// And display Kafra if purchased.
-		if (GetCastleData(strnpcinfo(2),9) < 1) disablenpc "¿¨ÆÕÀ­ Ö°Ô±#"+strnpcinfo(2);
+		if (GetCastleData(strnpcinfo(2),9) < 1) disablenpc "å¡æ™®æ‹‰ èŒå‘˜#"+strnpcinfo(2);
 	}
 	end;
 }
 
 // WoE : Guild Kafras
 //============================================================
--	script	¿¨ÆÕÀ­ Ö°Ô±#woe::guildkafra	-1,{
+-	script	å¡æ™®æ‹‰ èŒå‘˜#woe::guildkafra	-1,{
 
 	set .@GID,GetCastleData(strnpcinfo(2),1);
 
 	if (compare(strnpcinfo(2),"aldeg")) {
-		setarray .@destination$[0],"°¬¶ûÅÁÀ¼","aldebaran";
+		setarray .@destination$[0],"è‰¾å°”å¸•å…°","aldebaran";
 		setarray .@coordinates[0],132,103;
 	}
 	else if (compare(strnpcinfo(2),"gefg")) {
-		setarray .@destination$[0],"¼ª·Ò","geffen";
+		setarray .@destination$[0],"å‰èŠ¬","geffen";
 		setarray .@coordinates[0],120,39;
 	}
 	else if (compare(strnpcinfo(2),"payg")) {
-		setarray .@destination$[0],"ì³Ñï","payon";
+		setarray .@destination$[0],"æ–æ‰¬","payon";
 		setarray .@coordinates[0],70,100;
 	}
 	else if (compare(strnpcinfo(2),"prtg")) {
-		setarray .@destination$[0],"ÆÕÂ¡µÂÀ­","prontera";
+		setarray .@destination$[0],"æ™®éš†å¾·æ‹‰","prontera";
 		setarray .@coordinates[0],278,211;
 	}
 	// Add custom Guild Castles here.
@@ -351,44 +348,44 @@ OnRecvCastle:
 
 	cutin "kafra_01",2;
 	if (getcharid(2) == .@GID) {
-		mes "[¿¨ÆÕÀ­ Ö°Ô±]";
-		mes "»¶Ó­¹âÁÙ. ^ff0000" + GetGuildName(.@GID) + "^000000 »áÔ±ÃÇ.";
-		mes "¿¨ÆÕÀ­¹«Ë¾, ÓÀÔ¶ÔÚ¸÷Î»Éí±ßÎªÄú·şÎñ.";
+		mes "[å¡æ™®æ‹‰ èŒå‘˜]";
+		mes "æ¬¢è¿å…‰ä¸´. ^ff0000" + GetGuildName(.@GID) + "^000000 ä¼šå‘˜ä»¬.";
+		mes "å¡æ™®æ‹‰å…¬å¸, æ°¸è¿œåœ¨å„ä½èº«è¾¹ä¸ºæ‚¨æœåŠ¡.";
 		next;
-		switch (select("Ê¹ÓÃ²Ö¿â·şÎñ:Ê¹ÓÃ¿Õ¼äÒÆ¶¯·şÎñ:Ê¹ÓÃÊÖÍÆ³µ·şÎñ:½áÊø")) {
+		switch (select("ä½¿ç”¨ä»“åº“æœåŠ¡:ä½¿ç”¨ç©ºé—´ç§»åŠ¨æœåŠ¡:ä½¿ç”¨æ‰‹æ¨è½¦æœåŠ¡:ç»“æŸ")) {
 		case 1:
 			if (getskilllv("NV_BASIC") < 6) {
-				mes "[¿¨ÆÕÀ­ Ö°Ô±]";
-				mes "¶Ô²»Æğ,";
-				mes "ÏëÒªÊ¹ÓÃ²Ö¿â·şÎñµÄ»°";
-				mes "³õÑ§ÕßµÄ»ù±¾¼¼ÄÜ";
-				mes "µÈ¼¶Òªµ½´ï 6¼¶ÒÔÉÏ.";
+				mes "[å¡æ™®æ‹‰ èŒå‘˜]";
+				mes "å¯¹ä¸èµ·,";
+				mes "æƒ³è¦ä½¿ç”¨ä»“åº“æœåŠ¡çš„è¯";
+				mes "åˆå­¦è€…çš„åŸºæœ¬æŠ€èƒ½";
+				mes "ç­‰çº§è¦åˆ°è¾¾ 6çº§ä»¥ä¸Š.";
 				close2;
 				cutin "",255;
 				end;
 			}
-			mes "[¿¨ÆÕÀ­ Ö°Ô±]";
-			mes "ÄãºÃ, ";
-			mes "²Ö¿âÒÑ¿ªÆô.";
-			mes "¸ĞĞ»ÄúÊ¹ÓÃ";
-			mes "¿¨ÆÕÀ­·şÎñ.";
+			mes "[å¡æ™®æ‹‰ èŒå‘˜]";
+			mes "ä½ å¥½, ";
+			mes "ä»“åº“å·²å¼€å¯.";
+			mes "æ„Ÿè°¢æ‚¨ä½¿ç”¨";
+			mes "å¡æ™®æ‹‰æœåŠ¡.";
 			close2;
 			cutin "",255;
 			openstorage;
 			end;
 		case 2:
-			mes "[¿¨ÆÕÀ­ Ö°Ô±]";
-			mes "ÇëËµ";
-			mes "ÄãÏëÒªÈ¥µÄµØ·½.";
+			mes "[å¡æ™®æ‹‰ èŒå‘˜]";
+			mes "è¯·è¯´";
+			mes "ä½ æƒ³è¦å»çš„åœ°æ–¹.";
 			next;
-			switch (select(.@destination$+" -> 200z:È¡Ïû")) {
+			switch (select(.@destination$+" -> 200z:å–æ¶ˆ")) {
 			case 1:
 				if (Zeny < 200) {
-					mes "[¿¨ÆÕÀ­ Ö°Ô±]";
-					mes "±§Ç¸, ";
-					mes "ÄúµÄ½ğ¶î²»×ã";
-					mes "ÇëÔÙÈ·ÈÏ.";
-					mes "ĞèÒª "+.@destination$+" 200 zeny.";
+					mes "[å¡æ™®æ‹‰ èŒå‘˜]";
+					mes "æŠ±æ­‰, ";
+					mes "æ‚¨çš„é‡‘é¢ä¸è¶³";
+					mes "è¯·å†ç¡®è®¤.";
+					mes "éœ€è¦ "+.@destination$+" 200 zeny.";
 					close2;
 					cutin "",255;
 					end;
@@ -405,40 +402,40 @@ OnRecvCastle:
 			}
 		case 3:
 			if (BaseClass != Job_Merchant) {
-				mes "[¿¨ÆÕÀ­ Ö°Ô±]";
-				mes "ºÜ±§Ç¸,";
-				mes "ÊÖÍÆ³µ·şÎñ";
-				mes "Ö»ÊÊÓÃÓÚÉÌÈË,";
-				mes "Ìú½³, Éñ¹¤½³";
-				mes "Á¶½ğÊõÊ¦, ´´ÔìÕß,";
-				mes "»úĞµ¹¤½³Óë»ùÒòÑ§Õß.";
+				mes "[å¡æ™®æ‹‰ èŒå‘˜]";
+				mes "å¾ˆæŠ±æ­‰,";
+				mes "æ‰‹æ¨è½¦æœåŠ¡";
+				mes "åªé€‚ç”¨äºå•†äºº,";
+				mes "é“åŒ , ç¥å·¥åŒ ";
+				mes "ç‚¼é‡‘æœ¯å¸ˆ, åˆ›é€ è€…,";
+				mes "æœºæ¢°å·¥åŒ ä¸åŸºå› å­¦è€….";
 				close2;
 				cutin "",255;
 				end;
 			}
 			if (checkcart()) {
-				mes "[¿¨ÆÕÀ­ Ö°Ô±]";
-				mes "ÄãÒÑ¾­×â";
-				mes "¹ıÊÖÍÆ³µÁË.";
-				mes "±§Ç¸,";
-				mes "×â¹ıÊÖÍÆ³µ";
-				mes "¾ÍÎŞ·¨ÔÚ×â†ª.";
+				mes "[å¡æ™®æ‹‰ èŒå‘˜]";
+				mes "ä½ å·²ç»ç§Ÿ";
+				mes "è¿‡æ‰‹æ¨è½¦äº†.";
+				mes "æŠ±æ­‰,";
+				mes "ç§Ÿè¿‡æ‰‹æ¨è½¦";
+				mes "å°±æ— æ³•åœ¨ç§Ÿå•°.";
 				close2;
 				cutin "",255;
 				end;
 			}
-			mes "[¿¨ÆÕÀ­ Ö°Ô±]";
-			mes "ÊÖÍÆ³µÊ¹ÓÃ·ÑÓÃÊÇ";
+			mes "[å¡æ™®æ‹‰ èŒå‘˜]";
+			mes "æ‰‹æ¨è½¦ä½¿ç”¨è´¹ç”¨æ˜¯";
 			mes "800 zeny. ";
-			mes "ÄúÒªÊ¹ÓÃÂğ?";
+			mes "æ‚¨è¦ä½¿ç”¨å—?";
 			next;
-			switch (select("Ê¹ÓÃ.:È¡Ïû")) {
+			switch (select("ä½¿ç”¨.:å–æ¶ˆ")) {
 			case 1:
 				if (Zeny < 800) {
-					mes "[¿¨ÆÕÀ­ Ö°Ô±]";
-					mes "±§Ç¸,";
-					mes "ÄúµÄ½ğ¶î²»×ã";
-					mes "ÊÖÍÆ³µÊ¹ÓÃ·ÑÊÇ";
+					mes "[å¡æ™®æ‹‰ èŒå‘˜]";
+					mes "æŠ±æ­‰,";
+					mes "æ‚¨çš„é‡‘é¢ä¸è¶³";
+					mes "æ‰‹æ¨è½¦ä½¿ç”¨è´¹æ˜¯";
 					mes "800 zeny.";
 					close2;
 					cutin "",255;
@@ -456,16 +453,16 @@ OnRecvCastle:
 				end;
 			}
 		case 4:
-			mes "[¿¨ÆÕÀ­ Ö°Ô±]";
-			mes "ÎÒÃÇ¿¨ÆÕÀ­¹«Ë¾µÄ·şÎñÊÇÎªÁËÈÃ¹Ë¿ÍÃÇ·ÅĞÄºÍ·½±ãµÄÊ¹ÓÃ. ÎÒÃÇ»á¾¡ÎÒÃÇ×î´óµÄÅ¬Á¦×öµ½¸üºÃµÄ·şÎñÓëÑÏ¸ñµÄÓªÒµ¹ÜÀí.";
-			mes "Ğ»Ğ»ÄúÃÇÊ¹ÓÃÎÒÃÇ¿¨ÆÕÀ­¹«Ë¾µÄ·şÎñ.";
+			mes "[å¡æ™®æ‹‰ èŒå‘˜]";
+			mes "æˆ‘ä»¬å¡æ™®æ‹‰å…¬å¸çš„æœåŠ¡æ˜¯ä¸ºäº†è®©é¡¾å®¢ä»¬æ”¾å¿ƒå’Œæ–¹ä¾¿çš„ä½¿ç”¨. æˆ‘ä»¬ä¼šå°½æˆ‘ä»¬æœ€å¤§çš„åŠªåŠ›åšåˆ°æ›´å¥½çš„æœåŠ¡ä¸ä¸¥æ ¼çš„è¥ä¸šç®¡ç†.";
+			mes "è°¢è°¢æ‚¨ä»¬ä½¿ç”¨æˆ‘ä»¬å¡æ™®æ‹‰å…¬å¸çš„æœåŠ¡.";
 			close2;
 			cutin "",255;
 			end;
 		}
 	}
-	mes "[¿¨ÆÕÀ­ Ö°Ô±]";
-	mes "ÎÒÒÑÇ©¶©ÆõÔ¼×¨Îª ^ff0000"+GetGuildName(.@GID)+"^000000 »áÔ±·şÎñ, ÇëÊ¹ÓÃÎÒÃÇÆäËüµØ·½µÄ¿¨ÆÕÀ­Ö°Ô±, ÈçÓĞ²»±ãÖ®´¦¾´Çë¼ûÁÂ.";
+	mes "[å¡æ™®æ‹‰ èŒå‘˜]";
+	mes "æˆ‘å·²ç­¾è®¢å¥‘çº¦ä¸“ä¸º ^ff0000"+GetGuildName(.@GID)+"^000000 ä¼šå‘˜æœåŠ¡, è¯·ä½¿ç”¨æˆ‘ä»¬å…¶å®ƒåœ°æ–¹çš„å¡æ™®æ‹‰èŒå‘˜, å¦‚æœ‰ä¸ä¾¿ä¹‹å¤„æ•¬è¯·è§è°….";
 	close2;
 	cutin "",255;
 	end;
@@ -614,34 +611,34 @@ OnRecvCastle:
 
 	if (.@GID == 0) {
 		mes "["+strnpcinfo(1)+"]";
-		mes "ÎÒÔÚ´ËµÈ´ıÎÒµÄÖ÷ÈË.";
-		mes "ÓÂ¸ÒµÄÃ°ÏÕÕß°¡... ×·ËæÄãµÄÃüÔË°É...";
+		mes "æˆ‘åœ¨æ­¤ç­‰å¾…æˆ‘çš„ä¸»äºº.";
+		mes "å‹‡æ•¢çš„å†’é™©è€…å•Š... è¿½éšä½ çš„å‘½è¿å§...";
 		close;
 	}
 	if (GetGuildMaster(.@GID) != strcharinfo(0)) {
 		mes "["+strnpcinfo(1)+"]";
-		mes "²»¹ÜÄãÃÇÔõÃ´ÍşĞ²ÎÒ, ÎÒÖ»Ô¸Òâ×·ËæÎÒµÄÖ÷ÈË ^ff0000"+GetGuildMaster(.@GID)+"^000000. ¼à»¤ÈËÄãÃÇÔÚÄÄÀïÑ½?! ¸Ï¿ì°ÑÕâĞ©ÎŞÀíµÄ¼Ò»ïÃÇ¸Ï×ß°É!";
+		mes "ä¸ç®¡ä½ ä»¬æ€ä¹ˆå¨èƒæˆ‘, æˆ‘åªæ„¿æ„è¿½éšæˆ‘çš„ä¸»äºº ^ff0000"+GetGuildMaster(.@GID)+"^000000. ç›‘æŠ¤äººä½ ä»¬åœ¨å“ªé‡Œå‘€?! èµ¶å¿«æŠŠè¿™äº›æ— ç†çš„å®¶ä¼™ä»¬èµ¶èµ°å§!";
 		close;
 	}
 	mes "["+strnpcinfo(1)+"]";
-	mes "»¶Ó­¹âÁÙ. ÎÒµÄÖ÷ÈË, ^ff0000"+strcharinfo(0)+"^000000...";
-	mes "Çë¾¡¹Ü·Ô¸À, "+strnpcinfo(1)+", ÎÒ½«ÖÒ³ÏµØÎªÄãÍê³ÉÈÎÎñ.";
+	mes "æ¬¢è¿å…‰ä¸´. æˆ‘çš„ä¸»äºº, ^ff0000"+strcharinfo(0)+"^000000...";
+	mes "è¯·å°½ç®¡å©å’, "+strnpcinfo(1)+", æˆ‘å°†å¿ è¯šåœ°ä¸ºä½ å®Œæˆä»»åŠ¡.";
 	next;
-	switch (select("²é¿´¹«»á³Ç±¤×´¿ö:Í¶×ÊÉÌÒµ·¢Õ¹¶È:Í¶×Ê·ÀÓù¶È:ÉèÖÃ¼à»¤ÈË:¹ÍÓÃ / ½â¹Í ²Ö¿âÖ°Ô±:½øÈëÖ÷ÈË·¿¼ä")) {
+	switch (select("æŸ¥çœ‹å…¬ä¼šåŸå ¡çŠ¶å†µ:æŠ•èµ„å•†ä¸šå‘å±•åº¦:æŠ•èµ„é˜²å¾¡åº¦:è®¾ç½®ç›‘æŠ¤äºº:é›‡ç”¨ / è§£é›‡ ä»“åº“èŒå‘˜:è¿›å…¥ä¸»äººæˆ¿é—´")) {
 	case 1:
 		mes "["+strnpcinfo(1)+"]";
-		mes "ÏÖÔÚÏòÄã±¨¸æ¹«»á³Ç±¤µÄ×´¿ö.";
+		mes "ç°åœ¨å‘ä½ æŠ¥å‘Šå…¬ä¼šåŸå ¡çš„çŠ¶å†µ.";
 		mes " ";
-		mes "^0000ffÏÖÔÚÉÌÒµ·¢Õ¹¶ÈÊÇ "+GetCastleData(strnpcinfo(2),2)+".";
+		mes "^0000ffç°åœ¨å•†ä¸šå‘å±•åº¦æ˜¯ "+GetCastleData(strnpcinfo(2),2)+".";
 		if (GetCastleData(strnpcinfo(2),4)) {
-			mes " ÔÚ¹ıÈ¥Ò»ÌìÖ®ÄÚ,Í¶×ÊÁË "+GetCastleData(strnpcinfo(2),4)+" ´Î.";
+			mes " åœ¨è¿‡å»ä¸€å¤©ä¹‹å†…,æŠ•èµ„äº† "+GetCastleData(strnpcinfo(2),4)+" æ¬¡.";
 		}
-		mes " ÏÖÔÚµÄ·ÀÓù¶ÈÊÇ "+GetCastleData(strnpcinfo(2),3)+".^000000";
+		mes " ç°åœ¨çš„é˜²å¾¡åº¦æ˜¯ "+GetCastleData(strnpcinfo(2),3)+".^000000";
 		if (GetCastleData(strnpcinfo(2),5)) {
-			mes " ^0000ff- ÔÚ¹ıÈ¥Ò»ÌìÖ®ÄÚ,Í¶×ÊÁË"+GetCastleData(strnpcinfo(2),5)+" ´Î.^000000";
+			mes " ^0000ff- åœ¨è¿‡å»ä¸€å¤©ä¹‹å†…,æŠ•èµ„äº†"+GetCastleData(strnpcinfo(2),5)+" æ¬¡.^000000";
 		}
 		mes " ";
-		mes "±¨¸æÍê±Ï.";
+		mes "æŠ¥å‘Šå®Œæ¯•.";
 		close;
 	case 2:
 		set .@Economy,GetCastleData(strnpcinfo(2),2);
@@ -670,43 +667,43 @@ OnRecvCastle:
 			set .@eco_invest,.@eco_invest*4;
 		}
 		mes "["+strnpcinfo(1)+"]";
-		mes "Ìá¸ßÉÌÒµ·¢Õ¹¶ÈµÄ»°, ÔÚ¹¤»áÀïÉú²úµÄÎïÆ·ÊıÁ¿»áÔö¼Ó, ÎªÁËÒÔºó×ÅÏëµÄ»°, ²»ÄÜ²»Í¶×Ê°¡.";
+		mes "æé«˜å•†ä¸šå‘å±•åº¦çš„è¯, åœ¨å·¥ä¼šé‡Œç”Ÿäº§çš„ç‰©å“æ•°é‡ä¼šå¢åŠ , ä¸ºäº†ä»¥åç€æƒ³çš„è¯, ä¸èƒ½ä¸æŠ•èµ„å•Š.";
 		mes " ";
-		mes "ÕÕÔ­ÏÈµÄ·½Ê½, Ò»ÌìÖ»ÄÜÍ¶×ÊÒ»´Î, Èç¹û¶àÖ§¸¶Ò»Ğ©ZenyµÄ»°, Ò»Ìì¿ÉÒÔÍ¶×ÊÁ½´Î.";
+		mes "ç…§åŸå…ˆçš„æ–¹å¼, ä¸€å¤©åªèƒ½æŠ•èµ„ä¸€æ¬¡, å¦‚æœå¤šæ”¯ä»˜ä¸€äº›Zenyçš„è¯, ä¸€å¤©å¯ä»¥æŠ•èµ„ä¸¤æ¬¡.";
 		if (.@Economy >= 100) {
 			mes " ";
-			mes "^ff0000Ä¿Ç°ÉÌÒµ·¢Õ¹¶ÈÒÔ¾­ÊÇ100ÁË, ÄãÒÑ¾­²»ĞèÒªÔÙ¼ÓÈëÈÎºÎÍ¶×ÊÁË.^000000";
+			mes "^ff0000ç›®å‰å•†ä¸šå‘å±•åº¦ä»¥ç»æ˜¯100äº†, ä½ å·²ç»ä¸éœ€è¦å†åŠ å…¥ä»»ä½•æŠ•èµ„äº†.^000000";
 			close;
 		}
 		if (GetCastleData(strnpcinfo(2),4) >= 2) {
 			mes " ";
-			mes "^ff0000¿ÉÊÇÄãÒÑ¾­ÔÚ½ñÌìÖ®ÄÚÍ¶×ÊÁËÁ½´Î, ÔÙ²»ÄÜÍ¶×ÊÁË.^000000 ÈÃ·¢Õ¹¶È¸Ï¿ìÉÏÉı, ÆÚ´ı×Å¸»¹óµÄÈÕ×Ó†ª.";
+			mes "^ff0000å¯æ˜¯ä½ å·²ç»åœ¨ä»Šå¤©ä¹‹å†…æŠ•èµ„äº†ä¸¤æ¬¡, å†ä¸èƒ½æŠ•èµ„äº†.^000000 è®©å‘å±•åº¦èµ¶å¿«ä¸Šå‡, æœŸå¾…ç€å¯Œè´µçš„æ—¥å­å•°.";
 			close;
 		}
 		if (GetCastleData(strnpcinfo(2),4) == 0) {
 			mes " ";
-			mes "ÏÖÔÚĞèÒªµÄÍ¶×Ê½ğ¶îÊÇ ^ff0000"+.@eco_invest+"^000000 ½ğ±Ò, ÇëÎÊÄãÒªÍ¶×ÊÂğ?";
+			mes "ç°åœ¨éœ€è¦çš„æŠ•èµ„é‡‘é¢æ˜¯ ^ff0000"+.@eco_invest+"^000000 é‡‘å¸, è¯·é—®ä½ è¦æŠ•èµ„å—?";
 		}
 		else {
 			mes " ";
-			mes "ÏÖÔÚÄãÒÑ¾­Í¶×ÊÒ»´ÎÁË... »¹ÒªÔÙÍ¶×ÊÂğ? »¹ĞèÒª×·¼Ó, ^ff0000"+.@eco_invest+"^000000 ½ğ±ÒàŞ.";
+			mes "ç°åœ¨ä½ å·²ç»æŠ•èµ„ä¸€æ¬¡äº†... è¿˜è¦å†æŠ•èµ„å—? è¿˜éœ€è¦è¿½åŠ , ^ff0000"+.@eco_invest+"^000000 é‡‘å¸å™¢.";
 		}
 		next;
-		switch (select("¶ÔÉÌÒµ·¢Õ¹¶ÈÍ¶×Ê:È¡Ïû")) {
+		switch (select("å¯¹å•†ä¸šå‘å±•åº¦æŠ•èµ„:å–æ¶ˆ")) {
 		case 1:
 			if (Zeny < .@eco_invest) {
 				mes "["+strnpcinfo(1)+"]";
-				mes "Í¶×Ê×Ê½ğËÆºõ²»×ãà¸. µÈ×Ê½ğ×ã¹»Ê±ÔÚ³¢ÊÔ¿´¿´.";
+				mes "æŠ•èµ„èµ„é‡‘ä¼¼ä¹ä¸è¶³å–”. ç­‰èµ„é‡‘è¶³å¤Ÿæ—¶åœ¨å°è¯•çœ‹çœ‹.";
 				close;
 			}
 			set Zeny, Zeny - .@eco_invest;
 			SetCastleData strnpcinfo(2),4,GetCastleData(strnpcinfo(2),4)+1;
 			mes "[ "+strnpcinfo(1)+"]";
-			mes "Ë³ÀûµØÍê³ÉÍ¶×ÊÁË! ÆÚ´ı×ÅÎÒÃÇÍùºóÒªÃæÁÙµÄÎ´À´ ,Ã÷ÌìµÄ»°·¢Õ¹¶È»áÉÏÉı.";
+			mes "é¡ºåˆ©åœ°å®ŒæˆæŠ•èµ„äº†! æœŸå¾…ç€æˆ‘ä»¬å¾€åè¦é¢ä¸´çš„æœªæ¥ ,æ˜å¤©çš„è¯å‘å±•åº¦ä¼šä¸Šå‡.";
 			close;
 		case 2:
 			mes "["+strnpcinfo(1)+"]";
-			mes "ÎÒ½«ÒÀÕÕÄãµÄ·Ô¸ÀÈ¥Ö´ĞĞ, ÊÇÎÒµÄÖ÷ÈË... ²»ĞèÒªÌ«×Å¼± ,ÎÒÃÇ»á×öµÃºÜºÃ.";
+			mes "æˆ‘å°†ä¾ç…§ä½ çš„å©å’å»æ‰§è¡Œ, æ˜¯æˆ‘çš„ä¸»äºº... ä¸éœ€è¦å¤ªç€æ€¥ ,æˆ‘ä»¬ä¼šåšå¾—å¾ˆå¥½.";
 			close;
 		}
 	case 3:
@@ -736,81 +733,81 @@ OnRecvCastle:
 			set .@def_invest,.@def_invest*4;
 		}
 		mes "["+strnpcinfo(1)+"]";
-		mes "Ìá¸ß·ÀÓù³Ì¶ÈµÄ»°, ¼à»¤ÈËºÍ»ªÀö½ğÊôµÄÄÍ¾Ã¶È»áÔö¼Ó, ¿¼ÂÇµ½ÍùºóµÄÕ½Õù, ²»µÃ²»Í¶×Ê°¡.";
+		mes "æé«˜é˜²å¾¡ç¨‹åº¦çš„è¯, ç›‘æŠ¤äººå’Œåä¸½é‡‘å±çš„è€ä¹…åº¦ä¼šå¢åŠ , è€ƒè™‘åˆ°å¾€åçš„æˆ˜äº‰, ä¸å¾—ä¸æŠ•èµ„å•Š.";
 		mes " ";
-		mes "ÕÕÔ­ÏÈµÄ·½Ê½, Ò»ÌìÖ»ÄÜÍ¶×ÊÒ»´Î, Èç¹û¶àÖ§¸¶Ò»Ğ©ZenyµÄ»°, Ò»Ìì¿ÉÒÔÍ¶×ÊÁ½´Î.";
+		mes "ç…§åŸå…ˆçš„æ–¹å¼, ä¸€å¤©åªèƒ½æŠ•èµ„ä¸€æ¬¡, å¦‚æœå¤šæ”¯ä»˜ä¸€äº›Zenyçš„è¯, ä¸€å¤©å¯ä»¥æŠ•èµ„ä¸¤æ¬¡.";
 		if (.@Defence >= 100) {
 			mes " ";
-			mes "^ff0000Ä¿Ç°·ÀÓù¶ÈÒÔ¾­ÊÇ100ÁË,ÄãÒÑ¾­²»ĞèÒªÔÙ¼ÓÈëÈÎºÎÍ¶×ÊÁË.^000000";
+			mes "^ff0000ç›®å‰é˜²å¾¡åº¦ä»¥ç»æ˜¯100äº†,ä½ å·²ç»ä¸éœ€è¦å†åŠ å…¥ä»»ä½•æŠ•èµ„äº†.^000000";
 			close;
 		}
 		if (GetCastleData(strnpcinfo(2),5) >= 2) {
 			mes " ";
-			mes "^ff0000¿ÉÊÇÄãÒÑ¾­ÔÚ½ñÌìÖ®ÄÚÍ¶×ÊÁËÁ½´Î, ²»ÄÜÔÙÍ¶×ÊÁË.^000000 ÈÃ·ÀÓù¶È¸Ï¿ìÉÏÉı, ÆÚ´ı×Å¸»¹óµÄÈÕ×Ó†ª.";
+			mes "^ff0000å¯æ˜¯ä½ å·²ç»åœ¨ä»Šå¤©ä¹‹å†…æŠ•èµ„äº†ä¸¤æ¬¡, ä¸èƒ½å†æŠ•èµ„äº†.^000000 è®©é˜²å¾¡åº¦èµ¶å¿«ä¸Šå‡, æœŸå¾…ç€å¯Œè´µçš„æ—¥å­å•°.";
 			close;
 		}
 		if (GetCastleData(strnpcinfo(2),5) == 0) {
 			mes " ";
-			mes "ÏÖÔÚĞèÒªµÄÍ¶×Ê½ğ¶îÊÇ ^ff0000"+.@def_invest+"^000000 zeny, ÇëÎÊÄãÒªÍ¶×ÊÂğ?";
+			mes "ç°åœ¨éœ€è¦çš„æŠ•èµ„é‡‘é¢æ˜¯ ^ff0000"+.@def_invest+"^000000 zeny, è¯·é—®ä½ è¦æŠ•èµ„å—?";
 		}
 		else {
 			mes " ";
-			mes "ÏÖÔÚÄãÒÑ¾­Í¶×Ê¹ıÒ»´ÎÁË... »¹ÒªÔÙÍ¶×ÊÂğ? »¹ĞèÒª×·¼Ó, ^ff0000"+.@def_invest+"^000000  zeny àŞ.";
+			mes "ç°åœ¨ä½ å·²ç»æŠ•èµ„è¿‡ä¸€æ¬¡äº†... è¿˜è¦å†æŠ•èµ„å—? è¿˜éœ€è¦è¿½åŠ , ^ff0000"+.@def_invest+"^000000  zeny å™¢.";
 		}
 		next;
-		switch (select("¶Ô·ÀÓù¶È Í¶×Ê:È¡Ïû")) {
+		switch (select("å¯¹é˜²å¾¡åº¦ æŠ•èµ„:å–æ¶ˆ")) {
 		case 1:
 			if (Zeny < .@def_invest) {
 				mes "["+strnpcinfo(1)+"]";
-				mes "Í¶×Ê×Ê½ğËÆºõ²»×ãà¸. µÈ×Ê½ğ×ã¹»Ê±ÔÚ³¢ÊÔ¿´¿´";
+				mes "æŠ•èµ„èµ„é‡‘ä¼¼ä¹ä¸è¶³å–”. ç­‰èµ„é‡‘è¶³å¤Ÿæ—¶åœ¨å°è¯•çœ‹çœ‹";
 				close;
 			}
 			set Zeny, Zeny - .@def_invest;
 			SetCastleData strnpcinfo(2),5,GetCastleData(strnpcinfo(2),5)+1;
 			mes "[ "+strnpcinfo(1)+"]";
-			mes "ÀûµØÍê³ÉÍ¶×ÊÁË! ÆÚ´ı×ÅÎÒÃÇÍùºóÒªÃæÁÙµÄÎ´À´, Ã÷ÌìµÄ»°·ÀÓù¶È»áÉÏÉı.";
+			mes "åˆ©åœ°å®ŒæˆæŠ•èµ„äº†! æœŸå¾…ç€æˆ‘ä»¬å¾€åè¦é¢ä¸´çš„æœªæ¥, æ˜å¤©çš„è¯é˜²å¾¡åº¦ä¼šä¸Šå‡.";
 			close;
 		case 2:
 			mes "["+strnpcinfo(1)+"]";
-			mes "ÎÒ½«ÒÀÕÕÄãµÄ·Ô¸ÀÈ¥Ö´ĞĞ, ÊÇÎÒµÄÖ÷ÈË... ²»ĞèÒªÌ«×Å¼±, ÎÒÃÇ»á×öµÃºÜºÃ.";
+			mes "æˆ‘å°†ä¾ç…§ä½ çš„å©å’å»æ‰§è¡Œ, æ˜¯æˆ‘çš„ä¸»äºº... ä¸éœ€è¦å¤ªç€æ€¥, æˆ‘ä»¬ä¼šåšå¾—å¾ˆå¥½.";
 			close;
 		}
 	case 4:
 		mes "["+strnpcinfo(1)+"]";
-		mes "ÇëÎÊÄãÒªÉèÖÃ¼à»¤ÈËÂğ? ¼à»¤ÈË¼´½«³ÉÎª, ÎÒÃÇ¹«»á³Ç±¤µÄÖÒ³ÏÊØ»¤Õß.";
-		mes "ÇëÑ¡ÔñÒªÉèÖÃµÄ¼à»¤ÈË.";
+		mes "è¯·é—®ä½ è¦è®¾ç½®ç›‘æŠ¤äººå—? ç›‘æŠ¤äººå³å°†æˆä¸º, æˆ‘ä»¬å…¬ä¼šåŸå ¡çš„å¿ è¯šå®ˆæŠ¤è€….";
+		mes "è¯·é€‰æ‹©è¦è®¾ç½®çš„ç›‘æŠ¤äºº.";
 		next;
 		for( set .@i, 0; .@i <= 7 ; set .@i, .@i+1 ) {
-			if (.@guardiantype[.@i] == 1) { set .@type$,"Ê¿±ø ¼à»¤ÈË"; }
-			else if (.@guardiantype[.@i] == 2) { set .@type$,"¹­¼ıÊÖ ¼à»¤ÈË"; }
-			else { set .@type$,"ÆïÊ¿ ¼à»¤ÈË"; }
+			if (.@guardiantype[.@i] == 1) { set .@type$,"å£«å…µ ç›‘æŠ¤äºº"; }
+			else if (.@guardiantype[.@i] == 2) { set .@type$,"å¼“ç®­æ‰‹ ç›‘æŠ¤äºº"; }
+			else { set .@type$,"éª‘å£« ç›‘æŠ¤äºº"; }
 			if (guardianinfo(strnpcinfo(2),.@i,0)) {
-				setarray .@gname$[.@i], .@type$ + " - ÒÑÉèÖÃ (" + guardianinfo(strnpcinfo(2),.@i,2) + "/" + guardianinfo(strnpcinfo(2),.@i,1) + ")";
+				setarray .@gname$[.@i], .@type$ + " - å·²è®¾ç½® (" + guardianinfo(strnpcinfo(2),.@i,2) + "/" + guardianinfo(strnpcinfo(2),.@i,1) + ")";
 			}
 			else {
-				setarray .@gname$[.@i], .@type$ + " - Î´ÉèÖÃ";
+				setarray .@gname$[.@i], .@type$ + " - æœªè®¾ç½®";
 			}
 		}
 		set .@menu$,.@gname$[0]+":"+.@gname$[1]+":"+.@gname$[2]+":"+.@gname$[3]+":"+.@gname$[4]+":"+.@gname$[5]+":"+.@gname$[6]+":"+.@gname$[7];
 		set .@GDnum,select(.@menu$)+9;
 		mes "["+strnpcinfo(1)+"]";
-		mes "È·¶¨ÒªÉèÖÃÒÑÑ¡ÔñµÄ¼à»¤ÈËÂğ? ÉèÖÃÊ±ĞèÒª  10,000 zeny.";
+		mes "ç¡®å®šè¦è®¾ç½®å·²é€‰æ‹©çš„ç›‘æŠ¤äººå—? è®¾ç½®æ—¶éœ€è¦  10,000 zeny.";
 		next;
-		switch (select("ÉèÖÃ:È¡Ïû")) {
+		switch (select("è®¾ç½®:å–æ¶ˆ")) {
 		case 1:
 			if (getgdskilllv(.@GID,10002) == 0) {
 				mes "["+strnpcinfo(1)+"]";
-				mes "Ö÷ÈË, ¼à»¤ÈËÉèÖÃÒÑ¾­±»È¡ÏûÁË, Èç¹ûÏëÒªÉèÖÃ¼à»¤ÈËµÄ»°, ÇëÏÈÑ§»á¹«»á¼¼ÄÜÖĞ ^FF0000ÑĞ¾¿¼à»¤ÈË^000000 µÄ¼¼ÄÜ°É.";
+				mes "ä¸»äºº, ç›‘æŠ¤äººè®¾ç½®å·²ç»è¢«å–æ¶ˆäº†, å¦‚æœæƒ³è¦è®¾ç½®ç›‘æŠ¤äººçš„è¯, è¯·å…ˆå­¦ä¼šå…¬ä¼šæŠ€èƒ½ä¸­ ^FF0000ç ”ç©¶ç›‘æŠ¤äºº^000000 çš„æŠ€èƒ½å§.";
 				close;
 			}
 			if (GetCastleData(strnpcinfo(2),.@GDnum) == 1) {
 				mes "["+strnpcinfo(1)+"]";
-				mes "Ö÷ÈË... Ñ¡Ôñ¼à»¤ÈËÒÑ¾­ÉèÖÃ¹ıÁË, ²»ÄÜÔÙÉèÖÃÁË.";
+				mes "ä¸»äºº... é€‰æ‹©ç›‘æŠ¤äººå·²ç»è®¾ç½®è¿‡äº†, ä¸èƒ½å†è®¾ç½®äº†.";
 				close;
 			}
 			if (Zeny < 10000) {
 				mes "["+strnpcinfo(1)+"]";
-				mes "Ö÷ÈË ,ÄãÃ»ÓĞ×ã¹»µÄ×Ê½ğ¿ÉÒÔÉèÖÃ¼à»¤ÈË.";
+				mes "ä¸»äºº ,ä½ æ²¡æœ‰è¶³å¤Ÿçš„èµ„é‡‘å¯ä»¥è®¾ç½®ç›‘æŠ¤äºº.";
 				close;
 			}
 			set Zeny, Zeny - 10000;
@@ -819,105 +816,105 @@ OnRecvCastle:
 			if (.@guardiantype[.@UseGID] == 1) { set .@type,1287; }
 			else if (.@guardiantype[.@UseGID] == 2) { set .@type,1285; }
 			else { set .@type,1286; }
-			guardian strnpcinfo(2),.@guardianposx[.@UseGID],.@guardianposy[.@UseGID],strmobinfo(2,.@type),.@type,"¼à»¤ÈË#"+strnpcinfo(2)+"::OnGuardianDied",.@UseGID;
+			guardian strnpcinfo(2),.@guardianposx[.@UseGID],.@guardianposy[.@UseGID],strmobinfo(2,.@type),.@type,"ç›‘æŠ¤äºº#"+strnpcinfo(2)+"::OnGuardianDied",.@UseGID;
 			mes "["+strnpcinfo(1)+"]";
-			mes "Íê³É¼à»¤ÈËÉèÖÃÁË, ÏÖÔÚ¿ªÊ¼ÒÑ¾­ÓĞÁË, ±£»¤ÎÒÃÇ¹«»á³Ç±¤µÄÇ¿×³ÎÒ¾üÁË.";
+			mes "å®Œæˆç›‘æŠ¤äººè®¾ç½®äº†, ç°åœ¨å¼€å§‹å·²ç»æœ‰äº†, ä¿æŠ¤æˆ‘ä»¬å…¬ä¼šåŸå ¡çš„å¼ºå£®æˆ‘å†›äº†.";
 			close;
 		case 2:
 			mes "["+strnpcinfo(1)+"]";
-			mes "ÎÒÒÑ¾­°´ÕÕÄãµÄ·Ô¸À×öÁË, Èç¹û×Ê½ğÉÏ¿íÔ£µÄ»°, Ò»¶¨ÒªÉèÖÃ¼à»¤ÈË, ÊÇ½ÏºÃµÄ·½°¸.";
+			mes "æˆ‘å·²ç»æŒ‰ç…§ä½ çš„å©å’åšäº†, å¦‚æœèµ„é‡‘ä¸Šå®½è£•çš„è¯, ä¸€å®šè¦è®¾ç½®ç›‘æŠ¤äºº, æ˜¯è¾ƒå¥½çš„æ–¹æ¡ˆ.";
 			close;
 		}
 	case 5:
 		if (GetCastleData(strnpcinfo(2),9) == 1) {
 			mes "["+strnpcinfo(1)+"]";
-			mes "ÎÒÃÇÕıÔÚÕĞÆ¸¿¨ÆÕÀ­Ô±¹¤... »¹ÊÇÄãÏë½â¹Í¿¨ÆÕÀ­Ô±¹¤?";
+			mes "æˆ‘ä»¬æ­£åœ¨æ‹›è˜å¡æ™®æ‹‰å‘˜å·¥... è¿˜æ˜¯ä½ æƒ³è§£é›‡å¡æ™®æ‹‰å‘˜å·¥?";
 			next;
-			switch (select("½â¹Í:È¡Ïû")) {
+			switch (select("è§£é›‡:å–æ¶ˆ")) {
 			case 1:
 				cutin "kafra_01",2;
-				mes "[ ¿¨ÆÕÀ­ Ö°Ô± ]";
-				mes "ÎÒ×ö´íÁËÊ²Ã´ÊÂÂğ? Èç¹ûÎÒÓĞ×ö´íÊÂµÄ»°, ÄÜÇëÄúÔ­ÁÂÎÒ, ÔÙ¸øÎÒÒ»´Î»ú»áÂğ...";
+				mes "[ å¡æ™®æ‹‰ èŒå‘˜ ]";
+				mes "æˆ‘åšé”™äº†ä»€ä¹ˆäº‹å—? å¦‚æœæˆ‘æœ‰åšé”™äº‹çš„è¯, èƒ½è¯·æ‚¨åŸè°…æˆ‘, å†ç»™æˆ‘ä¸€æ¬¡æœºä¼šå—...";
 				next;
-				switch (select("½â¹Í:È¡Ïû")) {
+				switch (select("è§£é›‡:å–æ¶ˆ")) {
 				case 1:
-					mes "[ ¿¨ÆÕÀ­ Ö°Ô± ]";
-					mes "²»ÄÜ¹»¼ÌĞøÎªÄú·şÎñÕæÊÇÎÒ×î´óµÄÒÅº¶!";
+					mes "[ å¡æ™®æ‹‰ èŒå‘˜ ]";
+					mes "ä¸èƒ½å¤Ÿç»§ç»­ä¸ºæ‚¨æœåŠ¡çœŸæ˜¯æˆ‘æœ€å¤§çš„é—æ†¾!";
 					next;
 					cutin "",255;
 					break;
 				case 2:
-					mes "[ ¿¨ÆÕÀ­ Ö°Ô± ]";
-					mes "ÎÒ»áÅ¬Á¦ÇÚ·ÜµÄÎªÄú·şÎñµÄ!";
+					mes "[ å¡æ™®æ‹‰ èŒå‘˜ ]";
+					mes "æˆ‘ä¼šåŠªåŠ›å‹¤å¥‹çš„ä¸ºæ‚¨æœåŠ¡çš„!";
 					close;
 				}
 				break;
 			case 2:
 				mes "["+strnpcinfo(1)+"]";
-				mes "Ö÷ÈË, ÎÒÏëÎÒÃÇÓ¦¸ÃÒªÁôÏÂÏÖÔÚÕâÎ»¿¨ÆÕÀ­Ö°Ô±, ÒòÎªËıÒÑ¾­½ß¾¡ËùÄÜµØÎªÎÒÃÇ·şÎñÁË.";
+				mes "ä¸»äºº, æˆ‘æƒ³æˆ‘ä»¬åº”è¯¥è¦ç•™ä¸‹ç°åœ¨è¿™ä½å¡æ™®æ‹‰èŒå‘˜, å› ä¸ºå¥¹å·²ç»ç«­å°½æ‰€èƒ½åœ°ä¸ºæˆ‘ä»¬æœåŠ¡äº†.";
 				close;
 			}
-			disablenpc "¿¨ÆÕÀ­ Ö°Ô±#"+strnpcinfo(2);
+			disablenpc "å¡æ™®æ‹‰ èŒå‘˜#"+strnpcinfo(2);
 			SetCastleData strnpcinfo(2),9,0;
 			mes "["+strnpcinfo(1)+"]";
 			mes "....";
-			mes "¿¨ÆÕÀ­Ö°Ô±ÒÑ¾­½â¹ÍÁË... ²»¹ıÎªÁËĞÁ¿àµÄ»áÔ±×ÅÏë, ¹ÍÓÃ¿¨ÆÕÀ­Ö°Ô±ÎªÉÏ²ß°¡";
+			mes "å¡æ™®æ‹‰èŒå‘˜å·²ç»è§£é›‡äº†... ä¸è¿‡ä¸ºäº†è¾›è‹¦çš„ä¼šå‘˜ç€æƒ³, é›‡ç”¨å¡æ™®æ‹‰èŒå‘˜ä¸ºä¸Šç­–å•Š";
 			close;
 		}
 		mes "["+strnpcinfo(1)+"]";
-		mes "ºÍ¿¨ÆÕÀ­×Ü¹«Ë¾¶©ÆõÔ¼ºó, ÏëÒªÔÚ¹«»á³Ç±¤ÀïÃæ, ¹ÍÓÃ¿¨ÆÕÀ­Ö°Ô±Âğ?";
-		mes "^ff0000ÏëÒª¹ÍÓÃµÄ»°,ĞèÒª10,000 zeny. ";
+		mes "å’Œå¡æ™®æ‹‰æ€»å…¬å¸è®¢å¥‘çº¦å, æƒ³è¦åœ¨å…¬ä¼šåŸå ¡é‡Œé¢, é›‡ç”¨å¡æ™®æ‹‰èŒå‘˜å—?";
+		mes "^ff0000æƒ³è¦é›‡ç”¨çš„è¯,éœ€è¦10,000 zeny. ";
 		next;
 		switch (select("Hire.:Cancel")) {
 		case 1:
 			if (getgdskilllv(.@GID,10001) == 0) {
 				mes "["+strnpcinfo(1)+"]";
-				mes "Ö÷ÈË ,Èç½ñ»¹Ã»¸ú¿¨ÆÕÀ­×Ü¹«Ë¾¶©ÆõÔ¼×´¿ö ,ËùÒÔ»¹²»ÄÜ¹ÍÓÃ¿¨ÆÕÀ­Ö°Ô± ,¼ÙÈçÏëÒª¸ú¿¨ÆÕÀ­×Ü¹«Ë¾Ç©¶©ÆõÔ¼µÄ»° ,ÏÈÑ§»á¹«»á¼¼ÄÜÖĞ ^FF0000ºÍ¿¨ÆÕÀ­¶©ÆõÔ¼^000000µÄ¼¼ÄÜ°É.";
+				mes "ä¸»äºº ,å¦‚ä»Šè¿˜æ²¡è·Ÿå¡æ™®æ‹‰æ€»å…¬å¸è®¢å¥‘çº¦çŠ¶å†µ ,æ‰€ä»¥è¿˜ä¸èƒ½é›‡ç”¨å¡æ™®æ‹‰èŒå‘˜ ,å‡å¦‚æƒ³è¦è·Ÿå¡æ™®æ‹‰æ€»å…¬å¸ç­¾è®¢å¥‘çº¦çš„è¯ ,å…ˆå­¦ä¼šå…¬ä¼šæŠ€èƒ½ä¸­ ^FF0000å’Œå¡æ™®æ‹‰è®¢å¥‘çº¦^000000çš„æŠ€èƒ½å§.";
 				close;
 			}
 			if (Zeny < 10000) {
 				mes "["+strnpcinfo(1)+"]";
-				mes "Ö÷ÈË ,ÄãÃ»ÓĞ×ã¹»µÄ×Ê½ğ¿ÉÒÔ¹ÍÓÃ¿¨ÆÕÀ­Ö°Ô±.";
+				mes "ä¸»äºº ,ä½ æ²¡æœ‰è¶³å¤Ÿçš„èµ„é‡‘å¯ä»¥é›‡ç”¨å¡æ™®æ‹‰èŒå‘˜.";
 				close;
 			}
 			set Zeny, Zeny - 10000;
-			enablenpc "¿¨ÆÕÀ­ Ö°Ô±#"+strnpcinfo(2);
+			enablenpc "å¡æ™®æ‹‰ èŒå‘˜#"+strnpcinfo(2);
 			SetCastleData strnpcinfo(2),9,1;
 			mes "["+strnpcinfo(1)+"]";
-			mes "³É¹¦µÄºÍ¿¨ÆÕÀ­×Ü¹«Ë¾Ç©¶©ÆõÔ¼ÁË, Äú¹ÍÓÃÁËÒ»Î»¿¨ÆÕÀ­Ö°Ô±.";
+			mes "æˆåŠŸçš„å’Œå¡æ™®æ‹‰æ€»å…¬å¸ç­¾è®¢å¥‘çº¦äº†, æ‚¨é›‡ç”¨äº†ä¸€ä½å¡æ™®æ‹‰èŒå‘˜.";
 			next;
 			cutin "kafra_01",2;
-			mes "[ ¿¨ÆÕÀ­ Ö°Ô± ]";
-			mes "ÄãºÃÂğ? ÎÒÊÇ×Ü¹«Ë¾ÅÉÀ´µÄ¿¨ÆÕÀ­Ö°Ô±.";
-			mes "ÎÒ½«»á½ß¾¡ËùÄÜµØÎªÄú·şÎñ.";
+			mes "[ å¡æ™®æ‹‰ èŒå‘˜ ]";
+			mes "ä½ å¥½å—? æˆ‘æ˜¯æ€»å…¬å¸æ´¾æ¥çš„å¡æ™®æ‹‰èŒå‘˜.";
+			mes "æˆ‘å°†ä¼šç«­å°½æ‰€èƒ½åœ°ä¸ºæ‚¨æœåŠ¡.";
 			next;
 			cutin "",255;
 			mes "["+strnpcinfo(1)+"]";
-			mes "¹ÍÓÃµÄ¿¨ÆÕÀ­Ö°Ô±½«ÓĞ ^FF00001 ¸öÔÂµÄÊ±¼ä^000000 ÔÚ´Ë·şÎñ.";
-			mes "Ê±¼äµ½ÁËÖ®ºó±ØĞëÖØĞÂÇ©¶©ÆõÔ¼.";
+			mes "é›‡ç”¨çš„å¡æ™®æ‹‰èŒå‘˜å°†æœ‰ ^FF00001 ä¸ªæœˆçš„æ—¶é—´^000000 åœ¨æ­¤æœåŠ¡.";
+			mes "æ—¶é—´åˆ°äº†ä¹‹åå¿…é¡»é‡æ–°ç­¾è®¢å¥‘çº¦.";
 			close;
 		case 2:
 			mes "["+strnpcinfo(1)+"]";
-			mes "ÎÒÒÑ¾­°´ÕÕÄãµÄ·Ô¸À×öÁË ,²»¹ıÒ²ÒªÎªÁËĞÁ¿àµÄ»áÔ±×ÅÏë,ÔçÈÕ¹ÍÓÃ¿¨ÆÕÀ­Ö°Ô±ÎªÉÏ²ß°¡.";
+			mes "æˆ‘å·²ç»æŒ‰ç…§ä½ çš„å©å’åšäº† ,ä¸è¿‡ä¹Ÿè¦ä¸ºäº†è¾›è‹¦çš„ä¼šå‘˜ç€æƒ³,æ—©æ—¥é›‡ç”¨å¡æ™®æ‹‰èŒå‘˜ä¸ºä¸Šç­–å•Š.";
 			close;
 		}
 	case 6:
 		mes "["+strnpcinfo(1)+"]";
-		mes "Òªµ½ÎÒÃÇÉú²úÆ·¶Ú»ıµÄ,Õæ¹óÎïÆ··¿¼äÂğ?";
-		mes "ÄÇ¸öµØ·½ÊÇÎªÁËÎÒÃÇµÄÖ÷ÈË,µÄ×¨ÊôÓÚÄãµÄµØ·½... ³ıÁËÄãÖ®Íâ,ÆäËüÈË¶¼²»ÄÜÆäÃÅ¶øÈë.";
+		mes "è¦åˆ°æˆ‘ä»¬ç”Ÿäº§å“å›¤ç§¯çš„,çœŸè´µç‰©å“æˆ¿é—´å—?";
+		mes "é‚£ä¸ªåœ°æ–¹æ˜¯ä¸ºäº†æˆ‘ä»¬çš„ä¸»äºº,çš„ä¸“å±äºä½ çš„åœ°æ–¹... é™¤äº†ä½ ä¹‹å¤–,å…¶å®ƒäººéƒ½ä¸èƒ½å…¶é—¨è€Œå…¥.";
 		next;
-		switch (select("Òª½øÈëÖ÷ÈËµÄ·¿¼ä.:È¡Ïû")) {
+		switch (select("è¦è¿›å…¥ä¸»äººçš„æˆ¿é—´.:å–æ¶ˆ")) {
 		case 1:
 			mes "["+strnpcinfo(1)+"]";
-			mes "ÎÒ½«»áÎªÄã·şÎñµ½ÃØÃÜÍ¨µÀÄÇÀï,Çë¸úÎÒÀ´.";
-			mes "»ØÀ´µÄÊ±ºò°´ÏÂÃØÃÜ°´Å¥¼´¿É.";
+			mes "æˆ‘å°†ä¼šä¸ºä½ æœåŠ¡åˆ°ç§˜å¯†é€šé“é‚£é‡Œ,è¯·è·Ÿæˆ‘æ¥.";
+			mes "å›æ¥çš„æ—¶å€™æŒ‰ä¸‹ç§˜å¯†æŒ‰é’®å³å¯.";
 			close2;
 			warp strnpcinfo(2),.@masterroom[0],.@masterroom[1];
 			end;
 		case 2:
 			mes "["+strnpcinfo(1)+"]";
-			mes "Éú²úÆ·Ò»ÌìÖ»Éú²úÒ»´Î... ÈçÃ»ÓĞ¼´Ê±ÊÕ×ßµÄ»°,ÏÂÒ»´Î¾Í²»ÄÜ½øÀ´ÁË.";
-			mes "ËùÒÔËµÎªÁËÎÒÃÇ¹«»áµÄ·¢Õ¹,¾¡Á¿»¨µãÊ±¼äÈ¥ÊÕÈ¡°¡.";
+			mes "ç”Ÿäº§å“ä¸€å¤©åªç”Ÿäº§ä¸€æ¬¡... å¦‚æ²¡æœ‰å³æ—¶æ”¶èµ°çš„è¯,ä¸‹ä¸€æ¬¡å°±ä¸èƒ½è¿›æ¥äº†.";
+			mes "æ‰€ä»¥è¯´ä¸ºäº†æˆ‘ä»¬å…¬ä¼šçš„å‘å±•,å°½é‡èŠ±ç‚¹æ—¶é—´å»æ”¶å–å•Š.";
 			close;
 		}
 	}
@@ -930,8 +927,8 @@ OnRecvCastle:
 	set .@GID,GetCastleData(strnpcinfo(2),1);
 
 	if (.@GID == 0) {
-		mes "[ÏìÁÁµÄÉùÒô]";
-		mes "'¿Ë·şÑÏ¾ş¿¼ÑéÕ¹ÏÖ¹ıÈËµÄÓÂÆø... ²¢ÇÒ¼ÌĞøÂõÏòÁíÒ»¸ö¿¼ÑéÖ®Â·.'";
+		mes "[å“äº®çš„å£°éŸ³]";
+		mes "'å…‹æœä¸¥å³»è€ƒéªŒå±•ç°è¿‡äººçš„å‹‡æ°”... å¹¶ä¸”ç»§ç»­è¿ˆå‘å¦ä¸€ä¸ªè€ƒéªŒä¹‹è·¯.'";
 		close;
 	}
 
@@ -972,20 +969,20 @@ OnRecvCastle:
 		end;
 	}
 
-	mes "[ÏìÁÁµÄÉùÒô]";
-	mes "'Ö»ÓĞÓÂÆøµÄÖ÷ÈË,²ÅÄÜ½ÓÊÜ¿¼Ñé°¡.'";
+	mes "[å“äº®çš„å£°éŸ³]";
+	mes "'åªæœ‰å‹‡æ°”çš„ä¸»äºº,æ‰èƒ½æ¥å—è€ƒéªŒå•Š.'";
 	next;
 	mes " ";
-	mes "ÓĞĞ¡µÄÀ­¸Ë ,ÄãÒªÍùÏÂÀ­Âğ?";
+	mes "æœ‰å°çš„æ‹‰æ† ,ä½ è¦å¾€ä¸‹æ‹‰å—?";
 	next;
-	if(select("ÎÒÒªÀ­:ÎÒ²»ÒªÀ­.") == 1) {
+	if(select("æˆ‘è¦æ‹‰:æˆ‘ä¸è¦æ‹‰.") == 1) {
 		if (getcharid(2) == .@GID) {
 			close2;
 			warp .@destination$,.@coordinates[0],.@coordinates[1];
 			end;
 		}
 		mes " ";
-		mes "Ê²Ã´¶¼Ã»ÓĞ·¢Éú.";
+		mes "ä»€ä¹ˆéƒ½æ²¡æœ‰å‘ç”Ÿ.";
 		close;
 	}
 	close;
@@ -1123,7 +1120,7 @@ OnSpawnGuardians:
 		else if (.@guardiantype[.@i] == 2) { set .@type,1285; }
 		else { set .@type,1286; }
 		if (GetCastleData(strnpcinfo(2),.@UseGID)) {
-			guardian strnpcinfo(2),.@guardianposx[.@i],.@guardianposy[.@i],strmobinfo(2,.@type),.@type,"¼à»¤ÈË#"+strnpcinfo(2)+"::OnGuardianDied",.@i;
+			guardian strnpcinfo(2),.@guardianposx[.@i],.@guardianposy[.@i],strmobinfo(2,.@type),.@type,"ç›‘æŠ¤äºº#"+strnpcinfo(2)+"::OnGuardianDied",.@i;
 		}
 	}
 	end;
@@ -1278,7 +1275,7 @@ OnClock0001:
 		set .@box,1 << .@i;
 		// Spawn or do not spawn chests if one already exists.
 		if ((getd("$@"+strnpcinfo(2)+"_treasure") & .@box) == 0) {
-			monster strnpcinfo(2),.@treasurex[.@i],.@treasurey[.@i],"¹«»á±¦Ïä",.@boxid,1,"±¦Ïä#"+strnpcinfo(2)+"::OnTreasureDied"+.@i;
+			monster strnpcinfo(2),.@treasurex[.@i],.@treasurey[.@i],"å…¬ä¼šå®ç®±",.@boxid,1,"å®ç®±#"+strnpcinfo(2)+"::OnTreasureDied"+.@i;
 			setd "$@"+strnpcinfo(2)+"_treasure",getd("$@"+strnpcinfo(2)+"_treasure") | .@box;
 		}
 	}

@@ -1,10 +1,7 @@
 //============================================================
-//= rAthenaCN [±´À×½Ü¿¨Æ¬ÈÎÎñ]ºº»¯½Å±¾ [ www.rAthenaCN.com ]
+//= rAthenaCN [è´é›·æ°å¡ç‰‡ä»»åŠ¡]æ±‰åŒ–è„šæœ¬ 
 //============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
+
 
 //===== Hercules Script ======================================
 //= Berzebub Card Quest
@@ -26,45 +23,45 @@ prontera,165,178,7	script	Old Woman	8_F_GRANDMOTHER,{
 
 	mes .@n$;
 	if(BerzQuest == 1) {
-		mes "ºÙ,ÎÒ¼ÇµÃÄã,ÎÒÒÑ¾­¸æËßÄã,Ö»ÄÜÍê³ÉÒ»´ÎÑ½!";
+		mes "å˜¿,æˆ‘è®°å¾—ä½ ,æˆ‘å·²ç»å‘Šè¯‰ä½ ,åªèƒ½å®Œæˆä¸€æ¬¡å‘€!";
 		close; }
-	mes "ÄãºÃ,Å®Ê¿,µ±ÎÒÔÚ¹Å³ÇÕªÄ¢¹½µÄÊ±ºòÎÒ·¢ÏÖÒ»¸öÕæÕýÆ¯ÁÁµÄÎïÆ·!";
+	mes "ä½ å¥½,å¥³å£«,å½“æˆ‘åœ¨å¤åŸŽæ‘˜è˜‘è‡çš„æ—¶å€™æˆ‘å‘çŽ°ä¸€ä¸ªçœŸæ­£æ¼‚äº®çš„ç‰©å“!";
 	next;
-	if(select("¼ÌÐøËµ»°:Àë¿ª")==2) goto M_Leave;
+	if(select("ç»§ç»­è¯´è¯:ç¦»å¼€")==2) goto M_Leave;
 		
 		mes .@n$;
-		mes "ÎÒÒÔÇ°´ÓÀ´Ã»ÓÐ¼û¹ýÏñÕâÑùµÄ¶«Î÷¡£ÎÒ±»¸æÖªËü¿ÉÒÔ±»ÔÚÈÎºÎ¸½Ä§Óë²Û¿ÉÓÃ";
+		mes "æˆ‘ä»¥å‰ä»Žæ¥æ²¡æœ‰è§è¿‡åƒè¿™æ ·çš„ä¸œè¥¿ã€‚æˆ‘è¢«å‘ŠçŸ¥å®ƒå¯ä»¥è¢«åœ¨ä»»ä½•é™„é­”ä¸Žæ§½å¯ç”¨";
 	next;
 	mes .@n$;
-	mes "Èç¹ûÄãÓÐÐËÈ¤ÔÚÕâ¸ö¶«Î÷,ÎÒ½«¸æËßÄãÄãÐèÒªÎÒ°ïÄã×öÒ»¸öÄã×Ô¼ºµÄ¡£ÎÒÖ»ÄÜ¸øÄãÆäÖÐµÄÒ»¸ö½ÇÉ«,ËùÒÔÒ»µ©ÄãÍê³ÉÕâ¸öÈÎÎñ,Äã¿ÉÄÜ²»»áÔÙ×öÒ»´Î";
+	mes "å¦‚æžœä½ æœ‰å…´è¶£åœ¨è¿™ä¸ªä¸œè¥¿,æˆ‘å°†å‘Šè¯‰ä½ ä½ éœ€è¦æˆ‘å¸®ä½ åšä¸€ä¸ªä½ è‡ªå·±çš„ã€‚æˆ‘åªèƒ½ç»™ä½ å…¶ä¸­çš„ä¸€ä¸ªè§’è‰²,æ‰€ä»¥ä¸€æ—¦ä½ å®Œæˆè¿™ä¸ªä»»åŠ¡,ä½ å¯èƒ½ä¸ä¼šå†åšä¸€æ¬¡";
 	next;
-	if(select("¸æËßÎÒ¹ØÓÚËûµÄ:ÎÒ²»¹ØÐÄÕâÐ©")==2) goto M_Leave;
+	if(select("å‘Šè¯‰æˆ‘å…³äºŽä»–çš„:æˆ‘ä¸å…³å¿ƒè¿™äº›")==2) goto M_Leave;
 
 		mes .@n$;
-		mes "ÎÒÏàÐÅÕâ¸öµÀ¾ß¾Í½ÐËûBerzebub ¿¨Æ¬,ËûÄÜÈÃÄãÊ©·¨ËÙ¶ÈÊ®·Ö¿ì";
+		mes "æˆ‘ç›¸ä¿¡è¿™ä¸ªé“å…·å°±å«ä»–Berzebub å¡ç‰‡,ä»–èƒ½è®©ä½ æ–½æ³•é€Ÿåº¦ååˆ†å¿«";
 	next;
 	mes .@n$;
-	mes "ÎÒÐèÒªÏÂÁÐÈ«²¿²ÄÁÏ";
+	mes "æˆ‘éœ€è¦ä¸‹åˆ—å…¨éƒ¨ææ–™";
 	for(set .@i,0; .@i<getarraysize(.@items); set .@i,.@i+2) {
 		mes " ~ "+.@items[.@i+1]+"x "+getitemname(.@items[.@i]);
 		if (countitem(.@items[.@i]) < .@items[.@i+1]) set .@nr,1; }
 	next;
-	if(select("ÎÒÒÑ¾­ÓÐËùÓÐµÄ²ÄÁÏÁË,ÎÒÒªÖÆ×÷!")==2) goto M_Leave;
+	if(select("æˆ‘å·²ç»æœ‰æ‰€æœ‰çš„ææ–™äº†,æˆ‘è¦åˆ¶ä½œ!")==2) goto M_Leave;
 
 	mes .@n$;
 	if (.@nr) {
-		mes "ÄãÈö»Ñ,¹ö³öÈ¥,»¹ÓÐÕâÐ©·Ï²ñ,Äã¾ÍÏñÎèÌ¨ÉÏµÄÐ¡³ó";
+		mes "ä½ æ’’è°Ž,æ»šå‡ºåŽ»,è¿˜æœ‰è¿™äº›åºŸæŸ´,ä½ å°±åƒèˆžå°ä¸Šçš„å°ä¸‘";
 		close; }
 	for(set .@i,0; .@i<getarraysize(.@items); set .@i,.@i+2)
 		delitem .@items[.@i], .@items[.@i+1];
 	getitem 4145,1;
 		 set BerzQuest, 1;
-		mes "¹§Ï²Äã! Äã´øÀ´ÁËÈ«²¿µÄ²ÄÁÏ,ÄÃºÃÄãµÄBerzebub¿¨°É!";
+		mes "æ­å–œä½ ! ä½ å¸¦æ¥äº†å…¨éƒ¨çš„ææ–™,æ‹¿å¥½ä½ çš„Berzebubå¡å§!";
 		 emotion ET_CONGRATULATION;
 		 close;
 
 M_Leave:
 		 mes .@n$;
-		 mes "¶àÃ´Î°´óµÄÉñÆ÷,ÎÒÒÑ¾­ÓµÓÐ";
+		 mes "å¤šä¹ˆä¼Ÿå¤§çš„ç¥žå™¨,æˆ‘å·²ç»æ‹¥æœ‰";
 	close;
 }

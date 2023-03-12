@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN ½Å±¾ºº»¯ www.rAthenaCN.com ×ª×Ô [ www.99Max.mE ]
-//============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN è„šæœ¬æ±‰åŒ– è½¬è‡ª [ www.99Max.mE ]
 //============================================================
 
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Niflheim Monster Spawn Script
 //===== By: ==================================================
 //= Athena (1.0)
@@ -27,30 +23,30 @@
 //==================================================
 // niflheim - Nifflheim, Realm of the Dead
 //==================================================
-niflheim,0,0,0,0	monster	ÄÏ¹Ï»ê	1509,20,5000,0,0
-niflheim,0,0,0,0	monster	ÍòÊ¥Ä§	1508,20,5000,0,0
-niflheim,0,0,0,0	monster	¹íÍŞÊ÷	1503,10,5000,0,0
-niflheim,0,0,0,0	monster	ÍÃË¹À­	1510,10,5000,0,0
-niflheim,0,0,0,0	monster	ÎŞÂ­ÎäÊ¿	1504,5,5000,0,0
+niflheim,0,0,0,0	monster	å—ç“œé­‚	1509,20,5000,0,0
+niflheim,0,0,0,0	monster	ä¸‡åœ£é­”	1508,20,5000,0,0
+niflheim,0,0,0,0	monster	é¬¼å¨ƒæ ‘	1503,10,5000,0,0
+niflheim,0,0,0,0	monster	å…”æ–¯æ‹‰	1510,10,5000,0,0
+niflheim,0,0,0,0	monster	æ— é¢…æ­¦å£«	1504,5,5000,0,0
 
 //==================================================
 // nif_fild01 - Skellington, a Solitary Village in Nifflheim
 //==================================================
-nif_fild01,0,0,0,0	monster	¼ÙÃæ¹í	1506,50,5000,0,0
-nif_fild01,0,0,0,0	monster	ÍòÊ¥Ä§	1508,30,5000,0,0
-nif_fild01,0,0,0,0	monster	ÎŞÂ­ÎäÊ¿	1504,20,5000,0,0
-nif_fild01,0,0,0,0	monster	¹íÍŞÊ÷	1503,10,5000,0,0
-nif_fild01,0,0,0,0	monster	ÍÃË¹À­	1510,10,5000,0,0
+nif_fild01,0,0,0,0	monster	å‡é¢é¬¼	1506,50,5000,0,0
+nif_fild01,0,0,0,0	monster	ä¸‡åœ£é­”	1508,30,5000,0,0
+nif_fild01,0,0,0,0	monster	æ— é¢…æ­¦å£«	1504,20,5000,0,0
+nif_fild01,0,0,0,0	monster	é¬¼å¨ƒæ ‘	1503,10,5000,0,0
+nif_fild01,0,0,0,0	monster	å…”æ–¯æ‹‰	1510,10,5000,0,0
 
 //==================================================
 // nif_fild02 - Vally of Gyoll
 //==================================================
-nif_fild02,0,0,0,0	monster	ÒøÔÂÄ§Å®	1505,21,5000,0,0
-nif_fild02,0,0,0,0	monster	¹íÍŞÊ÷	1503,20,5000,0,0
-nif_fild02,0,0,0,0	monster	ÊÈÑª¹ÖÈË	1507,11,5000,0,0
-nif_fild02,0,0,0,0	monster	ÎŞÂ­ÎäÊ¿	1504,10,5000,0,0
-nif_fild02,0,0,0,0	monster	ÄÏ¹Ï»ê	1509,10,5000,0,0
-nif_fild02,0,0,0,0	monster	ÍÃË¹À­	1510,10,5000,0,0
+nif_fild02,0,0,0,0	monster	é“¶æœˆé­”å¥³	1505,21,5000,0,0
+nif_fild02,0,0,0,0	monster	é¬¼å¨ƒæ ‘	1503,20,5000,0,0
+nif_fild02,0,0,0,0	monster	å—œè¡€æ€ªäºº	1507,11,5000,0,0
+nif_fild02,0,0,0,0	monster	æ— é¢…æ­¦å£«	1504,10,5000,0,0
+nif_fild02,0,0,0,0	monster	å—ç“œé­‚	1509,10,5000,0,0
+nif_fild02,0,0,0,0	monster	å…”æ–¯æ‹‰	1510,10,5000,0,0
 
 niflheim,0,0,0	script	mvp_niflheim	-1,{
 OnTimer7980000: // delay1 = 7980000 ms (133 min)
@@ -58,116 +54,116 @@ OnTimer7980000: // delay1 = 7980000 ms (133 min)
 OnInit:
 	switch(rand(6)) {
 	case 0:
-		monster "niflheim",327,193,"ËÀÁéÆïÊ¿",1373,1,strnpcinfo(3)+"::OnLoDDead";
-		monster "niflheim",330,193,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",324,193,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",327,196,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",327,190,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",324,190,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",330,190,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",324,196,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",330,196,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",327,193,"æ­»çµéª‘å£«",1373,1,strnpcinfo(3)+"::OnLoDDead";
+		monster "niflheim",330,193,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",324,193,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",327,196,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",327,190,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",324,190,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",330,190,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",324,196,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",330,196,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
 		break;
 	case 1:
-		monster "niflheim",337,252,"ËÀÁéÆïÊ¿",1373,1,strnpcinfo(3)+"::OnLoDDead";
-		monster "niflheim",337,255,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",337,249,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",334,252,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",340,252,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",334,249,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",340,255,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",340,249,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",334,255,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",337,252,"æ­»çµéª‘å£«",1373,1,strnpcinfo(3)+"::OnLoDDead";
+		monster "niflheim",337,255,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",337,249,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",334,252,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",340,252,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",334,249,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",340,255,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",340,249,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",334,255,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
 		break;
 	case 2:
-		monster "niflheim",190,185,"ËÀÁéÆïÊ¿",1373,1,strnpcinfo(3)+"::OnLoDDead";
-		monster "niflheim",190,188,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",190,182,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",193,185,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",187,185,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",187,182,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",193,182,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",193,188,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",187,188,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",190,185,"æ­»çµéª‘å£«",1373,1,strnpcinfo(3)+"::OnLoDDead";
+		monster "niflheim",190,188,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",190,182,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",193,185,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",187,185,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",187,182,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",193,182,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",193,188,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",187,188,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
 		break;
 	case 3:
-		monster "niflheim",131,138,"ËÀÁéÆïÊ¿",1373,1,strnpcinfo(3)+"::OnLoDDead";
-		monster "niflheim",131,141,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",131,135,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",128,138,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",134,138,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",134,141,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",128,141,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",134,135,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",128,135,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",131,138,"æ­»çµéª‘å£«",1373,1,strnpcinfo(3)+"::OnLoDDead";
+		monster "niflheim",131,141,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",131,135,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",128,138,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",134,138,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",134,141,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",128,141,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",134,135,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",128,135,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
 		break;
 	case 4:
-		monster "niflheim",311,64,"ËÀÁéÆïÊ¿",1373,1,strnpcinfo(3)+"::OnLoDDead";
-		monster "niflheim",311,67,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",311,61,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",308,64,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",314,64,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",314,61,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",314,67,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",308,67,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",308,61,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",311,64,"æ­»çµéª‘å£«",1373,1,strnpcinfo(3)+"::OnLoDDead";
+		monster "niflheim",311,67,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",311,61,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",308,64,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",314,64,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",314,61,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",314,67,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",308,67,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",308,61,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
 		break;
 	case 5:
-		monster "niflheim",238,131,"ËÀÁéÆïÊ¿",1373,1,strnpcinfo(3)+"::OnLoDDead";
-		monster "niflheim",238,134,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",238,128,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",235,131,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",241,131,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",235,128,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",235,134,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",241,128,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",241,134,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",238,131,"æ­»çµéª‘å£«",1373,1,strnpcinfo(3)+"::OnLoDDead";
+		monster "niflheim",238,134,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",238,128,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",235,131,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",241,131,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",235,128,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",235,134,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",241,128,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",241,134,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
 		break;
 	case 6:
-		monster "niflheim",86,219,"ËÀÁéÆïÊ¿",1373,1,strnpcinfo(3)+"::OnLoDDead";
-		monster "niflheim",86,222,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",86,216,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",89,219,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",83,219,"ÊÈÑª¹ÖÈË",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",89,222,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",89,216,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",83,222,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
-		monster "niflheim",83,216,"ÒøÔÂÄ§Å®",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",86,219,"æ­»çµéª‘å£«",1373,1,strnpcinfo(3)+"::OnLoDDead";
+		monster "niflheim",86,222,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",86,216,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",89,219,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",83,219,"å—œè¡€æ€ªäºº",1507,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",89,222,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",89,216,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",83,222,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
+		monster "niflheim",83,216,"é“¶æœˆé­”å¥³",1505,1,strnpcinfo(3)+"::OnInvasionMonsters";
 		break;
 	}
 	
-	monster "niflheim",154,95,"¼ÙÃæ¹í",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",115,65,"¼ÙÃæ¹í",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",330,195,"¼ÙÃæ¹í",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",151,83,"¼ÙÃæ¹í",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",285,245,"¼ÙÃæ¹í",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",235,135,"¼ÙÃæ¹í",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",265,48,"¼ÙÃæ¹í",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",186,139,"¼ÙÃæ¹í",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",166,267,"¼ÙÃæ¹í",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",82,202,"¼ÙÃæ¹í",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",219,44,"¼ÙÃæ¹í",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",287,44,"¼ÙÃæ¹í",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",275,165,"¼ÙÃæ¹í",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",138,204,"¼ÙÃæ¹í",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",299,39,"¼ÙÃæ¹í",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",31,154,"¼ÙÃæ¹í",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",154,96,"ÎŞÂ­ÎäÊ¿",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",116,65,"ÎŞÂ­ÎäÊ¿",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",151,84,"ÎŞÂ­ÎäÊ¿",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",286,245,"ÎŞÂ­ÎäÊ¿",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",330,196,"ÎŞÂ­ÎäÊ¿",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",236,135,"ÎŞÂ­ÎäÊ¿",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",165,49,"ÎŞÂ­ÎäÊ¿",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",167,267,"ÎŞÂ­ÎäÊ¿",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",82,203,"ÎŞÂ­ÎäÊ¿",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",220,44,"ÎŞÂ­ÎäÊ¿",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",287,45,"ÎŞÂ­ÎäÊ¿",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",287,44,"ÎŞÂ­ÎäÊ¿",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",276,166,"ÎŞÂ­ÎäÊ¿",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",139,205,"ÎŞÂ­ÎäÊ¿",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",300,39,"ÎŞÂ­ÎäÊ¿",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
-	monster "niflheim",31,155,"ÎŞÂ­ÎäÊ¿",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",154,95,"å‡é¢é¬¼",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",115,65,"å‡é¢é¬¼",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",330,195,"å‡é¢é¬¼",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",151,83,"å‡é¢é¬¼",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",285,245,"å‡é¢é¬¼",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",235,135,"å‡é¢é¬¼",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",265,48,"å‡é¢é¬¼",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",186,139,"å‡é¢é¬¼",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",166,267,"å‡é¢é¬¼",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",82,202,"å‡é¢é¬¼",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",219,44,"å‡é¢é¬¼",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",287,44,"å‡é¢é¬¼",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",275,165,"å‡é¢é¬¼",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",138,204,"å‡é¢é¬¼",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",299,39,"å‡é¢é¬¼",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",31,154,"å‡é¢é¬¼",1506,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",154,96,"æ— é¢…æ­¦å£«",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",116,65,"æ— é¢…æ­¦å£«",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",151,84,"æ— é¢…æ­¦å£«",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",286,245,"æ— é¢…æ­¦å£«",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",330,196,"æ— é¢…æ­¦å£«",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",236,135,"æ— é¢…æ­¦å£«",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",165,49,"æ— é¢…æ­¦å£«",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",167,267,"æ— é¢…æ­¦å£«",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",82,203,"æ— é¢…æ­¦å£«",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",220,44,"æ— é¢…æ­¦å£«",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",287,45,"æ— é¢…æ­¦å£«",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",287,44,"æ— é¢…æ­¦å£«",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",276,166,"æ— é¢…æ­¦å£«",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",139,205,"æ— é¢…æ­¦å£«",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",300,39,"æ— é¢…æ­¦å£«",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
+	monster "niflheim",31,155,"æ— é¢…æ­¦å£«",1504,1,strnpcinfo(3)+"::OnInvasionMonsters";
 	end;
 
 OnLoDDead:

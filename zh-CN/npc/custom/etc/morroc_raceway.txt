@@ -1,10 +1,7 @@
 //============================================================
-//= rAthenaCN [¼«ËÙÌìÊ¹]ºº»¯½Å±¾ [ www.rAthenaCN.com ]
+//= rAthenaCN [æé€Ÿå¤©ä½¿]æ±‰åŒ–è„šæœ¬ 
 //============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
+
 
 //===== Hercules Script ======================================
 //= Morroc Raceway
@@ -27,13 +24,13 @@
 //============================================================
 
 //Warps you into race way
-morocc,166,105,6	script	¼«ËÙÌìÊ¹#01	4_F_KAFRA2,{
-	mes "[¼«ËÙÌìÊ¹]";
-	mes "ÄãÏë²»Ïë²Î¼Ó ^0000FFÃÎÂŞ¿Ë¾ºËÙÈü^000000?";
+morocc,166,105,6	script	æé€Ÿå¤©ä½¿#01	4_F_KAFRA2,{
+	mes "[æé€Ÿå¤©ä½¿]";
+	mes "ä½ æƒ³ä¸æƒ³å‚åŠ  ^0000FFæ¢¦ç½—å…‹ç«é€Ÿèµ›^000000?";
 	next;
-	menu "- ÊÇ",L_Warp,"- ·ñ",-;
-	mes "[¼«ËÙÌìÊ¹]";
-	mes "ºÃ°É, µÈÄãÊ²Ã´Ê±ºò¸Ä±äÖ÷ÒªÁËËæÊ±À´ÕÒÎÒ.";
+	menu "- æ˜¯",L_Warp,"- å¦",-;
+	mes "[æé€Ÿå¤©ä½¿]";
+	mes "å¥½å§, ç­‰ä½ ä»€ä¹ˆæ—¶å€™æ”¹å˜ä¸»è¦äº†éšæ—¶æ¥æ‰¾æˆ‘.";
 	close;
 L_Warp:
 	warp "pvp_y_1-4",165,256;
@@ -41,25 +38,25 @@ L_Warp:
 }
 
 //Warps you out of raceway
-pvp_y_1-4,169,265,5	script	¼«ËÙÌìÊ¹#02	4_F_KAFRA2,{
-	mes "[¼«ËÙÌìÊ¹]";
-	mes "»¶Ó­À´µ½ÃÎÂŞ¿Ë¾ºËÙÈü!";
+pvp_y_1-4,169,265,5	script	æé€Ÿå¤©ä½¿#02	4_F_KAFRA2,{
+	mes "[æé€Ÿå¤©ä½¿]";
+	mes "æ¬¢è¿æ¥åˆ°æ¢¦ç½—å…‹ç«é€Ÿèµ›!";
 	next;
-	menu "- Çé±¨",-,"- Àë¿ª",L_Warp,"- È¡Ïû",L_Cancel;
-	mes "[¼«ËÙÌìÊ¹]";
-	mes "Ñ¡ÊÖÃÇ±ØĞëµã»÷¿ªÊ¼NPC²Å¿ÉÒÔ¿ªÆô¾ºÈü.";
+	menu "- æƒ…æŠ¥",-,"- ç¦»å¼€",L_Warp,"- å–æ¶ˆ",L_Cancel;
+	mes "[æé€Ÿå¤©ä½¿]";
+	mes "é€‰æ‰‹ä»¬å¿…é¡»ç‚¹å‡»å¼€å§‹NPCæ‰å¯ä»¥å¼€å¯ç«èµ›.";
 	next;
-	mes "[¼«ËÙÌìÊ¹]";
-	mes "µ±±ÈÈü¿ªÊ¼ºó, ÄæÊ±Õë·½ÏòÎ§×ÅÃÎÂŞ¿Ë¾ºËÙ.";
+	mes "[æé€Ÿå¤©ä½¿]";
+	mes "å½“æ¯”èµ›å¼€å§‹å, é€†æ—¶é’ˆæ–¹å‘å›´ç€æ¢¦ç½—å…‹ç«é€Ÿ.";
 	next;
-	mes "[¼«ËÙÌìÊ¹]";
-	mes "Äã±ØĞëÍ¨¹ıËùÓĞµÄ¹Ø¿¨ - ²»ÄÜ×÷±×!";
+	mes "[æé€Ÿå¤©ä½¿]";
+	mes "ä½ å¿…é¡»é€šè¿‡æ‰€æœ‰çš„å…³å¡ - ä¸èƒ½ä½œå¼Š!";
 	close;
 L_Warp:
 	warp "morocc",165,101;
 L_Cancel:
-	mes "[¼«ËÙÌìÊ¹]";
-	mes "ÔÙ¼û!";
+	mes "[æé€Ÿå¤©ä½¿]";
+	mes "å†è§!";
 	close;
 }
 
@@ -69,19 +66,19 @@ pvp_y_1-4,145,269,5	script	Starter	4_M_JOB_KNIGHT1,{
 	if ($@counting != 0) goto L_Started;
 	if ($@racecount == 1) goto L_Started;
 L_Menu:
-	mes "[±ÈÈü¿ªÊ¼]";
-	mes "Çë´ıÔÚÎÒµÄ¶«Ãæ.";
-	menu "- ¿ªÊ¼¾ºÈü",L_Count,"- È¡Ïû",-;
+	mes "[æ¯”èµ›å¼€å§‹]";
+	mes "è¯·å¾…åœ¨æˆ‘çš„ä¸œé¢.";
+	menu "- å¼€å§‹ç«èµ›",L_Count,"- å–æ¶ˆ",-;
 	close;
 L_Count:
 	set $@counting,1;
-	mes "µ¹¼ÆÊ±...";
+	mes "å€’è®¡æ—¶...";
 	addtimer 1000, "Starter::OnCount1000";
 	addtimer 2000, "Starter::OnCount2000";
 	addtimer 3000, "Starter::OnCount3000";
 	addtimer 4000, "Starter::OnCount4000";
-	announce strcharinfo(0) + "¿ªÊ¼µ¹¼ÆÊ±",1;
-	announce "×¼±¸ºÃ±ÈÈü!",1;
+	announce strcharinfo(0) + "å¼€å§‹å€’è®¡æ—¶",1;
+	announce "å‡†å¤‡å¥½æ¯”èµ›!",1;
 	close;
 
 OnCount1000:
@@ -107,7 +104,7 @@ L_Started:
 	if ((getmapusers("pvp_y_1-4") < 3) && ($@position > 0)) goto L_Menu;
 	if ($@position > 2) goto L_Menu;
 	mes "[Starter]";
-	mes "±ÈÈü½øĞĞÖĞ";
+	mes "æ¯”èµ›è¿›è¡Œä¸­";
 	close;
 
 OnInit:
@@ -118,127 +115,127 @@ OnInit:
 }
 
 //Checkpoint 1
-pvp_y_1-4,144,262,5	script	Æğµã	HIDDEN_NPC,0,5,{
+pvp_y_1-4,144,262,5	script	èµ·ç‚¹	HIDDEN_NPC,0,5,{
 	end;
 OnTouch:
 	if (@raceid != $@raceid) goto L_Started;
 	if (@race == 6) goto L_Finished;
 	if ($@race == 1) goto L_Started;
-	mes "±ÈÈü»¹Ã»ÓĞ¿ªÊ¼, Çë»ØÆğÅÜÏß.";
+	mes "æ¯”èµ›è¿˜æ²¡æœ‰å¼€å§‹, è¯·å›èµ·è·‘çº¿.";
 	close;
 L_Started:
 	set @race,1;
 	set @raceid,$@raceid;
 	end;
 L_Finished:
-	mes "ÄãÒÑ¾­Íê³ÉÁË±ÈÈü.";
+	mes "ä½ å·²ç»å®Œæˆäº†æ¯”èµ›.";
 	close;
 }
 
 //Checkpoint 2
-pvp_y_1-4,73,247,5	script	¼ì²âµã[1]	HIDDEN_NPC,6,6,{
+pvp_y_1-4,73,247,5	script	æ£€æµ‹ç‚¹[1]	HIDDEN_NPC,6,6,{
 	end;
 OnTouch:
 	if (@race != 1) goto L_Miss;
 	set @race,2;
-	announce "[" + strcharinfo(0) +"] ÒÑ¾­µ½´ï¼ì²âµã [1]",1;
+	announce "[" + strcharinfo(0) +"] å·²ç»åˆ°è¾¾æ£€æµ‹ç‚¹ [1]",1;
 	end;
 L_Miss:
-	mes "Äã´í¹ıÁË¼ì²âµã[1]. Çë·µ»Ø.";
+	mes "ä½ é”™è¿‡äº†æ£€æµ‹ç‚¹[1]. è¯·è¿”å›.";
 	close;
 }
 
 //Checkpoint 3
-pvp_y_1-4,77,44,5	script	¼ì²âµã[2]	HIDDEN_NPC,6,6,{
+pvp_y_1-4,77,44,5	script	æ£€æµ‹ç‚¹[2]	HIDDEN_NPC,6,6,{
 	end;
 OnTouch:
 	if (@race != 2) goto L_Miss;
 	set @race,3;
-	announce "[" + strcharinfo(0) +"] ÒÑ¾­µ½´ï¼ì²âµã [2]",1;
+	announce "[" + strcharinfo(0) +"] å·²ç»åˆ°è¾¾æ£€æµ‹ç‚¹ [2]",1;
 	end;
 L_Miss:
-	mes "Äã´í¹ıÁË¼ì²âµã[2]. Çë·µ»Ø.";
+	mes "ä½ é”™è¿‡äº†æ£€æµ‹ç‚¹[2]. è¯·è¿”å›.";
 	close;
 }
 
 //Checkpoint 3
-pvp_y_1-4,249,60,5	script	¼ì²âµã[3]	HIDDEN_NPC,6,6,{
+pvp_y_1-4,249,60,5	script	æ£€æµ‹ç‚¹[3]	HIDDEN_NPC,6,6,{
 	end;
 OnTouch:
 	if (@race != 3) goto L_Miss;
 	set @race,4;
-	announce "[" + strcharinfo(0) +"] ÒÑ¾­µ½´ï¼ì²âµã [3]",1;
+	announce "[" + strcharinfo(0) +"] å·²ç»åˆ°è¾¾æ£€æµ‹ç‚¹ [3]",1;
 	end;
 L_Miss:
-	mes "Äã´í¹ıÁË¼ì²âµã[3]. Çë·µ»Ø.";
+	mes "ä½ é”™è¿‡äº†æ£€æµ‹ç‚¹[3]. è¯·è¿”å›.";
 	close;
 }
 
 //Checkpoint 4
-pvp_y_1-4,255,256,5	script	¼ì²âµã[4]	HIDDEN_NPC,6,6,{
+pvp_y_1-4,255,256,5	script	æ£€æµ‹ç‚¹[4]	HIDDEN_NPC,6,6,{
 	end;
 OnTouch:
 	if (@race != 4) goto L_Miss;
 	set @race,5;
-	announce "[" + strcharinfo(0) +"] ÒÑ¾­µ½´ï¼ì²âµã [4]",1;
+	announce "[" + strcharinfo(0) +"] å·²ç»åˆ°è¾¾æ£€æµ‹ç‚¹ [4]",1;
 	end;
 L_Miss:
-	mes "Äã´í¹ıÁË¼ì²âµã[4]. Çë·µ»Ø.";
+	mes "ä½ é”™è¿‡äº†æ£€æµ‹ç‚¹[4]. è¯·è¿”å›.";
 	close;
 }
 
 //Finish Line
-pvp_y_1-4,174,244,5	script	ÖÕµã	HIDDEN_NPC,6,6,{
+pvp_y_1-4,174,244,5	script	ç»ˆç‚¹	HIDDEN_NPC,6,6,{
 	end;
 OnTouch:
 	if (@raceid != $@raceid) goto L_WrongRace;
 	if (@race != 5) goto L_Miss;
 	set @race,6;
 	set $@position,$@position+1;
-	announce "[" + strcharinfo(0) +"] ÒÑ¾­µ½´ïÁËÖÕµã! [ÅÅÃû: " + $@position + "]",1;
+	announce "[" + strcharinfo(0) +"] å·²ç»åˆ°è¾¾äº†ç»ˆç‚¹! [æ’å: " + $@position + "]",1;
 	end;
 L_Miss:
-	mes "Äã´í¹ıÁË¼ì²âµã. Çë·µ»Ø.";
+	mes "ä½ é”™è¿‡äº†æ£€æµ‹ç‚¹. è¯·è¿”å›.";
 	close;
 L_WrongRace:
-	mes "Äã²»ÔÚ±ÈÈüÖĞ.";
+	mes "ä½ ä¸åœ¨æ¯”èµ›ä¸­.";
 	close;
 }
 
 //Check Point Marker Flags
-pvp_y_1-4,144,267,4	script	Æğµã#01	GUILD_FLAG,{
+pvp_y_1-4,144,267,4	script	èµ·ç‚¹#01	GUILD_FLAG,{
 	end;
 }
-pvp_y_1-4,144,257,4	script	Æğµã#02	GUILD_FLAG,{
+pvp_y_1-4,144,257,4	script	èµ·ç‚¹#02	GUILD_FLAG,{
 	end;
 }
-pvp_y_1-4,70,252,3	script	¼ì²âµã[1]#01	GUILD_FLAG,{
+pvp_y_1-4,70,252,3	script	æ£€æµ‹ç‚¹[1]#01	GUILD_FLAG,{
 	end;
 }
-pvp_y_1-4,77,243,3	script	¼ì²âµã[1]#02	GUILD_FLAG,{
+pvp_y_1-4,77,243,3	script	æ£€æµ‹ç‚¹[1]#02	GUILD_FLAG,{
 	end;
 }
-pvp_y_1-4,81,48,1	script	¼ì²âµã[2]#01	GUILD_FLAG,{
+pvp_y_1-4,81,48,1	script	æ£€æµ‹ç‚¹[2]#01	GUILD_FLAG,{
 	end;
 }
-pvp_y_1-4,72,40,1	script	¼ì²âµã[2]#02	GUILD_FLAG,{
+pvp_y_1-4,72,40,1	script	æ£€æµ‹ç‚¹[2]#02	GUILD_FLAG,{
 	end;
 }
-pvp_y_1-4,244,65,7	script	¼ì²âµã[3]#01	GUILD_FLAG,{
+pvp_y_1-4,244,65,7	script	æ£€æµ‹ç‚¹[3]#01	GUILD_FLAG,{
 	end;
 }
-pvp_y_1-4,252,57,7	script	¼ì²âµã[3]#02	GUILD_FLAG,{
+pvp_y_1-4,252,57,7	script	æ£€æµ‹ç‚¹[3]#02	GUILD_FLAG,{
 	end;
 }
-pvp_y_1-4,259,260,5	script	¼ì²âµã[4]#01	GUILD_FLAG,{
+pvp_y_1-4,259,260,5	script	æ£€æµ‹ç‚¹[4]#01	GUILD_FLAG,{
 	end;
 }
-pvp_y_1-4,251,252,5	script	¼ì²âµã[4]#02	GUILD_FLAG,{
+pvp_y_1-4,251,252,5	script	æ£€æµ‹ç‚¹[4]#02	GUILD_FLAG,{
 	end;
 }
-pvp_y_1-4,174,249,4	script	ÖÕµã#01	GUILD_FLAG,{
+pvp_y_1-4,174,249,4	script	ç»ˆç‚¹#01	GUILD_FLAG,{
 	end;
 }
-pvp_y_1-4,174,238,4	script	ÖÕµã#02	GUILD_FLAG,{
+pvp_y_1-4,174,238,4	script	ç»ˆç‚¹#02	GUILD_FLAG,{
 	end;
 }

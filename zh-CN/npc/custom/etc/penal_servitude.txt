@@ -1,10 +1,7 @@
 //============================================================
-//= rAthenaCN [µäÓü³¤]ºº»¯½Å±¾ [ www.rAthenaCN.com ]
+//= rAthenaCN [å…¸ç‹±é•¿]æ±‰åŒ–è„šæœ¬ 
 //============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
+
 
 //===== Hercules Script ======================================
 //= Penal Servitude 
@@ -22,82 +19,82 @@
 // 1.2 Stricted the conditions a bit
 //============================================================
 
-sec_pri,36,58,1	script	µäÓü³¤	8W_SOLDIER,{ 
-	mes "[µäÓü³¤]";
+sec_pri,36,58,1	script	å…¸ç‹±é•¿	8W_SOLDIER,{ 
+	mes "[å…¸ç‹±é•¿]";
 	emotion 1;
 	if(Sex) {
-		mes "·¸ÈË #"+BaseLevel+JobLevel+",";
+		mes "çŠ¯äºº #"+BaseLevel+JobLevel+",";
 	} else {
-		mes "·¸ÈË #"+BaseLevel+JobLevel+",";
+		mes "çŠ¯äºº #"+BaseLevel+JobLevel+",";
 	}
-	mes "ÄÇ±ßµÄÔëÉùÊÇÊ²Ã´?";
+	mes "é‚£è¾¹çš„å™ªå£°æ˜¯ä»€ä¹ˆ?";
 	next;
-	menu "- ÈÃÎÒ×ÔÓÉ, ÎÒ¸¶Ç®!",-, "- ÎÒÎª×ÔÓÉ¶ø¹¤×÷!",M_Q1, "- Ã»ÊÂ",M_NO_THANKS;
+	menu "- è®©æˆ‘è‡ªç”±, æˆ‘ä»˜é’±!",-, "- æˆ‘ä¸ºè‡ªç”±è€Œå·¥ä½œ!",M_Q1, "- æ²¡äº‹",M_NO_THANKS;
 
 M_PAY:
-	mes "[µäÓü³¤]";
+	mes "[å…¸ç‹±é•¿]";
 	set @MUSTPAY,(PRISON+1)*1000000;
 	if (@MUSTPAY<1000000) set @MUSTPAY,1000000;
 	if (@MUSTPAY>100000000) set @MUSTPAY,100000000;
-	if (PRISON==1) mes "ÎÒ²»¼ÇµÃÄã. ÄãµÚÒ»´Î½øÀ´?";
-	if (PRISON>1) mes "ÄãÓÖ½øÀ´ÁË? ¿´À´ÓĞÈË½øÀ´Ò»´Î»¹Ñ§²»´ÏÃ÷...";
-	mes "ºÃ£¬ÒªÊÍ·ÅÄãµÄ»°ÄãµÃ¸¶ ^FF0000"+@MUSTPAY+"z^000000.";
+	if (PRISON==1) mes "æˆ‘ä¸è®°å¾—ä½ . ä½ ç¬¬ä¸€æ¬¡è¿›æ¥?";
+	if (PRISON>1) mes "ä½ åˆè¿›æ¥äº†? çœ‹æ¥æœ‰äººè¿›æ¥ä¸€æ¬¡è¿˜å­¦ä¸èªæ˜...";
+	mes "å¥½ï¼Œè¦é‡Šæ”¾ä½ çš„è¯ä½ å¾—ä»˜ ^FF0000"+@MUSTPAY+"z^000000.";
 	next;
-	menu "- ÎÒ¸¶ÏÖ½ğ!",M_PAYCASH,"- ÄãÊÕÖ§Æ±Ã´?",M_PAYBANK,"- ÎÒ¸ÄÖ÷ÒâÁË.",-;
+	menu "- æˆ‘ä»˜ç°é‡‘!",M_PAYCASH,"- ä½ æ”¶æ”¯ç¥¨ä¹ˆ?",M_PAYBANK,"- æˆ‘æ”¹ä¸»æ„äº†.",-;
 
-	mes "[µäÓü³¤]";
-	mes "Äã¿ÉÒÔ¿¼ÂÇÒ»ÏÂ...";
+	mes "[å…¸ç‹±é•¿]";
+	mes "ä½ å¯ä»¥è€ƒè™‘ä¸€ä¸‹...";
 	close;
 
 M_PAYCASH:
 	if (@MUSTPAY>Zeny) goto L_NOCASH;
 	set Zeny, Zeny - @MUSTPAY;
-	mes "[µäÓü³¤]";
-	mes "ºÃ£¬³ªÊ×¸è°É.";
+	mes "[å…¸ç‹±é•¿]";
+	mes "å¥½ï¼Œå”±é¦–æ­Œå§.";
 	goto L_RELEASE;
 
 L_NOCASH:
-	mes "[µäÓü³¤]";
-	mes "Ê²Ã´? ÕâĞ©Ç®²»¹»!";
+	mes "[å…¸ç‹±é•¿]";
+	mes "ä»€ä¹ˆ? è¿™äº›é’±ä¸å¤Ÿ!";
 	close;
 
 M_PAYBANK:
 	if (@MUSTPAY>#kafrabank) goto L_NOBANK;
 	set #kafrabank,#kafrabank-@MUSTPAY;
-	mes "[µäÓü³¤]";
-	mes "ºÃ,ÔÚÄãµÄÖ§Æ±ÉÏÇ©Ãû°É.";
+	mes "[å…¸ç‹±é•¿]";
+	mes "å¥½,åœ¨ä½ çš„æ”¯ç¥¨ä¸Šç­¾åå§.";
 	goto L_RELEASE;
 
 L_NOBANK:
-	mes "[µäÓü³¤]";
-	if (#kafrabank==0) mes "ÄãÕË»§Ã»Ç®.";
-	if (#kafrabank!=0) mes "ÄãµÄÕË»§»¹ÓĞ... ^FF0000"+#kafrabank+"z^000000... ²»¹»Ö§¸¶·ÑÓÃµÄ.";
-	mes "Í£Ö¹ÄãÓŞ´ÀµÄĞĞ¶¯!";
+	mes "[å…¸ç‹±é•¿]";
+	if (#kafrabank==0) mes "ä½ è´¦æˆ·æ²¡é’±.";
+	if (#kafrabank!=0) mes "ä½ çš„è´¦æˆ·è¿˜æœ‰... ^FF0000"+#kafrabank+"z^000000... ä¸å¤Ÿæ”¯ä»˜è´¹ç”¨çš„.";
+	mes "åœæ­¢ä½ æ„šè ¢çš„è¡ŒåŠ¨!";
 	close;
 
 L_RELEASE:
 	set PRISON,PRISON+1;
 	next;
-	mes "[µäÓü³¤]";
-	mes "Äã×ÔÓÉÁË!";
+	mes "[å…¸ç‹±é•¿]";
+	mes "ä½ è‡ªç”±äº†!";
 	next;
 	savepoint "izlude",105,112;
 	warp "izlude",105,112;
 	close;
 
 M_Q1:
-	mes "[µäÓü³¤]";
-	mes "ÎÒÃÇµÄ¹«Ë¾È±ÉÙÒ»Ğ©Ã¹¾ú, ÄãÒª²»Òªµ½ÎÒÃÇµÄÄ¢¹½Å©³¡¹¤×÷?";
+	mes "[å…¸ç‹±é•¿]";
+	mes "æˆ‘ä»¬çš„å…¬å¸ç¼ºå°‘ä¸€äº›éœ‰èŒ, ä½ è¦ä¸è¦åˆ°æˆ‘ä»¬çš„è˜‘è‡å†œåœºå·¥ä½œ?";
 	next;
-	menu "- ºÃ,ÎÒÒªÈ¥¹¤×÷!",-, "- ÎÒÏ²»¶Õâ¸ö¼àÓü!",M_NO_THANKS;
+	menu "- å¥½,æˆ‘è¦å»å·¥ä½œ!",-, "- æˆ‘å–œæ¬¢è¿™ä¸ªç›‘ç‹±!",M_NO_THANKS;
 
-	mes "[µäÓü³¤]";
+	mes "[å…¸ç‹±é•¿]";
 	if(checkcart() || checkfalcon() || checkriding()){
 		emotion ET_SCRATCH;
-		mes "ÄãÒªÈ¡ÏûÄãµÄÊÖÍÆ³µ,ÁÔÓ¥,ÀÇ!";
+		mes "ä½ è¦å–æ¶ˆä½ çš„æ‰‹æ¨è½¦,çŒé¹°,ç‹¼!";
 		close;
 	}
-	mes "È¥¸úÎÒÃÇµÄ¼à¹¤Ëµ°É,°ÂÀû¸¥.";
+	mes "å»è·Ÿæˆ‘ä»¬çš„ç›‘å·¥è¯´å§,å¥¥åˆ©å¼—.";
 	next;
 
 	nude;
@@ -128,15 +125,15 @@ L_W4:
 	close;
 
 M_NO_THANKS:
-	mes "[µäÓü³¤]";  
-	if (rand(2)) mes "½ñÌìÊÇÊ¥µ®½ÚÃ´£¿?";
-	mes "±ÕÉÏ×ìÒ»±ßÈ¥!";
+	mes "[å…¸ç‹±é•¿]";  
+	if (rand(2)) mes "ä»Šå¤©æ˜¯åœ£è¯èŠ‚ä¹ˆï¼Ÿ?";
+	mes "é—­ä¸Šå˜´ä¸€è¾¹å»!";
 	if (rand(2)) emotion 23;
 	close;  
 }
 
-sec_in02,137,57,1	script	¼à¹¤	4_M_PAY_SOLDIER,{ 
-	mes "[°ÂÀû¸¥]";
+sec_in02,137,57,1	script	ç›‘å·¥	4_M_PAY_SOLDIER,{ 
+	mes "[å¥¥åˆ©å¼—]";
 
 	delitem 4002,countitem(4002);//Items: Fabre_Card,
 	delitem 4009,countitem(4009);//Items: Chonchon_Card,
@@ -145,14 +142,14 @@ sec_in02,137,57,1	script	¼à¹¤	4_M_PAY_SOLDIER,{
 	
 	if (PRISON_Q <= 0 ) goto L_GET_Q;
 
-	mes "ÄãÒªÈ¥ÊÕ¼¯ ^FF0000"+PRISON_Q+" ½ÛÉ«ÍøÄ¢¹½^000000.";
+	mes "ä½ è¦å»æ”¶é›† ^FF0000"+PRISON_Q+" æ¡”è‰²ç½‘è˜‘è‡^000000.";
 	if ( countitem(1069)<PRISON_Q ) close;//Items: Orange_Net_Mushroom,
-	mes "°Ñ½ÛÉ«ÍøÄ¢¹½¸øÎÒ°É...";
-	mes "ÎÒ¿´¿´... "+countitem(1069)+" ¸ö¿ÉÊ¹ÓÃµÄ...";//Items: Orange_Net_Mushroom,
-	mes "ºÍ "+countitem(1070)+" Ã»ÓÃµÄËÀÄ¢¹½.";//Items: OrangET_GOoey_Mushroom_,
+	mes "æŠŠæ¡”è‰²ç½‘è˜‘è‡ç»™æˆ‘å§...";
+	mes "æˆ‘çœ‹çœ‹... "+countitem(1069)+" ä¸ªå¯ä½¿ç”¨çš„...";//Items: Orange_Net_Mushroom,
+	mes "å’Œ "+countitem(1070)+" æ²¡ç”¨çš„æ­»è˜‘è‡.";//Items: OrangET_GOoey_Mushroom_,
 	next;
-	mes "[°ÂÀû¸¥]";
-	mes "Ğ»Ğ». Äã×ÔÓÉÁË!";
+	mes "[å¥¥åˆ©å¼—]";
+	mes "è°¢è°¢. ä½ è‡ªç”±äº†!";
 	set PRISON_Q,0;
 	delitem 1069,countitem(1069);//Items: Orange_Net_Mushroom,
 	delitem 1070,countitem(1070);//Items: OrangET_GOoey_Mushroom_,
@@ -163,18 +160,18 @@ sec_in02,137,57,1	script	¼à¹¤	4_M_PAY_SOLDIER,{
 
 L_GET_Q:
 	set PRISON,PRISON+1;
-	if (PRISON > 1) mes "àÅ...ÄãÒÑ¾­ÔÚÕâÁË..ºÜºÃ...";
+	if (PRISON > 1) mes "å—¯...ä½ å·²ç»åœ¨è¿™äº†..å¾ˆå¥½...";
 
-	if ( countitem(1069) || countitem(1070) ) mes "ÈÓµôÕâĞ©Ä¢¹½!! ËûÃÇÓĞ¶¾!";//Items: Orange_Net_Mushroom, OrangET_GOoey_Mushroom_,
+	if ( countitem(1069) || countitem(1070) ) mes "æ‰”æ‰è¿™äº›è˜‘è‡!! ä»–ä»¬æœ‰æ¯’!";//Items: Orange_Net_Mushroom, OrangET_GOoey_Mushroom_,
 	delitem 1069,countitem(1069);//Items: Orange_Net_Mushroom,
 	delitem 1070,countitem(1070);//Items: OrangET_GOoey_Mushroom_,
 
 	set PRISON_Q, PRISON*3 + BaseLevel/3;
 	set PRISON_Q, PRISON_Q * (readparam(bAspd)/55 + 1);
 	set PRISON_Q, PRISON_Q+rand(50,60);
-	mes "ºÃ,ÄãÒª¸øÎÒÄÃÀ´ ^FF0000"+PRISON_Q+"^000000 ¿ÉÊ¹ÓÃµÄ ^FF0000½ÛÉ«Íø×´Ä¢¹½^000000 ¾ú¸Ç.";
-	if(readparam(bAspd)>=100) mes "ÄãÕæÊÇ¸ö¸É»îÂéÀûµÄÈË! Äã»¹¿ÉÒÔÅª¸ü¶àµÄÄ¢¹½.";
-	if (rand(10)<4) mes "Äã¿ÉÒÔ×Ô¼º°ÑÄÇĞ©ËÀµÄ³ÔÁË.";
+	mes "å¥½,ä½ è¦ç»™æˆ‘æ‹¿æ¥ ^FF0000"+PRISON_Q+"^000000 å¯ä½¿ç”¨çš„ ^FF0000æ¡”è‰²ç½‘çŠ¶è˜‘è‡^000000 èŒç›–.";
+	if(readparam(bAspd)>=100) mes "ä½ çœŸæ˜¯ä¸ªå¹²æ´»éº»åˆ©çš„äºº! ä½ è¿˜å¯ä»¥å¼„æ›´å¤šçš„è˜‘è‡.";
+	if (rand(10)<4) mes "ä½ å¯ä»¥è‡ªå·±æŠŠé‚£äº›æ­»çš„åƒäº†.";
 	close;
 }
 
@@ -192,8 +189,8 @@ sec_in02	mapflag	noskill
 //sec_in02	mapflag	gvg
 sec_in02	mapflag	pvp_nightmaredrop	random,all,300
 
-sec_in02,138,55,100,100	monster	Ä¢¹½	1182,30,10000,10000,1
-sec_in02,138,55,100,100	monster	ÂÌÃŞ³æ	1184,10,20000,20000
-sec_in02,138,55,100,100	monster	²ÔÓ¬	1183,11,20000,20000
-sec_in02,138,55,100,100	monster	Ä§¹½	1014,12,20000,20000
-sec_in02,138,55,100,100	monster	¶¾Ä§¹½	1077,3,20000,20000
+sec_in02,138,55,100,100	monster	è˜‘è‡	1182,30,10000,10000,1
+sec_in02,138,55,100,100	monster	ç»¿æ£‰è™«	1184,10,20000,20000
+sec_in02,138,55,100,100	monster	è‹è‡	1183,11,20000,20000
+sec_in02,138,55,100,100	monster	é­”è‡	1014,12,20000,20000
+sec_in02,138,55,100,100	monster	æ¯’é­”è‡	1077,3,20000,20000

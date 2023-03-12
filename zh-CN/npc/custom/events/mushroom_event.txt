@@ -1,10 +1,7 @@
 //============================================================
-//= rAthenaCN [Ñ°ÕÒ±¦ÎïÏä×Ó]ºº»¯½Å±¾ [ www.rAthenaCN.com ]
+//= rAthenaCN [å¯»æ‰¾å®ç‰©ç®±å­]æ±‰åŒ–è„šæœ¬ 
 //============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
+
 
 //===== Hercules Script ======================================
 //= Find the Mushroom
@@ -20,21 +17,21 @@
 //= 3.6a Slightly edited. [Euphy]
 //============================================================
 
-prontera,142,228,6	script	Ñ°ÕÒ±¦ÎïÏä×Ó	1084,{
-	mes "[ Ñ°ÕÒ±¦ÎïÏä×Ó ]";
+prontera,142,228,6	script	å¯»æ‰¾å®ç‰©ç®±å­	1084,{
+	mes "[ å¯»æ‰¾å®ç‰©ç®±å­ ]";
 	if (!.Status)
-		mes "ÏÖÔÚÃ»ÓĞÈÎºÎ»î¶¯!";
+		mes "ç°åœ¨æ²¡æœ‰ä»»ä½•æ´»åŠ¨!";
 	else {
-		mes "ÓĞ "+.Spawn+" ±¦ÎïÏä×Ó´æÔÚ "+.Map$+"!";
-		mes "ÕÒµ½±¦ÎïÏä×Ó²¢É±ËÀ»ñµÃµÄ"+getitemname(.Prize)+"!";
+		mes "æœ‰ "+.Spawn+" å®ç‰©ç®±å­å­˜åœ¨ "+.Map$+"!";
+		mes "æ‰¾åˆ°å®ç‰©ç®±å­å¹¶æ€æ­»è·å¾—çš„"+getitemname(.Prize)+"!";
 	}
 	if (.Status || getgmlevel() < .GM) close;
-	mes "×¼±¸¿ªÊ¼?";
+	mes "å‡†å¤‡å¼€å§‹?";
 	next;
-	if(select("- ²»:- ÊÇ") == 1) close;
+	if(select("- ä¸:- æ˜¯") == 1) close;
 	donpcevent strnpcinfo(0)+"::OnMinute10";
-	mes "[ Ñ°ÕÒ±¦ÎïÏä×Ó ]";
-	mes "¿ªÊ¼!";
+	mes "[ å¯»æ‰¾å®ç‰©ç®±å­ ]";
+	mes "å¼€å§‹!";
 	close;
 
 OnInit:
@@ -49,19 +46,19 @@ OnMinute10:	// Start time (every hour)
 	set .Status,1;
 	set .Spawn,rand(1,10);	// How many Mushrooms should spawn?
 	set .Map$,.Maps$[rand(getarraysize(.Maps$))];
-	killmonster .Map$,"È«²¿";
-	monster .Map$,0,0,"Çë²»ÒªÅöÎÒ!",1324,.Spawn,strnpcinfo(0)+"::OnMobKilled";
-	announce "Ñ°ÕÒ±¦ÎïÏä×Ó: ×Ü¹² "+.Spawn+" ¸ö±¦ÎïÏä×ÓË¢ĞÂÔÚ "+.Map$+"!",0;
+	killmonster .Map$,"å…¨éƒ¨";
+	monster .Map$,0,0,"è¯·ä¸è¦ç¢°æˆ‘!",1324,.Spawn,strnpcinfo(0)+"::OnMobKilled";
+	announce "å¯»æ‰¾å®ç‰©ç®±å­: æ€»å…± "+.Spawn+" ä¸ªå®ç‰©ç®±å­åˆ·æ–°åœ¨ "+.Map$+"!",0;
 	sleep 2500;
-	announce "Ñ°ÕÒ±¦ÎïÏä×Ó: ÄãÃ¿×¥×¡Ò»¸ö±¦ÎïÏä×Ó¶¼»á¸øÄã"+.Amount+"¸ö"+getitemname(.Prize)+"!",0;
+	announce "å¯»æ‰¾å®ç‰©ç®±å­: ä½ æ¯æŠ“ä½ä¸€ä¸ªå®ç‰©ç®±å­éƒ½ä¼šç»™ä½ "+.Amount+"ä¸ª"+getitemname(.Prize)+"!",0;
 	end;
 
 OnMobKilled:
 	set .Spawn, .Spawn - 1;
 	getitem .Prize, .Amount;
-	if (.Spawn) announce "[ "+strcharinfo(0)+" ] É±ËÀÁË±¦ÎïÏä×Ó. ÏÖÔÚ»¹Ê£ "+.Spawn+" ±¦ÎïÏä×Ó.",bc_map;
+	if (.Spawn) announce "[ "+strcharinfo(0)+" ] æ€æ­»äº†å®ç‰©ç®±å­. ç°åœ¨è¿˜å‰© "+.Spawn+" å®ç‰©ç®±å­.",bc_map;
 	else {
-		announce "Ñ°ÕÒ±¦ÎïÏä×Ó»î¶¯ÒÑ¾­½áÊø. ËùÓĞµÄ±¦ÎïÏä×ÓÒÑ±»É±ËÀ.",0;
+		announce "å¯»æ‰¾å®ç‰©ç®±å­æ´»åŠ¨å·²ç»ç»“æŸ. æ‰€æœ‰çš„å®ç‰©ç®±å­å·²è¢«æ€æ­».",0;
 		set .Status,0;
 	}
 	end;

@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN ½Å±¾ºº»¯ www.rAthenaCN.com ×ª×Ô [ www.99Max.mE ]
-//============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN è„šæœ¬æ±‰åŒ– è½¬è‡ª [ www.99Max.mE ]
 //============================================================
 
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Renewal Refining NPCs
 //===== By: ==================================================
 //= rAthena Dev Team
@@ -28,16 +24,16 @@
 
 // +11 and above Refiners
 //============================================================
-prt_in,90,72,5	script	±´Ë¹ÌØÀï#prt	826,{
-	callfunc "refinenew","±´Ë¹ÌØÀï",0;
+prt_in,90,72,5	script	è´æ–¯ç‰¹é‡Œ#prt	826,{
+	callfunc "refinenew","è´æ–¯ç‰¹é‡Œ",0;
 	end;
 }
-morocc_in,64,41,5	script	±´Ë¹ÌØÀï#moc	826,{
-	callfunc "refinenew","±´Ë¹ÌØÀï",0;
+morocc_in,64,41,5	script	è´æ–¯ç‰¹é‡Œ#moc	826,{
+	callfunc "refinenew","è´æ–¯ç‰¹é‡Œ",0;
 	end;
 }
-payon_in01,18,132,3	script	±´Ë¹ÌØÀï#pay	826,{
-	callfunc "refinenew","±´Ë¹ÌØÀï",0;
+payon_in01,18,132,3	script	è´æ–¯ç‰¹é‡Œ#pay	826,{
+	callfunc "refinenew","è´æ–¯ç‰¹é‡Œ",0;
 	end;
 }
 
@@ -56,13 +52,13 @@ function	script	refinenew	{
 	.@npc_name$ = getarg(0);
 	disable_items;
 	mes "["+ .@npc_name$ +"]";
-	mes "ÎÒÊÇÊÀ½çÉÏ×îºÃµÄÌú½³!";
-	mes "¶ÔÓÚÆÕÍ¨µÄ×°±¸, ÎÒ²»Ìá¹©¾«Á¶·şÎñ.";
-	mes "ÎÒÖ»¾«Á¶ ^CC0000´óÓÚµÈÓÚ +10^000000 µÄ×°±¸.";
+	mes "æˆ‘æ˜¯ä¸–ç•Œä¸Šæœ€å¥½çš„é“åŒ !";
+	mes "å¯¹äºæ™®é€šçš„è£…å¤‡, æˆ‘ä¸æä¾›ç²¾ç‚¼æœåŠ¡.";
+	mes "æˆ‘åªç²¾ç‚¼ ^CC0000å¤§äºç­‰äº +10^000000 çš„è£…å¤‡.";
 	next;
 	mes "["+ .@npc_name$ +"]";
-	mes "Èç¹ûÄã×°±¸µÄ×°±¸ÖĞÓĞ¾«Á¶ÖµÔÚ +10 ÒÔÉÏµÄ×°±¸ĞèÒª¾«Á¶. ÎÒ¾Í»á¿¼ÂÇ¶¯¶¯ÊÖ.";
-	mes "ÄãÏë¶ÔÄÄ¸ö×°±¸¾«Á¶ÄØ?";
+	mes "å¦‚æœä½ è£…å¤‡çš„è£…å¤‡ä¸­æœ‰ç²¾ç‚¼å€¼åœ¨ +10 ä»¥ä¸Šçš„è£…å¤‡éœ€è¦ç²¾ç‚¼. æˆ‘å°±ä¼šè€ƒè™‘åŠ¨åŠ¨æ‰‹.";
+	mes "ä½ æƒ³å¯¹å“ªä¸ªè£…å¤‡ç²¾ç‚¼å‘¢?";
 	next;
 
 	setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
@@ -75,91 +71,91 @@ function	script	refinenew	{
 	}
 	if (.@equipped == 0) {
 		mes "["+ .@npc_name$ +"]";
-		mes "ÎÒÎŞ·¨¾«Á¶ÄãĞ¯´øµÄÎïÆ·...";
+		mes "æˆ‘æ— æ³•ç²¾ç‚¼ä½ æºå¸¦çš„ç‰©å“...";
 		close;
 	}
 	set .@part, .@indices[ select(.@menu$) ];
 
 	if (!getequipisequiped(.@part)) { //custom check
 		mes "["+ .@npc_name$ +"]";
-		mes "ÄãÑ¡ÔñµÄÕâ¸ö²¿Î»";
-		mes "ÎªÊ²Ã´¶¼Ã»´©,";
-		mes "ÄãÈÃÎÒ¾«Á¶Ê²Ã´?";
+		mes "ä½ é€‰æ‹©çš„è¿™ä¸ªéƒ¨ä½";
+		mes "ä¸ºä»€ä¹ˆéƒ½æ²¡ç©¿,";
+		mes "ä½ è®©æˆ‘ç²¾ç‚¼ä»€ä¹ˆ?";
 		emotion ET_FRET;
 		close;
 	}
 	if (!getequipisenableref(.@part)) {
 		mes "["+ .@npc_name$ +"]";
-		mes "ÎÒÈÏÎªÎÒÎŞ·¨";
-		mes "¾«Á¶Õâ¸ö×°±¸...";
+		mes "æˆ‘è®¤ä¸ºæˆ‘æ— æ³•";
+		mes "ç²¾ç‚¼è¿™ä¸ªè£…å¤‡...";
 		close;
 	}
 	if (getequiprefinerycnt(.@part) < 10) {
 		mes "["+ .@npc_name$ +"]";
-		mes "ÄÑµÀÎÒÃ»¸æËß¹ıÄã? ÎÒÖ»»á¾«Á¶ +10 ÒÔÉÏµÄ×°±¸.";
+		mes "éš¾é“æˆ‘æ²¡å‘Šè¯‰è¿‡ä½ ? æˆ‘åªä¼šç²¾ç‚¼ +10 ä»¥ä¸Šçš„è£…å¤‡.";
 		close;
 	}
 	if (getequiprefinerycnt(.@part) >= 20) { //custom check
 		mes "["+ .@npc_name$ +"]";
-		mes "ÎÒÃ»·¨¾«Á¶Õâ¸ö";
-		mes "ÒòÎªËüÒÑ¾­µ½ÁË¾«Á¶";
-		mes "µÄÉÏÏŞÁË!";
+		mes "æˆ‘æ²¡æ³•ç²¾ç‚¼è¿™ä¸ª";
+		mes "å› ä¸ºå®ƒå·²ç»åˆ°äº†ç²¾ç‚¼";
+		mes "çš„ä¸Šé™äº†!";
 		close;
 	}
 	set .@refineitemid, getequipid(.@part); // save id of the item
 	set .@refinerycnt, getequiprefinerycnt(.@part); //save refinery count
 	if ((getequipweaponlv(.@part) >= 1) && (getequipweaponlv(.@part) <= 4)) {
 		set .@type$,"weapon";
-		set .@material,6224; //Ä§Á¦Ö®Ê¯
+		set .@material,6224; //é­”åŠ›ä¹‹çŸ³
 		set .@price,100000;
 		set .@safe,10;
 		mes "["+ .@npc_name$ +"]";
-		mes "ßí?Ò»¼şÎäÆ÷, ÊÇ°É?";
-		mes "Èç¹ûÄãĞèÒª¾«Á¶Õâ¼şÎäÆ÷,";
-		mes "ÎÒÒªÊÕÈ¡ 1¸ö ^003366Ä§Á¦Ö®Ê¯^000000 ºÍ 100,000 zeny.";
+		mes "å””?ä¸€ä»¶æ­¦å™¨, æ˜¯å§?";
+		mes "å¦‚æœä½ éœ€è¦ç²¾ç‚¼è¿™ä»¶æ­¦å™¨,";
+		mes "æˆ‘è¦æ”¶å– 1ä¸ª ^003366é­”åŠ›ä¹‹çŸ³^000000 å’Œ 100,000 zeny.";
 	} else {
 		set .@type$,"armor";
-		set .@material,6223; //»ìãç½ğÊô
+		set .@material,6223; //æ··æ²Œé‡‘å±
 		set .@price,100000;
 		set .@safe,10;
 		mes "["+ .@npc_name$ +"]";
-		mes "ßí?Ò»¼ş·À¾ß, ÊÇ°É?";
-		mes "Èç¹ûÄãĞèÒª¾«Á¶Õâ¼ş·À¾ß,";
-		mes "ÎÒÒªÊÕÈ¡ 1¸ö ^003366»ìãç½ğÊô^000000 ºÍ 100,000 zeny.";
+		mes "å””?ä¸€ä»¶é˜²å…·, æ˜¯å§?";
+		mes "å¦‚æœä½ éœ€è¦ç²¾ç‚¼è¿™ä»¶é˜²å…·,";
+		mes "æˆ‘è¦æ”¶å– 1ä¸ª ^003366æ··æ²Œé‡‘å±^000000 å’Œ 100,000 zeny.";
 	}
-	mes "Äã×¼±¸ºÃ¼ÌĞøÁËÂğ?";
+	mes "ä½ å‡†å¤‡å¥½ç»§ç»­äº†å—?";
 	next;
-	if(select("- ÊÇµÄ:- ²»Òª") == 2){
+	if(select("- æ˜¯çš„:- ä¸è¦") == 2){
 		mes "["+ .@npc_name$ +"]";
-		mes "ºÃ°É, ·ÅÆúÌôÕ½Ò²ÊÇÒ»ÖÖÉú»î·½Ê½...";
+		mes "å¥½å§, æ”¾å¼ƒæŒ‘æˆ˜ä¹Ÿæ˜¯ä¸€ç§ç”Ÿæ´»æ–¹å¼...";
 		close;
 	}
 	if (getarg(1) != 1) {
 		if (getequippercentrefinery(.@part) < 100) {
 			mes "["+ .@npc_name$ +"]";
-			mes "Õâ¼ş"+.@type$+"ÒÑ¾­±»¾«Á¶¹ı¶à´Î.";
-			mes "Èç¹ûÔÙ´Î¾«Á¶¿ÉÄÜ»á±»»Ùµô.";
-			mes "µ±È»²»ÊÇ 100%, µ«»¹ÊÇÓĞÒ»¶¨Ğ¡¸ÅÂÊµÄ.";
+			mes "è¿™ä»¶"+.@type$+"å·²ç»è¢«ç²¾ç‚¼è¿‡å¤šæ¬¡.";
+			mes "å¦‚æœå†æ¬¡ç²¾ç‚¼å¯èƒ½ä¼šè¢«æ¯æ‰.";
+			mes "å½“ç„¶ä¸æ˜¯ 100%, ä½†è¿˜æ˜¯æœ‰ä¸€å®šå°æ¦‚ç‡çš„.";
 			next;
 			mes "["+ .@npc_name$ +"]";
-			mes "¾«Á¶µÄ½á¹û¿ÉÄÜ»á^FF0000½µµÍ¾«Á¶¼¶±ğ^000000 ¶ÔÓÚÕâ¸ö×°±¸ "+.@type$+",";
-			mes "µ«ÊÇÈç¹ûÊ§°ÜÆÆËğµÄ»°, Äã½«Í¬Ê±Ê§È¥ÎäÆ÷ÉÏµÄ ^FF0000¿¨Æ¬^000000 ºÍÎäÆ÷µÄ¸½Ä§Ğ§¹û.";
+			mes "ç²¾ç‚¼çš„ç»“æœå¯èƒ½ä¼š^FF0000é™ä½ç²¾ç‚¼çº§åˆ«^000000 å¯¹äºè¿™ä¸ªè£…å¤‡ "+.@type$+",";
+			mes "ä½†æ˜¯å¦‚æœå¤±è´¥ç ´æŸçš„è¯, ä½ å°†åŒæ—¶å¤±å»æ­¦å™¨ä¸Šçš„ ^FF0000å¡ç‰‡^000000 å’Œæ­¦å™¨çš„é™„é­”æ•ˆæœ.";
 			next;
 			mes "["+ .@npc_name$ +"]";
-			mes "ÄãÊÇ·ñ»¹È·¶¨¼ÌĞø¾«Á¶Ëü?";
-			mes "ÎÒ¿ÉÊÇ¸ø¹ıÄã¾¯¸æµÄÅ¶.";
+			mes "ä½ æ˜¯å¦è¿˜ç¡®å®šç»§ç»­ç²¾ç‚¼å®ƒ?";
+			mes "æˆ‘å¯æ˜¯ç»™è¿‡ä½ è­¦å‘Šçš„å“¦.";
 			next;
-			if(select("¼ÌĞø.:·ÅÆú.") == 2) {
+			if(select("ç»§ç»­.:æ”¾å¼ƒ.") == 2) {
 				mes "["+ .@npc_name$ +"]";
-				mes "ºÃ°É, ÓĞÊ±ºò·ÅÆúÒ²ÊÇÒ»ÖÖºÃµÄÑ¡Ôñ...";
-				mes "Ã»ÓĞ·çÏÕ... ¿ÉÄÜÊÇÃ÷ÖÇµÄ.";
+				mes "å¥½å§, æœ‰æ—¶å€™æ”¾å¼ƒä¹Ÿæ˜¯ä¸€ç§å¥½çš„é€‰æ‹©...";
+				mes "æ²¡æœ‰é£é™©... å¯èƒ½æ˜¯æ˜æ™ºçš„.";
 				close;
 			}
 		}
 		if (countitem(.@material) < 1 || Zeny < .@price) {
 			mes "["+ .@npc_name$ +"]";
-			mes "Ñ½!ÄãËÆºõÃ»ÓĞ×ã¹»µÄÇ®»ò "+getitemname(.@material)+".";
-			mes "Çë×¼±¸²ÄÁÏÔÙÀ´ÕÒÎÒ°É~";
+			mes "å‘€!ä½ ä¼¼ä¹æ²¡æœ‰è¶³å¤Ÿçš„é’±æˆ– "+getitemname(.@material)+".";
+			mes "è¯·å‡†å¤‡ææ–™å†æ¥æ‰¾æˆ‘å§~";
 			close;
 		}
 		set Zeny,Zeny - .@price;
@@ -170,61 +166,61 @@ function	script	refinenew	{
 		    callfunc("F_IsEquipRefineHack", .@part, .@refinerycnt)) {
 			mes "["+ .@npc_name$ +"]";
 			emotion ET_FRET;
-			mes "ÉÔµÈ...";
-			mes "Äãµ±ÎÒÊÇÉµ×Ó?!";
-			mes "ÄãÔÚÎÒÑÛÆ¤µ×ÏÂ¸ü»»×°±¸?! ¹ö³öÈ¥ËÀÆ­×Ó!";
+			mes "ç¨ç­‰...";
+			mes "ä½ å½“æˆ‘æ˜¯å‚»å­?!";
+			mes "ä½ åœ¨æˆ‘çœ¼çš®åº•ä¸‹æ›´æ¢è£…å¤‡?! æ»šå‡ºå»æ­»éª—å­!";
 			close;
 		}
 
 		if (getequippercentrefinery(.@part) > rand(100)) {
-			mes "ïÏ! ïÏ! ïÏ! ïÏ!";
+			mes "é”µ! é”µ! é”µ! é”µ!";
 			successrefitem .@part;
 			next;
 			emotion ET_BEST;
 			mes "["+ .@npc_name$ +"]";
-			mes "ºÜºÃ! Íê³É!!!";
-			mes "ÎÒÊÇ×îºÃµÄÌú½³.";
+			mes "å¾ˆå¥½! å®Œæˆ!!!";
+			mes "æˆ‘æ˜¯æœ€å¥½çš„é“åŒ .";
 			close;
 		} else {
 			if (rand(100) < 80) {
 				mes "["+ .@npc_name$ +"]";
-				mes "ïÏ! ïÏ! ïÏ! ïÏ!";
+				mes "é”µ! é”µ! é”µ! é”µ!";
 				downrefitem .@part,3; // Failed refine attempts decrease the item's refine level by 3
 				next;
 				emotion (!rand(5))?ET_MONEY:ET_HUK;
 				mes "["+ .@npc_name$ +"]";
-				mes "°¡°¡!!!";
+				mes "å•Šå•Š!!!";
 				next;
 				mes "["+ .@npc_name$ +"]";
-				mes "àŞ, ÎÒµÄÌì!";
-				mes "µÈ¼¶ÏÂ½µÁË...";
+				mes "å™¢, æˆ‘çš„å¤©!";
+				mes "ç­‰çº§ä¸‹é™äº†...";
 			} else {
 				mes "["+ .@npc_name$ +"]";
-				mes "ïÏ! ïÏ! ïÏ!";
+				mes "é”µ! é”µ! é”µ!";
 				failedrefitem .@part;
 				next;
 				emotion (!rand(5))?ET_MONEY:ET_HUK;
 				mes "["+ .@npc_name$ +"]";
-				mes "ßí!";
+				mes "å””!";
 				next;
 				mes "["+ .@npc_name$ +"]";
-				mes "àŞ, ÎÒµÄÌì! ¾«Á¶ÎŞĞ§...";
-				mes "ÎÒ²»Ïë·¢ÉúÕâÑùµÄÊÂ!";
+				mes "å™¢, æˆ‘çš„å¤©! ç²¾ç‚¼æ— æ•ˆ...";
+				mes "æˆ‘ä¸æƒ³å‘ç”Ÿè¿™æ ·çš„äº‹!";
 			}
-			mes "¼´Ê¹ÎÒÈç´ËÈ«Éñ¹á×¢»¹ÊÇ·¢ÉúÁËÒ»Ğ©Âé·³.";
-			mes "³öºõÎÒµÄÒâÁÏÖ®Íâ.";
+			mes "å³ä½¿æˆ‘å¦‚æ­¤å…¨ç¥è´¯æ³¨è¿˜æ˜¯å‘ç”Ÿäº†ä¸€äº›éº»çƒ¦.";
+			mes "å‡ºä¹æˆ‘çš„æ„æ–™ä¹‹å¤–.";
 			next;
 			mes "["+ .@npc_name$ +"]";
-			mes "ÏÂ´ÎÎÒ»á¸üĞ¡ĞÄµÄ! ²»ÓÃµ£ĞÄ!";
+			mes "ä¸‹æ¬¡æˆ‘ä¼šæ›´å°å¿ƒçš„! ä¸ç”¨æ‹…å¿ƒ!";
 			close;
 		}
 	}
 // New +11 and above Refining Functions ========================
 	if (getequiprefinerycnt(.@part) < .@safe) {
 		mes "["+ .@npc_name$ +"]";
-		mes "ÎÒ¿ÉÒÔ½«Ëü¾«Á¶µ½°²È«Öµ»òÕßÄãÖ¸¶¨µÄ·¶Î§ÄÚ. ÄãÏëÔõÃ´Ñ¡.";
+		mes "æˆ‘å¯ä»¥å°†å®ƒç²¾ç‚¼åˆ°å®‰å…¨å€¼æˆ–è€…ä½ æŒ‡å®šçš„èŒƒå›´å†…. ä½ æƒ³æ€ä¹ˆé€‰.";
 		next;
-		set .@menu2,select("- Çë¾«Á¶µ½°²È«Öµ.","- ÎÒ×Ô¼ºÑ¡Ôñ¾«Á¶´ÎÊı.","- ÎÒ¸ÄÖ÷ÒâÁË...");
+		set .@menu2,select("- è¯·ç²¾ç‚¼åˆ°å®‰å…¨å€¼.","- æˆ‘è‡ªå·±é€‰æ‹©ç²¾ç‚¼æ¬¡æ•°.","- æˆ‘æ”¹ä¸»æ„äº†...");
 	} else
 		set .@menu2,2;
 	switch(.@menu2){
@@ -233,45 +229,45 @@ function	script	refinenew	{
 		break;
 	case 2:
 		mes "["+ .@npc_name$ +"]";
-		mes "ÄãÏëÈÃÎÒÁ¬Ğø¾«Á¶¶àÉÙ´Î?";
+		mes "ä½ æƒ³è®©æˆ‘è¿ç»­ç²¾ç‚¼å¤šå°‘æ¬¡?";
 		next;
 		input .@refinecnt;
 		set .@refinecheck,.@refinecnt + getequiprefinerycnt(.@part);
 		if (.@refinecnt < 1 || .@refinecheck > 20) {
 			mes "["+ .@npc_name$ +"]";
-			mes "ÎÒÎŞ·¨ÔÙ¾«Á¶Õâ¸ö×°±¸ÁË.";
+			mes "æˆ‘æ— æ³•å†ç²¾ç‚¼è¿™ä¸ªè£…å¤‡äº†.";
 			close;
 		}
 		if (.@refinecheck > .@safe) {
 			set .@refinecheck,.@refinecheck - .@safe;
 			mes "["+ .@npc_name$ +"]";
-			mes "Èç¹ûÑ¡Ôñ¾«Á¶ " + .@refinecheck + " ´Î, »á³¬¹ı°²È«Öµ. ÄãµÄ×°±¸¿ÉÄÜ»Ù»µ... ÕâÃ»ÎÊÌâ°É?";
+			mes "å¦‚æœé€‰æ‹©ç²¾ç‚¼ " + .@refinecheck + " æ¬¡, ä¼šè¶…è¿‡å®‰å…¨å€¼. ä½ çš„è£…å¤‡å¯èƒ½æ¯å... è¿™æ²¡é—®é¢˜å§?";
 			next;
-			if(select("- ¼ÌĞø...:- ·ÅÆú...") == 2){
+			if(select("- ç»§ç»­...:- æ”¾å¼ƒ...") == 2){
 				mes "["+ .@npc_name$ +"]";
-				mes "ÕâÑùµÄ»°... Äã×Ô¼º¿´×Å°ì°É.";
+				mes "è¿™æ ·çš„è¯... ä½ è‡ªå·±çœ‹ç€åŠå§.";
 				close;
 			}
 		}
 		break;
 	case 3:
 		mes "["+ .@npc_name$ +"]";
-		mes "ÄãÕâÃ´Ëµ......¾ÍÕâÑù°É.";
+		mes "ä½ è¿™ä¹ˆè¯´......å°±è¿™æ ·å§.";
 		close;
 	}
 	set .@fullprice,.@price * .@refinecnt;
 	mes "["+ .@npc_name$ +"]";
-	mes "Îª´ËÄãĞèÒªÖ§¸¶ " + .@refinecnt + " " + getitemname(.@material) + " ºÍ " + .@fullprice + " Zeny. Ã»ÎÊÌâ°É?";
+	mes "ä¸ºæ­¤ä½ éœ€è¦æ”¯ä»˜ " + .@refinecnt + " " + getitemname(.@material) + " å’Œ " + .@fullprice + " Zeny. æ²¡é—®é¢˜å§?";
 	next;
-	if(select("- ºÃµÄ","- È¡Ïû...") == 2){
+	if(select("- å¥½çš„","- å–æ¶ˆ...") == 2){
 		mes "["+ .@npc_name$ +"]";
-		mes "ÕâÑùµÄ»°... Äã×Ô¼º¿´×Å°ì°É.";
+		mes "è¿™æ ·çš„è¯... ä½ è‡ªå·±çœ‹ç€åŠå§.";
 		close;
 	}
 	if (countitem(.@material) < .@refinecnt || Zeny < .@fullprice) {
 		mes "["+ .@npc_name$ +"]";
-		mes "Õâ¾ÍÊÇÄãÈ«²¿´øÀ´µÄ¶«Î÷? ÎÒ¿É²»»áÎªÄãÆÆÀıµÍ¼Û¸É»î. ÊÔÊÔ°ïÎÒ²ÁĞ¬°É.";
-		mes "ÏÂ´ÎÔÙÀ´µÄÊ±ºòÏ£ÍûÄã×¼±¸ÆëÈ«.";
+		mes "è¿™å°±æ˜¯ä½ å…¨éƒ¨å¸¦æ¥çš„ä¸œè¥¿? æˆ‘å¯ä¸ä¼šä¸ºä½ ç ´ä¾‹ä½ä»·å¹²æ´». è¯•è¯•å¸®æˆ‘æ“¦é‹å§.";
+		mes "ä¸‹æ¬¡å†æ¥çš„æ—¶å€™å¸Œæœ›ä½ å‡†å¤‡é½å…¨.";
 		close;
 	}
 	set Zeny,Zeny - .@fullprice;
@@ -279,59 +275,59 @@ function	script	refinenew	{
 	while(.@refinecnt){
 		if (getequipisequiped(.@part) == 0) {
 			mes "["+ .@npc_name$ +"]";
-			mes "¿´Äã... ÄãÄÇ²¿Î»ÊÇ¿ÕµÄ......";
+			mes "çœ‹ä½ ... ä½ é‚£éƒ¨ä½æ˜¯ç©ºçš„......";
 			close;
 		}
 		if (getequipid(.@part) != .@refineitemid || (.@menu2 == 1 && getequippercentrefinery(.@part) < 100)) {
 			mes "["+ .@npc_name$ +"]";
-			mes "ÉÔµÈ...";
-			mes "Äãµ±ÎÒÊÇÉµ×Ó?!";
-			mes "ÄãÔÚÎÒÑÛÆ¤µ×ÏÂ¸ü»»×°±¸?! ¹ö³öÈ¥ËÀÆ­×Ó!";
+			mes "ç¨ç­‰...";
+			mes "ä½ å½“æˆ‘æ˜¯å‚»å­?!";
+			mes "ä½ åœ¨æˆ‘çœ¼çš®åº•ä¸‹æ›´æ¢è£…å¤‡?! æ»šå‡ºå»æ­»éª—å­!";
 			close;
 		}
 		if (getequippercentrefinery(.@part) > rand(100)) {
-			mes "ïÏ! ïÏ! ïÏ! ïÏ!";
+			mes "é”µ! é”µ! é”µ! é”µ!";
 			successrefitem .@part;
 			set .@refinecnt,.@refinecnt - 1;
 			next;
 		} else {
 			if (rand(100) < 80) {
 				mes "["+ .@npc_name$ +"]";
-				mes "ïÏ! ïÏ! ïÏ! ïÏ!";
+				mes "é”µ! é”µ! é”µ! é”µ!";
 				downrefitem .@part,3; // Failed refine attempts decrease the item's refine level by 3
 				next;
 				emotion (!rand(5))?ET_MONEY:ET_HUK;
 				mes "["+ .@npc_name$ +"]";
-				mes "°¡°¡!!!";
+				mes "å•Šå•Š!!!";
 				next;
 				mes "["+ .@npc_name$ +"]";
-				mes "àŞ, ÎÒµÄÌì!";
-				mes "µÈ¼¶ÏÂ½µÁË...";
+				mes "å™¢, æˆ‘çš„å¤©!";
+				mes "ç­‰çº§ä¸‹é™äº†...";
 			} else {
 				mes "["+ .@npc_name$ +"]";
-				mes "ïÏ! ïÏ! ïÏ!";
+				mes "é”µ! é”µ! é”µ!";
 				failedrefitem .@part;
 				next;
 				emotion (!rand(5))?ET_MONEY:ET_HUK;
 				mes "["+ .@npc_name$ +"]";
-				mes "ßí!";
+				mes "å””!";
 				next;
 				mes "["+ .@npc_name$ +"]";
-				mes "àŞ, ÎÒµÄÌì! ¾«Á¶ÎŞĞ§...";
-				mes "ÎÒ²»Ïë·¢ÉúÕâÑùµÄÊÂ!";
+				mes "å™¢, æˆ‘çš„å¤©! ç²¾ç‚¼æ— æ•ˆ...";
+				mes "æˆ‘ä¸æƒ³å‘ç”Ÿè¿™æ ·çš„äº‹!";
 			}
-			mes "¼´Ê¹ÎÒÈç´ËÈ«Éñ¹á×¢»¹ÊÇ·¢ÉúÁËÒ»Ğ©Âé·³.";
-			mes "³öºõÎÒµÄÒâÁÏÖ®Íâ.";
+			mes "å³ä½¿æˆ‘å¦‚æ­¤å…¨ç¥è´¯æ³¨è¿˜æ˜¯å‘ç”Ÿäº†ä¸€äº›éº»çƒ¦.";
+			mes "å‡ºä¹æˆ‘çš„æ„æ–™ä¹‹å¤–.";
 			next;
 			mes "["+ .@npc_name$ +"]";
-			mes "ÏÂ´ÎÎÒ»á¸üĞ¡ĞÄµÄ! ²»ÓÃµ£ĞÄ!";
+			mes "ä¸‹æ¬¡æˆ‘ä¼šæ›´å°å¿ƒçš„! ä¸ç”¨æ‹…å¿ƒ!";
 			close;
 		}
 	}
 	emotion ET_BEST;
 	mes "["+ .@npc_name$ +"]";
-	mes "·Ç³£ºÃ! Íê³É!!!";
-	mes "ÎÒÊÇ×îºÃµÄÌú½³.";
+	mes "éå¸¸å¥½! å®Œæˆ!!!";
+	mes "æˆ‘æ˜¯æœ€å¥½çš„é“åŒ .";
 	close;
 }
 
@@ -339,21 +335,21 @@ function	script	refinenew	{
 //============================================================
 -	script	Austri#ref	-1,{
 	if (checkweight(1201,1) == 0) {
-		mes "- µÈµÈ !! -";
-		mes "- Äã´øÁËÌ«¶àµÄ¶«Î÷ -";
-		mes "- Õâ½«»áÓ°Ïì½»Ò×. -";
-		mes "- ÇëÉÔ×ö´¦Àíºó -";
-		mes "- ÔÙÀ´¼ÌĞø½»Ò×. -";
+		mes "- ç­‰ç­‰ !! -";
+		mes "- ä½ å¸¦äº†å¤ªå¤šçš„ä¸œè¥¿ -";
+		mes "- è¿™å°†ä¼šå½±å“äº¤æ˜“. -";
+		mes "- è¯·ç¨åšå¤„ç†å -";
+		mes "- å†æ¥ç»§ç»­äº¤æ˜“. -";
 		close;
 	}
-	mes "[°ÂË¹ÌØÀï]";
-	mes "Èç¹ûÄãÄÜ¸øÎÒ3¸öÉñÖ®½ğÊô";
-	mes "»ò3¸öÂÁ, ¾Í¿ÉÒÔ½»»»µ½";
-	mes "1¸öÄ§Á¦Ö®Ê¯»ò1¸ö»ìãç½ğÊô.";
-	mes "µ«ÎÒĞèÒªÊÕÈ¡";
-	mes "50,000z µÄÊÖĞø·Ñ.";
+	mes "[å¥¥æ–¯ç‰¹é‡Œ]";
+	mes "å¦‚æœä½ èƒ½ç»™æˆ‘3ä¸ªç¥ä¹‹é‡‘å±";
+	mes "æˆ–3ä¸ªé“, å°±å¯ä»¥äº¤æ¢åˆ°";
+	mes "1ä¸ªé­”åŠ›ä¹‹çŸ³æˆ–1ä¸ªæ··æ²Œé‡‘å±.";
+	mes "ä½†æˆ‘éœ€è¦æ”¶å–";
+	mes "50,000z çš„æ‰‹ç»­è´¹.";
 	next;
-	switch(select("- ÓÃÉñÖ®½ğÊô½»»»Ä§Á¦Ö®Ê¯:- ÓÃÂÁ½»»»»ìãç½ğÊô:- ÓÃ¾«Á¶Ä§Á¦Ö®Ê¯½»»»»ìãç½ğÊô:- È¡Ïû")) {
+	switch(select("- ç”¨ç¥ä¹‹é‡‘å±äº¤æ¢é­”åŠ›ä¹‹çŸ³:- ç”¨é“äº¤æ¢æ··æ²Œé‡‘å±:- ç”¨ç²¾ç‚¼é­”åŠ›ä¹‹çŸ³äº¤æ¢æ··æ²Œé‡‘å±:- å–æ¶ˆ")) {
 	case 1:
 		setarray .@i[0],984,3,6224;  //Oridecon -> Bradium
 		break;
@@ -364,34 +360,34 @@ function	script	refinenew	{
 		setarray .@i[0],6090,1,6223; //Purified_Bradium -> Carnium
 		break;
 	case 4:
-		mes "[°ÂË¹ÌØÀï]";
-		mes "ßÀ...";
+		mes "[å¥¥æ–¯ç‰¹é‡Œ]";
+		mes "å‘ƒ...";
 		close;
 	}
 	if (countitem(.@i[0]) >= .@i[1] && Zeny >= 50000) {
 		delitem .@i[0],.@i[1];
 		set Zeny, Zeny - 50000;
 		getitem .@i[2],1;
-		mes "[°ÂË¹ÌØÀï]";
+		mes "[å¥¥æ–¯ç‰¹é‡Œ]";
 		if (.@i[0] == 6090) {
-			mes "¾«Á¶Ä§Á¦Ö®Ê¯ÒªÉÔÎ¢¹óÒ»µã¡­¡­";
-			mes "ÎÒÖ»ÄÜÓÃ1¸ö»ìãç½ğÊôÀ´ºÍ";
-			mes "Äã½»»».";
+			mes "ç²¾ç‚¼é­”åŠ›ä¹‹çŸ³è¦ç¨å¾®è´µä¸€ç‚¹â€¦â€¦";
+			mes "æˆ‘åªèƒ½ç”¨1ä¸ªæ··æ²Œé‡‘å±æ¥å’Œ";
+			mes "ä½ äº¤æ¢.";
 		} else
-			mes "ºÃÁË! ÕâÊÇÄãµÄ "+getitemname(.@i[2])+".";
-		mes "Ï£ÍûÄãÄÜºÃºÃÀûÓÃ.";
+			mes "å¥½äº†! è¿™æ˜¯ä½ çš„ "+getitemname(.@i[2])+".";
+		mes "å¸Œæœ›ä½ èƒ½å¥½å¥½åˆ©ç”¨.";
 		close;
 	}
-	mes "[°ÂË¹ÌØÀï]";
-	mes "Äã×îºÃ±ğÏëÀ´Æ­ÎÒ";
-	mes "ÄãÉíÉÏ¸ü²»";
-	mes "Ã»ÓĞ´ø×ã¹»µÄ zeny";
-	mes "»òÕß "+getitemname(.@i[0])+".";
+	mes "[å¥¥æ–¯ç‰¹é‡Œ]";
+	mes "ä½ æœ€å¥½åˆ«æƒ³æ¥éª—æˆ‘";
+	mes "ä½ èº«ä¸Šæ›´ä¸";
+	mes "æ²¡æœ‰å¸¦è¶³å¤Ÿçš„ zeny";
+	mes "æˆ–è€… "+getitemname(.@i[0])+".";
 	close;
 }
-prt_in,85,71,5	duplicate(Austri#ref)	°ÂË¹ÌØÀï#prt	826
-payon_in01,14,125,5	duplicate(Austri#ref)	°ÂË¹ÌØÀï#pay	826
-morocc_in,60,38,5	duplicate(Austri#ref)	°ÂË¹ÌØÀï#moc	826
+prt_in,85,71,5	duplicate(Austri#ref)	å¥¥æ–¯ç‰¹é‡Œ#prt	826
+payon_in01,14,125,5	duplicate(Austri#ref)	å¥¥æ–¯ç‰¹é‡Œ#pay	826
+morocc_in,60,38,5	duplicate(Austri#ref)	å¥¥æ–¯ç‰¹é‡Œ#moc	826
 
 // Malangdo Refiner
 //============================================================
@@ -405,7 +401,7 @@ malangdo,224,172,6	script	Clink#mal_normal	544,{
 	next;
 	setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
 	for(set .@i,1; .@i<=10; set .@i,.@i+1)
-		set .@menu$, .@menu$ + ( getequipisequiped(.@indices[.@i]) ? getequipname(.@indices[.@i]) : F_getpositionname(.@indices[.@i]) +" - [Î´×°±¸]" ) +":";
+		set .@menu$, .@menu$ + ( getequipisequiped(.@indices[.@i]) ? getequipname(.@indices[.@i]) : F_getpositionname(.@indices[.@i]) +" - [æœªè£…å¤‡]" ) +":";
 	set .@part, .@indices[ select(.@menu$) ];
 	if (!getequipisequiped(.@part)) {
 		mes "[Clink]";

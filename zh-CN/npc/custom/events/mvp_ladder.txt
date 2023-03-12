@@ -1,10 +1,7 @@
 //============================================================
-//= rAthenaCN [MvPÅÅĞĞ°ñ]ºº»¯½Å±¾ [ www.rAthenaCN.com ]
+//= rAthenaCN [MvPæ’è¡Œæ¦œ]æ±‰åŒ–è„šæœ¬ 
 //============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
+
 
 //===== rAthena Script =======================================
 //= MVP Ladder Game
@@ -22,58 +19,58 @@
 
 prontera,164,171,3	script	MvP	56,{
 	mes "[MvP]";
-	mes "Ïë²»ÏëÊÔÊÔ?";
+	mes "æƒ³ä¸æƒ³è¯•è¯•?";
 	next;
-	switch(select("±ğ·Ï»°,×ßÆğ!:ĞÅÏ¢²éÑ¯:×î¸ß¼ÍÂ¼:²»¸ÒÈ¥...")) {
+	switch(select("åˆ«åºŸè¯,èµ°èµ·!:ä¿¡æ¯æŸ¥è¯¢:æœ€é«˜çºªå½•:ä¸æ•¢å»...")) {
 	case 1:
 		break;
 	case 2:
 		mes "[MvP]";
-		mes "´ËÓÎÏ·ÎªMvPÅÅĞĞ°ñ";
+		mes "æ­¤æ¸¸æˆä¸ºMvPæ’è¡Œæ¦œ";
 		if ( .finish_item_amount )
-			mes "Èç¹û»ñÊ¤£¬¶ÓÎé½«»ñµÃ: "+ callfunc("F_InsertPlural", .finish_item_amount, getitemname( .finish_item_id )) +".";
+			mes "å¦‚æœè·èƒœï¼Œé˜Ÿä¼å°†è·å¾—: "+ callfunc("F_InsertPlural", .finish_item_amount, getitemname( .finish_item_id )) +".";
 		if ( .register_cost )
-			mes "µ«ÊÇĞèÒªÖ§¸¶ "+ callfunc( "F_InsertComma", .register_cost ) +" Zeny.";
+			mes "ä½†æ˜¯éœ€è¦æ”¯ä»˜ "+ callfunc( "F_InsertComma", .register_cost ) +" Zeny.";
 		next;
 		mes "[MvP]";
-		mes "»¹ĞèÒªµÈ´ı "+ .timeout +" ·ÖÖÓ, »òÕßÄãÃÇ±»ÍÅÃğÁË.";
-		mes "×£ºÃÔË";
+		mes "è¿˜éœ€è¦ç­‰å¾… "+ .timeout +" åˆ†é’Ÿ, æˆ–è€…ä½ ä»¬è¢«å›¢ç­äº†.";
+		mes "ç¥å¥½è¿";
 		close;
 	case 3:
 		mes "[MvP]";
 		if ( !$mvpladdderparty_time ) {
-			mes "ÓĞ¶ÓÎéÕıÔÚ½øĞĞ";
+			mes "æœ‰é˜Ÿä¼æ­£åœ¨è¿›è¡Œ";
 			close;
 		}
-		mes "×î¼Ñ¼ÍÂ¼";
-		mes "[ "+( $mvpladdderparty_time / 60 )+" ·Ö "+( $mvpladdderparty_time % 60 )+" Ãë]";
-		mes "¶ÓÎé: ^FF0000"+ $mvpladdderparty_name$ +"^000000.";
+		mes "æœ€ä½³çºªå½•";
+		mes "[ "+( $mvpladdderparty_time / 60 )+" åˆ† "+( $mvpladdderparty_time % 60 )+" ç§’]";
+		mes "é˜Ÿä¼: ^FF0000"+ $mvpladdderparty_name$ +"^000000.";
 		.@size = getarraysize( $mvpladderparty_member$ );
 		for ( .@i = 0; .@i < .@size; .@i++ )
 			mes "^000000"+ ( .@i +1 ) +". ^0000FF"+ $mvpladderparty_member$[.@i];
 		if ( getgmlevel() < .gmlvlreset ) close;
 		next;
-		if ( select( "¹Ø±Õ", "ÖØÖÃ" ) == 1 ) close;
-		if ( select( "ÖªµÀÁË", "ÎÒÏëË¢ĞÂ" ) == 1 ) close;
+		if ( select( "å…³é—­", "é‡ç½®" ) == 1 ) close;
+		if ( select( "çŸ¥é“äº†", "æˆ‘æƒ³åˆ·æ–°" ) == 1 ) close;
 		$mvpladdderparty_time = 0;
 		$mvpladdderparty_name$ = "";
 		deletearray $mvpladderparty_member$[.@i];
 		mes "[MvP]";
-		mes "¼ÇÂ¼ÒÑ¾­±»ÖØÖÃ";
+		mes "è®°å½•å·²ç»è¢«é‡ç½®";
 		close;
 	case 4:
 		mes "[MvP]";
-		mes "µÈÄãÇ¿Ò»µãÁËÔÙÀ´";
+		mes "ç­‰ä½ å¼ºä¸€ç‚¹äº†å†æ¥";
 		close;
 	}
 	if ( !getcharid(1) ) {
 		mes "[MvP]";
-		mes "±ØĞëÓĞ¸ö¶ÓÎé²Å¿É²Î¼Ó";
+		mes "å¿…é¡»æœ‰ä¸ªé˜Ÿä¼æ‰å¯å‚åŠ ";
 		close;
 	}
 	if ( getpartyleader( getcharid(1), 2 ) != getcharid(0) ) {
 		mes "[MvP]";
-		mes "Ö»ÓĞ¶Ó³¤¿É±¨Ãû";
+		mes "åªæœ‰é˜Ÿé•¿å¯æŠ¥å";
 		close;
 	}
 	.@origin = getcharid(3);
@@ -89,33 +86,33 @@ prontera,164,171,3	script	MvP	56,{
 	attachrid .@origin;
 	if ( $@partymembercount != .register_min ) {
 		mes "[MvP]";
-		mes "ÖÁÉÙ "+ .register_min +" Ãû¶ÓÔ±";
+		mes "è‡³å°‘ "+ .register_min +" åé˜Ÿå‘˜";
 		close;
 	}
 	else if ( .@online != .register_min )  {
 		mes "[MvP]";
-		mes "ÖÁÉÙ "+ .register_min +" Ãû¶ÓÔ±ÔÚÏß '"+ strnpcinfo(4) +"'.";
+		mes "è‡³å°‘ "+ .register_min +" åé˜Ÿå‘˜åœ¨çº¿ '"+ strnpcinfo(4) +"'.";
 		close;
 	}
 	else if ( .register_cost && Zeny < .register_cost ) {
 		mes "[MvP]";
-		mes "Ç®²»¹»";
+		mes "é’±ä¸å¤Ÿ";
 		close;
 	}
 	else if ( .party_id ) {
 		mes "[MvP]";
-		mes "ÇëµÈ´ıÆäËû¶ÓÎéÍê³É";
+		mes "è¯·ç­‰å¾…å…¶ä»–é˜Ÿä¼å®Œæˆ";
 		close;
 	}
 	Zeny -= .register_cost;
-	announce "¶ÓÎé ["+ strcharinfo(1) +"] ¿ªÆôÁËMvPÌôÕ½£¬²»Í¬ÓÚµÀ³¡£¬´ËÌôÕ½³¬ºõÄãÏëÏóµÄÄÑ¶È", bc_all;
+	announce "é˜Ÿä¼ ["+ strcharinfo(1) +"] å¼€å¯äº†MvPæŒ‘æˆ˜ï¼Œä¸åŒäºé“åœºï¼Œæ­¤æŒ‘æˆ˜è¶…ä¹ä½ æƒ³è±¡çš„éš¾åº¦", bc_all;
 	set .party_id, getcharid(1);
 	set .@time_enter, gettimetick(2);
 	for ( .@i = 0; .@i < $@partymembercount; .@i++ ) {
 		if ( isloggedin( $@partymemberaid[.@i], $@partymembercid[.@i] ) ) {
 			attachrid $@partymemberaid[.@i];
 			if ( strcharinfo(3) == strnpcinfo(4) ) {
-				announce "»¹Ê£ "+ .timeout +" ·ÖÖÓ "+ .totalround +" ¾ÖÊı", bc_self;
+				announce "è¿˜å‰© "+ .timeout +" åˆ†é’Ÿ "+ .totalround +" å±€æ•°", bc_self;
 				.@name$[.@c] = strcharinfo(0);
 				.@c++;
 			}
@@ -128,7 +125,7 @@ prontera,164,171,3	script	MvP	56,{
 	if ( .round == .totalround +1 ) {
 		getpartymember .party_id, 1;
 		getpartymember .party_id, 2;
-		announce "¹§Ï²¶ÓÎé ["+ strcharinfo(1) +"] Í¨¹ØÁËMvPÌôÕ½£¬ËûÃÇÓµÓĞ×Å¾ªÈËµÄÄÜÁ¦!!!", bc_all;
+		announce "æ­å–œé˜Ÿä¼ ["+ strcharinfo(1) +"] é€šå…³äº†MvPæŒ‘æˆ˜ï¼Œä»–ä»¬æ‹¥æœ‰ç€æƒŠäººçš„èƒ½åŠ›!!!", bc_all;
 		for ( .@i = 0; .@i < $@partymembercount; .@i++ ) {
 			if ( isloggedin( $@partymemberaid[.@i], $@partymembercid[.@i] ) ) {
 				attachrid $@partymemberaid[.@i];
@@ -138,7 +135,7 @@ prontera,164,171,3	script	MvP	56,{
 		}
 		set .@timeused, gettimetick(2) - .@time_enter;
 		if ( .bonus_item_amount && .@timeused < .bonus_time * 60 ) {
-			mapannounce .eventmap$, "»ñÈ¡½±Àø Ê£Óà: "+ .bonus_time +" Ãë Ê±¼ä", bc_map;
+			mapannounce .eventmap$, "è·å–å¥–åŠ± å‰©ä½™: "+ .bonus_time +" ç§’ æ—¶é—´", bc_map;
 			for ( .@i = 0; .@i < $@partymembercount; .@i++ ) {
 				if ( isloggedin( $@partymemberaid[.@i], $@partymembercid[.@i] ) ) {
 					attachrid $@partymemberaid[.@i];
@@ -149,18 +146,18 @@ prontera,164,171,3	script	MvP	56,{
 		}
 
 		if ( !$mvpladdderparty_time || .@timeused < $mvpladdderparty_time ) {
-			mapannounce .eventmap$, "ÄãÃÇ´òÆÆÁË¼ÇÂ¼£¡ [ "+( .@timeused / 60 )+" ·Ö "+( .@timeused % 60 )+" Ãë ]", bc_map;
+			mapannounce .eventmap$, "ä½ ä»¬æ‰“ç ´äº†è®°å½•ï¼ [ "+( .@timeused / 60 )+" åˆ† "+( .@timeused % 60 )+" ç§’ ]", bc_map;
 			set $mvpladdderparty_time, .@timeused;
 			set $mvpladdderparty_name$, getpartyname( .party_id );
 			copyarray $mvpladderparty_member$, .@name$, .register_min;
 		}
 		else
-			mapannounce .eventmap$, "Ê¹ÓÃÁË [ "+( .@timeused / 60 )+" ·Ö "+( .@timeused % 60 )+" Ãë ]", bc_map;
+			mapannounce .eventmap$, "ä½¿ç”¨äº† [ "+( .@timeused / 60 )+" åˆ† "+( .@timeused % 60 )+" ç§’ ]", bc_map;
 		sleep 10000;
-		announce "¹§Ï²¶ÓÎé ["+ strcharinfo(1) +"] Í¨¹ØÁËMvPÌôÕ½£¬ËûÃÇÓµÓĞ×Å¾ªÈËµÄÄÜÁ¦!!!", bc_all;
+		announce "æ­å–œé˜Ÿä¼ ["+ strcharinfo(1) +"] é€šå…³äº†MvPæŒ‘æˆ˜ï¼Œä»–ä»¬æ‹¥æœ‰ç€æƒŠäººçš„èƒ½åŠ›!!!", bc_all;
 	}
 	else
-		announce "¶ÓÎé ["+ strcharinfo(1) +"] Í¨¹ØÊ§°ÜÁË£¬²»¹ıÃ»¹ØÏµ£¬ÔÙ½ÓÔÙÀ÷", bc_all;
+		announce "é˜Ÿä¼ ["+ strcharinfo(1) +"] é€šå…³å¤±è´¥äº†ï¼Œä¸è¿‡æ²¡å…³ç³»ï¼Œå†æ¥å†å‰", bc_all;
 	mapwarp .eventmap$, .map$, .x, .y;
 	killmonsterall .eventmap$;
 	.party_id = .round = 0;
@@ -182,14 +179,14 @@ OnMvpDead:
 		end;
 	}
 	else if ( .round == .totalround )
-		mapannounce .eventmap$, "»¹Ê£ "+ .delay +" Ãë¿ªÊ¼...", bc_map;
+		mapannounce .eventmap$, "è¿˜å‰© "+ .delay +" ç§’å¼€å§‹...", bc_map;
 	else
-		mapannounce .eventmap$, "µÚ "+ .round +" ¹Ø»¹Ê£ "+ .delay +" Ãë¿ªÊ¼", bc_map;
+		mapannounce .eventmap$, "ç¬¬ "+ .round +" å…³è¿˜å‰© "+ .delay +" ç§’å¼€å§‹", bc_map;
 	sleep .delay * 1000;
 	if ( .mvpid[.round] == 1646 )  // pick random Bio3 MVP
 		.mvpid[.round] = rand(1646,1651);
 	monster .eventmap$,0,0, "--ja--", .mvpid[.round], 1, strnpcinfo(0)+"::OnMvpDead";
-	mapannounce .eventmap$, getmonsterinfo( .mvpid[.round], MOB_NAME ) +" ¸´»îÁË", bc_map|bc_blue;
+	mapannounce .eventmap$, getmonsterinfo( .mvpid[.round], MOB_NAME ) +" å¤æ´»äº†", bc_map|bc_blue;
 	end;
 
 OnPCLogoutEvent:
@@ -212,7 +209,7 @@ OnPCDieEvent:
 	if ( .@less_one )
 		.@alive--;
 	if ( !.@alive ) {
-		mapannounce .eventmap$, "¶ÓÎé±»ÌÔÌ­", bc_map;
+		mapannounce .eventmap$, "é˜Ÿä¼è¢«æ·˜æ±°", bc_map;
 		sleep 10000;
 		awake strnpcinfo(0);
 	}

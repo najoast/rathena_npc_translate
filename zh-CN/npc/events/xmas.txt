@@ -1,10 +1,7 @@
 //============================================================
-//= rAthenaCN [Ê¥µ®½Ú»î¶¯]ºº»¯½Å±¾ [ www.rAthenaCN.com ]
+//= rAthenaCN [åœ£è¯žèŠ‚æ´»åŠ¨]æ±‰åŒ–è„šæœ¬ 
 //============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
+
 
 //===== rAthena Script =======================================
 //= X-mas Event
@@ -30,87 +27,87 @@
 //= 1.4 Added a fix to make Lutie & Bard quests passable during this event [Lupus]
 //============================================================
 
-xmas_in,100,96,4	script	Ê¥µ®ÀÏÈË::Santa2	4_M_SANTA,{
-	mes "[Ê¥µ®ÀÏÈË]";
+xmas_in,100,96,4	script	åœ£è¯žè€äºº::Santa2	4_M_SANTA,{
+	mes "[åœ£è¯žè€äºº]";
 	if(xmas_npc==0) set xmas_npc, 1; // For Lutie & Bard quest
 	if(#event_xmas > 0 && #event_xmas < 30 ) goto L_Start;
 	mes "Merry Christmas!";
 	if(Class==0 || #event_xmas>=30 ) close; //anti exploit protection
-	mes "ÎÒÓÐ¼þÀñÎïËÍ¸øÄã! àÀàÀàÀ!";
+	mes "æˆ‘æœ‰ä»¶ç¤¼ç‰©é€ç»™ä½ ! å—¬å—¬å—¬!";
 	getitem rand(664,667),1; //gives one of 4 gift boxes
 	set #event_xmas,#event_xmas+1;
 	close;
 
 L_Start:
-	mes "ÎÒÓÐÒ»¸öÎÊÌâ...";
-	mes "ÄãÔ¸²»Ô¸ÒâÌý?";
+	mes "æˆ‘æœ‰ä¸€ä¸ªé—®é¢˜...";
+	mes "ä½ æ„¿ä¸æ„¿æ„å¬?";
 	next;
-	menu "- ÌýÌýÊ¥µ®ÀÏÈËµÄÎÊÌâ.",M_0, "- ¸øÊ¥µ®ÀÏÈËÆ¾Ö¤.",M_1, "- È¡Ïû.",M_End;
+	menu "- å¬å¬åœ£è¯žè€äººçš„é—®é¢˜.",M_0, "- ç»™åœ£è¯žè€äººå‡­è¯.",M_1, "- å–æ¶ˆ.",M_End;
 
 	M_0:
-		mes "[Ê¥µ®ÀÏÈË]";
-		mes "ÎÒµÄÎÊÌâÊÇ.";
-		mes "ÍâÃæÓÐÒ»¸öÈËÔÚÃ°³äÎÒ.";
-		mes "²»½öÈç´Ë, Ëû»¹ÔÚ¸÷µØÖÆÔì¿Ö»Å.";
-		mes "ÕæÊÇÁîÈËÍ·ÌÛ!";
+		mes "[åœ£è¯žè€äºº]";
+		mes "æˆ‘çš„é—®é¢˜æ˜¯.";
+		mes "å¤–é¢æœ‰ä¸€ä¸ªäººåœ¨å†’å……æˆ‘.";
+		mes "ä¸ä»…å¦‚æ­¤, ä»–è¿˜åœ¨å„åœ°åˆ¶é€ ææ…Œ.";
+		mes "çœŸæ˜¯ä»¤äººå¤´ç–¼!";
 		next;
-		mes "[Ê¥µ®ÀÏÈË]";
-		mes "ËûºÃÏñ´«ËµÖÐµÄ¹ÖµÁ, ÄÃ×ßÁË";
-		mes "ËùÓÐº¢×ÓÃÇµÄÊ¥µ®ÀñÎï, ×Ô¼º¶À×Ô";
-		mes "ÓéÀÖ.";
+		mes "[åœ£è¯žè€äºº]";
+		mes "ä»–å¥½åƒä¼ è¯´ä¸­çš„æ€ªç›—, æ‹¿èµ°äº†";
+		mes "æ‰€æœ‰å­©å­ä»¬çš„åœ£è¯žç¤¼ç‰©, è‡ªå·±ç‹¬è‡ª";
+		mes "å¨±ä¹.";
 		next;
-		mes "[Ê¥µ®ÀÏÈË]";
-		mes "ÎÒÔÚÕûÀí½ñÄêµÄÊ¥µ®ÀñÎï, ÊµÔÚÊÇ ";
-		mes "ÎÞ·¨³é³öÊ±¼äÈ¥ÕÒµ½ÄÇ¸ö¼Ò»ï.";
-		mes "Òò´ËÎÒÐèÒª°ïÊÖ.";
-		mes "¾ÍÏñÄãÒ»ÑùµÄÃ°ÏÕÕß, ÄÜ¹»°ïÎÒ°Ñ";
-		mes "¼ÙÃ°Õß¸ø²ù³ý.";
+		mes "[åœ£è¯žè€äºº]";
+		mes "æˆ‘åœ¨æ•´ç†ä»Šå¹´çš„åœ£è¯žç¤¼ç‰©, å®žåœ¨æ˜¯ ";
+		mes "æ— æ³•æŠ½å‡ºæ—¶é—´åŽ»æ‰¾åˆ°é‚£ä¸ªå®¶ä¼™.";
+		mes "å› æ­¤æˆ‘éœ€è¦å¸®æ‰‹.";
+		mes "å°±åƒä½ ä¸€æ ·çš„å†’é™©è€…, èƒ½å¤Ÿå¸®æˆ‘æŠŠ";
+		mes "å‡å†’è€…ç»™é“²é™¤.";
 		next;
-		mes "[Ê¥µ®ÀÏÈË]";
-		mes "ËûµÁ×ßµÄ¶«Î÷ÀïÃæ, ÓÐÒ»¸öÎÒµÄÄ§";
-		mes "·¨¿Ú´ü. Òò´Ë, ";
-		mes "µ±Ëû±»¹¥»÷µÄÊ±ºò, Ä§·¨¿Ú´ü»á½«";
-		mes "Ëû´«ËÍµ½°²È«µÄµØ·½.";
+		mes "[åœ£è¯žè€äºº]";
+		mes "ä»–ç›—èµ°çš„ä¸œè¥¿é‡Œé¢, æœ‰ä¸€ä¸ªæˆ‘çš„é­”";
+		mes "æ³•å£è¢‹. å› æ­¤, ";
+		mes "å½“ä»–è¢«æ”»å‡»çš„æ—¶å€™, é­”æ³•å£è¢‹ä¼šå°†";
+		mes "ä»–ä¼ é€åˆ°å®‰å…¨çš„åœ°æ–¹.";
 		next;
-		mes "[Ê¥µ®ÀÏÈË]";
-		mes "µ±È»,";
-		mes "Ëû±»×·É±µÄÊ±ºò, ¿Ï¶¨»á¶ªµôÒ»Ð©";
-		mes "´ÓÎÒÕâÀïÍµ×ßµÄ¶«Î÷. Èç¹ûËûµôÂä";
-		mes "ÁË^FF0000ÓÐ¶´µÄÊ¥µ®Íà^000000, ÄÇÊÇÎÒÎª¿ÉÁ¯µÄ";
-		mes "º¢×ÓÃÇ×¼±¸µÄÀñÎï, ¼ÇµÃÒªÊÕºÃ.";
+		mes "[åœ£è¯žè€äºº]";
+		mes "å½“ç„¶,";
+		mes "ä»–è¢«è¿½æ€çš„æ—¶å€™, è‚¯å®šä¼šä¸¢æŽ‰ä¸€äº›";
+		mes "ä»Žæˆ‘è¿™é‡Œå·èµ°çš„ä¸œè¥¿. å¦‚æžœä»–æŽ‰è½";
+		mes "äº†^FF0000æœ‰æ´žçš„åœ£è¯žè¢œ^000000, é‚£æ˜¯æˆ‘ä¸ºå¯æ€œçš„";
+		mes "å­©å­ä»¬å‡†å¤‡çš„ç¤¼ç‰©, è®°å¾—è¦æ”¶å¥½.";
 		next;
-		mes "[Ê¥µ®ÀÏÈË]";
-		mes "Èç¹ûÄãÄÜ¸øÎÒ´øÀ´3¸öµÄ»°, ÎÒ»á¸ø";
-		mes "ÄãÒ»¸ö^FF0000ÉñÃØµÄÀñÎïÏä×Ó^000000×÷Îª½±Àø.";
-		mes "ÎÒÒÑ¾­×¼±¸ºÃÁËÀñÎï»úÆ÷, ";
-		mes "ËüÄÜ¹»Ëæ»úÍÂ³öÒ»¼þÀñÎï, ÕâÎªÎÒÊ¡";
-		mes "ÁËºÃ¶àÊÂÇé.";
+		mes "[åœ£è¯žè€äºº]";
+		mes "å¦‚æžœä½ èƒ½ç»™æˆ‘å¸¦æ¥3ä¸ªçš„è¯, æˆ‘ä¼šç»™";
+		mes "ä½ ä¸€ä¸ª^FF0000ç¥žç§˜çš„ç¤¼ç‰©ç®±å­^000000ä½œä¸ºå¥–åŠ±.";
+		mes "æˆ‘å·²ç»å‡†å¤‡å¥½äº†ç¤¼ç‰©æœºå™¨, ";
+		mes "å®ƒèƒ½å¤Ÿéšæœºåå‡ºä¸€ä»¶ç¤¼ç‰©, è¿™ä¸ºæˆ‘çœ";
+		mes "äº†å¥½å¤šäº‹æƒ….";
 		close;
 	M_1:
-		mes "[Ê¥µ®ÀÏÈË]";
+		mes "[åœ£è¯žè€äºº]";
 		if(countitem(7034) < 3) goto L_NotEnuf;
 		delitem 7034,3;
-		mes "Äã³É¹¦ÁË.";
-		mes "¿´Ñù×Ó½ÌÑµÕâÐ©µ·ÂÒµÄ¹ÖÎï, Äã·Ç³£";
-		mes "ÔÚÐÐ. ºÃºÃ¸É!";
+		mes "ä½ æˆåŠŸäº†.";
+		mes "çœ‹æ ·å­æ•™è®­è¿™äº›æ£ä¹±çš„æ€ªç‰©, ä½ éžå¸¸";
+		mes "åœ¨è¡Œ. å¥½å¥½å¹²!";
 		next;
 		getitem 644,1; //Gift Box Prototype
 		set #event_xmas,#event_xmas+1;
-		mes "[Ê¥µ®ÀÏÈË]";
-		mes "ÕâÊÇÄãµÄ½±Æ·.";
-		mes "Èç¹ûÄã»¹ÄÜ´ø3¸öÀ´, ÎÒ»¹»á¸øÄã½±ÀøµÄ.";
-		mes "ÆÚ´ýÄãÄÜ³éµ½ºÃ¶«Î÷.";
+		mes "[åœ£è¯žè€äºº]";
+		mes "è¿™æ˜¯ä½ çš„å¥–å“.";
+		mes "å¦‚æžœä½ è¿˜èƒ½å¸¦3ä¸ªæ¥, æˆ‘è¿˜ä¼šç»™ä½ å¥–åŠ±çš„.";
+		mes "æœŸå¾…ä½ èƒ½æŠ½åˆ°å¥½ä¸œè¥¿.";
 		close;
 	
 		L_NotEnuf:
-			mes "ÄãÃ»ÓÐ×ã¹»µÄÍà×Ó×÷ÎªÖ¤Ã÷.";
-			mes "È¥½ÌÑµÄÇÐ©ÆÆ»µÊ¥µ®µÄ¹ÖÎïÃÇ";
-			mes "°ïÎÒ¶àÄÃÐ©Íà×Ó»ØÀ´, ÎÒ»á½±ÀøÄãµÄ.";
+			mes "ä½ æ²¡æœ‰è¶³å¤Ÿçš„è¢œå­ä½œä¸ºè¯æ˜Ž.";
+			mes "åŽ»æ•™è®­é‚£äº›ç ´ååœ£è¯žçš„æ€ªç‰©ä»¬";
+			mes "å¸®æˆ‘å¤šæ‹¿äº›è¢œå­å›žæ¥, æˆ‘ä¼šå¥–åŠ±ä½ çš„.";
 			close;
 	M_End:
-		mes "[Ê¥µ®ÀÏÈË]";
-		mes "ÎÒÃ÷°×. ºÃ°É, ÖÁÉÙ";
-		mes "ÎÒÃÇ»¹»áÔÚÊ¥µ®½ÚÔç³¿ÔÙ´ÎÏàÓö.";
+		mes "[åœ£è¯žè€äºº]";
+		mes "æˆ‘æ˜Žç™½. å¥½å§, è‡³å°‘";
+		mes "æˆ‘ä»¬è¿˜ä¼šåœ¨åœ£è¯žèŠ‚æ—©æ™¨å†æ¬¡ç›¸é‡.";
 		close;
 
 OnInit:
@@ -120,249 +117,249 @@ OnInit:
 
 // Xmas Goblin Spawns
 //============================================================
-prt_fild11,0,0,0,0	monster	Ê¥µ®¸ç²¼Áé	1245,5,0,0,0
-gef_fild11,0,0,0,0	monster	Ê¥µ®¸ç²¼Áé	1245,5,0,0,0
-yuno_fild09,0,0,0,0	monster	Ê¥µ®¸ç²¼Áé	1245,5,0,0,0
+prt_fild11,0,0,0,0	monster	åœ£è¯žå“¥å¸ƒçµ	1245,5,0,0,0
+gef_fild11,0,0,0,0	monster	åœ£è¯žå“¥å¸ƒçµ	1245,5,0,0,0
+yuno_fild09,0,0,0,0	monster	åœ£è¯žå“¥å¸ƒçµ	1245,5,0,0,0
 
 // Santa Poring Spawns
 //============================================================
-ein_fild03,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-ein_fild04,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-ein_fild06,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-ein_fild07,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-ein_fild08,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-ein_fild09,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-ein_fild10,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-gef_fild00,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-gef_fild01,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-gef_fild02,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-gef_fild03,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-gef_fild04,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-gef_fild05,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-gef_fild07,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-gef_fild08,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-gef_fild09,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-gef_fild10,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-gef_fild11,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-gef_fild12,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-gef_fild13,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-gef_fild14,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-glast_01,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-lhz_fild01,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-lhz_fild02,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-lhz_fild03,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-mjolnir_01,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-mjolnir_02,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-mjolnir_03,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-mjolnir_04,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-mjolnir_05,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-mjolnir_06,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-mjolnir_07,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-mjolnir_08,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-mjolnir_09,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-mjolnir_10,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-mjolnir_11,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-mjolnir_12,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-moc_fild01,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-moc_fild02,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-moc_fild03,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-moc_fild04,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-moc_fild05,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-moc_fild06,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-moc_fild07,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-moc_fild08,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-moc_fild09,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-moc_fild10,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-moc_fild11,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-moc_fild12,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-moc_fild13,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-moc_fild14,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-moc_fild15,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-moc_fild16,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-moc_fild17,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-moc_fild18,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-pay_fild01,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-pay_fild02,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-pay_fild03,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-pay_fild04,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-pay_fild05,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-pay_fild06,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-pay_fild07,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-pay_fild08,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-pay_fild09,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-pay_fild10,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-pay_fild11,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-prt_fild00,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-prt_fild01,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-prt_fild02,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-prt_fild03,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-prt_fild04,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-prt_fild05,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-prt_fild06,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-prt_fild07,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-prt_fild08,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-prt_fild09,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-prt_fild10,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-prt_fild11,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-xmas_fild01,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-cmd_fild01,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-cmd_fild02,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-cmd_fild03,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-cmd_fild04,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-cmd_fild05,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-cmd_fild06,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-cmd_fild07,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-cmd_fild08,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-cmd_fild09,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-yuno_fild01,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-yuno_fild02,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-yuno_fild03,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-yuno_fild04,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-yuno_fild05,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-yuno_fild06,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-yuno_fild07,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-yuno_fild08,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-yuno_fild09,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-yuno_fild11,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-yuno_fild12,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-ama_fild01,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-gon_fild01,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-um_fild01,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-um_fild02,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-um_fild03,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-um_fild04,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-nif_fild01,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-nif_fild02,0,0,0,0 	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-lou_fild01,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-hu_fild01,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-hu_fild04,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-hu_fild05,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
-hu_fild07,0,0,0,0	monster	Ê¥µ®²¨Àû	1062,15,0,0,0
+ein_fild03,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+ein_fild04,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+ein_fild06,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+ein_fild07,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+ein_fild08,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+ein_fild09,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+ein_fild10,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+gef_fild00,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+gef_fild01,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+gef_fild02,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+gef_fild03,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+gef_fild04,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+gef_fild05,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+gef_fild07,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+gef_fild08,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+gef_fild09,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+gef_fild10,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+gef_fild11,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+gef_fild12,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+gef_fild13,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+gef_fild14,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+glast_01,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+lhz_fild01,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+lhz_fild02,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+lhz_fild03,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+mjolnir_01,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+mjolnir_02,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+mjolnir_03,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+mjolnir_04,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+mjolnir_05,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+mjolnir_06,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+mjolnir_07,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+mjolnir_08,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+mjolnir_09,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+mjolnir_10,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+mjolnir_11,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+mjolnir_12,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+moc_fild01,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+moc_fild02,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+moc_fild03,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+moc_fild04,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+moc_fild05,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+moc_fild06,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+moc_fild07,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+moc_fild08,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+moc_fild09,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+moc_fild10,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+moc_fild11,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+moc_fild12,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+moc_fild13,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+moc_fild14,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+moc_fild15,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+moc_fild16,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+moc_fild17,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+moc_fild18,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+pay_fild01,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+pay_fild02,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+pay_fild03,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+pay_fild04,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+pay_fild05,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+pay_fild06,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+pay_fild07,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+pay_fild08,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+pay_fild09,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+pay_fild10,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+pay_fild11,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+prt_fild00,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+prt_fild01,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+prt_fild02,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+prt_fild03,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+prt_fild04,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+prt_fild05,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+prt_fild06,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+prt_fild07,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+prt_fild08,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+prt_fild09,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+prt_fild10,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+prt_fild11,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+xmas_fild01,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+cmd_fild01,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+cmd_fild02,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+cmd_fild03,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+cmd_fild04,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+cmd_fild05,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+cmd_fild06,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+cmd_fild07,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+cmd_fild08,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+cmd_fild09,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+yuno_fild01,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+yuno_fild02,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+yuno_fild03,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+yuno_fild04,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+yuno_fild05,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+yuno_fild06,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+yuno_fild07,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+yuno_fild08,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+yuno_fild09,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+yuno_fild11,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+yuno_fild12,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+ama_fild01,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+gon_fild01,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+um_fild01,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+um_fild02,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+um_fild03,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+um_fild04,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+nif_fild01,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+nif_fild02,0,0,0,0 	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+lou_fild01,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+hu_fild01,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+hu_fild04,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+hu_fild05,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
+hu_fild07,0,0,0,0	monster	åœ£è¯žæ³¢åˆ©	1062,15,0,0,0
 
 // Antonio Spawns
 //============================================================
-ein_fild03,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-ein_fild04,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-ein_fild06,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-ein_fild07,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-ein_fild08,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-ein_fild09,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-ein_fild10,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-gef_fild00,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-gef_fild01,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-gef_fild02,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-gef_fild03,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-gef_fild04,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-gef_fild05,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-gef_fild07,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-gef_fild08,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-gef_fild09,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-gef_fild10,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-gef_fild11,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-gef_fild12,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-gef_fild13,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-gef_fild14,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-glast_01,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-lhz_fild01,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-lhz_fild02,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-lhz_fild03,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-mjolnir_01,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-mjolnir_02,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-mjolnir_03,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-mjolnir_04,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-mjolnir_05,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-mjolnir_06,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-mjolnir_07,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-mjolnir_08,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-mjolnir_09,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-mjolnir_10,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-mjolnir_11,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-mjolnir_12,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-moc_fild01,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-moc_fild02,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-moc_fild03,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-moc_fild04,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-moc_fild05,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-moc_fild06,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-moc_fild07,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-moc_fild08,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-moc_fild09,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-moc_fild10,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-moc_fild11,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-moc_fild12,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-moc_fild13,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-moc_fild14,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-moc_fild15,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-moc_fild16,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-moc_fild17,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-moc_fild18,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-pay_fild01,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-pay_fild02,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-pay_fild03,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-pay_fild04,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-pay_fild05,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-pay_fild06,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-pay_fild07,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-pay_fild08,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-pay_fild09,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-pay_fild10,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-pay_fild11,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-prt_fild00,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-prt_fild01,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-prt_fild02,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-prt_fild03,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-prt_fild04,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-prt_fild05,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-prt_fild06,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-prt_fild07,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-prt_fild08,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-prt_fild09,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-prt_fild10,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-prt_fild11,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-xmas_fild01,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-cmd_fild01,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-cmd_fild02,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-cmd_fild03,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-cmd_fild04,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-cmd_fild05,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-cmd_fild06,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-cmd_fild07,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-cmd_fild08,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-cmd_fild09,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-yuno_fild01,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-yuno_fild02,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-yuno_fild03,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-yuno_fild04,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-yuno_fild05,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-yuno_fild06,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-yuno_fild07,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-yuno_fild08,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-yuno_fild09,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-yuno_fild11,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-yuno_fild12,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-ama_fild01,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-gon_fild01,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-um_fild01,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-um_fild02,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-um_fild03,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-um_fild04,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-nif_fild01,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-nif_fild02,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-lou_fild01,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-hu_fild01,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-hu_fild04,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-hu_fild05,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
-hu_fild07,0,0,0,0	monster	Ð°¶ñÀÏ¹«¹«	1247,1,0,0,0
+ein_fild03,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+ein_fild04,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+ein_fild06,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+ein_fild07,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+ein_fild08,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+ein_fild09,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+ein_fild10,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+gef_fild00,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+gef_fild01,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+gef_fild02,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+gef_fild03,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+gef_fild04,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+gef_fild05,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+gef_fild07,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+gef_fild08,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+gef_fild09,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+gef_fild10,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+gef_fild11,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+gef_fild12,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+gef_fild13,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+gef_fild14,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+glast_01,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+lhz_fild01,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+lhz_fild02,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+lhz_fild03,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+mjolnir_01,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+mjolnir_02,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+mjolnir_03,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+mjolnir_04,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+mjolnir_05,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+mjolnir_06,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+mjolnir_07,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+mjolnir_08,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+mjolnir_09,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+mjolnir_10,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+mjolnir_11,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+mjolnir_12,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+moc_fild01,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+moc_fild02,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+moc_fild03,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+moc_fild04,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+moc_fild05,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+moc_fild06,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+moc_fild07,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+moc_fild08,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+moc_fild09,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+moc_fild10,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+moc_fild11,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+moc_fild12,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+moc_fild13,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+moc_fild14,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+moc_fild15,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+moc_fild16,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+moc_fild17,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+moc_fild18,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+pay_fild01,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+pay_fild02,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+pay_fild03,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+pay_fild04,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+pay_fild05,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+pay_fild06,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+pay_fild07,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+pay_fild08,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+pay_fild09,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+pay_fild10,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+pay_fild11,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+prt_fild00,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+prt_fild01,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+prt_fild02,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+prt_fild03,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+prt_fild04,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+prt_fild05,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+prt_fild06,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+prt_fild07,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+prt_fild08,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+prt_fild09,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+prt_fild10,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+prt_fild11,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+xmas_fild01,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+cmd_fild01,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+cmd_fild02,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+cmd_fild03,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+cmd_fild04,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+cmd_fild05,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+cmd_fild06,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+cmd_fild07,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+cmd_fild08,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+cmd_fild09,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+yuno_fild01,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+yuno_fild02,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+yuno_fild03,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+yuno_fild04,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+yuno_fild05,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+yuno_fild06,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+yuno_fild07,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+yuno_fild08,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+yuno_fild09,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+yuno_fild11,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+yuno_fild12,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+ama_fild01,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+gon_fild01,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+um_fild01,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+um_fild02,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+um_fild03,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+um_fild04,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+nif_fild01,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+nif_fild02,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+lou_fild01,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+hu_fild01,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+hu_fild04,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+hu_fild05,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
+hu_fild07,0,0,0,0	monster	é‚ªæ¶è€å…¬å…¬	1247,1,0,0,0
 
 // Xmas Jakk Spawns
 //============================================================
-gef_dun01,0,0,0,0	monster	Ê¥µ®ÄÏ¹ÏÏÈÉú	1244,5,0,0,0
-//gefenia02,0,0,0,0	monster	Ê¥µ®ÄÏ¹ÏÏÈÉú	1244,5,0,0,0
+gef_dun01,0,0,0,0	monster	åœ£è¯žå—ç“œå…ˆç”Ÿ	1244,5,0,0,0
+//gefenia02,0,0,0,0	monster	åœ£è¯žå—ç“œå…ˆç”Ÿ	1244,5,0,0,0
 
 // Xmas Orc Spawns
 //============================================================
-gef_fild02,0,0,0,0	monster	Ê¥µ®ÊÞÈËÕ½Ê¿	1588,5,0,0,0
-gef_fild03,0,0,0,0	monster	Ê¥µ®ÊÞÈËÕ½Ê¿	1588,5,0,0,0
-gef_fild10,0,0,0,0	monster	Ê¥µ®ÊÞÈËÕ½Ê¿	1588,5,0,0,0
-gef_fild14,0,0,0,0	monster	Ê¥µ®ÊÞÈËÕ½Ê¿	1588,5,0,0,0
-alde_dun02,0,0,0,0	monster	Ê¥µ®ÊÞÈËÕ½Ê¿	1588,5,0,0,0
+gef_fild02,0,0,0,0	monster	åœ£è¯žå…½äººæˆ˜å£«	1588,5,0,0,0
+gef_fild03,0,0,0,0	monster	åœ£è¯žå…½äººæˆ˜å£«	1588,5,0,0,0
+gef_fild10,0,0,0,0	monster	åœ£è¯žå…½äººæˆ˜å£«	1588,5,0,0,0
+gef_fild14,0,0,0,0	monster	åœ£è¯žå…½äººæˆ˜å£«	1588,5,0,0,0
+alde_dun02,0,0,0,0	monster	åœ£è¯žå…½äººæˆ˜å£«	1588,5,0,0,0

@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN ½Å±¾ºº»¯ www.rAthenaCN.com ×ª×Ô [ www.99Max.mE ]
-//============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN è„šæœ¬æ±‰åŒ– è½¬è‡ª [ www.99Max.mE ]
 //============================================================
 
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Eden Group Quests - Mission [11 - 25]
 //===== By: ==================================================
 //= L0ne_W0lf
@@ -22,11 +18,11 @@
 //= 1.2 Optimized. [Euphy]
 //============================================================
 
-moc_para01,36,38,3	script	ÈÎÎñ [11 - 25]#Tuto	857,{
+moc_para01,36,38,3	script	ä»»åŠ¡ [11 - 25]#Tuto	857,{
 	if (countitem(6219) < 1) {
-		mes "- Äã±ØÐë³ÖÓÐ -";
-		mes "- ^4d4dff'ÀÖÔ°ÍÅµÄÖ¤Îï'^000000 -";
-		mes "- ²ÅÄÜ½ÓÕâÐ©ÈÎÎñ -";
+		mes "- ä½ å¿…é¡»æŒæœ‰ -";
+		mes "- ^4d4dff'ä¹å›­å›¢çš„è¯ç‰©'^000000 -";
+		mes "- æ‰èƒ½æŽ¥è¿™äº›ä»»åŠ¡ -";
 		close;
 	}
 	for(set .@i,11124; .@i<11134; set .@i,.@i+1)
@@ -34,61 +30,61 @@ moc_para01,36,38,3	script	ÈÎÎñ [11 - 25]#Tuto	857,{
 	for(set .@i,11114; .@i<11123; set .@i,.@i+1) {
 		set .@j, checkquest(.@i,HUNTING);
 		if (.@j == 2) {
-			mes " - ÔÚ¿ªÊ¼Ç°Äã±ØÐëÏÈÑ¡ÔñÒ»¸öÈÎÎñ- ";
+			mes " - åœ¨å¼€å§‹å‰ä½ å¿…é¡»å…ˆé€‰æ‹©ä¸€ä¸ªä»»åŠ¡- ";
 			mes " ";
-			mes " - ¹ÜÀíÔ±: Ë¹ÅÉ¿Ë - ";
+			mes " - ç®¡ç†å‘˜: æ–¯æ´¾å…‹ - ";
 			close;
 		}
 		else if (.@j >= 0) {
-			mes " - ÄãÒ»´ÎÖ»ÄÜ½ÓÊÜÒ»¸öÈÎÎñ - ";
+			mes " - ä½ ä¸€æ¬¡åªèƒ½æŽ¥å—ä¸€ä¸ªä»»åŠ¡ - ";
 			mes " ";
-			mes " - ¹ÜÀíÔ±: Ë¹ÅÉ¿Ë - ";
+			mes " - ç®¡ç†å‘˜: æ–¯æ´¾å…‹ - ";
 			close;
 		}
 	}
 	if (BaseLevel < 11) {
-		mes " - Õâ¶ùÃ»ÓÐÄãÊÊºÏ×öµÄÈÎÎñ! - ";
+		mes " - è¿™å„¿æ²¡æœ‰ä½ é€‚åˆåšçš„ä»»åŠ¡! - ";
 		close;
 	}
 	if (BaseLevel > 25) {
-		mes " - ÕâÐ©ÈÎÎñ¶ÔÄãÀ´ËµÌ«¼òµ¥ÁË - ";
-		mes " - ÄãÓ¦¸ÃÈ¥ÌôÕ½ÄÑ¶È¸ü¸ßµÄÈÎÎñ - ";
+		mes " - è¿™äº›ä»»åŠ¡å¯¹ä½ æ¥è¯´å¤ªç®€å•äº† - ";
+		mes " - ä½ åº”è¯¥åŽ»æŒ‘æˆ˜éš¾åº¦æ›´é«˜çš„ä»»åŠ¡ - ";
 		close;
 	}
-	mes " - ÈÎÎñ²¼¸æÀ¸ -";
-	mes " - 11-25¼¶ -";
+	mes " - ä»»åŠ¡å¸ƒå‘Šæ  -";
+	mes " - 11-25çº§ -";
 	mes " ";
-	mes " - ¹ÜÀíÔ±: Ë¹ÅÉ¿Ë -";
+	mes " - ç®¡ç†å‘˜: æ–¯æ´¾å…‹ -";
 	next;
-	switch(select("á÷ÁÔ·ä±ø:á÷ÁÔÍºÓ¥:ÊÕ¼¯»È³æºóÍÈ:á÷ÁÔÉ­Áé:á÷ÁÔÄ§¹½:ÏûÃðº¦³æ:á÷ÁÔÄ¦¿¨:á÷ÁÔÎüÑªòùòð:ÊÕ¼¯ÓðÃ«:ÊÕ¼¯¶¾Ä§¹½Ñ¿æß")) {
-		case 1: callsub L_Quest,11114,"á÷ÁÔ·ä±ø"," - á÷ÁÔ10Ö» ^4d4dff'·ä±ø'^000000 - "," - ÇëÍùÆÕÂ¡µÂÀ­µÄÎ÷ÄÏ·½ÏòÑ°ÕÒ. - ";
-		case 2: callsub L_Quest,11115,"á÷ÁÔÍºÓ¥"," - á÷ÁÔ20Ö» ^4d4dff'ÍºÓ¥'^000000 - "," - ËüÃÇ³öÃ»ÓÚÃÎÂÞ¿ËµÄÄÏÃæ. - ";
-		case 3: callsub L_Quest,11116,"ÊÕ¼¯»È³æºóÍÈ"," - á÷ÁÔ10Ö» ^4d4dff'»È³æ'^000000 - "," - ÇëÍùÆÕÂ¡µÂÀ­µÄÎ÷ÄÏ·½ÏòÑ°ÕÒ - "," - ²¢ÇÒ´ø»Ø10¸ö^4d4dff»È³æºóÍÈ^000000.- ";
-		case 4: callsub L_Quest,11117,"á÷ÁÔÉ­Áé"," - á÷ÁÔ20Ö» ^4d4dff'É­Áé'^000000 - "," - ËüÃÇ³öÃ»ÓÚì³Ñï¶«ÄÏ·½Ïò.- ";
-		case 5: callsub L_Quest,11118,"á÷ÁÔÄ§¹½"," - á÷ÁÔ30Ö» ^4d4dff'Ä§¹½'^000000 - "," - ÄãÄÜÔÚì³ÑïÖÜ±ßÕÒµ½ËüÃÇ.- ";
-		case 6: callsub L_Quest,11119,"ÏûÃðº¦³æ"," - ÏûÃð20Ã¶ ^4d4dffµÁ³æÂÑ^000000 - "," - ËüÃÇÉú´æÔÚÆÕÂ¡µÂÀ­µÄÏÂË®µÀÖÐ. - "," - ²¢ÇÒ´ø»Ø10¸ö^4d4dffÓ¼¿Ç^000000. - ";
-		case 7: callsub L_Quest,11120,"á÷ÁÔÄ¦¿¨"," - á÷ÁÔ20Ö» ^4d4dff'Ä¦¿¨'^000000 - "," - ÇëÍùÆÕÂ¡µÂÀ­ÄÏÃæÑ°ÕÒËüÃÇµÄ×Ù??- ";
-		case 8: callsub L_Quest,11121,"á÷ÁÔÎüÑªòùòð"," - á÷ÁÔ20Ö» ^4d4dffÎüÑªòùòð^000000 - "," - ËüÃÇ³öÃ»ÓÚÆÕÂ¡µÂÀ­µÄÎ÷±ß. - "," - ÔÚµØÏÂË®µÀÀïÄÜÕÒµ½Å¶. - ";
-		case 9: callsub L_Quest,11122,"ÊÕ¼¯ÓðÃ«"," - á÷ÁÔ30Ö» ^4d4dff'´ó×ìÄñ'^000000 - "," - È¥ÆÕÂ¡µÂÀ­µÄÄÏ±ßÑ°ÕÒËüÃÇ°É. - ";
-		case 10: callsub L_Quest,11123,"ÊÕ¼¯¶¾Ä§¹½Ñ¿æß"," - á÷ÁÔ30Ö» ^4d4dff¶¾Ä§¹½^000000 - "," - È¥¼ª·Ò¶«±±°É,ÄÇÀïÄÜÕÒµ½ÄãÏëÒªµÄ. - "," - ¼ÇµÃ´ø»Ø5¸ö^4d4dff¶¾Ä§¹½Ñ¿æß^000000Å¶. - ";
-		case 11: mes " - È¡Ïû - "; close;
+	switch(select("ç‹©çŒŽèœ‚å…µ:ç‹©çŒŽç§ƒé¹°:æ”¶é›†è—è™«åŽè…¿:ç‹©çŒŽæ£®çµ:ç‹©çŒŽé­”è‡:æ¶ˆç­å®³è™«:ç‹©çŒŽæ‘©å¡:ç‹©çŒŽå¸è¡€è™è :æ”¶é›†ç¾½æ¯›:æ”¶é›†æ¯’é­”è‡èŠ½å­¢")) {
+		case 1: callsub L_Quest,11114,"ç‹©çŒŽèœ‚å…µ"," - ç‹©çŒŽ10åª ^4d4dff'èœ‚å…µ'^000000 - "," - è¯·å¾€æ™®éš†å¾·æ‹‰çš„è¥¿å—æ–¹å‘å¯»æ‰¾. - ";
+		case 2: callsub L_Quest,11115,"ç‹©çŒŽç§ƒé¹°"," - ç‹©çŒŽ20åª ^4d4dff'ç§ƒé¹°'^000000 - "," - å®ƒä»¬å‡ºæ²¡äºŽæ¢¦ç½—å…‹çš„å—é¢. - ";
+		case 3: callsub L_Quest,11116,"æ”¶é›†è—è™«åŽè…¿"," - ç‹©çŒŽ10åª ^4d4dff'è—è™«'^000000 - "," - è¯·å¾€æ™®éš†å¾·æ‹‰çš„è¥¿å—æ–¹å‘å¯»æ‰¾ - "," - å¹¶ä¸”å¸¦å›ž10ä¸ª^4d4dffè—è™«åŽè…¿^000000.- ";
+		case 4: callsub L_Quest,11117,"ç‹©çŒŽæ£®çµ"," - ç‹©çŒŽ20åª ^4d4dff'æ£®çµ'^000000 - "," - å®ƒä»¬å‡ºæ²¡äºŽæ–æ‰¬ä¸œå—æ–¹å‘.- ";
+		case 5: callsub L_Quest,11118,"ç‹©çŒŽé­”è‡"," - ç‹©çŒŽ30åª ^4d4dff'é­”è‡'^000000 - "," - ä½ èƒ½åœ¨æ–æ‰¬å‘¨è¾¹æ‰¾åˆ°å®ƒä»¬.- ";
+		case 6: callsub L_Quest,11119,"æ¶ˆç­å®³è™«"," - æ¶ˆç­20æžš ^4d4dffç›—è™«åµ^000000 - "," - å®ƒä»¬ç”Ÿå­˜åœ¨æ™®éš†å¾·æ‹‰çš„ä¸‹æ°´é“ä¸­. - "," - å¹¶ä¸”å¸¦å›ž10ä¸ª^4d4dffè›¹å£³^000000. - ";
+		case 7: callsub L_Quest,11120,"ç‹©çŒŽæ‘©å¡"," - ç‹©çŒŽ20åª ^4d4dff'æ‘©å¡'^000000 - "," - è¯·å¾€æ™®éš†å¾·æ‹‰å—é¢å¯»æ‰¾å®ƒä»¬çš„è¸ª??- ";
+		case 8: callsub L_Quest,11121,"ç‹©çŒŽå¸è¡€è™è "," - ç‹©çŒŽ20åª ^4d4dffå¸è¡€è™è ^000000 - "," - å®ƒä»¬å‡ºæ²¡äºŽæ™®éš†å¾·æ‹‰çš„è¥¿è¾¹. - "," - åœ¨åœ°ä¸‹æ°´é“é‡Œèƒ½æ‰¾åˆ°å“¦. - ";
+		case 9: callsub L_Quest,11122,"æ”¶é›†ç¾½æ¯›"," - ç‹©çŒŽ30åª ^4d4dff'å¤§å˜´é¸Ÿ'^000000 - "," - åŽ»æ™®éš†å¾·æ‹‰çš„å—è¾¹å¯»æ‰¾å®ƒä»¬å§. - ";
+		case 10: callsub L_Quest,11123,"æ”¶é›†æ¯’é­”è‡èŠ½å­¢"," - ç‹©çŒŽ30åª ^4d4dffæ¯’é­”è‡^000000 - "," - åŽ»å‰èŠ¬ä¸œåŒ—å§,é‚£é‡Œèƒ½æ‰¾åˆ°ä½ æƒ³è¦çš„. - "," - è®°å¾—å¸¦å›ž5ä¸ª^4d4dffæ¯’é­”è‡èŠ½å­¢^000000å“¦. - ";
+		case 11: mes " - å–æ¶ˆ - "; close;
 	}
 	end;
 L_Quest:
 	if (checkquest(getarg(0),PLAYTIME) == 1) {
-		mes " - Äã½ñÌìÒÑ¾­Íê³É¹ý^4d4dff"+getarg(1)+"^000000ÈÎÎñÁË! - ";
+		mes " - ä½ ä»Šå¤©å·²ç»å®Œæˆè¿‡^4d4dff"+getarg(1)+"^000000ä»»åŠ¡äº†! - ";
 		mes " ";
-		mes " - ¹ÜÀíÔ±: Ë¹ÅÉ¿Ë - ";
+		mes " - ç®¡ç†å‘˜: æ–¯æ´¾å…‹ - ";
 		close;
 	}
-	mes " - ÈÎÎñ '"+getarg(1)+"' - ";
+	mes " - ä»»åŠ¡ '"+getarg(1)+"' - ";
 	for(set .@i,2; .@i<getargcount(); set .@i,.@i+1)
 		mes getarg(.@i);
 	mes " ";
-	mes " - ¹ÜÀíÔ±: Ë¹ÅÉ¿Ë - ";
+	mes " - ç®¡ç†å‘˜: æ–¯æ´¾å…‹ - ";
 	next;
-	if(select("½ÓÊÜÈÎÎñ.:²é¿´ÆäËûÈÎÎñ.") == 2) {
-		mes " - ÈÃÎÒÃÇÀ´¿´¿´ÆäËûÈÎÎñ°É -";
+	if(select("æŽ¥å—ä»»åŠ¡.:æŸ¥çœ‹å…¶ä»–ä»»åŠ¡.") == 2) {
+		mes " - è®©æˆ‘ä»¬æ¥çœ‹çœ‹å…¶ä»–ä»»åŠ¡å§ -";
 		close;
 	}
 	for(set .@i,2; .@i<getargcount(); set .@i,.@i+1)
@@ -99,52 +95,52 @@ L_Quest:
 	close;
 }
 
-moc_para01,32,30,6	script	Ë¹ÅÉ¿Ë	914,{
+moc_para01,32,30,6	script	æ–¯æ´¾å…‹	914,{
 	for(set .@i,11114; .@i<11124; set .@i,.@i+1) {
 		set .@j, checkquest(.@i,HUNTING);
 		if (.@j == 2) switch(.@i) {
-			case 11114: callsub L_Quest,.@i,"á÷ÁÔ·ä±ø",900;
-			case 11115: callsub L_Quest,.@i,"á÷ÁÔÍºÓ¥",1800;
-			case 11116: callsub L_Quest,.@i,"ÊÕ¼¯»È³æºóÍÈ",1400,940,10;
-			case 11117: callsub L_Quest,.@i,"á÷ÁÔÉ­Áé",2600;
-			case 11118: callsub L_Quest,.@i,"á÷ÁÔÄ§¹½",3900;
-			case 11119: callsub L_Quest,.@i,"ÏûÃðº¦³æ",2900,915,10;
-			case 11120: callsub L_Quest,.@i,"á÷ÁÔÄ¦¿¨",3200;
-			case 11121: callsub L_Quest,.@i,"á÷ÁÔÎüÑªòùòð",3200;
-			case 11122: callsub L_Quest,.@i,"ÊÕ¼¯ÓðÃ«",5400;
-			case 11123: callsub L_Quest,.@i,"ÊÕ¼¯¶¾Ä§¹½Ñ¿æß",6000,7033,5;
+			case 11114: callsub L_Quest,.@i,"ç‹©çŒŽèœ‚å…µ",900;
+			case 11115: callsub L_Quest,.@i,"ç‹©çŒŽç§ƒé¹°",1800;
+			case 11116: callsub L_Quest,.@i,"æ”¶é›†è—è™«åŽè…¿",1400,940,10;
+			case 11117: callsub L_Quest,.@i,"ç‹©çŒŽæ£®çµ",2600;
+			case 11118: callsub L_Quest,.@i,"ç‹©çŒŽé­”è‡",3900;
+			case 11119: callsub L_Quest,.@i,"æ¶ˆç­å®³è™«",2900,915,10;
+			case 11120: callsub L_Quest,.@i,"ç‹©çŒŽæ‘©å¡",3200;
+			case 11121: callsub L_Quest,.@i,"ç‹©çŒŽå¸è¡€è™è ",3200;
+			case 11122: callsub L_Quest,.@i,"æ”¶é›†ç¾½æ¯›",5400;
+			case 11123: callsub L_Quest,.@i,"æ”¶é›†æ¯’é­”è‡èŠ½å­¢",6000,7033,5;
 		}
 		else if (.@j >= 0) {
-			mes "[Ë¹ÅÉ¿Ë]";
-			mes "Äã»¹Ã»ÓÐÍê³ÉÄãµÄÈÎÎñÄØ~";
-			mes "¼ÓÓÍ°É~¾Í¿ìÍê³ÉÁË~Äã¿ÉÒÔµÄ!~";
+			mes "[æ–¯æ´¾å…‹]";
+			mes "ä½ è¿˜æ²¡æœ‰å®Œæˆä½ çš„ä»»åŠ¡å‘¢~";
+			mes "åŠ æ²¹å§~å°±å¿«å®Œæˆäº†~ä½ å¯ä»¥çš„!~";
 			close;
 		}
 	}
-	mes "[Ë¹ÅÉ¿Ë]";
-	mes "ÏëÕÒ¸ö¹¤×÷Ã´?";
-	mes "ÎÒÃÇÕâ¶ù×ÜÊÇÄÜÌá¹©¸÷ÖÖ»ú»áµÄ.";
+	mes "[æ–¯æ´¾å…‹]";
+	mes "æƒ³æ‰¾ä¸ªå·¥ä½œä¹ˆ?";
+	mes "æˆ‘ä»¬è¿™å„¿æ€»æ˜¯èƒ½æä¾›å„ç§æœºä¼šçš„.";
 	next;
-	mes "[Ë¹ÅÉ¿Ë]";
-	mes "ÄãÔõÃ´²»È¥ÖÜÎ§¿´¿´ÓÐÃ»ÓÐÄã¸ÐÐËÈ¤µÄÈÎÎñÄØ?";
+	mes "[æ–¯æ´¾å…‹]";
+	mes "ä½ æ€Žä¹ˆä¸åŽ»å‘¨å›´çœ‹çœ‹æœ‰æ²¡æœ‰ä½ æ„Ÿå…´è¶£çš„ä»»åŠ¡å‘¢?";
 	close;
 L_Quest:
 	if (checkquest(getarg(0),HUNTING) == 2) {
 		if (getarg(3,0))
 			if (countitem(getarg(3)) < getarg(4)) {
-				mes "[Ë¹ÅÉ¿Ë]";
-				mes "Äã»¹Ã»ÓÐ×ã¹»µÄ "+getitemname(getarg(3))+".";
-				mes "Äã»¹±ØÐë´øÉÏ "+getarg(4)+" "+getitemname(getarg(3))+".";
+				mes "[æ–¯æ´¾å…‹]";
+				mes "ä½ è¿˜æ²¡æœ‰è¶³å¤Ÿçš„ "+getitemname(getarg(3))+".";
+				mes "ä½ è¿˜å¿…é¡»å¸¦ä¸Š "+getarg(4)+" "+getitemname(getarg(3))+".";
 				close;
 			}
-		mes "[Ë¹ÅÉ¿Ë]";
-		mes "àÅ?!£ÈÃÎÒÀ´¿´¿´~~";
-		mes "°¡¹þ!ÄãÒÑ¾­Íê³ÉÁË '"+getarg(1)+"' ÈÎÎñÁËÑ½!~";
+		mes "[æ–¯æ´¾å…‹]";
+		mes "å—¯?!ï¼¨æ¢¦ä¾çº¯çº¯ç££~";
+		mes "å•Šå“ˆ!ä½ å·²ç»å®Œæˆäº† '"+getarg(1)+"' ä»»åŠ¡äº†å‘€!~";
 		next;
-		mes "[Ë¹ÅÉ¿Ë]";
-		mes "¸ÉµÃºÃ!!";
-		mes "ÎÒÃÇµÄÎ¯ÍÐÈË¶ÔÄãµÄ¹¤×÷»áÂúÒâµÄ,Ëû»á¸øÄãÓ¦µÃµÄ½±ÀøµÄ.";
-		mes "Ï£ÍûÏÂ´ÎÄÜ¼ÌÐøºÏ×÷,Ð»Ð»!";
+		mes "[æ–¯æ´¾å…‹]";
+		mes "å¹²å¾—å¥½!!";
+		mes "æˆ‘ä»¬çš„å§”æ‰˜äººå¯¹ä½ çš„å·¥ä½œä¼šæ»¡æ„çš„,ä»–ä¼šç»™ä½ åº”å¾—çš„å¥–åŠ±çš„.";
+		mes "å¸Œæœ›ä¸‹æ¬¡èƒ½ç»§ç»­åˆä½œ,è°¢è°¢!";
 		if (getarg(3,0)) delitem getarg(3),getarg(4);
 		erasequest getarg(0);
 		setquest getarg(0)+10;

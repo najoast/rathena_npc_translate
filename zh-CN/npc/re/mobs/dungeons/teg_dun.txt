@@ -1,12 +1,8 @@
 //============================================================
-//= rAthenaCN 脚本汉化 www.rAthenaCN.com 转自 [ www.99Max.mE ]
-//============================================================
-//= GIT 代码库 https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= 问题反馈 https://github.com/rAthenaCN/rAthenaCN/issues
+//= rAthenaCN 鑴氭湰姹夊寲 杞嚜 [ www.99Max.mE ]
 //============================================================
 
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= TE Guild Dungeon Monster
 //===== Description: =========================================
 //= Official monster spawn for TE Guild Dungeons

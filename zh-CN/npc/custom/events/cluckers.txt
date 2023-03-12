@@ -1,10 +1,7 @@
 //============================================================
-//= rAthenaCN [¿ËÀ­¿ËË¹]ºº»¯½Å±¾ [ www.rAthenaCN.com ]
+//= rAthenaCN [å…‹æ‹‰å…‹æ–¯]æ±‰åŒ–è„šæœ¬ 
 //============================================================
-//= GIT ´úÂë¿â https://github.com/rAthenaCN/rAthenaCN.git
-//============================================================
-//= ÎÊÌâ·´À¡ https://github.com/rAthenaCN/rAthenaCN/issues
-//============================================================
+
 
 //===== Hercules Script =======================================
 //= Cluck! Cluck! Boom!
@@ -24,96 +21,96 @@
 //= 1.2a Switched 'atcommand' to 'unitskilluseid'.
 //============================================================
 
-prontera,156,219,4	script	¿ËÀ­¿ËË¹	4_NFCOCK,{
+prontera,156,219,4	script	å…‹æ‹‰å…‹æ–¯	4_NFCOCK,{
 
 	set .@GMAccess,80;	// GM level required to access NPC
 
 if (.startcluck) {
 specialeffect2 2;
 switch(rand(15)) {
-			case 0: npctalk "¿ËÀ­À­À­À­¿Ë!!!"; unitskilluseid getcharid(3),"NPC_SELFDESTRUCTION",1; emotion 23; break;
-			case 1: npctalk "¿ËÀ­À­À­À­À­À­À­À­¿Ë!~"; break;
+			case 0: npctalk "å…‹æ‹‰æ‹‰æ‹‰æ‹‰å…‹!!!"; unitskilluseid getcharid(3),"NPC_SELFDESTRUCTION",1; emotion 23; break;
+			case 1: npctalk "å…‹æ‹‰æ‹‰æ‹‰æ‹‰æ‹‰æ‹‰æ‹‰æ‹‰å…‹!~"; break;
 			case 2: unitskilluseid getcharid(3),"NPC_SELFDESTRUCTION",1; break;
 			case 3: sc_start SC_FREEZE,10000,0; break;
-			case 4: npctalk "¿ËÀ­À­À­À­À­À­À­À­¿Ë!!!"; unitskilluseid getcharid(3),"NPC_SELFDESTRUCTION",1; emotion 23; break;
+			case 4: npctalk "å…‹æ‹‰æ‹‰æ‹‰æ‹‰æ‹‰æ‹‰æ‹‰æ‹‰å…‹!!!"; unitskilluseid getcharid(3),"NPC_SELFDESTRUCTION",1; emotion 23; break;
 			case 5: sc_start SC_SLEEP,10000,0; break;
 			case 6: sc_start SC_STONE,10000,0; emotion 29; break;
-			case 7: npctalk "¿ËÀ­À­À­À­À­À­À­À­¿Ë!!!"; unitskilluseid getcharid(3),"NPC_SELFDESTRUCTION",1; emotion 23; break;
-			case 8: npctalk "¿ËÀ­¿Ë! ¿ËÀ­À­¿Ë!!"; unitskilluseid getcharid(3),"NPC_SELFDESTRUCTION",1; emotion 23; break;
+			case 7: npctalk "å…‹æ‹‰æ‹‰æ‹‰æ‹‰æ‹‰æ‹‰æ‹‰æ‹‰å…‹!!!"; unitskilluseid getcharid(3),"NPC_SELFDESTRUCTION",1; emotion 23; break;
+			case 8: npctalk "å…‹æ‹‰å…‹! å…‹æ‹‰æ‹‰å…‹!!"; unitskilluseid getcharid(3),"NPC_SELFDESTRUCTION",1; emotion 23; break;
 			case 9: sc_start SC_STUN,10000,0; break;
 			case 10: sc_start SC_SLEEP,10000,0; emotion 29; break;
-			case 11: npctalk "¿ËÀ­¿Ë! ¿ËÀ­¿Ë!"; break;
+			case 11: npctalk "å…‹æ‹‰å…‹! å…‹æ‹‰å…‹!"; break;
 			case 12: sc_start SC_STUN,10000,0; break;
 			case 13: unitskilluseid getcharid(3),"NPC_SELFDESTRUCTION",1; break;
 			default:
 				if (rand(50) < 4) {
-					npctalk "Îé·ò!...........";
+					npctalk "ä¼å¤«!...........";
 					specialeffect2 72;
-					announce "[¿ËÀ­¿Ë! ¿ËÀ­¿Ë! °¡°¡°¡°¡(»¶ºô)!] " + strcharinfo(0) + " ¼·³öÕâ¸ö½±Æ·! ¸ÉµÃºÃ!",0;
+					announce "[å…‹æ‹‰å…‹! å…‹æ‹‰å…‹! å•Šå•Šå•Šå•Š(æ¬¢å‘¼)!] " + strcharinfo(0) + " æŒ¤å‡ºè¿™ä¸ªå¥–å“! å¹²å¾—å¥½!",0;
 					getitem $cluck_item_id,$cluck_item_amount;
 					set .startcluck,0;
 				} else {
-					npctalk "¿ËÀ­¿Ë! ¿ËÀ­À­À­¿Ë!!";
+					npctalk "å…‹æ‹‰å…‹! å…‹æ‹‰æ‹‰æ‹‰å…‹!!";
 					unitskilluseid getcharid(3),"NPC_SELFDESTRUCTION",1;
 				}
 				break;
 		}
 		end;
 	}
-	mes "[¿ËÀ­¿ËË¹]";
+	mes "[å…‹æ‹‰å…‹æ–¯]";
 	if (getgmlevel() >= .@GMAccess) {
-		mes "¿ËÀ­¿Ë ¿ËÀ­¿Ë! ¿ËÀ­À­À­À­¿Ë? ^FF0000~Hi GM " + strcharinfo(0) + ", ÏëÒª½ñÌì±ÈÈüÃ´?~^000000";
-		mes "¿ËÀ­¿Ë ¿ËÀ­¿Ë... ¿ËÀ­¿Ë! ^FF0000~¸æËßÎÒ¸Ã×öÊ²Ã´!~^000000";
+		mes "å…‹æ‹‰å…‹ å…‹æ‹‰å…‹! å…‹æ‹‰æ‹‰æ‹‰æ‹‰å…‹? ^FF0000~Hi GM " + strcharinfo(0) + ", æƒ³è¦ä»Šå¤©æ¯”èµ›ä¹ˆ?~^000000";
+		mes "å…‹æ‹‰å…‹ å…‹æ‹‰å…‹... å…‹æ‹‰å…‹! ^FF0000~å‘Šè¯‰æˆ‘è¯¥åšä»€ä¹ˆ!~^000000";
 		next;
-		while(1) switch(select("- ¿ªÊ¼»î¶¯:- ½±Àø²éÑ¯:- ÉèÖÃ½±Àø:- ²»ÊÇ½ñÌì¿ËÀ­¿ËË¹")) {
+		while(1) switch(select("- å¼€å§‹æ´»åŠ¨:- å¥–åŠ±æŸ¥è¯¢:- è®¾ç½®å¥–åŠ±:- ä¸æ˜¯ä»Šå¤©å…‹æ‹‰å…‹æ–¯")) {
 			case 1:
-				mes "[¿ËÀ­¿ËË¹]";
-				mes "¿ËÀ­¿Ë! ^FF0000~µ±È»!~^000000";
+				mes "[å…‹æ‹‰å…‹æ–¯]";
+				mes "å…‹æ‹‰å…‹! ^FF0000~å½“ç„¶!~^000000";
 				emotion 33;
 				close2;
-				announce "[¿ËÀ­¿Ë! ¿ËÀ­¿Ë! °¡°¡°¡°¡(»¶ºô)!] ¼´½«ÔÚÆÕÂ¡µÂÀ­¿ªÊ¼!",bc_blue;
+				announce "[å…‹æ‹‰å…‹! å…‹æ‹‰å…‹! å•Šå•Šå•Šå•Š(æ¬¢å‘¼)!] å³å°†åœ¨æ™®éš†å¾·æ‹‰å¼€å§‹!",bc_blue;
 				initnpctimer;
 				end;
 			case 2:
-				mes "[¿ËÀ­¿ËË¹]";
-				mes "¿ËÀ­¿Ë, ¿ËÀ­¿Ë ¿ËÀ­¿Ë... ¿ËÀ­¿Ë! ^FF0000~Õâ´ÎµÄ½±ÀøÊÇ^000000 ^008000"+ $cluck_item_amount +" "+ getitemname($cluck_item_id) +".^000000";
+				mes "[å…‹æ‹‰å…‹æ–¯]";
+				mes "å…‹æ‹‰å…‹, å…‹æ‹‰å…‹ å…‹æ‹‰å…‹... å…‹æ‹‰å…‹! ^FF0000~è¿™æ¬¡çš„å¥–åŠ±æ˜¯^000000 ^008000"+ $cluck_item_amount +" "+ getitemname($cluck_item_id) +".^000000";
 				next;
 				break;
 			case 3:
-				mes "[¿ËÀ­¿ËË¹]";
-				mes "¿ËÀ­¿Ë ¿ËÀ­¿Ë? ¿ËÀ­À­¿Ë??? ^FF0000~Ó¦¸Ã»ñµÃµÄ½±Æ·ÊÇ? ÇëÊäÈëÃû³Æ ID.~^000000";
+				mes "[å…‹æ‹‰å…‹æ–¯]";
+				mes "å…‹æ‹‰å…‹ å…‹æ‹‰å…‹? å…‹æ‹‰æ‹‰å…‹??? ^FF0000~åº”è¯¥è·å¾—çš„å¥–å“æ˜¯? è¯·è¾“å…¥åç§° ID.~^000000";
 				input $cluck_item_id;
 				next;
-				mes "[¿ËÀ­¿ËË¹]";
-				mes "¿ËÀ­¿Ë? ¿ËÀ­¿Ë? ^FF0000~ÎÒ¸Ã·ÅÆú¼¸¸öÏîÄ¿?~^000000";
+				mes "[å…‹æ‹‰å…‹æ–¯]";
+				mes "å…‹æ‹‰å…‹? å…‹æ‹‰å…‹? ^FF0000~æˆ‘è¯¥æ”¾å¼ƒå‡ ä¸ªé¡¹ç›®?~^000000";
 				input $cluck_item_amount;
 				next;
-				mes "[¿ËÀ­¿ËË¹]";
-				mes "¿ËÀ­¿Ë ¿ËÀ­¿Ë..? ¿ËÀ­¿Ë. ^FF0000~ËùÒÔ,½±Æ·ÊÇ^000000 ^008000"+ $cluck_item_amount +" "+ getitemname($cluck_item_id) +"^000000? ^FF0000ºÜºÃ.~^000000";
+				mes "[å…‹æ‹‰å…‹æ–¯]";
+				mes "å…‹æ‹‰å…‹ å…‹æ‹‰å…‹..? å…‹æ‹‰å…‹. ^FF0000~æ‰€ä»¥,å¥–å“æ˜¯^000000 ^008000"+ $cluck_item_amount +" "+ getitemname($cluck_item_id) +"^000000? ^FF0000å¾ˆå¥½.~^000000";
 				emotion 33;
 				next;
 				break;
 			case 4:
-				mes "[¿ËÀ­¿ËË¹]";
-				mes "¿ËÀ­¿Ë ¿ËÀ­¿Ë ¿ËÀ­¿Ë...";
+				mes "[å…‹æ‹‰å…‹æ–¯]";
+				mes "å…‹æ‹‰å…‹ å…‹æ‹‰å…‹ å…‹æ‹‰å…‹...";
 				close;
 		}
 	}
-	mes "¿ËÀ­¿Ë ¿ËÀ­¿Ë! ¿ËÀ­À­À­À­¿Ë?";
-	mes "¿ËÀ­¿Ë....";
+	mes "å…‹æ‹‰å…‹ å…‹æ‹‰å…‹! å…‹æ‹‰æ‹‰æ‹‰æ‹‰å…‹?";
+	mes "å…‹æ‹‰å…‹....";
 	close;
 
 OnTimer10000:
-	announce "Èç¹ûÄãÏë²Î¼ÓÇëµã»÷ÅçÈª±³ºóµÄĞ¡¼¦!",bc_blue;
+	announce "å¦‚æœä½ æƒ³å‚åŠ è¯·ç‚¹å‡»å–·æ³‰èƒŒåçš„å°é¸¡!",bc_blue;
 	end;
 OnTimer20000:
-	announce "¿ËÀ­¿ËË¹°ÑËü³ÔÁË! ÎÒÅÂ±ğÈË¿´¼ûËü!",bc_blue;
+	announce "å…‹æ‹‰å…‹æ–¯æŠŠå®ƒåƒäº†! æˆ‘æ€•åˆ«äººçœ‹è§å®ƒ!",bc_blue;
 	end;
 OnTimer30000:
-	announce "·è¿ñµÄµã»÷Ğ¡¼¦! Èç¹ûÄãĞÒÔËµÄ»°¾Í»á»ñµÃ½±Æ·! ×£ÄãºÃÔË! Äã»áµã³öÀ´µÄ!!",bc_blue;
+	announce "ç–¯ç‹‚çš„ç‚¹å‡»å°é¸¡! å¦‚æœä½ å¹¸è¿çš„è¯å°±ä¼šè·å¾—å¥–å“! ç¥ä½ å¥½è¿! ä½ ä¼šç‚¹å‡ºæ¥çš„!!",bc_blue;
 	end;
 OnTimer40000:
-	announce "¿ªÊ¼°É! ·è¿ñµÄµã»÷Ğ¡¼¦°É!",bc_blue;
+	announce "å¼€å§‹å§! ç–¯ç‹‚çš„ç‚¹å‡»å°é¸¡å§!",bc_blue;
 	stopnpctimer;
 	if (!$cluck_item_id) set $cluck_item_id,512;
 	if (!$cluck_item_amount) set $cluck_item_amount,1;
