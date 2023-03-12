@@ -31,7 +31,12 @@ def zhcn2zhtw(inputUri, outputUri):
 	outputFile.close()
 
 def walkFunc(inputUri):
-	outputUri = os.path.join(outputDir, inputUri)
+	# inputUri = zh-CN\npc\re\mobs\fields\prontera.txt
+	# outputDir = zh-TW
+	# inputDir = zh-CN
+	# outputUri = zh-TW\npc\re\mobs\fields\prontera.txt
+	outputUri = outputDir + inputUri[len(inputDir):]
+
 	# 创建 outputUri 的目录
 	if not os.path.exists(os.path.dirname(outputUri)):
 		os.makedirs(os.path.dirname(outputUri))

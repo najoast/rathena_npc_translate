@@ -1,0 +1,1 @@
+python src\zhcn2zhtw.py zh-CN zh-TW
